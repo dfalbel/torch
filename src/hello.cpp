@@ -2,23 +2,19 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-int hello2() {
+void create_torch_tensor() {
   torch::Tensor tensor = torch::rand({11, 11, 3});
   auto ten = std::make_shared<torch::Tensor>(tensor);
   Rcout << *ten << std::endl;
-  return 1;
 };
 
-
 // [[Rcpp::export]]
-SEXP hello3 () {
+SEXP create_tensor () {
 
   torch::Tensor tensor = torch::rand({11, 11, 3});
   auto * ten = new torch::Tensor(tensor);
-
-  Rcout << *ten << std::endl;
-
   auto ptr = Rcpp::XPtr<torch::Tensor>(ten);
+
   return ptr;
 };
 
@@ -26,5 +22,5 @@ SEXP hello3 () {
 void print_tensor (SEXP a) {
   Rcpp::XPtr<torch::Tensor> x(a);
   torch::Tensor b = *x;
-  Rcout << b << std::endl;
-}
+  Rcpp::Rcout << b << std::endl;
+};

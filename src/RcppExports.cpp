@@ -6,23 +6,22 @@
 
 using namespace Rcpp;
 
-// hello2
-int hello2();
-RcppExport SEXP _torch_hello2() {
+// create_torch_tensor
+void create_torch_tensor();
+RcppExport SEXP _torch_create_torch_tensor() {
 BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(hello2());
-    return rcpp_result_gen;
+    create_torch_tensor();
+    return R_NilValue;
 END_RCPP
 }
-// hello3
-SEXP hello3();
-RcppExport SEXP _torch_hello3() {
+// create_tensor
+SEXP create_tensor();
+RcppExport SEXP _torch_create_tensor() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(hello3());
+    rcpp_result_gen = Rcpp::wrap(create_tensor());
     return rcpp_result_gen;
 END_RCPP
 }
@@ -38,8 +37,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_torch_hello2", (DL_FUNC) &_torch_hello2, 0},
-    {"_torch_hello3", (DL_FUNC) &_torch_hello3, 0},
+    {"_torch_create_torch_tensor", (DL_FUNC) &_torch_create_torch_tensor, 0},
+    {"_torch_create_tensor", (DL_FUNC) &_torch_create_tensor, 0},
     {"_torch_print_tensor", (DL_FUNC) &_torch_print_tensor, 1},
     {NULL, NULL, 0}
 };
