@@ -5,3 +5,11 @@ hello2 <- function() {
     .Call(`_torch_hello2`)
 }
 
+hello3 <- function() {
+    .Call(`_torch_hello3`)
+}
+
+print_tensor <- function(a) {
+    invisible(.Call(`_torch_print_tensor`, a))
+}
+
