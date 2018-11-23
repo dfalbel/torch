@@ -17,3 +17,7 @@ tensor_from_r <- function(x, clone = TRUE) {
     .Call(`_torch_tensor_from_r`, x, clone)
 }
 
+tensor_impl <- function(x, clone = TRUE) {
+    .Call(`_torch_tensor_impl`, x, clone)
+}
+
