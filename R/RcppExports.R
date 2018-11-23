@@ -13,3 +13,7 @@ print_tensor <- function(a) {
     invisible(.Call(`_torch_print_tensor`, a))
 }
 
+tensor_from_r <- function(x) {
+    .Call(`_torch_tensor_from_r`, x)
+}
+

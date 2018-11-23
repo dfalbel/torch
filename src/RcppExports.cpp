@@ -16,7 +16,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // create_tensor
-SEXP create_tensor();
+Rcpp::XPtr<torch::Tensor> create_tensor();
 RcppExport SEXP _torch_create_tensor() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -35,11 +35,23 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// tensor_from_r
+Rcpp::XPtr<torch::Tensor> tensor_from_r(const Rcpp::NumericVector& x);
+RcppExport SEXP _torch_tensor_from_r(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_from_r(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_create_torch_tensor", (DL_FUNC) &_torch_create_torch_tensor, 0},
     {"_torch_create_tensor", (DL_FUNC) &_torch_create_tensor, 0},
     {"_torch_print_tensor", (DL_FUNC) &_torch_print_tensor, 1},
+    {"_torch_tensor_from_r", (DL_FUNC) &_torch_tensor_from_r, 1},
     {NULL, NULL, 0}
 };
 
