@@ -9,11 +9,11 @@ create_tensor <- function() {
     .Call(`_torch_create_tensor`)
 }
 
-print_tensor <- function(a) {
-    invisible(.Call(`_torch_print_tensor`, a))
+print_tensor <- function(x) {
+    invisible(.Call(`_torch_print_tensor`, x))
 }
 
-tensor_from_r <- function(x) {
-    .Call(`_torch_tensor_from_r`, x)
+tensor_from_r <- function(x, clone = TRUE) {
+    .Call(`_torch_tensor_from_r`, x, clone)
 }
 

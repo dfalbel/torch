@@ -19,20 +19,19 @@ Rcpp::XPtr<torch::Tensor> create_tensor () {
 };
 
 // [[Rcpp::export]]
-void print_tensor (SEXP a) {
-  Rcpp::XPtr<torch::Tensor> x(a);
+void print_tensor (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor b = *x;
   Rcpp::Rcout << b << std::endl;
 };
 
 // https://github.com/pytorch/pytorch/issues/14000
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_from_r (const Rcpp::NumericVector &x) {
+Rcpp::XPtr<torch::Tensor> tensor_from_r (Rcpp::NumericVector x, bool clone = true) {
 
-  auto std_x = Rcpp::as<std::vector<double>>(x);
+  auto tensor = torch::from_blob(x.begin(), x.size(), at::kDouble);
 
-  auto tensor = torch::from_blob(std_x.data(), {5}, at::kDouble);
-  tensor = tensor.clone();
+  if (clone)
+    tensor = tensor.clone();
 
   auto * ten = new torch::Tensor(tensor);
   auto ptr = Rcpp::XPtr<torch::Tensor>(ten);
