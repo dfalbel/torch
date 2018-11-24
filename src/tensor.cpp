@@ -30,4 +30,10 @@ Rcpp::XPtr<torch::Tensor> tensor_ (SEXP x, std::vector<int64_t> dim) {
   }
 };
 
+// [[Rcpp::export]]
+void print_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
+  torch::Tensor ten = *x;
+  Rcpp::Rcout << ten << std::endl;
+};
+
 

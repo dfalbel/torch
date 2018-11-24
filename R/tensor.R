@@ -23,7 +23,7 @@ tensor <- function(x) {
 
 #' @export
 print.tensor <- function(x, ...) {
-  print_tensor(x)
+  print_tensor_(x)
 }
 
 #' @useDynLib torch
