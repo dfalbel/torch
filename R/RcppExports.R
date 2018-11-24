@@ -9,3 +9,7 @@ print_tensor_ <- function(x) {
     invisible(.Call('_torch_print_tensor_', PACKAGE = 'torch', x))
 }
 
+as_array_tensor_ <- function(x) {
+    .Call('_torch_as_array_tensor_', PACKAGE = 'torch', x)
+}
+

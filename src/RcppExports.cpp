@@ -28,10 +28,22 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// as_array_tensor_
+SEXP as_array_tensor_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_as_array_tensor_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(as_array_tensor_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 2},
     {"_torch_print_tensor_", (DL_FUNC) &_torch_print_tensor_, 1},
+    {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
     {NULL, NULL, 0}
 };
 

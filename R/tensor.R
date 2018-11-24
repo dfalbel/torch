@@ -28,3 +28,8 @@ print.tensor <- function(x, ...) {
 
 #' @useDynLib torch
 NULL
+
+#' @export
+as.array.tensor <- function(x) {
+
+}

@@ -36,4 +36,28 @@ void print_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
   Rcpp::Rcout << ten << std::endl;
 };
 
+template <int RTYPE, typename STDTYPE>
+Rcpp::Vector<RTYPE> as_array_tensor_impl_ (Rcpp::XPtr<torch::Tensor> x) {
+  torch::Tensor ten = *x;
+  ten = ten.contiguous();
+  Rcpp::Vector<RTYPE> vec(ten.data<STDTYPE>(), ten.data<STDTYPE>() + ten.numel());
+  return vec;
+}
+
+// [[Rcpp::export]]
+SEXP as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
+
+  torch::Tensor ten = *x;
+
+  switch (ten.dtype()) {
+  case torch::kInt:
+    return as_array_tensor_impl_<INTSXP, int32_t>(x);
+  case torch::kDouble:
+    return as_array_tensor_impl_<REALSXP, double>(x);
+  default:
+    Rcpp::stop("not handled");
+  }
+
+}
+
 
