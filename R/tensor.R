@@ -21,6 +21,10 @@ tensor <- function(x) {
   ten
 }
 
+#' @export
 print.tensor <- function(x, ...) {
   print_tensor(x)
 }
+
+#' @useDynLib torch
+NULL

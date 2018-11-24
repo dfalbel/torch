@@ -2,22 +2,22 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 create_torch_tensor <- function() {
-    invisible(.Call(`_torch_create_torch_tensor`))
+    invisible(.Call('_torch_create_torch_tensor', PACKAGE = 'torch'))
 }
 
 create_tensor <- function() {
-    .Call(`_torch_create_tensor`)
+    .Call('_torch_create_tensor', PACKAGE = 'torch')
 }
 
 print_tensor <- function(x) {
-    invisible(.Call(`_torch_print_tensor`, x))
+    invisible(.Call('_torch_print_tensor', PACKAGE = 'torch', x))
 }
 
 tensor_from_r <- function(x, clone = TRUE) {
-    .Call(`_torch_tensor_from_r`, x, clone)
+    .Call('_torch_tensor_from_r', PACKAGE = 'torch', x, clone)
 }
 
 tensor_ <- function(x, dim) {
-    .Call(`_torch_tensor_`, x, dim)
+    .Call('_torch_tensor_', PACKAGE = 'torch', x, dim)
 }
 

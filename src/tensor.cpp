@@ -29,3 +29,5 @@ Rcpp::XPtr<torch::Tensor> tensor_ (SEXP x, std::vector<int64_t> dim) {
     Rcpp::stop("not handled");
   }
 };
+
+
