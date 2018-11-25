@@ -37,15 +37,23 @@ void print_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
 };
 
 template <int RTYPE, typename STDTYPE>
-Rcpp::Vector<RTYPE> as_array_tensor_impl_ (Rcpp::XPtr<torch::Tensor> x) {
+Rcpp::List as_array_tensor_impl_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
+
+  Rcpp::IntegerVector dimensions(ten.ndimension());
+  for (int i = 0; i < ten.ndimension(); ++i) {
+    dimensions[i] = ten.size(i);
+  }
+
   ten = ten.contiguous();
   Rcpp::Vector<RTYPE> vec(ten.data<STDTYPE>(), ten.data<STDTYPE>() + ten.numel());
-  return vec;
+  vec = clone(vec);
+
+  return Rcpp::List::create(Rcpp::Named("vec") = vec, Rcpp::Named("dim") = dimensions);
 }
 
 // [[Rcpp::export]]
-SEXP as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
+Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
 
   torch::Tensor ten = *x;
 
@@ -58,6 +66,6 @@ SEXP as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
     Rcpp::stop("not handled");
   }
 
-}
+};
 
 

@@ -29,7 +29,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // as_array_tensor_
-SEXP as_array_tensor_(Rcpp::XPtr<torch::Tensor> x);
+Rcpp::List as_array_tensor_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_as_array_tensor_(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
