@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# torch
+
 torch from R\!
 
 ## Installation
@@ -24,12 +26,12 @@ x <- array(runif(8), dim = c(2, 2, 2))
 y <- tensor(x)
 y
 #> (1,.,.) = 
-#>   0.1367  0.8636
-#>   0.6521  0.2289
+#>   0.5538  0.8188
+#>   0.8690  0.9865
 #> 
 #> (2,.,.) = 
-#>   0.3870  0.1280
-#>   0.0291  0.8872
+#>   0.1877  0.2845
+#>   0.2879  0.2390
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
