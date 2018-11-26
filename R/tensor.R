@@ -49,3 +49,10 @@ as.array.tensor <- function(x) {
 as.matrix.tensor <- function(x) {
   as.matrix(as.array(x))
 }
+
+#' @export
+abs.tensor <- function(x) {
+  out <- tensor_abs_(x)
+  class(out) <- "tensor"
+  out
+}

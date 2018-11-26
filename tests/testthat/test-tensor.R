@@ -22,6 +22,16 @@ test_that("creation of 3d integer tensor", {
   expect_identical(as.array(tensor(x)), x)
 })
 
+context("tensor operations")
+
+test_that("abs works", {
+  x <- array((-80):(-1), dim = c(20, 2, 2))
+  expect_identical(as.array(abs(tensor(x))), abs(x))
+
+  x <- array(-runif(80), dim = c(20, 2, 2))
+  expect_identical(as.array(abs(tensor(x))), abs(x))
+})
+
 context("test-numeric-tensor")
 
 test_that("creation of 1d numeric tensor", {

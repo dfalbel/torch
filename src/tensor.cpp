@@ -68,4 +68,14 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
 
 };
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_abs_ (Rcpp::XPtr<torch::Tensor> x) {
+
+  torch::Tensor ten = *x;
+  auto * out = new torch::Tensor(ten.abs());
+  auto ptr = Rcpp::XPtr<torch::Tensor>(out);
+
+  return ptr;
+}
+
 

@@ -13,3 +13,7 @@ as_array_tensor_ <- function(x) {
     .Call('_torch_as_array_tensor_', PACKAGE = 'torch', x)
 }
 
+tensor_abs_ <- function(x) {
+    .Call('_torch_tensor_abs_', PACKAGE = 'torch', x)
+}
+
