@@ -31,7 +31,7 @@ Rcpp::XPtr<torch::Tensor> tensor_ (SEXP x, std::vector<int64_t> dim, bool clone 
 };
 
 // [[Rcpp::export]]
-void print_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
+void tensor_print_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
   Rcpp::Rcout << ten << std::endl;
 };
@@ -75,6 +75,12 @@ Rcpp::XPtr<torch::Tensor> tensor_abs_ (Rcpp::XPtr<torch::Tensor> x) {
   auto ptr = Rcpp::XPtr<torch::Tensor>(out);
 
   return ptr;
+}
+
+// [[Rcpp::export]]
+std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
+  torch::Tensor ten = *x;
+  return ten.toString();
 }
 
 

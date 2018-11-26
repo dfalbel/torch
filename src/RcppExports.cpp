@@ -19,13 +19,13 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// print_tensor_
-void print_tensor_(Rcpp::XPtr<torch::Tensor> x);
-RcppExport SEXP _torch_print_tensor_(SEXP xSEXP) {
+// tensor_print_
+void tensor_print_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_print_(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    print_tensor_(x);
+    tensor_print_(x);
     return R_NilValue;
 END_RCPP
 }
@@ -51,12 +51,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_to_string_
+std::string tensor_to_string_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_to_string_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_to_string_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 3},
-    {"_torch_print_tensor_", (DL_FUNC) &_torch_print_tensor_, 1},
+    {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
     {"_torch_tensor_abs_", (DL_FUNC) &_torch_tensor_abs_, 1},
+    {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
     {NULL, NULL, 0}
 };
 

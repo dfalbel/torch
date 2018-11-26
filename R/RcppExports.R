@@ -5,8 +5,8 @@ tensor_ <- function(x, dim, clone = TRUE) {
     .Call('_torch_tensor_', PACKAGE = 'torch', x, dim, clone)
 }
 
-print_tensor_ <- function(x) {
-    invisible(.Call('_torch_print_tensor_', PACKAGE = 'torch', x))
+tensor_print_ <- function(x) {
+    invisible(.Call('_torch_tensor_print_', PACKAGE = 'torch', x))
 }
 
 as_array_tensor_ <- function(x) {
@@ -15,5 +15,9 @@ as_array_tensor_ <- function(x) {
 
 tensor_abs_ <- function(x) {
     .Call('_torch_tensor_abs_', PACKAGE = 'torch', x)
+}
+
+tensor_to_string_ <- function(x) {
+    .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }
 

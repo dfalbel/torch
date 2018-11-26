@@ -1,3 +1,6 @@
+#' @useDynLib torch
+NULL
+
 #' Create torch Tensor from R object
 #'
 #' @param x an R vector, matrix or array.
@@ -15,44 +18,20 @@ tensor <- function(x) {
     x <- aperm(x, perm = seq(length(dim(x)), 1))
   }
 
-  ten <- tensor_(x, dimension)
-  class(ten) <- "tensor"
-
-  ten
+  `torch::Tensor`$dispatch(tensor_(x, dimension))
 }
 
 #' @export
-print.tensor <- function(x, ...) {
-  print_tensor_(x)
-}
-
-#' @useDynLib torch
-NULL
-
-#' @export
-as.array.tensor <- function(x) {
-
-  a <- as_array_tensor_(x)
-
-  if (length(a$dim) == 1) {
-    out <- a$vec
-  } else if (length(a$dim) == 2L) {
-    out <- t(matrix(a$vec, ncol = a$dim[1], nrow = a$dim[2]))
-  } else {
-    out <- aperm(array(a$vec, dim = rev(a$dim)), seq(length(a$dim), 1))
-  }
-
-  out
+`as.array.torch::Tensor` <- function(x) {
+  x$as_vector()
 }
 
 #' @export
 as.matrix.tensor <- function(x) {
-  as.matrix(as.array(x))
+  as.matrix(x$as_vector())
 }
 
 #' @export
-abs.tensor <- function(x) {
-  out <- tensor_abs_(x)
-  class(out) <- "tensor"
-  out
+`abs.torch::Tensor` <- function(x) {
+  x$abs()
 }
