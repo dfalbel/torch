@@ -1,2 +1,3 @@
+CXX=clang++
 PKG_CPPFLAGS =-I/usr/local/lib/libtorch/include -I/usr/local/lib/libtorch/include/torch/csrc/api/include -std=c++11
 PKG_LIBS=-L/usr/local/lib/libtorch/lib -Wl,-rpath,/usr/local/lib/libtorch/lib /usr/local/lib/libtorch/lib/libtorch.dylib /usr/local/lib/libtorch/lib/libcaffe2.dylib /usr/local/lib/libtorch/lib/libc10.dylib -ltorch

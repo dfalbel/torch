@@ -6,6 +6,12 @@ test_that("creation of 1d integer tensor", {
   expect_identical(as.array(tensor(1:10)), 1:10)
 })
 
+test_that("works even with gc", {
+  x <- tensor(1:10)
+  gc()
+  expect_identical(as.array(x), 1:10)
+})
+
 test_that("creation of 2d integer tensor", {
   x <- matrix(1:100, ncol = 10)
   expect_identical(as.array(tensor(x)), x)

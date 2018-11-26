@@ -18,13 +18,13 @@ Rcpp::XPtr<torch::Tensor> tensor_impl_ (SEXP x, std::vector<int64_t> dim, bool c
 
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_ (SEXP x, std::vector<int64_t> dim) {
+Rcpp::XPtr<torch::Tensor> tensor_ (SEXP x, std::vector<int64_t> dim, bool clone = true) {
 
   switch (TYPEOF(x)) {
   case INTSXP:
-    return tensor_impl_<INTSXP, at::kInt>(x, dim);
+    return tensor_impl_<INTSXP, at::kInt>(x, dim, clone);
   case REALSXP:
-    return tensor_impl_<REALSXP, at::kDouble>(x, dim);
+    return tensor_impl_<REALSXP, at::kDouble>(x, dim, clone);
   default:
     Rcpp::stop("not handled");
   }

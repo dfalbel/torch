@@ -7,14 +7,15 @@
 using namespace Rcpp;
 
 // tensor_
-Rcpp::XPtr<torch::Tensor> tensor_(SEXP x, std::vector<int64_t> dim);
-RcppExport SEXP _torch_tensor_(SEXP xSEXP, SEXP dimSEXP) {
+Rcpp::XPtr<torch::Tensor> tensor_(SEXP x, std::vector<int64_t> dim, bool clone);
+RcppExport SEXP _torch_tensor_(SEXP xSEXP, SEXP dimSEXP, SEXP cloneSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< SEXP >::type x(xSEXP);
     Rcpp::traits::input_parameter< std::vector<int64_t> >::type dim(dimSEXP);
-    rcpp_result_gen = Rcpp::wrap(tensor_(x, dim));
+    Rcpp::traits::input_parameter< bool >::type clone(cloneSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_(x, dim, clone));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -41,7 +42,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 2},
+    {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 3},
     {"_torch_print_tensor_", (DL_FUNC) &_torch_print_tensor_, 1},
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
     {NULL, NULL, 0}
