@@ -1,0 +1,36 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+torch from R!
+
+## Installation
+
+Before installing you should [install libtorch](https://pytorch.org/) in `usr/local/lib/`.
+
+``` r
+devtools::install_github("dfalbel/torch")
+```
+
+## Example
+
+Currently this package is only a prrof of concept and you can only create a Torch 
+Tensor from an R object. And then convert back from a torch Tensor to an R object.
+
+```{r}
+library(torch)
+x <- array(runif(8), dim = c(2, 2, 2))
+y <- tensor(x)
+y
+identical(x, as.array(y))
+```
