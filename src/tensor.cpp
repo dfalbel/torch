@@ -47,7 +47,6 @@ Rcpp::List as_array_tensor_impl_ (Rcpp::XPtr<torch::Tensor> x) {
 
   ten = ten.contiguous();
   Rcpp::Vector<RTYPE> vec(ten.data<STDTYPE>(), ten.data<STDTYPE>() + ten.numel());
-  vec = clone(vec);
 
   return Rcpp::List::create(Rcpp::Named("vec") = vec, Rcpp::Named("dim") = dimensions);
 }
