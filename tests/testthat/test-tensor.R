@@ -32,6 +32,11 @@ test_that("abs works", {
   expect_identical(as.array(abs(tensor(x))), abs(x))
 })
 
+test_that("acos works", {
+  x <- array(-runif(80), dim = c(20, 2, 2))
+  expect_equal(as.array(acos(tensor(x))), acos(x))
+})
+
 context("test-numeric-tensor")
 
 test_that("creation of 1d numeric tensor", {

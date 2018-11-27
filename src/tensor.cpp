@@ -38,14 +38,13 @@ void tensor_print_ (Rcpp::XPtr<torch::Tensor> x) {
 
 template <int RTYPE, typename STDTYPE>
 Rcpp::List as_array_tensor_impl_ (Rcpp::XPtr<torch::Tensor> x) {
-  torch::Tensor ten = *x;
 
-  Rcpp::IntegerVector dimensions(ten.ndimension());
-  for (int i = 0; i < ten.ndimension(); ++i) {
-    dimensions[i] = ten.size(i);
+  Rcpp::IntegerVector dimensions(x->ndimension());
+  for (int i = 0; i < x->ndimension(); ++i) {
+    dimensions[i] = x->size(i);
   }
 
-  ten = ten.contiguous();
+  auto ten = x->contiguous();
   Rcpp::Vector<RTYPE> vec(ten.data<STDTYPE>(), ten.data<STDTYPE>() + ten.numel());
 
   return Rcpp::List::create(Rcpp::Named("vec") = vec, Rcpp::Named("dim") = dimensions);
@@ -67,14 +66,21 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
 
 };
 
-// [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_abs_ (Rcpp::XPtr<torch::Tensor> x) {
-
-  torch::Tensor ten = *x;
-  auto * out = new torch::Tensor(ten.abs());
+Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
+  auto * out = new torch::Tensor(x);
   auto ptr = Rcpp::XPtr<torch::Tensor>(out);
 
   return ptr;
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_abs_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->abs());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_acos_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->acos());
 }
 
 // [[Rcpp::export]]

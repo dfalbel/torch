@@ -27,11 +27,16 @@ tensor <- function(x) {
 }
 
 #' @export
-as.matrix.tensor <- function(x) {
+`as.matrix.torch::Tensor` <- function(x) {
   as.matrix(x$as_vector())
 }
 
 #' @export
 `abs.torch::Tensor` <- function(x) {
   x$abs()
+}
+
+#' @export
+`acos.torch::Tensor` <- function(x) {
+  x$acos()
 }
