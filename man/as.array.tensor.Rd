@@ -2,15 +2,15 @@
 % Please edit documentation in R/tensor.R
 \name{as.array.tensor}
 \alias{as.array.tensor}
-\title{as.array}
+\title{Tensor casting}
 \usage{
 \method{as.array}{tensor}(x)
 }
 \arguments{
-\item{x}{torch::Tensor object to be casted to an R array.}
+\item{x}{tensor object to be casted to an R array.}
 }
 \description{
-Casts a `torch::Tensor` to an R array
+Casts an object with class [tensor] to an R atomic vector, matrix or array.
 }
 \examples{
 x <- tensor(array(1:8, dim = c(2, 2, 2)))

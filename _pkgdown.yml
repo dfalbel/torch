@@ -1,0 +1,9 @@
+reference:
+- title: "Tensor creation"
+  desc: "Functions used to create new tensors"
+  contents:
+    - tensor
+- title: "Tensor methods"
+  desc: "s3 methods for tensors"
+  contents:
+    - ends_with(".tensor")
