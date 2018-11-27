@@ -1,5 +1,5 @@
 `torch::Tensor` <- R6::R6Class(
-  "torch::Tensor",
+  "tensor",
 
   private = list(
     xp = NULL
