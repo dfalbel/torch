@@ -1,26 +1,35 @@
 `torch::Tensor` <- R6::R6Class(
   "torch::Tensor",
 
+  private = list(
+    xp = NULL
+  ),
+
+  active = list(
+    pointer = function(xp) {
+      if (missing(xp)) {
+        private$xp
+      } else {
+        stop("Pointer is read-only!")
+      }
+    }
+  ),
+
   public = list(
-    initialize = function (xp) self$set_pointer(xp),
 
-    pointer = function () self$`.:xp:.`,
-
-    `.:xp:.` = NULL,
-
-    set_pointer = function (xp){
-      self$`.:xp:.` <- xp
+    initialize = function (xp) {
+     private$xp <- xp
     },
 
     print = function (...){
       cat(crayon::silver(glue::glue("{cl}", cl = class(self)[[1]])), "\n")
-      tensor_print_(self$pointer())
+      tensor_print_(self$pointer)
       invisible(self)
     },
 
     as_vector = function () {
 
-      a <- as_array_tensor_(self$pointer())
+      a <- as_array_tensor_(self$pointer)
 
       if (length(a$dim) == 1) {
         out <- a$vec
@@ -35,11 +44,11 @@
     },
 
     abs = function () {
-      `torch::Tensor`$dispatch(tensor_abs_(self$pointer()))
+      `torch::Tensor`$dispatch(tensor_abs_(self$pointer))
     },
 
     to_string = function () {
-      tensor_to_string_(self$pointer())
+      tensor_to_string_(self$pointer)
     }
 
 
