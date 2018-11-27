@@ -25,6 +25,10 @@ tensor_add_ <- function(x, y) {
     .Call('_torch_tensor_add_', PACKAGE = 'torch', x, y)
 }
 
+tensor_addbmm_ <- function(x, batch1, batch2, beta, alpha) {
+    .Call('_torch_tensor_addbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
+}
+
 tensor_to_string_ <- function(x) {
     .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }

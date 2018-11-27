@@ -55,6 +55,12 @@
       `torch::Tensor`$dispatch(tensor_add_(self$pointer, y$pointer))
     },
 
+    addbmm = function(batch1, batch2, beta = 1, alpha = 1) {
+      `torch::Tensor`$dispatch(
+        tensor_addbmm_(self$pointer, batch1$pointer, batch2$pointer, beta, alpha)
+      )
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

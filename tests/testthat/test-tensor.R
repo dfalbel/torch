@@ -55,6 +55,17 @@ test_that("add does not modify in palce", {
   expect_identical(x_, x + x)
 })
 
+test_that("addbmm works", {
+  set.seed(1939)
+  x <- tensor(matrix(runif(15), nrow = 3, ncol = 5))
+  b1 <- tensor(array(runif(120), dim = c(10, 3, 4)))
+  b2 <- tensor(array(runif(120), dim = c(10, 4, 5)))
+
+  res <- as.array(addbmm(x, b1, b2, 1, 1))
+
+  expect_true(is.array(res))
+})
+
 context("test-numeric-tensor")
 
 test_that("creation of 1d numeric tensor", {

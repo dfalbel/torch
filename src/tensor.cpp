@@ -68,9 +68,7 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
 
 Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
   auto * out = new torch::Tensor(x);
-  auto ptr = Rcpp::XPtr<torch::Tensor>(out);
-
-  return ptr;
+  return Rcpp::XPtr<torch::Tensor>(out);
 }
 
 // [[Rcpp::export]]
@@ -89,9 +87,14 @@ Rcpp::XPtr<torch::Tensor> tensor_add_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<t
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_addbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
+                                    Rcpp::XPtr<torch::Tensor> batch2, double beta, double alpha) {
+  return make_tensor_ptr(x->addbmm(*batch1, *batch2, beta, alpha));
+}
+
+// [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
   return ten.toString();
 }
-
 

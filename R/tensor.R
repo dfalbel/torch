@@ -45,3 +45,8 @@ tensor <- function(x) {
 `+.torch::Tensor` <- function(x, y) {
   x$add(y)
 }
+
+#' @export
+`addbmm.torch::Tensor` <- function(x, batch1, batch2, beta = 1, alpha = 1) {
+  x$addbmm(batch1, batch2, beta, alpha)
+}
