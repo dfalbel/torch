@@ -51,6 +51,10 @@
       `torch::Tensor`$dispatch(tensor_acos_(self$pointer))
     },
 
+    add = function(y) {
+      `torch::Tensor`$dispatch(tensor_add_(self$pointer, y$pointer))
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

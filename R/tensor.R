@@ -40,3 +40,8 @@ tensor <- function(x) {
 `acos.torch::Tensor` <- function(x) {
   x$acos()
 }
+
+#' @export
+`+.torch::Tensor` <- function(x, y) {
+  x$add(y)
+}

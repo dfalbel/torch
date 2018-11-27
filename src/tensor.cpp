@@ -84,6 +84,11 @@ Rcpp::XPtr<torch::Tensor> tensor_acos_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_add_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> y) {
+  return make_tensor_ptr(x->add(*y));
+}
+
+// [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
   return ten.toString();

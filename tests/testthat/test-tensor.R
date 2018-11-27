@@ -37,6 +37,24 @@ test_that("acos works", {
   expect_equal(as.array(acos(tensor(x))), acos(x))
 })
 
+test_that("add works", {
+  x <- array((-80):(-1), dim = c(20, 2, 2))
+  y <- array((-80):(-1), dim = c(20, 2, 2))
+  expect_identical(as.array(tensor(x) + tensor(y)), x + y)
+
+  x <- array(-runif(80), dim = c(20, 2, 2))
+  y <- array(-runif(80), dim = c(20, 2, 2))
+  expect_identical(as.array(tensor(x) + tensor(y)), x + y)
+})
+
+test_that("add does not modify in palce", {
+  x <- array(1:80, dim = c(20, 2, 2))
+  x_ <- as.array(tensor(x) + tensor(x))
+
+  expect_identical(x, array(1:80, dim = c(20, 2, 2)))
+  expect_identical(x_, x + x)
+})
+
 context("test-numeric-tensor")
 
 test_that("creation of 1d numeric tensor", {

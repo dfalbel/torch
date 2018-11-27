@@ -21,6 +21,10 @@ tensor_acos_ <- function(x) {
     .Call('_torch_tensor_acos_', PACKAGE = 'torch', x)
 }
 
+tensor_add_ <- function(x, y) {
+    .Call('_torch_tensor_add_', PACKAGE = 'torch', x, y)
+}
+
 tensor_to_string_ <- function(x) {
     .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }
