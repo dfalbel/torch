@@ -50,3 +50,18 @@ tensor <- function(x) {
 `addbmm.torch::Tensor` <- function(x, batch1, batch2, beta = 1, alpha = 1) {
   x$addbmm(batch1, batch2, beta, alpha)
 }
+
+#' @export
+`addcdiv.torch::Tensor` <- function(x, tensor1, tensor2, value = 1) {
+  x$addcdiv(tensor1, tensor2, value)
+}
+
+#' @export
+`addcmul.torch::Tensor` <- function(x, tensor1, tensor2, value = 1) {
+  x$addcmul(tensor1, tensor2, value)
+}
+
+#' @export
+`addmm.torch::Tensor` <- function(x, mat1, mat2, beta = 1, alpha = 1) {
+  x$addmm(mat1, mat2, beta, alpha)
+}

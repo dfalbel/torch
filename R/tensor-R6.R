@@ -61,10 +61,27 @@
       )
     },
 
+    addcdiv = function(tensor1, tensor2, value = 1) {
+      `torch::Tensor`$dispatch(
+        tensor_addcdiv_(self$pointer, tensor1$pointer, tensor2$pointer, value)
+      )
+    },
+
+    addcmul = function(tensor1, tensor2, value = 1) {
+      `torch::Tensor`$dispatch(
+        tensor_addcmul_(self$pointer, tensor1$pointer, tensor2$pointer, value)
+      )
+    },
+
+    addmm = function(mat1, mat2, beta = 1, alpha = 1) {
+      `torch::Tensor`$dispatch(
+        tensor_addmm_(self$pointer, mat1$pointer, mat2$pointer, beta, alpha)
+      )
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }
-
 
   )
 

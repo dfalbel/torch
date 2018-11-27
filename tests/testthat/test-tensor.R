@@ -56,14 +56,51 @@ test_that("add does not modify in palce", {
 })
 
 test_that("addbmm works", {
-  set.seed(1939)
+
   x <- tensor(matrix(runif(15), nrow = 3, ncol = 5))
   b1 <- tensor(array(runif(120), dim = c(10, 3, 4)))
-  b2 <- tensor(array(runif(120), dim = c(10, 4, 5)))
+  b2 <- tensor(array(runif(200), dim = c(10, 4, 5)))
 
   res <- as.array(addbmm(x, b1, b2, 1, 1))
 
   expect_true(is.array(res))
+  expect_identical(dim(res), c(3L, 5L))
+})
+
+test_that("addcdiv works", {
+
+  x <- tensor(matrix(runif(3), nrow = 1, ncol = 3))
+  t1 <- tensor(array(runif(3), dim = c(3, 1)))
+  t2 <- tensor(array(runif(3), dim = c(1, 3)))
+
+  res <- as.array(addcdiv(x, t1, t2, 0.1))
+
+  expect_true(is.array(res))
+  expect_identical(dim(res), c(3L, 3L))
+})
+
+test_that("addcmul works", {
+
+  x <- tensor(matrix(runif(3), nrow = 1, ncol = 3))
+  t1 <- tensor(array(runif(3), dim = c(3, 1)))
+  t2 <- tensor(array(runif(3), dim = c(1, 3)))
+
+  res <- as.array(addcmul(x, t1, t2, 0.1))
+
+  expect_true(is.array(res))
+  expect_identical(dim(res), c(3L, 3L))
+})
+
+test_that("addmm works", {
+
+  x <- tensor(matrix(runif(6), nrow = 2, ncol = 3))
+  mat1 <- tensor(array(runif(6), dim = c(2, 3)))
+  mat2 <- tensor(array(runif(6), dim = c(3, 3)))
+
+  res <- as.array(addmm(x, mat1, mat2, 1))
+
+  expect_true(is.array(res))
+  expect_identical(dim(res), c(2L, 3L))
 })
 
 context("test-numeric-tensor")

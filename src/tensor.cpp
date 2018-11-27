@@ -88,8 +88,29 @@ Rcpp::XPtr<torch::Tensor> tensor_add_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<t
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
-                                    Rcpp::XPtr<torch::Tensor> batch2, double beta, double alpha) {
+                                          Rcpp::XPtr<torch::Tensor> batch2, double beta, double alpha) {
   return make_tensor_ptr(x->addbmm(*batch1, *batch2, beta, alpha));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_addcdiv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1,
+                                     Rcpp::XPtr<torch::Tensor> tensor2, double value
+) {
+  return make_tensor_ptr(x->addcdiv(*tensor1, *tensor2, value));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_addcmul_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1,
+                                           Rcpp::XPtr<torch::Tensor> tensor2, double value
+) {
+  return make_tensor_ptr(x->addcmul(*tensor1, *tensor2, value));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_addmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat1,
+                                           Rcpp::XPtr<torch::Tensor> mat2, double beta, double alpha
+) {
+  return make_tensor_ptr(x->addmm(*mat1, *mat2, beta, alpha));
 }
 
 // [[Rcpp::export]]

@@ -29,6 +29,18 @@ tensor_addbmm_ <- function(x, batch1, batch2, beta, alpha) {
     .Call('_torch_tensor_addbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
 }
 
+tensor_addcdiv_ <- function(x, tensor1, tensor2, value) {
+    .Call('_torch_tensor_addcdiv_', PACKAGE = 'torch', x, tensor1, tensor2, value)
+}
+
+tensor_addcmul_ <- function(x, tensor1, tensor2, value) {
+    .Call('_torch_tensor_addcmul_', PACKAGE = 'torch', x, tensor1, tensor2, value)
+}
+
+tensor_addmm_ <- function(x, mat1, mat2, beta, alpha) {
+    .Call('_torch_tensor_addmm_', PACKAGE = 'torch', x, mat1, mat2, beta, alpha)
+}
+
 tensor_to_string_ <- function(x) {
     .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }
