@@ -21,6 +21,16 @@ tensor <- function(x) {
   `torch::Tensor`$dispatch(tensor_(x, dimension))
 }
 
+#' as.array
+#'
+#' Casts a `torch::Tensor` to an R array
+#'
+#' @param x torch::Tensor object to be casted to an R array.
+#'
+#' @examples
+#' x <- tensor(array(1:8, dim = c(2, 2, 2)))
+#' as.array(x)
+#'
 #' @export
 `as.array.torch::Tensor` <- function(x) {
   x$as_vector()

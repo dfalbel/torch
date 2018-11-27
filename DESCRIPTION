@@ -1,12 +1,14 @@
 Package: torch
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Torch from R
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(
+    person("Daniel", "Falbel", , "dfalbel@gmail.com", c("aut", "cre"))
+    )
+Description: Wraps the libtorch C++ to be used from R.
+License: MIT + file LICENSE
+URL: http://dfalbel.github.io/torch, https://github.com/dfalbel/torch
+BugReports: https://github.com/dfalbel/torch/issues
 Encoding: UTF-8
 LazyData: true
 LinkingTo: 
