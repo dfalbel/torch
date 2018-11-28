@@ -52,3 +52,14 @@ addmv.default <- function(x) {
   generic_default(x)
 }
 
+#' @export
+addr <- function(x, ...) {
+  UseMethod("addr", x)
+}
+
+#' @export
+addr.default <- function(x) {
+  generic_default(x)
+}
+
+

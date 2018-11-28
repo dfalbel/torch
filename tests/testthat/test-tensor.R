@@ -114,6 +114,16 @@ test_that("addmv works", {
   expect_identical(length(res), 2L)
 })
 
+test_that("addr works", {
+  vec1 <- tensor(c(1,2,3))
+  vec2 <- tensor(c(1,2))
+  x <- tensor(matrix(0, nrow = 3, ncol = 2))
+
+  res <- as.array(addr(x, vec1, vec2))
+  res_ <- matrix(c(1,2,3,2,4,6), ncol = 2)
+  expect_identical(res, res_)
+})
+
 context("test-numeric-tensor")
 
 test_that("creation of 1d numeric tensor", {

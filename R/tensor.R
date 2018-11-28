@@ -77,6 +77,11 @@ addmm.tensor <- function(x, mat1, mat2, beta = 1, alpha = 1) {
 }
 
 #' @export
-addmv.tensor <- function(x, mat, vec, alpha = 1, beta = 1) {
-  x$addmv(mat, vec, alpha, beta)
+addmv.tensor <- function(x, mat, vec, beta = 1, alpha = 1) {
+  x$addmv(mat, vec, beta, alpha)
+}
+
+#' @export
+addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
+  x$addr(vec1, vec2, beta, alpha)
 }

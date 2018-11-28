@@ -85,6 +85,12 @@
       )
     },
 
+    addr = function(vec1, vec2, beta = 1, alpha = 1) {
+      `torch::Tensor`$dispatch(
+        tensor_addr_(self$pointer, vec1$pointer, vec2$pointer, beta, alpha)
+      )
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }
