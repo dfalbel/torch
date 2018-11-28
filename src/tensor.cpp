@@ -6,12 +6,10 @@ Rcpp::XPtr<torch::Tensor> tensor_impl_ (SEXP x, std::vector<int64_t> dim, bool c
   auto rtype = RTYPE;
   auto attype = ATTYPE;
 
-  if (RTYPE == LGLSXP) {
-    // since R logical vectors have 8B we need to treat them as integer vectors
-    // and then cast to bit tensor.
-    rtype = INTSXP;
+  // since R logical vectors have 8B we need to treat them as integer vectors
+  // and then cast to bit tensor.
+  if (RTYPE == LGLSXP)
     attype = torch::kInt32;
-  }
 
   Rcpp::Vector<RTYPE> vec(x);
 
@@ -80,6 +78,7 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
   case torch::kDouble:
     return as_array_tensor_impl_<REALSXP, double>(x);
   case torch::kByte:
+    // TODO:
     // not sure why this works :(
     return as_array_tensor_impl_<LGLSXP, std::uint8_t>(x);
   case torch::kLong:
