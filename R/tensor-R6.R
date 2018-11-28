@@ -31,7 +31,7 @@
 
       a <- as_array_tensor_(self$pointer)
 
-      if (length(a$dim) == 1) {
+      if (length(a$dim) <= 1L) {
         out <- a$vec
       } else if (length(a$dim) == 2L) {
         out <- t(matrix(a$vec, ncol = a$dim[1], nrow = a$dim[2]))

@@ -3,12 +3,25 @@
 template <int RTYPE, at::ScalarType ATTYPE>
 Rcpp::XPtr<torch::Tensor> tensor_impl_ (SEXP x, std::vector<int64_t> dim, bool clone = true) {
 
+  auto rtype = RTYPE;
+  auto attype = ATTYPE;
+
+  if (RTYPE == LGLSXP) {
+    // since R logical vectors have 8B we need to treat them as integer vectors
+    // and then cast to bit tensor.
+    rtype = INTSXP;
+    attype = torch::kInt32;
+  }
+
   Rcpp::Vector<RTYPE> vec(x);
 
-  auto tensor = torch::from_blob(vec.begin(), dim, ATTYPE);
+  auto tensor = torch::from_blob(vec.begin(), dim, attype);
 
   if (clone)
     tensor = tensor.clone();
+
+  if (RTYPE == LGLSXP)
+    tensor = tensor.to(torch::kByte);
 
   auto * ten = new torch::Tensor(tensor);
   auto ptr = Rcpp::XPtr<torch::Tensor>(ten);
@@ -22,12 +35,11 @@ Rcpp::XPtr<torch::Tensor> tensor_ (SEXP x, std::vector<int64_t> dim, bool clone 
 
   switch (TYPEOF(x)) {
   case INTSXP:
-    return tensor_impl_<INTSXP, at::kInt>(x, dim, clone);
+    return tensor_impl_<INTSXP, torch::kInt>(x, dim, clone);
   case REALSXP:
-    return tensor_impl_<REALSXP, at::kDouble>(x, dim, clone);
-  // TODO: support for byte tensors
-  //case LGLSXP:
-  //  return tensor_impl_<LGLSXP, at::kByte>(x, dim, clone);
+    return tensor_impl_<REALSXP, torch::kDouble>(x, dim, clone);
+  case LGLSXP:
+    return tensor_impl_<LGLSXP, torch::kByte>(x, dim, clone);
   default:
     Rcpp::stop("not handled");
   }
@@ -63,9 +75,9 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
     return as_array_tensor_impl_<INTSXP, int32_t>(x);
   case torch::kDouble:
     return as_array_tensor_impl_<REALSXP, double>(x);
-  // TODO: support fro byte tensor
-  //case torch::kByte:
-  //  return as_array_tensor_impl_<LGLSXP, std::uint8_t>(x);
+  case torch::kByte:
+    // not sure why this works :(
+    return as_array_tensor_impl_<LGLSXP, std::uint8_t>(x);
   default:
     Rcpp::stop("not handled");
   }

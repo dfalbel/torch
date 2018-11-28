@@ -87,6 +87,7 @@ addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
 }
 
 #' @export
-all.tensor <- function(x) {
+all.tensor <- function(x, na.rm = FALSE) {
+  if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$all()
 }

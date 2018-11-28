@@ -145,6 +145,21 @@ test_that("addr works", {
   expect_identical(res, res_)
 })
 
+test_that("all works", {
+  l <- array(TRUE, dim = c(10, 20, 30))
+  x <- tensor(l)
+  expect_identical(as.array(all(x)), all(l))
+
+  l <- array(FALSE, dim = c(10, 20, 30))
+  x <- tensor(l)
+  expect_identical(as.array(all(x)), all(l))
+
+
+  l <- array(c(TRUE, FALSE), dim = c(10, 20, 30))
+  x <- tensor(l)
+  expect_identical(as.array(all(x)), all(l))
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {
