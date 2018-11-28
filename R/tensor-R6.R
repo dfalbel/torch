@@ -105,6 +105,11 @@
       `torch::Tensor`$dispatch(tensor_any_(self$pointer, dim - 1L, keepdim))
     },
 
+    argmax = function(dim = -1L, keepdim = FALSE) {
+      if(dim == 0L) stop("dimension is 1-based.")
+      `torch::Tensor`$dispatch(tensor_argmax_(self$pointer, dim - 1L, keepdim))
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

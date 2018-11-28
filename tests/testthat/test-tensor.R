@@ -252,6 +252,15 @@ test_that("any works", {
 
 })
 
+test_that("argmax works", {
+
+  l <- array(1:6000, dim = c(10, 20, 30))
+  x <- tensor(l)
+  expect_identical(as.array(argmax(x)), which.max(l) - 1L)
+  expect_identical(as.array(argmax(x, 1)), apply(l, c(2,3), which.max) - 1L)
+
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

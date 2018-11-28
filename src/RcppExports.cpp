@@ -203,6 +203,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_argmax_
+Rcpp::XPtr<torch::Tensor> tensor_argmax_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim);
+RcppExport SEXP _torch_tensor_argmax_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_argmax_(x, dim, keepdim));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_to_string_
 std::string tensor_to_string_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_to_string_(SEXP xSEXP) {
@@ -231,6 +244,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_all_", (DL_FUNC) &_torch_tensor_all_, 3},
     {"_torch_tensor_allclose_", (DL_FUNC) &_torch_tensor_allclose_, 5},
     {"_torch_tensor_any_", (DL_FUNC) &_torch_tensor_any_, 3},
+    {"_torch_tensor_argmax_", (DL_FUNC) &_torch_tensor_argmax_, 3},
     {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
     {NULL, NULL, 0}
 };

@@ -60,6 +60,10 @@ Rcpp::List as_array_tensor_impl_ (Rcpp::XPtr<torch::Tensor> x) {
   }
 
   auto ten = x->contiguous();
+
+  if (ten.dtype() == torch::kLong)
+    ten = ten.to(torch::kInt);
+
   Rcpp::Vector<RTYPE> vec(ten.data<STDTYPE>(), ten.data<STDTYPE>() + ten.numel());
 
   return Rcpp::List::create(Rcpp::Named("vec") = vec, Rcpp::Named("dim") = dimensions);
@@ -78,9 +82,13 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
   case torch::kByte:
     // not sure why this works :(
     return as_array_tensor_impl_<LGLSXP, std::uint8_t>(x);
+  case torch::kLong:
+    // TODO: deal better with kLongs
+    // Klong is casted to kInt inside impl
+    return as_array_tensor_impl_<INTSXP, int32_t>(x);
   default:
     Rcpp::stop("not handled");
-  }
+  };
 
 };
 
@@ -145,12 +153,10 @@ Rcpp::XPtr<torch::Tensor> tensor_addr_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_all_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim) {
-
   if (dim < 0)
     return make_tensor_ptr(x->all());
   else
     return make_tensor_ptr(x->all(dim, keepdim));
-
 }
 
 // [[Rcpp::export]]
@@ -161,12 +167,18 @@ bool tensor_allclose_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> ot
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_any_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim) {
-
   if (dim < 0)
     return make_tensor_ptr(x->any());
   else
     return make_tensor_ptr(x->any(dim, keepdim));
+}
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_argmax_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim) {
+  if (dim < 0)
+    return make_tensor_ptr(x->argmax());
+  else
+    return make_tensor_ptr(x->argmax(dim, keepdim));
 }
 
 // [[Rcpp::export]]

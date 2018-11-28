@@ -71,3 +71,14 @@ allclose <- function(x, ...) {
 allclose.default <- function(x) {
   generic_default(x)
 }
+
+#' @export
+argmax <- function(x, ...) {
+  UseMethod("argmax", x)
+}
+
+#' @export
+argmax.default <- function(x) {
+  generic_default(x)
+}
+
