@@ -154,6 +154,12 @@ Rcpp::XPtr<torch::Tensor> tensor_all_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t
 }
 
 // [[Rcpp::export]]
+bool tensor_allclose_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other,
+                                        double rtol, double atol, bool equal_nan) {
+  return x->allclose(*other, rtol, atol, equal_nan);
+}
+
+// [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
   return ten.toString();

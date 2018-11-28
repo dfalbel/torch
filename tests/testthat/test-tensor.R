@@ -187,6 +187,27 @@ test_that("all works", {
 
 })
 
+test_that("allclose works", {
+
+  x <- tensor(c(1,2,3,4,5))
+  y <- tensor(c(1,2,3,4,5) + 1e-6)
+  a <- allclose(x, y)
+
+  expect_identical(a, TRUE)
+
+  x <- tensor(c(1,2,3,4,5))
+  y <- tensor(c(1,2,3,4,5) + 1e-4)
+  a <- allclose(x, y)
+
+  expect_identical(a, FALSE)
+
+  x <- tensor(c(1,2,3,4,5))
+  y <- tensor(c(1,2,3,4,5) + 1e-5)
+  a <- allclose(x, y)
+
+  expect_identical(a, TRUE)
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

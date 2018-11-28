@@ -116,3 +116,22 @@ all.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$all(dim, keepdim)
 }
+
+#' allclose
+#'
+#' similiar to [all.equal()]
+#'
+#' @param other tensor to comparte
+#' @param rtol tolerance
+#' @param atol tolerance
+#' @param equal_nan compare nans?
+#'
+#' @examples
+#' x <- tensor(c(1,2,4,5))
+#' y <- tensor(1:5)
+#' allclose(x, y)
+#'
+#' @export
+allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FALSE) {
+  x$allclose(other, rtol, atol, equal_nan)
+}

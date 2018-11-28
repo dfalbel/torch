@@ -96,6 +96,10 @@
       `torch::Tensor`$dispatch(tensor_all_(self$pointer, dim - 1L, keepdim))
     },
 
+    allclose = function(other, rtol = 1e-05, atol = 1e-08, equal_nan = FALSE) {
+      tensor_allclose_(self$pointer, other$pointer, rtol, atol, equal_nan)
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

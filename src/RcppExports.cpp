@@ -175,6 +175,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_allclose_
+bool tensor_allclose_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other, double rtol, double atol, bool equal_nan);
+RcppExport SEXP _torch_tensor_allclose_(SEXP xSEXP, SEXP otherSEXP, SEXP rtolSEXP, SEXP atolSEXP, SEXP equal_nanSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type other(otherSEXP);
+    Rcpp::traits::input_parameter< double >::type rtol(rtolSEXP);
+    Rcpp::traits::input_parameter< double >::type atol(atolSEXP);
+    Rcpp::traits::input_parameter< bool >::type equal_nan(equal_nanSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_allclose_(x, other, rtol, atol, equal_nan));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_to_string_
 std::string tensor_to_string_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_to_string_(SEXP xSEXP) {
@@ -201,6 +216,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_addmv_", (DL_FUNC) &_torch_tensor_addmv_, 5},
     {"_torch_tensor_addr_", (DL_FUNC) &_torch_tensor_addr_, 5},
     {"_torch_tensor_all_", (DL_FUNC) &_torch_tensor_all_, 3},
+    {"_torch_tensor_allclose_", (DL_FUNC) &_torch_tensor_allclose_, 5},
     {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
     {NULL, NULL, 0}
 };

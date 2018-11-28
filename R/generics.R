@@ -62,4 +62,12 @@ addr.default <- function(x) {
   generic_default(x)
 }
 
+#' @export
+allclose <- function(x, ...) {
+  UseMethod("allclose", x)
+}
 
+#' @export
+allclose.default <- function(x) {
+  generic_default(x)
+}
