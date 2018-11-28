@@ -185,3 +185,29 @@ argmax.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$argmax(dim, keepdim)
 }
+
+#' argmin
+#'
+#' @param x tensor object
+#' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
+#' return TRUE if all elements in each row of the tensor in the given dimension
+#' `dim` are TRUE, FALSE otherwise.
+#' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
+#' input except in the dimension dim where it is of size 1. Otherwise, dim is
+#' squeezed [squeeze()], resulting in the output tensor having 1 fewer
+#' dimension than input.
+#' @param na.rm won't be used by the function. Only there to be compatible with
+#' [all] generic.
+#'
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' x
+#' argmin(x)
+#' argmin(x, dim = 1)
+#' argmin(x, dim = 1, keepdim = FALSE)
+#' argmin(x, dim = 2)
+#' @export
+argmin.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
+  if (na.rm) warning("tensor's don't use the na.rm argument!")
+  x$argmin(dim, keepdim)
+}

@@ -181,6 +181,14 @@ Rcpp::XPtr<torch::Tensor> tensor_argmax_ (Rcpp::XPtr<torch::Tensor> x, std::int6
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_argmin_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim) {
+  if (dim < 0)
+    return make_tensor_ptr(x->argmin());
+  else
+    return make_tensor_ptr(x->argmin(dim, keepdim));
+}
+
+// [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
   return ten.toString();

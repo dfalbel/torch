@@ -107,6 +107,10 @@
       `torch::Tensor`$dispatch(tensor_argmax_(self$pointer, dim, keepdim))
     },
 
+    argmin = function(dim = -1L, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_argmin_(self$pointer, dim, keepdim))
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

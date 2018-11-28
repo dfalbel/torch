@@ -82,3 +82,13 @@ argmax.default <- function(x) {
   generic_default(x)
 }
 
+#' @export
+argmin <- function(x, ...) {
+  UseMethod("argmin", x)
+}
+
+#' @export
+argmin.default <- function(x) {
+  generic_default(x)
+}
+
