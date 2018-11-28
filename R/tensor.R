@@ -127,10 +127,9 @@ all.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 #' @param equal_nan compare nans?
 #'
 #' @examples
-#' x <- tensor(c(1,2,4,5))
-#' y <- tensor(1:5)
+#' x <- tensor(c(1,2,3,4,5))
+#' y <- tensor(1:5 + 1e-6)
 #' allclose(x, y)
-#'
 #' @export
 allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FALSE) {
   x$allclose(other, rtol, atol, equal_nan)
