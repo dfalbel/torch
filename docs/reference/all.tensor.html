@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • torch</title>
+<title>all — all.tensor • torch</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 
@@ -32,7 +32,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="all — all.tensor" />
+
+<meta property="og:description" content="all" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -48,7 +51,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -95,63 +98,73 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>all</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
+    <div class="hidden name"><code>all.tensor.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>all</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-tensor-creation" class="hasAnchor"><a href="#section-tensor-creation" class="anchor"></a>Tensor creation</h2>
-          <p class="section-desc"><p>Functions used to create new tensors</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="tensor.html">tensor()</a></code> </p>
-        </td>
-        <td><p>Create torch Tensor from R object</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-tensor-methods" class="hasAnchor"><a href="#section-tensor-methods" class="anchor"></a>Tensor methods</h2>
-          <p class="section-desc"><p>s3 methods for tensors</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="all.tensor.html">all(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>all</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as.array.tensor.html">as.array(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Tensor casting</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='co'># S3 method for tensor</span>
+<span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> -<span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>tensor object</p></td>
+    </tr>
+    <tr>
+      <th>dim</th>
+      <td><p>if negative (the default) will reduce to a scalar. Otherwise it will
+return TRUE if all elements in each row of the tensor in the given dimension
+`dim` are TRUE, FALSE otherwise. **Note** that `dim` is 1 based like in R.</p></td>
+    </tr>
+    <tr>
+      <th>keepdim</th>
+      <td><p>If keepdim is TRUE, the output tensor is of the same size as
+input except in the dimension dim where it is of size 1. Otherwise, dim is
+squeezed [squeeze()], resulting in the output tensor having 1 fewer
+dimension than input.</p></td>
+    </tr>
+    <tr>
+      <th>na.rm</th>
+      <td><p>won't be used by the function. Only there to be compatible with
+[all] generic.</p></td>
+    </tr>
     </table>
-  </div>
+    
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'>array</span>(<span class='fu'>c</span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>, <span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>2</span>)))
+<span class='fu'>all</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
+#&gt; 0
+#&gt; [ Variable[CPUByteType]{} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
+#&gt;  0
+#&gt;  1
+#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
+#&gt;  0
+#&gt;  1
+#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
+#&gt;  1
+#&gt;  0
+#&gt; [ Variable[CPUByteType]{2} ]</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-tensor-creation">Tensor creation</a></li>
-      <li><a href="#section-tensor-methods">Tensor methods</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+            
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

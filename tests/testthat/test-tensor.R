@@ -154,10 +154,37 @@ test_that("all works", {
   x <- tensor(l)
   expect_identical(as.array(all(x)), all(l))
 
-
   l <- array(c(TRUE, FALSE), dim = c(10, 20, 30))
   x <- tensor(l)
   expect_identical(as.array(all(x)), all(l))
+
+  l <- array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2))
+  x <- tensor(l)
+
+  expect_identical(
+    as.array(all(x, dim = 1, keepdim = TRUE)),
+    matrix(c(FALSE, TRUE), nrow = 1)
+  )
+
+  expect_identical(
+    as.array(all(x, dim = 2, keepdim = TRUE)),
+    matrix(c(TRUE, FALSE), ncol = 1)
+  )
+
+  expect_identical(
+    as.array(all(x, dim = 1, keepdim = FALSE)),
+    c(FALSE, TRUE)
+  )
+
+  expect_identical(
+    as.array(all(x, dim = 2, keepdim = FALSE)),
+    c(TRUE, FALSE)
+  )
+
+  expect_error(
+    all(x, dim = 0)
+  )
+
 })
 
 context("numeric tensors")

@@ -144,8 +144,13 @@ Rcpp::XPtr<torch::Tensor> tensor_addr_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_all_ (Rcpp::XPtr<torch::Tensor> x) {
-  return make_tensor_ptr(x->all());
+Rcpp::XPtr<torch::Tensor> tensor_all_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim) {
+
+  if (dim < 0)
+    return make_tensor_ptr(x->all());
+  else
+    return make_tensor_ptr(x->all(dim, keepdim));
+
 }
 
 // [[Rcpp::export]]

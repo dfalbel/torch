@@ -49,8 +49,8 @@ tensor_addr_ <- function(x, vec1, vec2, beta, alpha) {
     .Call('_torch_tensor_addr_', PACKAGE = 'torch', x, vec1, vec2, beta, alpha)
 }
 
-tensor_all_ <- function(x) {
-    .Call('_torch_tensor_all_', PACKAGE = 'torch', x)
+tensor_all_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_all_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
 tensor_to_string_ <- function(x) {

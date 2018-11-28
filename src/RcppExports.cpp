@@ -163,13 +163,15 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_all_
-Rcpp::XPtr<torch::Tensor> tensor_all_(Rcpp::XPtr<torch::Tensor> x);
-RcppExport SEXP _torch_tensor_all_(SEXP xSEXP) {
+Rcpp::XPtr<torch::Tensor> tensor_all_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim);
+RcppExport SEXP _torch_tensor_all_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(tensor_all_(x));
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_all_(x, dim, keepdim));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -198,7 +200,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_addmm_", (DL_FUNC) &_torch_tensor_addmm_, 5},
     {"_torch_tensor_addmv_", (DL_FUNC) &_torch_tensor_addmv_, 5},
     {"_torch_tensor_addr_", (DL_FUNC) &_torch_tensor_addr_, 5},
-    {"_torch_tensor_all_", (DL_FUNC) &_torch_tensor_all_, 1},
+    {"_torch_tensor_all_", (DL_FUNC) &_torch_tensor_all_, 3},
     {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
     {NULL, NULL, 0}
 };

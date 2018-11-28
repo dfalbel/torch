@@ -91,8 +91,9 @@
       )
     },
 
-    all = function() {
-      `torch::Tensor`$dispatch(tensor_all_(self$pointer))
+    all = function(dim = -1L, keepdim = FALSE) {
+      if(dim == 0L) stop("dimension is 1-based.")
+      `torch::Tensor`$dispatch(tensor_all_(self$pointer, dim - 1L, keepdim))
     },
 
     to_string = function () {
