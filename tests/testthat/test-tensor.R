@@ -208,6 +208,50 @@ test_that("allclose works", {
   expect_identical(a, TRUE)
 })
 
+test_that("any works", {
+
+  l <- array(TRUE, dim = c(10, 20, 30))
+  x <- tensor(l)
+  expect_identical(as.array(any(x)), any(l))
+
+  l <- array(FALSE, dim = c(10, 20, 30))
+  x <- tensor(l)
+  expect_identical(as.array(any(x)), any(l))
+
+  l <- array(c(TRUE, FALSE), dim = c(10, 20, 30))
+  x <- tensor(l)
+  expect_identical(as.array(any(x)), any(l))
+
+  l <- array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2))
+  x <- tensor(l)
+
+  expect_identical(
+    as.array(any(x, dim = 1, keepdim = TRUE)),
+    matrix(c(TRUE, TRUE), nrow = 1)
+  )
+
+  expect_identical(
+    as.array(any(x, dim = 2, keepdim = TRUE)),
+    matrix(c(TRUE, TRUE), ncol = 1)
+  )
+
+  expect_identical(
+    as.array(any(x, dim = 1, keepdim = FALSE)),
+    c(TRUE, TRUE)
+  )
+
+  expect_identical(
+    as.array(any(x, dim = 2, keepdim = FALSE)),
+    c(TRUE, TRUE)
+  )
+
+  expect_error(
+    any(x, dim = 0)
+  )
+
+
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

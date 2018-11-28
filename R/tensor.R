@@ -134,3 +134,28 @@ all.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FALSE) {
   x$allclose(other, rtol, atol, equal_nan)
 }
+
+#' any
+#'
+#' @param x tensor object
+#' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
+#' return TRUE if all elements in each row of the tensor in the given dimension
+#' `dim` are TRUE, FALSE otherwise. **Note** that `dim` is 1 based like in R.
+#' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
+#' input except in the dimension dim where it is of size 1. Otherwise, dim is
+#' squeezed [squeeze()], resulting in the output tensor having 1 fewer
+#' dimension than input.
+#' @param na.rm won't be used by the function. Only there to be compatible with
+#' [all] generic.
+#'
+#' @examples
+#' x <- tensor(array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2)))
+#' any(x)
+#' any(x, dim = 1)
+#' any(x, dim = 1, keepdim = FALSE)
+#' any(x, dim = 2)
+#' @export
+any.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
+  if (na.rm) warning("tensor's don't use the na.rm argument!")
+  x$any(dim, keepdim)
+}

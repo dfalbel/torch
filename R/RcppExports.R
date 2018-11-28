@@ -57,6 +57,10 @@ tensor_allclose_ <- function(x, other, rtol, atol, equal_nan) {
     .Call('_torch_tensor_allclose_', PACKAGE = 'torch', x, other, rtol, atol, equal_nan)
 }
 
+tensor_any_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_any_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
 tensor_to_string_ <- function(x) {
     .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }

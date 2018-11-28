@@ -160,6 +160,16 @@ bool tensor_allclose_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> ot
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_any_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim) {
+
+  if (dim < 0)
+    return make_tensor_ptr(x->any());
+  else
+    return make_tensor_ptr(x->any(dim, keepdim));
+
+}
+
+// [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
   return ten.toString();
