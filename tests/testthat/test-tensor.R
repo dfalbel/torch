@@ -1,6 +1,6 @@
 library(torch)
 
-context("test-integer-tensor")
+context("integer tensors")
 
 test_that("creation of 1d integer tensor", {
   expect_identical(as.array(tensor(1:10)), 1:10)
@@ -19,6 +19,27 @@ test_that("creation of 2d integer tensor", {
 
 test_that("creation of 3d integer tensor", {
   x <- array(1:80, dim = c(20, 2, 2))
+  expect_identical(as.array(tensor(x)), x)
+})
+
+context("byte tensors")
+
+test_that("creation of 1d byte tensor", {
+  x <- tensor(c(TRUE, FALSE))
+  expect_identical(class(x)[1], "tensor")
+  expect_identical(as.array(x), c(TRUE, FALSE))
+
+  x <- sample(c(TRUE, FALSE), 50, replace = TRUE)
+  expect_identical(as.array(tensor(x)), x)
+})
+
+test_that("creation of 2d byte tensor", {
+  x <- matrix(c(TRUE, FALSE), ncol = 10, nrow = 5)
+  expect_identical(as.array(tensor(x)), x)
+})
+
+test_that("creation of 3d byte tensor", {
+  x <- array(c(TRUE, FALSE), dim = c(20, 2, 2))
   expect_identical(as.array(tensor(x)), x)
 })
 
@@ -124,7 +145,7 @@ test_that("addr works", {
   expect_identical(res, res_)
 })
 
-context("test-numeric-tensor")
+context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {
   x <- runif(100)

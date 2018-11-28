@@ -91,6 +91,10 @@
       )
     },
 
+    all = function() {
+      `torch::Tensor`$dispatch(tensor_all_(self$pointer))
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

@@ -25,6 +25,9 @@ Rcpp::XPtr<torch::Tensor> tensor_ (SEXP x, std::vector<int64_t> dim, bool clone 
     return tensor_impl_<INTSXP, at::kInt>(x, dim, clone);
   case REALSXP:
     return tensor_impl_<REALSXP, at::kDouble>(x, dim, clone);
+  // TODO: support for byte tensors
+  //case LGLSXP:
+  //  return tensor_impl_<LGLSXP, at::kByte>(x, dim, clone);
   default:
     Rcpp::stop("not handled");
   }
@@ -60,6 +63,9 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
     return as_array_tensor_impl_<INTSXP, int32_t>(x);
   case torch::kDouble:
     return as_array_tensor_impl_<REALSXP, double>(x);
+  // TODO: support fro byte tensor
+  //case torch::kByte:
+  //  return as_array_tensor_impl_<LGLSXP, std::uint8_t>(x);
   default:
     Rcpp::stop("not handled");
   }
@@ -123,6 +129,11 @@ Rcpp::XPtr<torch::Tensor> tensor_addmv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr
 Rcpp::XPtr<torch::Tensor> tensor_addr_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> vec1,
                                          Rcpp::XPtr<torch::Tensor> vec2, double beta, double alpha) {
   return make_tensor_ptr(x->addr(*vec1, *vec2, beta, alpha));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_all_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->all());
 }
 
 // [[Rcpp::export]]

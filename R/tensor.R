@@ -85,3 +85,8 @@ addmv.tensor <- function(x, mat, vec, beta = 1, alpha = 1) {
 addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
   x$addr(vec1, vec2, beta, alpha)
 }
+
+#' @export
+all.tensor <- function(x) {
+  x$all()
+}
