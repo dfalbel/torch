@@ -5,6 +5,12 @@ NULL
 #'
 #' @param x an R vector, matrix or array.
 #'
+#' @note it uses the R type when creating the tensor.
+#'
+#' @examples
+#' tensor(1:10)
+#' tensor(array(runif(8), dim = c(2, 2, 2)))
+#' tensor(matrix(c(TRUE, FALSE), nrow = 3, ncol = 4))
 #' @export
 tensor <- function(x) {
 
