@@ -92,8 +92,7 @@
     },
 
     all = function(dim = -1L, keepdim = FALSE) {
-      if(dim == 0L) stop("dimension is 1-based.")
-      `torch::Tensor`$dispatch(tensor_all_(self$pointer, dim - 1L, keepdim))
+      `torch::Tensor`$dispatch(tensor_all_(self$pointer, dim, keepdim))
     },
 
     allclose = function(other, rtol = 1e-05, atol = 1e-08, equal_nan = FALSE) {
@@ -101,13 +100,11 @@
     },
 
     any = function(dim = -1L, keepdim = FALSE) {
-      if(dim == 0L) stop("dimension is 1-based.")
-      `torch::Tensor`$dispatch(tensor_any_(self$pointer, dim - 1L, keepdim))
+      `torch::Tensor`$dispatch(tensor_any_(self$pointer, dim, keepdim))
     },
 
     argmax = function(dim = -1L, keepdim = FALSE) {
-      if(dim == 0L) stop("dimension is 1-based.")
-      `torch::Tensor`$dispatch(tensor_argmax_(self$pointer, dim - 1L, keepdim))
+      `torch::Tensor`$dispatch(tensor_argmax_(self$pointer, dim, keepdim))
     },
 
     to_string = function () {

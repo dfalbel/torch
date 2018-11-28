@@ -162,27 +162,23 @@ test_that("all works", {
   x <- tensor(l)
 
   expect_identical(
-    as.array(all(x, dim = 1, keepdim = TRUE)),
+    as.array(all(x, dim = 0, keepdim = TRUE)),
     matrix(c(FALSE, TRUE), nrow = 1)
   )
 
   expect_identical(
-    as.array(all(x, dim = 2, keepdim = TRUE)),
+    as.array(all(x, dim = 1, keepdim = TRUE)),
     matrix(c(TRUE, FALSE), ncol = 1)
   )
 
   expect_identical(
-    as.array(all(x, dim = 1, keepdim = FALSE)),
+    as.array(all(x, dim = 0, keepdim = FALSE)),
     c(FALSE, TRUE)
   )
 
   expect_identical(
-    as.array(all(x, dim = 2, keepdim = FALSE)),
+    as.array(all(x, dim = 1, keepdim = FALSE)),
     c(TRUE, FALSE)
-  )
-
-  expect_error(
-    all(x, dim = 0)
   )
 
 })
@@ -226,29 +222,24 @@ test_that("any works", {
   x <- tensor(l)
 
   expect_identical(
-    as.array(any(x, dim = 1, keepdim = TRUE)),
+    as.array(any(x, dim = 0, keepdim = TRUE)),
     matrix(c(TRUE, TRUE), nrow = 1)
   )
 
   expect_identical(
-    as.array(any(x, dim = 2, keepdim = TRUE)),
+    as.array(any(x, dim = 1, keepdim = TRUE)),
     matrix(c(TRUE, TRUE), ncol = 1)
+  )
+
+  expect_identical(
+    as.array(any(x, dim = 0, keepdim = FALSE)),
+    c(TRUE, TRUE)
   )
 
   expect_identical(
     as.array(any(x, dim = 1, keepdim = FALSE)),
     c(TRUE, TRUE)
   )
-
-  expect_identical(
-    as.array(any(x, dim = 2, keepdim = FALSE)),
-    c(TRUE, TRUE)
-  )
-
-  expect_error(
-    any(x, dim = 0)
-  )
-
 
 })
 
@@ -257,7 +248,7 @@ test_that("argmax works", {
   l <- array(1:6000, dim = c(10, 20, 30))
   x <- tensor(l)
   expect_identical(as.array(argmax(x)), which.max(l) - 1L)
-  expect_identical(as.array(argmax(x, 1)), apply(l, c(2,3), which.max) - 1L)
+  expect_identical(as.array(argmax(x, 0)), apply(l, c(2,3), which.max) - 1L)
 
 })
 

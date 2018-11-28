@@ -97,7 +97,7 @@ addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
 #' @param x tensor object
 #' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
 #' return TRUE if all elements in each row of the tensor in the given dimension
-#' `dim` are TRUE, FALSE otherwise. **Note** that `dim` is 1 based like in R.
+#' `dim` are TRUE, FALSE otherwise.
 #' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
 #' input except in the dimension dim where it is of size 1. Otherwise, dim is
 #' squeezed [squeeze()], resulting in the output tensor having 1 fewer
@@ -140,7 +140,7 @@ allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FA
 #' @param x tensor object
 #' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
 #' return TRUE if all elements in each row of the tensor in the given dimension
-#' `dim` are TRUE, FALSE otherwise. **Note** that `dim` is 1 based like in R.
+#' `dim` are TRUE, FALSE otherwise.
 #' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
 #' input except in the dimension dim where it is of size 1. Otherwise, dim is
 #' squeezed [squeeze()], resulting in the output tensor having 1 fewer
@@ -165,7 +165,7 @@ any.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 #' @param x tensor object
 #' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
 #' return TRUE if all elements in each row of the tensor in the given dimension
-#' `dim` are TRUE, FALSE otherwise. **Note** that `dim` is 1 based like in R.
+#' `dim` are TRUE, FALSE otherwise.
 #' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
 #' input except in the dimension dim where it is of size 1. Otherwise, dim is
 #' squeezed [squeeze()], resulting in the output tensor having 1 fewer

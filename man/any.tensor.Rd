@@ -11,7 +11,7 @@
 
 \item{dim}{if negative (the default) will reduce to a scalar. Otherwise it will
 return TRUE if all elements in each row of the tensor in the given dimension
-`dim` are TRUE, FALSE otherwise. **Note** that `dim` is 1 based like in R.}
+`dim` are TRUE, FALSE otherwise.}
 
 \item{keepdim}{If keepdim is TRUE, the output tensor is of the same size as
 input except in the dimension dim where it is of size 1. Otherwise, dim is

@@ -125,7 +125,7 @@
       <th>dim</th>
       <td><p>if negative (the default) will reduce to a scalar. Otherwise it will
 return TRUE if all elements in each row of the tensor in the given dimension
-`dim` are TRUE, FALSE otherwise. **Note** that `dim` is 1 based like in R.</p></td>
+`dim` are TRUE, FALSE otherwise.</p></td>
     </tr>
     <tr>
       <th>keepdim</th>
@@ -144,18 +144,79 @@ dimension than input.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'>array</span>(<span class='fu'>c</span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>, <span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>2</span>)))
-<span class='fu'>all</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
+<span class='fu'>all</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; tensor 
 #&gt; 0
-#&gt; [ Variable[CPUByteType]{} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
-#&gt;  0
-#&gt;  1
-#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
-#&gt;  0
-#&gt;  1
-#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
+#&gt; [ Variable[CPUByteType]{} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; tensor 
 #&gt;  1
 #&gt;  0
-#&gt; [ Variable[CPUByteType]{2} ]</div></pre>
+#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;  1
+#&gt;  0
+#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='error'>Error in tensor_all_(self$pointer, dim, keepdim): Dimension out of range (expected to be in range of [-2, 1], but got 2) (maybe_wrap_dim at /Users/administrator/nightlies/2018_10_05/wheel_build_dirs/libtorch_2.7/pytorch/aten/src/ATen/core/WrapDimMinimal.h:18)</span>
+#&gt; <span class='error'>frame #0: at::native::all_out(at::Tensor&amp;, at::Tensor const&amp;, long long, bool) + 128 (0x11a2c0e60 in libcaffe2.dylib)</span>
+#&gt; <span class='error'>frame #1: at::native::all(at::Tensor const&amp;, long long, bool) + 133 (0x11a2c0cd5 in libcaffe2.dylib)</span>
+#&gt; <span class='error'>frame #2: at::TypeDefault::all(at::Tensor const&amp;, long long, bool) const + 123 (0x11a50a21b in libcaffe2.dylib)</span>
+#&gt; <span class='error'>frame #3: torch::autograd::VariableType::all(at::Tensor const&amp;, long long, bool) const + 288 (0x1150b6ad0 in libtorch.1.dylib)</span>
+#&gt; <span class='error'>frame #4: tensor_all_(Rcpp::XPtr&lt;at::Tensor, Rcpp::PreserveStorage, &amp;(void Rcpp::standard_delete_finalizer&lt;at::Tensor&gt;(at::Tensor*)), false&gt;, long long, bool) + 91 (0x115d5a52b in torch.so)</span>
+#&gt; <span class='error'>frame #5: _torch_tensor_all_ + 115 (0x115d4f753 in torch.so)</span>
+#&gt; <span class='error'>frame #6: R_doDotCall + 979 (0x110d454b3 in libR.dylib)</span>
+#&gt; <span class='error'>frame #7: do_dotcall + 323 (0x110d47333 in libR.dylib)</span>
+#&gt; <span class='error'>frame #8: Rf_eval + 1658 (0x110d75c9a in libR.dylib)</span>
+#&gt; <span class='error'>frame #9: do_begin + 432 (0x110d8a580 in libR.dylib)</span>
+#&gt; <span class='error'>frame #10: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #11: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #12: Rf_eval + 1772 (0x110d75d0c in libR.dylib)</span>
+#&gt; <span class='error'>frame #13: forcePromise + 179 (0x110d86513 in libR.dylib)</span>
+#&gt; <span class='error'>frame #14: Rf_eval + 1182 (0x110d75abe in libR.dylib)</span>
+#&gt; <span class='error'>frame #15: forcePromise + 179 (0x110d86513 in libR.dylib)</span>
+#&gt; <span class='error'>frame #16: Rf_eval + 1182 (0x110d75abe in libR.dylib)</span>
+#&gt; <span class='error'>frame #17: forcePromise + 179 (0x110d86513 in libR.dylib)</span>
+#&gt; <span class='error'>frame #18: Rf_eval + 1182 (0x110d75abe in libR.dylib)</span>
+#&gt; <span class='error'>frame #19: do_set + 155 (0x110d8a96b in libR.dylib)</span>
+#&gt; <span class='error'>frame #20: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #21: do_begin + 432 (0x110d8a580 in libR.dylib)</span>
+#&gt; <span class='error'>frame #22: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #23: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #24: Rf_eval + 1772 (0x110d75d0c in libR.dylib)</span>
+#&gt; <span class='error'>frame #25: do_begin + 432 (0x110d8a580 in libR.dylib)</span>
+#&gt; <span class='error'>frame #26: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #27: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #28: do_begin + 432 (0x110d8a580 in libR.dylib)</span>
+#&gt; <span class='error'>frame #29: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #30: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #31: Rf_eval + 1772 (0x110d75d0c in libR.dylib)</span>
+#&gt; <span class='error'>frame #32: do_begin + 432 (0x110d8a580 in libR.dylib)</span>
+#&gt; <span class='error'>frame #33: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #34: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #35: Rf_eval + 1772 (0x110d75d0c in libR.dylib)</span>
+#&gt; <span class='error'>frame #36: do_begin + 432 (0x110d8a580 in libR.dylib)</span>
+#&gt; <span class='error'>frame #37: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #38: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #39: Rf_eval + 1772 (0x110d75d0c in libR.dylib)</span>
+#&gt; <span class='error'>frame #40: do_begin + 432 (0x110d8a580 in libR.dylib)</span>
+#&gt; <span class='error'>frame #41: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #42: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #43: Rf_eval + 1772 (0x110d75d0c in libR.dylib)</span>
+#&gt; <span class='error'>frame #44: do_begin + 432 (0x110d8a580 in libR.dylib)</span>
+#&gt; <span class='error'>frame #45: Rf_eval + 942 (0x110d759ce in libR.dylib)</span>
+#&gt; <span class='error'>frame #46: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #47: Rf_DispatchGroup + 2160 (0x110d8d160 in libR.dylib)</span>
+#&gt; <span class='error'>frame #48: do_logic3 + 196 (0x110db84f4 in libR.dylib)</span>
+#&gt; <span class='error'>frame #49: Rf_eval + 1811 (0x110d75d33 in libR.dylib)</span>
+#&gt; <span class='error'>frame #50: do_eval + 645 (0x110d8b8f5 in libR.dylib)</span>
+#&gt; <span class='error'>frame #51: bcEval + 19608 (0x110d7aba8 in libR.dylib)</span>
+#&gt; <span class='error'>frame #52: Rf_eval + 443 (0x110d757db in libR.dylib)</span>
+#&gt; <span class='error'>frame #53: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #54: bcEval + 18659 (0x110d7a7f3 in libR.dylib)</span>
+#&gt; <span class='error'>frame #55: Rf_eval + 443 (0x110d757db in libR.dylib)</span>
+#&gt; <span class='error'>frame #56: forcePromise + 179 (0x110d86513 in libR.dylib)</span>
+#&gt; <span class='error'>frame #57: Rf_eval + 1182 (0x110d75abe in libR.dylib)</span>
+#&gt; <span class='error'>frame #58: do_withVisible + 49 (0x110d8bf61 in libR.dylib)</span>
+#&gt; <span class='error'>frame #59: do_internal + 339 (0x110dc9393 in libR.dylib)</span>
+#&gt; <span class='error'>frame #60: bcEval + 20121 (0x110d7ada9 in libR.dylib)</span>
+#&gt; <span class='error'>frame #61: Rf_eval + 443 (0x110d757db in libR.dylib)</span>
+#&gt; <span class='error'>frame #62: R_execClosure + 3004 (0x110d8814c in libR.dylib)</span>
+#&gt; <span class='error'>frame #63: bcEval + 18659 (0x110d7a7f3 in libR.dylib)</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
