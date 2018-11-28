@@ -132,6 +132,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_addmv_
+Rcpp::XPtr<torch::Tensor> tensor_addmv_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat, Rcpp::XPtr<torch::Tensor> vec, double beta, double alpha);
+RcppExport SEXP _torch_tensor_addmv_(SEXP xSEXP, SEXP matSEXP, SEXP vecSEXP, SEXP betaSEXP, SEXP alphaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type mat(matSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type vec(vecSEXP);
+    Rcpp::traits::input_parameter< double >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_addmv_(x, mat, vec, beta, alpha));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_to_string_
 std::string tensor_to_string_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_to_string_(SEXP xSEXP) {
@@ -155,6 +170,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_addcdiv_", (DL_FUNC) &_torch_tensor_addcdiv_, 4},
     {"_torch_tensor_addcmul_", (DL_FUNC) &_torch_tensor_addcmul_, 4},
     {"_torch_tensor_addmm_", (DL_FUNC) &_torch_tensor_addmm_, 5},
+    {"_torch_tensor_addmv_", (DL_FUNC) &_torch_tensor_addmv_, 5},
     {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
     {NULL, NULL, 0}
 };

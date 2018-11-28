@@ -79,6 +79,12 @@
       )
     },
 
+    addmv = function(mat, vec, beta = 1, alpha = 1) {
+      `torch::Tensor`$dispatch(
+        tensor_addmv_(self$pointer, mat$pointer, vec$pointer, beta, alpha)
+      )
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

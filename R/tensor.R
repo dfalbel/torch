@@ -75,3 +75,8 @@ addcmul.tensor <- function(x, tensor1, tensor2, value = 1) {
 addmm.tensor <- function(x, mat1, mat2, beta = 1, alpha = 1) {
   x$addmm(mat1, mat2, beta, alpha)
 }
+
+#' @export
+addmv.tensor <- function(x, mat, vec, alpha = 1, beta = 1) {
+  x$addmv(mat, vec, alpha, beta)
+}

@@ -41,6 +41,10 @@ tensor_addmm_ <- function(x, mat1, mat2, beta, alpha) {
     .Call('_torch_tensor_addmm_', PACKAGE = 'torch', x, mat1, mat2, beta, alpha)
 }
 
+tensor_addmv_ <- function(x, mat, vec, beta, alpha) {
+    .Call('_torch_tensor_addmv_', PACKAGE = 'torch', x, mat, vec, beta, alpha)
+}
+
 tensor_to_string_ <- function(x) {
     .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }

@@ -114,6 +114,12 @@ Rcpp::XPtr<torch::Tensor> tensor_addmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_addmv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat,
+                                     Rcpp::XPtr<torch::Tensor> vec, double beta, double alpha) {
+  return make_tensor_ptr(x->addmv(*mat, *vec, beta, alpha));
+}
+
+// [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
   return ten.toString();

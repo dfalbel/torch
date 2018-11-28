@@ -41,3 +41,14 @@ addmm <- function(x, ...) {
 addmm.default <- function(x) {
   generic_default(x)
 }
+
+#' @export
+addmv <- function(x, ...) {
+  UseMethod("addmv", x)
+}
+
+#' @export
+addmv.default <- function(x) {
+  generic_default(x)
+}
+

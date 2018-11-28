@@ -103,6 +103,17 @@ test_that("addmm works", {
   expect_identical(dim(res), c(2L, 3L))
 })
 
+test_that("addmv works", {
+
+  x <- tensor(runif(2))
+  mat <- tensor(array(runif(6), dim = c(2, 3)))
+  vec <- tensor(runif(3))
+
+  res <- as.array(addmv(x, mat, vec))
+
+  expect_identical(length(res), 2L)
+})
+
 context("test-numeric-tensor")
 
 test_that("creation of 1d numeric tensor", {
