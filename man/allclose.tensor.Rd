@@ -17,7 +17,7 @@
 \item{equal_nan}{compare nans?}
 }
 \description{
-similiar to [all.equal()]
+similiar to \code{\link[=all.equal]{all.equal()}}
 }
 \examples{
 x <- tensor(c(1,2,3,4,5))

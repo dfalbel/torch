@@ -8,20 +8,18 @@
 
 <title>all — all.tensor • torch</title>
 
-<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js" integrity="sha256-hIvIxeqhGZF+VVeM55k0mJvWpQ6gTkWk3Emc+NmowYA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
 <!-- sticky kit -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
@@ -40,7 +38,8 @@
 
 
 <!-- mathjax -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -64,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">torch</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -112,7 +111,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for tensor</span>
-<span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> -<span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all'>all</a></span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> -<span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -125,98 +124,34 @@
       <th>dim</th>
       <td><p>if negative (the default) will reduce to a scalar. Otherwise it will
 return TRUE if all elements in each row of the tensor in the given dimension
-`dim` are TRUE, FALSE otherwise.</p></td>
+<code>dim</code> are TRUE, FALSE otherwise.</p></td>
     </tr>
     <tr>
       <th>keepdim</th>
       <td><p>If keepdim is TRUE, the output tensor is of the same size as
 input except in the dimension dim where it is of size 1. Otherwise, dim is
-squeezed [squeeze()], resulting in the output tensor having 1 fewer
+squeezed <code>squeeze()</code>, resulting in the output tensor having 1 fewer
 dimension than input.</p></td>
     </tr>
     <tr>
       <th>na.rm</th>
       <td><p>won't be used by the function. Only there to be compatible with
-[all] generic.</p></td>
+<a href='https://www.rdocumentation.org/packages/base/topics/all'>all</a> generic.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'>array</span>(<span class='fu'>c</span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>, <span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>, <span class='fl'>2</span>)))
-<span class='fu'>all</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>, <span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>)))
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all'>all</a></span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'>tensor</span><span> 
 #&gt; 0
-#&gt; [ Variable[CPUByteType]{} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
+#&gt; [ Variable[CPUByteType]{} ]</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all'>all</a></span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'>tensor</span><span> 
+#&gt;  0
+#&gt;  1
+#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all'>all</a></span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'>tensor</span><span> 
 #&gt;  1
 #&gt;  0
-#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
-#&gt;  1
-#&gt;  0
-#&gt; [ Variable[CPUByteType]{2} ]</div><div class='input'><span class='fu'>all</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='error'>Error in tensor_all_(self$pointer, dim, keepdim): Dimension out of range (expected to be in range of [-2, 1], but got 2) (maybe_wrap_dim at /Users/administrator/nightlies/2018_10_05/wheel_build_dirs/libtorch_2.7/pytorch/aten/src/ATen/core/WrapDimMinimal.h:18)</span>
-#&gt; <span class='error'>frame #0: at::native::all_out(at::Tensor&amp;, at::Tensor const&amp;, long long, bool) + 128 (0x114091e60 in libcaffe2.dylib)</span>
-#&gt; <span class='error'>frame #1: at::native::all(at::Tensor const&amp;, long long, bool) + 133 (0x114091cd5 in libcaffe2.dylib)</span>
-#&gt; <span class='error'>frame #2: at::TypeDefault::all(at::Tensor const&amp;, long long, bool) const + 123 (0x1142db21b in libcaffe2.dylib)</span>
-#&gt; <span class='error'>frame #3: torch::autograd::VariableType::all(at::Tensor const&amp;, long long, bool) const + 288 (0x113445ad0 in libtorch.1.dylib)</span>
-#&gt; <span class='error'>frame #4: tensor_all_(Rcpp::XPtr&lt;at::Tensor, Rcpp::PreserveStorage, &amp;(void Rcpp::standard_delete_finalizer&lt;at::Tensor&gt;(at::Tensor*)), false&gt;, long long, bool) + 91 (0x115a82feb in torch.so)</span>
-#&gt; <span class='error'>frame #5: _torch_tensor_all_ + 115 (0x115a77d93 in torch.so)</span>
-#&gt; <span class='error'>frame #6: R_doDotCall + 979 (0x10d8964b3 in libR.dylib)</span>
-#&gt; <span class='error'>frame #7: do_dotcall + 323 (0x10d898333 in libR.dylib)</span>
-#&gt; <span class='error'>frame #8: Rf_eval + 1658 (0x10d8c6c9a in libR.dylib)</span>
-#&gt; <span class='error'>frame #9: do_begin + 432 (0x10d8db580 in libR.dylib)</span>
-#&gt; <span class='error'>frame #10: Rf_eval + 942 (0x10d8c69ce in libR.dylib)</span>
-#&gt; <span class='error'>frame #11: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #12: Rf_eval + 1772 (0x10d8c6d0c in libR.dylib)</span>
-#&gt; <span class='error'>frame #13: forcePromise + 179 (0x10d8d7513 in libR.dylib)</span>
-#&gt; <span class='error'>frame #14: Rf_eval + 1182 (0x10d8c6abe in libR.dylib)</span>
-#&gt; <span class='error'>frame #15: forcePromise + 179 (0x10d8d7513 in libR.dylib)</span>
-#&gt; <span class='error'>frame #16: Rf_eval + 1182 (0x10d8c6abe in libR.dylib)</span>
-#&gt; <span class='error'>frame #17: forcePromise + 179 (0x10d8d7513 in libR.dylib)</span>
-#&gt; <span class='error'>frame #18: Rf_eval + 1182 (0x10d8c6abe in libR.dylib)</span>
-#&gt; <span class='error'>frame #19: do_set + 155 (0x10d8db96b in libR.dylib)</span>
-#&gt; <span class='error'>frame #20: Rf_eval + 942 (0x10d8c69ce in libR.dylib)</span>
-#&gt; <span class='error'>frame #21: do_begin + 432 (0x10d8db580 in libR.dylib)</span>
-#&gt; <span class='error'>frame #22: Rf_eval + 942 (0x10d8c69ce in libR.dylib)</span>
-#&gt; <span class='error'>frame #23: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #24: bcEval + 18659 (0x10d8cb7f3 in libR.dylib)</span>
-#&gt; <span class='error'>frame #25: Rf_eval + 443 (0x10d8c67db in libR.dylib)</span>
-#&gt; <span class='error'>frame #26: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #27: Rf_eval + 1772 (0x10d8c6d0c in libR.dylib)</span>
-#&gt; <span class='error'>frame #28: do_begin + 432 (0x10d8db580 in libR.dylib)</span>
-#&gt; <span class='error'>frame #29: Rf_eval + 942 (0x10d8c69ce in libR.dylib)</span>
-#&gt; <span class='error'>frame #30: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #31: Rf_eval + 1772 (0x10d8c6d0c in libR.dylib)</span>
-#&gt; <span class='error'>frame #32: do_begin + 432 (0x10d8db580 in libR.dylib)</span>
-#&gt; <span class='error'>frame #33: Rf_eval + 942 (0x10d8c69ce in libR.dylib)</span>
-#&gt; <span class='error'>frame #34: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #35: Rf_eval + 1772 (0x10d8c6d0c in libR.dylib)</span>
-#&gt; <span class='error'>frame #36: do_begin + 432 (0x10d8db580 in libR.dylib)</span>
-#&gt; <span class='error'>frame #37: Rf_eval + 942 (0x10d8c69ce in libR.dylib)</span>
-#&gt; <span class='error'>frame #38: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #39: Rf_eval + 1772 (0x10d8c6d0c in libR.dylib)</span>
-#&gt; <span class='error'>frame #40: do_begin + 432 (0x10d8db580 in libR.dylib)</span>
-#&gt; <span class='error'>frame #41: Rf_eval + 942 (0x10d8c69ce in libR.dylib)</span>
-#&gt; <span class='error'>frame #42: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #43: Rf_DispatchGroup + 2160 (0x10d8de160 in libR.dylib)</span>
-#&gt; <span class='error'>frame #44: do_logic3 + 196 (0x10d9094f4 in libR.dylib)</span>
-#&gt; <span class='error'>frame #45: Rf_eval + 1811 (0x10d8c6d33 in libR.dylib)</span>
-#&gt; <span class='error'>frame #46: do_eval + 645 (0x10d8dc8f5 in libR.dylib)</span>
-#&gt; <span class='error'>frame #47: bcEval + 19608 (0x10d8cbba8 in libR.dylib)</span>
-#&gt; <span class='error'>frame #48: Rf_eval + 443 (0x10d8c67db in libR.dylib)</span>
-#&gt; <span class='error'>frame #49: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #50: bcEval + 18659 (0x10d8cb7f3 in libR.dylib)</span>
-#&gt; <span class='error'>frame #51: Rf_eval + 443 (0x10d8c67db in libR.dylib)</span>
-#&gt; <span class='error'>frame #52: forcePromise + 179 (0x10d8d7513 in libR.dylib)</span>
-#&gt; <span class='error'>frame #53: Rf_eval + 1182 (0x10d8c6abe in libR.dylib)</span>
-#&gt; <span class='error'>frame #54: do_withVisible + 49 (0x10d8dcf61 in libR.dylib)</span>
-#&gt; <span class='error'>frame #55: do_internal + 339 (0x10d91a393 in libR.dylib)</span>
-#&gt; <span class='error'>frame #56: bcEval + 20121 (0x10d8cbda9 in libR.dylib)</span>
-#&gt; <span class='error'>frame #57: Rf_eval + 443 (0x10d8c67db in libR.dylib)</span>
-#&gt; <span class='error'>frame #58: R_execClosure + 3004 (0x10d8d914c in libR.dylib)</span>
-#&gt; <span class='error'>frame #59: bcEval + 18659 (0x10d8cb7f3 in libR.dylib)</span>
-#&gt; <span class='error'>frame #60: Rf_eval + 443 (0x10d8c67db in libR.dylib)</span>
-#&gt; <span class='error'>frame #61: forcePromise + 179 (0x10d8d7513 in libR.dylib)</span>
-#&gt; <span class='error'>frame #62: getvar + 518 (0x10d8e2106 in libR.dylib)</span>
-#&gt; <span class='error'>frame #63: bcEval + 12476 (0x10d8c9fcc in libR.dylib)</span></div></pre>
+#&gt; [ Variable[CPUByteType]{2} ]</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -235,9 +170,8 @@ dimension than input.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.2.0.9000.</p>
 </div>
-
       </footer>
    </div>
 

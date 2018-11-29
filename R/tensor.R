@@ -108,9 +108,8 @@ addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
 #' @examples
 #' x <- tensor(array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2)))
 #' all(x)
-#' all(x, dim = 1)
+#' all(x, dim = 0)
 #' all(x, dim = 1, keepdim = FALSE)
-#' all(x, dim = 2)
 #' @export
 all.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
@@ -151,9 +150,8 @@ allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FA
 #' @examples
 #' x <- tensor(array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2)))
 #' any(x)
-#' any(x, dim = 1)
+#' any(x, dim = 0)
 #' any(x, dim = 1, keepdim = FALSE)
-#' any(x, dim = 2)
 #' @export
 any.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
@@ -177,9 +175,8 @@ any.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 #' x <- tensor(array(runif(8), dim = c(2,2,2)))
 #' x
 #' argmax(x)
-#' argmax(x, dim = 1)
+#' argmax(x, dim = 0)
 #' argmax(x, dim = 1, keepdim = FALSE)
-#' argmax(x, dim = 2)
 #' @export
 argmax.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
@@ -203,9 +200,8 @@ argmax.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 #' x <- tensor(array(runif(8), dim = c(2,2,2)))
 #' x
 #' argmin(x)
-#' argmin(x, dim = 1)
+#' argmin(x, dim = 0)
 #' argmin(x, dim = 1, keepdim = FALSE)
-#' argmin(x, dim = 2)
 #' @export
 argmin.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
