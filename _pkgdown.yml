@@ -1,3 +1,7 @@
+template:
+  params:
+    bootswatch: united
+
 reference:
 - title: "Tensor creation"
   desc: "Functions used to create new tensors"

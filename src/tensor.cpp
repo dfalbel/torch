@@ -188,6 +188,18 @@ Rcpp::XPtr<torch::Tensor> tensor_argmin_ (Rcpp::XPtr<torch::Tensor> x, std::int6
     return make_tensor_ptr(x->argmin(dim, keepdim));
 }
 
+// // [[Rcpp::export]]
+// Rcpp::XPtr<torch::Tensor> tensor_as_strided_ (Rcpp::XPtr<torch::Tensor> x,
+//                                           Rcpp::IntegerVector size,
+//                                           Rcpp::IntegerVector stride,
+//                                           int64_t storage_offset) {
+//
+//   if (storage_offset < 0)
+//     return make_tensor_ptr(x->as_strided(size, stride));
+//   else
+//     return make_tensor_ptr(x->as_strided(size, stride, storage_offset));
+// }
+
 // [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;

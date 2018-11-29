@@ -13,8 +13,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -144,7 +144,7 @@ dimension than input.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'>array</span>(<span class='fu'>runif</span>(<span class='fl'>8</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>2</span>)))
-<span class='no'>x</span></div><div class='output co'>#&gt; tensor 
+<span class='no'>x</span></div><div class='output co'>#&gt; [90mtensor[39m 
 #&gt; (1,.,.) = 
 #&gt;   0.0808  0.0074
 #&gt;   0.6008  0.4978
@@ -152,15 +152,15 @@ dimension than input.</p></td>
 #&gt; (2,.,.) = 
 #&gt;   0.8343  0.4664
 #&gt;   0.1572  0.2898
-#&gt; [ Variable[CPUDoubleType]{2,2,2} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; [ Variable[CPUDoubleType]{2,2,2} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
 #&gt; 4
-#&gt; [ Variable[CPULongType]{} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; [ Variable[CPULongType]{} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
 #&gt;  1  1
 #&gt;  0  0
-#&gt; [ Variable[CPULongType]{2,2} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; [ Variable[CPULongType]{2,2} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
 #&gt;  1  1
 #&gt;  0  0
-#&gt; [ Variable[CPULongType]{2,2} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; [ Variable[CPULongType]{2,2} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [90mtensor[39m 
 #&gt;  0  0
 #&gt;  0  1
 #&gt; [ Variable[CPULongType]{2,2} ]</div></pre>
