@@ -80,20 +80,25 @@
 <a href="#example" class="anchor"></a>Example</h2>
 <p>Currently this package is only a prrof of concept and you can only create a Torch Tensor from an R object. And then convert back from a torch Tensor to an R object.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(torch)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">array</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(<span class="dv">8</span>), <span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">y &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(x)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">y</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; tensor </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; (1,.,.) = </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;   0.2446  0.8120</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;   0.2914  0.7133</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; (2,.,.) = </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;   0.3678  0.0361</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   0.9267  0.3050</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; [ Variable[CPUDoubleType]{2,2,2} ]</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/identical">identical</a></span>(x, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">as.array</a></span>(y))</a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; Attaching package: 'torch'</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; The following object is masked from 'package:base':</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;     atan2</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">array</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(<span class="dv">8</span>), <span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">y &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(x)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">y</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; tensor </span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; (1,.,.) = </span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   0.3670  0.2192</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;   0.4463  0.1004</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; (2,.,.) = </span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;   0.0576  0.3468</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;   0.3779  0.5229</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; [ Variable[CPUDoubleType]{2,2,2} ]</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/identical">identical</a></span>(x, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">as.array</a></span>(y))</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
 </div>
 </div>
   </div>

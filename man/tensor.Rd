@@ -2,21 +2,26 @@
 % Please edit documentation in R/tensor.R
 \name{tensor}
 \alias{tensor}
-\title{Create torch Tensor from R object}
+\title{Creates a torch tensor.}
 \usage{
-tensor(x)
+tensor(x, ...)
 }
 \arguments{
-\item{x}{an R vector, matrix or array.}
+\item{x}{an R object or a torch tensor.}
+
+\item{dtype}{a string with torch types}
+
+\item{device}{a device type}
+
+\item{requires_grad}{boolean indicating if tensor requires grad.}
 }
 \description{
-Create torch Tensor from R object
-}
-\note{
-it uses the R type when creating the tensor.
+Creates a torch tensor.
 }
 \examples{
-tensor(1:10)
-tensor(array(runif(8), dim = c(2, 2, 2)))
-tensor(matrix(c(TRUE, FALSE), nrow = 3, ncol = 4))
+x <- tensor(1:10)
+x
+
+y <- tensor(x, dtype = "kDouble")
+y
 }

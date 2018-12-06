@@ -12,4 +12,3 @@ reference:
   desc: "s3 methods for tensors"
   contents:
     - ends_with(".tensor")
-    - -tensor.tensor
