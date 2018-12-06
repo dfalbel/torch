@@ -208,6 +208,18 @@ argmin.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
   x$argmin(dim, keepdim)
 }
 
+#' as_strided
+#'
+#' TODO: create better docs.
+#'
+#' @param x tensor object
+#' @param size size
+#' @param stride stride
+#' @param storage_offset (optional) storage_offset
+#'
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' as_strided(x, 0, 1)
 #' @export
 as_strided.tensor <- function(x, size, stride, storage_offset = NULL) {
   x$as_strided(size, stride, storage_offset)
