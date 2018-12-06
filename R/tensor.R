@@ -224,3 +224,16 @@ argmin.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 as_strided.tensor <- function(x, size, stride, storage_offset = NULL) {
   x$as_strided(size, stride, storage_offset)
 }
+
+#' asin
+#'
+#' Returns a new tensor with the arcsine of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' asin(x)
+#' @export
+asin.tensor <- function(x) {
+  x$asin()
+}

@@ -254,6 +254,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_asin_
+Rcpp::XPtr<torch::Tensor> tensor_asin_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_asin_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_asin_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 3},
@@ -275,6 +286,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_argmin_", (DL_FUNC) &_torch_tensor_argmin_, 3},
     {"_torch_tensor_as_strided_", (DL_FUNC) &_torch_tensor_as_strided_, 4},
     {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
+    {"_torch_tensor_asin_", (DL_FUNC) &_torch_tensor_asin_, 1},
     {NULL, NULL, 0}
 };
 

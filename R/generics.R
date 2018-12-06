@@ -101,4 +101,3 @@ as_strided <- function(x, ...) {
 as_strided.default <- function(x) {
   generic_default(x)
 }
-

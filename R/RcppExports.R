@@ -77,3 +77,7 @@ tensor_to_string_ <- function(x) {
     .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }
 
+tensor_asin_ <- function(x) {
+    .Call('_torch_tensor_asin_', PACKAGE = 'torch', x)
+}
+

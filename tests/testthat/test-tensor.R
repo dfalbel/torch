@@ -275,6 +275,11 @@ test_that("as_strided works", {
   expect_identical(class(k)[1], "tensor")
 })
 
+test_that("asin works", {
+  x <- runif(100)
+  expect_equal(as.array(asin(tensor(x))), asin(x))
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

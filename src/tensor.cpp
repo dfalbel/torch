@@ -212,3 +212,7 @@ std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   return ten.toString();
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_asin_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->asin());
+}
