@@ -3,7 +3,6 @@
 template <int RTYPE, at::ScalarType ATTYPE>
 Rcpp::XPtr<torch::Tensor> tensor_impl_ (SEXP x, std::vector<int64_t> dim, bool clone = true) {
 
-  auto rtype = RTYPE;
   auto attype = ATTYPE;
 
   // since R logical vectors have 8B we need to treat them as integer vectors
@@ -215,4 +214,14 @@ std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_asin_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->asin());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_atan_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->atan());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_atan2_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->atan2(*other));
 }

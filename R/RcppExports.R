@@ -81,3 +81,11 @@ tensor_asin_ <- function(x) {
     .Call('_torch_tensor_asin_', PACKAGE = 'torch', x)
 }
 
+tensor_atan_ <- function(x) {
+    .Call('_torch_tensor_atan_', PACKAGE = 'torch', x)
+}
+
+tensor_atan2_ <- function(x, other) {
+    .Call('_torch_tensor_atan2_', PACKAGE = 'torch', x, other)
+}
+

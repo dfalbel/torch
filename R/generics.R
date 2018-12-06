@@ -101,3 +101,14 @@ as_strided <- function(x, ...) {
 as_strided.default <- function(x) {
   generic_default(x)
 }
+
+#' @export
+atan2 <- function(x, ...) {
+  UseMethod("atan2", x)
+}
+
+#' @export
+atan2.default <- function(y, x) {
+  base::atan2(y, x)
+}
+

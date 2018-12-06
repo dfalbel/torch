@@ -121,6 +121,14 @@
       `torch::Tensor`$dispatch(tensor_asin_(self$pointer))
     },
 
+    atan = function() {
+      `torch::Tensor`$dispatch(tensor_atan_(self$pointer))
+    },
+
+    atan2 = function(other) {
+      `torch::Tensor`$dispatch(tensor_atan2_(self$pointer, other$pointer))
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

@@ -265,6 +265,29 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_atan_
+Rcpp::XPtr<torch::Tensor> tensor_atan_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_atan_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_atan_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_atan2_
+Rcpp::XPtr<torch::Tensor> tensor_atan2_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other);
+RcppExport SEXP _torch_tensor_atan2_(SEXP xSEXP, SEXP otherSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type other(otherSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_atan2_(x, other));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 3},
@@ -287,6 +310,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_as_strided_", (DL_FUNC) &_torch_tensor_as_strided_, 4},
     {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
     {"_torch_tensor_asin_", (DL_FUNC) &_torch_tensor_asin_, 1},
+    {"_torch_tensor_atan_", (DL_FUNC) &_torch_tensor_atan_, 1},
+    {"_torch_tensor_atan2_", (DL_FUNC) &_torch_tensor_atan2_, 2},
     {NULL, NULL, 0}
 };
 

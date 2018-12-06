@@ -237,3 +237,32 @@ as_strided.tensor <- function(x, size, stride, storage_offset = NULL) {
 asin.tensor <- function(x) {
   x$asin()
 }
+
+#' atan
+#'
+#' Returns a new tensor with the arctangent of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' atan(x)
+#' @export
+atan.tensor <- function(x) {
+  x$atan()
+}
+
+#' atan2
+#'
+#' Returns a new tensor with the arctangent of the elements of input1 and input2.
+#'
+#' @param x tensor object
+#' @param other also a tensor object
+#'
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' y <- tensor(array(runif(8), dim = c(2,2,2)))
+#' atan2(x, y)
+#' @export
+atan2.tensor <- function(x, other) {
+  x$atan2(other)
+}

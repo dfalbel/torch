@@ -280,6 +280,19 @@ test_that("asin works", {
   expect_equal(as.array(asin(tensor(x))), asin(x))
 })
 
+test_that("atan works", {
+  x <- runif(100)
+  expect_equal(as.array(atan(tensor(x))), atan(x))
+})
+
+test_that("atan2 works", {
+  x <- runif(100)
+  y <- runif(100)
+
+  expect_equal(as.array(atan2(tensor(x), tensor(y))), atan2(x, y))
+})
+
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {
