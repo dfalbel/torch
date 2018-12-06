@@ -111,7 +111,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for tensor</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all'>all</a></span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> -<span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/all'>all</a></span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -122,7 +122,7 @@
     </tr>
     <tr>
       <th>dim</th>
-      <td><p>if negative (the default) will reduce to a scalar. Otherwise it will
+      <td><p>if NULL (the default) will reduce to a scalar. Otherwise it will
 return TRUE if all elements in each row of the tensor in the given dimension
 <code>dim</code> are TRUE, FALSE otherwise.</p></td>
     </tr>

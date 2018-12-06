@@ -4,12 +4,12 @@
 \alias{any.tensor}
 \title{any}
 \usage{
-\method{any}{tensor}(x, dim = -1, keepdim = FALSE, na.rm = FALSE)
+\method{any}{tensor}(x, dim = NULL, keepdim = FALSE, na.rm = FALSE)
 }
 \arguments{
 \item{x}{tensor object}
 
-\item{dim}{if negative (the default) will reduce to a scalar. Otherwise it will
+\item{dim}{if NULL (the default) will reduce to a scalar. Otherwise it will
 return TRUE if all elements in each row of the tensor in the given dimension
 \code{dim} are TRUE, FALSE otherwise.}
 
