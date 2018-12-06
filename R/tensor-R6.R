@@ -91,7 +91,7 @@
       )
     },
 
-    all = function(dim = -1L, keepdim = FALSE) {
+    all = function(dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_all_(self$pointer, dim, keepdim))
     },
 
@@ -99,15 +99,15 @@
       tensor_allclose_(self$pointer, other$pointer, rtol, atol, equal_nan)
     },
 
-    any = function(dim = -1L, keepdim = FALSE) {
+    any = function(dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_any_(self$pointer, dim, keepdim))
     },
 
-    argmax = function(dim = -1L, keepdim = FALSE) {
+    argmax = function(dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_argmax_(self$pointer, dim, keepdim))
     },
 
-    argmin = function(dim = -1L, keepdim = FALSE) {
+    argmin = function(dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_argmin_(self$pointer, dim, keepdim))
     },
 

@@ -95,7 +95,7 @@ addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
 #' all
 #'
 #' @param x tensor object
-#' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
+#' @param dim if NULL (the default) will reduce to a scalar. Otherwise it will
 #' return TRUE if all elements in each row of the tensor in the given dimension
 #' `dim` are TRUE, FALSE otherwise.
 #' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
@@ -111,7 +111,7 @@ addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
 #' all(x, dim = 0)
 #' all(x, dim = 1, keepdim = FALSE)
 #' @export
-all.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
+all.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$all(dim, keepdim)
 }
@@ -137,7 +137,7 @@ allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FA
 #' any
 #'
 #' @param x tensor object
-#' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
+#' @param dim if NULL (the default) will reduce to a scalar. Otherwise it will
 #' return TRUE if all elements in each row of the tensor in the given dimension
 #' `dim` are TRUE, FALSE otherwise.
 #' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
@@ -153,7 +153,7 @@ allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FA
 #' any(x, dim = 0)
 #' any(x, dim = 1, keepdim = FALSE)
 #' @export
-any.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
+any.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$any(dim, keepdim)
 }
@@ -161,7 +161,7 @@ any.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 #' argmax
 #'
 #' @param x tensor object
-#' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
+#' @param dim if NULL (the default) will reduce to a scalar. Otherwise it will
 #' return TRUE if all elements in each row of the tensor in the given dimension
 #' `dim` are TRUE, FALSE otherwise.
 #' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
@@ -178,7 +178,7 @@ any.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 #' argmax(x, dim = 0)
 #' argmax(x, dim = 1, keepdim = FALSE)
 #' @export
-argmax.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
+argmax.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$argmax(dim, keepdim)
 }
@@ -186,7 +186,7 @@ argmax.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 #' argmin
 #'
 #' @param x tensor object
-#' @param dim if negative (the default) will reduce to a scalar. Otherwise it will
+#' @param dim if NULL (the default) will reduce to a scalar. Otherwise it will
 #' return TRUE if all elements in each row of the tensor in the given dimension
 #' `dim` are TRUE, FALSE otherwise.
 #' @param keepdim If keepdim is TRUE, the output tensor is of the same size as
@@ -203,7 +203,7 @@ argmax.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
 #' argmin(x, dim = 0)
 #' argmin(x, dim = 1, keepdim = FALSE)
 #' @export
-argmin.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
+argmin.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$argmin(dim, keepdim)
 }

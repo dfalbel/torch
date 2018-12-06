@@ -249,7 +249,7 @@ test_that("argmax works", {
   x <- tensor(l)
   expect_identical(as.array(argmax(x)), which.max(l) - 1L)
   expect_identical(as.array(argmax(x, 0)), apply(l, c(2,3), which.max) - 1L)
-
+  expect_identical(as.array(argmax(x, -1)), apply(l, c(1,2), which.max) - 1L)
 })
 
 test_that("argmin works", {
@@ -258,7 +258,7 @@ test_that("argmin works", {
   x <- tensor(l)
   expect_identical(as.array(argmin(x)), which.min(l) - 1L)
   expect_identical(as.array(argmin(x, 0)), apply(l, c(2,3), which.min) - 1L)
-
+  expect_identical(as.array(argmin(x, -1)), apply(l, c(1,2), which.min) - 1L)
 })
 
 test_that("as_strided works", {
