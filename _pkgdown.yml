@@ -7,7 +7,9 @@ reference:
   desc: "Functions used to create new tensors"
   contents:
     - tensor
+    - tensor_from_r
 - title: "Tensor methods"
   desc: "s3 methods for tensors"
   contents:
     - ends_with(".tensor")
+    - -tensor.tensor

@@ -8,11 +8,11 @@ NULL
 #' @note it uses the R type when creating the tensor.
 #'
 #' @examples
-#' tensor(1:10)
-#' tensor(array(runif(8), dim = c(2, 2, 2)))
-#' tensor(matrix(c(TRUE, FALSE), nrow = 3, ncol = 4))
+#' tensor_from_r(1:10)
+#' tensor_from_r(array(runif(8), dim = c(2, 2, 2)))
+#' tensor_from_r(matrix(c(TRUE, FALSE), nrow = 3, ncol = 4))
 #' @export
-tensor <- function(x) {
+tensor_from_r <- function(x) {
 
   dimension <- dim(x)
 
@@ -24,7 +24,35 @@ tensor <- function(x) {
     x <- aperm(x, perm = seq(length(dim(x)), 1))
   }
 
-  `torch::Tensor`$dispatch(tensor_(x, dimension))
+  `torch::Tensor`$dispatch(tensor_from_r_(x, dimension))
+}
+
+#' Creates a torch tensor.
+#'
+#' @param x an R object or a torch tensor.
+#' @param dtype a string with torch types
+#' @param device a device type
+#' @param requires_grad boolean indicating if tensor requires grad.
+#'
+#' @examples
+#' x <- tensor(1:10)
+#' x
+#'
+#' y <- tensor(x, dtype = "kDouble")
+#' y
+#' @export
+tensor <- function(x, ...) {
+  UseMethod("tensor", x)
+}
+
+#' @export
+tensor.default <- function(x, dtype = NULL, device = NULL, requires_grad = FALSE) {
+  tensor(tensor_from_r(x), dtype, device, requires_grad)
+}
+
+#' @export
+tensor.tensor <- function(x, dtype = NULL, device = NULL, requires_grad = FALSE) {
+  `torch::Tensor`$dispatch(tensor_(x$pointer, dtype, device, requires_grad))
 }
 
 #' Tensor casting

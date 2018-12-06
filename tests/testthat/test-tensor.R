@@ -1,5 +1,22 @@
 library(torch)
 
+context("tensor options")
+
+test_that("requires_grad", {
+  x <- tensor(x = runif(10), requires_grad = TRUE)
+  expect_identical(class(x)[1], "tensor")
+})
+
+test_that("dtype", {
+  type <- typeof(as.array(tensor(1:10, dtype = "kDouble")))
+  expect_identical(type, "double")
+})
+
+test_that("device", {
+  # TODO can't test device without a gpu :(
+  expect_identical(1, 1)
+})
+
 context("integer tensors")
 
 test_that("creation of 1d integer tensor", {

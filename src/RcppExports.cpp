@@ -6,16 +6,30 @@
 
 using namespace Rcpp;
 
-// tensor_
-Rcpp::XPtr<torch::Tensor> tensor_(SEXP x, std::vector<int64_t> dim, bool clone);
-RcppExport SEXP _torch_tensor_(SEXP xSEXP, SEXP dimSEXP, SEXP cloneSEXP) {
+// tensor_from_r_
+Rcpp::XPtr<torch::Tensor> tensor_from_r_(SEXP x, std::vector<int64_t> dim, bool clone);
+RcppExport SEXP _torch_tensor_from_r_(SEXP xSEXP, SEXP dimSEXP, SEXP cloneSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< SEXP >::type x(xSEXP);
     Rcpp::traits::input_parameter< std::vector<int64_t> >::type dim(dimSEXP);
     Rcpp::traits::input_parameter< bool >::type clone(cloneSEXP);
-    rcpp_result_gen = Rcpp::wrap(tensor_(x, dim, clone));
+    rcpp_result_gen = Rcpp::wrap(tensor_from_r_(x, dim, clone));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_
+Rcpp::XPtr<torch::Tensor> tensor_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::CharacterVector> dtype, Rcpp::Nullable<Rcpp::CharacterVector> device, bool requires_grad);
+RcppExport SEXP _torch_tensor_(SEXP xSEXP, SEXP dtypeSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::CharacterVector> >::type dtype(dtypeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::CharacterVector> >::type device(deviceSEXP);
+    Rcpp::traits::input_parameter< bool >::type requires_grad(requires_gradSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_(x, dtype, device, requires_grad));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -290,7 +304,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 3},
+    {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 3},
+    {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
     {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
     {"_torch_tensor_abs_", (DL_FUNC) &_torch_tensor_abs_, 1},
