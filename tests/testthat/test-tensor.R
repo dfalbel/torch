@@ -309,6 +309,13 @@ test_that("atan2 works", {
   expect_equal(as.array(atan2(tensor(x), tensor(y))), atan2(x, y))
 })
 
+test_that("backward works", {
+  # TODO include tests for backward operation. for example python only accepts scalars, etc.
+  x <- tensor(runif(10), requires_grad = TRUE)
+
+  expect_silent(x$backward())
+})
+
 
 context("numeric tensors")
 

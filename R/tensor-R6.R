@@ -129,6 +129,10 @@
       `torch::Tensor`$dispatch(tensor_atan2_(self$pointer, other$pointer))
     },
 
+    backward = function(gradient = NULL, keep_graph = FALSE, create_graph = FALSE) {
+      tensor_backward_(self$pointer, gradient$pointer, keep_graph, create_graph)
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

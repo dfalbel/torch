@@ -287,3 +287,17 @@ Rcpp::XPtr<torch::Tensor> tensor_atan_ (Rcpp::XPtr<torch::Tensor> x) {
 Rcpp::XPtr<torch::Tensor> tensor_atan2_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
   return make_tensor_ptr(x->atan2(*other));
 }
+
+// [[Rcpp::export]]
+void tensor_backward_ (Rcpp::XPtr<torch::Tensor> x,
+                                         Rcpp::Nullable<Rcpp::XPtr<torch::Tensor>> gradient,
+                                         bool keep_graph, bool create_graph) {
+  if(gradient.isNull()) {
+    x->backward(at::nullopt, keep_graph, create_graph);
+  } else {
+    Rcpp::XPtr<torch::Tensor> gradient2(gradient.get());
+    x->backward(*gradient2, keep_graph, create_graph);
+  }
+
+}
+

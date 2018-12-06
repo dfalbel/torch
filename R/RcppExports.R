@@ -93,3 +93,7 @@ tensor_atan2_ <- function(x, other) {
     .Call('_torch_tensor_atan2_', PACKAGE = 'torch', x, other)
 }
 
+tensor_backward_ <- function(x, gradient, keep_graph, create_graph) {
+    invisible(.Call('_torch_tensor_backward_', PACKAGE = 'torch', x, gradient, keep_graph, create_graph))
+}
+

@@ -302,6 +302,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_backward_
+void tensor_backward_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::XPtr<torch::Tensor>> gradient, bool keep_graph, bool create_graph);
+RcppExport SEXP _torch_tensor_backward_(SEXP xSEXP, SEXP gradientSEXP, SEXP keep_graphSEXP, SEXP create_graphSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<torch::Tensor>> >::type gradient(gradientSEXP);
+    Rcpp::traits::input_parameter< bool >::type keep_graph(keep_graphSEXP);
+    Rcpp::traits::input_parameter< bool >::type create_graph(create_graphSEXP);
+    tensor_backward_(x, gradient, keep_graph, create_graph);
+    return R_NilValue;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 3},
@@ -327,6 +340,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_asin_", (DL_FUNC) &_torch_tensor_asin_, 1},
     {"_torch_tensor_atan_", (DL_FUNC) &_torch_tensor_atan_, 1},
     {"_torch_tensor_atan2_", (DL_FUNC) &_torch_tensor_atan2_, 2},
+    {"_torch_tensor_backward_", (DL_FUNC) &_torch_tensor_backward_, 4},
     {NULL, NULL, 0}
 };
 
