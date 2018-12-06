@@ -92,3 +92,13 @@ argmin.default <- function(x) {
   generic_default(x)
 }
 
+#' @export
+as_strided <- function(x, ...) {
+  UseMethod("as_strided", x)
+}
+
+#' @export
+as_strided.default <- function(x) {
+  generic_default(x)
+}
+

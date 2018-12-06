@@ -111,6 +111,12 @@
       `torch::Tensor`$dispatch(tensor_argmin_(self$pointer, dim, keepdim))
     },
 
+    as_strided = function(size, stride, storage_offset = NULL) {
+      `torch::Tensor`$dispatch(tensor_as_strided_(
+        self$pointer, size, stride, storage_offset)
+      )
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

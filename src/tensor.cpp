@@ -119,7 +119,7 @@ Rcpp::XPtr<torch::Tensor> tensor_addbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPt
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addcdiv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1,
-                                     Rcpp::XPtr<torch::Tensor> tensor2, double value
+                                           Rcpp::XPtr<torch::Tensor> tensor2, double value
 ) {
   return make_tensor_ptr(x->addcdiv(*tensor1, *tensor2, value));
 }
@@ -133,20 +133,20 @@ Rcpp::XPtr<torch::Tensor> tensor_addcmul_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XP
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat1,
-                                           Rcpp::XPtr<torch::Tensor> mat2, double beta, double alpha
+                                         Rcpp::XPtr<torch::Tensor> mat2, double beta, double alpha
 ) {
   return make_tensor_ptr(x->addmm(*mat1, *mat2, beta, alpha));
 }
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addmv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat,
-                                     Rcpp::XPtr<torch::Tensor> vec, double beta, double alpha) {
+                                         Rcpp::XPtr<torch::Tensor> vec, double beta, double alpha) {
   return make_tensor_ptr(x->addmv(*mat, *vec, beta, alpha));
 }
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addr_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> vec1,
-                                         Rcpp::XPtr<torch::Tensor> vec2, double beta, double alpha) {
+                                        Rcpp::XPtr<torch::Tensor> vec2, double beta, double alpha) {
   return make_tensor_ptr(x->addr(*vec1, *vec2, beta, alpha));
 }
 
@@ -160,7 +160,7 @@ Rcpp::XPtr<torch::Tensor> tensor_all_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t
 
 // [[Rcpp::export]]
 bool tensor_allclose_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other,
-                                        double rtol, double atol, bool equal_nan) {
+                       double rtol, double atol, bool equal_nan) {
   return x->allclose(*other, rtol, atol, equal_nan);
 }
 
@@ -188,17 +188,23 @@ Rcpp::XPtr<torch::Tensor> tensor_argmin_ (Rcpp::XPtr<torch::Tensor> x, std::int6
     return make_tensor_ptr(x->argmin(dim, keepdim));
 }
 
-// // [[Rcpp::export]]
-// Rcpp::XPtr<torch::Tensor> tensor_as_strided_ (Rcpp::XPtr<torch::Tensor> x,
-//                                           Rcpp::IntegerVector size,
-//                                           Rcpp::IntegerVector stride,
-//                                           int64_t storage_offset) {
-//
-//   if (storage_offset < 0)
-//     return make_tensor_ptr(x->as_strided(size, stride));
-//   else
-//     return make_tensor_ptr(x->as_strided(size, stride, storage_offset));
-// }
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_as_strided_ (Rcpp::XPtr<torch::Tensor> x,
+                                              Rcpp::IntegerVector size,
+                                              Rcpp::IntegerVector stride,
+                                              Rcpp::Nullable<Rcpp::IntegerVector> storage_offset
+) {
+
+  torch::IntList size2 = Rcpp::as<std::vector<int64_t>>(size);
+  torch::IntList stride2 = Rcpp::as<std::vector<int64_t>>(stride);
+
+  if (storage_offset.isNull())
+    return make_tensor_ptr(x->as_strided(size2, stride2));
+  else {
+    int64_t storage_offset2 = Rcpp::as<int64_t>(storage_offset);
+    return make_tensor_ptr(x->as_strided(size2, stride2, storage_offset2));
+  }
+}
 
 // [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {

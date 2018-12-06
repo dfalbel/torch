@@ -261,6 +261,20 @@ test_that("argmin works", {
 
 })
 
+test_that("as_strided works", {
+  # TODO better testint as_strided - undocument in the python side too.
+  l <- array(1:6000, dim = c(10, 20, 30))
+  x <- tensor(l)
+
+  k <- as_strided(x, 0, 2)
+
+  expect_identical(class(k)[1], "tensor")
+
+  k <- as_strided(x, 0, 2, 1)
+
+  expect_identical(class(k)[1], "tensor")
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

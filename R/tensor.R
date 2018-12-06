@@ -207,3 +207,8 @@ argmin.tensor <- function(x, dim = -1, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$argmin(dim, keepdim)
 }
+
+#' @export
+as_strided.tensor <- function(x, size, stride, storage_offset = NULL) {
+  x$as_strided(size, stride, storage_offset)
+}
