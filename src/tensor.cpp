@@ -25,10 +25,7 @@ Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (SEXP x, std::vector<int64_t> dim,
   if (RTYPE == LGLSXP)
     tensor = tensor.to(torch::kByte);
 
-  auto * ten = new torch::Tensor(tensor);
-  auto ptr = Rcpp::XPtr<torch::Tensor>(ten);
-
-  return ptr;
+  return make_tensor_ptr(tensor);
 };
 
 
