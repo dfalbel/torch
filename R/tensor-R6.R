@@ -140,9 +140,11 @@
     },
 
     bernoulli = function(p = NULL) {
-      `torch::Tensor`$dispatch(
-        tensor_bernoulli_(self$pointer, p)
-      )
+      `torch::Tensor`$dispatch(tensor_bernoulli_(self$pointer, p))
+    },
+
+    mm = function(mat2) {
+      `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },
 
     to_string = function () {

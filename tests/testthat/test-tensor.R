@@ -337,6 +337,18 @@ test_that("bernoulli works", {
   expect_equal(sum(as.array(bernoulli(x))), 100)
 })
 
+test_that("mm works", {
+  x <- matrix(runif(10), ncol = 5)
+  y <- matrix(runif(10), nrow = 5)
+
+  res_t <- as.array(tensor(x)$mm(tensor(y)))
+  res_r <- x %*% y
+
+  expect_equal(res_t, res_r)
+
+  res_t <- as.array(mm(tensor(x), tensor(y)))
+  expect_equal(res_t, res_r)
+})
 
 context("numeric tensors")
 

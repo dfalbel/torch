@@ -129,6 +129,16 @@ bernoulli <- function(x, ...) {
 
 #' @export
 bernoulli.default <- function(y, x) {
-  base::bernoulli(y, x)
+  generic_default(x)
+}
+
+#' @export
+mm <- function(x, ...) {
+  UseMethod("mm", x)
+}
+
+#' @export
+mm.default <- function(x) {
+  generic_default(x)
 }
 

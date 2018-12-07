@@ -331,3 +331,19 @@ baddbmm.tensor <- function(x, batch1, batch2, beta = 1, alpha = 1) {
 bernoulli.tensor <- function(x, p = NULL) {
   x$bernoulli(p)
 }
+
+#' matrix multiplication
+#'
+#' Performs matrix multiplication for 2 tensors.
+#'
+#' @param x tensor object
+#' @param mat2 second tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(runif(10), ncol = 5))
+#' y <- tensor(matrix(runif(10), nrow = 5))
+#' mm(x, y)
+#' @export
+mm.tensor <- function(x, mat2) {
+  x$mm(mat2)
+}

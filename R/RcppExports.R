@@ -105,3 +105,7 @@ tensor_bernoulli_ <- function(x, p) {
     .Call('_torch_tensor_bernoulli_', PACKAGE = 'torch', x, p)
 }
 
+tensor_mm_ <- function(x, mat2) {
+    .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
+}
+

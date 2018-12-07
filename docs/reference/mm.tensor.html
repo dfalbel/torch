@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • torch</title>
+<title>matrix multiplication — mm.tensor • torch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="matrix multiplication — mm.tensor" />
+
+<meta property="og:description" content="Performs matrix multiplication for 2 tensors." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -94,135 +97,52 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>matrix multiplication</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
+    <div class="hidden name"><code>mm.tensor.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Performs matrix multiplication for 2 tensors.</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-tensor-creation" class="hasAnchor"><a href="#section-tensor-creation" class="anchor"></a>Tensor creation</h2>
-          <p class="section-desc"><p>Functions used to create new tensors</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="tensor.html">tensor()</a></code> </p>
-        </td>
-        <td><p>Creates a torch tensor.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tensor_from_r.html">tensor_from_r()</a></code> </p>
-        </td>
-        <td><p>Create torch Tensor from R object</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-tensor-methods" class="hasAnchor"><a href="#section-tensor-methods" class="anchor"></a>Tensor methods</h2>
-          <p class="section-desc"><p>s3 methods for tensors</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="all.tensor.html">all(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>all</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="allclose.tensor.html">allclose(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>allclose</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="any.tensor.html">any(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>any</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="argmax.tensor.html">argmax(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>argmax</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="argmin.tensor.html">argmin(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>argmin</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as.array.tensor.html">as.array(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Tensor casting</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_strided.tensor.html">as_strided(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>as_strided</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="asin.tensor.html">asin(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>asin</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="atan.tensor.html">atan(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>atan</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="atan2.tensor.html">atan2(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>atan2</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="baddbmm.tensor.html">baddbmm(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>baddbmm</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="bernoulli.tensor.html">bernoulli(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>bernoulli</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mm.tensor.html">mm(<i>&lt;tensor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>matrix multiplication</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='co'># S3 method for tensor</span>
+<span class='fu'>mm</span>(<span class='no'>x</span>, <span class='no'>mat2</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>tensor object</p></td>
+    </tr>
+    <tr>
+      <th>mat2</th>
+      <td><p>second tensor object</p></td>
+    </tr>
     </table>
-  </div>
+    
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>10</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>5</span>))
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>10</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>5</span>))
+<span class='fu'>mm</span>(<span class='no'>x</span>, <span class='no'>y</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'>tensor</span><span> 
+#&gt;  0.6303  1.1671
+#&gt;  1.1768  1.1226
+#&gt; [ Variable[CPUDoubleType]{2,2} ]</div></span></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-tensor-creation">Tensor creation</a></li>
-      <li><a href="#section-tensor-methods">Tensor methods</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+            
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 
