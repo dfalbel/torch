@@ -112,3 +112,13 @@ atan2.default <- function(y, x) {
   base::atan2(y, x)
 }
 
+#' @export
+baddbmm <- function(x, ...) {
+  UseMethod("baddbmm", x)
+}
+
+#' @export
+baddbmm.default <- function(y, x) {
+  base::baddbmm(y, x)
+}
+

@@ -298,3 +298,9 @@ void tensor_backward_ (Rcpp::XPtr<torch::Tensor> x,
 
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_baddbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
+                                           Rcpp::XPtr<torch::Tensor> batch2, double beta, double alpha) {
+  return make_tensor_ptr(x->baddbmm(*batch1, *batch2, beta, alpha));
+}
+

@@ -133,6 +133,12 @@
       tensor_backward_(self$pointer, gradient$pointer, keep_graph, create_graph)
     },
 
+    baddbmm = function(batch1, batch2, beta = 1, alpha = 1) {
+      `torch::Tensor`$dispatch(
+        tensor_baddbmm_(self$pointer, batch1$pointer, batch2$pointer, beta, alpha)
+      )
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

@@ -316,6 +316,16 @@ test_that("backward works", {
   expect_silent(x$backward())
 })
 
+test_that("baddbmm works", {
+
+  x <- tensor(array(runif(45), dim = c(3, 3, 5)))
+  batch1 <- tensor(array(runif(36), dim = c(3, 3, 4)))
+  batch2 <- tensor(array(runif(60), dim = c(3, 4, 5)))
+
+  expect_silent(y <- baddbmm(x, batch1, batch2))
+  expect_equal(class(y)[1], "tensor")
+})
+
 
 context("numeric tensors")
 

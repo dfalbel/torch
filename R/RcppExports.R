@@ -97,3 +97,7 @@ tensor_backward_ <- function(x, gradient, keep_graph, create_graph) {
     invisible(.Call('_torch_tensor_backward_', PACKAGE = 'torch', x, gradient, keep_graph, create_graph))
 }
 
+tensor_baddbmm_ <- function(x, batch1, batch2, beta, alpha) {
+    .Call('_torch_tensor_baddbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
+}
+

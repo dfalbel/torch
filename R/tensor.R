@@ -294,3 +294,24 @@ atan.tensor <- function(x) {
 atan2.tensor <- function(x, other) {
   x$atan2(other)
 }
+
+#' baddbmm
+#'
+#' Performs a batch matrix-matrix product of matrices in batch1 and batch2.
+#' x is added to the final result.
+#'
+#' @param x tensor object
+#' @param batch1 the first batch of matrices to be multiplied
+#' @param batch2 the second batch of matrices to be multiplied
+#' @param beta  multiplier for x (β)
+#' @param alpha multiplier for batch1 * batch2 (α)
+#'
+#' @examples
+#' x <- tensor(array(runif(45), dim = c(3, 3, 5)))
+#' batch1 <- tensor(array(runif(36), dim = c(3, 3, 4)))
+#' batch2 <- tensor(array(runif(60), dim = c(3, 4, 5)))
+#' baddbmm(x, batch1, batch2)
+#' @export
+baddbmm.tensor <- function(x, batch1, batch2, beta = 1, alpha = 1) {
+  x$baddbmm(batch1, batch2, beta, alpha)
+}
