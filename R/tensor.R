@@ -315,3 +315,19 @@ atan2.tensor <- function(x, other) {
 baddbmm.tensor <- function(x, batch1, batch2, beta = 1, alpha = 1) {
   x$baddbmm(batch1, batch2, beta, alpha)
 }
+
+#' bernoulli
+#'
+#' @param x tensor object
+#' @param p probability (if null uses tensor values)
+#'
+#' @examples
+#' x <- tensor(runif(10))
+#' bernoulli(x)
+#'
+#' x <- tensor(rep(0, 10))
+#' bernoulli(x)
+#' @export
+bernoulli.tensor <- function(x, p = NULL) {
+  x$bernoulli(p)
+}

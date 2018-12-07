@@ -101,3 +101,7 @@ tensor_baddbmm_ <- function(x, batch1, batch2, beta, alpha) {
     .Call('_torch_tensor_baddbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
 }
 
+tensor_bernoulli_ <- function(x, p) {
+    .Call('_torch_tensor_bernoulli_', PACKAGE = 'torch', x, p)
+}
+

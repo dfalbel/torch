@@ -122,3 +122,13 @@ baddbmm.default <- function(y, x) {
   base::baddbmm(y, x)
 }
 
+#' @export
+bernoulli <- function(x, ...) {
+  UseMethod("bernoulli", x)
+}
+
+#' @export
+bernoulli.default <- function(y, x) {
+  base::bernoulli(y, x)
+}
+

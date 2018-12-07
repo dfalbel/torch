@@ -139,6 +139,12 @@
       )
     },
 
+    bernoulli = function(p = NULL) {
+      `torch::Tensor`$dispatch(
+        tensor_bernoulli_(self$pointer, p)
+      )
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

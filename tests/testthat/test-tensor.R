@@ -326,6 +326,17 @@ test_that("baddbmm works", {
   expect_equal(class(y)[1], "tensor")
 })
 
+test_that("bernoulli works", {
+  x <- tensor(runif(10))
+  expect_silent(bernoulli(x))
+
+  x <- tensor(rep(0, 100))
+  expect_equal(sum(as.array(bernoulli(x))), 0)
+
+  x <- tensor(rep(1, 100))
+  expect_equal(sum(as.array(bernoulli(x))), 100)
+})
+
 
 context("numeric tensors")
 

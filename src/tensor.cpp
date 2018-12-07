@@ -304,3 +304,13 @@ Rcpp::XPtr<torch::Tensor> tensor_baddbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XP
   return make_tensor_ptr(x->baddbmm(*batch1, *batch2, beta, alpha));
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_bernoulli_ (Rcpp::XPtr<torch::Tensor> x,
+                                             Rcpp::Nullable<Rcpp::NumericVector> p) {
+ if (p.isNull()) {
+   return make_tensor_ptr(x->bernoulli());
+ } else {
+   double p2 = Rcpp::as<double>(p.get());
+   return make_tensor_ptr(x->bernoulli(p2));
+ }
+}
