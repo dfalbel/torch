@@ -90,15 +90,33 @@
 <a class="sourceLine" id="cb2-9" data-line-number="9">y</a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; tensor </span></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; (1,.,.) = </span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   0.4292  0.9380</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;   0.6973  0.1836</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   0.5969  0.5765</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;   0.5677  0.2240</span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; (2,.,.) = </span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;   0.4764  0.1614</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;   0.5314  0.4512</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;   0.7816  0.7833</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;   0.5604  0.8798</span></a>
 <a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; [ Variable[CPUDoubleType]{2,2,2} ]</span></a>
 <a class="sourceLine" id="cb2-19" data-line-number="19"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/identical">identical</a></span>(x, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">as.array</a></span>(y))</a>
 <a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
+</div>
+<div id="simple-autograd-example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#simple-autograd-example" class="anchor"></a>Simple Autograd Example</h2>
+<p>Now let’s look at the most important feature of torch.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">matrix</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(<span class="dv">100</span>), <span class="dt">nrow =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">y &lt;-<span class="st"> </span><span class="dv">8</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>x[,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">5</span><span class="op">*</span>x[,<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">x_t &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(x)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">y_t &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(y)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">w &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">matrix</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">2</span>), <span class="dt">nrow =</span> <span class="dv">2</span>), <span class="dt">requires_grad =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">b &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(<span class="dv">0</span>, <span class="dt">requires_grad =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">y_hat &lt;-<span class="st"> </span><span class="kw">mm</span>(x_t, w) <span class="op">+</span><span class="st"> </span>b</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">loss &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(y_hat <span class="op">+</span><span class="st"> </span>y_t))</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">loss<span class="op">$</span><span class="kw">backward</span>()</a></code></pre></div>
 </div>
 </div>
   </div>

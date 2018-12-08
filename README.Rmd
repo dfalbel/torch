@@ -36,3 +36,24 @@ y <- tensor(x)
 y
 identical(x, as.array(y))
 ```
+
+## Simple Autograd Example
+
+Now let's look at the most important feature of torch. 
+
+```{r}
+x <- matrix(runif(100), nrow = 50)
+y <- 8 + 2*x[,1] + 5*x[,2]
+
+x_t <- tensor(x)
+y_t <- tensor(y)
+
+w <- tensor(matrix(rnorm(2), nrow = 2), requires_grad = TRUE)
+b <- tensor(0, requires_grad = TRUE)
+
+y_hat <- mm(x_t, w) + b
+
+loss <- sum(abs(y_hat + y_t))
+loss$backward()
+```
+
