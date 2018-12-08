@@ -334,5 +334,9 @@ Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
   Rcpp::stop("Not yet implemented");
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->t());
+}
 
 

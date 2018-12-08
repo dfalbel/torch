@@ -358,6 +358,18 @@ test_that("sum works", {
   expect_equal(as.array(sum(tensor(x))), sum(x))
 })
 
+test_that("t works", {
+  x <- matrix(runif(6), ncol = 3)
+
+  expect_equal(as.array(t(tensor(x))), t(x))
+
+  x <- matrix(1:6, ncol = 3)
+
+  expect_equal(as.array(t(tensor(x))), t(x))
+
+  expect_error(t(tensor(array(1:12, dim = c(2,2,3)))))
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

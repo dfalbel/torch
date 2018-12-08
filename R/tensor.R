@@ -362,3 +362,15 @@ mm.tensor <- function(x, mat2) {
 sum.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
   x$sum(dim, keepdim, dtype)
 }
+
+#' transpose
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(runif(6), nrow = 3))
+#' t(x)
+#' @export
+t.tensor <- function(x) {
+  x$t()
+}

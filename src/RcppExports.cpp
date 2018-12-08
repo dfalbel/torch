@@ -368,6 +368,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_t_
+Rcpp::XPtr<torch::Tensor> tensor_t_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_t_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_t_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 3},
@@ -398,6 +409,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_bernoulli_", (DL_FUNC) &_torch_tensor_bernoulli_, 2},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},
     {"_torch_tensor_sum_", (DL_FUNC) &_torch_tensor_sum_, 4},
+    {"_torch_tensor_t_", (DL_FUNC) &_torch_tensor_t_, 1},
     {NULL, NULL, 0}
 };
 

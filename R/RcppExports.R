@@ -113,3 +113,7 @@ tensor_sum_ <- function(x, dim, keepdim, dtype) {
     .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim, dtype)
 }
 
+tensor_t_ <- function(x) {
+    .Call('_torch_tensor_t_', PACKAGE = 'torch', x)
+}
+
