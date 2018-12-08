@@ -320,3 +320,19 @@ Rcpp::XPtr<torch::Tensor> tensor_mm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<to
   return make_tensor_ptr(x->mm(*mat2));
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
+                                       Rcpp::Nullable<Rcpp::IntegerVector> dim,
+                                       Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
+                                       Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+
+  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+    return make_tensor_ptr(x->sum());
+  }
+
+  // TODO handle other sum arguments.
+  Rcpp::stop("Not yet implemented");
+}
+
+
+

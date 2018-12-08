@@ -147,6 +147,10 @@
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },
 
+    sum = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim, dtype))
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     }

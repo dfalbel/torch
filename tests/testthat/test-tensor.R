@@ -350,6 +350,14 @@ test_that("mm works", {
   expect_equal(res_t, res_r)
 })
 
+test_that("sum works", {
+  x <- 1:10
+  expect_equal(as.array(sum(tensor(x))), sum(x))
+
+  x <- runif(100)
+  expect_equal(as.array(sum(tensor(x))), sum(x))
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

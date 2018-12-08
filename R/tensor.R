@@ -347,3 +347,18 @@ bernoulli.tensor <- function(x, p = NULL) {
 mm.tensor <- function(x, mat2) {
   x$mm(mat2)
 }
+
+#' sum
+#'
+#' @param x tensor object
+#' @param dim dimension in which to sum
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(1:10)
+#' sum(x)
+#' @export
+sum.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  x$sum(dim, keepdim, dtype)
+}
