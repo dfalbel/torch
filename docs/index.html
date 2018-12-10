@@ -90,12 +90,12 @@
 <a class="sourceLine" id="cb2-9" data-line-number="9">y</a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; tensor </span></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; (1,.,.) = </span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   0.3505  0.6395</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;   0.5516  0.6471</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   0.6922  0.6060</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;   0.3985  0.4060</span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; (2,.,.) = </span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;   0.6832  0.6674</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;   0.1720  0.8808</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;   0.9418  0.7121</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;   0.5031  0.0934</span></a>
 <a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; [ Variable[CPUDoubleType]{2,2,2} ]</span></a>
 <a class="sourceLine" id="cb2-19" data-line-number="19"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/identical">identical</a></span>(x, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">as.array</a></span>(y))</a>
 <a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; [1] TRUE</span></a></code></pre></div>
@@ -123,6 +123,32 @@
 <a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; tensor </span></a>
 <a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt;  1</span></a>
 <a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; [ Variable[CPUDoubleType]{1} ]</span></a></code></pre></div>
+</div>
+<div id="linear-regression" class="section level2">
+<h2 class="hasAnchor">
+<a href="#linear-regression" class="anchor"></a>Linear Regression</h2>
+<p>Not working yet.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">matrix</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(<span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">y &lt;-<span class="st"> </span><span class="fl">0.2</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span> <span class="op">*</span><span class="st"> </span>x[,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span><span class="fl">0.7</span> <span class="op">*</span><span class="st"> </span>x[,<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">x_t &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(x)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">y_t &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(y)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">w &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">matrix</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">2</span>), <span class="dt">nrow =</span> <span class="dv">2</span>), <span class="dt">requires_grad =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">b &lt;-<span class="st"> </span><span class="kw"><a href="reference/tensor.html">tensor</a></span>(<span class="dv">0</span>, <span class="dt">requires_grad =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>) {</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">  y_hat &lt;-<span class="st"> </span><span class="kw">mm</span>(x_t, w) <span class="op">+</span><span class="st"> </span>b</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">  loss &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/MathFun">abs</a></span>(y_hat<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/t">t</a></span>()<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">sub</a></span>(y_t)))</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">  </a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">  loss<span class="op">$</span><span class="kw">backward</span>()</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">  </a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">  w<span class="op">$</span>data<span class="op">$</span><span class="kw">sub_</span>(<span class="kw"><a href="reference/tensor.html">tensor</a></span>(<span class="fl">0.00001</span>)<span class="op">*</span>w<span class="op">$</span>grad)</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">  b<span class="op">$</span>data<span class="op">$</span><span class="kw">sub_</span>(<span class="kw"><a href="reference/tensor.html">tensor</a></span>(<span class="fl">0.00001</span>)<span class="op">*</span>b<span class="op">$</span>grad)</a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">}</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(w)</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(b)</a></code></pre></div>
 </div>
 </div>
   </div>

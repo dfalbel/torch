@@ -105,6 +105,10 @@ tensor_bernoulli_ <- function(x, p) {
     .Call('_torch_tensor_bernoulli_', PACKAGE = 'torch', x, p)
 }
 
+tensor_data_ <- function(x) {
+    .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
+}
+
 tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }
