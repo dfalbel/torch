@@ -85,6 +85,16 @@ acos.tensor <- function(x) {
   x$acos()
 }
 
+
+#' elementwise addition
+#'
+#' @param x tensor object
+#' @param y tensor object
+#'
+#' @examples
+#' x <- tensor(1)
+#' y <- tensor(2)
+#' x + y
 #' @export
 `+.tensor` <- function(x, y) {
   x$add(y)
