@@ -113,12 +113,20 @@ tensor_mm_ <- function(x, mat2) {
     .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
 }
 
-tensor_sum_ <- function(x, dim, keepdim, dtype) {
-    .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim, dtype)
-}
-
 tensor_mul_ <- function(x, other) {
     .Call('_torch_tensor_mul_', PACKAGE = 'torch', x, other)
+}
+
+tensor_sub_ <- function(x, other, alpha = 1) {
+    .Call('_torch_tensor_sub_', PACKAGE = 'torch', x, other, alpha)
+}
+
+tensor_sub__ <- function(x, other, alpha = 1) {
+    .Call('_torch_tensor_sub__', PACKAGE = 'torch', x, other, alpha)
+}
+
+tensor_sum_ <- function(x, dim, keepdim, dtype) {
+    .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim, dtype)
 }
 
 tensor_t_ <- function(x) {

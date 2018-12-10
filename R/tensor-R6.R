@@ -159,6 +159,15 @@
       `torch::Tensor`$dispatch(tensor_mul_(self$pointer, other$pointer))
     },
 
+    sub = function(other, alpha = 1) {
+      `torch::Tensor`$dispatch(tensor_sub_(self$pointer, other$pointer, alpha))
+    },
+
+    sub_ = function(other, alpha = 1) {
+      tensor_sub__(self$pointer, other$pointer, alpha)
+      invisible(NULL)
+    },
+
     sum = function(dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim, dtype))
     },

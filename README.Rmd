@@ -54,3 +54,28 @@ w$grad
 b$grad
 ```
 
+## Linear Regression
+
+Not working yet.
+
+```{r, eval=FALSE}
+x <- matrix(runif(100), ncol = 2)
+y <- 0.4 + 0.1 * x[,1] + 0.7 * x[,2]
+
+x_t <- tensor(x)
+y_t <- tensor(y)
+
+w <- tensor(matrix(rnorm(2), nrow = 2), requires_grad = TRUE)
+b <- tensor(0, requires_grad = TRUE)
+
+for (i in 1:100) {
+  y_hat <- mm(x_t, w) + b
+  loss <- sum(abs(y_t$sub(y_hat)))
+  loss$backward()
+  
+  w <- tensor(w$sub(tensor(0.001)*w$grad), requires_grad = TRUE)
+  b <- tensor(b$sub(tensor(0.01)*b$grad), requires_grad = TRUE)
+  print(loss)
+}
+```
+

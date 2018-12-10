@@ -326,6 +326,28 @@ Rcpp::XPtr<torch::Tensor> tensor_mm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<to
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_mul_ (Rcpp::XPtr<torch::Tensor> x,
+                                       Rcpp::XPtr<torch::Tensor> other) {
+  // TODO handle scalar multiplication
+  return make_tensor_ptr(x->mul(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sub_ (Rcpp::XPtr<torch::Tensor> x,
+                                       Rcpp::XPtr<torch::Tensor> other,
+                                       double alpha = 1) {
+  return make_tensor_ptr(x->sub(*other, alpha));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sub__ (Rcpp::XPtr<torch::Tensor> x,
+                                        Rcpp::XPtr<torch::Tensor> other,
+                                        double alpha = 1) {
+  x->sub_(*other, alpha);
+  return x;
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
                                        Rcpp::Nullable<Rcpp::IntegerVector> dim,
                                        Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
@@ -339,12 +361,6 @@ Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
   Rcpp::stop("Not yet implemented");
 }
 
-// [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_mul_ (Rcpp::XPtr<torch::Tensor> x,
-                                       Rcpp::XPtr<torch::Tensor> other) {
-  // TODO handle scalar multiplication
-  return make_tensor_ptr(x->mul(*other));
-}
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {

@@ -32,12 +32,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.0888  0.1459
-#>   0.2982  0.6415
+#>   0.4058  0.6824
+#>   0.5909  0.9868
 #> 
 #> (2,.,.) = 
-#>   0.7249  0.6107
-#>   0.6594  0.6281
+#>   0.8365  0.4097
+#>   0.7636  0.6616
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -68,4 +68,29 @@ b$grad
 #> tensor 
 #>  1
 #> [ Variable[CPUDoubleType]{1} ]
+```
+
+## Linear Regression
+
+Not working yet.
+
+``` r
+x <- matrix(runif(100), ncol = 2)
+y <- 0.4 + 0.1 * x[,1] + 0.7 * x[,2]
+
+x_t <- tensor(x)
+y_t <- tensor(y)
+
+w <- tensor(matrix(rnorm(2), nrow = 2), requires_grad = TRUE)
+b <- tensor(0, requires_grad = TRUE)
+
+for (i in 1:100) {
+  y_hat <- mm(x_t, w) + b
+  loss <- sum(abs(y_t$sub(y_hat)))
+  loss$backward()
+  
+  w <- tensor(w$sub(tensor(0.001)*w$grad), requires_grad = TRUE)
+  b <- tensor(b$sub(tensor(0.01)*b$grad), requires_grad = TRUE)
+  print(loss)
+}
 ```
