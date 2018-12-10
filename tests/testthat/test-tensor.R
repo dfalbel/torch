@@ -350,6 +350,13 @@ test_that("mm works", {
   expect_equal(res_t, res_r)
 })
 
+test_that("mul works", {
+  x <- tensor(2)
+  y <- tensor(3)
+
+  expect_equal(as.array(x*y), 6)
+})
+
 test_that("sum works", {
   x <- 1:10
   expect_equal(as.array(sum(tensor(x))), sum(x))

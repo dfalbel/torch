@@ -32,12 +32,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.6014  0.3300
-#>   0.3268  0.2070
+#>   0.3516  0.3185
+#>   0.4159  0.4747
 #> 
 #> (2,.,.) = 
-#>   0.5046  0.3067
-#>   0.3022  0.1415
+#>   0.4630  0.9065
+#>   0.9090  0.6667
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -48,17 +48,14 @@ identical(x, as.array(y))
 Now let’s look at the most important feature of torch.
 
 ``` r
-x <- matrix(runif(100), nrow = 50)
-y <- 8 + 2*x[,1] + 5*x[,2]
+x <- tensor(1, requires_grad = TRUE)
+w <- tensor(2, requires_grad = TRUE)
+b <- tensor(3, requires_grad = TRUE)
 
-x_t <- tensor(x)
-y_t <- tensor(y)
+y <- w * x + b
+y$backward()
 
-w <- tensor(matrix(rnorm(2), nrow = 2), requires_grad = TRUE)
-b <- tensor(0, requires_grad = TRUE)
-
-y_hat <- mm(x_t, w) + b
-
-loss <- sum(abs(y_hat + y_t))
-loss$backward()
+x$grad
+w$grad
+b$grad
 ```

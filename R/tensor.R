@@ -348,6 +348,21 @@ mm.tensor <- function(x, mat2) {
   x$mm(mat2)
 }
 
+#' elementwise multiplciation
+#'
+#' @param x tensor object
+#' @param other tensor object
+#'
+#' @examples
+#' x <- tensor(2)
+#' y <- tensor(3)
+#' x * y
+#' @export
+`*.tensor` <- function(x, y) {
+  x$mul(y)
+}
+
+
 #' sum
 #'
 #' @param x tensor object
@@ -374,3 +389,4 @@ sum.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALS
 t.tensor <- function(x) {
   x$t()
 }
+

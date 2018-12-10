@@ -147,6 +147,10 @@
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },
 
+    mul = function(other) {
+      `torch::Tensor`$dispatch(tensor_mul_(self$pointer, other$pointer))
+    },
+
     sum = function(dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim, dtype))
     },

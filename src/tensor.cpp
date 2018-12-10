@@ -335,8 +335,18 @@ Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_mul_ (Rcpp::XPtr<torch::Tensor> x,
+                                       Rcpp::XPtr<torch::Tensor> other) {
+  // TODO handle scalar multiplication
+  return make_tensor_ptr(x->mul(*other));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->t());
 }
+
+
+
 
 
