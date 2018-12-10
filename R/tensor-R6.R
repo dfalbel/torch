@@ -12,6 +12,14 @@
       } else {
         stop("Pointer is read-only!")
       }
+    },
+
+    grad = function(x) {
+      if (missing(x)) {
+        `torch::Tensor`$dispatch(tensor_grad_(self$pointer))
+      } else {
+        stop("Grad is read-only!")
+      }
     }
   ),
 

@@ -32,12 +32,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.3516  0.3185
-#>   0.4159  0.4747
+#>   0.0888  0.1459
+#>   0.2982  0.6415
 #> 
 #> (2,.,.) = 
-#>   0.4630  0.9065
-#>   0.9090  0.6667
+#>   0.7249  0.6107
+#>   0.6594  0.6281
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -45,7 +45,8 @@ identical(x, as.array(y))
 
 ## Simple Autograd Example
 
-Now let’s look at the most important feature of torch.
+In the following snippet we let torch, using the autograd feature,
+calculate the derivatives:
 
 ``` r
 x <- tensor(1, requires_grad = TRUE)
@@ -56,6 +57,15 @@ y <- w * x + b
 y$backward()
 
 x$grad
+#> tensor 
+#>  2
+#> [ Variable[CPUDoubleType]{1} ]
 w$grad
+#> tensor 
+#>  1
+#> [ Variable[CPUDoubleType]{1} ]
 b$grad
+#> tensor 
+#>  1
+#> [ Variable[CPUDoubleType]{1} ]
 ```

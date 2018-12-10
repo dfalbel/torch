@@ -39,10 +39,9 @@ identical(x, as.array(y))
 
 ## Simple Autograd Example
 
-Now let's look at the most important feature of torch. 
+In the following snippet we let torch, using the autograd feature, calculate the derivatives:
 
-
-```{r, eval = FALSE}
+```{r}
 x <- tensor(1, requires_grad = TRUE)
 w <- tensor(2, requires_grad = TRUE)
 b <- tensor(3, requires_grad = TRUE)

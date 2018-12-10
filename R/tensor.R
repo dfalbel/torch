@@ -389,4 +389,3 @@ sum.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALS
 t.tensor <- function(x) {
   x$t()
 }
-
