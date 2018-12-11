@@ -10,5 +10,6 @@ warnings_are_errors: false
 before_install:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip; fi
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install mkl-dnn; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/; fi
