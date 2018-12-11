@@ -1,0 +1,26 @@
+#!/bin/bash
+# Shell config script
+
+CC=`${R_HOME}/bin/R CMD config CC`
+CFLAGS=`${R_HOME}/bin/R CMD config CFLAGS`
+CPPFLAGS=`${R_HOME}/bin/R CMD config CPPFLAGS`
+
+PKG_CFLAGS="-I/usr/local/lib/libtorch/include -I/usr/local/lib/libtorch/include/torch/csrc/api/include"
+
+PKG_LIBS="-L/usr/local/lib/libtorch/lib -Wl,-rpath,/usr/local/lib/libtorch/lib -ltorch"
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  echo "---------Linux detected----------------"
+  PKG_LIBS="$PKG_LIBS /usr/local/lib/libtorch/lib/libtorch.so /usr/local/lib/libtorch/lib/libcaffe2.so /usr/local/lib/libtorch/lib/libc10.so"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "---------MacOS detected----------------"
+  PKG_LIBS="$PKG_LIBS /usr/local/lib/libtorch/lib/libtorch.dylib /usr/local/lib/libtorch/lib/libcaffe2.dylib /usr/local/lib/libtorch/lib/libc10.dylib"
+fi
+
+echo "Using PKG_LIBS=$PKG_LIBS"
+echo "Using PKG_CFLAGS=$PKG_CFLAGS"
+
+# Write to Makevars
+sed -e "s|@cflags@|$PKG_CFLAGS|" -e "s|@libs@|$PKG_LIBS|" src/Makevars.in > src/Makevars
+
+exit 0

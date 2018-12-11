@@ -1,0 +1,4 @@
+CXX=clang++
+PKG_CPPFLAGS=@cflags@
+PKG_LIBS=@libs@
+CXX_STD=CXX11
