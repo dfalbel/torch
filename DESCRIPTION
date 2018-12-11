@@ -16,7 +16,9 @@ LinkingTo:
     Rcpp
 Imports:
     Rcpp,
-    R6
+    R6,
+    crayon,
+    glue
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Suggests:
