@@ -6,6 +6,8 @@
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build
 status](https://travis-ci.org/dfalbel/torch.svg?branch=master)](https://travis-ci.org/dfalbel/torch)
+[![Coverage
+status](https://codecov.io/gh/dfalbel/torch/branch/master/graph/badge.svg)](https://codecov.io/github/dfalbel/torch?branch=master)
 
 torch from R\!
 
@@ -64,12 +66,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.9806  0.2364
-#>   0.7697  0.1281
+#>   0.6676  0.2499
+#>   0.9792  0.9177
 #> 
 #> (2,.,.) = 
-#>   0.7603  0.1628
-#>   0.4086  0.1868
+#>   0.6831  0.1790
+#>   0.3663  0.0049
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -137,8 +139,8 @@ for (i in 1:100) {
 
 print(as.array(w))
 #>            [,1]
-#> [1,]  0.4974695
-#> [2,] -0.7035591
+#> [1,]  0.5009569
+#> [2,] -0.6992445
 print(as.array(b))
-#> [1] 0.1033434
+#> [1] 0.09903292
 ```
