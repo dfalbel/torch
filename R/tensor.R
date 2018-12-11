@@ -335,8 +335,8 @@ atan2.tensor <- function(x, other) {
 #' @param x tensor object
 #' @param batch1 the first batch of matrices to be multiplied
 #' @param batch2 the second batch of matrices to be multiplied
-#' @param beta  multiplier for x (β)
-#' @param alpha multiplier for batch1 * batch2 (α)
+#' @param beta  multiplier for x
+#' @param alpha multiplier for batch1 * batch2
 #'
 #' @examples
 #' x <- tensor(array(runif(45), dim = c(3, 3, 5)))

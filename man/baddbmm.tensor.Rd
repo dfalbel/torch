@@ -13,9 +13,9 @@
 
 \item{batch2}{the second batch of matrices to be multiplied}
 
-\item{beta}{multiplier for x (β)}
+\item{beta}{multiplier for x}
 
-\item{alpha}{multiplier for batch1 * batch2 (α)}
+\item{alpha}{multiplier for batch1 * batch2}
 }
 \description{
 Performs a batch matrix-matrix product of matrices in batch1 and batch2.
