@@ -20,6 +20,6 @@
 mean
 }
 \examples{
-x <- tensor(1:10)
+x <- tensor(runif(100))
 mean(x)
 }

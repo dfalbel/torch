@@ -387,7 +387,7 @@ bincount.tensor <- function(x, weights = NULL, minlength = 0) {
 #' @param dtype optionaly cast the sum result
 #'
 #' @examples
-#' x <- tensor(1:10)
+#' x <- tensor(runif(100))
 #' mean(x)
 #' @export
 mean.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
