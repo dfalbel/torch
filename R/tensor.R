@@ -379,6 +379,20 @@ bincount.tensor <- function(x, weights = NULL, minlength = 0) {
   x$bincount(weights, minlength)
 }
 
+#' bmm
+#'
+#' Performs a batch matrix-matrix product of matrices stored in batch1 and
+#' batch2.
+#'
+#' @examples
+#' x <- tensor(array(runif(120), dim = c(10, 3, 4)))
+#' y <- tensor(array(runif(200), dim = c(10, 4, 5)))
+#' bmm(x, y)
+#' @export
+bmm.tensor <- function(x, mat2) {
+  x$bmm(mat2)
+}
+
 #' mean
 #'
 #' @param x tensor object

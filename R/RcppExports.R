@@ -109,6 +109,10 @@ tensor_bincount_ <- function(x, weights, minlength) {
     .Call('_torch_tensor_bincount_', PACKAGE = 'torch', x, weights, minlength)
 }
 
+tensor_bmm_ <- function(x, mat2) {
+    .Call('_torch_tensor_bmm_', PACKAGE = 'torch', x, mat2)
+}
+
 tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }

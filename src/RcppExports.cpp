@@ -355,6 +355,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_bmm_
+Rcpp::XPtr<torch::Tensor> tensor_bmm_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat2);
+RcppExport SEXP _torch_tensor_bmm_(SEXP xSEXP, SEXP mat2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type mat2(mat2SEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_bmm_(x, mat2));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_data_
 Rcpp::XPtr<torch::Tensor> tensor_data_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_data_(SEXP xSEXP) {
@@ -518,6 +530,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_baddbmm_", (DL_FUNC) &_torch_tensor_baddbmm_, 5},
     {"_torch_tensor_bernoulli_", (DL_FUNC) &_torch_tensor_bernoulli_, 2},
     {"_torch_tensor_bincount_", (DL_FUNC) &_torch_tensor_bincount_, 3},
+    {"_torch_tensor_bmm_", (DL_FUNC) &_torch_tensor_bmm_, 2},
     {"_torch_tensor_data_", (DL_FUNC) &_torch_tensor_data_, 1},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},

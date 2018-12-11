@@ -347,6 +347,14 @@ test_that("bincount works", {
   expect_equal(as.array(bincount(tensor(x), tensor(weights))), as.numeric(tapply(weights, x, sum)))
 })
 
+test_that("bmm works", {
+  x <- tensor(array(runif(120), dim = c(10, 3, 4)))
+  y <- tensor(array(runif(200), dim = c(10, 4, 5)))
+  res <- as.array(bmm(x, y))
+
+  expect_equal(dim(res), c(10, 3, 5))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(mean(tensor(x))), mean(x))

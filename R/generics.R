@@ -143,6 +143,16 @@ bincount.default <- function(y, x) {
 }
 
 #' @export
+bmm <- function(x, ...) {
+  UseMethod("bmm", x)
+}
+
+#' @export
+bmm.default <- function(y, x) {
+  generic_default(x)
+}
+
+#' @export
 mm <- function(x, ...) {
   UseMethod("mm", x)
 }

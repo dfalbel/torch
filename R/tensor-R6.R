@@ -163,6 +163,10 @@
       `torch::Tensor`$dispatch(tensor_bincount_(self$pointer, weights$pointer, minlength))
     },
 
+    bmm = function(mat2) {
+      `torch::Tensor`$dispatch(tensor_bmm_(self$pointer, mat2$pointer))
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
