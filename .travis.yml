@@ -1,9 +1,14 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
+os:
+  - linux
+  - osx
 sudo: true
 cache: packages
 warnings_are_errors: false
 before_install:
- - wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
- - sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip; fi
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/; fi
