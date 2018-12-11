@@ -32,12 +32,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.6950  0.3185
-#>   0.2154  0.2710
+#>   0.3870  0.4305
+#>   0.2849  0.9949
 #> 
 #> (2,.,.) = 
-#>   0.1312  0.2095
-#>   0.6386  0.0826
+#>   0.9206  0.1636
+#>   0.6921  0.2352
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -80,7 +80,7 @@ tensors in place.
 
 ``` r
 x <- matrix(runif(100), ncol = 2)
-y <- 0.1 + 0.5 * x[,1] - 0.7 * x[,2]
+y <- matrix(0.1 + 0.5 * x[,1] - 0.7 * x[,2], ncol = 1)
 
 x_t <- tensor(x)
 y_t <- tensor(y)
@@ -92,7 +92,7 @@ lr <- tensor(0.5)
 
 for (i in 1:100) {
   y_hat <- mm(x_t, w) + b
-  loss <- mean((y_hat$t()$sub(y_t)$pow(tensor(2))))
+  loss <- mean((y_t - y_hat)^tensor(2))
   
   loss$backward()
   
@@ -105,8 +105,8 @@ for (i in 1:100) {
 
 print(as.array(w))
 #>            [,1]
-#> [1,]  0.5012888
-#> [2,] -0.6986030
+#> [1,]  0.5002669
+#> [2,] -0.7001939
 print(as.array(b))
-#> [1] 0.09858889
+#> [1] 0.0999557
 ```

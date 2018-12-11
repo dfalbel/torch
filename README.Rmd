@@ -64,7 +64,7 @@ place.
 
 ```{r, eval=TRUE}
 x <- matrix(runif(100), ncol = 2)
-y <- 0.1 + 0.5 * x[,1] - 0.7 * x[,2]
+y <- matrix(0.1 + 0.5 * x[,1] - 0.7 * x[,2], ncol = 1)
 
 x_t <- tensor(x)
 y_t <- tensor(y)
@@ -76,7 +76,7 @@ lr <- tensor(0.5)
 
 for (i in 1:100) {
   y_hat <- mm(x_t, w) + b
-  loss <- mean((y_hat$t()$sub(y_t)$pow(tensor(2))))
+  loss <- mean((y_t - y_hat)^tensor(2))
   
   loss$backward()
   
