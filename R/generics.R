@@ -133,6 +133,16 @@ bernoulli.default <- function(y, x) {
 }
 
 #' @export
+bincount <- function(x, ...) {
+  UseMethod("bincount", x)
+}
+
+#' @export
+bincount.default <- function(y, x) {
+  generic_default(x)
+}
+
+#' @export
 mm <- function(x, ...) {
   UseMethod("mm", x)
 }

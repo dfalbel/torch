@@ -337,6 +337,16 @@ test_that("bernoulli works", {
   expect_equal(sum(as.array(bernoulli(x))), 100)
 })
 
+test_that("bincount works", {
+  x <- sample(0:9, 50, replace = TRUE)
+  expect_equal(as.array(bincount(tensor(x))), as.integer(table(x)))
+
+  x <- sample(0:9, 50, replace = TRUE)
+  weights <- runif(50)
+
+  expect_equal(as.array(bincount(tensor(x), tensor(weights))), as.numeric(tapply(weights, x, sum)))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(mean(tensor(x))), mean(x))

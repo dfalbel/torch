@@ -159,6 +159,10 @@
       `torch::Tensor`$dispatch(tensor_bernoulli_(self$pointer, p))
     },
 
+    bincount = function(weights = NULL, minlength = 0) {
+      `torch::Tensor`$dispatch(tensor_bincount_(self$pointer, weights$pointer, minlength))
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

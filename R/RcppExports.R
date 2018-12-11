@@ -105,6 +105,10 @@ tensor_bernoulli_ <- function(x, p) {
     .Call('_torch_tensor_bernoulli_', PACKAGE = 'torch', x, p)
 }
 
+tensor_bincount_ <- function(x, weights, minlength) {
+    .Call('_torch_tensor_bincount_', PACKAGE = 'torch', x, weights, minlength)
+}
+
 tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }

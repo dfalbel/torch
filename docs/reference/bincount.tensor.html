@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>pow — ^.tensor • torch</title>
+<title>bincount — bincount.tensor • torch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="pow — ^.tensor" />
+<meta property="og:title" content="bincount — bincount.tensor" />
 
-<meta property="og:description" content="pow" />
+<meta property="og:description" content="Count the frequency of each value in an array of non-negative ints." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -99,19 +99,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>pow</h1>
+    <h1>bincount</h1>
     <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
-    <div class="hidden name"><code>pow-.tensor.Rd</code></div>
+    <div class="hidden name"><code>bincount.tensor.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>pow</p>
+    <p>Count the frequency of each value in an array of non-negative ints.</p>
     
     </div>
 
-    <pre class="usage"># S3 method for tensor
-^(x, y)</pre>
+    <pre class="usage"><span class='co'># S3 method for tensor</span>
+<span class='fu'>bincount</span>(<span class='no'>x</span>, <span class='kw'>weights</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>minlength</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -121,21 +121,30 @@
       <td><p>tensor object</p></td>
     </tr>
     <tr>
-      <th>y</th>
-      <td><p>exponent (a tensor)</p></td>
+      <th>weights</th>
+      <td><p>optional, weight for each value in the input tensor. Should be of same size as input tensor.</p></td>
+    </tr>
+    <tr>
+      <th>minlength</th>
+      <td><p>optional, minimum number of bins. Should be non-negative.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span>))
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fl'>2</span>)
-<span class='no'>x</span>^<span class='no'>y</span></div><div class='output co'>#&gt; <span style='color: #555555;'>tensor</span><span> 
-#&gt;   1
-#&gt;   4
-#&gt;   9
-#&gt;  16
-#&gt; [ Variable[CPUDoubleType]{4} ]</div></span></pre>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fl'>0</span>:<span class='fl'>9</span>, <span class='fl'>50</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))
+<span class='fu'>bincount</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'>tensor</span><span> 
+#&gt;  7
+#&gt;  5
+#&gt;  4
+#&gt;  4
+#&gt;  7
+#&gt;  1
+#&gt;  8
+#&gt;  7
+#&gt;  2
+#&gt;  5
+#&gt; [ Variable[CPULongType]{10} ]</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

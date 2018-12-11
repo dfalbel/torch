@@ -316,6 +316,18 @@ Rcpp::XPtr<torch::Tensor> tensor_bernoulli_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_bincount_ (Rcpp::XPtr<torch::Tensor> x,
+                                           Rcpp::Nullable<Rcpp::XPtr<torch::Tensor>> weights,
+                                           std::int64_t minlength) {
+
+  if (weights.isNull()) {
+    return make_tensor_ptr(x->bincount({}, minlength));
+  } else {
+    return make_tensor_ptr(x->bincount(*(Rcpp::XPtr<torch::Tensor>(weights.get())), minlength));
+  }
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
   auto out = torch::from_blob(x->data_ptr(), x->sizes(), x->type());
   return make_tensor_ptr(out);

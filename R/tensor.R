@@ -363,6 +363,21 @@ bernoulli.tensor <- function(x, p = NULL) {
   x$bernoulli(p)
 }
 
+#' bincount
+#'
+#' Count the frequency of each value in an array of non-negative ints.
+#'
+#' @param x tensor object
+#' @param weights optional, weight for each value in the input tensor. Should be of same size as input tensor.
+#' @param minlength optional, minimum number of bins. Should be non-negative.
+#' @examples
+#' x <- tensor(sample(0:9, 50, replace = TRUE))
+#' bincount(x)
+#' @export
+bincount.tensor <- function(x, weights = NULL, minlength = 0) {
+  x$bincount(weights, minlength)
+}
+
 #' mean
 #'
 #' @param x tensor object
