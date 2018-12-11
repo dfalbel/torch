@@ -337,6 +337,11 @@ test_that("bernoulli works", {
   expect_equal(sum(as.array(bernoulli(x))), 100)
 })
 
+test_that("mean works", {
+  x <- runif(100)
+  expect_equal(as.array(mean(tensor(x))), mean(x))
+})
+
 test_that("mm works", {
   x <- matrix(runif(10), ncol = 5)
   y <- matrix(runif(10), nrow = 5)
@@ -355,6 +360,21 @@ test_that("mul works", {
   y <- tensor(3)
 
   expect_equal(as.array(x*y), 6)
+})
+
+test_that("pow works", {
+  x <- tensor(2)
+  y <- tensor(3)
+
+  expect_equal(as.array(x^y), 8)
+})
+
+test_that("sub works", {
+  x <- tensor(2)
+  y <- tensor(3)
+
+  expect_equal(as.array(x$sub(y)), -1)
+  expect_equal(as.array(x - y), -1)
 })
 
 test_that("sum works", {

@@ -408,7 +408,7 @@ mm.tensor <- function(x, mat2) {
   x$mul(y)
 }
 
-#' Pow
+#' pow
 #'
 #' @param x tensor object
 #' @param y exponent (a tensor)
@@ -419,6 +419,19 @@ mm.tensor <- function(x, mat2) {
 #' @export
 `^.tensor` <- function(x, y) {
   x$pow(y)
+}
+
+#' substraction
+#'
+#' @param x tensor object
+#' @param y tensor to substract
+#' @examples
+#' x <- tensor(c(1,2,3,4))
+#' y <- tensor(2)
+#' x - y
+#' @export
+`-.tensor` <- function(x, y) {
+  x$sub(y)
 }
 
 #' sum

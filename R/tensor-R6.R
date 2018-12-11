@@ -18,7 +18,7 @@
       if (missing(x)) {
         `torch::Tensor`$dispatch(tensor_data_(self$pointer))
       } else {
-        stop("Grad is read-only!")
+        stop("Data is read-only!")
       }
     },
 
