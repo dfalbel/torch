@@ -18,6 +18,34 @@ Before installing you should [install libtorch](https://pytorch.org/) in
 devtools::install_github("dfalbel/torch")
 ```
 
+### Linux
+
+On Linux the fastest way to get started is to run on
+    `bash`:
+
+    wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
+    sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
+
+You can then install the package with
+
+``` r
+devtools::install_github("dfalbel/torch")
+```
+
+### MacOs
+
+On MacOS the following should just work too. First install libtorch
+with:
+
+    wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip
+    sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/
+
+Finally run:
+
+``` r
+devtools::install_github("dfalbel/torch")
+```
+
 ## Example
 
 Currently this package is only a prrof of concept and you can only
@@ -36,12 +64,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.1887  0.7372
-#>   0.9454  0.9284
+#>   0.9806  0.2364
+#>   0.7697  0.1281
 #> 
 #> (2,.,.) = 
-#>   0.0939  0.8485
-#>   0.1530  0.0569
+#>   0.7603  0.1628
+#>   0.4086  0.1868
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -109,8 +137,8 @@ for (i in 1:100) {
 
 print(as.array(w))
 #>            [,1]
-#> [1,]  0.5010082
-#> [2,] -0.6982465
+#> [1,]  0.4974695
+#> [2,] -0.7035591
 print(as.array(b))
-#> [1] 0.09856333
+#> [1] 0.1033434
 ```

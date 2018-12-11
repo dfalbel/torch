@@ -27,6 +27,36 @@ Before installing you should [install libtorch](https://pytorch.org/) in `usr/lo
 devtools::install_github("dfalbel/torch")
 ```
 
+### Linux
+
+On Linux the fastest way to get started is to run on `bash`:
+
+```
+wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
+sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
+```
+
+You can then install the package with
+
+``` r
+devtools::install_github("dfalbel/torch")
+```
+
+### MacOs
+
+On MacOS the following should just work too. First install libtorch with:
+
+```
+wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip
+sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/
+```
+
+Finally run:
+
+``` r
+devtools::install_github("dfalbel/torch")
+```
+
 ## Example
 
 Currently this package is only a prrof of concept and you can only create a Torch 
