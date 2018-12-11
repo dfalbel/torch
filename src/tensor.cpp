@@ -118,23 +118,21 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
 
   torch::Tensor ten = *x;
 
-  switch (ten.dtype()) {
-  case torch::kInt:
+  if (ten.dtype() == torch::kInt) {
     return as_array_tensor_impl_<INTSXP, int32_t>(x);
-  case torch::kDouble:
+  } else if (ten.dtype() == torch::kDouble) {
     return as_array_tensor_impl_<REALSXP, double>(x);
-  case torch::kByte:
+  } else if (ten.dtype() == torch::kByte) {
     // TODO:
     // not sure why this works :(
     return as_array_tensor_impl_<LGLSXP, std::uint8_t>(x);
-  case torch::kLong:
+  } else if (ten.dtype() == torch::kLong) {
     // TODO: deal better with kLongs
     // Klong is casted to kInt inside impl
     return as_array_tensor_impl_<INTSXP, int32_t>(x);
-  default:
-    Rcpp::stop("not handled");
-  };
+  }
 
+  Rcpp::stop("not handled");
 };
 
 // [[Rcpp::export]]

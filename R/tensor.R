@@ -1,4 +1,5 @@
 #' @useDynLib torch
+#' @importFrom Rcpp sourceCpp
 NULL
 
 #' Create torch Tensor from R object
