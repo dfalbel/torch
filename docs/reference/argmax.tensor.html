@@ -146,20 +146,20 @@ dimension than input.</p></td>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>8</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>2</span>)))
 <span class='no'>x</span></div><div class='output co'>#&gt; <span style='color: #555555;'>tensor</span><span> 
 #&gt; (1,.,.) = 
-#&gt;   0.0808  0.0074
-#&gt;   0.6008  0.4978
+#&gt;   0.8746  0.4023
+#&gt;   0.0342  0.4035
 #&gt; 
 #&gt; (2,.,.) = 
-#&gt;   0.8343  0.4664
-#&gt;   0.1572  0.2898
+#&gt;   0.1749  0.1957
+#&gt;   0.3204  0.0637
 #&gt; [ Variable[CPUDoubleType]{2,2,2} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'>tensor</span><span> 
-#&gt; 4
+#&gt; 0
 #&gt; [ Variable[CPULongType]{} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'>tensor</span><span> 
-#&gt;  1  1
 #&gt;  0  0
+#&gt;  1  0
 #&gt; [ Variable[CPULongType]{2,2} ]</div><div class='input'><span class='fu'>argmax</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'>tensor</span><span> 
-#&gt;  1  1
-#&gt;  0  0
+#&gt;  0  1
+#&gt;  1  0
 #&gt; [ Variable[CPULongType]{2,2} ]</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

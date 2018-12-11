@@ -60,26 +60,47 @@ tensor.tensor <- function(x, dtype = NULL, device = NULL, requires_grad = FALSE)
 #' Casts an object with class [tensor] to an R atomic vector, matrix or array.
 #'
 #' @param x tensor object to be casted to an R array.
-#'
+#' @seealso [as.matrix.tensor()]
 #' @examples
 #' x <- tensor(array(1:8, dim = c(2, 2, 2)))
 #' as.array(x)
-#'
 #' @export
 as.array.tensor <- function(x) {
   x$as_vector()
 }
 
+#' Casts a 2d tensor to a matrix.
+#'
+#' @param x tensor object
+#' @seealso [as.array.tensor()]
+#'
+#' @examples
+#' x <- tensor(as.matrix(mtcars))
+#' as.matrix(x)
 #' @export
 as.matrix.tensor <- function(x) {
   as.matrix(x$as_vector())
 }
 
+#' Abs
+#'
+#' Returns absolute values of tensor elements.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(c(-1,1))
+#' abs(x)
 #' @export
 abs.tensor <- function(x) {
   x$abs()
 }
 
+#' Arc-cos
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(runif(10))
+#' acos(x)
 #' @export
 acos.tensor <- function(x) {
   x$acos()
@@ -387,6 +408,18 @@ mm.tensor <- function(x, mat2) {
   x$mul(y)
 }
 
+#' Pow
+#'
+#' @param x tensor object
+#' @param y exponent (a tensor)
+#' @examples
+#' x <- tensor(c(1,2,3,4))
+#' y <- tensor(2)
+#' x^y
+#' @export
+`^.tensor` <- function(x, y) {
+  x$pow(y)
+}
 
 #' sum
 #'

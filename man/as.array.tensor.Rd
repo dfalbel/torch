@@ -15,5 +15,7 @@ Casts an object with class \link{tensor} to an R atomic vector, matrix or array.
 \examples{
 x <- tensor(array(1:8, dim = c(2, 2, 2)))
 as.array(x)
-
+}
+\seealso{
+\code{\link[=as.matrix.tensor]{as.matrix.tensor()}}
 }

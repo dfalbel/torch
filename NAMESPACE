@@ -2,6 +2,7 @@
 
 S3method("*",tensor)
 S3method("+",tensor)
+S3method("^",tensor)
 S3method(abs,tensor)
 S3method(acos,tensor)
 S3method(addbmm,default)
