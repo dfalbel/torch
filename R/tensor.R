@@ -342,6 +342,21 @@ bernoulli.tensor <- function(x, p = NULL) {
   x$bernoulli(p)
 }
 
+#' mean
+#'
+#' @param x tensor object
+#' @param dim dimension in which to sum
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(1:10)
+#' mean(x)
+#' @export
+mean.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  x$mean(dim, keepdim, dtype)
+}
+
 #' matrix multiplication
 #'
 #' Performs matrix multiplication for 2 tensors.

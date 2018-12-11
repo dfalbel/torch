@@ -326,6 +326,20 @@ Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->grad());
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
+                                       Rcpp::Nullable<Rcpp::IntegerVector> dim,
+                                       Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
+                                       Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+
+  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+    return make_tensor_ptr(x->mean());
+  }
+
+  // TODO handle other sum arguments.
+  Rcpp::stop("Not yet implemented");
+}
+
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat2) {
@@ -337,6 +351,13 @@ Rcpp::XPtr<torch::Tensor> tensor_mul_ (Rcpp::XPtr<torch::Tensor> x,
                                        Rcpp::XPtr<torch::Tensor> other) {
   // TODO handle scalar multiplication
   return make_tensor_ptr(x->mul(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_pow_ (Rcpp::XPtr<torch::Tensor> x,
+                                       Rcpp::XPtr<torch::Tensor> exponent) {
+  // TODO handle scalar multiplication
+  return make_tensor_ptr(x->pow(*exponent));
 }
 
 // [[Rcpp::export]]
@@ -372,4 +393,10 @@ Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->t());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_zero__ (Rcpp::XPtr<torch::Tensor> x) {
+  x->zero_();
+  return x;
 }

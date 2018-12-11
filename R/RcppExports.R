@@ -113,12 +113,20 @@ tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }
 
+tensor_mean_ <- function(x, dim, keepdim, dtype) {
+    .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+}
+
 tensor_mm_ <- function(x, mat2) {
     .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
 }
 
 tensor_mul_ <- function(x, other) {
     .Call('_torch_tensor_mul_', PACKAGE = 'torch', x, other)
+}
+
+tensor_pow_ <- function(x, exponent) {
+    .Call('_torch_tensor_pow_', PACKAGE = 'torch', x, exponent)
 }
 
 tensor_sub_ <- function(x, other, alpha = 1) {
@@ -135,5 +143,9 @@ tensor_sum_ <- function(x, dim, keepdim, dtype) {
 
 tensor_t_ <- function(x) {
     .Call('_torch_tensor_t_', PACKAGE = 'torch', x)
+}
+
+tensor_zero__ <- function(x) {
+    .Call('_torch_tensor_zero__', PACKAGE = 'torch', x)
 }
 

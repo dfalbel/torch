@@ -159,12 +159,20 @@
       `torch::Tensor`$dispatch(tensor_bernoulli_(self$pointer, p))
     },
 
+    mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+    `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
+    },
+
     mm = function(mat2) {
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },
 
     mul = function(other) {
       `torch::Tensor`$dispatch(tensor_mul_(self$pointer, other$pointer))
+    },
+
+    pow = function(exponent) {
+      `torch::Tensor`$dispatch(tensor_pow_(self$pointer, exponent$pointer))
     },
 
     sub = function(other, alpha = 1) {
@@ -186,6 +194,11 @@
 
     to_string = function () {
       tensor_to_string_(self$pointer)
+    },
+
+    zero_ = function() {
+      tensor_zero__(self$pointer)
+      invisible(NULL)
     }
 
   )

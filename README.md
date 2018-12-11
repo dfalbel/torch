@@ -32,12 +32,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.3346  0.6446
-#>   0.5601  0.0199
+#>   0.6950  0.3185
+#>   0.2154  0.2710
 #> 
 #> (2,.,.) = 
-#>   0.5567  0.0733
-#>   0.9759  0.5503
+#>   0.1312  0.2095
+#>   0.6386  0.0826
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -72,11 +72,15 @@ b$grad
 
 ## Linear Regression
 
-Not working yet.
+In the following example we are going to fit a linear regression from
+scratch using torch’s Autograd.
+
+**Note** all methods that end with `_` (eg. `sub_`), will modify the
+tensors in place.
 
 ``` r
 x <- matrix(runif(100), ncol = 2)
-y <- 0.2 + 0.5 * x[,1] + 0.7 * x[,2]
+y <- 0.1 + 0.5 * x[,1] - 0.7 * x[,2]
 
 x_t <- tensor(x)
 y_t <- tensor(y)
@@ -84,16 +88,25 @@ y_t <- tensor(y)
 w <- tensor(matrix(rnorm(2), nrow = 2), requires_grad = TRUE)
 b <- tensor(0, requires_grad = TRUE)
 
-for (i in 1:1000) {
+lr <- tensor(0.5)
+
+for (i in 1:100) {
   y_hat <- mm(x_t, w) + b
-  loss <- sum(abs(y_hat$t()$sub(y_t)))
+  loss <- mean((y_hat$t()$sub(y_t)$pow(tensor(2))))
   
   loss$backward()
   
-  w$data$sub_(tensor(0.00001)*w$grad)
-  b$data$sub_(tensor(0.00001)*b$grad)
+  w$data$sub_(w$grad*lr)
+  b$data$sub_(b$grad*lr)
+  
+  w$grad$zero_()
+  b$grad$zero_()
 }
 
-print(w)
-print(b)
+print(as.array(w))
+#>            [,1]
+#> [1,]  0.5012888
+#> [2,] -0.6986030
+print(as.array(b))
+#> [1] 0.09858889
 ```
