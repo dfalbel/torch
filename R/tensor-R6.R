@@ -179,6 +179,10 @@
       `torch::Tensor`$dispatch(tensor_mul_(self$pointer, other$pointer))
     },
 
+    permute = function(dims) {
+      `torch::Tensor`$dispatch(tensor_permute_(self$pointer, dims))
+    },
+
     pow = function(exponent) {
       `torch::Tensor`$dispatch(tensor_pow_(self$pointer, exponent$pointer))
     },

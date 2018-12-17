@@ -427,6 +427,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_permute_
+Rcpp::XPtr<torch::Tensor> tensor_permute_(Rcpp::XPtr<torch::Tensor> x, std::vector<std::int64_t> dims);
+RcppExport SEXP _torch_tensor_permute_(SEXP xSEXP, SEXP dimsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::vector<std::int64_t> >::type dims(dimsSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_permute_(x, dims));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_pow_
 Rcpp::XPtr<torch::Tensor> tensor_pow_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> exponent);
 RcppExport SEXP _torch_tensor_pow_(SEXP xSEXP, SEXP exponentSEXP) {
@@ -536,6 +548,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},
     {"_torch_tensor_mul_", (DL_FUNC) &_torch_tensor_mul_, 2},
+    {"_torch_tensor_permute_", (DL_FUNC) &_torch_tensor_permute_, 2},
     {"_torch_tensor_pow_", (DL_FUNC) &_torch_tensor_pow_, 2},
     {"_torch_tensor_sub_", (DL_FUNC) &_torch_tensor_sub_, 3},
     {"_torch_tensor_sub__", (DL_FUNC) &_torch_tensor_sub__, 3},

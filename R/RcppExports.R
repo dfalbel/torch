@@ -133,6 +133,10 @@ tensor_mul_ <- function(x, other) {
     .Call('_torch_tensor_mul_', PACKAGE = 'torch', x, other)
 }
 
+tensor_permute_ <- function(x, dims) {
+    .Call('_torch_tensor_permute_', PACKAGE = 'torch', x, dims)
+}
+
 tensor_pow_ <- function(x, exponent) {
     .Call('_torch_tensor_pow_', PACKAGE = 'torch', x, exponent)
 }

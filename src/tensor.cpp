@@ -370,6 +370,13 @@ Rcpp::XPtr<torch::Tensor> tensor_mul_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_permute_ (Rcpp::XPtr<torch::Tensor> x,
+                                       std::vector<std::int64_t> dims) {
+  // TODO handle scalar multiplication
+  return make_tensor_ptr(x->permute(dims));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_pow_ (Rcpp::XPtr<torch::Tensor> x,
                                        Rcpp::XPtr<torch::Tensor> exponent) {
   // TODO handle scalar multiplication
