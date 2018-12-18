@@ -21,11 +21,7 @@ tensor_from_r <- function(x) {
     dimension <- length(x)
   }
 
-  if (!is.null(dim(x))) {
-    x <- aperm(x, perm = seq(length(dim(x)), 1))
-  }
-
-  `torch::Tensor`$dispatch(tensor_from_r_(x, dimension))
+  `torch::Tensor`$dispatch(tensor_from_r_(x, rev(dimension)))
 }
 
 #' Creates a torch tensor.
