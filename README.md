@@ -56,22 +56,17 @@ torch Tensor to an R object.
 
 ``` r
 library(torch)
-#> 
-#> Attaching package: 'torch'
-#> The following object is masked from 'package:base':
-#> 
-#>     atan2
 x <- array(runif(8), dim = c(2, 2, 2))
 y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.6676  0.2499
-#>   0.9792  0.9177
+#>   0.1591  0.4273
+#>   0.1232  0.0880
 #> 
 #> (2,.,.) = 
-#>   0.6831  0.1790
-#>   0.3663  0.0049
+#>   0.1615  0.0969
+#>   0.7856  0.2148
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -125,8 +120,8 @@ b <- tensor(0, requires_grad = TRUE)
 lr <- tensor(0.5)
 
 for (i in 1:100) {
-  y_hat <- mm(x_t, w) + b
-  loss <- mean((y_t - y_hat)^tensor(2))
+  y_hat <- tch_mm(x_t, w) + b
+  loss <- tch_mean((y_t - y_hat)^tensor(2))
   
   loss$backward()
   
@@ -139,8 +134,8 @@ for (i in 1:100) {
 
 print(as.array(w))
 #>            [,1]
-#> [1,]  0.5009569
-#> [2,] -0.6992445
+#> [1,]  0.4947595
+#> [2,] -0.7092871
 print(as.array(b))
-#> [1] 0.09903292
+#> [1] 0.1069424
 ```

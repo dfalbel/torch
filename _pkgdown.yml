@@ -3,12 +3,17 @@ template:
     bootswatch: united
 
 reference:
-- title: "Tensor creation"
-  desc: "Functions used to create new tensors"
+- title: "Tensor creation and casting"
+  desc: "Functions used to create new tensors and cast them back to R arrays."
   contents:
     - tensor
     - tensor_from_r
+    - as.array.tensor
+    - as.matrix.tensor
 - title: "Tensor methods"
-  desc: "s3 methods for tensors"
+  desc: "Methods for tensors. They are always prefixed with `tch_`"
   contents:
     - ends_with(".tensor")
+    - starts_with("tch_")
+    - -as.array.tensor
+    - -as.matrix.tensor
