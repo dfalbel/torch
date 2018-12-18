@@ -8,16 +8,9 @@ Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
 template <int RTYPE, at::ScalarType ATTYPE>
 Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (SEXP x, std::vector<int64_t> dim, bool clone = true) {
 
-  auto attype = ATTYPE;
-
-  // since R logical vectors have 8B we need to treat them as integer vectors
-  // and then cast to bit tensor.
-  if (RTYPE == LGLSXP)
-    attype = torch::kInt32;
-
   Rcpp::Vector<RTYPE> vec(x);
 
-  auto tensor = torch::from_blob(vec.begin(), dim, attype);
+  auto tensor = torch::from_blob(vec.begin(), dim, ATTYPE);
 
   if (clone)
     tensor = tensor.clone();
@@ -38,7 +31,9 @@ Rcpp::XPtr<torch::Tensor> tensor_from_r_ (SEXP x, std::vector<int64_t> dim, bool
   case REALSXP:
     return tensor_from_r_impl_<REALSXP, torch::kDouble>(x, dim, clone);
   case LGLSXP:
-    return tensor_from_r_impl_<LGLSXP, torch::kByte>(x, dim, clone);
+    // since R logical vectors have 8B we need to treat them as integer vectors
+    // and then cast to bit tensor.
+    return tensor_from_r_impl_<LGLSXP, torch::kInt32>(x, dim, clone);
   default:
     Rcpp::stop("not handled");
   }
