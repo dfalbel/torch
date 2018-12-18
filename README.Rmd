@@ -109,8 +109,8 @@ b <- tensor(0, requires_grad = TRUE)
 lr <- tensor(0.5)
 
 for (i in 1:100) {
-  y_hat <- mm(x_t, w) + b
-  loss <- mean((y_t - y_hat)^tensor(2))
+  y_hat <- tch_mm(x_t, w) + b
+  loss <- tch_mean((y_t - y_hat)^tensor(2))
   
   loss$backward()
   

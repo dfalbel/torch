@@ -90,9 +90,9 @@ as.matrix.tensor <- function(x) {
 #' @param x tensor object
 #' @examples
 #' x <- tensor(c(-1,1))
-#' abs(x)
+#' tch_abs(x)
 #' @export
-abs.tensor <- function(x) {
+tch_abs <- function(x) {
   x$abs()
 }
 
@@ -101,9 +101,9 @@ abs.tensor <- function(x) {
 #' @param x tensor object
 #' @examples
 #' x <- tensor(runif(10))
-#' acos(x)
+#' tch_acos(x)
 #' @export
-acos.tensor <- function(x) {
+tch_acos <- function(x) {
   x$acos()
 }
 
@@ -123,32 +123,32 @@ acos.tensor <- function(x) {
 }
 
 #' @export
-addbmm.tensor <- function(x, batch1, batch2, beta = 1, alpha = 1) {
+tch_addbmm <- function(x, batch1, batch2, beta = 1, alpha = 1) {
   x$addbmm(batch1, batch2, beta, alpha)
 }
 
 #' @export
-addcdiv.tensor <- function(x, tensor1, tensor2, value = 1) {
+tch_addcdiv <- function(x, tensor1, tensor2, value = 1) {
   x$addcdiv(tensor1, tensor2, value)
 }
 
 #' @export
-addcmul.tensor <- function(x, tensor1, tensor2, value = 1) {
+tch_addcmul <- function(x, tensor1, tensor2, value = 1) {
   x$addcmul(tensor1, tensor2, value)
 }
 
 #' @export
-addmm.tensor <- function(x, mat1, mat2, beta = 1, alpha = 1) {
+tch_addmm <- function(x, mat1, mat2, beta = 1, alpha = 1) {
   x$addmm(mat1, mat2, beta, alpha)
 }
 
 #' @export
-addmv.tensor <- function(x, mat, vec, beta = 1, alpha = 1) {
+tch_addmv <- function(x, mat, vec, beta = 1, alpha = 1) {
   x$addmv(mat, vec, beta, alpha)
 }
 
 #' @export
-addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
+tch_addr <- function(x, vec1, vec2, beta = 1, alpha = 1) {
   x$addr(vec1, vec2, beta, alpha)
 }
 
@@ -167,11 +167,11 @@ addr.tensor <- function(x, vec1, vec2, beta = 1, alpha = 1) {
 #'
 #' @examples
 #' x <- tensor(array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2)))
-#' all(x)
-#' all(x, dim = 0)
-#' all(x, dim = 1, keepdim = FALSE)
+#' tch_all(x)
+#' tch_all(x, dim = 0)
+#' tch_all(x, dim = 1, keepdim = FALSE)
 #' @export
-all.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
+tch_all <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$all(dim, keepdim)
 }
@@ -188,9 +188,9 @@ all.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
 #' @examples
 #' x <- tensor(c(1,2,3,4,5))
 #' y <- tensor(1:5 + 1e-6)
-#' allclose(x, y)
+#' tch_allclose(x, y)
 #' @export
-allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FALSE) {
+tch_allclose <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FALSE) {
   x$allclose(other, rtol, atol, equal_nan)
 }
 
@@ -209,11 +209,11 @@ allclose.tensor <- function(x, other, rtol = 1e-05, atol = 1e-08, equal_nan = FA
 #'
 #' @examples
 #' x <- tensor(array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2)))
-#' any(x)
-#' any(x, dim = 0)
-#' any(x, dim = 1, keepdim = FALSE)
+#' tch_any(x)
+#' tch_any(x, dim = 0)
+#' tch_any(x, dim = 1, keepdim = FALSE)
 #' @export
-any.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
+tch_any <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$any(dim, keepdim)
 }
@@ -234,11 +234,11 @@ any.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
 #' @examples
 #' x <- tensor(array(runif(8), dim = c(2,2,2)))
 #' x
-#' argmax(x)
-#' argmax(x, dim = 0)
-#' argmax(x, dim = 1, keepdim = FALSE)
+#' tch_argmax(x)
+#' tch_argmax(x, dim = 0)
+#' tch_argmax(x, dim = 1, keepdim = FALSE)
 #' @export
-argmax.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
+tch_argmax <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$argmax(dim, keepdim)
 }
@@ -259,11 +259,11 @@ argmax.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
 #' @examples
 #' x <- tensor(array(runif(8), dim = c(2,2,2)))
 #' x
-#' argmin(x)
-#' argmin(x, dim = 0)
-#' argmin(x, dim = 1, keepdim = FALSE)
+#' tch_argmin(x)
+#' tch_argmin(x, dim = 0)
+#' tch_argmin(x, dim = 1, keepdim = FALSE)
 #' @export
-argmin.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
+tch_argmin <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   if (na.rm) warning("tensor's don't use the na.rm argument!")
   x$argmin(dim, keepdim)
 }
@@ -279,9 +279,9 @@ argmin.tensor <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
 #'
 #' @examples
 #' x <- tensor(array(runif(8), dim = c(2,2,2)))
-#' as_strided(x, 0, 1)
+#' tch_as_strided(x, 0, 1)
 #' @export
-as_strided.tensor <- function(x, size, stride, storage_offset = NULL) {
+tch_as_strided <- function(x, size, stride, storage_offset = NULL) {
   x$as_strided(size, stride, storage_offset)
 }
 
@@ -292,9 +292,9 @@ as_strided.tensor <- function(x, size, stride, storage_offset = NULL) {
 #' @param x tensor object
 #' @examples
 #' x <- tensor(array(runif(8), dim = c(2,2,2)))
-#' asin(x)
+#' tch_asin(x)
 #' @export
-asin.tensor <- function(x) {
+tch_asin <- function(x) {
   x$asin()
 }
 
@@ -305,9 +305,9 @@ asin.tensor <- function(x) {
 #' @param x tensor object
 #' @examples
 #' x <- tensor(array(runif(8), dim = c(2,2,2)))
-#' atan(x)
+#' tch_atan(x)
 #' @export
-atan.tensor <- function(x) {
+tch_atan <- function(x) {
   x$atan()
 }
 
@@ -321,9 +321,9 @@ atan.tensor <- function(x) {
 #' @examples
 #' x <- tensor(array(runif(8), dim = c(2,2,2)))
 #' y <- tensor(array(runif(8), dim = c(2,2,2)))
-#' atan2(x, y)
+#' tch_atan2(x, y)
 #' @export
-atan2.tensor <- function(x, other) {
+tch_atan2 <- function(x, other) {
   x$atan2(other)
 }
 
@@ -342,9 +342,9 @@ atan2.tensor <- function(x, other) {
 #' x <- tensor(array(runif(45), dim = c(3, 3, 5)))
 #' batch1 <- tensor(array(runif(36), dim = c(3, 3, 4)))
 #' batch2 <- tensor(array(runif(60), dim = c(3, 4, 5)))
-#' baddbmm(x, batch1, batch2)
+#' tch_baddbmm(x, batch1, batch2)
 #' @export
-baddbmm.tensor <- function(x, batch1, batch2, beta = 1, alpha = 1) {
+tch_baddbmm <- function(x, batch1, batch2, beta = 1, alpha = 1) {
   x$baddbmm(batch1, batch2, beta, alpha)
 }
 
@@ -355,12 +355,12 @@ baddbmm.tensor <- function(x, batch1, batch2, beta = 1, alpha = 1) {
 #'
 #' @examples
 #' x <- tensor(runif(10))
-#' bernoulli(x)
+#' tch_bernoulli(x)
 #'
 #' x <- tensor(rep(0, 10))
-#' bernoulli(x)
+#' tch_bernoulli(x)
 #' @export
-bernoulli.tensor <- function(x, p = NULL) {
+tch_bernoulli <- function(x, p = NULL) {
   x$bernoulli(p)
 }
 
@@ -373,9 +373,9 @@ bernoulli.tensor <- function(x, p = NULL) {
 #' @param minlength optional, minimum number of bins. Should be non-negative.
 #' @examples
 #' x <- tensor(sample(0:9, 50, replace = TRUE))
-#' bincount(x)
+#' tch_bincount(x)
 #' @export
-bincount.tensor <- function(x, weights = NULL, minlength = 0) {
+tch_bincount <- function(x, weights = NULL, minlength = 0) {
   x$bincount(weights, minlength)
 }
 
@@ -387,9 +387,9 @@ bincount.tensor <- function(x, weights = NULL, minlength = 0) {
 #' @examples
 #' x <- tensor(array(runif(120), dim = c(10, 3, 4)))
 #' y <- tensor(array(runif(200), dim = c(10, 4, 5)))
-#' bmm(x, y)
+#' tch_bmm(x, y)
 #' @export
-bmm.tensor <- function(x, mat2) {
+tch_bmm <- function(x, mat2) {
   x$bmm(mat2)
 }
 
@@ -402,9 +402,9 @@ bmm.tensor <- function(x, mat2) {
 #'
 #' @examples
 #' x <- tensor(runif(100))
-#' mean(x)
+#' tch_mean(x)
 #' @export
-mean.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+tch_mean <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
   x$mean(dim, keepdim, dtype)
 }
 
@@ -418,9 +418,9 @@ mean.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FAL
 #' @examples
 #' x <- tensor(matrix(runif(10), ncol = 5))
 #' y <- tensor(matrix(runif(10), nrow = 5))
-#' mm(x, y)
+#' tch_mm(x, y)
 #' @export
-mm.tensor <- function(x, mat2) {
+tch_mm <- function(x, mat2) {
   x$mm(mat2)
 }
 
@@ -473,9 +473,9 @@ mm.tensor <- function(x, mat2) {
 #'
 #' @examples
 #' x <- tensor(1:10)
-#' sum(x)
+#' tch_sum(x)
 #' @export
-sum.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+tch_sum <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
   x$sum(dim, keepdim, dtype)
 }
 
@@ -485,8 +485,8 @@ sum.tensor <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALS
 #'
 #' @examples
 #' x <- tensor(matrix(runif(6), nrow = 3))
-#' t(x)
+#' tch_t(x)
 #' @export
-t.tensor <- function(x) {
+tch_t <- function(x) {
   x$t()
 }
