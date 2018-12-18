@@ -64,15 +64,15 @@ context("tensor operations")
 
 test_that("abs works", {
   x <- array((-80):(-1), dim = c(20, 2, 2))
-  expect_identical(as.array(abs(tensor(x))), abs(x))
+  expect_identical(as.array(tch_abs(tensor(x))), abs(x))
 
   x <- array(-runif(80), dim = c(20, 2, 2))
-  expect_identical(as.array(abs(tensor(x))), abs(x))
+  expect_identical(as.array(tch_abs(tensor(x))), abs(x))
 })
 
 test_that("acos works", {
   x <- array(-runif(80), dim = c(20, 2, 2))
-  expect_equal(as.array(acos(tensor(x))), acos(x))
+  expect_equal(as.array(tch_acos(tensor(x))), acos(x))
 })
 
 test_that("add works", {
@@ -99,7 +99,7 @@ test_that("addbmm works", {
   b1 <- tensor(array(runif(120), dim = c(10, 3, 4)))
   b2 <- tensor(array(runif(200), dim = c(10, 4, 5)))
 
-  res <- as.array(addbmm(x, b1, b2, 1, 1))
+  res <- as.array(tch_addbmm(x, b1, b2, 1, 1))
 
   expect_true(is.array(res))
   expect_identical(dim(res), c(3L, 5L))
@@ -111,7 +111,7 @@ test_that("addcdiv works", {
   t1 <- tensor(array(runif(3), dim = c(3, 1)))
   t2 <- tensor(array(runif(3), dim = c(1, 3)))
 
-  res <- as.array(addcdiv(x, t1, t2, 0.1))
+  res <- as.array(tch_addcdiv(x, t1, t2, 0.1))
 
   expect_true(is.array(res))
   expect_identical(dim(res), c(3L, 3L))
@@ -123,7 +123,7 @@ test_that("addcmul works", {
   t1 <- tensor(array(runif(3), dim = c(3, 1)))
   t2 <- tensor(array(runif(3), dim = c(1, 3)))
 
-  res <- as.array(addcmul(x, t1, t2, 0.1))
+  res <- as.array(tch_addcmul(x, t1, t2, 0.1))
 
   expect_true(is.array(res))
   expect_identical(dim(res), c(3L, 3L))
@@ -135,7 +135,7 @@ test_that("addmm works", {
   mat1 <- tensor(array(runif(6), dim = c(2, 3)))
   mat2 <- tensor(array(runif(6), dim = c(3, 3)))
 
-  res <- as.array(addmm(x, mat1, mat2, 1))
+  res <- as.array(tch_addmm(x, mat1, mat2, 1))
 
   expect_true(is.array(res))
   expect_identical(dim(res), c(2L, 3L))
@@ -147,7 +147,7 @@ test_that("addmv works", {
   mat <- tensor(array(runif(6), dim = c(2, 3)))
   vec <- tensor(runif(3))
 
-  res <- as.array(addmv(x, mat, vec))
+  res <- as.array(tch_addmv(x, mat, vec))
 
   expect_identical(length(res), 2L)
 })
@@ -157,7 +157,7 @@ test_that("addr works", {
   vec2 <- tensor(c(1,2))
   x <- tensor(matrix(0, nrow = 3, ncol = 2))
 
-  res <- as.array(addr(x, vec1, vec2))
+  res <- as.array(tch_addr(x, vec1, vec2))
   res_ <- matrix(c(1,2,3,2,4,6), ncol = 2)
   expect_identical(res, res_)
 })
@@ -165,36 +165,36 @@ test_that("addr works", {
 test_that("all works", {
   l <- array(TRUE, dim = c(10, 20, 30))
   x <- tensor(l)
-  expect_identical(as.array(all(x)), all(l))
+  expect_identical(as.array(tch_all(x)), all(l))
 
   l <- array(FALSE, dim = c(10, 20, 30))
   x <- tensor(l)
-  expect_identical(as.array(all(x)), all(l))
+  expect_identical(as.array(tch_all(x)), all(l))
 
   l <- array(c(TRUE, FALSE), dim = c(10, 20, 30))
   x <- tensor(l)
-  expect_identical(as.array(all(x)), all(l))
+  expect_identical(as.array(tch_all(x)), all(l))
 
   l <- array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2))
   x <- tensor(l)
 
   expect_identical(
-    as.array(all(x, dim = 0, keepdim = TRUE)),
+    as.array(tch_all(x, dim = 0, keepdim = TRUE)),
     matrix(c(FALSE, TRUE), nrow = 1)
   )
 
   expect_identical(
-    as.array(all(x, dim = 1, keepdim = TRUE)),
+    as.array(tch_all(x, dim = 1, keepdim = TRUE)),
     matrix(c(TRUE, FALSE), ncol = 1)
   )
 
   expect_identical(
-    as.array(all(x, dim = 0, keepdim = FALSE)),
+    as.array(tch_all(x, dim = 0, keepdim = FALSE)),
     c(FALSE, TRUE)
   )
 
   expect_identical(
-    as.array(all(x, dim = 1, keepdim = FALSE)),
+    as.array(tch_all(x, dim = 1, keepdim = FALSE)),
     c(TRUE, FALSE)
   )
 
@@ -204,19 +204,19 @@ test_that("allclose works", {
 
   x <- tensor(c(1,2,3,4,5))
   y <- tensor(c(1,2,3,4,5) + 1e-6)
-  a <- allclose(x, y)
+  a <- tch_allclose(x, y)
 
   expect_identical(a, TRUE)
 
   x <- tensor(c(1,2,3,4,5))
   y <- tensor(c(1,2,3,4,5) + 1e-4)
-  a <- allclose(x, y)
+  a <- tch_allclose(x, y)
 
   expect_identical(a, FALSE)
 
   x <- tensor(c(1,2,3,4,5))
   y <- tensor(c(1,2,3,4,5) + 1e-5)
-  a <- allclose(x, y)
+  a <- tch_allclose(x, y)
 
   expect_identical(a, TRUE)
 })
@@ -225,36 +225,36 @@ test_that("any works", {
 
   l <- array(TRUE, dim = c(10, 20, 30))
   x <- tensor(l)
-  expect_identical(as.array(any(x)), any(l))
+  expect_identical(as.array(tch_any(x)), any(l))
 
   l <- array(FALSE, dim = c(10, 20, 30))
   x <- tensor(l)
-  expect_identical(as.array(any(x)), any(l))
+  expect_identical(as.array(tch_any(x)), any(l))
 
   l <- array(c(TRUE, FALSE), dim = c(10, 20, 30))
   x <- tensor(l)
-  expect_identical(as.array(any(x)), any(l))
+  expect_identical(as.array(tch_any(x)), any(l))
 
   l <- array(c(TRUE, FALSE, TRUE, TRUE), dim = c(2, 2))
   x <- tensor(l)
 
   expect_identical(
-    as.array(any(x, dim = 0, keepdim = TRUE)),
+    as.array(tch_any(x, dim = 0, keepdim = TRUE)),
     matrix(c(TRUE, TRUE), nrow = 1)
   )
 
   expect_identical(
-    as.array(any(x, dim = 1, keepdim = TRUE)),
+    as.array(tch_any(x, dim = 1, keepdim = TRUE)),
     matrix(c(TRUE, TRUE), ncol = 1)
   )
 
   expect_identical(
-    as.array(any(x, dim = 0, keepdim = FALSE)),
+    as.array(tch_any(x, dim = 0, keepdim = FALSE)),
     c(TRUE, TRUE)
   )
 
   expect_identical(
-    as.array(any(x, dim = 1, keepdim = FALSE)),
+    as.array(tch_any(x, dim = 1, keepdim = FALSE)),
     c(TRUE, TRUE)
   )
 
@@ -264,18 +264,18 @@ test_that("argmax works", {
 
   l <- array(1:6000, dim = c(10, 20, 30))
   x <- tensor(l)
-  expect_identical(as.array(argmax(x)), which.max(l) - 1L)
-  expect_identical(as.array(argmax(x, 0)), apply(l, c(2,3), which.max) - 1L)
-  expect_identical(as.array(argmax(x, -1)), apply(l, c(1,2), which.max) - 1L)
+  expect_identical(as.array(tch_argmax(x)), which.max(l) - 1L)
+  expect_identical(as.array(tch_argmax(x, 0)), apply(l, c(2,3), which.max) - 1L)
+  expect_identical(as.array(tch_argmax(x, -1)), apply(l, c(1,2), which.max) - 1L)
 })
 
 test_that("argmin works", {
 
   l <- array(1:6000, dim = c(10, 20, 30))
   x <- tensor(l)
-  expect_identical(as.array(argmin(x)), which.min(l) - 1L)
-  expect_identical(as.array(argmin(x, 0)), apply(l, c(2,3), which.min) - 1L)
-  expect_identical(as.array(argmin(x, -1)), apply(l, c(1,2), which.min) - 1L)
+  expect_identical(as.array(tch_argmin(x)), which.min(l) - 1L)
+  expect_identical(as.array(tch_argmin(x, 0)), apply(l, c(2,3), which.min) - 1L)
+  expect_identical(as.array(tch_argmin(x, -1)), apply(l, c(1,2), which.min) - 1L)
 })
 
 test_that("as_strided works", {
@@ -283,30 +283,30 @@ test_that("as_strided works", {
   l <- array(1:6000, dim = c(10, 20, 30))
   x <- tensor(l)
 
-  k <- as_strided(x, 0, 2)
+  k <- tch_as_strided(x, 0, 2)
 
   expect_identical(class(k)[1], "tensor")
 
-  k <- as_strided(x, 0, 2, 1)
+  k <- tch_as_strided(x, 0, 2, 1)
 
   expect_identical(class(k)[1], "tensor")
 })
 
 test_that("asin works", {
   x <- runif(100)
-  expect_equal(as.array(asin(tensor(x))), asin(x))
+  expect_equal(as.array(tch_asin(tensor(x))), asin(x))
 })
 
 test_that("atan works", {
   x <- runif(100)
-  expect_equal(as.array(atan(tensor(x))), atan(x))
+  expect_equal(as.array(tch_atan(tensor(x))), atan(x))
 })
 
 test_that("atan2 works", {
   x <- runif(100)
   y <- runif(100)
 
-  expect_equal(as.array(atan2(tensor(x), tensor(y))), atan2(x, y))
+  expect_equal(as.array(tch_atan2(tensor(x), tensor(y))), atan2(x, y))
 })
 
 test_that("backward works", {
@@ -322,42 +322,42 @@ test_that("baddbmm works", {
   batch1 <- tensor(array(runif(36), dim = c(3, 3, 4)))
   batch2 <- tensor(array(runif(60), dim = c(3, 4, 5)))
 
-  expect_silent(y <- baddbmm(x, batch1, batch2))
+  expect_silent(y <- tch_baddbmm(x, batch1, batch2))
   expect_equal(class(y)[1], "tensor")
 })
 
 test_that("bernoulli works", {
   x <- tensor(runif(10))
-  expect_silent(bernoulli(x))
+  expect_silent(tch_bernoulli(x))
 
   x <- tensor(rep(0, 100))
-  expect_equal(sum(as.array(bernoulli(x))), 0)
+  expect_equal(sum(as.array(tch_bernoulli(x))), 0)
 
   x <- tensor(rep(1, 100))
-  expect_equal(sum(as.array(bernoulli(x))), 100)
+  expect_equal(sum(as.array(tch_bernoulli(x))), 100)
 })
 
 test_that("bincount works", {
-  x <- sample(0:9, 50, replace = TRUE)
-  expect_equal(as.array(bincount(tensor(x))), as.integer(table(x)))
+  x <- sample(0:9, 500, replace = TRUE)
+  expect_equal(as.array(tch_bincount(tensor(x))), as.integer(table(x)))
 
-  x <- sample(0:9, 50, replace = TRUE)
-  weights <- runif(50)
+  x <- sample(0:9, 500, replace = TRUE)
+  weights <- runif(500)
 
-  expect_equal(as.array(bincount(tensor(x), tensor(weights))), as.numeric(tapply(weights, x, sum)))
+  expect_equal(as.array(tch_bincount(tensor(x), tensor(weights))), as.numeric(tapply(weights, x, sum)))
 })
 
 test_that("bmm works", {
   x <- tensor(array(runif(120), dim = c(10, 3, 4)))
   y <- tensor(array(runif(200), dim = c(10, 4, 5)))
-  res <- as.array(bmm(x, y))
+  res <- as.array(tch_bmm(x, y))
 
   expect_equal(dim(res), c(10, 3, 5))
 })
 
 test_that("mean works", {
   x <- runif(100)
-  expect_equal(as.array(mean(tensor(x))), mean(x))
+  expect_equal(as.array(tch_mean(tensor(x))), mean(x))
 })
 
 test_that("mm works", {
@@ -369,7 +369,7 @@ test_that("mm works", {
 
   expect_equal(res_t, res_r)
 
-  res_t <- as.array(mm(tensor(x), tensor(y)))
+  res_t <- as.array(tch_mm(tensor(x), tensor(y)))
   expect_equal(res_t, res_r)
 })
 
@@ -404,20 +404,20 @@ test_that("sub works", {
 
 test_that("sum works", {
   x <- 1:10
-  expect_equal(as.array(sum(tensor(x))), sum(x))
+  expect_equal(as.array(tch_sum(tensor(x))), sum(x))
 
   x <- runif(100)
-  expect_equal(as.array(sum(tensor(x))), sum(x))
+  expect_equal(as.array(tch_sum(tensor(x))), sum(x))
 })
 
 test_that("t works", {
   x <- matrix(runif(6), ncol = 3)
 
-  expect_equal(as.array(t(tensor(x))), t(x))
+  expect_equal(as.array(tch_t(tensor(x))), t(x))
 
   x <- matrix(1:6, ncol = 3)
 
-  expect_equal(as.array(t(tensor(x))), t(x))
+  expect_equal(as.array(tch_t(tensor(x))), t(x))
 
   expect_error(t(tensor(array(1:12, dim = c(2,2,3)))))
 })
