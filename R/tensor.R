@@ -438,6 +438,22 @@ tch_mm <- function(x, mat2) {
   x$mul(y)
 }
 
+#' permute
+#'
+#' Permute the dimensions of this tensor.
+#'
+#' @param x tensor object
+#' @param dims the desired ordering of dimensions (0 based).
+#'
+#' @examples
+#' x <- tensor(array(1:10, dim = c(2,5,1)))
+#' x
+#' tch_permute(x, c(2,1,0))
+#' @export
+tch_permute <- function(x, dims) {
+  x$permute(dims)
+}
+
 #' pow
 #'
 #' @param x tensor object

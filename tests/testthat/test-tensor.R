@@ -385,6 +385,7 @@ test_that("permute works", {
   y <- as.array(x$permute(c(2,1,0)))
 
   expect_equal(y, aperm(array(1:100, dim = c(4, 5, 5)), c(3,2,1)))
+  expect_equal(as.array(tch_permute(x, c(2,1,0))), aperm(array(1:100, dim = c(4, 5, 5)), c(3,2,1)))
 })
 
 test_that("pow works", {
