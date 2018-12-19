@@ -13,7 +13,8 @@ std::vector<int64_t> reverse_int_seq (int n) {
 };
 
 template <int RTYPE, at::ScalarType ATTYPE>
-Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (SEXP x, std::vector<int64_t> dim, bool clone = true) {
+Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (const SEXP x, const std::vector<int64_t> dim,
+                                               const bool clone = true) {
 
   Rcpp::Vector<RTYPE> vec(x);
 
@@ -52,12 +53,14 @@ torch::ScalarType scalar_type_from_string(std::string scalar_type) {
   } else if (scalar_type == "kDouble") {
     return torch::kDouble;
   }
+  Rcpp::stop("scalar not handled");
 }
 
 torch::Device device_from_string(std::string device) {
   if (device == "CPU") {
     return torch::Device(torch::DeviceType::CPU);
   }
+  Rcpp::stop("device not handled");
 }
 
 // [[Rcpp::export]]
@@ -89,6 +92,7 @@ Rcpp::XPtr<torch::Tensor> tensor_ (Rcpp::XPtr<torch::Tensor> x,
     out.set_requires_grad(requires_grad);
     return make_tensor_ptr(out);
   }
+  Rcpp::stop("not handled");
 }
 
 // [[Rcpp::export]]
