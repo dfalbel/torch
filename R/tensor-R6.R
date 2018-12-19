@@ -167,6 +167,14 @@
       `torch::Tensor`$dispatch(tensor_bmm_(self$pointer, mat2$pointer))
     },
 
+    btrifact = function(pivot = TRUE) {
+      x <- tensor_btrifact_(self$pointer, pivot)
+      list(
+        `torch::Tensor`$dispatch(x[[1]]),
+        `torch::Tensor`$dispatch(x[[2]])
+      )
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

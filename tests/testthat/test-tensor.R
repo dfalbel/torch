@@ -355,6 +355,17 @@ test_that("bmm works", {
   expect_equal(dim(res), c(10, 3, 5))
 })
 
+test_that("btrifact works", {
+  x <- tensor(array(runif(18), dim = c(2, 3, 3)))
+  res <- tch_btrifact(x)
+
+  a_lu <- as.array(res[[1]])
+  pivot <- as.array(res[[2]])
+
+  expect_equal(dim(a_lu), c(2, 3, 3))
+  expect_equal(dim(pivot), c(2, 3))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))

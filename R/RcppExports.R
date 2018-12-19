@@ -113,6 +113,10 @@ tensor_bmm_ <- function(x, mat2) {
     .Call('_torch_tensor_bmm_', PACKAGE = 'torch', x, mat2)
 }
 
+tensor_btrifact_ <- function(x, pivot) {
+    .Call('_torch_tensor_btrifact_', PACKAGE = 'torch', x, pivot)
+}
+
 tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }

@@ -389,6 +389,21 @@ tch_bmm <- function(x, mat2) {
   x$bmm(mat2)
 }
 
+#' Batch LU factorization.
+#'
+#' Returns a tuple containing the LU factorization and pivots.
+#' Pivoting is done if pivot is set.
+#'
+#' @param x tensor object
+#' @param pivot controls whether pivoting is done
+#' @examples
+#' x <- tensor(array(runif(18), dim = c(2, 3, 3)))
+#' tch_btrifact(x)
+#' @export
+tch_btrifact <- function(x, pivot = TRUE) {
+  x$btrifact(pivot)
+}
+
 #' mean
 #'
 #' @param x tensor object
