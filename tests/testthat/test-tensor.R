@@ -366,6 +366,15 @@ test_that("btrifact works", {
   expect_equal(dim(pivot), c(2, 3))
 })
 
+test_that("btrisolve works", {
+  A <- tensor(array(runif(18), dim = c(2,3,3)))
+  b <- tensor(matrix(runif(6), ncol = 3))
+  A_LU <- tch_btrifact(A)
+  x <- as.array(tch_btrisolve(b, A_LU[[1]], A_LU[[2]]))
+
+  expect_equal(dim(x), c(2, 3))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))

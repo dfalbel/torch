@@ -117,6 +117,10 @@ tensor_btrifact_ <- function(x, pivot) {
     .Call('_torch_tensor_btrifact_', PACKAGE = 'torch', x, pivot)
 }
 
+tensor_btrisolve_ <- function(x, LU_data, LU_pivots) {
+    .Call('_torch_tensor_btrisolve_', PACKAGE = 'torch', x, LU_data, LU_pivots)
+}
+
 tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }

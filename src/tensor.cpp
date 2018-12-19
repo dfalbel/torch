@@ -344,6 +344,13 @@ Rcpp::List tensor_btrifact_ (Rcpp::XPtr<torch::Tensor> x, bool pivot) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_btrisolve_ (Rcpp::XPtr<torch::Tensor> x,
+                             Rcpp::XPtr<torch::Tensor> LU_data,
+                             Rcpp::XPtr<torch::Tensor> LU_pivots) {
+  return make_tensor_ptr(x->btrisolve(*LU_data, *LU_pivots));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
   auto out = torch::from_blob(x->data_ptr(), x->sizes(), x->type());
   return make_tensor_ptr(out);

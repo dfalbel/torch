@@ -175,6 +175,12 @@
       )
     },
 
+    btrisolve = function(LU_data, LU_pivots) {
+      `torch::Tensor`$dispatch(
+        tensor_btrisolve_(self$pointer, LU_data$pointer, LU_pivots$pointer)
+      )
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

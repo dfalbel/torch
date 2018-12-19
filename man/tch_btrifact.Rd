@@ -2,7 +2,7 @@
 % Please edit documentation in R/tensor.R
 \name{tch_btrifact}
 \alias{tch_btrifact}
-\title{Batch LU factorization.}
+\title{Batch LU factorization}
 \usage{
 tch_btrifact(x, pivot = TRUE)
 }

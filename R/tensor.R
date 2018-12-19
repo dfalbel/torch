@@ -389,7 +389,7 @@ tch_bmm <- function(x, mat2) {
   x$bmm(mat2)
 }
 
-#' Batch LU factorization.
+#' Batch LU factorization
 #'
 #' Returns a tuple containing the LU factorization and pivots.
 #' Pivoting is done if pivot is set.
@@ -402,6 +402,24 @@ tch_bmm <- function(x, mat2) {
 #' @export
 tch_btrifact <- function(x, pivot = TRUE) {
   x$btrifact(pivot)
+}
+
+#' Batch LU solve
+#'
+#' Returns the LU solve of the linear system $Ax = b$.
+#'
+#' @param x tensor object
+#' @param LU_data the pivoted LU factorization of A from [tch_btrifact()]
+#' @param LU_pivots the pivots of the LU factorization
+#'
+#' @examples
+#' A <- tensor(array(runif(18), dim = c(2,3,3)))
+#' b <- tensor(matrix(runif(6), ncol = 3))
+#' A_LU <- tch_btrifact(A)
+#' tch_btrisolve(b, A_LU[[1]], A_LU[[2]])
+#' @export
+tch_btrisolve <- function(x, LU_data, LU_pivots) {
+  x$btrisolve(LU_data, LU_pivots)
 }
 
 #' mean
