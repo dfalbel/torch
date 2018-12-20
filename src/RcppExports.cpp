@@ -415,6 +415,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_ceil__
+Rcpp::XPtr<torch::Tensor> tensor_ceil__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_ceil__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_ceil__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_data_
 Rcpp::XPtr<torch::Tensor> tensor_data_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_data_(SEXP xSEXP) {
@@ -595,6 +606,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_btrisolve_", (DL_FUNC) &_torch_tensor_btrisolve_, 3},
     {"_torch_tensor_cauchy__", (DL_FUNC) &_torch_tensor_cauchy__, 3},
     {"_torch_tensor_ceil_", (DL_FUNC) &_torch_tensor_ceil_, 1},
+    {"_torch_tensor_ceil__", (DL_FUNC) &_torch_tensor_ceil__, 1},
     {"_torch_tensor_data_", (DL_FUNC) &_torch_tensor_data_, 1},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},

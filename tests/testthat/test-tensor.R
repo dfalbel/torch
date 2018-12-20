@@ -393,6 +393,12 @@ test_that("ceil works", {
   expect_equal(as.array(tch_ceil(x)), rep(1, 10))
 })
 
+test_that("ceil_ works", {
+  x <- tensor(runif(10))
+  x$ceil_()
+  expect_equal(as.array(x), rep(1, 10))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))

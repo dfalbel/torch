@@ -129,6 +129,10 @@ tensor_ceil_ <- function(x) {
     .Call('_torch_tensor_ceil_', PACKAGE = 'torch', x)
 }
 
+tensor_ceil__ <- function(x) {
+    .Call('_torch_tensor_ceil__', PACKAGE = 'torch', x)
+}
+
 tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }

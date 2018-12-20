@@ -366,6 +366,11 @@ Rcpp::XPtr<torch::Tensor> tensor_ceil_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_ceil__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->ceil_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
   auto out = torch::from_blob(x->data_ptr(), x->sizes(), x->type());
   return make_tensor_ptr(out);
