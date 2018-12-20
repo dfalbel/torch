@@ -186,6 +186,10 @@
       invisible(NULL)
     },
 
+    ceil = function() {
+      `torch::Tensor`$dispatch(tensor_ceil_(self$pointer))
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

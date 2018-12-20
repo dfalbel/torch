@@ -125,6 +125,10 @@ tensor_cauchy__ <- function(x, median, sigma) {
     .Call('_torch_tensor_cauchy__', PACKAGE = 'torch', x, median, sigma)
 }
 
+tensor_ceil_ <- function(x) {
+    .Call('_torch_tensor_ceil_', PACKAGE = 'torch', x)
+}
+
 tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }

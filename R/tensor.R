@@ -422,6 +422,21 @@ tch_btrisolve <- function(x, LU_data, LU_pivots) {
   x$btrisolve(LU_data, LU_pivots)
 }
 
+#' Ceil
+#'
+#' Returns a new tensor with the ceil of the elements of input,
+#' the smallest integer greater than or equal to each element.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(runif(10))
+#' x
+#' tch_ceil(x)
+#' @export
+tch_ceil <- function(x) {
+  x$ceil()
+}
+
 #' mean
 #'
 #' @param x tensor object

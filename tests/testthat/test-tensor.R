@@ -388,6 +388,11 @@ test_that("cauchy works", {
   expect_false(all(as.array(x) == b))
 })
 
+test_that("ceil works", {
+  x <- tensor(runif(10))
+  expect_equal(as.array(tch_ceil(x)), rep(1, 10))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))
