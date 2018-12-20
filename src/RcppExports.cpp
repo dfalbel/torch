@@ -391,6 +391,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_cauchy__
+Rcpp::XPtr<torch::Tensor> tensor_cauchy__(Rcpp::XPtr<torch::Tensor> x, double median, double sigma);
+RcppExport SEXP _torch_tensor_cauchy__(SEXP xSEXP, SEXP medianSEXP, SEXP sigmaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type median(medianSEXP);
+    Rcpp::traits::input_parameter< double >::type sigma(sigmaSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_cauchy__(x, median, sigma));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_data_
 Rcpp::XPtr<torch::Tensor> tensor_data_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_data_(SEXP xSEXP) {
@@ -569,6 +582,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_bmm_", (DL_FUNC) &_torch_tensor_bmm_, 2},
     {"_torch_tensor_btrifact_", (DL_FUNC) &_torch_tensor_btrifact_, 2},
     {"_torch_tensor_btrisolve_", (DL_FUNC) &_torch_tensor_btrisolve_, 3},
+    {"_torch_tensor_cauchy__", (DL_FUNC) &_torch_tensor_cauchy__, 3},
     {"_torch_tensor_data_", (DL_FUNC) &_torch_tensor_data_, 1},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},

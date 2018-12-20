@@ -181,6 +181,11 @@
       )
     },
 
+    cauchy_ = function(median = 0, sigma = 1) {
+      tensor_cauchy__(self$pointer, median, sigma)
+      invisible(NULL)
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

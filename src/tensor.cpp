@@ -13,16 +13,21 @@ std::vector<int64_t> reverse_int_seq (int n) {
 };
 
 template <int RTYPE, at::ScalarType ATTYPE>
-Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (const SEXP x, const std::vector<int64_t> dim,
-                                               const bool clone = true) {
+Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (const SEXP x, const std::vector<int64_t> dim) {
 
   Rcpp::Vector<RTYPE> vec(x);
 
   auto tensor = torch::from_blob(vec.begin(), dim, ATTYPE);
 
+  if (dim.size() == 1) {
+    // if we have a 1-dim vector contigous doesn't trigger a copy, and
+    // would be unexpected.
+    tensor = tensor.clone();
+  }
+
   tensor = tensor
     .permute(reverse_int_seq(dim.size()))
-    .contiguous();
+    .contiguous(); // triggers a copy!
 
   if (RTYPE == LGLSXP)
     tensor = tensor.to(torch::kByte);
@@ -348,6 +353,11 @@ Rcpp::XPtr<torch::Tensor> tensor_btrisolve_ (Rcpp::XPtr<torch::Tensor> x,
                              Rcpp::XPtr<torch::Tensor> LU_data,
                              Rcpp::XPtr<torch::Tensor> LU_pivots) {
   return make_tensor_ptr(x->btrisolve(*LU_data, *LU_pivots));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_cauchy__ (Rcpp::XPtr<torch::Tensor> x, double median, double sigma) {
+  return make_tensor_ptr(x->cauchy_(median, sigma));
 }
 
 // [[Rcpp::export]]

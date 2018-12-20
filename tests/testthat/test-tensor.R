@@ -375,6 +375,19 @@ test_that("btrisolve works", {
   expect_equal(dim(x), c(2, 3))
 })
 
+test_that("cauchy works", {
+  a <- matrix(runif(10), ncol = 2)
+  x <- tensor(a)
+  x$cauchy_(0, 1)
+  expect_false(all(as.array(x) == a))
+
+  b <- runif(10)
+  x <- tensor(b)
+  x$cauchy_(0, 1)
+
+  expect_false(all(as.array(x) == b))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))
