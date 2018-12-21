@@ -195,6 +195,13 @@
       invisible(NULL)
     },
 
+    chunk = function(chunks, dim) {
+      lapply(
+        tensor_chunk_(self$pointer, chunks, dim),
+        `torch::Tensor`$dispatch
+      )
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

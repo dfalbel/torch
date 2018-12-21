@@ -399,6 +399,15 @@ test_that("ceil_ works", {
   expect_equal(as.array(x), rep(1, 10))
 })
 
+test_that("chunk works", {
+  a <- array(runif(100), dim = c(4, 5, 5))
+  x <- tensor(a)
+  chunks <- tch_chunk(x, 2, 0)
+
+  expect_equal(as.array(chunks[[1]]), a[1:2,,])
+  expect_equal(as.array(chunks[[2]]), a[3:4,,])
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))

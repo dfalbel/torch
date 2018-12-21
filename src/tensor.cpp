@@ -371,6 +371,19 @@ Rcpp::XPtr<torch::Tensor> tensor_ceil__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::List tensor_chunk_ (Rcpp::XPtr<torch::Tensor> x, int64_t chunks, int64_t dim) {
+
+  auto chunks_vector = x->chunk(chunks, dim);
+  Rcpp::List out;
+
+  for (int i = 0; i < chunks_vector.size(); i++) {
+    out.push_back(make_tensor_ptr(chunks_vector[i]));
+  }
+
+  return out;
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
   auto out = torch::from_blob(x->data_ptr(), x->sizes(), x->type());
   return make_tensor_ptr(out);

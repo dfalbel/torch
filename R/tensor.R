@@ -437,6 +437,24 @@ tch_ceil <- function(x) {
   x$ceil()
 }
 
+#' Chunk
+#'
+#' Splits a tensor into a specific number of chunks.
+#' Last chunk will be smaller if the tensor size along the given dimension
+#' `dim` is not divisible by chunks.
+#'
+#' @param x tensor object
+#' @param chunks number of chunks to return
+#' @param dim dimension along which to split the tensor
+#'
+#' @examples
+#' x <- tensor(array(runif(100), dim = c(4, 5, 5)))
+#' tch_chunk(x, 2, 0)
+#' @export
+tch_chunk <- function(x, chunks, dim) {
+  x$chunk(chunks, dim)
+}
+
 #' mean
 #'
 #' @param x tensor object
