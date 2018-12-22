@@ -408,6 +408,20 @@ test_that("chunk works", {
   expect_equal(as.array(chunks[[2]]), a[3:4,,])
 })
 
+test_that("clamp works", {
+  x <- tensor(1:10)
+  res <- as.array(tch_clamp(x, 5, 7))
+
+  expect_equal(min(res), 5L)
+  expect_equal(max(res), 7L)
+
+  x <- tensor(runif(100))
+  res <- as.array(tch_clamp(x, 0.5, 0.7))
+
+  expect_equal(min(res), 0.5)
+  expect_equal(max(res), 0.7)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))

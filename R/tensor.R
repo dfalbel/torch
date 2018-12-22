@@ -455,6 +455,22 @@ tch_chunk <- function(x, chunks, dim) {
   x$chunk(chunks, dim)
 }
 
+#' Clamp
+#'
+#' Clamp all elements in x into the range min, max and return a
+#' resulting tensor.
+#'
+#' @param x tensor object
+#' @param min lower-bound of the range to be clamped to
+#' @param max upper-bound of the range to be clamped to
+#' @examples
+#' x <- tensor(1:10)
+#' tch_clamp(x, 5, 7)
+#' @export
+tch_clamp <- function(x, min, max) {
+  x$clamp(min, max)
+}
+
 #' mean
 #'
 #' @param x tensor object
