@@ -397,6 +397,20 @@ Rcpp::XPtr<torch::Tensor> tensor_clamp_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_clamp__ (Rcpp::XPtr<torch::Tensor> x,
+                                         double min,
+                                         double max) {
+  if (x->dtype() == torch::kInt) {
+    int min2 = min;
+    int max2 = max;
+    return make_tensor_ptr(x->clamp_(min2, max2));
+  } else {
+    return make_tensor_ptr(x->clamp_(min, max));
+  }
+}
+
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
   auto out = torch::from_blob(x->data_ptr(), x->sizes(), x->type());
   return make_tensor_ptr(out);

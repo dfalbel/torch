@@ -422,6 +422,22 @@ test_that("clamp works", {
   expect_equal(max(res), 0.7)
 })
 
+test_that("clamp works", {
+  x <- tensor(1:10)
+  x$clamp_(5, 7)
+  res <- as.array(x)
+
+  expect_equal(min(res), 5L)
+  expect_equal(max(res), 7L)
+
+  x <- tensor(runif(100))
+  x$clamp_(0.5, 0.7)
+  res <- as.array(x)
+
+  expect_equal(min(res), 0.5)
+  expect_equal(max(res), 0.7)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))
