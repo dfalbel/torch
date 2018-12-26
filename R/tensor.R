@@ -471,6 +471,21 @@ tch_clamp <- function(x, min, max) {
   x$clamp(min, max)
 }
 
+#' Clamp max
+#'
+#' Clamp all elements in x into the range -Inf, max and return a
+#' resulting tensor.
+#'
+#' @param x tensor object
+#' @param max upper-bound of the range to be clamped to
+#' @examples
+#' x <- tensor(1:10)
+#' tch_clamp_max(x, 5)
+#' @export
+tch_clamp_max <- function(x, max) {
+  x$clamp_max(max)
+}
+
 #' mean
 #'
 #' @param x tensor object

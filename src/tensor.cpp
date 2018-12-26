@@ -409,6 +409,10 @@ Rcpp::XPtr<torch::Tensor> tensor_clamp__ (Rcpp::XPtr<torch::Tensor> x,
   }
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_clamp_max_ (Rcpp::XPtr<torch::Tensor> x, double max) {
+  return make_tensor_ptr(x->clamp_max(max));
+}
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {

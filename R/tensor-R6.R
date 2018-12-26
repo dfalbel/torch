@@ -211,6 +211,10 @@
       invisible(NULL)
     },
 
+    clamp_max = function(max) {
+      `torch::Tensor`$dispatch(tensor_clamp_max_(self$pointer, max))
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
