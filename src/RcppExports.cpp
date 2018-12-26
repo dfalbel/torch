@@ -489,6 +489,30 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_clamp_min_
+Rcpp::XPtr<torch::Tensor> tensor_clamp_min_(Rcpp::XPtr<torch::Tensor> x, double min);
+RcppExport SEXP _torch_tensor_clamp_min_(SEXP xSEXP, SEXP minSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type min(minSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_clamp_min_(x, min));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_clamp_min__
+Rcpp::XPtr<torch::Tensor> tensor_clamp_min__(Rcpp::XPtr<torch::Tensor> x, double min);
+RcppExport SEXP _torch_tensor_clamp_min__(SEXP xSEXP, SEXP minSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type min(minSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_clamp_min__(x, min));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_data_
 Rcpp::XPtr<torch::Tensor> tensor_data_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_data_(SEXP xSEXP) {
@@ -675,6 +699,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_clamp__", (DL_FUNC) &_torch_tensor_clamp__, 3},
     {"_torch_tensor_clamp_max_", (DL_FUNC) &_torch_tensor_clamp_max_, 2},
     {"_torch_tensor_clamp_max__", (DL_FUNC) &_torch_tensor_clamp_max__, 2},
+    {"_torch_tensor_clamp_min_", (DL_FUNC) &_torch_tensor_clamp_min_, 2},
+    {"_torch_tensor_clamp_min__", (DL_FUNC) &_torch_tensor_clamp_min__, 2},
     {"_torch_tensor_data_", (DL_FUNC) &_torch_tensor_data_, 1},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},

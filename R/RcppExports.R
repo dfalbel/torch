@@ -153,6 +153,14 @@ tensor_clamp_max__ <- function(x, max) {
     .Call('_torch_tensor_clamp_max__', PACKAGE = 'torch', x, max)
 }
 
+tensor_clamp_min_ <- function(x, min) {
+    .Call('_torch_tensor_clamp_min_', PACKAGE = 'torch', x, min)
+}
+
+tensor_clamp_min__ <- function(x, min) {
+    .Call('_torch_tensor_clamp_min__', PACKAGE = 'torch', x, min)
+}
+
 tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }
