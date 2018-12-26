@@ -418,6 +418,11 @@ Rcpp::XPtr<torch::Tensor> tensor_clamp_min__ (Rcpp::XPtr<torch::Tensor> x, doubl
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_clone_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->clone());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
   auto out = torch::from_blob(x->data_ptr(), x->sizes(), x->type());
   return make_tensor_ptr(out);

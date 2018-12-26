@@ -490,6 +490,14 @@ test_that("clamp_min_ works", {
   expect_equal(min(res), 0.7)
 })
 
+test_that("clone_ works", {
+  x <- tensor(1:10)
+  y <- x$clone_()
+  x$clamp_max_(5)
+
+  expect_false(all(as.array(x) == as.array(y)))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))

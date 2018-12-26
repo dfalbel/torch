@@ -229,6 +229,11 @@
       invisible(NULL)
     },
 
+    clone_ = function() {
+      # TODO decide if clone_ is the best name for this method.
+      `torch::Tensor`$dispatch(tensor_clone_(self$pointer))
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
