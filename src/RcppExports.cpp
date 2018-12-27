@@ -662,6 +662,39 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_det_
+Rcpp::XPtr<torch::Tensor> tensor_det_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_det_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_det_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_detach_
+Rcpp::XPtr<torch::Tensor> tensor_detach_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_detach_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_detach_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_detach__
+Rcpp::XPtr<torch::Tensor> tensor_detach__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_detach__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_detach__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_grad_
 Rcpp::XPtr<torch::Tensor> tensor_grad_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_grad_(SEXP xSEXP) {
@@ -852,6 +885,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_cuda_", (DL_FUNC) &_torch_tensor_cuda_, 1},
     {"_torch_tensor_cumprod_", (DL_FUNC) &_torch_tensor_cumprod_, 2},
     {"_torch_tensor_cumsum_", (DL_FUNC) &_torch_tensor_cumsum_, 2},
+    {"_torch_tensor_det_", (DL_FUNC) &_torch_tensor_det_, 1},
+    {"_torch_tensor_detach_", (DL_FUNC) &_torch_tensor_detach_, 1},
+    {"_torch_tensor_detach__", (DL_FUNC) &_torch_tensor_detach__, 1},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},

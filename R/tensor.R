@@ -577,6 +577,20 @@ tch_cumsum <- function(x, dim) {
   x$cumsum(dim)
 }
 
+#' Determinant
+#'
+#' Calculates determinant of a 2D square tensor.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(matrix(runif(36), ncol = 6))
+#' tch_det(x)
+#' @export
+tch_det <- function(x) {
+  x$det()
+}
+
+
 #' mean
 #'
 #' @param x tensor object

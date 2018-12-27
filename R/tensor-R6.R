@@ -281,6 +281,19 @@
       `torch::Tensor`$dispatch(tensor_cumsum_(self$pointer, dim))
     },
 
+    det = function() {
+      `torch::Tensor`$dispatch(tensor_det_(self$pointer))
+    },
+
+    detach = function() {
+      `torch::Tensor`$dispatch(tensor_detach_(self$pointer))
+    },
+
+    detach_ = function() {
+      tensor_detach__(self$pointer)
+      invisible(NULL)
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

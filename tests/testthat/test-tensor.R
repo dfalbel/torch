@@ -580,6 +580,27 @@ test_that("cumsum works", {
   )
 })
 
+test_that("det works", {
+  x <- matrix(runif(36), ncol = 6)
+
+  expect_equal(
+    as.array(tch_det(tensor(x))),
+    det(x)
+  )
+})
+
+test_that("detach works", {
+  # TODO better testing this.
+  x <- tensor(matrix(runif(36), ncol = 6))
+  expect_silent(y <- x$detach())
+})
+
+test_that("detach_ works", {
+  # TODO better testing this
+  x <- tensor(matrix(runif(36), ncol = 6))
+  expect_silent(x$detach_())
+})
+
 
 test_that("mean works", {
   x <- runif(100)

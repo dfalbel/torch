@@ -213,6 +213,18 @@ tensor_cumsum_ <- function(x, dim) {
     .Call('_torch_tensor_cumsum_', PACKAGE = 'torch', x, dim)
 }
 
+tensor_det_ <- function(x) {
+    .Call('_torch_tensor_det_', PACKAGE = 'torch', x)
+}
+
+tensor_detach_ <- function(x) {
+    .Call('_torch_tensor_detach_', PACKAGE = 'torch', x)
+}
+
+tensor_detach__ <- function(x) {
+    .Call('_torch_tensor_detach__', PACKAGE = 'torch', x)
+}
+
 tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }
