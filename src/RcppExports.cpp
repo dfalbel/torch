@@ -535,6 +535,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_copy__
+Rcpp::XPtr<torch::Tensor> tensor_copy__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> src, bool non_blocking);
+RcppExport SEXP _torch_tensor_copy__(SEXP xSEXP, SEXP srcSEXP, SEXP non_blockingSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type src(srcSEXP);
+    Rcpp::traits::input_parameter< bool >::type non_blocking(non_blockingSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_copy__(x, src, non_blocking));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_data_
 Rcpp::XPtr<torch::Tensor> tensor_data_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_data_(SEXP xSEXP) {
@@ -725,6 +738,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_clamp_min__", (DL_FUNC) &_torch_tensor_clamp_min__, 2},
     {"_torch_tensor_clone_", (DL_FUNC) &_torch_tensor_clone_, 1},
     {"_torch_tensor_contiguous_", (DL_FUNC) &_torch_tensor_contiguous_, 1},
+    {"_torch_tensor_copy__", (DL_FUNC) &_torch_tensor_copy__, 3},
     {"_torch_tensor_data_", (DL_FUNC) &_torch_tensor_data_, 1},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},

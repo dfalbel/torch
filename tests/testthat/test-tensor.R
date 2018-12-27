@@ -498,9 +498,21 @@ test_that("clone_ works", {
   expect_false(all(as.array(x) == as.array(y)))
 })
 
-test_that("contiguous_ works", {
+test_that("contiguous works", {
   # TODO better test if contiguous. it's important to test copies.
   expect_silent(tensor(1:10)$contiguous())
+})
+
+test_that("copy_ works", {
+  x <- tensor(1:10)
+  y <- tensor(11:20)
+  x$copy_(y)
+  expect_equal(as.array(x), as.array(y))
+
+  x <- tensor(1:10)
+  y <- tensor(11:20)
+  x$copy_(y, non_blocking = TRUE)
+  expect_equal(as.array(x), as.array(y))
 })
 
 test_that("mean works", {

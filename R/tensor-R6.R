@@ -238,6 +238,11 @@
       `torch::Tensor`$dispatch(tensor_contiguous_(self$pointer))
     },
 
+    copy_ = function(src, non_blocking = FALSE) {
+      tensor_copy__(self$pointer, src$pointer, non_blocking)
+      invisible(NULL)
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
