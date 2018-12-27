@@ -614,6 +614,54 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_cross_
+Rcpp::XPtr<torch::Tensor> tensor_cross_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other, std::int64_t dim);
+RcppExport SEXP _torch_tensor_cross_(SEXP xSEXP, SEXP otherSEXP, SEXP dimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type other(otherSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_cross_(x, other, dim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_cuda_
+Rcpp::XPtr<torch::Tensor> tensor_cuda_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_cuda_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_cuda_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_cumprod_
+Rcpp::XPtr<torch::Tensor> tensor_cumprod_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim);
+RcppExport SEXP _torch_tensor_cumprod_(SEXP xSEXP, SEXP dimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_cumprod_(x, dim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_cumsum_
+Rcpp::XPtr<torch::Tensor> tensor_cumsum_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim);
+RcppExport SEXP _torch_tensor_cumsum_(SEXP xSEXP, SEXP dimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_cumsum_(x, dim));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_grad_
 Rcpp::XPtr<torch::Tensor> tensor_grad_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_grad_(SEXP xSEXP) {
@@ -800,6 +848,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_cosh_", (DL_FUNC) &_torch_tensor_cosh_, 1},
     {"_torch_tensor_cosh__", (DL_FUNC) &_torch_tensor_cosh__, 1},
     {"_torch_tensor_cpu_", (DL_FUNC) &_torch_tensor_cpu_, 1},
+    {"_torch_tensor_cross_", (DL_FUNC) &_torch_tensor_cross_, 3},
+    {"_torch_tensor_cuda_", (DL_FUNC) &_torch_tensor_cuda_, 1},
+    {"_torch_tensor_cumprod_", (DL_FUNC) &_torch_tensor_cumprod_, 2},
+    {"_torch_tensor_cumsum_", (DL_FUNC) &_torch_tensor_cumsum_, 2},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},

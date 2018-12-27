@@ -466,6 +466,30 @@ Rcpp::XPtr<torch::Tensor> tensor_cpu_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_cross_ (Rcpp::XPtr<torch::Tensor> x,
+                                       Rcpp::XPtr<torch::Tensor> other,
+                                       std::int64_t dim = -1) {
+  return make_tensor_ptr(x->cross(*other, dim));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_cuda_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->cuda());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_cumprod_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t dim) {
+  // TODO allow dtype argument.
+  return make_tensor_ptr(x->cumprod(dim));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_cumsum_ (Rcpp::XPtr<torch::Tensor> x, std::int64_t dim) {
+  // TODO allow dtype argument.
+  return make_tensor_ptr(x->cumsum(dim));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->grad());
 }

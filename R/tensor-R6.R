@@ -265,6 +265,22 @@
       `torch::Tensor`$dispatch(tensor_cpu_(self$pointer))
     },
 
+    cross = function(other, dim = -1) {
+      `torch::Tensor`$dispatch(tensor_cross_(self$pointer, other$pointer, dim))
+    },
+
+    cuda = function() {
+      `torch::Tensor`$dispatch(tensor_cuda_(self$pointer))
+    },
+
+    cumprod = function(dim) {
+      `torch::Tensor`$dispatch(tensor_cumprod_(self$pointer, dim))
+    },
+
+    cumsum = function(dim) {
+      `torch::Tensor`$dispatch(tensor_cumsum_(self$pointer, dim))
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

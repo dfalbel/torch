@@ -524,6 +524,59 @@ tch_cosh <- function(x) {
   x$cosh()
 }
 
+#' Cross
+#'
+#' Returns the cross product of vectors in dimension `dim` of `x` and `other`.
+#' `x` and `other` must have the same size, and the size of their `dim` dimension
+#' should be 3.
+#'
+#' If dim is not given, it defaults to the first dimension found with the size 3.
+#'
+#' @param x tensor object
+#' @param other the second input tensor
+#' @param dim the dimension to take the cross-product in.
+#'
+#' @examples
+#'
+#' a <- tensor(matrix(runif(12), ncol = 3))
+#' b <- tensor(matrix(runif(12), ncol = 3))
+#' tch_cross(a, b, dim=1)
+#' tch_cross(a, b)
+#' @export
+tch_cross <- function(x, other, dim = -1) {
+  x$cross(other, dim)
+}
+
+#' Cumprod
+#'
+#' Returns the cumulative product of elements of input in the dimension dim.
+#'
+#' @param x tensor object
+#' @param dim the dimension to do the operation over
+#'
+#' @examples
+#' x <- tensor(1:10)
+#' tch_cumprod(x)
+#' @export
+tch_cumprod <- function(x, dim) {
+  x$cumprod(dim)
+}
+
+#' Cumsum
+#'
+#' Returns the cumulative sum of elements of input in the dimension dim.
+#'
+#' @param x tensor object
+#' @param dim the dimension to do the operation over
+#'
+#' @examples
+#' x <- tensor(1:10)
+#' tch_cumsum(x)
+#' @export
+tch_cumsum <- function(x, dim) {
+  x$cumsum(dim)
+}
+
 #' mean
 #'
 #' @param x tensor object

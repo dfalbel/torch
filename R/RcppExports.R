@@ -197,6 +197,22 @@ tensor_cpu_ <- function(x) {
     .Call('_torch_tensor_cpu_', PACKAGE = 'torch', x)
 }
 
+tensor_cross_ <- function(x, other, dim = -1L) {
+    .Call('_torch_tensor_cross_', PACKAGE = 'torch', x, other, dim)
+}
+
+tensor_cuda_ <- function(x) {
+    .Call('_torch_tensor_cuda_', PACKAGE = 'torch', x)
+}
+
+tensor_cumprod_ <- function(x, dim) {
+    .Call('_torch_tensor_cumprod_', PACKAGE = 'torch', x, dim)
+}
+
+tensor_cumsum_ <- function(x, dim) {
+    .Call('_torch_tensor_cumsum_', PACKAGE = 'torch', x, dim)
+}
+
 tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }

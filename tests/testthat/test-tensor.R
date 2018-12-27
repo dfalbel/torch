@@ -543,6 +543,44 @@ test_that("cpu works", {
   expect_silent(tensor(1:10)$cpu())
 })
 
+test_that("cpu works", {
+  # TODO better test if tensor is not on cpu. this requires allocating.
+  # otherwise the function is doing nothing
+  expect_silent(tensor(1:10)$cpu())
+})
+
+test_that("cross works", {
+  # TODO better test this. probly with R examples.
+  a <- matrix(runif(12), ncol = 3)
+  b <- matrix(runif(12), ncol = 3)
+
+  expect_silent(
+    as.array(tch_cross(tensor(a), tensor(b)))
+  )
+})
+
+test_that("cuda works", {
+  # TODO better test if tensor is not on cpu. this requires allocating.
+  # otherwise the function is doing nothing
+  # we expect an error since we are not testing on GPU's yet.
+  expect_error(tensor(1:10)$cuda())
+})
+
+test_that("cumprod works", {
+  expect_equal(
+    as.array(tch_cumprod(tensor(1:10), dim = 0)),
+    cumprod(1:10)
+  )
+})
+
+test_that("cumsum works", {
+  expect_equal(
+    as.array(tch_cumsum(tensor(1:10), dim = 0)),
+    cumsum(1:10)
+  )
+})
+
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))
