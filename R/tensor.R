@@ -501,7 +501,7 @@ tch_clamp_min <- function(x, min) {
   x$clamp_min(min)
 }
 
-#' Cosinus
+#' Cosine
 #'
 #' Returns a new tensor with the cosine of the elements of input
 #'
@@ -511,6 +511,17 @@ tch_clamp_min <- function(x, min) {
 #' @export
 tch_cos <- function(x) {
   x$cos()
+}
+
+#' Hyperbolic Cosine
+#'
+#' Returns a new tensor with the hyperbolic cosine of the elements of input.
+#' @param x tensor object
+#' @examples
+#' tch_cosh(tensor(pi))
+#' @export
+tch_cosh <- function(x) {
+  x$cosh()
 }
 
 #' mean

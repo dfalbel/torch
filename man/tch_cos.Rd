@@ -2,7 +2,7 @@
 % Please edit documentation in R/tensor.R
 \name{tch_cos}
 \alias{tch_cos}
-\title{Cosinus}
+\title{Cosine}
 \usage{
 tch_cos(x)
 }

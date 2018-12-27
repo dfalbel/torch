@@ -252,6 +252,15 @@
       invisible(NULL)
     },
 
+    cosh = function() {
+      `torch::Tensor`$dispatch(tensor_cosh_(self$pointer))
+    },
+
+    cosh_ = function() {
+      tensor_cosh__(self$pointer)
+      invisible(NULL)
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

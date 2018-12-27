@@ -526,6 +526,17 @@ test_that("cos_ works", {
   expect_equal(as.array(x), cos(c(pi, 2*pi)))
 })
 
+test_that("cosh works", {
+  x <- tensor(c(pi, 2*pi))
+  expect_equal(as.array(tch_cosh(x)), cosh(c(pi, 2*pi)))
+})
+
+test_that("cosh_ works", {
+  x <- tensor(c(pi, 2*pi))
+  x$cosh_()
+  expect_equal(as.array(x), cosh(c(pi, 2*pi)))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))

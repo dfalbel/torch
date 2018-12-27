@@ -185,6 +185,14 @@ tensor_cos__ <- function(x) {
     .Call('_torch_tensor_cos__', PACKAGE = 'torch', x)
 }
 
+tensor_cosh_ <- function(x) {
+    .Call('_torch_tensor_cosh_', PACKAGE = 'torch', x)
+}
+
+tensor_cosh__ <- function(x) {
+    .Call('_torch_tensor_cosh__', PACKAGE = 'torch', x)
+}
+
 tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }
