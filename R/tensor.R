@@ -556,7 +556,7 @@ tch_cross <- function(x, other, dim = -1) {
 #'
 #' @examples
 #' x <- tensor(1:10)
-#' tch_cumprod(x)
+#' tch_cumprod(x, dim = 0)
 #' @export
 tch_cumprod <- function(x, dim) {
   x$cumprod(dim)
@@ -571,7 +571,7 @@ tch_cumprod <- function(x, dim) {
 #'
 #' @examples
 #' x <- tensor(1:10)
-#' tch_cumsum(x)
+#' tch_cumsum(x, dim = 0)
 #' @export
 tch_cumsum <- function(x, dim) {
   x$cumsum(dim)

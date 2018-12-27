@@ -16,5 +16,5 @@ Returns the cumulative sum of elements of input in the dimension dim.
 }
 \examples{
 x <- tensor(1:10)
-tch_cumsum(x)
+tch_cumsum(x, dim = 0)
 }

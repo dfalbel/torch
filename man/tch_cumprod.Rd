@@ -16,5 +16,5 @@ Returns the cumulative product of elements of input in the dimension dim.
 }
 \examples{
 x <- tensor(1:10)
-tch_cumprod(x)
+tch_cumprod(x, dim = 0)
 }
