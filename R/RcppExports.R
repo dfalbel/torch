@@ -165,6 +165,10 @@ tensor_clone_ <- function(x) {
     .Call('_torch_tensor_clone_', PACKAGE = 'torch', x)
 }
 
+tensor_contiguous_ <- function(x) {
+    .Call('_torch_tensor_contiguous_', PACKAGE = 'torch', x)
+}
+
 tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }
