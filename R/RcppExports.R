@@ -193,6 +193,10 @@ tensor_cosh__ <- function(x) {
     .Call('_torch_tensor_cosh__', PACKAGE = 'torch', x)
 }
 
+tensor_cpu_ <- function(x) {
+    .Call('_torch_tensor_cpu_', PACKAGE = 'torch', x)
+}
+
 tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }

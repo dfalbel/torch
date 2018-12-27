@@ -537,6 +537,12 @@ test_that("cosh_ works", {
   expect_equal(as.array(x), cosh(c(pi, 2*pi)))
 })
 
+test_that("cpu works", {
+  # TODO better test if tensor is not on cpu. this requires allocating.
+  # otherwise the function is doing nothing
+  expect_silent(tensor(1:10)$cpu())
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))
@@ -621,4 +627,3 @@ test_that("creation of 3d numeric tensor", {
   x <- array(runif(80), dim = c(20, 2, 2))
   expect_identical(as.array(tensor(x)), x)
 })
-

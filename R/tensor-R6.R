@@ -261,6 +261,10 @@
       invisible(NULL)
     },
 
+    cpu = function() {
+      `torch::Tensor`$dispatch(tensor_cpu_(self$pointer))
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
