@@ -441,6 +441,16 @@ Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_cos_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->cos());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_cos__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->cos_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->grad());
 }

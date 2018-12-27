@@ -515,6 +515,17 @@ test_that("copy_ works", {
   expect_equal(as.array(x), as.array(y))
 })
 
+test_that("cos works", {
+  x <- tensor(c(pi, 2*pi))
+  expect_equal(as.array(tch_cos(x)), cos(c(pi, 2*pi)))
+})
+
+test_that("cos_ works", {
+  x <- tensor(c(pi, 2*pi))
+  x$cos_()
+  expect_equal(as.array(x), cos(c(pi, 2*pi)))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x))

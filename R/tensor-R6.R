@@ -243,6 +243,15 @@
       invisible(NULL)
     },
 
+    cos = function() {
+      `torch::Tensor`$dispatch(tensor_cos_(self$pointer))
+    },
+
+    cos_ = function() {
+      tensor_cos__(self$pointer)
+      invisible(NULL)
+    },
+
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
     `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },

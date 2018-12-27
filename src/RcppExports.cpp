@@ -559,6 +559,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_cos_
+Rcpp::XPtr<torch::Tensor> tensor_cos_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_cos_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_cos_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_cos__
+Rcpp::XPtr<torch::Tensor> tensor_cos__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_cos__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_cos__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_grad_
 Rcpp::XPtr<torch::Tensor> tensor_grad_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_grad_(SEXP xSEXP) {
@@ -740,6 +762,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_contiguous_", (DL_FUNC) &_torch_tensor_contiguous_, 1},
     {"_torch_tensor_copy__", (DL_FUNC) &_torch_tensor_copy__, 3},
     {"_torch_tensor_data_", (DL_FUNC) &_torch_tensor_data_, 1},
+    {"_torch_tensor_cos_", (DL_FUNC) &_torch_tensor_cos_, 1},
+    {"_torch_tensor_cos__", (DL_FUNC) &_torch_tensor_cos__, 1},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},

@@ -501,6 +501,18 @@ tch_clamp_min <- function(x, min) {
   x$clamp_min(min)
 }
 
+#' Cosinus
+#'
+#' Returns a new tensor with the cosine of the elements of input
+#'
+#' @param x tensor object
+#' @examples
+#' tch_cos(tensor(pi))
+#' @export
+tch_cos <- function(x) {
+  x$cos()
+}
+
 #' mean
 #'
 #' @param x tensor object
