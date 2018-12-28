@@ -665,6 +665,23 @@ tch_permute <- function(x, dims) {
   x$pow(y)
 }
 
+#' QR decomposition
+#'
+#' Computes the QR decomposition of a matrix input, and returns matrices Q and R
+#' such that $input = QR$, with QQ being an orthogonal matrix and RR being an
+#' upper triangular matrix.
+#'
+#' This returns the thin (reduced) QR factorization.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(matrix(runif(16), ncol = 4))
+#' tch_qr(x)
+#' @export
+tch_qr <- function(x) {
+  x$qr()
+}
+
 #' substraction
 #'
 #' @param x tensor object

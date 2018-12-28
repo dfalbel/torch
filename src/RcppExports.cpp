@@ -548,17 +548,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// tensor_data_
-Rcpp::XPtr<torch::Tensor> tensor_data_(Rcpp::XPtr<torch::Tensor> x);
-RcppExport SEXP _torch_tensor_data_(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(tensor_data_(x));
-    return rcpp_result_gen;
-END_RCPP
-}
 // tensor_cos_
 Rcpp::XPtr<torch::Tensor> tensor_cos_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_cos_(SEXP xSEXP) {
@@ -659,6 +648,17 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_cumsum_(x, dim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_data_
+Rcpp::XPtr<torch::Tensor> tensor_data_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_data_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_data_(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -765,6 +765,17 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type exponent(exponentSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_pow_(x, exponent));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_qr_
+Rcpp::List tensor_qr_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_qr_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_qr_(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -875,7 +886,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_clone_", (DL_FUNC) &_torch_tensor_clone_, 1},
     {"_torch_tensor_contiguous_", (DL_FUNC) &_torch_tensor_contiguous_, 1},
     {"_torch_tensor_copy__", (DL_FUNC) &_torch_tensor_copy__, 3},
-    {"_torch_tensor_data_", (DL_FUNC) &_torch_tensor_data_, 1},
     {"_torch_tensor_cos_", (DL_FUNC) &_torch_tensor_cos_, 1},
     {"_torch_tensor_cos__", (DL_FUNC) &_torch_tensor_cos__, 1},
     {"_torch_tensor_cosh_", (DL_FUNC) &_torch_tensor_cosh_, 1},
@@ -885,6 +895,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_cuda_", (DL_FUNC) &_torch_tensor_cuda_, 1},
     {"_torch_tensor_cumprod_", (DL_FUNC) &_torch_tensor_cumprod_, 2},
     {"_torch_tensor_cumsum_", (DL_FUNC) &_torch_tensor_cumsum_, 2},
+    {"_torch_tensor_data_", (DL_FUNC) &_torch_tensor_data_, 1},
     {"_torch_tensor_det_", (DL_FUNC) &_torch_tensor_det_, 1},
     {"_torch_tensor_detach_", (DL_FUNC) &_torch_tensor_detach_, 1},
     {"_torch_tensor_detach__", (DL_FUNC) &_torch_tensor_detach__, 1},
@@ -894,6 +905,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_mul_", (DL_FUNC) &_torch_tensor_mul_, 2},
     {"_torch_tensor_permute_", (DL_FUNC) &_torch_tensor_permute_, 2},
     {"_torch_tensor_pow_", (DL_FUNC) &_torch_tensor_pow_, 2},
+    {"_torch_tensor_qr_", (DL_FUNC) &_torch_tensor_qr_, 1},
     {"_torch_tensor_sub_", (DL_FUNC) &_torch_tensor_sub_, 3},
     {"_torch_tensor_sub__", (DL_FUNC) &_torch_tensor_sub__, 3},
     {"_torch_tensor_sum_", (DL_FUNC) &_torch_tensor_sum_, 4},

@@ -642,6 +642,16 @@ test_that("pow works", {
   expect_equal(as.array(x^y), 8)
 })
 
+test_that("qr works", {
+
+  x <- matrix(runif(100), ncol = 10)
+  a <- qr(x)
+  out <- tch_qr(tensor(x)) %>% lapply(as.array)
+
+  expect_equal(qr.Q(a), out[[1]])
+  expect_equal(qr.R(a), out[[2]])
+})
+
 test_that("sub works", {
   x <- tensor(2)
   y <- tensor(3)

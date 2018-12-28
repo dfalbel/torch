@@ -435,12 +435,6 @@ Rcpp::XPtr<torch::Tensor> tensor_copy__ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
-  auto out = torch::from_blob(x->data_ptr(), x->sizes(), x->type());
-  return make_tensor_ptr(out);
-}
-
-// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_cos_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->cos());
 }
@@ -490,6 +484,12 @@ Rcpp::XPtr<torch::Tensor> tensor_cumsum_ (Rcpp::XPtr<torch::Tensor> x, std::int6
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
+  auto out = torch::from_blob(x->data_ptr(), x->sizes(), x->type());
+  return make_tensor_ptr(out);
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_det_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->det());
 }
@@ -503,6 +503,7 @@ Rcpp::XPtr<torch::Tensor> tensor_detach_ (Rcpp::XPtr<torch::Tensor> x) {
 Rcpp::XPtr<torch::Tensor> tensor_detach__ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->detach_());
 }
+
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {
@@ -548,6 +549,12 @@ Rcpp::XPtr<torch::Tensor> tensor_pow_ (Rcpp::XPtr<torch::Tensor> x,
                      Rcpp::XPtr<torch::Tensor> exponent) {
   // TODO handle scalar multiplication
   return make_tensor_ptr(x->pow(*exponent));
+}
+
+// [[Rcpp::export]]
+Rcpp::List tensor_qr_ (Rcpp::XPtr<torch::Tensor> x) {
+  auto out = x->qr();
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
 }
 
 // [[Rcpp::export]]

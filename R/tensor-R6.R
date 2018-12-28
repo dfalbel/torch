@@ -314,6 +314,11 @@
       `torch::Tensor`$dispatch(tensor_pow_(self$pointer, exponent$pointer))
     },
 
+    qr = function() {
+      out <- tensor_qr_(self$pointer)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
     sub = function(other, alpha = 1) {
       `torch::Tensor`$dispatch(tensor_sub_(self$pointer, other$pointer, alpha))
     },

@@ -173,10 +173,6 @@ tensor_copy__ <- function(x, src, non_blocking = FALSE) {
     .Call('_torch_tensor_copy__', PACKAGE = 'torch', x, src, non_blocking)
 }
 
-tensor_data_ <- function(x) {
-    .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
-}
-
 tensor_cos_ <- function(x) {
     .Call('_torch_tensor_cos_', PACKAGE = 'torch', x)
 }
@@ -213,6 +209,10 @@ tensor_cumsum_ <- function(x, dim) {
     .Call('_torch_tensor_cumsum_', PACKAGE = 'torch', x, dim)
 }
 
+tensor_data_ <- function(x) {
+    .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
+}
+
 tensor_det_ <- function(x) {
     .Call('_torch_tensor_det_', PACKAGE = 'torch', x)
 }
@@ -247,6 +247,10 @@ tensor_permute_ <- function(x, dims) {
 
 tensor_pow_ <- function(x, exponent) {
     .Call('_torch_tensor_pow_', PACKAGE = 'torch', x, exponent)
+}
+
+tensor_qr_ <- function(x) {
+    .Call('_torch_tensor_qr_', PACKAGE = 'torch', x)
 }
 
 tensor_sub_ <- function(x, other, alpha = 1) {
