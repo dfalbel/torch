@@ -12,7 +12,8 @@ status](https://codecov.io/gh/dfalbel/torch/branch/master/graph/badge.svg)](http
 torch from R\!
 
 > A proof of concept for calling libtorch functions from R. API will
-> change\! Use at your own risk.
+> change\! Use at your own risk. Most libtorch’s functionality is not
+> implemented here too.
 
 ## Installation
 
@@ -64,12 +65,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.5746  0.5174
-#>   0.5452  0.8186
+#>   0.7624  0.9765
+#>   0.8718  0.4497
 #> 
 #> (2,.,.) = 
-#>   0.3580  0.8222
-#>   0.8745  0.7410
+#>   0.2838  0.4814
+#>   0.6035  0.8246
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -137,8 +138,8 @@ for (i in 1:100) {
 
 print(as.array(w))
 #>            [,1]
-#> [1,]  0.5006651
-#> [2,] -0.6984216
+#> [1,]  0.4995543
+#> [2,] -0.7034766
 print(as.array(b))
-#> [1] 0.09872413
+#> [1] 0.102176
 ```

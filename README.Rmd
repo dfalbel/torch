@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 torch from R!
 
-> A proof of concept for calling libtorch functions from R. API will change! Use at your own risk.
+> A proof of concept for calling libtorch functions from R. API will change! Use at your own risk. Most libtorch's functionality is not implemented here too.
 
 ## Installation
 
