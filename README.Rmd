@@ -20,6 +20,8 @@ knitr::opts_chunk$set(
 
 torch from R!
 
+> A proof of concept for calling libtorch functions from R. API will change! Use at your own risk.
+
 ## Installation
 
 Before installing you should [install libtorch](https://pytorch.org/) in `usr/local/lib/`.
