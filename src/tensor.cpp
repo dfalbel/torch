@@ -519,6 +519,73 @@ std::string tensor_device_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_diag_ (Rcpp::XPtr<torch::Tensor> x,
+                                           std::int64_t diagonal = 0) {
+  return make_tensor_ptr(x->diag(diagonal));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_diagflat_ (Rcpp::XPtr<torch::Tensor> x,
+                                        std::int64_t offset = 0) {
+  return make_tensor_ptr(x->diagflat(offset));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_diagonal_ (Rcpp::XPtr<torch::Tensor> x,
+                                        std::int64_t offset = 0,
+                                        std::int64_t dim1 = 0,
+                                        std::int64_t dim2 = 1) {
+  return make_tensor_ptr(x->diagonal(offset, dim1, dim2));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_digamma_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->digamma());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_digamma__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->digamma_());
+}
+
+// [[Rcpp::export]]
+std::int64_t tensor_dim_ (Rcpp::XPtr<torch::Tensor> x) {
+  return x->dim();
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_dist_ (Rcpp::XPtr<torch::Tensor> x,
+                                        Rcpp::XPtr<torch::Tensor> other,
+                                        double p = 2) {
+  return make_tensor_ptr(x->dist(*other, p));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_div_tensor_ (Rcpp::XPtr<torch::Tensor> x,
+                                        Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->div(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_div_scalar_ (Rcpp::XPtr<torch::Tensor> x,
+                                              double other) {
+  return make_tensor_ptr(x->div(other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_div_tensor__ (Rcpp::XPtr<torch::Tensor> x,
+                                              Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->div_(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_div_scalar__ (Rcpp::XPtr<torch::Tensor> x,
+                                              double other) {
+  return make_tensor_ptr(x->div_(other));
+}
+
+
+// [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
   auto out = x->gels(*A);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));

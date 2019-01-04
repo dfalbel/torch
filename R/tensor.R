@@ -590,6 +590,131 @@ tch_det <- function(x) {
   x$det()
 }
 
+#' Diag
+#'
+#' If input is a vector (1-D tensor), then returns a 2-D square tensor with the
+#' elements of input as the diagonal.
+#'
+#' If input is a matrix (2-D tensor), then returns a 1-D tensor with the
+#' diagonal elements of input.
+#'
+#' * If diagonal = 0, it is the main diagonal.
+#' * If diagonal > 0, it is above the main diagonal.
+#' * If diagonal < 0, it is below the main diagonal.
+#'
+#' @param x tensor object
+#' @param diagonal the diagonal to consider
+#'
+#' @seealso [tch_diagflat()] [tch_diagonal()]
+#'
+#' @examples
+#' tch_diag(tensor(1:10))
+#' tch_diag(tensor(matrix(4, 2, 2)))
+#' @export
+tch_diag <- function(x, diagonal = 0) {
+  x$diag(diagonal)
+}
+
+#' Diagflat
+#'
+#' If input is a vector (1-D tensor), then returns a 2-D square tensor with the
+#' elements of input as the diagonal.
+#' If input is a tensor with more than one dimension, then returns a 2-D tensor
+#' with diagonal elements equal to a flattened input.
+#' The argument offset controls which diagonal to consider:
+#'
+#' * If offset = 0, it is the main diagonal.
+#' * If offset > 0, it is above the main diagonal.
+#' * If offset < 0, it is below the main diagonal.
+#'
+#' @param x tensor object
+#' @param offset the offset to consider
+#'
+#' @seealso [tch_diag()] [tch_diagonal()]
+#'
+#' @examples
+#' tch_diagflat(tensor(1:10))
+#' @export
+tch_diagflat <- function(x, offset = 0) {
+  x$diagflat(offset)
+}
+
+
+#' Diagonal
+#'
+#' Returns a partial view of input with the its diagonal elements with respect
+#' to dim1 and dim2 appended as a dimension at the end of the shape.
+#'
+#' The argument offset controls which diagonal to consider:
+#'
+#' If offset = 0, it is the main diagonal.
+#' If offset > 0, it is above the main diagonal.
+#' If offset < 0, it is below the main diagonal.
+#'
+#' @param x tensor object
+#' @param offset which diagonal to consider
+#' @param dim1 first dimension with respect to which to take diagonal
+#' @param dim2 second dimension with respect to which to take diagonal
+#'
+#' @seealso [tch_diag()] [tch_diagonal()]
+#'
+#' @examples
+#' tch_diagonal(tensor(matrix(1:4, 2, 2)))
+#' @export
+tch_diagonal <- function(x, offset = 0, dim1 = 0, dim2 = 1) {
+  x$diagonal(offset, dim1, dim2)
+}
+
+#' Digamma
+#'
+#' Computes the logarithmic derivative of the gamma function on input.
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' tch_digamma(tensor(c(1, 0.5)))
+#' @export
+tch_digamma <- function(x){
+  x$digamma()
+}
+
+#' Distance
+#'
+#' Returns the p-norm of (input - other)
+#' The shapes of input and other must be broadcastable.
+#'
+#' @param x tensor object
+#' @param other the Right-hand-side input tensor
+#' @param p the norm to be computed
+#'
+#' @examples
+#' x <- tensor(as.numeric(1:10))
+#' y <- tensor(as.numeric(10:1))
+#' tch_dist(x, y)
+#' @export
+tch_dist <- function(x, other, p = 2) {
+  x$dist(other, p)
+}
+
+#' Div
+#'
+#' Divides each element of the input input with the scalar value and returns a
+#' new resulting tensor or,
+#'
+#' Each element of the tensor input is divided by each element of the tensor other.
+#' The resulting tensor is returned. The shapes of input and other must be broadcastable.
+#'
+#' @param x tensor object
+#' @param other scalar or tensor to divide by.
+#'
+#' @examples
+#' tensor(1:10)/2
+#' tensor(1:10)/tensor(10:1)
+#' @export
+`/.tensor` <- function(x, other) {
+  x$div(other)
+}
+
 #' Gels
 #'
 #' Computes the solution to the least squares and least norm problems for a full

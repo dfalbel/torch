@@ -607,6 +607,94 @@ test_that("device works", {
   expect_equal(x$device(), "CPU")
 })
 
+test_that("diag works", {
+  x <- tensor(1:10)
+  expect_equal(
+    as.array(tch_diag(x)),
+    diag(1:10)
+  )
+
+  x <- tensor(matrix(1:25, 5, 5))
+  expect_equal(
+    as.array(tch_diag(x)),
+    as.integer(c(1, 7, 13, 19, 25))
+  )
+})
+
+test_that("diagflat works", {
+
+  x <- tensor(1:10)
+  expect_equal(
+    as.array(tch_diagflat(x)),
+    diag(1:10)
+  )
+
+  x <- tensor(matrix(1:25, 5, 5))
+  expect_equal(as.array(tch_diagflat(x)), diag(as.integer(t(matrix(1:25, 5)))))
+})
+
+
+test_that("diagonal works", {
+
+  x <- tensor(1:10)
+  expect_error(tch_diagonal(x))
+
+  x <- tensor(matrix(1:25, 5, 5))
+  expect_equal(
+    as.array(tch_diagonal(x)),
+    as.integer(c(1, 7, 13, 19, 25))
+  )
+})
+
+test_that("digamma works", {
+  x <- tensor(c(1, 0.5))
+  expect_equal(as.array(tch_digamma(x)), digamma(c(1, 0.5)))
+})
+
+test_that("digamma_ works", {
+  x <- tensor(c(1, 0.5))
+  x$digamma_()
+  expect_equal(as.array(x), digamma(c(1, 0.5)))
+})
+
+test_that("dim works", {
+  x <- tensor(c(1, 0.5))
+  expect_equal(x$dim(), 1L)
+
+  x <- tensor(matrix(1:10, 2, 5))
+  expect_equal(x$dim(), 2L)
+
+  x <- tensor(array(0, dim = 1:5))
+  expect_equal(x$dim(), 5L)
+})
+
+test_that("dist works", {
+  x <- tensor(as.numeric(1:10))
+  y <- tensor(as.numeric(10:1))
+  expect_equal(
+    as.array(tch_dist(x, y)),
+    sqrt(sum((1:10 - 10:1)^2))
+  )
+})
+
+test_that("div works", {
+  x <- tensor(as.numeric(1:10))
+  y <- tensor(as.numeric(10:1))
+  expect_equal(as.array(x / y), 1:10/10:1)
+  expect_equal(as.array(x / 2), 1:10/2)
+})
+
+test_that("div_ works", {
+  x <- tensor(as.numeric(1:10))
+  y <- tensor(as.numeric(10:1))
+  x$div_(y)
+  expect_equal(as.array(x), 1:10/10:1)
+
+  x <- tensor(as.numeric(1:10))
+  x$div_(2)
+  expect_equal(as.array(x), 1:10/2)
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

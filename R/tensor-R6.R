@@ -298,6 +298,52 @@
       tensor_device_(self$pointer)
     },
 
+    diag = function(diagonal = 0) {
+      `torch::Tensor`$dispatch(tensor_diag_(self$pointer, diagonal))
+    },
+
+    diagflat = function(offset = 0) {
+      `torch::Tensor`$dispatch(tensor_diagflat_(self$pointer, offset))
+    },
+
+    diagonal = function(offset = 0, dim1 = 0, dim2 = 1) {
+      `torch::Tensor`$dispatch(tensor_diagonal_(self$pointer, offset, dim1, dim2))
+    },
+
+    digamma = function(){
+      `torch::Tensor`$dispatch(tensor_digamma_(self$pointer))
+    },
+
+    digamma_ = function(){
+      tensor_digamma__(self$pointer)
+      invisible(NULL)
+    },
+
+    dim = function() {
+      tensor_dim_(self$pointer)
+    },
+
+    dist = function(other, p = 2) {
+      `torch::Tensor`$dispatch(tensor_dist_(self$pointer, other$pointer, p))
+    },
+
+    div = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_div_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_div_scalar_(self$pointer, other))
+      }
+    },
+
+    div_ = function(other) {
+      if (is(other, "tensor")) {
+        tensor_div_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_div_scalar__(self$pointer, other)
+      }
+      invisible(NULL)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

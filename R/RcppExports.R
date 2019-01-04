@@ -229,6 +229,50 @@ tensor_device_ <- function(x) {
     .Call('_torch_tensor_device_', PACKAGE = 'torch', x)
 }
 
+tensor_diag_ <- function(x, diagonal = 0L) {
+    .Call('_torch_tensor_diag_', PACKAGE = 'torch', x, diagonal)
+}
+
+tensor_diagflat_ <- function(x, offset = 0L) {
+    .Call('_torch_tensor_diagflat_', PACKAGE = 'torch', x, offset)
+}
+
+tensor_diagonal_ <- function(x, offset = 0L, dim1 = 0L, dim2 = 1L) {
+    .Call('_torch_tensor_diagonal_', PACKAGE = 'torch', x, offset, dim1, dim2)
+}
+
+tensor_digamma_ <- function(x) {
+    .Call('_torch_tensor_digamma_', PACKAGE = 'torch', x)
+}
+
+tensor_digamma__ <- function(x) {
+    .Call('_torch_tensor_digamma__', PACKAGE = 'torch', x)
+}
+
+tensor_dim_ <- function(x) {
+    .Call('_torch_tensor_dim_', PACKAGE = 'torch', x)
+}
+
+tensor_dist_ <- function(x, other, p = 2) {
+    .Call('_torch_tensor_dist_', PACKAGE = 'torch', x, other, p)
+}
+
+tensor_div_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_div_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_div_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_div_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_div_tensor__ <- function(x, other) {
+    .Call('_torch_tensor_div_tensor__', PACKAGE = 'torch', x, other)
+}
+
+tensor_div_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_div_scalar__', PACKAGE = 'torch', x, other)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }
