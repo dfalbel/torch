@@ -68,6 +68,15 @@ torch::Device device_from_string(std::string device) {
   Rcpp::stop("device not handled");
 }
 
+std::string device_to_string (torch::Device x) {
+  if (x.is_cpu()) {
+    return "CPU";
+  } else if (x.is_cuda()){
+    return "CUDA";
+  };
+  Rcpp::stop("not handled");
+}
+
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_ (Rcpp::XPtr<torch::Tensor> x,
                  Rcpp::Nullable<Rcpp::CharacterVector> dtype,
@@ -504,6 +513,16 @@ Rcpp::XPtr<torch::Tensor> tensor_detach__ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->detach_());
 }
 
+// [[Rcpp::export]]
+std::string tensor_device_ (Rcpp::XPtr<torch::Tensor> x) {
+  return device_to_string(x->device());
+}
+
+// [[Rcpp::export]]
+Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
+  auto out = x->gels(*A);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {

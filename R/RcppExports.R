@@ -225,6 +225,14 @@ tensor_detach__ <- function(x) {
     .Call('_torch_tensor_detach__', PACKAGE = 'torch', x)
 }
 
+tensor_device_ <- function(x) {
+    .Call('_torch_tensor_device_', PACKAGE = 'torch', x)
+}
+
+tensor_gels_ <- function(x, A) {
+    .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
+}
+
 tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }

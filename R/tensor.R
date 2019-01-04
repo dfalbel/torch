@@ -590,6 +590,21 @@ tch_det <- function(x) {
   x$det()
 }
 
+#' Gels
+#'
+#' Computes the solution to the least squares and least norm problems for a full
+#' rank matrix A of size (m,n) and a matrix B of size (m,k).
+#'
+#' @param x tensor object
+#' @param A the m,b by nn matrix A
+#' @examples
+#' A <- tensor(matrix(runif(100), ncol = 10))
+#' y <- tensor(matrix(runif(10), ncol = 1))
+#' tch_gels(y, A)
+#' @export
+tch_gels <- function(x, A) {
+  x$gels(A)
+}
 
 #' mean
 #'

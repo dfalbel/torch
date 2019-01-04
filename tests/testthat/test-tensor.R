@@ -601,6 +601,26 @@ test_that("detach_ works", {
   expect_silent(x$detach_())
 })
 
+test_that("device works", {
+  # TODO tests on the GPU
+  x <- tensor(1:10)
+  expect_equal(x$device(), "CPU")
+})
+
+test_that("gels works", {
+  y <- runif(10)
+  X <- matrix(runif(100), ncol = 10)
+
+  expect_equal(
+    .lm.fit(X, y)$coefficients,
+    tch_gels(tensor(y), tensor(X))[[1]] %>% as.array() %>% as.numeric()
+  )
+  # expect_equivalent(
+  #   .lm.fit(X, y)$qr,
+  #   tch_gels(tensor(y), tensor(X))[[2]] %>% as.array()
+  # )
+})
+
 
 test_that("mean works", {
   x <- runif(100)
