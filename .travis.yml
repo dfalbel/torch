@@ -10,7 +10,7 @@ warnings_are_errors: false
 before_install:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip; fi
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget https://github.com/dfalbel/torch/releases/download/v0.0.1.9000-alpha/libtorch.zip; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo unzip libtorch.zip -d /usr/local/lib/; fi
 after_success:
     - Rscript -e 'covr::codecov()'
