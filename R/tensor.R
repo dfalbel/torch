@@ -715,6 +715,20 @@ tch_dist <- function(x, other, p = 2) {
   x$div(other)
 }
 
+#' Dot product
+#'
+#' Computes the dot product (inner product) of two tensors.
+#'
+#' @param x tensor object
+#' @param tensor tensor object
+#'
+#' @examples
+#' tch_dot(tensor(c(2,3)), tensor(c(2,1)))
+#' @export
+tch_dot <- function(x, tensor) {
+  x$dot(tensor)
+}
+
 #' Gels
 #'
 #' Computes the solution to the least squares and least norm problems for a full

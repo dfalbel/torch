@@ -695,6 +695,21 @@ test_that("div_ works", {
   expect_equal(as.array(x), 1:10/2)
 })
 
+test_that("dot works", {
+  expect_equal(
+    as.array(tch_dot(tensor(c(2,3)), tensor(c(2,1)))),
+    7
+  )
+})
+
+test_that("dtype works", {
+  x <- tensor(1:10)
+  expect_equal(x$dtype(), "kInt")
+  x <- tensor(runif(10))
+  expect_equal(x$dtype(), "kDouble")
+  # test for other tensor types.
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

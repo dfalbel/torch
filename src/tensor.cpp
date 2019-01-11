@@ -61,6 +61,15 @@ torch::ScalarType scalar_type_from_string(std::string scalar_type) {
   Rcpp::stop("scalar not handled");
 }
 
+std::string scalar_type_to_string(torch::ScalarType scalar_type) {
+  if (scalar_type == torch::kInt) {
+    return "kInt";
+  } else if (scalar_type == torch::kDouble) {
+    return "kDouble";
+  }
+  Rcpp::stop("scalar not handled");
+}
+
 torch::Device device_from_string(std::string device) {
   if (device == "CPU") {
     return torch::Device(torch::DeviceType::CPU);
@@ -584,6 +593,16 @@ Rcpp::XPtr<torch::Tensor> tensor_div_scalar__ (Rcpp::XPtr<torch::Tensor> x,
   return make_tensor_ptr(x->div_(other));
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_dot_ (Rcpp::XPtr<torch::Tensor> x,
+                                               Rcpp::XPtr<torch::Tensor> tensor) {
+  return make_tensor_ptr(x->dot(*tensor));
+}
+
+// [[Rcpp::export]]
+std::string tensor_dtype_ (Rcpp::XPtr<torch::Tensor> x) {
+  return scalar_type_to_string(x->dtype());
+}
 
 // [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {

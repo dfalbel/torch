@@ -273,6 +273,14 @@ tensor_div_scalar__ <- function(x, other) {
     .Call('_torch_tensor_div_scalar__', PACKAGE = 'torch', x, other)
 }
 
+tensor_dot_ <- function(x, tensor) {
+    .Call('_torch_tensor_dot_', PACKAGE = 'torch', x, tensor)
+}
+
+tensor_dtype_ <- function(x) {
+    .Call('_torch_tensor_dtype_', PACKAGE = 'torch', x)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }
