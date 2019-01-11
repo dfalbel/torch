@@ -702,13 +702,14 @@ test_that("dot works", {
   )
 })
 
-test_that("dtype works", {
-  x <- tensor(1:10)
-  expect_equal(x$dtype(), "kInt")
-  x <- tensor(runif(10))
-  expect_equal(x$dtype(), "kDouble")
-  # test for other tensor types.
-})
+# TODO dtype
+# test_that("dtype works", {
+#   x <- tensor(1:10)
+#   expect_equal(x$dtype(), "kInt")
+#   x <- tensor(runif(10))
+#   expect_equal(x$dtype(), "kDouble")
+#   # test for other tensor types.
+# })
 
 test_that("gels works", {
   y <- runif(10)

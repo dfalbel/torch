@@ -348,9 +348,9 @@
       `torch::Tensor`$dispatch(tensor_dot_(self$pointer, tensor$pointer))
     },
 
-    dtype = function() {
-      tensor_dtype_(self$pointer)
-    },
+    # dtype = function() {
+    #   tensor_dtype_(self$pointer)
+    # },
 
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
