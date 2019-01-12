@@ -1009,8 +1009,6 @@ BEGIN_RCPP
 END_RCPP
 }
 
-RcppExport SEXP _torch_tensor_dtype_(SEXP);
-
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 2},
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
@@ -1094,7 +1092,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_sum_", (DL_FUNC) &_torch_tensor_sum_, 4},
     {"_torch_tensor_t_", (DL_FUNC) &_torch_tensor_t_, 1},
     {"_torch_tensor_zero__", (DL_FUNC) &_torch_tensor_zero__, 1},
-    {"_torch_tensor_dtype_",       (DL_FUNC) &_torch_tensor_dtype_,       1},
     {NULL, NULL, 0}
 };
 
