@@ -352,6 +352,11 @@
     #   tensor_dtype_(self$pointer)
     # },
 
+    eig = function(eigenvectors = FALSE) {
+      out <- tensor_eig_(self$pointer, eigenvectors)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

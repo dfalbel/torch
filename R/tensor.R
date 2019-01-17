@@ -729,6 +729,23 @@ tch_dot <- function(x, tensor) {
   x$dot(tensor)
 }
 
+#' Eigenvalues and Eigenvectors
+#'
+#' Computes the eigenvalues and eigenvectors of a real square matrix.
+#'
+#' @param x tensor object
+#' @param eigenvectors True to compute both eigenvalues and eigenvectors;
+#' otherwise, only eigenvalues will be computed.
+#'
+#' @examples
+#' x <- tensor(matrix(runif(25), 5, 5))
+#' tch_eig(x)
+#'
+#' @export
+tch_eig <- function(x, eigenvectors = FALSE) {
+  x$eig(eigenvectors)
+}
+
 #' Gels
 #'
 #' Computes the solution to the least squares and least norm problems for a full

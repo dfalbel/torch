@@ -711,6 +711,17 @@ test_that("dot works", {
 #   # test for other tensor types.
 # })
 
+test_that("eig works", {
+  x_r <- cbind(c(1,-1), c(-1,1))
+
+  x <- tensor(x_r)
+  out <- tch_eig(x, eigenvectors = TRUE)
+  out_r <- eigen(x_r)
+
+  expect_equal(as.array(out[[1]])[,1], out_r$values)
+  expect_equal(as.array(out[[2]]), -out_r$vectors)
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

@@ -599,10 +599,18 @@ Rcpp::XPtr<torch::Tensor> tensor_dot_ (Rcpp::XPtr<torch::Tensor> x,
   return make_tensor_ptr(x->dot(*tensor));
 }
 
+// TODO dtype method
 // // [[Rcpp::export]]
 // std::string tensor_dtype_ (Rcpp::XPtr<torch::Tensor> x) {
 //   return scalar_type_to_string(x->dtype());
 // }
+
+// [[Rcpp::export]]
+Rcpp::List tensor_eig_ (Rcpp::XPtr<torch::Tensor> x,
+                                       bool eigenvectors = false) {
+  auto out = x->eig(eigenvectors);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
 
 // [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {

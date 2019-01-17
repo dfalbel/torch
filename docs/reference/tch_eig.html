@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>mean — tch_mean • torch</title>
+<title>Eigenvalues and Eigenvectors — tch_eig • torch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="mean — tch_mean" />
+<meta property="og:title" content="Eigenvalues and Eigenvectors — tch_eig" />
 
-<meta property="og:description" content="mean" />
+<meta property="og:description" content="Computes the eigenvalues and eigenvectors of a real square matrix." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -99,19 +99,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>mean</h1>
+    <h1>Eigenvalues and Eigenvectors</h1>
     <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
-    <div class="hidden name"><code>tch_mean.Rd</code></div>
+    <div class="hidden name"><code>tch_eig.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>mean</p>
+    <p>Computes the eigenvalues and eigenvectors of a real square matrix.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tch_mean</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>tch_eig</span>(<span class='no'>x</span>, <span class='kw'>eigenvectors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -121,25 +120,29 @@
       <td><p>tensor object</p></td>
     </tr>
     <tr>
-      <th>dim</th>
-      <td><p>dimension in which to sum</p></td>
-    </tr>
-    <tr>
-      <th>keepdim</th>
-      <td><p>wether to keep or not the dim</p></td>
-    </tr>
-    <tr>
-      <th>dtype</th>
-      <td><p>optionaly cast the sum result</p></td>
+      <th>eigenvectors</th>
+      <td><p>True to compute both eigenvalues and eigenvectors;
+otherwise, only eigenvalues will be computed.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>100</span>))
-<span class='fu'>tch_mean</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'>tensor</span><span> 
-#&gt; 0.496859
-#&gt; [ Variable[CPUDoubleType]{} ]</div></span></pre>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>25</span>), <span class='fl'>5</span>, <span class='fl'>5</span>))
+<span class='fu'>tch_eig</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; <span style='color: #555555;'>tensor</span><span> 
+#&gt;  1.9042  0.0000
+#&gt; -0.0420  0.6419
+#&gt; -0.0420 -0.6419
+#&gt; -0.1454  0.1315
+#&gt; -0.1454 -0.1315
+#&gt; [ Variable[CPUDoubleType]{5,2} ]
+#&gt; 
+#&gt; [[2]]
+#&gt; </span><span style='color: #555555;'>tensor</span><span> 
+#&gt; [ Variable[CPUDoubleType]{0} ]
+#&gt; </div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
