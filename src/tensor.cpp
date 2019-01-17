@@ -1,4 +1,5 @@
 #include "torch_types.h"
+#include "scalar.hpp"
 
 Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
   auto * out = new torch::Tensor(x);
@@ -577,8 +578,8 @@ Rcpp::XPtr<torch::Tensor> tensor_div_tensor_ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_div_scalar_ (Rcpp::XPtr<torch::Tensor> x,
-                                              double other) {
-  return make_tensor_ptr(x->div(other));
+                                              SEXP other) {
+  return make_tensor_ptr(x->div(scalar_from_r_(other)));
 }
 
 // [[Rcpp::export]]
@@ -589,8 +590,8 @@ Rcpp::XPtr<torch::Tensor> tensor_div_tensor__ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_div_scalar__ (Rcpp::XPtr<torch::Tensor> x,
-                                              double other) {
-  return make_tensor_ptr(x->div_(other));
+                                              SEXP other) {
+  return make_tensor_ptr(x->div_(scalar_from_r_(other)));
 }
 
 // [[Rcpp::export]]
@@ -617,6 +618,7 @@ Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> 
   auto out = x->gels(*A);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
 }
+
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {

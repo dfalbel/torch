@@ -803,13 +803,13 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_div_scalar_
-Rcpp::XPtr<torch::Tensor> tensor_div_scalar_(Rcpp::XPtr<torch::Tensor> x, double other);
+Rcpp::XPtr<torch::Tensor> tensor_div_scalar_(Rcpp::XPtr<torch::Tensor> x, SEXP other);
 RcppExport SEXP _torch_tensor_div_scalar_(SEXP xSEXP, SEXP otherSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< double >::type other(otherSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type other(otherSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_div_scalar_(x, other));
     return rcpp_result_gen;
 END_RCPP
@@ -827,13 +827,13 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_div_scalar__
-Rcpp::XPtr<torch::Tensor> tensor_div_scalar__(Rcpp::XPtr<torch::Tensor> x, double other);
+Rcpp::XPtr<torch::Tensor> tensor_div_scalar__(Rcpp::XPtr<torch::Tensor> x, SEXP other);
 RcppExport SEXP _torch_tensor_div_scalar__(SEXP xSEXP, SEXP otherSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< double >::type other(otherSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type other(otherSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_div_scalar__(x, other));
     return rcpp_result_gen;
 END_RCPP

@@ -682,6 +682,11 @@ test_that("div works", {
   y <- tensor(as.numeric(10:1))
   expect_equal(as.array(x / y), 1:10/10:1)
   expect_equal(as.array(x / 2), 1:10/2)
+
+  x <- tensor(1:10)
+  y <- tensor(10:1)
+  expect_equal(as.array(x / y), as.integer(1:10/10:1))
+  expect_equal(as.array(x / 2L), as.integer(1:10/2L))
 })
 
 test_that("div_ works", {
@@ -693,6 +698,16 @@ test_that("div_ works", {
   x <- tensor(as.numeric(1:10))
   x$div_(2)
   expect_equal(as.array(x), 1:10/2)
+
+  # works with integers too
+  x <- tensor(1:10)
+  y <- tensor(10:1)
+  x$div_(y)
+  expect_equal(as.array(x), as.integer(1:10/10:1))
+
+  x <- tensor(1:10)
+  x$div_(2L)
+  expect_equal(as.array(x), as.integer(1:10/2))
 })
 
 test_that("dot works", {
