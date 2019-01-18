@@ -280,24 +280,6 @@ Rcpp::XPtr<torch::Tensor> tensor_argmin_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_as_strided_ (Rcpp::XPtr<torch::Tensor> x,
-                            Rcpp::IntegerVector size,
-                            Rcpp::IntegerVector stride,
-                            Rcpp::Nullable<Rcpp::IntegerVector> storage_offset
-) {
-
-  torch::IntList size2 = Rcpp::as<std::vector<int64_t>>(size);
-  torch::IntList stride2 = Rcpp::as<std::vector<int64_t>>(stride);
-
-  if (storage_offset.isNull())
-    return make_tensor_ptr(x->as_strided(size2, stride2));
-  else {
-    int64_t storage_offset2 = Rcpp::as<int64_t>(storage_offset);
-    return make_tensor_ptr(x->as_strided(size2, stride2, storage_offset2));
-  }
-}
-
-// [[Rcpp::export]]
 std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
   return ten.toString();
