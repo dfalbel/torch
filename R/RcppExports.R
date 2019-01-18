@@ -29,8 +29,12 @@ tensor_acos_ <- function(x) {
     .Call('_torch_tensor_acos_', PACKAGE = 'torch', x)
 }
 
-tensor_add_ <- function(x, y) {
-    .Call('_torch_tensor_add_', PACKAGE = 'torch', x, y)
+tensor_add_tensor_ <- function(x, y) {
+    .Call('_torch_tensor_add_tensor_', PACKAGE = 'torch', x, y)
+}
+
+tensor_add_scalar_ <- function(x, y) {
+    .Call('_torch_tensor_add_scalar_', PACKAGE = 'torch', x, y)
 }
 
 tensor_addbmm_ <- function(x, batch1, batch2, beta, alpha) {
@@ -257,7 +261,7 @@ tensor_dim_ <- function(x) {
     .Call('_torch_tensor_dim_', PACKAGE = 'torch', x)
 }
 
-tensor_dist_ <- function(x, other, p = 2) {
+tensor_dist_ <- function(x, other, p) {
     .Call('_torch_tensor_dist_', PACKAGE = 'torch', x, other, p)
 }
 
@@ -301,28 +305,44 @@ tensor_mm_ <- function(x, mat2) {
     .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
 }
 
-tensor_mul_ <- function(x, other) {
-    .Call('_torch_tensor_mul_', PACKAGE = 'torch', x, other)
+tensor_mul_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_mul_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_mul_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_mul_scalar_', PACKAGE = 'torch', x, other)
 }
 
 tensor_permute_ <- function(x, dims) {
     .Call('_torch_tensor_permute_', PACKAGE = 'torch', x, dims)
 }
 
-tensor_pow_ <- function(x, exponent) {
-    .Call('_torch_tensor_pow_', PACKAGE = 'torch', x, exponent)
+tensor_pow_tensor_ <- function(x, exponent) {
+    .Call('_torch_tensor_pow_tensor_', PACKAGE = 'torch', x, exponent)
+}
+
+tensor_pow_scalar_ <- function(x, exponent) {
+    .Call('_torch_tensor_pow_scalar_', PACKAGE = 'torch', x, exponent)
 }
 
 tensor_qr_ <- function(x) {
     .Call('_torch_tensor_qr_', PACKAGE = 'torch', x)
 }
 
-tensor_sub_ <- function(x, other, alpha = 1) {
-    .Call('_torch_tensor_sub_', PACKAGE = 'torch', x, other, alpha)
+tensor_sub_tensor_ <- function(x, other, alpha) {
+    .Call('_torch_tensor_sub_tensor_', PACKAGE = 'torch', x, other, alpha)
 }
 
-tensor_sub__ <- function(x, other, alpha = 1) {
-    .Call('_torch_tensor_sub__', PACKAGE = 'torch', x, other, alpha)
+tensor_sub_scalar_ <- function(x, other, alpha) {
+    .Call('_torch_tensor_sub_scalar_', PACKAGE = 'torch', x, other, alpha)
+}
+
+tensor_sub_tensor__ <- function(x, other, alpha) {
+    .Call('_torch_tensor_sub_tensor__', PACKAGE = 'torch', x, other, alpha)
+}
+
+tensor_sub_scalar__ <- function(x, other, alpha) {
+    .Call('_torch_tensor_sub_scalar__', PACKAGE = 'torch', x, other, alpha)
 }
 
 tensor_sum_ <- function(x, dim, keepdim, dtype) {

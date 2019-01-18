@@ -68,7 +68,11 @@
     },
 
     add = function(y) {
-      `torch::Tensor`$dispatch(tensor_add_(self$pointer, y$pointer))
+      if (is(y, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_add_tensor_(self$pointer, y$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_add_scalar_(self$pointer, y))
+      }
     },
 
     addbmm = function(batch1, batch2, beta = 1, alpha = 1) {
@@ -371,7 +375,11 @@
     },
 
     mul = function(other) {
-      `torch::Tensor`$dispatch(tensor_mul_(self$pointer, other$pointer))
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_mul_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_mul_scalar_(self$pointer, other))
+      }
     },
 
     permute = function(dims) {
@@ -379,7 +387,11 @@
     },
 
     pow = function(exponent) {
-      `torch::Tensor`$dispatch(tensor_pow_(self$pointer, exponent$pointer))
+      if (is(exponent, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_pow_tensor_(self$pointer, exponent$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_pow_scalar_(self$pointer, exponent))
+      }
     },
 
     qr = function() {
@@ -388,11 +400,19 @@
     },
 
     sub = function(other, alpha = 1) {
-      `torch::Tensor`$dispatch(tensor_sub_(self$pointer, other$pointer, alpha))
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_sub_tensor_(self$pointer, other$pointer, alpha))
+      } else {
+        `torch::Tensor`$dispatch(tensor_sub_scalar_(self$pointer, other, alpha))
+      }
     },
 
     sub_ = function(other, alpha = 1) {
-      tensor_sub__(self$pointer, other$pointer, alpha)
+      if (is(other, "tensor")) {
+        tensor_sub_tensor__(self$pointer, other$pointer, alpha)
+      } else {
+        tensor_sub_scalar__(self$pointer, other, alpha)
+      }
       invisible(NULL)
     },
 

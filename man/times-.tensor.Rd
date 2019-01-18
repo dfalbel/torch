@@ -18,4 +18,5 @@ elementwise multiplciation
 x <- tensor(2)
 y <- tensor(3)
 x * y
+x * 2
 }

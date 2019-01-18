@@ -108,11 +108,11 @@ y_t <- tensor(y)
 w <- tensor(matrix(rnorm(2), nrow = 2), requires_grad = TRUE)
 b <- tensor(0, requires_grad = TRUE)
 
-lr <- tensor(0.5)
+lr <- 0.5
 
 for (i in 1:100) {
   y_hat <- tch_mm(x_t, w) + b
-  loss <- tch_mean((y_t - y_hat)^tensor(2))
+  loss <- tch_mean((y_t - y_hat)^2)
   
   loss$backward()
   
@@ -125,7 +125,7 @@ for (i in 1:100) {
   b$grad$zero_()
 }
 
-print(as.array(w))
-print(as.array(b))
+print(w)
+print(b)
 ```
 

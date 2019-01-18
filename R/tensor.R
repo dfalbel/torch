@@ -113,6 +113,7 @@ tch_acos <- function(x) {
 #' x <- tensor(1)
 #' y <- tensor(2)
 #' x + y
+#' x + 1
 #' @export
 `+.tensor` <- function(x, y) {
   x$add(y)
@@ -802,6 +803,7 @@ tch_mm <- function(x, mat2) {
 #' x <- tensor(2)
 #' y <- tensor(3)
 #' x * y
+#' x * 2
 #' @export
 `*.tensor` <- function(x, y) {
   x$mul(y)
@@ -831,6 +833,7 @@ tch_permute <- function(x, dims) {
 #' x <- tensor(c(1,2,3,4))
 #' y <- tensor(2)
 #' x^y
+#' x^3
 #' @export
 `^.tensor` <- function(x, y) {
   x$pow(y)
@@ -861,6 +864,7 @@ tch_qr <- function(x) {
 #' x <- tensor(c(1,2,3,4))
 #' y <- tensor(2)
 #' x - y
+#' x - 1
 #' @export
 `-.tensor` <- function(x, y) {
   x$sub(y)

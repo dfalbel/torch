@@ -65,12 +65,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.6417  0.1113
-#>   0.0139  0.8048
+#>   0.5770  0.2904
+#>   0.8738  0.0852
 #> 
 #> (2,.,.) = 
-#>   0.4509  0.2324
-#>   0.0919  0.2997
+#>   0.7112  0.0138
+#>   0.7922  0.4174
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -121,11 +121,11 @@ y_t <- tensor(y)
 w <- tensor(matrix(rnorm(2), nrow = 2), requires_grad = TRUE)
 b <- tensor(0, requires_grad = TRUE)
 
-lr <- tensor(0.5)
+lr <- 0.5
 
 for (i in 1:100) {
   y_hat <- tch_mm(x_t, w) + b
-  loss <- tch_mean((y_t - y_hat)^tensor(2))
+  loss <- tch_mean((y_t - y_hat)^2)
   
   loss$backward()
   
@@ -138,10 +138,13 @@ for (i in 1:100) {
   b$grad$zero_()
 }
 
-print(as.array(w))
-#>            [,1]
-#> [1,]  0.4998904
-#> [2,] -0.7000910
-print(as.array(b))
-#> [1] 0.1001058
+print(w)
+#> tensor 
+#>  0.4996
+#> -0.7002
+#> [ Variable[CPUDoubleType]{2,1} ]
+print(b)
+#> tensor 
+#>  0.1003
+#> [ Variable[CPUDoubleType]{1} ]
 ```

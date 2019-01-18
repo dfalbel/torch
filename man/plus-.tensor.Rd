@@ -18,4 +18,5 @@ elementwise addition
 x <- tensor(1)
 y <- tensor(2)
 x + y
+x + 1
 }

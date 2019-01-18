@@ -176,8 +176,13 @@ Rcpp::XPtr<torch::Tensor> tensor_acos_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_add_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> y) {
+Rcpp::XPtr<torch::Tensor> tensor_add_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> y) {
   return make_tensor_ptr(x->add(*y));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_add_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP y) {
+  return make_tensor_ptr(x->add(scalar_from_r_(y)));
 }
 
 // [[Rcpp::export]]
@@ -404,36 +409,36 @@ Rcpp::List tensor_chunk_ (Rcpp::XPtr<torch::Tensor> x, int64_t chunks, int64_t d
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_clamp_ (Rcpp::XPtr<torch::Tensor> x,
-                       double min,
-                       double max) {
-  return make_tensor_ptr(x->clamp(min, max));
+                       SEXP min,
+                       SEXP max) {
+  return make_tensor_ptr(x->clamp(scalar_from_r_(min), scalar_from_r_(max)));
 }
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_clamp__ (Rcpp::XPtr<torch::Tensor> x,
-                        double min,
-                        double max) {
-  return make_tensor_ptr(x->clamp_(min, max));
+                        SEXP min,
+                        SEXP max) {
+  return make_tensor_ptr(x->clamp_(scalar_from_r_(min), scalar_from_r_(max)));
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_clamp_max_ (Rcpp::XPtr<torch::Tensor> x, double max) {
-  return make_tensor_ptr(x->clamp_max(max));
+Rcpp::XPtr<torch::Tensor> tensor_clamp_max_ (Rcpp::XPtr<torch::Tensor> x, SEXP max) {
+  return make_tensor_ptr(x->clamp_max(scalar_from_r_(max)));
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_clamp_max__ (Rcpp::XPtr<torch::Tensor> x, double max) {
-  return make_tensor_ptr(x->clamp_max_(max));
+Rcpp::XPtr<torch::Tensor> tensor_clamp_max__ (Rcpp::XPtr<torch::Tensor> x, SEXP max) {
+  return make_tensor_ptr(x->clamp_max_(scalar_from_r_(max)));
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_clamp_min_ (Rcpp::XPtr<torch::Tensor> x, double min) {
-  return make_tensor_ptr(x->clamp_min(min));
+Rcpp::XPtr<torch::Tensor> tensor_clamp_min_ (Rcpp::XPtr<torch::Tensor> x, SEXP min) {
+  return make_tensor_ptr(x->clamp_min(scalar_from_r_(min)));
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_clamp_min__ (Rcpp::XPtr<torch::Tensor> x, double min) {
-  return make_tensor_ptr(x->clamp_min_(min));
+Rcpp::XPtr<torch::Tensor> tensor_clamp_min__ (Rcpp::XPtr<torch::Tensor> x, SEXP min) {
+  return make_tensor_ptr(x->clamp_min_(scalar_from_r_(min)));
 }
 
 // [[Rcpp::export]]
@@ -566,8 +571,8 @@ std::int64_t tensor_dim_ (Rcpp::XPtr<torch::Tensor> x) {
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_dist_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::XPtr<torch::Tensor> other,
-                                        double p = 2) {
-  return make_tensor_ptr(x->dist(*other, p));
+                                        SEXP p) {
+  return make_tensor_ptr(x->dist(*other, scalar_from_r_(p)));
 }
 
 // [[Rcpp::export]]
@@ -646,10 +651,15 @@ Rcpp::XPtr<torch::Tensor> tensor_mm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<to
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_mul_ (Rcpp::XPtr<torch::Tensor> x,
+Rcpp::XPtr<torch::Tensor> tensor_mul_tensor_ (Rcpp::XPtr<torch::Tensor> x,
                      Rcpp::XPtr<torch::Tensor> other) {
-  // TODO handle scalar multiplication
   return make_tensor_ptr(x->mul(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_mul_scalar_ (Rcpp::XPtr<torch::Tensor> x,
+                                               SEXP other) {
+  return make_tensor_ptr(x->mul(scalar_from_r_(other)));
 }
 
 // [[Rcpp::export]]
@@ -660,10 +670,15 @@ Rcpp::XPtr<torch::Tensor> tensor_permute_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_pow_ (Rcpp::XPtr<torch::Tensor> x,
+Rcpp::XPtr<torch::Tensor> tensor_pow_tensor_ (Rcpp::XPtr<torch::Tensor> x,
                      Rcpp::XPtr<torch::Tensor> exponent) {
-  // TODO handle scalar multiplication
   return make_tensor_ptr(x->pow(*exponent));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_pow_scalar_ (Rcpp::XPtr<torch::Tensor> x,
+                                              SEXP exponent) {
+  return make_tensor_ptr(x->pow(scalar_from_r_(exponent)));
 }
 
 // [[Rcpp::export]]
@@ -673,17 +688,33 @@ Rcpp::List tensor_qr_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_sub_ (Rcpp::XPtr<torch::Tensor> x,
+Rcpp::XPtr<torch::Tensor> tensor_sub_tensor_ (Rcpp::XPtr<torch::Tensor> x,
                      Rcpp::XPtr<torch::Tensor> other,
-                     double alpha = 1) {
-  return make_tensor_ptr(x->sub(*other, alpha));
+                     SEXP alpha) {
+  return make_tensor_ptr(x->sub(*other, scalar_from_r_(alpha)));
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_sub__ (Rcpp::XPtr<torch::Tensor> x,
+Rcpp::XPtr<torch::Tensor> tensor_sub_scalar_ (Rcpp::XPtr<torch::Tensor> x,
+                                              SEXP other,
+                                              SEXP alpha) {
+
+  return make_tensor_ptr(x->sub(scalar_from_r_(other), scalar_from_r_(alpha)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sub_tensor__ (Rcpp::XPtr<torch::Tensor> x,
                       Rcpp::XPtr<torch::Tensor> other,
-                      double alpha = 1) {
-  x->sub_(*other, alpha);
+                      SEXP alpha) {
+  x->sub_(*other, scalar_from_r_(alpha));
+  return x;
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sub_scalar__ (Rcpp::XPtr<torch::Tensor> x,
+                                               SEXP other,
+                                               SEXP alpha) {
+  x->sub_(scalar_from_r_(other), scalar_from_r_(alpha));
   return x;
 }
 

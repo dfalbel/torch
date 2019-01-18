@@ -18,4 +18,5 @@ substraction
 x <- tensor(c(1,2,3,4))
 y <- tensor(2)
 x - y
+x - 1
 }

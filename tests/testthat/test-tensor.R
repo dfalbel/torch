@@ -83,6 +83,9 @@ test_that("add works", {
   x <- array(-runif(80), dim = c(20, 2, 2))
   y <- array(-runif(80), dim = c(20, 2, 2))
   expect_identical(as.array(tensor(x) + tensor(y)), x + y)
+
+  x <- runif(100)
+  expect_equal(as.array(tensor(x) + 1), x + 1)
 })
 
 test_that("add does not modify in palce", {
@@ -775,6 +778,11 @@ test_that("mul works", {
   y <- tensor(3)
 
   expect_equal(as.array(x*y), 6)
+  expect_equal(as.array(x*3), 6)
+
+  x <- runif(100)
+
+  expect_equal(as.array(tensor(x)*3), x*3)
 })
 
 test_that("permute works", {
@@ -790,6 +798,10 @@ test_that("pow works", {
   y <- tensor(3)
 
   expect_equal(as.array(x^y), 8)
+  expect_equal(as.array(x^3), 8)
+
+  x <- runif(100)
+  expect_equal(as.array(tensor(x)^3), x^3)
 })
 
 test_that("qr works", {
@@ -808,6 +820,14 @@ test_that("sub works", {
 
   expect_equal(as.array(x$sub(y)), -1)
   expect_equal(as.array(x - y), -1)
+  expect_equal(as.array(x - 1), 1)
+})
+
+test_that("sub_ works", {
+  x <- tensor(2)
+  x$sub_(1)
+
+  expect_equal(as.array(x), 1)
 })
 
 test_that("sum works", {
