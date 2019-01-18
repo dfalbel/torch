@@ -17,7 +17,6 @@ LinkingTo:
 Imports:
     Rcpp,
     R6,
-    crayon,
     glue,
     withr
 RoxygenNote: 6.1.1

@@ -144,7 +144,7 @@ x is added to the final result.</p>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>45</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>5</span>)))
 <span class='no'>batch1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>36</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>4</span>)))
 <span class='no'>batch2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>60</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>)))
-<span class='fu'>tch_baddbmm</span>(<span class='no'>x</span>, <span class='no'>batch1</span>, <span class='no'>batch2</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'>tensor</span><span> 
+<span class='fu'>tch_baddbmm</span>(<span class='no'>x</span>, <span class='no'>batch1</span>, <span class='no'>batch2</span>)</div><div class='output co'>#&gt; tensor 
 #&gt; (1,.,.) = 
 #&gt;   1.8235  1.8044  1.1738  1.3777  1.0120
 #&gt;   1.9102  3.7442  1.8650  1.5697  2.0777
@@ -159,7 +159,7 @@ x is added to the final result.</p>
 #&gt;   1.7097  1.6868  1.9578  0.7815  1.2295
 #&gt;   1.1103  1.2823  1.1187  0.5574  1.0791
 #&gt;   1.3530  1.4687  1.8853  1.5337  1.3748
-#&gt; [ Variable[CPUDoubleType]{3,3,5} ]</div></span></pre>
+#&gt; [ Variable[CPUDoubleType]{3,3,5} ]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

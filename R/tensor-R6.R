@@ -38,7 +38,7 @@
     },
 
     print = function (...){
-      cat(crayon::silver(glue::glue("{cl}", cl = class(self)[[1]])), "\n")
+      cat(glue::glue("{cl}", cl = class(self)[[1]]), "\n")
       tensor_print_(self$pointer)
       invisible(self)
     },
