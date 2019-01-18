@@ -65,12 +65,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.7624  0.9765
-#>   0.8718  0.4497
+#>   0.6417  0.1113
+#>   0.0139  0.8048
 #> 
 #> (2,.,.) = 
-#>   0.2838  0.4814
-#>   0.6035  0.8246
+#>   0.4509  0.2324
+#>   0.0919  0.2997
 #> [ Variable[CPUDoubleType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] TRUE
@@ -129,8 +129,10 @@ for (i in 1:100) {
   
   loss$backward()
   
-  w$data$sub_(w$grad*lr)
-  b$data$sub_(b$grad*lr)
+  with_no_grad({
+    w$sub_(w$grad*lr)
+    b$sub_(b$grad*lr)   
+  })
   
   w$grad$zero_()
   b$grad$zero_()
@@ -138,8 +140,8 @@ for (i in 1:100) {
 
 print(as.array(w))
 #>            [,1]
-#> [1,]  0.4995543
-#> [2,] -0.7034766
+#> [1,]  0.4998904
+#> [2,] -0.7000910
 print(as.array(b))
-#> [1] 0.102176
+#> [1] 0.1001058
 ```

@@ -10,6 +10,10 @@ reference:
     - tensor_from_r
     - as.array.tensor
     - as.matrix.tensor
+- title: "Autograd"
+  desc: "Utility functions related to autograd."
+  contents:
+    - with_no_grad
 - title: "Tensor methods"
   desc: "Methods for tensors. They are always prefixed with `tch_`"
   contents:

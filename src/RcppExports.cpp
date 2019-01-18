@@ -6,6 +6,16 @@
 
 using namespace Rcpp;
 
+// set_grad_mode
+void set_grad_mode(bool enabled);
+RcppExport SEXP _torch_set_grad_mode(SEXP enabledSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< bool >::type enabled(enabledSEXP);
+    set_grad_mode(enabled);
+    return R_NilValue;
+END_RCPP
+}
 // tensor_from_r_
 Rcpp::XPtr<torch::Tensor> tensor_from_r_(SEXP x, std::vector<int64_t> dim);
 RcppExport SEXP _torch_tensor_from_r_(SEXP xSEXP, SEXP dimSEXP) {
@@ -1022,6 +1032,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_torch_set_grad_mode", (DL_FUNC) &_torch_set_grad_mode, 1},
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 2},
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
     {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},

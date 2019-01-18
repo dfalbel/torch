@@ -116,8 +116,10 @@ for (i in 1:100) {
   
   loss$backward()
   
-  w$data$sub_(w$grad*lr)
-  b$data$sub_(b$grad*lr)
+  with_no_grad({
+    w$sub_(w$grad*lr)
+    b$sub_(b$grad*lr)   
+  })
   
   w$grad$zero_()
   b$grad$zero_()
