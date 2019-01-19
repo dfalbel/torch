@@ -264,7 +264,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-
 // tensor_as_strided_
 Rcpp::XPtr<torch::Tensor> tensor_as_strided_(Rcpp::XPtr<torch::Tensor> x, std::vector<int64_t> size, std::vector<int64_t> stride, Rcpp::Nullable<int64_t> storage_offset);
 RcppExport SEXP _torch_tensor_as_strided_(SEXP xSEXP, SEXP sizeSEXP, SEXP strideSEXP, SEXP storage_offsetSEXP) {
@@ -279,7 +278,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-
 // tensor_to_string_
 std::string tensor_to_string_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_to_string_(SEXP xSEXP) {
@@ -1116,6 +1114,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_any_", (DL_FUNC) &_torch_tensor_any_, 3},
     {"_torch_tensor_argmax_", (DL_FUNC) &_torch_tensor_argmax_, 3},
     {"_torch_tensor_argmin_", (DL_FUNC) &_torch_tensor_argmin_, 3},
+    {"_torch_tensor_as_strided_", (DL_FUNC) &_torch_tensor_as_strided_, 4},
     {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
     {"_torch_tensor_asin_", (DL_FUNC) &_torch_tensor_asin_, 1},
     {"_torch_tensor_atan_", (DL_FUNC) &_torch_tensor_atan_, 1},

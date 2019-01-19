@@ -131,6 +131,12 @@
       `torch::Tensor`$dispatch(tensor_argmin_(self$pointer, dim, keepdim))
     },
 
+    as_strided = function(size, stride, storage_offset = NULL) {
+      `torch::Tensor`$dispatch(tensor_as_strided_(
+        self$pointer, size, stride, storage_offset)
+      )
+    },
+
     asin = function(){
       `torch::Tensor`$dispatch(tensor_asin_(self$pointer))
     },

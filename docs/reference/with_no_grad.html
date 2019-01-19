@@ -126,11 +126,12 @@
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>5</span>), <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='fu'>with_no_grad</span>({<span class='no'>x</span>$<span class='fu'>sub_</span>(<span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>as.numeric</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>)))})
 <span class='no'>x</span></div><div class='output co'>#&gt; tensor 
-#&gt; -0.4127
-#&gt; -1.1014
-#&gt; -2.1297
-#&gt; -3.6007
-#&gt; -4.0349
+#&gt; 0.01 *
+#&gt; -8.5702
+#&gt; -185.6197
+#&gt; -273.4813
+#&gt; -385.1537
+#&gt; -458.5751
 #&gt; [ Variable[CPUDoubleType]{5} ]</div><div class='input'>
 </div></pre>
   </div>

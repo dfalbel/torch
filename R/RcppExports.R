@@ -81,6 +81,10 @@ tensor_argmin_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_argmin_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
+tensor_as_strided_ <- function(x, size, stride, storage_offset) {
+    .Call('_torch_tensor_as_strided_', PACKAGE = 'torch', x, size, stride, storage_offset)
+}
+
 tensor_to_string_ <- function(x) {
     .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }

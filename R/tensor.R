@@ -265,6 +265,23 @@ tch_argmin <- function(x, dim = NULL, keepdim = FALSE, na.rm = FALSE) {
   x$argmin(dim, keepdim)
 }
 
+#' as_strided
+#'
+#' TODO: create better docs.
+#'
+#' @param x tensor object
+#' @param size size
+#' @param stride stride
+#' @param storage_offset (optional) storage_offset
+#'
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_as_strided(x, 0, 1)
+#' @export
+tch_as_strided <- function(x, size, stride, storage_offset = NULL) {
+  x$as_strided(size, stride, storage_offset)
+}
+
 #' asin
 #'
 #' Returns a new tensor with the arcsine of the elements of input.
