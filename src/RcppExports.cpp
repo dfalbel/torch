@@ -198,13 +198,13 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_all_
-Rcpp::XPtr<torch::Tensor> tensor_all_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::IntegerVector> dim, bool keepdim);
+Rcpp::XPtr<torch::Tensor> tensor_all_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<int64_t> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_all_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::IntegerVector> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<int64_t> >::type dim(dimSEXP);
     Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_all_(x, dim, keepdim));
     return rcpp_result_gen;
@@ -226,54 +226,54 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_any_
-Rcpp::XPtr<torch::Tensor> tensor_any_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::IntegerVector> dim, bool keepdim);
+Rcpp::XPtr<torch::Tensor> tensor_any_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<int64_t> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_any_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::IntegerVector> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<int64_t> >::type dim(dimSEXP);
     Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_any_(x, dim, keepdim));
     return rcpp_result_gen;
 END_RCPP
 }
 // tensor_argmax_
-Rcpp::XPtr<torch::Tensor> tensor_argmax_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::IntegerVector> dim, bool keepdim);
+Rcpp::XPtr<torch::Tensor> tensor_argmax_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<int64_t> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_argmax_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::IntegerVector> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<int64_t> >::type dim(dimSEXP);
     Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_argmax_(x, dim, keepdim));
     return rcpp_result_gen;
 END_RCPP
 }
 // tensor_argmin_
-Rcpp::XPtr<torch::Tensor> tensor_argmin_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::IntegerVector> dim, bool keepdim);
+Rcpp::XPtr<torch::Tensor> tensor_argmin_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<int64_t> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_argmin_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::IntegerVector> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<int64_t> >::type dim(dimSEXP);
     Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_argmin_(x, dim, keepdim));
     return rcpp_result_gen;
 END_RCPP
 }
 // tensor_as_strided_
-Rcpp::XPtr<torch::Tensor> tensor_as_strided_(Rcpp::XPtr<torch::Tensor> x, Rcpp::IntegerVector size, Rcpp::IntegerVector stride, Rcpp::Nullable<Rcpp::IntegerVector> storage_offset);
+Rcpp::XPtr<torch::Tensor> tensor_as_strided_(Rcpp::XPtr<torch::Tensor> x, std::vector<int64_t> size, std::vector<int64_t> stride, Rcpp::Nullable<int64_t> storage_offset);
 RcppExport SEXP _torch_tensor_as_strided_(SEXP xSEXP, SEXP sizeSEXP, SEXP strideSEXP, SEXP storage_offsetSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type size(sizeSEXP);
-    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type stride(strideSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::IntegerVector> >::type storage_offset(storage_offsetSEXP);
+    Rcpp::traits::input_parameter< std::vector<int64_t> >::type size(sizeSEXP);
+    Rcpp::traits::input_parameter< std::vector<int64_t> >::type stride(strideSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<int64_t> >::type storage_offset(storage_offsetSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_as_strided_(x, size, stride, storage_offset));
     return rcpp_result_gen;
 END_RCPP

@@ -21,3 +21,4 @@ torch::Scalar scalar_from_r_ (SEXP x) {
     Rcpp::stop("not handled");
   }
 };
+
