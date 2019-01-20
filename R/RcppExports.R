@@ -289,6 +289,14 @@ tensor_eig_ <- function(x, eigenvectors = FALSE) {
     .Call('_torch_tensor_eig_', PACKAGE = 'torch', x, eigenvectors)
 }
 
+tensor_eq_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_eq_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_eq_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_eq_tensor_', PACKAGE = 'torch', x, other)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

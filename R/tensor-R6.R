@@ -361,6 +361,14 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    eq = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_eq_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_eq_scalar_(self$pointer, other))
+      }
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

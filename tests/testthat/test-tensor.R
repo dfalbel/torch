@@ -740,6 +740,14 @@ test_that("eig works", {
   expect_equal(as.array(out[[2]]), -out_r$vectors)
 })
 
+test_that("eq works", {
+  x <- tensor(1:10)
+  y <- tensor(c(1:5, 10:6))
+
+  expect_equal(as.array(x == y), 1:10 == c(1:5, 10:6))
+  expect_equal(as.array(x == 1), 1:10 == 1)
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

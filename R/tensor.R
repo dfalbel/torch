@@ -747,6 +747,25 @@ tch_eig <- function(x, eigenvectors = FALSE) {
   x$eig(eigenvectors)
 }
 
+#' Eq
+#'
+#' Computes element-wise equality
+#' The second argument can be a number or a tensor whose shape is broadcastable
+#' with the first argument.
+#'
+#' @param x tensor object
+#' @param other the tensor or value to compare
+#'
+#' @examples
+#' x <- tensor(1:10)
+#' y <- tensor(c(1:5, 10:6))
+#' x == y
+#'
+#' @export
+`==.tensor` <- function(x, other) {
+  x$eq(other)
+}
+
 #' Gels
 #'
 #' Computes the solution to the least squares and least norm problems for a full
