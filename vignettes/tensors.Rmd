@@ -1,0 +1,49 @@
+---
+title: "Tensors"
+author: "Daniel Falbel"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+In this article we will describe the `Tensors` API implemented by `torch`.
+A `tensor` is a multi-dimensional matrix containing elements of a single data type.
+
+Torch defines eight CPU tensor types and eight GPU tensor types:
+
+```{r echo=FALSE}
+knitr::kable(data.frame(
+  "Data type" = c("32-bit floating point", "64-bit floating point", "16-bit floating point", "8-bit integer (unsigned)", "8-bit integer (signed)", "16-bit integer (signed)", "32-bit integer (signed)", "64-bit integer (signed)"),
+  "dtype"= c("float32 or float", "float64 or double", "float16 or half", "uint8", "int8", "int16 or short", "int32 or int", "int64 or long"),	
+  "CPU tensor" = c("FloatTensor", "DoubleTensor", "HalfTensor", "ByteTensor", "CharTensor", "ShortTensor", "IntTensor", "LongTensor"),
+  "CUDA tensor" = paste0("CUDA", c("FloatTensor", "DoubleTensor", "HalfTensor", "ByteTensor", "CharTensor", "ShortTensor", "IntTensor", "LongTensor")), check.names = FALSE
+))
+```
+
+When creating `tensor`s from R vector types we will use the following convertion table.
+Character tensors are not implemented yet.
+
+```{r, echo = FALSE}
+knitr::kable(
+  data.frame(
+    "R Type" = c("Logical", "Integer", "Double", "Character"),
+    "dtype" = c("uint8", "int", "float", "int8"),
+    "Torch Type" = c("ByteTensor", "IntTensor", "FloatTensor", "CharTensor"),
+    check.names = FALSE
+  )
+)
+```
+
+> **Note** By default we cast doubles to floats because performance on GPU is much faster.
+
+
