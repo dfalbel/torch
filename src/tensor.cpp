@@ -18,6 +18,42 @@ std::vector<int64_t> reverse_int_seq (int n) {
   return l;
 };
 
+torch::Layout layout_from_string (std::string layout) {
+  if (layout == "strided") {
+    return torch::Layout::Strided;
+  } else if (layout == "sparse") {
+    return torch::Layout::Sparse;
+  } else {
+    Rcpp::stop("Layout type not implemented.");
+  }
+}
+
+torch::TensorOptions tensor_options (Rcpp::Nullable<std::string> dtype,
+                                     Rcpp::Nullable<std::string> layout,
+                                     Rcpp::Nullable<std::string> device,
+                                     Rcpp::Nullable<bool> requires_grad) {
+
+  auto options = torch::TensorOptions();
+
+  if (dtype.isNotNull()) {
+    options = options.dtype(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
+  }
+
+  if (layout.isNotNull()) {
+    options = options.layout(layout_from_string(Rcpp::as<std::string>(layout)));
+  }
+
+  if (device.isNotNull()) {
+    options = options.device(device_from_string(Rcpp::as<std::string>(device)));
+  }
+
+  if (requires_grad.isNotNull()) {
+    options = options.requires_grad(Rcpp::as<bool>(requires_grad));
+  }
+
+  return options;
+}
+
 template <int RTYPE, at::ScalarType ATTYPE>
 torch::Tensor tensor_from_r_impl_ (const SEXP x, const std::vector<int64_t> dim) {
 
