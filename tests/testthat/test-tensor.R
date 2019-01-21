@@ -8,7 +8,7 @@ test_that("requires_grad", {
 })
 
 test_that("dtype", {
-  type <- typeof(as.array(tensor(1:10, dtype = "kDouble")))
+  type <- typeof(as.array(tensor(1:10, dtype = "double")))
   expect_identical(type, "double")
 })
 

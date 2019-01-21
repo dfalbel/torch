@@ -51,19 +51,23 @@ Rcpp::XPtr<torch::Tensor> tensor_from_r_ (SEXP x, std::vector<int64_t> dim) {
 };
 
 torch::ScalarType scalar_type_from_string(std::string scalar_type) {
-  if (scalar_type == "kInt") {
+  if (scalar_type == "int32" | scalar_type == "int") {
     return torch::kInt;
-  } else if (scalar_type == "kDouble") {
+  } else if (scalar_type == "float64" | scalar_type == "double") {
     return torch::kDouble;
+  } else if (scalar_type == "float32" | scalar_type == "float") {
+    return torch::kFloat;
   }
   Rcpp::stop("scalar not handled");
 }
 
 std::string scalar_type_to_string(torch::ScalarType scalar_type) {
   if (scalar_type == torch::kInt) {
-    return "kInt";
+    return "int";
   } else if (scalar_type == torch::kDouble) {
-    return "kDouble";
+    return "double";
+  } else if (scalar_type == torch::kFloat) {
+    return "float";
   }
   Rcpp::stop("scalar not handled");
 }
