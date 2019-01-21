@@ -12,51 +12,70 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
 # torch
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build status](https://travis-ci.org/dfalbel/torch.svg?branch=master)](https://travis-ci.org/dfalbel/torch)
-[![Coverage status](https://codecov.io/gh/dfalbel/torch/branch/master/graph/badge.svg)](https://codecov.io/github/dfalbel/torch?branch=master)
+[![Travis build
+status](https://travis-ci.org/dfalbel/torch.svg?branch=master)](https://travis-ci.org/dfalbel/torch)
+[![Coverage
+status](https://codecov.io/gh/dfalbel/torch/branch/master/graph/badge.svg)](https://codecov.io/github/dfalbel/torch?branch=master)
 
-torch from R!
+torch from R\!
 
-> A proof of concept for calling libtorch functions from R. API will change! Use at your own risk. Most libtorch's functionality is not implemented here too.
+> A proof of concept for calling libtorch functions from R. API will
+> change\! Use at your own risk. Most libtorch’s functionality is not
+> implemented here too.
 
 ## Installation
 
-Before installing you should [install libtorch](https://pytorch.org/) in `usr/local/lib/`.
+Before installing you should install [libtorch](https://pytorch.org/). Usually it makes sense to install `libtorch` to `/usr/local/lib`. However you can install it to any place and later provide location to R by setting `TORCH_HOME` environment variable (see examples below).
 
-``` r
-devtools::install_github("dfalbel/torch")
-```
+### CPU
 
-### Linux
-
-On Linux the fastest way to get started is to run on `bash`:
-
-```
+**Linux**
+```sh
 wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
 sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
 ```
 
-You can then install the package with
+**OS X**
 
-``` r
-devtools::install_github("dfalbel/torch")
-```
-
-### MacOs
-
-On MacOS the following should just work too. First install libtorch with:
-
-```
-wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip
+```sh
+https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip
 sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/
 ```
 
-Finally run:
+After that you can install set `TORCH_HOME` environment variable and install `torch` package:
 
-``` r
+```r
+Sys.setenv("TORCH_HOME" = "/usr/local/lib/libtorch")
+devtools::install_github("dfalbel/torch")
+```
+
+### GPU
+
+On Linux you can also install `torch` with **CUDA 9.0** support (still very initial stage)
+
+**Install CUDA 9.0**
+
+- [follow these instructions](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and add necessary repositories
+- install **cuda-9-0** - `sudo apt-get install cuda-9-0`
+
+**Install libtorch**
+
+```sh
+wget https://download.pytorch.org/libtorch/cu90/libtorch-shared-with-deps-latest.zip
+sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
+```
+
+**Install torch package**
+
+Define `TORCH_BACKEND_CUDA`, `TORCH_HOME` environment variables and install pkg:
+
+```r
+Sys.setenv("TORCH_BACKEND_CUDA" = "YES")
+Sys.setenv("TORCH_HOME" = "/usr/local/lib/libtorch")
 devtools::install_github("dfalbel/torch")
 ```
 
@@ -73,7 +92,7 @@ y
 identical(x, as.array(y))
 ```
 
-## Simple Autograd Example
+### Simple Autograd Example
 
 In the following snippet we let torch, using the autograd feature, calculate the derivatives:
 
@@ -90,7 +109,7 @@ w$grad
 b$grad
 ```
 
-## Linear Regression
+### Linear Regression
 
 In the following example we are going to fit a linear regression from scratch
 using torch's Autograd. 

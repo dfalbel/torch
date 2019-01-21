@@ -2,10 +2,28 @@ template:
   params:
     bootswatch: united
 
-articles:
-  - title: "Tensor"
-    contents:
+navbar:
+  structure:
+    left:
+    - home
+    - intro
     - tensors
+    - reference
+    - news
+    right: github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    tensors:
+      text: Tensors
+      href: articles/tensors.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/dfalbel/torch
 
 reference:
 - title: "Tensor creation and casting"
