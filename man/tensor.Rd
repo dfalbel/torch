@@ -9,7 +9,7 @@ tensor(x, ...)
 \arguments{
 \item{x}{an R object or a torch tensor.}
 
-\item{dtype}{a string with torch types}
+\item{dtype}{a string with torch types. Allowed types are double, float and int.}
 
 \item{device}{a device type}
 
