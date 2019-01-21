@@ -821,8 +821,8 @@ test_that("qr works", {
   a <- qr(x)
   out <- tch_qr(tensor(x)) %>% lapply(as.array)
 
-  expect_equal(qr.Q(a), out[[1]], tol = 1e-6)
-  expect_equal(qr.R(a), out[[2]], tol = 1e-6)
+  expect_equal(qr.Q(a), out[[1]], tol = 1e-5)
+  expect_equal(qr.R(a), out[[2]], tol = 1e-5)
 })
 
 test_that("sub works", {
@@ -883,3 +883,11 @@ test_that("creation of 3d numeric tensor", {
   x <- array(runif(80), dim = c(20, 2, 2))
   expect_equal(as.array(tensor(x)), x, tol = 1e-7)
 })
+
+context("factory functions")
+
+test_that("randn", {
+  x <- tch_randn(c(2,2))
+  expect_equal(dim(as.array(x)), c(2L, 2L))
+})
+
