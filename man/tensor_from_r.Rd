@@ -4,7 +4,7 @@
 \alias{tensor_from_r}
 \title{Create torch Tensor from R object}
 \usage{
-tensor_from_r(x, dtype, device, requires_grad)
+tensor_from_r(x, dtype = NULL, device = NULL, requires_grad = FALSE)
 }
 \arguments{
 \item{x}{an R vector, matrix or array.}

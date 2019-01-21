@@ -16,7 +16,7 @@ NULL
 #' tensor_from_r(array(runif(8), dim = c(2, 2, 2)))
 #' tensor_from_r(matrix(c(TRUE, FALSE), nrow = 3, ncol = 4))
 #' @export
-tensor_from_r <- function(x, dtype, device, requires_grad) {
+tensor_from_r <- function(x, dtype = NULL, device = NULL, requires_grad = FALSE) {
 
   dimension <- dim(x)
 
