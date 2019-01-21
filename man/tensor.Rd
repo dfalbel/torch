@@ -22,6 +22,6 @@ Creates a torch tensor.
 x <- tensor(1:10)
 x
 
-y <- tensor(x, dtype = "kDouble")
+y <- tensor(x, dtype = "double")
 y
 }

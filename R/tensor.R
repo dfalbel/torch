@@ -35,7 +35,7 @@ tensor_from_r <- function(x) {
 #' x <- tensor(1:10)
 #' x
 #'
-#' y <- tensor(x, dtype = "kDouble")
+#' y <- tensor(x, dtype = "double")
 #' y
 #' @export
 tensor <- function(x, ...) {
