@@ -67,12 +67,12 @@ test_that("abs works", {
   expect_identical(as.array(tch_abs(tensor(x))), abs(x))
 
   x <- array(-runif(80), dim = c(20, 2, 2))
-  expect_identical(as.array(tch_abs(tensor(x))), abs(x))
+  expect_equal(as.array(tch_abs(tensor(x))), abs(x), tol = 1e-7)
 })
 
 test_that("acos works", {
   x <- array(-runif(80), dim = c(20, 2, 2))
-  expect_equal(as.array(tch_acos(tensor(x))), acos(x))
+  expect_equal(as.array(tch_acos(tensor(x))), acos(x), tol = 1e-7)
 })
 
 test_that("add works", {
@@ -82,10 +82,10 @@ test_that("add works", {
 
   x <- array(-runif(80), dim = c(20, 2, 2))
   y <- array(-runif(80), dim = c(20, 2, 2))
-  expect_identical(as.array(tensor(x) + tensor(y)), x + y)
+  expect_equal(as.array(tensor(x) + tensor(y)), x + y, tol = 1e-7)
 
   x <- runif(100)
-  expect_equal(as.array(tensor(x) + 1), x + 1)
+  expect_equal(as.array(tensor(x) + 1), x + 1, tol = 1e-7)
 })
 
 test_that("add does not modify in palce", {
@@ -218,7 +218,7 @@ test_that("allclose works", {
   expect_identical(a, FALSE)
 
   x <- tensor(c(1,2,3,4,5))
-  y <- tensor(c(1,2,3,4,5) + 1e-5)
+  y <- tensor(c(1,2,3,4,5) + 1e-6)
   a <- tch_allclose(x, y)
 
   expect_identical(a, TRUE)
@@ -297,19 +297,19 @@ test_that("as_strided works", {
 
 test_that("asin works", {
   x <- runif(100)
-  expect_equal(as.array(tch_asin(tensor(x))), asin(x))
+  expect_equal(as.array(tch_asin(tensor(x))), asin(x), tol = 1e-7)
 })
 
 test_that("atan works", {
   x <- runif(100)
-  expect_equal(as.array(tch_atan(tensor(x))), atan(x))
+  expect_equal(as.array(tch_atan(tensor(x))), atan(x), tol = 1e-7)
 })
 
 test_that("atan2 works", {
   x <- runif(100)
   y <- runif(100)
 
-  expect_equal(as.array(tch_atan2(tensor(x), tensor(y))), atan2(x, y))
+  expect_equal(as.array(tch_atan2(tensor(x), tensor(y))), atan2(x, y), tol = 1e-7)
 })
 
 test_that("backward works", {
@@ -347,7 +347,7 @@ test_that("bincount works", {
   x <- sample(0:9, 500, replace = TRUE)
   weights <- runif(500)
 
-  expect_equal(as.array(tch_bincount(tensor(x), tensor(weights))), as.numeric(tapply(weights, x, sum)))
+  expect_equal(as.array(tch_bincount(tensor(x), tensor(weights))), as.numeric(tapply(weights, x, sum)), tol = 1e-6)
 })
 
 test_that("bmm works", {
@@ -407,8 +407,8 @@ test_that("chunk works", {
   x <- tensor(a)
   chunks <- tch_chunk(x, 2, 0)
 
-  expect_equal(as.array(chunks[[1]]), a[1:2,,])
-  expect_equal(as.array(chunks[[2]]), a[3:4,,])
+  expect_equal(as.array(chunks[[1]]), a[1:2,,], tol = 1e-7)
+  expect_equal(as.array(chunks[[2]]), a[3:4,,], tol = 1e-7)
 })
 
 test_that("clamp works", {
@@ -531,13 +531,13 @@ test_that("cos_ works", {
 
 test_that("cosh works", {
   x <- tensor(c(pi, 2*pi))
-  expect_equal(as.array(tch_cosh(x)), cosh(c(pi, 2*pi)))
+  expect_equal(as.array(tch_cosh(x)), cosh(c(pi, 2*pi)), tol = 1e-5)
 })
 
 test_that("cosh_ works", {
   x <- tensor(c(pi, 2*pi))
   x$cosh_()
-  expect_equal(as.array(x), cosh(c(pi, 2*pi)))
+  expect_equal(as.array(x), cosh(c(pi, 2*pi)), tol = 1e-5)
 })
 
 test_that("cpu works", {
@@ -588,7 +588,8 @@ test_that("det works", {
 
   expect_equal(
     as.array(tch_det(tensor(x))),
-    det(x)
+    det(x),
+    tol = 1e-7
   )
 })
 
@@ -651,13 +652,13 @@ test_that("diagonal works", {
 
 test_that("digamma works", {
   x <- tensor(c(1, 0.5))
-  expect_equal(as.array(tch_digamma(x)), digamma(c(1, 0.5)))
+  expect_equal(as.array(tch_digamma(x)), digamma(c(1, 0.5)), tol = 1e-6)
 })
 
 test_that("digamma_ works", {
   x <- tensor(c(1, 0.5))
   x$digamma_()
-  expect_equal(as.array(x), digamma(c(1, 0.5)))
+  expect_equal(as.array(x), digamma(c(1, 0.5)), tol = 1e-6)
 })
 
 test_that("dim works", {
@@ -676,15 +677,16 @@ test_that("dist works", {
   y <- tensor(as.numeric(10:1))
   expect_equal(
     as.array(tch_dist(x, y)),
-    sqrt(sum((1:10 - 10:1)^2))
+    sqrt(sum((1:10 - 10:1)^2)),
+    tol = 1e-7
   )
 })
 
 test_that("div works", {
   x <- tensor(as.numeric(1:10))
   y <- tensor(as.numeric(10:1))
-  expect_equal(as.array(x / y), 1:10/10:1)
-  expect_equal(as.array(x / 2), 1:10/2)
+  expect_equal(as.array(x / y), 1:10/10:1, tol = 1e-7)
+  expect_equal(as.array(x / 2), 1:10/2, tol = 1e-7)
 
   x <- tensor(1:10)
   y <- tensor(10:1)
@@ -696,11 +698,11 @@ test_that("div_ works", {
   x <- tensor(as.numeric(1:10))
   y <- tensor(as.numeric(10:1))
   x$div_(y)
-  expect_equal(as.array(x), 1:10/10:1)
+  expect_equal(as.array(x), 1:10/10:1, tol = 1e-7)
 
   x <- tensor(as.numeric(1:10))
   x$div_(2)
-  expect_equal(as.array(x), 1:10/2)
+  expect_equal(as.array(x), 1:10/2, tol = 1e-7)
 
   # works with integers too
   x <- tensor(1:10)
@@ -754,7 +756,8 @@ test_that("gels works", {
 
   expect_equal(
     .lm.fit(X, y)$coefficients,
-    tch_gels(tensor(y), tensor(X))[[1]] %>% as.array() %>% as.numeric()
+    tch_gels(tensor(y), tensor(X))[[1]] %>% as.array() %>% as.numeric(),
+    tol = 1e-5
   )
   # expect_equivalent(
   #   .lm.fit(X, y)$qr,
@@ -765,7 +768,7 @@ test_that("gels works", {
 
 test_that("mean works", {
   x <- runif(100)
-  expect_equal(as.array(tch_mean(tensor(x))), mean(x))
+  expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
 })
 
 test_that("mm works", {
@@ -775,22 +778,22 @@ test_that("mm works", {
   res_t <- as.array(tensor(x)$mm(tensor(y)))
   res_r <- x %*% y
 
-  expect_equal(res_t, res_r)
+  expect_equal(res_t, res_r, tol = 1e-7)
 
   res_t <- as.array(tch_mm(tensor(x), tensor(y)))
-  expect_equal(res_t, res_r)
+  expect_equal(res_t, res_r, tol = 1e-7)
 })
 
 test_that("mul works", {
   x <- tensor(2)
   y <- tensor(3)
 
-  expect_equal(as.array(x*y), 6)
-  expect_equal(as.array(x*3), 6)
+  expect_equal(as.array(x*y), 6, tol = 1e-7)
+  expect_equal(as.array(x*3), 6, tol = 1e-7)
 
   x <- runif(100)
 
-  expect_equal(as.array(tensor(x)*3), x*3)
+  expect_equal(as.array(tensor(x)*3), x*3, tol = 1e-7)
 })
 
 test_that("permute works", {
@@ -805,11 +808,11 @@ test_that("pow works", {
   x <- tensor(2)
   y <- tensor(3)
 
-  expect_equal(as.array(x^y), 8)
-  expect_equal(as.array(x^3), 8)
+  expect_equal(as.array(x^y), 8, tol = 1e-7)
+  expect_equal(as.array(x^3), 8, tol = 1e-7)
 
   x <- runif(100)
-  expect_equal(as.array(tensor(x)^3), x^3)
+  expect_equal(as.array(tensor(x)^3), x^3, tol = 1e-7)
 })
 
 test_that("qr works", {
@@ -818,8 +821,8 @@ test_that("qr works", {
   a <- qr(x)
   out <- tch_qr(tensor(x)) %>% lapply(as.array)
 
-  expect_equal(qr.Q(a), out[[1]])
-  expect_equal(qr.R(a), out[[2]])
+  expect_equal(qr.Q(a), out[[1]], tol = 1e-6)
+  expect_equal(qr.R(a), out[[2]], tol = 1e-6)
 })
 
 test_that("sub works", {
@@ -843,13 +846,13 @@ test_that("sum works", {
   expect_equal(as.array(tch_sum(tensor(x))), sum(x))
 
   x <- runif(100)
-  expect_equal(as.array(tch_sum(tensor(x))), sum(x))
+  expect_equal(as.array(tch_sum(tensor(x))), sum(x), tol = 1e-6)
 })
 
 test_that("t works", {
   x <- matrix(runif(6), ncol = 3)
 
-  expect_equal(as.array(tch_t(tensor(x))), t(x))
+  expect_equal(as.array(tch_t(tensor(x))), t(x), tol = 1e-7)
 
   x <- matrix(1:6, ncol = 3)
 
@@ -862,15 +865,15 @@ context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {
   x <- runif(100)
-  expect_identical(as.array(tensor(x)), x)
+  expect_equal(as.array(tensor(x)), x, tol = 1e-7)
 })
 
 test_that("creation of 2d numeric tensor", {
   x <- matrix(runif(100), ncol = 10)
-  expect_identical(as.array(tensor(x)), x)
+  expect_equal(as.array(tensor(x)), x, tol = 1e-7)
 })
 
 test_that("creation of 3d numeric tensor", {
   x <- array(runif(80), dim = c(20, 2, 2))
-  expect_identical(as.array(tensor(x)), x)
+  expect_equal(as.array(tensor(x)), x, tol = 1e-7)
 })

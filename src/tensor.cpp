@@ -30,8 +30,11 @@ Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (const SEXP x, const std::vector<i
     .permute(reverse_int_seq(dim.size()))
     .contiguous(); // triggers a copy!
 
-  if (RTYPE == LGLSXP)
+  if (RTYPE == LGLSXP) {
     tensor = tensor.to(torch::kByte);
+  } else if (RTYPE == REALSXP) {
+    tensor = tensor.to(torch::kFloat);
+  }
 
   return make_tensor_ptr(tensor);
 };
@@ -126,17 +129,14 @@ void tensor_print_ (Rcpp::XPtr<torch::Tensor> x) {
 };
 
 template <int RTYPE, typename STDTYPE>
-Rcpp::List as_array_tensor_impl_ (Rcpp::XPtr<torch::Tensor> x) {
+Rcpp::List as_array_tensor_impl_ (torch::Tensor x) {
 
-  Rcpp::IntegerVector dimensions(x->ndimension());
-  for (int i = 0; i < x->ndimension(); ++i) {
-    dimensions[i] = x->size(i);
+  Rcpp::IntegerVector dimensions(x.ndimension());
+  for (int i = 0; i < x.ndimension(); ++i) {
+    dimensions[i] = x.size(i);
   }
 
-  auto ten = x->contiguous();
-
-  if (ten.dtype() == torch::kLong)
-    ten = ten.to(torch::kInt);
+  auto ten = x.contiguous();
 
   Rcpp::Vector<RTYPE> vec(ten.data<STDTYPE>(), ten.data<STDTYPE>() + ten.numel());
 
@@ -149,20 +149,19 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
   torch::Tensor ten = *x;
 
   if (ten.dtype() == torch::kInt) {
-    return as_array_tensor_impl_<INTSXP, int32_t>(x);
+    return as_array_tensor_impl_<INTSXP, int32_t>(ten);
   } else if (ten.dtype() == torch::kDouble) {
-    return as_array_tensor_impl_<REALSXP, double>(x);
+    return as_array_tensor_impl_<REALSXP, double>(ten);
   } else if (ten.dtype() == torch::kByte) {
-    // TODO:
-    // not sure why this works :(
-    return as_array_tensor_impl_<LGLSXP, std::uint8_t>(x);
+    // TODO: not sure why this works :(
+    return as_array_tensor_impl_<LGLSXP, std::uint8_t>(ten);
   } else if (ten.dtype() == torch::kLong) {
-    // TODO: deal better with kLongs
-    // Klong is casted to kInt inside impl
-    return as_array_tensor_impl_<INTSXP, int32_t>(x);
+    return as_array_tensor_impl_<INTSXP, int32_t>(ten.to(torch::kInt));
+  } else if (ten.dtype() == torch::kFloat) {
+    return as_array_tensor_impl_<REALSXP, double>(ten.to(torch::kDouble));
   }
 
-  Rcpp::stop("not handled");
+  Rcpp::stop("dtype not handled");
 };
 
 // [[Rcpp::export]]
