@@ -91,15 +91,15 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.9616  0.4001
-#>   0.5802  0.8311
+#>   0.9947  0.8106
+#>   0.1551  0.0735
 #> 
 #> (2,.,.) = 
-#>   0.2459  0.1404
-#>   0.2681  0.5861
-#> [ Variable[CPUDoubleType]{2,2,2} ]
+#>   0.7466  0.7760
+#>   0.0058  0.8846
+#> [ Variable[CPUFloatType]{2,2,2} ]
 identical(x, as.array(y))
-#> [1] TRUE
+#> [1] FALSE
 ```
 
 ### Simple Autograd Example
@@ -118,15 +118,15 @@ y$backward()
 x$grad
 #> tensor 
 #>  2
-#> [ Variable[CPUDoubleType]{1} ]
+#> [ Variable[CPUFloatType]{1} ]
 w$grad
 #> tensor 
 #>  1
-#> [ Variable[CPUDoubleType]{1} ]
+#> [ Variable[CPUFloatType]{1} ]
 b$grad
 #> tensor 
 #>  1
-#> [ Variable[CPUDoubleType]{1} ]
+#> [ Variable[CPUFloatType]{1} ]
 ```
 
 ### Linear Regression
@@ -166,11 +166,12 @@ for (i in 1:100) {
 
 print(w)
 #> tensor 
-#>  0.4957
-#> -0.7022
-#> [ Variable[CPUDoubleType]{2,1} ]
-print(b)
+#>  0.5217
+#> -0.6676
+#> [ Variable[CPUFloatType]{2,1} ]
+print(b) 
 #> tensor 
-#>  0.1039
-#> [ Variable[CPUDoubleType]{1} ]
+#> 0.01 *
+#>  6.9575
+#> [ Variable[CPUFloatType]{1} ]
 ```

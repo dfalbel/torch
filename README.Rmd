@@ -145,6 +145,6 @@ for (i in 1:100) {
 }
 
 print(w)
-print(b)
+print(b) 
 ```
 
