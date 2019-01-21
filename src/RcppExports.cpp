@@ -1108,6 +1108,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_to_
+Rcpp::XPtr<torch::Tensor> tensor_to_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::string> dtype, Rcpp::Nullable<std::string> device, bool requires_grad);
+RcppExport SEXP _torch_tensor_to_(SEXP xSEXP, SEXP dtypeSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type dtype(dtypeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type device(deviceSEXP);
+    Rcpp::traits::input_parameter< bool >::type requires_grad(requires_gradSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_to_(x, dtype, device, requires_grad));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_zero__
 Rcpp::XPtr<torch::Tensor> tensor_zero__(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_zero__(SEXP xSEXP) {
@@ -1211,6 +1225,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_sub_scalar__", (DL_FUNC) &_torch_tensor_sub_scalar__, 3},
     {"_torch_tensor_sum_", (DL_FUNC) &_torch_tensor_sum_, 4},
     {"_torch_tensor_t_", (DL_FUNC) &_torch_tensor_t_, 1},
+    {"_torch_tensor_to_", (DL_FUNC) &_torch_tensor_to_, 4},
     {"_torch_tensor_zero__", (DL_FUNC) &_torch_tensor_zero__, 1},
     {NULL, NULL, 0}
 };

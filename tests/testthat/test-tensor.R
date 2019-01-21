@@ -861,6 +861,12 @@ test_that("t works", {
   expect_error(t(tensor(array(1:12, dim = c(2,2,3)))))
 })
 
+test_that("to works", {
+  x <- matrix(runif(6), ncol = 3)
+
+  expect_equal(as.array(tensor(x)$to(dtype = "int")), matrix(0L, ncol = 3, nrow = 2))
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

@@ -432,6 +432,10 @@
       `torch::Tensor`$dispatch(tensor_t_(self$pointer))
     },
 
+    to = function(dtype = NULL, device = NULL, requires_grad = FALSE) {
+      `torch::Tensor`$dispatch(tensor_to_(self$pointer, dtype, device, requires_grad))
+    },
+
     to_string = function () {
       tensor_to_string_(self$pointer)
     },

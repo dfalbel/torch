@@ -725,6 +725,32 @@ Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
+                                      Rcpp::Nullable<std::string> dtype,
+                                      Rcpp::Nullable<std::string> device,
+                                      bool requires_grad) {
+
+  torch::Tensor tensor = x->clone();
+
+  if (dtype.isNotNull() & device.isNotNull()) {
+    tensor = tensor.to(
+      device_from_string(Rcpp::as<std::string>(device)),
+      scalar_type_from_string(Rcpp::as<std::string>(dtype))
+    );
+  } else if (dtype.isNotNull()) {
+    tensor = tensor.to(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
+  } else if (device.isNotNull()) {
+    tensor = tensor.to(device_from_string(Rcpp::as<std::string>(device)));
+  }
+
+  if (requires_grad) {
+    tensor = tensor.set_requires_grad(requires_grad);
+  }
+
+  return make_tensor_ptr(tensor);
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_zero__ (Rcpp::XPtr<torch::Tensor> x) {
   x->zero_();
   return x;
