@@ -14,7 +14,7 @@ std::vector<int64_t> reverse_int_seq (int n) {
 };
 
 template <int RTYPE, at::ScalarType ATTYPE>
-Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (const SEXP x, const std::vector<int64_t> dim) {
+torch::Tensor tensor_from_r_impl_ (const SEXP x, const std::vector<int64_t> dim) {
 
   Rcpp::Vector<RTYPE> vec(x);
 
@@ -30,30 +30,24 @@ Rcpp::XPtr<torch::Tensor> tensor_from_r_impl_ (const SEXP x, const std::vector<i
     .permute(reverse_int_seq(dim.size()))
     .contiguous(); // triggers a copy!
 
-  if (RTYPE == LGLSXP) {
-    tensor = tensor.to(torch::kByte);
-  } else if (RTYPE == REALSXP) {
-    tensor = tensor.to(torch::kFloat);
-  }
-
-  return make_tensor_ptr(tensor);
+  return tensor;
 };
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_from_r_ (SEXP x, std::vector<int64_t> dim) {
 
-  switch (TYPEOF(x)) {
-  case INTSXP:
-    return tensor_from_r_impl_<INTSXP, torch::kInt>(x, dim);
-  case REALSXP:
-    return tensor_from_r_impl_<REALSXP, torch::kDouble>(x, dim);
-  case LGLSXP:
-    // since R logical vectors have 8B we need to treat them as integer vectors
-    // and then cast to bit tensor.
-    return tensor_from_r_impl_<LGLSXP, torch::kInt32>(x, dim);
-  default:
-    Rcpp::stop("not handled");
+  if (TYPEOF(x) == INTSXP) {
+    return make_tensor_ptr(tensor_from_r_impl_<INTSXP, torch::kInt>(x, dim));
+  } else if (TYPEOF(x) == REALSXP) {
+    auto tensor = tensor_from_r_impl_<REALSXP, torch::kDouble>(x, dim);
+    return make_tensor_ptr(tensor.to(torch::kFloat));
+  } else if (TYPEOF(x) == LGLSXP) {
+    auto tensor = tensor_from_r_impl_<LGLSXP, torch::kInt32>(x, dim);
+    return make_tensor_ptr(tensor.to(torch::kByte));
   }
+
+  Rcpp::stop("not handled");
+
 };
 
 torch::ScalarType scalar_type_from_string(std::string scalar_type) {
