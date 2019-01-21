@@ -17,40 +17,56 @@ torch from R\!
 
 ## Installation
 
-Before installing you should [install libtorch](https://pytorch.org/) in
-`usr/local/lib/`.
+Before installing you should install [libtorch](https://pytorch.org/). Usually it makes sense to install `libtorch` to `/usr/local/lib`. However you can install it to any place and later provide location to R by setting `TORCH_HOME` environment variable (see examples below).
 
-``` r
+### CPU
+
+**Linux**
+```sh
+wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
+sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
+```
+
+**OS X**
+
+```sh
+https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip
+sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/
+```
+
+After that you can install set `TORCH_HOME` environment variable and install `torch` package:
+
+```r
+Sys.setenv("TORCH_HOME" = "/usr/local/lib/libtorch")
 devtools::install_github("dfalbel/torch")
 ```
 
-### Linux
+### GPU
 
-On Linux the fastest way to get started is to run on
-    `bash`:
+On Linux you can also install `torch` with **CUDA 9.0** support (still very initial stage)
 
-    wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
-    sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
+**Install CUDA 9.0**
 
-You can then install the package with
+- [follow these instructions](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and add necessary repositories
+- install **cuda-9-0** - `sudo apt-get install cuda-9-0`
 
-``` r
+**Install libtorch**
+
+```sh
+wget https://download.pytorch.org/libtorch/cu90/libtorch-shared-with-deps-latest.zip
+sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
+```
+
+**Install torch package**
+
+Define `TORCH_BACKEND_CUDA`, `TORCH_HOME` environment variables and install pkg:
+
+```r
+Sys.setenv("TORCH_BACKEND_CUDA" = "YES")
+Sys.setenv("TORCH_HOME" = "/usr/local/lib/libtorch")
 devtools::install_github("dfalbel/torch")
 ```
 
-### MacOs
-
-On MacOS the following should just work too. First install libtorch
-with:
-
-    wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip
-    sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/
-
-Finally run:
-
-``` r
-devtools::install_github("dfalbel/torch")
-```
 
 ## Example
 
@@ -76,7 +92,7 @@ identical(x, as.array(y))
 #> [1] TRUE
 ```
 
-## Simple Autograd Example
+### Simple Autograd Example
 
 In the following snippet we let torch, using the autograd feature,
 calculate the derivatives:
@@ -103,7 +119,7 @@ b$grad
 #> [ Variable[CPUDoubleType]{1} ]
 ```
 
-## Linear Regression
+### Linear Regression
 
 In the following example we are going to fit a linear regression from
 scratch using torch’s Autograd.

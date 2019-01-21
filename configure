@@ -1,17 +1,36 @@
 #!/bin/bash
 # Shell config script
 
-LIBTORCH="/usr/local/lib/libtorch"
+echo "----------------------------------------------------------------"
+if test -z $TORCH_HOME
+then
+  TORCH_HOME="/usr/local/lib/libtorch"
+  echo "'TORCH_HOME' env var is not set - setting it to: $TORCH_HOME"
+else
+  echo "'TORCH_HOME' env var is set - using it: $TORCH_HOME"
+fi
 
-PKG_CFLAGS="-I$LIBTORCH/include -I/$LIBTORCH/include/torch/csrc/api/include"
-PKG_LIBS="-L$LIBTORCH/lib -Wl,-rpath,$LIBTORCH/lib -ltorch"
+PKG_CFLAGS="-I$TORCH_HOME/include -I/$TORCH_HOME/include/torch/csrc/api/include"
+PKG_LIBS="-L$TORCH_HOME/lib -Wl,-rpath,$TORCH_HOME/lib -ltorch"
 
-# uncomment to install torch with CUDA support
-#LIBCUDA="/usr/local/cuda-9.0"
-#PKG_LIBS="-L$LIBTORCH/lib -Wl,-rpath,$LIBTORCH/lib -ltorch -L/$LIBCUDA/lib -lnvrtc -lcuda"
-
+if test -z $TORCH_BACKEND_CUDA
+then
+  echo "'TORCH_BACKEND_CUDA' env var is not set - using CPU backend"
+else
+  echo "'TORCH_BACKEND_CUDA' env var is set - using CUDA backend"
+  if test -z "$CUDA_HOME"
+  then
+    CUDA_HOME="/usr/local/cuda"
+    echo "'CUDA_HOME' env var is not set - setting it to: $CUDA_HOME"
+  else
+    echo "'CUDA_HOME' env var is set - using it: $CUDA_HOME"
+  fi # CUDA_HOME
+  PKG_LIBS="$PKG_LIBS -L/$CUDA_HOME/lib64 -lnvrtc -lcuda"
+fi # TORCH_BACKEND_CUDA
+echo "----------------------------------------------------------------"
 echo "Using PKG_LIBS=$PKG_LIBS"
 echo "Using PKG_CFLAGS=$PKG_CFLAGS"
+echo "----------------------------------------------------------------"
 
 # Write to Makevars
 sed -e "s|@pkg_cflags@|$PKG_CFLAGS|" -e "s|@libs@|$PKG_LIBS|" src/Makevars.in > src/Makevars
