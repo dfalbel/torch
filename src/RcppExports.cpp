@@ -29,27 +29,17 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_
-Rcpp::XPtr<torch::Tensor> tensor_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::CharacterVector> dtype, Rcpp::Nullable<Rcpp::CharacterVector> device, bool requires_grad);
+Rcpp::XPtr<torch::Tensor> tensor_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::string> dtype, Rcpp::Nullable<std::string> device, bool requires_grad);
 RcppExport SEXP _torch_tensor_(SEXP xSEXP, SEXP dtypeSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::CharacterVector> >::type dtype(dtypeSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::CharacterVector> >::type device(deviceSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type dtype(dtypeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type device(deviceSEXP);
     Rcpp::traits::input_parameter< bool >::type requires_grad(requires_gradSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_(x, dtype, device, requires_grad));
     return rcpp_result_gen;
-END_RCPP
-}
-// tensor_print_
-void tensor_print_(Rcpp::XPtr<torch::Tensor> x);
-RcppExport SEXP _torch_tensor_print_(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    tensor_print_(x);
-    return R_NilValue;
 END_RCPP
 }
 // as_array_tensor_
@@ -61,6 +51,16 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(as_array_tensor_(x));
     return rcpp_result_gen;
+END_RCPP
+}
+// tensor_print_
+void tensor_print_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_print_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    tensor_print_(x);
+    return R_NilValue;
 END_RCPP
 }
 // tensor_abs_
@@ -1121,8 +1121,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_set_grad_mode", (DL_FUNC) &_torch_set_grad_mode, 1},
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 2},
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
-    {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
+    {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},
     {"_torch_tensor_abs_", (DL_FUNC) &_torch_tensor_abs_, 1},
     {"_torch_tensor_acos_", (DL_FUNC) &_torch_tensor_acos_, 1},
     {"_torch_tensor_add_tensor_", (DL_FUNC) &_torch_tensor_add_tensor_, 2},

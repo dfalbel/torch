@@ -1,10 +1,15 @@
 #include "torch_types.h"
 #include "scalar.hpp"
+#include "device.hpp"
+
+// Some utils ------------------------------------------------------------------
 
 Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
   auto * out = new torch::Tensor(x);
   return Rcpp::XPtr<torch::Tensor>(out);
 }
+
+// Tensor from R code ----------------------------------------------------------
 
 std::vector<int64_t> reverse_int_seq (int n) {
   std::vector<int64_t> l(n);
@@ -50,48 +55,10 @@ Rcpp::XPtr<torch::Tensor> tensor_from_r_ (SEXP x, std::vector<int64_t> dim) {
 
 };
 
-torch::ScalarType scalar_type_from_string(std::string scalar_type) {
-  if (scalar_type == "int32" | scalar_type == "int") {
-    return torch::kInt;
-  } else if (scalar_type == "float64" | scalar_type == "double") {
-    return torch::kDouble;
-  } else if (scalar_type == "float32" | scalar_type == "float") {
-    return torch::kFloat;
-  }
-  Rcpp::stop("scalar not handled");
-}
-
-std::string scalar_type_to_string(torch::ScalarType scalar_type) {
-  if (scalar_type == torch::kInt) {
-    return "int";
-  } else if (scalar_type == torch::kDouble) {
-    return "double";
-  } else if (scalar_type == torch::kFloat) {
-    return "float";
-  }
-  Rcpp::stop("scalar not handled");
-}
-
-torch::Device device_from_string(std::string device) {
-  if (device == "CPU") {
-    return torch::Device(torch::DeviceType::CPU);
-  }
-  Rcpp::stop("device not handled");
-}
-
-std::string device_to_string (torch::Device x) {
-  if (x.is_cpu()) {
-    return "CPU";
-  } else if (x.is_cuda()){
-    return "CUDA";
-  };
-  Rcpp::stop("not handled");
-}
-
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_ (Rcpp::XPtr<torch::Tensor> x,
-                 Rcpp::Nullable<Rcpp::CharacterVector> dtype,
-                 Rcpp::Nullable<Rcpp::CharacterVector> device,
+                 Rcpp::Nullable<std::string> dtype,
+                 Rcpp::Nullable<std::string> device,
                  bool requires_grad) {
   if (dtype.isNull() & device.isNull()) {
     if (x->requires_grad() == requires_grad) {
@@ -120,11 +87,7 @@ Rcpp::XPtr<torch::Tensor> tensor_ (Rcpp::XPtr<torch::Tensor> x,
   Rcpp::stop("not handled");
 }
 
-// [[Rcpp::export]]
-void tensor_print_ (Rcpp::XPtr<torch::Tensor> x) {
-  torch::Tensor ten = *x;
-  Rcpp::Rcout << ten << std::endl;
-};
+// Tensor to R code ------------------------------------------------------------
 
 template <int RTYPE, typename STDTYPE>
 Rcpp::List as_array_tensor_impl_ (torch::Tensor x) {
@@ -160,6 +123,14 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
   }
 
   Rcpp::stop("dtype not handled");
+};
+
+// Tensor Methods --------------------------------------------------------------
+
+// [[Rcpp::export]]
+void tensor_print_ (Rcpp::XPtr<torch::Tensor> x) {
+  torch::Tensor ten = *x;
+  Rcpp::Rcout << ten << std::endl;
 };
 
 // [[Rcpp::export]]

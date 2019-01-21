@@ -13,12 +13,12 @@ tensor_ <- function(x, dtype, device, requires_grad) {
     .Call('_torch_tensor_', PACKAGE = 'torch', x, dtype, device, requires_grad)
 }
 
-tensor_print_ <- function(x) {
-    invisible(.Call('_torch_tensor_print_', PACKAGE = 'torch', x))
-}
-
 as_array_tensor_ <- function(x) {
     .Call('_torch_as_array_tensor_', PACKAGE = 'torch', x)
+}
+
+tensor_print_ <- function(x) {
+    invisible(.Call('_torch_tensor_print_', PACKAGE = 'torch', x))
 }
 
 tensor_abs_ <- function(x) {
