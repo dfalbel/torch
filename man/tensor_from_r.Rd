@@ -4,10 +4,16 @@
 \alias{tensor_from_r}
 \title{Create torch Tensor from R object}
 \usage{
-tensor_from_r(x)
+tensor_from_r(x, dtype, device, requires_grad)
 }
 \arguments{
 \item{x}{an R vector, matrix or array.}
+
+\item{dtype}{dtype}
+
+\item{device}{device}
+
+\item{requires_grad}{requires_grad}
 }
 \description{
 Create torch Tensor from R object

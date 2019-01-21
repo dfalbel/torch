@@ -39,20 +39,43 @@ torch::Tensor tensor_from_r_impl_ (const SEXP x, const std::vector<int64_t> dim)
 };
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_from_r_ (SEXP x, std::vector<int64_t> dim) {
+Rcpp::XPtr<torch::Tensor> tensor_from_r_ (SEXP x, std::vector<int64_t> dim,
+                                          Rcpp::Nullable<std::string> dtype,
+                                          Rcpp::Nullable<std::string> device,
+                                          bool requires_grad = false
+                                          ) {
+
+  torch::Tensor tensor;
 
   if (TYPEOF(x) == INTSXP) {
-    return make_tensor_ptr(tensor_from_r_impl_<INTSXP, torch::kInt>(x, dim));
+    tensor = tensor_from_r_impl_<INTSXP, torch::kInt>(x, dim);
   } else if (TYPEOF(x) == REALSXP) {
-    auto tensor = tensor_from_r_impl_<REALSXP, torch::kDouble>(x, dim);
-    return make_tensor_ptr(tensor.to(torch::kFloat));
+    tensor = tensor_from_r_impl_<REALSXP, torch::kDouble>(x, dim);
   } else if (TYPEOF(x) == LGLSXP) {
-    auto tensor = tensor_from_r_impl_<LGLSXP, torch::kInt32>(x, dim);
-    return make_tensor_ptr(tensor.to(torch::kByte));
+    tensor = tensor_from_r_impl_<LGLSXP, torch::kInt32>(x, dim);
+  } else {
+    Rcpp::stop("R type not handled");
+  };
+
+  if (dtype.isNull()) {
+    if (TYPEOF(x) == REALSXP) {
+      tensor = tensor.to(torch::kFloat);
+    } else if (TYPEOF(x) == LGLSXP) {
+      tensor = tensor.to(torch::kByte);
+    }
+  } else {
+    tensor = tensor.to(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
   }
 
-  Rcpp::stop("not handled");
+  if (device.isNotNull()) {
+    tensor = tensor.to(device_from_string(Rcpp::as<std::string>(device)));
+  }
 
+  if (requires_grad) {
+    tensor = tensor.set_requires_grad(requires_grad);
+  }
+
+  return make_tensor_ptr(tensor);
 };
 
 // [[Rcpp::export]]
@@ -60,31 +83,25 @@ Rcpp::XPtr<torch::Tensor> tensor_ (Rcpp::XPtr<torch::Tensor> x,
                  Rcpp::Nullable<std::string> dtype,
                  Rcpp::Nullable<std::string> device,
                  bool requires_grad) {
-  if (dtype.isNull() & device.isNull()) {
-    if (x->requires_grad() == requires_grad) {
-      return make_tensor_ptr(*x);
-    } else {
-      auto out = x->clone();
-      out.set_requires_grad(requires_grad);
-      return make_tensor_ptr(out);
-    }
-  } else if (dtype.isNull() & device.isNotNull()) {
-    auto out = x->to(device_from_string(Rcpp::as<std::string>(device)));
-    out.set_requires_grad(requires_grad);
-    return make_tensor_ptr(out);
-  } else if (dtype.isNotNull() & device.isNull()) {
-    auto out = x->to(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
-    out.set_requires_grad(requires_grad);
-    return make_tensor_ptr(out);
-  } else if (dtype.isNotNull() & device.isNotNull()) {
-    auto out = x->to(
+
+  torch::Tensor tensor = x->clone();
+
+  if (dtype.isNotNull() & device.isNotNull()) {
+    tensor = tensor.to(
       device_from_string(Rcpp::as<std::string>(device)),
       scalar_type_from_string(Rcpp::as<std::string>(dtype))
     );
-    out.set_requires_grad(requires_grad);
-    return make_tensor_ptr(out);
+  } else if (dtype.isNotNull()) {
+    tensor = tensor.to(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
+  } else if (device.isNotNull()) {
+    tensor = tensor.to(device_from_string(Rcpp::as<std::string>(device)));
   }
-  Rcpp::stop("not handled");
+
+  if (requires_grad) {
+    tensor = tensor.set_requires_grad(requires_grad);
+  }
+
+  return make_tensor_ptr(tensor);
 }
 
 // Tensor to R code ------------------------------------------------------------

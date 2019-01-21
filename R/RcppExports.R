@@ -5,8 +5,8 @@ set_grad_mode <- function(enabled) {
     invisible(.Call('_torch_set_grad_mode', PACKAGE = 'torch', enabled))
 }
 
-tensor_from_r_ <- function(x, dim) {
-    .Call('_torch_tensor_from_r_', PACKAGE = 'torch', x, dim)
+tensor_from_r_ <- function(x, dim, dtype, device, requires_grad = FALSE) {
+    .Call('_torch_tensor_from_r_', PACKAGE = 'torch', x, dim, dtype, device, requires_grad)
 }
 
 tensor_ <- function(x, dtype, device, requires_grad) {

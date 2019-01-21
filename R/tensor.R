@@ -5,6 +5,9 @@ NULL
 #' Create torch Tensor from R object
 #'
 #' @param x an R vector, matrix or array.
+#' @param dtype dtype
+#' @param device device
+#' @param requires_grad requires_grad
 #'
 #' @note it uses the R type when creating the tensor.
 #'
@@ -13,7 +16,7 @@ NULL
 #' tensor_from_r(array(runif(8), dim = c(2, 2, 2)))
 #' tensor_from_r(matrix(c(TRUE, FALSE), nrow = 3, ncol = 4))
 #' @export
-tensor_from_r <- function(x) {
+tensor_from_r <- function(x, dtype, device, requires_grad) {
 
   dimension <- dim(x)
 
@@ -21,7 +24,7 @@ tensor_from_r <- function(x) {
     dimension <- length(x)
   }
 
-  `torch::Tensor`$dispatch(tensor_from_r_(x, rev(dimension)))
+  `torch::Tensor`$dispatch(tensor_from_r_(x, rev(dimension), dtype, device, requires_grad))
 }
 
 #' Creates a torch tensor.
@@ -44,7 +47,7 @@ tensor <- function(x, ...) {
 
 #' @export
 tensor.default <- function(x, dtype = NULL, device = NULL, requires_grad = FALSE) {
-  tensor(tensor_from_r(x), dtype, device, requires_grad)
+  tensor_from_r(x, dtype, device, requires_grad)
 }
 
 #' @export
