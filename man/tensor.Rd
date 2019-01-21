@@ -9,7 +9,7 @@ tensor(x, ...)
 \arguments{
 \item{x}{an R object or a torch tensor.}
 
-\item{dtype}{a string with torch types}
+\item{dtype}{a string with torch types. Allowed types are double, float and int.}
 
 \item{device}{a device type}
 
@@ -22,6 +22,6 @@ Creates a torch tensor.
 x <- tensor(1:10)
 x
 
-y <- tensor(x, dtype = "kDouble")
+y <- tensor(x, dtype = "double")
 y
 }

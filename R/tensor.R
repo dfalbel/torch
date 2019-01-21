@@ -27,7 +27,7 @@ tensor_from_r <- function(x) {
 #' Creates a torch tensor.
 #'
 #' @param x an R object or a torch tensor.
-#' @param dtype a string with torch types
+#' @param dtype a string with torch types. Allowed types are double, float and int.
 #' @param device a device type
 #' @param requires_grad boolean indicating if tensor requires grad.
 #'
@@ -35,7 +35,7 @@ tensor_from_r <- function(x) {
 #' x <- tensor(1:10)
 #' x
 #'
-#' y <- tensor(x, dtype = "kDouble")
+#' y <- tensor(x, dtype = "double")
 #' y
 #' @export
 tensor <- function(x, ...) {

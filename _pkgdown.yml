@@ -2,6 +2,11 @@ template:
   params:
     bootswatch: united
 
+articles:
+  - title: "Tensor"
+    contents:
+    - tensors
+
 reference:
 - title: "Tensor creation and casting"
   desc: "Functions used to create new tensors and cast them back to R arrays."
