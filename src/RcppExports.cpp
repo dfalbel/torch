@@ -56,6 +56,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// torch_randn_
+Rcpp::XPtr<torch::Tensor> torch_randn_(std::vector<std::int64_t> size);
+RcppExport SEXP _torch_torch_randn_(SEXP sizeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::int64_t> >::type size(sizeSEXP);
+    rcpp_result_gen = Rcpp::wrap(torch_randn_(size));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_print_
 void tensor_print_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_print_(SEXP xSEXP) {
@@ -1139,6 +1150,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 5},
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
+    {"_torch_torch_randn_", (DL_FUNC) &_torch_torch_randn_, 1},
     {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},
     {"_torch_tensor_abs_", (DL_FUNC) &_torch_tensor_abs_, 1},
     {"_torch_tensor_acos_", (DL_FUNC) &_torch_tensor_acos_, 1},

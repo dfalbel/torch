@@ -82,6 +82,24 @@ as.matrix.tensor <- function(x) {
   as.matrix(x$as_vector())
 }
 
+#' Random normal
+#'
+#' Returns a tensor filled with random numbers
+#' from a normal distribution with mean 0 and variance 1
+#' (also called the standard normal distribution).
+#'
+#' The shape of the tensor is defined by the variable argument sizes.
+#'
+#' @param sizes a sequence of integers defining the shape of the output tensor.
+#'
+#' @examples
+#' tch_randn(c(2,2))
+#'
+#' @export
+tch_randn <- function(sizes) {
+  `torch::Tensor`$dispatch(torch_randn_(sizes))
+}
+
 #' Abs
 #'
 #' Returns absolute values of tensor elements.

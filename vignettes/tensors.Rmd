@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+library(torch)
 ```
 
 In this article we will describe the `Tensors` API implemented by `torch`.
@@ -30,6 +31,12 @@ knitr::kable(data.frame(
 ))
 ```
 
+# Tensor Creation
+
+## From R
+
+We can create new tensors from R objects using the `tensor` function.
+
 When creating `tensor`s from R vector types we will use the following convertion table.
 Character tensors are not implemented yet.
 
@@ -44,6 +51,50 @@ knitr::kable(
 )
 ```
 
-> **Note** By default we cast doubles to floats because performance on GPU is much faster.
+> **Note** By default we cast doubles to floats because we can achieve much better performance on GPU.
+
+```{r}
+# Vectors
+x <- runif(5)
+x
+x_ten <- tensor(x)
+x_ten
+
+# Matrixes
+x <- matrix(runif(4), ncol = 2)
+x
+x_ten <- tensor(x)
+x_ten
+
+# Arrays
+x <- array(runif(8), dim = c(2,2,2))
+x
+x_ten <- tensor(x)
+x_ten
+```
+
+##  Using a Factory Function
+
+The following factory functions are available at the time of this writing:
+
+* `tch_arange`: Returns a tensor with a sequence of integers,
+* `tch_empty`: Returns a tensor with uninitialized values,
+* `tch_eye`: Returns an identity matrix,
+* `tch_full`: Returns a tensor filled with a single value,
+* `tch_linspace`: Returns a tensor with values linearly spaced in some interval,
+* `tch_logspace`: Returns a tensor with values logarithmically spaced in some interval,
+* `tch_ones`: Returns a tensor filled with all ones,
+* `tch_rand`: Returns a tensor filled with values drawn from a uniform distribution on [0, 1).
+* `tch_randint`: Returns a tensor with integers randomly drawn from an interval,
+* `tch_randn`: Returns a tensor filled with values drawn from a unit normal distribution,
+* `tch_randperm`: Returns a tensor filled with a random permutation of integers in some interval,
+* `tch_zeros`: Returns a tensor filled with all zeros.
+
+For example we can create a tensor with:
+
+```{r}
+x <- tch_randn(c(2,2))
+x
+```
 
 

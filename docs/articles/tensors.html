@@ -152,6 +152,13 @@
 </tr>
 </tbody>
 </table>
+<div id="tensor-creation" class="section level1">
+<h1 class="hasAnchor">
+<a href="#tensor-creation" class="anchor"></a>Tensor Creation</h1>
+<div id="from-r" class="section level2">
+<h2 class="hasAnchor">
+<a href="#from-r" class="anchor"></a>From R</h2>
+<p>We can create new tensors from R objects using the <code>tensor</code> function.</p>
 <p>When creating <code>tensor</code>s from R vector types we will use the following convertion table. Character tensors are not implemented yet.</p>
 <table class="table">
 <thead><tr class="header">
@@ -183,11 +190,115 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>Note</strong> By default we cast doubles to floats because performance on GPU is much faster.</p>
+<p><strong>Note</strong> By default we cast doubles to floats because we can achieve much better performance on GPU.</p>
 </blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Vectors</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">x</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; [1] 0.1515371 0.4278099 0.7116240 0.3881767 0.1077404</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">x_ten &lt;-<span class="st"> </span><span class="kw"><a href="../reference/tensor.html">tensor</a></span>(x)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">x_ten</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt; tensor </span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;  0.1515</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;  0.4278</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  0.7116</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  0.3882</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  0.1077</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt; [ Variable[CPUFloatType]{5} ]</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co"># Matrixes</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">matrix</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(<span class="dv">4</span>), <span class="dt">ncol =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">x</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt;            [,1]       [,2]</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; [1,] 0.09969123 0.01084248</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; [2,] 0.26551862 0.39785418</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">x_ten &lt;-<span class="st"> </span><span class="kw"><a href="../reference/tensor.html">tensor</a></span>(x)</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">x_ten</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">#&gt; tensor </span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co">#&gt;  0.0997  0.0108</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co">#&gt;  0.2655  0.3979</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">#&gt; [ Variable[CPUFloatType]{2,2} ]</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co"># Arrays</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/array">array</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(<span class="dv">8</span>), <span class="dt">dim =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">x</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co">#&gt; , , 1</span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="co">#&gt;           [,1]      [,2]</span></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="co">#&gt; [1,] 0.5949549 0.6731463</span></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="co">#&gt; [2,] 0.1776098 0.4010936</span></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-37" data-line-number="37"><span class="co">#&gt; , , 2</span></a>
+<a class="sourceLine" id="cb1-38" data-line-number="38"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="co">#&gt;           [,1]      [,2]</span></a>
+<a class="sourceLine" id="cb1-40" data-line-number="40"><span class="co">#&gt; [1,] 0.4475828 0.7254932</span></a>
+<a class="sourceLine" id="cb1-41" data-line-number="41"><span class="co">#&gt; [2,] 0.3301508 0.3753347</span></a>
+<a class="sourceLine" id="cb1-42" data-line-number="42">x_ten &lt;-<span class="st"> </span><span class="kw"><a href="../reference/tensor.html">tensor</a></span>(x)</a>
+<a class="sourceLine" id="cb1-43" data-line-number="43">x_ten</a>
+<a class="sourceLine" id="cb1-44" data-line-number="44"><span class="co">#&gt; tensor </span></a>
+<a class="sourceLine" id="cb1-45" data-line-number="45"><span class="co">#&gt; (1,.,.) = </span></a>
+<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="co">#&gt;   0.5950  0.4476</span></a>
+<a class="sourceLine" id="cb1-47" data-line-number="47"><span class="co">#&gt;   0.6731  0.7255</span></a>
+<a class="sourceLine" id="cb1-48" data-line-number="48"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-49" data-line-number="49"><span class="co">#&gt; (2,.,.) = </span></a>
+<a class="sourceLine" id="cb1-50" data-line-number="50"><span class="co">#&gt;   0.1776  0.3302</span></a>
+<a class="sourceLine" id="cb1-51" data-line-number="51"><span class="co">#&gt;   0.4011  0.3753</span></a>
+<a class="sourceLine" id="cb1-52" data-line-number="52"><span class="co">#&gt; [ Variable[CPUFloatType]{2,2,2} ]</span></a></code></pre></div>
+</div>
+<div id="using-a-factory-function" class="section level2">
+<h2 class="hasAnchor">
+<a href="#using-a-factory-function" class="anchor"></a>Using a Factory Function</h2>
+<p>The following factory functions are available at the time of this writing:</p>
+<ul>
+<li>
+<code>tch_arange</code>: Returns a tensor with a sequence of integers,</li>
+<li>
+<code>tch_empty</code>: Returns a tensor with uninitialized values,</li>
+<li>
+<code>tch_eye</code>: Returns an identity matrix,</li>
+<li>
+<code>tch_full</code>: Returns a tensor filled with a single value,</li>
+<li>
+<code>tch_linspace</code>: Returns a tensor with values linearly spaced in some interval,</li>
+<li>
+<code>tch_logspace</code>: Returns a tensor with values logarithmically spaced in some interval,</li>
+<li>
+<code>tch_ones</code>: Returns a tensor filled with all ones,</li>
+<li>
+<code>tch_rand</code>: Returns a tensor filled with values drawn from a uniform distribution on [0, 1).</li>
+<li>
+<code>tch_randint</code>: Returns a tensor with integers randomly drawn from an interval,</li>
+<li>
+<code>tch_randn</code>: Returns a tensor filled with values drawn from a unit normal distribution,</li>
+<li>
+<code>tch_randperm</code>: Returns a tensor filled with a random permutation of integers in some interval,</li>
+<li>
+<code>tch_zeros</code>: Returns a tensor filled with all zeros.</li>
+</ul>
+<p>For example we can create a tensor with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw"><a href="../reference/tch_randn.html">tch_randn</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">x</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; tensor </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;  0.2961 -0.2434</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; -0.7480 -0.5275</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; [ Variable[CPUFloatType]{2,2} ]</span></a></code></pre></div>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li>
+<a href="#tensor-creation">Tensor Creation</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#from-r">From R</a></li>
+      <li><a href="#using-a-factory-function">Using a Factory Function</a></li>
+      </ul>
+</li>
+      </ul>
+</div>
       </div>
 
 </div>

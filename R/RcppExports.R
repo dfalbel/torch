@@ -17,6 +17,10 @@ as_array_tensor_ <- function(x) {
     .Call('_torch_as_array_tensor_', PACKAGE = 'torch', x)
 }
 
+torch_randn_ <- function(size) {
+    .Call('_torch_torch_randn_', PACKAGE = 'torch', size)
+}
+
 tensor_print_ <- function(x) {
     invisible(.Call('_torch_tensor_print_', PACKAGE = 'torch', x))
 }

@@ -142,6 +142,13 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
   Rcpp::stop("dtype not handled");
 };
 
+// Tensor Creation -------------------------------------------------------------
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_randn_ (std::vector<std::int64_t> size) {
+  return make_tensor_ptr(torch::randn(size));
+}
+
 // Tensor Methods --------------------------------------------------------------
 
 // [[Rcpp::export]]
