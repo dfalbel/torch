@@ -17,8 +17,8 @@ as_array_tensor_ <- function(x) {
     .Call('_torch_as_array_tensor_', PACKAGE = 'torch', x)
 }
 
-torch_randn_ <- function(size) {
-    .Call('_torch_torch_randn_', PACKAGE = 'torch', size)
+torch_randn_ <- function(size, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_randn_', PACKAGE = 'torch', size, dtype, layout, device, requires_grad)
 }
 
 tensor_print_ <- function(x) {

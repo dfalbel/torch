@@ -160,8 +160,13 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
 // Tensor Creation -------------------------------------------------------------
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> torch_randn_ (std::vector<std::int64_t> size) {
-  return make_tensor_ptr(torch::randn(size));
+Rcpp::XPtr<torch::Tensor> torch_randn_ (std::vector<std::int64_t> size,
+                                        Rcpp::Nullable<std::string> dtype,
+                                        Rcpp::Nullable<std::string> layout,
+                                        Rcpp::Nullable<std::string> device,
+                                        Rcpp::Nullable<bool> requires_grad
+                                        ) {
+  return make_tensor_ptr(torch::randn(size, tensor_options_(dtype, layout, device, requires_grad)));
 }
 
 // Tensor Methods --------------------------------------------------------------

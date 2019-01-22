@@ -908,6 +908,7 @@ test_that("tensor is really cloned in tensors", {
 test_that("randn", {
   x <- tch_randn(c(2,2))
   expect_equal(dim(as.array(x)), c(2L, 2L))
+  # TODO test other args.
 })
 
 
