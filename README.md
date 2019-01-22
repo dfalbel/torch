@@ -17,40 +17,22 @@ torch from R\!
 
 ## Installation
 
-Before installing you should install [libtorch](https://pytorch.org/).
-Usually it makes sense to install `libtorch` to `/usr/local/lib`.
-However you can install it to any place and later provide location to R
-by setting `TORCH_HOME` environment variable (see examples
-below).
+Installation is very simple:
 
 ### CPU
 
-**Linux**
-
-``` sh
-wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
-sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
+```r
+devtools::install_github(
+  "dfalbel/torch", 
+  configure.vars = c("TORCH_HOME=~/libtorch")
+)
 ```
+Code above will check whether `libtorch` is installed to `TORCH_HOME` dir. If not it will download `libtorch` binaries and unpack them to `TORCH_HOME`. After that it will install `torch` R package.
 
-**OS X**
-
-``` sh
-https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip
-sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/
-```
-
-After that you can install set `TORCH_HOME` environment variable and
-install `torch` package:
-
-``` r
-Sys.setenv("TORCH_HOME" = "/usr/local/lib/libtorch")
-devtools::install_github("dfalbel/torch")
-```
 
 ### GPU
 
-On Linux you can also install `torch` with **CUDA 9.0** support (still
-very initial stage)
+On Linux you can also install `torch` with **CUDA 9.0** support (still very initial stage)
 
 **Install CUDA 9.0**
 
@@ -59,23 +41,17 @@ very initial stage)
     and add necessary repositories
   - install **cuda-9-0** - `sudo apt-get install cuda-9-0`
 
-**Install
-libtorch**
-
-``` sh
-wget https://download.pytorch.org/libtorch/cu90/libtorch-shared-with-deps-latest.zip
-sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
-```
-
-**Install torch package**
-
-Define `TORCH_BACKEND_CUDA`, `TORCH_HOME` environment variables and
-install pkg:
+**Install libtorch and torch R package**
 
 ``` r
-Sys.setenv("TORCH_BACKEND_CUDA" = "YES")
-Sys.setenv("TORCH_HOME" = "/usr/local/lib/libtorch")
-devtools::install_github("dfalbel/torch")
+devtools::install_github(
+  "dfalbel/torch", 
+  configure.vars = c(
+    "TORCH_HOME=~/libtorch",
+    "TORCH_BACKEND=CUDA", 
+    "CUDA_HOME=/usr/local/cuda"
+  )
+)
 ```
 
 ## Example

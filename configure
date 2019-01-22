@@ -1,32 +1,66 @@
 #!/bin/bash
 # Shell config script
-
 echo "----------------------------------------------------------------"
-if test -z $TORCH_HOME
+# figure out binaries url based on OS
+if [[ "$OSTYPE" == "linux-gnu" ]]
 then
-  TORCH_HOME="/usr/local/lib/libtorch"
-  echo "'TORCH_HOME' env var is not set - setting it to: $TORCH_HOME"
+  if [[ "$TORCH_BACKEND" == "CUDA" ]]
+  then
+    # GPU
+    TORCH_BINARIES='https://download.pytorch.org/libtorch/cu90/libtorch-shared-with-deps-latest.zip'
+  else
+    # CPU
+    TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip'
+  fi
+elif [[ "$OSTYPE" == "darwin"* ]]
+then
+  # for OS X only CPU backend
+  TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip'
 else
-  echo "'TORCH_HOME' env var is set - using it: $TORCH_HOME"
+  echo "OS is not supported"
+  exit 1
 fi
 
-PKG_CFLAGS="-I$TORCH_HOME/include -I/$TORCH_HOME/include/torch/csrc/api/include"
+#---------------------------------------------------------
+if test -z $TORCH_HOME
+then
+  TORCH_HOME="$HOME/libtorch"
+  echo "TORCH_HOME env var is not set - setting it to: $TORCH_HOME"
+else
+  echo "TORCH_HOME env var is set - using it: $TORCH_HOME"
+fi
+
+#---------------------------------------------------------
+if [ -d "$TORCH_HOME" ]
+then
+  echo "TORCH_HOME directory exists - assuming library already installed"
+else
+  echo "$TORCH_HOME does not exist - downloading libtorch"
+  mkdir -p $TORCH_HOME
+  wget -nv $TORCH_BINARIES -P ~ -O $TORCH_HOME/libtorch.zip
+  echo "unzipping libtorch to $TORCH_HOME"
+  unzip $TORCH_HOME/libtorch.zip -d `dirname $TORCH_HOME`
+fi
+TORCH_HOME="$TORCH_HOME"
+#---------------------------------------------------------
+
+PKG_CFLAGS="-I$TORCH_HOME/include -I$TORCH_HOME/include/torch/csrc/api/include"
 PKG_LIBS="-L$TORCH_HOME/lib -Wl,-rpath,$TORCH_HOME/lib -ltorch"
 
-if test -z $TORCH_BACKEND_CUDA
+if [[ "$TORCH_BACKEND" == "CUDA" ]]
 then
-  echo "'TORCH_BACKEND_CUDA' env var is not set - using CPU backend"
-else
-  echo "'TORCH_BACKEND_CUDA' env var is set - using CUDA backend"
+  echo "Found TORCH_BACKEND='CUDA' - using 'CUDA' backend"
   if test -z "$CUDA_HOME"
   then
     CUDA_HOME="/usr/local/cuda"
-    echo "'CUDA_HOME' env var is not set - setting it to: $CUDA_HOME"
+    echo "CUDA_HOME env var is not set - setting it to: $CUDA_HOME"
   else
-    echo "'CUDA_HOME' env var is set - using it: $CUDA_HOME"
+    echo "CUDA_HOME env var is set - using it: $CUDA_HOME"
   fi # CUDA_HOME
   PKG_LIBS="$PKG_LIBS -L/$CUDA_HOME/lib64 -lnvrtc -lcuda"
-fi # TORCH_BACKEND_CUDA
+else
+  echo "TORCH_BACKEND!='CUDA' - using 'CPU' backend"
+fi # TORCH_BACKEND
 echo "----------------------------------------------------------------"
 echo "Using PKG_LIBS=$PKG_LIBS"
 echo "Using PKG_CFLAGS=$PKG_CFLAGS"
