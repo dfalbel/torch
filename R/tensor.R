@@ -30,9 +30,14 @@ tensor_from_r <- function(x, dtype = NULL, device = NULL, requires_grad = FALSE)
 #' Creates a torch tensor.
 #'
 #' @param x an R object or a torch tensor.
-#' @param dtype a string with torch types. Allowed types are double, float and int.
-#' @param device a device type
-#' @param requires_grad boolean indicating if tensor requires grad.
+#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
+#' data type from `x`.
+#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
+#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
+#' device will be the CPU for CPU tensor types and the current CUDA device for
+#' CUDA tensor types.
+#' @param requires_grad If autograd should record operations on the
+#' returned tensor. Default: `FALSE`.
 #'
 #' @examples
 #' x <- tensor(1:10)

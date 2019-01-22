@@ -28,7 +28,7 @@ torch::Layout layout_from_string (std::string layout) {
   }
 }
 
-torch::TensorOptions tensor_options (Rcpp::Nullable<std::string> dtype,
+torch::TensorOptions tensor_options_ (Rcpp::Nullable<std::string> dtype,
                                      Rcpp::Nullable<std::string> layout,
                                      Rcpp::Nullable<std::string> device,
                                      Rcpp::Nullable<bool> requires_grad) {
@@ -116,27 +116,12 @@ Rcpp::XPtr<torch::Tensor> tensor_from_r_ (SEXP x, std::vector<int64_t> dim,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_ (Rcpp::XPtr<torch::Tensor> x,
-                 Rcpp::Nullable<std::string> dtype,
-                 Rcpp::Nullable<std::string> device,
-                 bool requires_grad) {
-
+                                   Rcpp::Nullable<std::string> dtype,
+                                   Rcpp::Nullable<std::string> device,
+                                   bool requires_grad) {
   torch::Tensor tensor = x->clone();
-
-  if (dtype.isNotNull() & device.isNotNull()) {
-    tensor = tensor.to(
-      device_from_string(Rcpp::as<std::string>(device)),
-      scalar_type_from_string(Rcpp::as<std::string>(dtype))
-    );
-  } else if (dtype.isNotNull()) {
-    tensor = tensor.to(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
-  } else if (device.isNotNull()) {
-    tensor = tensor.to(device_from_string(Rcpp::as<std::string>(device)));
-  }
-
-  if (requires_grad) {
-    tensor = tensor.set_requires_grad(requires_grad);
-  }
-
+  tensor = tensor.to(tensor_options_(dtype, R_NilValue, device, R_NilValue));
+  tensor = tensor.set_requires_grad(requires_grad);
   return make_tensor_ptr(tensor);
 }
 
