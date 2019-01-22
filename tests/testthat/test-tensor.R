@@ -8,7 +8,11 @@ test_that("requires_grad", {
 })
 
 test_that("dtype", {
+  # TODO implement this tests using dtype method.
   type <- typeof(as.array(tensor(1:10, dtype = "double")))
+  expect_identical(type, "double")
+
+  type <- typeof(as.array(tensor(1:10, dtype = "float32")))
   expect_identical(type, "double")
 })
 
