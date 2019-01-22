@@ -9,11 +9,16 @@ tensor(x, ...)
 \arguments{
 \item{x}{an R object or a torch tensor.}
 
-\item{dtype}{a string with torch types. Allowed types are double, float and int.}
+\item{dtype}{the desired data type of returned tensor. Default: if \code{NULL}, infers
+data type from \code{x}.}
 
-\item{device}{a device type}
+\item{device}{the desired device of returned tensor. Default: if \code{NULL}, uses
+the current device for the default tensor type (see \code{tch_set_default_tensor_type()}).
+device will be the CPU for CPU tensor types and the current CUDA device for
+CUDA tensor types.}
 
-\item{requires_grad}{boolean indicating if tensor requires grad.}
+\item{requires_grad}{If autograd should record operations on the
+returned tensor. Default: \code{FALSE}.}
 }
 \description{
 Creates a torch tensor.

@@ -18,12 +18,48 @@ std::vector<int64_t> reverse_int_seq (int n) {
   return l;
 };
 
-template <int RTYPE, at::ScalarType ATTYPE>
+torch::Layout layout_from_string (std::string layout) {
+  if (layout == "strided") {
+    return torch::Layout::Strided;
+  } else if (layout == "sparse") {
+    return torch::Layout::Sparse;
+  } else {
+    Rcpp::stop("Layout type not implemented.");
+  }
+}
+
+torch::TensorOptions tensor_options_ (Rcpp::Nullable<std::string> dtype,
+                                     Rcpp::Nullable<std::string> layout,
+                                     Rcpp::Nullable<std::string> device,
+                                     Rcpp::Nullable<bool> requires_grad) {
+
+  auto options = torch::TensorOptions();
+
+  if (dtype.isNotNull()) {
+    options = options.dtype(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
+  }
+
+  if (layout.isNotNull()) {
+    options = options.layout(layout_from_string(Rcpp::as<std::string>(layout)));
+  }
+
+  if (device.isNotNull()) {
+    options = options.device(device_from_string(Rcpp::as<std::string>(device)));
+  }
+
+  if (requires_grad.isNotNull()) {
+    options = options.requires_grad(Rcpp::as<bool>(requires_grad));
+  }
+
+  return options;
+}
+
+template <int RTYPE, torch::ScalarType SCALARTYPE>
 torch::Tensor tensor_from_r_impl_ (const SEXP x, const std::vector<int64_t> dim) {
 
   Rcpp::Vector<RTYPE> vec(x);
 
-  auto tensor = torch::from_blob(vec.begin(), dim, ATTYPE);
+  auto tensor = torch::from_blob(vec.begin(), dim, SCALARTYPE);
 
   if (dim.size() == 1) {
     // if we have a 1-dim vector contigous doesn't trigger a copy, and
@@ -57,50 +93,30 @@ Rcpp::XPtr<torch::Tensor> tensor_from_r_ (SEXP x, std::vector<int64_t> dim,
     Rcpp::stop("R type not handled");
   };
 
+  torch::TensorOptions options = tensor_options_(dtype, R_NilValue, device, R_NilValue);
+
   if (dtype.isNull()) {
     if (TYPEOF(x) == REALSXP) {
-      tensor = tensor.to(torch::kFloat);
+      options = options.dtype(torch::kFloat);
     } else if (TYPEOF(x) == LGLSXP) {
-      tensor = tensor.to(torch::kByte);
+      options = options.dtype(torch::kByte);
     }
-  } else {
-    tensor = tensor.to(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
   }
 
-  if (device.isNotNull()) {
-    tensor = tensor.to(device_from_string(Rcpp::as<std::string>(device)));
-  }
-
-  if (requires_grad) {
-    tensor = tensor.set_requires_grad(requires_grad);
-  }
+  tensor = tensor.to(options);
+  tensor = tensor.set_requires_grad(requires_grad);
 
   return make_tensor_ptr(tensor);
 };
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_ (Rcpp::XPtr<torch::Tensor> x,
-                 Rcpp::Nullable<std::string> dtype,
-                 Rcpp::Nullable<std::string> device,
-                 bool requires_grad) {
-
+                                   Rcpp::Nullable<std::string> dtype,
+                                   Rcpp::Nullable<std::string> device,
+                                   bool requires_grad) {
   torch::Tensor tensor = x->clone();
-
-  if (dtype.isNotNull() & device.isNotNull()) {
-    tensor = tensor.to(
-      device_from_string(Rcpp::as<std::string>(device)),
-      scalar_type_from_string(Rcpp::as<std::string>(dtype))
-    );
-  } else if (dtype.isNotNull()) {
-    tensor = tensor.to(scalar_type_from_string(Rcpp::as<std::string>(dtype)));
-  } else if (device.isNotNull()) {
-    tensor = tensor.to(device_from_string(Rcpp::as<std::string>(device)));
-  }
-
-  if (requires_grad) {
-    tensor = tensor.set_requires_grad(requires_grad);
-  }
-
+  tensor = tensor.to(tensor_options_(dtype, R_NilValue, device, R_NilValue));
+  tensor = tensor.set_requires_grad(requires_grad);
   return make_tensor_ptr(tensor);
 }
 
@@ -131,7 +147,6 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
   } else if (ten.dtype() == torch::kDouble) {
     return as_array_tensor_impl_<REALSXP, double>(ten);
   } else if (ten.dtype() == torch::kByte) {
-    // TODO: not sure why this works :(
     return as_array_tensor_impl_<LGLSXP, std::uint8_t>(ten);
   } else if (ten.dtype() == torch::kLong) {
     return as_array_tensor_impl_<INTSXP, int32_t>(ten.to(torch::kInt));
@@ -145,8 +160,13 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
 // Tensor Creation -------------------------------------------------------------
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> torch_randn_ (std::vector<std::int64_t> size) {
-  return make_tensor_ptr(torch::randn(size));
+Rcpp::XPtr<torch::Tensor> torch_randn_ (std::vector<std::int64_t> size,
+                                        Rcpp::Nullable<std::string> dtype,
+                                        Rcpp::Nullable<std::string> layout,
+                                        Rcpp::Nullable<std::string> device,
+                                        Rcpp::Nullable<bool> requires_grad
+                                        ) {
+  return make_tensor_ptr(torch::randn(size, tensor_options_(dtype, layout, device, requires_grad)));
 }
 
 // Tensor Methods --------------------------------------------------------------
