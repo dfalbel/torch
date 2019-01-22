@@ -98,6 +98,7 @@ as.matrix.tensor <- function(x) {
 #' @param sizes a sequence of integers defining the shape of the output tensor.
 #' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
 #' data type from `x`.
+#' @param the desired layout of returned Tensor. Default: 'strided'
 #' @param device  the desired device of returned tensor. Default: if `NULL`, uses
 #' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
 #' device will be the CPU for CPU tensor types and the current CUDA device for

@@ -33,6 +33,7 @@ reference:
     - tensor_from_r
     - as.array.tensor
     - as.matrix.tensor
+    - tch_randn
 - title: "Autograd"
   desc: "Utility functions related to autograd."
   contents:
