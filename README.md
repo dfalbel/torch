@@ -27,8 +27,9 @@ devtools::install_github(
   configure.vars = c("TORCH_HOME=~/libtorch")
 )
 ```
-Code above will check whether `libtorch` is installed to `TORCH_HOME` dir. If not it will download `libtorch` binaries and unpack them to `TORCH_HOME`. After that it will install `torch` R package.
+Code above will check whether `libtorch` is installed to `TORCH_HOME` dir. If not it will automatically download `libtorch` binaries from `pytorch.org` and unpack them to `TORCH_HOME`. After that it will install `torch` R package. 
 
+Alternatively you can provide URL for binaries download by adding `TORCH_BINARIES` argument to `configure.vars`.
 
 ### GPU
 

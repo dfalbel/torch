@@ -1,25 +1,30 @@
 #!/bin/bash
 # Shell config script
 echo "----------------------------------------------------------------"
-# figure out binaries url based on OS
-if [[ "$OSTYPE" == "linux-gnu" ]]
+if test -z $TORCH_BINARIES
 then
-  if [[ "$TORCH_BACKEND" == "CUDA" ]]
+  # figure out binaries url based on OS
+  if [[ "$OSTYPE" == "linux-gnu" ]]
   then
-    # GPU
-    TORCH_BINARIES='https://download.pytorch.org/libtorch/cu90/libtorch-shared-with-deps-latest.zip'
+    if [[ "$TORCH_BACKEND" == "CUDA" ]]
+    then
+      # GPU
+      TORCH_BINARIES='https://download.pytorch.org/libtorch/cu90/libtorch-shared-with-deps-latest.zip'
+    else
+      # CPU
+      TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip'
+    fi
+  elif [[ "$OSTYPE" == "darwin"* ]]
+  then
+    # for OS X only CPU backend
+    TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip'
   else
-    # CPU
-    TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip'
-  fi
-elif [[ "$OSTYPE" == "darwin"* ]]
-then
-  # for OS X only CPU backend
-  TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip'
+    echo "OS is not supported"
+    exit 1
+  fi # TORCH_BACKEND
 else
-  echo "OS is not supported"
-  exit 1
-fi
+  echo "usin user-supplied URL for TORCH_BINARIES"
+fi # TORCH_BINARIES
 
 #---------------------------------------------------------
 if test -z $TORCH_HOME
