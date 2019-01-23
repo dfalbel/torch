@@ -57,13 +57,34 @@ BEGIN_RCPP
 END_RCPP
 }
 // torch_randn_
-Rcpp::XPtr<torch::Tensor> torch_randn_(std::vector<std::int64_t> size);
-RcppExport SEXP _torch_torch_randn_(SEXP sizeSEXP) {
+Rcpp::XPtr<torch::Tensor> torch_randn_(std::vector<std::int64_t> size, Rcpp::Nullable<std::string> dtype, Rcpp::Nullable<std::string> layout, Rcpp::Nullable<std::string> device, Rcpp::Nullable<bool> requires_grad);
+RcppExport SEXP _torch_torch_randn_(SEXP sizeSEXP, SEXP dtypeSEXP, SEXP layoutSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::vector<std::int64_t> >::type size(sizeSEXP);
-    rcpp_result_gen = Rcpp::wrap(torch_randn_(size));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type dtype(dtypeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type layout(layoutSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type device(deviceSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<bool> >::type requires_grad(requires_gradSEXP);
+    rcpp_result_gen = Rcpp::wrap(torch_randn_(size, dtype, layout, device, requires_grad));
+    return rcpp_result_gen;
+END_RCPP
+}
+// torch_arange_
+Rcpp::XPtr<torch::Tensor> torch_arange_(SEXP start, SEXP end, SEXP step, Rcpp::Nullable<std::string> dtype, Rcpp::Nullable<std::string> layout, Rcpp::Nullable<std::string> device, Rcpp::Nullable<bool> requires_grad);
+RcppExport SEXP _torch_torch_arange_(SEXP startSEXP, SEXP endSEXP, SEXP stepSEXP, SEXP dtypeSEXP, SEXP layoutSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type start(startSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type end(endSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type step(stepSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type dtype(dtypeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type layout(layoutSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type device(deviceSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<bool> >::type requires_grad(requires_gradSEXP);
+    rcpp_result_gen = Rcpp::wrap(torch_arange_(start, end, step, dtype, layout, device, requires_grad));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -1150,7 +1171,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 5},
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
-    {"_torch_torch_randn_", (DL_FUNC) &_torch_torch_randn_, 1},
+    {"_torch_torch_randn_", (DL_FUNC) &_torch_torch_randn_, 5},
+    {"_torch_torch_arange_", (DL_FUNC) &_torch_torch_arange_, 7},
     {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},
     {"_torch_tensor_abs_", (DL_FUNC) &_torch_tensor_abs_, 1},
     {"_torch_tensor_acos_", (DL_FUNC) &_torch_tensor_acos_, 1},

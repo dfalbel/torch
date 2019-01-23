@@ -936,3 +936,38 @@ tch_sum <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
 tch_t <- function(x) {
   x$t()
 }
+
+#' arange
+#'
+#' Returns a 1-D tensor of size \code{floor((end - start)/end)} with values from the interval [start, end) taken with common difference step beginning from start.
+#' Note that non-integer step is subject to floating point rounding errors when comparing against end; to avoid inconsistency, we advise adding a small epsilon to
+#' end in such cases.
+#'
+#' @param start the starting value for the set of points
+#' @param end the ending value for the set of points
+#' @param step the gap between each pair of adjacent points
+#' @param out (optional) the output tensor
+#' @param dtype the desired data type of returned tensor. Default: if None, uses a global default (see torch.set_default_tensor_type()). If dtype is not given,
+#' infer the data type from the other input arguments. If any of start, end, or stop are floating-point, the dtype is inferred to be the default dtype, see
+#' get_default_dtype(). Otherwise, the dtype is inferred to be torch.int64.
+#' @param layout the desired layout of returned Tensor
+#' @param device the desired device of returned tensor. Default: if None, uses the current device for the default tensor type (see torch.set_default_tensor_type()).
+#' device will be the CPU for CPU tensor types and the current CUDA device for CUDA tensor types
+#' @param requires_grad boolean. If autograd should record operations on the returned tensor
+#'
+#' @examples
+#' tch_arange(5)
+#' tch_arange(1, 4)
+#' tch_arange(1, 2.5, 0.5)
+#'
+#' @export
+#'
+tch_arange <- function(start = 0, end = NULL, step = 1, out = NULL, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
+  # this is necessary to make the call tch_arange(2) works because the first argument is start instead of end.
+  if(is.null(end)) {
+    end <- start
+    start <- 0
+  }
+
+  `torch::Tensor`$dispatch(torch_arange_(start, end, step, dtype, layout, device, requires_grad))
+}
