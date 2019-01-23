@@ -293,6 +293,10 @@ tensor_dot_ <- function(x, tensor) {
     .Call('_torch_tensor_dot_', PACKAGE = 'torch', x, tensor)
 }
 
+tensor_dtype_ <- function(x) {
+    .Call('_torch_tensor_dtype_', PACKAGE = 'torch', x)
+}
+
 tensor_eig_ <- function(x, eigenvectors = FALSE) {
     .Call('_torch_tensor_eig_', PACKAGE = 'torch', x, eigenvectors)
 }

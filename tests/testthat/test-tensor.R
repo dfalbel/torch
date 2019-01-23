@@ -8,12 +8,14 @@ test_that("requires_grad", {
 })
 
 test_that("dtype", {
-  # TODO implement this tests using dtype method.
-  type <- typeof(as.array(tensor(1:10, dtype = "double")))
-  expect_identical(type, "double")
+  x <- tensor(1:10, dtype = "double")
+  expect_identical(x$dtype(), "double")
 
-  type <- typeof(as.array(tensor(1:10, dtype = "float32")))
-  expect_identical(type, "double")
+  x <- tensor(1:10, dtype = "float32")
+  expect_identical(x$dtype(), "float")
+
+  x <- tensor(1:10)
+  expect_identical(x$dtype(), "int")
 })
 
 test_that("device", {
@@ -726,15 +728,6 @@ test_that("dot works", {
   )
 })
 
-# TODO dtype
-# test_that("dtype works", {
-#   x <- tensor(1:10)
-#   expect_equal(x$dtype(), "kInt")
-#   x <- tensor(runif(10))
-#   expect_equal(x$dtype(), "kDouble")
-#   # test for other tensor types.
-# })
-
 test_that("eig works", {
   x_r <- cbind(c(1,-1), c(-1,1))
 
@@ -908,13 +901,19 @@ test_that("tensor is really cloned in tensors", {
 test_that("randn", {
   x <- tch_randn(c(2,2))
   expect_equal(dim(as.array(x)), c(2L, 2L))
-  # TODO test other args.
+  expect_equal(x$dtype(), "float")
+
+  expect_error(x <- tch_randn(c(2,2), dtype = "int"))
+
+  x <- tch_randn(c(2,2), dtype = "double")
+  expect_equal(x$dtype(), "double")
 })
 
 test_that("arange", {
   x <- tch_arange(5)
   expect_equal(as.array(x), c(0L, 1L, 2L, 3L, 4L))
   expect_null(dim(as.array(x)))
+  expect_equal(x$dtype(), "float")
 
   y <- tch_arange(1, 4)
   expect_equal(as.array(y), c(1, 2, 3))
@@ -923,4 +922,7 @@ test_that("arange", {
   z <- tch_arange(1, 2.5, 0.5)
   expect_equal(as.array(z), c(1.0, 1.5, 2.0))
   expect_null(dim(as.array(z)))
+
+  x <- tch_arange(5, dtype = "int")
+  expect_equal(x$dtype(), "int")
 })

@@ -621,11 +621,10 @@ Rcpp::XPtr<torch::Tensor> tensor_dot_ (Rcpp::XPtr<torch::Tensor> x,
   return make_tensor_ptr(x->dot(*tensor));
 }
 
-// TODO dtype method
-// // [[Rcpp::export]]
-// std::string tensor_dtype_ (Rcpp::XPtr<torch::Tensor> x) {
-//   return scalar_type_to_string(x->dtype());
-// }
+// [[Rcpp::export]]
+std::string tensor_dtype_ (Rcpp::XPtr<torch::Tensor> x) {
+  return caffe_type_to_string(x->dtype());
+}
 
 // [[Rcpp::export]]
 Rcpp::List tensor_eig_ (Rcpp::XPtr<torch::Tensor> x,

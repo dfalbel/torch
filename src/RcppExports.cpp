@@ -907,6 +907,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_dtype_
+std::string tensor_dtype_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_dtype_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_dtype_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_eig_
 Rcpp::List tensor_eig_(Rcpp::XPtr<torch::Tensor> x, bool eigenvectors);
 RcppExport SEXP _torch_tensor_eig_(SEXP xSEXP, SEXP eigenvectorsSEXP) {
@@ -1240,6 +1251,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_div_tensor__", (DL_FUNC) &_torch_tensor_div_tensor__, 2},
     {"_torch_tensor_div_scalar__", (DL_FUNC) &_torch_tensor_div_scalar__, 2},
     {"_torch_tensor_dot_", (DL_FUNC) &_torch_tensor_dot_, 2},
+    {"_torch_tensor_dtype_", (DL_FUNC) &_torch_tensor_dtype_, 1},
     {"_torch_tensor_eig_", (DL_FUNC) &_torch_tensor_eig_, 2},
     {"_torch_tensor_eq_scalar_", (DL_FUNC) &_torch_tensor_eq_scalar_, 2},
     {"_torch_tensor_eq_tensor_", (DL_FUNC) &_torch_tensor_eq_tensor_, 2},
