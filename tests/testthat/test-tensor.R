@@ -917,10 +917,10 @@ test_that("arange", {
   expect_null(dim(as.array(x)))
 
   y <- tch_arange(1, 4)
-  expect_equal(dim(as.array(y)), c(1L, 2L, 3L))
+  expect_equal(as.array(y), c(1, 2, 3))
   expect_null(dim(as.array(y)))
 
   z <- tch_arange(1, 2.5, 0.5)
-  expect_equal(dim(as.array(z)), c(1.0, 1.5, 2.0))
+  expect_equal(as.array(z), c(1.0, 1.5, 2.0))
   expect_null(dim(as.array(z)))
 })
