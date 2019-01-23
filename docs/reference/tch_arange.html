@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>bernoulli — tch_bernoulli • torch</title>
+<title>arange — tch_arange • torch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="bernoulli — tch_bernoulli" />
+<meta property="og:title" content="arange — tch_arange" />
 
-<meta property="og:description" content="bernoulli" />
+<meta property="og:description" content="Returns a 1-D tensor of size floor((end - start)/end) with values from the interval [start, end) taken with common difference step beginning from start.
+Note that non-integer step is subject to floating point rounding errors when comparing against end; to avoid inconsistency, we advise adding a small epsilon to
+end in such cases." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -114,60 +116,81 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>bernoulli</h1>
+    <h1>arange</h1>
     <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
-    <div class="hidden name"><code>tch_bernoulli.Rd</code></div>
+    <div class="hidden name"><code>tch_arange.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>bernoulli</p>
+    <p>Returns a 1-D tensor of size <code><a href='https://www.rdocumentation.org/packages/base/topics/Round'>floor((end - start)/end)</a></code> with values from the interval [start, end) taken with common difference step beginning from start.
+Note that non-integer step is subject to floating point rounding errors when comparing against end; to avoid inconsistency, we advise adding a small epsilon to
+end in such cases.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tch_bernoulli</span>(<span class='no'>x</span>, <span class='kw'>p</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>tch_arange</span>(<span class='kw'>start</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>out</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>tensor object</p></td>
+      <th>start</th>
+      <td><p>the starting value for the set of points</p></td>
     </tr>
     <tr>
-      <th>p</th>
-      <td><p>probability (if null uses tensor values)</p></td>
+      <th>end</th>
+      <td><p>the ending value for the set of points</p></td>
+    </tr>
+    <tr>
+      <th>step</th>
+      <td><p>the gap between each pair of adjacent points</p></td>
+    </tr>
+    <tr>
+      <th>out</th>
+      <td><p>(optional) the output tensor</p></td>
+    </tr>
+    <tr>
+      <th>dtype</th>
+      <td><p>the desired data type of returned tensor. Default: if None, uses a global default (see torch.set_default_tensor_type()). If dtype is not given,
+infer the data type from the other input arguments. If any of start, end, or stop are floating-point, the dtype is inferred to be the default dtype, see
+get_default_dtype(). Otherwise, the dtype is inferred to be torch.int64.</p></td>
+    </tr>
+    <tr>
+      <th>layout</th>
+      <td><p>the desired layout of returned Tensor</p></td>
+    </tr>
+    <tr>
+      <th>device</th>
+      <td><p>the desired device of returned tensor. Default: if None, uses the current device for the default tensor type (see torch.set_default_tensor_type()).
+device will be the CPU for CPU tensor types and the current CUDA device for CUDA tensor types</p></td>
+    </tr>
+    <tr>
+      <th>requires_grad</th>
+      <td><p>boolean. If autograd should record operations on the returned tensor</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>10</span>))
-<span class='fu'>tch_bernoulli</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; tensor 
-#&gt;  0
+    <pre class="examples"><div class='input'><span class='fu'>tch_arange</span>(<span class='fl'>5</span>)</div><div class='output co'>#&gt; tensor 
 #&gt;  0
 #&gt;  1
-#&gt;  0
+#&gt;  2
+#&gt;  3
+#&gt;  4
+#&gt; [ Variable[CPUFloatType]{5} ]</div><div class='input'><span class='fu'>tch_arange</span>(<span class='fl'>1</span>, <span class='fl'>4</span>)</div><div class='output co'>#&gt; tensor 
 #&gt;  1
-#&gt;  0
-#&gt;  0
-#&gt;  1
-#&gt;  1
-#&gt;  1
-#&gt; [ Variable[CPUFloatType]{10} ]</div><div class='input'>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>0</span>, <span class='fl'>10</span>))
-<span class='fu'>tch_bernoulli</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; tensor 
-#&gt;  0
-#&gt;  0
-#&gt;  0
-#&gt;  0
-#&gt;  0
-#&gt;  0
-#&gt;  0
-#&gt;  0
-#&gt;  0
-#&gt;  0
-#&gt; [ Variable[CPUFloatType]{10} ]</div></pre>
+#&gt;  2
+#&gt;  3
+#&gt; [ Variable[CPUFloatType]{3} ]</div><div class='input'><span class='fu'>tch_arange</span>(<span class='fl'>1</span>, <span class='fl'>2.5</span>, <span class='fl'>0.5</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;  1.0000
+#&gt;  1.5000
+#&gt;  2.0000
+#&gt; [ Variable[CPUFloatType]{3} ]</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
