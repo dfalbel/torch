@@ -369,6 +369,15 @@
       }
     },
 
+    eq_ = function(other) {
+      if (is(other, "tensor")) {
+        tensor_eq_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_eq_scalar__(self$pointer, other)
+      }
+      invisible(NULL)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

@@ -305,6 +305,14 @@ tensor_eq_tensor_ <- function(x, other) {
     .Call('_torch_tensor_eq_tensor_', PACKAGE = 'torch', x, other)
 }
 
+tensor_eq_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_eq_scalar__', PACKAGE = 'torch', x, other)
+}
+
+tensor_eq_tensor__ <- function(x, other) {
+    invisible(.Call('_torch_tensor_eq_tensor__', PACKAGE = 'torch', x, other))
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }
@@ -375,5 +383,9 @@ tensor_to_ <- function(x, dtype, device, requires_grad) {
 
 tensor_zero__ <- function(x) {
     .Call('_torch_tensor_zero__', PACKAGE = 'torch', x)
+}
+
+test_eq <- function() {
+    invisible(.Call('_torch_test_eq', PACKAGE = 'torch'))
 }
 

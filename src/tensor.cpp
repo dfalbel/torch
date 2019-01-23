@@ -645,6 +645,16 @@ Rcpp::XPtr<torch::Tensor> tensor_eq_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_eq_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->eq_(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_eq_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->eq_(*other));
+}
+
+// [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
   auto out = x->gels(*A);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));

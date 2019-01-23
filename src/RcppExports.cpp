@@ -943,6 +943,29 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_eq_scalar__
+Rcpp::XPtr<torch::Tensor> tensor_eq_scalar__(Rcpp::XPtr<torch::Tensor> x, SEXP other);
+RcppExport SEXP _torch_tensor_eq_scalar__(SEXP xSEXP, SEXP otherSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type other(otherSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_eq_scalar__(x, other));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_eq_tensor__
+void tensor_eq_tensor__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other);
+RcppExport SEXP _torch_tensor_eq_tensor__(SEXP xSEXP, SEXP otherSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type other(otherSEXP);
+    tensor_eq_tensor__(x, other);
+    return R_NilValue;
+END_RCPP
+}
 // tensor_gels_
 Rcpp::List tensor_gels_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A);
 RcppExport SEXP _torch_tensor_gels_(SEXP xSEXP, SEXP ASEXP) {
@@ -1165,6 +1188,15 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// test_eq
+void test_eq();
+RcppExport SEXP _torch_test_eq() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    test_eq();
+    return R_NilValue;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_set_grad_mode", (DL_FUNC) &_torch_set_grad_mode, 1},
@@ -1243,6 +1275,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_eig_", (DL_FUNC) &_torch_tensor_eig_, 2},
     {"_torch_tensor_eq_scalar_", (DL_FUNC) &_torch_tensor_eq_scalar_, 2},
     {"_torch_tensor_eq_tensor_", (DL_FUNC) &_torch_tensor_eq_tensor_, 2},
+    {"_torch_tensor_eq_scalar__", (DL_FUNC) &_torch_tensor_eq_scalar__, 2},
+    {"_torch_tensor_eq_tensor__", (DL_FUNC) &_torch_tensor_eq_tensor__, 2},
     {"_torch_tensor_gels_", (DL_FUNC) &_torch_tensor_gels_, 2},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},
@@ -1261,6 +1295,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_t_", (DL_FUNC) &_torch_tensor_t_, 1},
     {"_torch_tensor_to_", (DL_FUNC) &_torch_tensor_to_, 4},
     {"_torch_tensor_zero__", (DL_FUNC) &_torch_tensor_zero__, 1},
+    {"_torch_test_eq", (DL_FUNC) &_torch_test_eq, 0},
     {NULL, NULL, 0}
 };
 

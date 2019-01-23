@@ -29,6 +29,8 @@ torch::ScalarType scalar_type_from_string(std::string scalar_type) {
     return torch::kDouble;
   } else if (scalar_type == "float32" | scalar_type == "float") {
     return torch::kFloat;
+  } else if (scalar_type == "uint8") {
+    return torch::kByte;
   }
   Rcpp::stop("scalar not handled");
 }
