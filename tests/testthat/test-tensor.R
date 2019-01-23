@@ -8,7 +8,11 @@ test_that("requires_grad", {
 })
 
 test_that("dtype", {
+  # TODO implement this tests using dtype method.
   type <- typeof(as.array(tensor(1:10, dtype = "double")))
+  expect_identical(type, "double")
+
+  type <- typeof(as.array(tensor(1:10, dtype = "float32")))
   expect_identical(type, "double")
 })
 
@@ -886,9 +890,25 @@ test_that("creation of 3d numeric tensor", {
 
 context("factory functions")
 
+test_that("tensor from tensors", {
+  x <- tensor(runif(10), requires_grad = TRUE)
+  expect_silent(tensor(x))
+})
+
+test_that("tensor is really cloned in tensors", {
+  x <- tensor(1, requires_grad = TRUE)
+  w <- tensor(2, requires_grad = TRUE)
+  b <- tensor(3, requires_grad = TRUE)
+  a <- tensor(x, requires_grad = TRUE)
+  y <- w * x + b
+  y$backward()
+  expect_error(as.array(a$grad)) # TODO handle undefined tensors in as.array.
+})
+
 test_that("randn", {
   x <- tch_randn(c(2,2))
   expect_equal(dim(as.array(x)), c(2L, 2L))
+  # TODO test other args.
 })
 
 test_that("arange", {

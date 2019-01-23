@@ -136,15 +136,20 @@
     </tr>
     <tr>
       <th>dtype</th>
-      <td><p>a string with torch types. Allowed types are double, float and int.</p></td>
+      <td><p>the desired data type of returned tensor. Default: if <code>NULL</code>, infers
+data type from <code>x</code>.</p></td>
     </tr>
     <tr>
       <th>device</th>
-      <td><p>a device type</p></td>
+      <td><p>the desired device of returned tensor. Default: if <code>NULL</code>, uses
+the current device for the default tensor type (see <code>tch_set_default_tensor_type()</code>).
+device will be the CPU for CPU tensor types and the current CUDA device for
+CUDA tensor types.</p></td>
     </tr>
     <tr>
       <th>requires_grad</th>
-      <td><p>boolean indicating if tensor requires grad.</p></td>
+      <td><p>If autograd should record operations on the
+returned tensor. Default: <code>FALSE</code>.</p></td>
     </tr>
     </table>
     
