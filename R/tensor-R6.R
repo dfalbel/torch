@@ -382,6 +382,15 @@
       invisible(self)
     },
 
+    erfc = function() {
+      `torch::Tensor`$dispatch(tensor_erfc_(self$pointer))
+    },
+
+    erfc_ = function() {
+      tensor_erfc__(self$pointer)
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
