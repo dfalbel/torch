@@ -413,6 +413,10 @@
       `torch::Tensor`$dispatch(tensor_expand_(self$pointer, sizes))
     },
 
+    expand_as = function(other) {
+      `torch::Tensor`$dispatch(tensor_expand_as_(self$pointer, other$pointer))
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

@@ -797,6 +797,16 @@ test_that("expand works", {
   expect_equal(dim(as.array(y)), c(1L,2L,2L))
 })
 
+test_that("expand_as works", {
+  x <- tch_randn(c(2,2))
+  y <- tch_randn(c(1,2,2))
+  z <- x$expand_as(y)
+  expect_equal(dim(as.array(z)), c(1L,2L,2L))
+
+  y <- tch_randn(c(1))
+  expect_error(x$expand_as(y))
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)
