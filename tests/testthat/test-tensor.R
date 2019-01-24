@@ -929,7 +929,6 @@ test_that("arange", {
 
 test_that("empty", {
   x <- tch_empty(c(2, 4))
-  expect_equal(as.array(x), array(0, c(2, 4)))
   expect_equal(dim(as.array(x)), c(2L, 4L))
 })
 
