@@ -923,7 +923,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_dtype_
-// std::string tensor_dtype_(Rcpp::XPtr<torch::Tensor> x);
+std::string tensor_dtype_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_dtype_(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

@@ -352,9 +352,9 @@
       `torch::Tensor`$dispatch(tensor_dot_(self$pointer, tensor$pointer))
     },
 
-    # dtype = function() {
-    #   tensor_dtype_(self$pointer)
-    # },
+    dtype = function() {
+      tensor_dtype_(self$pointer)
+    },
 
     eig = function(eigenvectors = FALSE) {
       out <- tensor_eig_(self$pointer, eigenvectors)

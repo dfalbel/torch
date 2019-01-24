@@ -8,8 +8,14 @@ test_that("requires_grad", {
 })
 
 test_that("dtype", {
-  type <- typeof(as.array(tensor(1:10, dtype = "double")))
-  expect_identical(type, "double")
+  x <- tensor(1:10, dtype = "double")
+  expect_identical(x$dtype(), "double")
+
+  x <- tensor(1:10, dtype = "float32")
+  expect_identical(x$dtype(), "float")
+
+  x <- tensor(1:10)
+  expect_identical(x$dtype(), "int")
 })
 
 test_that("device", {
@@ -722,15 +728,6 @@ test_that("dot works", {
   )
 })
 
-# TODO dtype
-# test_that("dtype works", {
-#   x <- tensor(1:10)
-#   expect_equal(x$dtype(), "kInt")
-#   x <- tensor(runif(10))
-#   expect_equal(x$dtype(), "kDouble")
-#   # test for other tensor types.
-# })
-
 test_that("eig works", {
   x_r <- cbind(c(1,-1), c(-1,1))
 
@@ -886,23 +883,48 @@ test_that("creation of 3d numeric tensor", {
 
 context("factory functions")
 
+test_that("tensor from tensors", {
+  x <- tensor(runif(10), requires_grad = TRUE)
+  expect_silent(tensor(x))
+})
+
+test_that("tensor is really cloned in tensors", {
+  x <- tensor(1, requires_grad = TRUE)
+  w <- tensor(2, requires_grad = TRUE)
+  b <- tensor(3, requires_grad = TRUE)
+  a <- tensor(x, requires_grad = TRUE)
+  y <- w * x + b
+  y$backward()
+  expect_error(as.array(a$grad)) # TODO handle undefined tensors in as.array.
+})
+
 test_that("randn", {
   x <- tch_randn(c(2,2))
   expect_equal(dim(as.array(x)), c(2L, 2L))
+  expect_equal(x$dtype(), "float")
+
+  expect_error(x <- tch_randn(c(2,2), dtype = "int"))
+
+  x <- tch_randn(c(2,2), dtype = "double")
+  expect_equal(x$dtype(), "double")
 })
 
 test_that("arange", {
   x <- tch_arange(5)
   expect_equal(as.array(x), c(0L, 1L, 2L, 3L, 4L))
   expect_null(dim(as.array(x)))
+  expect_equal(x$dtype(), "float")
 
   y <- tch_arange(1, 4)
-  expect_equal(dim(as.array(y)), c(1L, 2L, 3L))
+  expect_equal(as.array(y), c(1, 2, 3))
   expect_null(dim(as.array(y)))
 
   z <- tch_arange(1, 2.5, 0.5)
-  expect_equal(dim(as.array(z)), c(1.0, 1.5, 2.0))
+  expect_equal(as.array(z), c(1.0, 1.5, 2.0))
   expect_null(dim(as.array(z)))
+
+  x <- tch_arange(5, dtype = "int")
+  expect_equal(x$dtype(), "int")
 })
 
 test_that("empty", {
