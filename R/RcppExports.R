@@ -333,6 +333,22 @@ tensor_erfc__ <- function(x) {
     .Call('_torch_tensor_erfc__', PACKAGE = 'torch', x)
 }
 
+tensor_erfinv_ <- function(x) {
+    .Call('_torch_tensor_erfinv_', PACKAGE = 'torch', x)
+}
+
+tensor_erfinv__ <- function(x) {
+    .Call('_torch_tensor_erfinv__', PACKAGE = 'torch', x)
+}
+
+tensor_exp_ <- function(x) {
+    .Call('_torch_tensor_exp_', PACKAGE = 'torch', x)
+}
+
+tensor_exp__ <- function(x) {
+    .Call('_torch_tensor_exp__', PACKAGE = 'torch', x)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

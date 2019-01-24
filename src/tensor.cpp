@@ -678,6 +678,26 @@ Rcpp::XPtr<torch::Tensor> tensor_erfc__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_erfinv_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->erfinv());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_erfinv__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->erfinv_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_exp_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->exp());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_exp__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->exp_());
+}
+
+// [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
   auto out = x->gels(*A);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));

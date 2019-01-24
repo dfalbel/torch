@@ -773,6 +773,22 @@ test_that("erfc works", {
   expect_equal(as.array(x),  1- r)
 })
 
+test_that("erfinv works", {
+  x <- tensor(1)
+  r <- qnorm((1 + 1)/2)/sqrt(2)
+  expect_equal(as.array(x$erfinv()), r)
+  x$erfinv_()
+  expect_equal(as.array(x),  r)
+})
+
+test_that("exp works", {
+  x <- tensor(1)
+  r <- exp(1)
+  expect_equal(as.array(x$exp()), r, tol = 1e-6)
+  x$exp_()
+  expect_equal(as.array(x),  r, tol = 1e-6)
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)
@@ -956,6 +972,9 @@ test_that("arange", {
 test_that("empty", {
   x <- tch_empty(c(2, 4))
   expect_equal(dim(as.array(x)), c(2L, 4L))
+
+  x <- tch_empty(c(2, 4), dtype = "int")
+  expect_equal(x$dtype(), "int")
 })
 
 

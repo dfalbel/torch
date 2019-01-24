@@ -391,6 +391,24 @@
       invisible(self)
     },
 
+    erfinv = function() {
+      `torch::Tensor`$dispatch(tensor_erfinv_(self$pointer))
+    },
+
+    erfinv_ = function() {
+      tensor_erfinv__(self$pointer)
+      invisible(self)
+    },
+
+    exp = function() {
+      `torch::Tensor`$dispatch(tensor_exp_(self$pointer))
+    },
+
+    exp_ = function() {
+      tensor_exp__(self$pointer)
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
