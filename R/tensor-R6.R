@@ -369,6 +369,10 @@
       }
     },
 
+    equal = function(other) {
+      tensor_equal_(self$pointer, other$pointer)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

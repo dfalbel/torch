@@ -747,6 +747,16 @@ test_that("eq works", {
   expect_equal(as.array(x == 1), 1:10 == 1)
 })
 
+test_that("equal works", {
+  x <- tensor(c(1,2))
+  y <- tensor(c(1,2))
+  expect_equal(tch_equal(x, y), TRUE)
+  y <- tensor(c(1,1))
+  expect_equal(tch_equal(x, y), FALSE)
+  y <- tensor(c(1,2), dtype = "double")
+  expect_error(tch_equal(x, y))
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)
