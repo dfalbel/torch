@@ -25,6 +25,10 @@ torch_arange_ <- function(start, end, step, dtype, layout, device, requires_grad
     .Call('_torch_torch_arange_', PACKAGE = 'torch', start, end, step, dtype, layout, device, requires_grad)
 }
 
+torch_empty_ <- function(size, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_empty_', PACKAGE = 'torch', size, dtype, layout, device, requires_grad)
+}
+
 tensor_print_ <- function(x) {
     invisible(.Call('_torch_tensor_print_', PACKAGE = 'torch', x))
 }
@@ -291,6 +295,10 @@ tensor_div_scalar__ <- function(x, other) {
 
 tensor_dot_ <- function(x, tensor) {
     .Call('_torch_tensor_dot_', PACKAGE = 'torch', x, tensor)
+}
+
+tensor_dtype_ <- function(x) {
+    .Call('_torch_tensor_dtype_', PACKAGE = 'torch', x)
 }
 
 tensor_eig_ <- function(x, eigenvectors = FALSE) {

@@ -971,3 +971,19 @@ tch_arange <- function(start = 0, end = NULL, step = 1, out = NULL, dtype = NULL
 
   `torch::Tensor`$dispatch(torch_arange_(start, end, step, dtype, layout, device, requires_grad))
 }
+
+#' Empty tensor
+#'
+#' Returns a tensor filled with uninitialized data.
+#'
+#' The shape of the tensor is defined by the variable argument sizes.
+#'
+#' @param sizes a sequence of integers defining the shape of the output tensor.
+#'
+#' @examples
+#' tch_empty(c(2,2))
+#'
+#' @export
+tch_empty <- function(sizes) {
+  `torch::Tensor`$dispatch(torch_empty_(sizes))
+}
