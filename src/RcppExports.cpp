@@ -88,6 +88,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// torch_empty_
+Rcpp::XPtr<torch::Tensor> torch_empty_(std::vector<std::int64_t> size, Rcpp::Nullable<std::string> dtype, Rcpp::Nullable<std::string> layout, Rcpp::Nullable<std::string> device, Rcpp::Nullable<bool> requires_grad);
+RcppExport SEXP _torch_torch_empty_(SEXP sizeSEXP, SEXP dtypeSEXP, SEXP layoutSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::int64_t> >::type size(sizeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type dtype(dtypeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type layout(layoutSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type device(deviceSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<bool> >::type requires_grad(requires_gradSEXP);
+    rcpp_result_gen = Rcpp::wrap(torch_empty_(size, dtype, layout, device, requires_grad));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_print_
 void tensor_print_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_print_(SEXP xSEXP) {
@@ -1184,6 +1199,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
     {"_torch_torch_randn_", (DL_FUNC) &_torch_torch_randn_, 5},
     {"_torch_torch_arange_", (DL_FUNC) &_torch_torch_arange_, 7},
+    {"_torch_torch_empty_", (DL_FUNC) &_torch_torch_empty_, 5},
     {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},
     {"_torch_tensor_abs_", (DL_FUNC) &_torch_tensor_abs_, 1},
     {"_torch_tensor_acos_", (DL_FUNC) &_torch_tensor_acos_, 1},
