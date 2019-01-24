@@ -757,6 +757,14 @@ test_that("equal works", {
   expect_error(tch_equal(x, y))
 })
 
+test_that("erf works", {
+  x <- tensor(1)
+  r <- 2 * pnorm(1 * sqrt(2)) - 1
+  expect_equal(as.array(x$erf()), r)
+  x$erf_()
+  expect_equal(as.array(x), r)
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

@@ -317,6 +317,14 @@ tensor_equal_ <- function(x, other) {
     .Call('_torch_tensor_equal_', PACKAGE = 'torch', x, other)
 }
 
+tensor_erf_ <- function(x) {
+    .Call('_torch_tensor_erf_', PACKAGE = 'torch', x)
+}
+
+tensor_erf__ <- function(x) {
+    .Call('_torch_tensor_erf__', PACKAGE = 'torch', x)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

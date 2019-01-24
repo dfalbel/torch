@@ -34,7 +34,7 @@
   public = list(
 
     initialize = function (xp) {
-     private$xp <- xp
+      private$xp <- xp
     },
 
     print = function (...){
@@ -373,13 +373,22 @@
       tensor_equal_(self$pointer, other$pointer)
     },
 
+    erf = function() {
+      `torch::Tensor`$dispatch(tensor_erf_(self$pointer))
+    },
+
+    erf_ = function() {
+      tensor_erf__(self$pointer)
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
     },
 
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-    `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
+      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
 
     mm = function(mat2) {
