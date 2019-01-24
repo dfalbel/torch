@@ -417,6 +417,15 @@
       `torch::Tensor`$dispatch(tensor_expand_as_(self$pointer, other$pointer))
     },
 
+    expm1 = function() {
+      `torch::Tensor`$dispatch(tensor_expm1_(self$pointer))
+    },
+
+    expm1_ = function() {
+      tensor_expm1__(self$pointer)
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

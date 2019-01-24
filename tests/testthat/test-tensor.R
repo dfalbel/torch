@@ -807,6 +807,14 @@ test_that("expand_as works", {
   expect_error(x$expand_as(y))
 })
 
+test_that("expm1 works", {
+  x <- tensor(1)
+  r <- expm1(1)
+  expect_equal(as.array(x$expm1()), r, tol = 1e-6)
+  x$expm1_()
+  expect_equal(as.array(x),  r, tol = 1e-6)
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)
