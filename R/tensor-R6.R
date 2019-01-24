@@ -409,6 +409,10 @@
       invisible(self)
     },
 
+    expand = function(sizes) {
+      `torch::Tensor`$dispatch(tensor_expand_(self$pointer, sizes))
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

@@ -789,6 +789,14 @@ test_that("exp works", {
   expect_equal(as.array(x),  r, tol = 1e-6)
 })
 
+test_that("expand works", {
+  x <- tch_randn(c(2,2))
+  y <- x$expand(c(1,2,2))
+  expect_equal(dim(as.array(y)), c(1L,2L,2L))
+  y <- x$expand(c(1,-1,-1))
+  expect_equal(dim(as.array(y)), c(1L,2L,2L))
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

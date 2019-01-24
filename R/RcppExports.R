@@ -349,6 +349,10 @@ tensor_exp__ <- function(x) {
     .Call('_torch_tensor_exp__', PACKAGE = 'torch', x)
 }
 
+tensor_expand_ <- function(x, size, implicit = FALSE) {
+    .Call('_torch_tensor_expand_', PACKAGE = 'torch', x, size, implicit)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

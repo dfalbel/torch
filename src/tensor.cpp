@@ -698,6 +698,13 @@ Rcpp::XPtr<torch::Tensor> tensor_exp__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_expand_ (Rcpp::XPtr<torch::Tensor> x,
+                                       std::vector<std::int64_t> size,
+                                       bool implicit = false) {
+  return make_tensor_ptr(x->expand(size, implicit));
+}
+
+// [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
   auto out = x->gels(*A);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
