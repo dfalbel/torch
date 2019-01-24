@@ -181,6 +181,15 @@ Rcpp::XPtr<torch::Tensor> torch_arange_ (SEXP start,
   return make_tensor_ptr(torch::arange(scalar_from_r_(start), scalar_from_r_(end), scalar_from_r_(step), tensor_options_(dtype, layout, device, requires_grad)));
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_empty_ (std::vector<std::int64_t> size,
+                                        Rcpp::Nullable<std::string> dtype,
+                                        Rcpp::Nullable<std::string> layout,
+                                        Rcpp::Nullable<std::string> device,
+                                        Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::empty(size, tensor_options_(dtype, layout, device, requires_grad)));
+}
 
 // Tensor Methods --------------------------------------------------------------
 

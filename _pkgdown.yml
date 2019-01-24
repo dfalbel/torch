@@ -35,6 +35,7 @@ reference:
     - as.matrix.tensor
     - tch_randn
     - tch_arange
+    - tch_empty
 - title: "Autograd"
   desc: "Utility functions related to autograd."
   contents:

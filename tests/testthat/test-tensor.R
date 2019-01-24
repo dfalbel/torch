@@ -936,3 +936,10 @@ test_that("arange", {
   x <- tch_arange(5, dtype = "int")
   expect_equal(x$dtype(), "int")
 })
+
+test_that("empty", {
+  x <- tch_empty(c(2, 4))
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+})
+
+
