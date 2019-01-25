@@ -37,6 +37,7 @@ reference:
     - tch_arange
     - tch_empty
     - tch_eye
+    - tch_full
 - title: "Autograd"
   desc: "Utility functions related to autograd."
   contents:

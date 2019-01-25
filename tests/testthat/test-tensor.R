@@ -942,4 +942,14 @@ test_that("eye", {
   expect_equal(as.array(y), diag(3))
 })
 
+test_that("full", {
+  x <- tch_full(c(2, 4), 10)
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+  expect_equal(as.array(x), array(10, c(2, 4)))
+
+  y <- tch_full(c(2, 4, 3), -1)
+  expect_equal(dim(as.array(y)), c(2L, 4L, 3L))
+  expect_equal(as.array(y), array(-1, c(2, 4, 3)))
+})
+
 
