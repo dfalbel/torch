@@ -193,11 +193,11 @@ Rcpp::XPtr<torch::Tensor> torch_empty_ (std::vector<std::int64_t> size,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> torch_eye_ (std::int64_t n,
-                                        std::int64_t m,
-                                        Rcpp::Nullable<std::string> dtype,
-                                        Rcpp::Nullable<std::string> layout,
-                                        Rcpp::Nullable<std::string> device,
-                                        Rcpp::Nullable<bool> requires_grad
+                                      std::int64_t m,
+                                      Rcpp::Nullable<std::string> dtype,
+                                      Rcpp::Nullable<std::string> layout,
+                                      Rcpp::Nullable<std::string> device,
+                                      Rcpp::Nullable<bool> requires_grad
 ) {
   return make_tensor_ptr(torch::eye(n, m, tensor_options_(dtype, layout, device, requires_grad)));
 }
@@ -205,12 +205,88 @@ Rcpp::XPtr<torch::Tensor> torch_eye_ (std::int64_t n,
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> torch_full_ (std::vector<std::int64_t> size,
                                        SEXP fill_value,
-                                      Rcpp::Nullable<std::string> dtype,
-                                      Rcpp::Nullable<std::string> layout,
-                                      Rcpp::Nullable<std::string> device,
-                                      Rcpp::Nullable<bool> requires_grad
+                                       Rcpp::Nullable<std::string> dtype,
+                                       Rcpp::Nullable<std::string> layout,
+                                       Rcpp::Nullable<std::string> device,
+                                       Rcpp::Nullable<bool> requires_grad
 ) {
   return make_tensor_ptr(torch::full(size, scalar_from_r_(fill_value), tensor_options_(dtype, layout, device, requires_grad)));
+}
+
+// // [[Rcpp::export]]
+// Rcpp::XPtr<torch::Tensor> torch_linspace_ (SEXP start,
+//                                            SEXP end,
+//                                            std::vector<std::int64_t> steps,
+//                                            Rcpp::Nullable<std::string> dtype,
+//                                            Rcpp::Nullable<std::string> layout,
+//                                            Rcpp::Nullable<std::string> device,
+//                                            Rcpp::Nullable<bool> requires_grad
+// ) {
+//   return make_tensor_ptr(torch::linspace(scalar_from_r_(start), scalar_from_r_(end), steps, tensor_options_(dtype, layout, device, requires_grad)));
+// }
+//
+// // [[Rcpp::export]]
+// Rcpp::XPtr<torch::Tensor> torch_logspace_ (SEXP start,
+//                                            SEXP end,
+//                                            std::vector<std::int64_t> steps,
+//                                            Rcpp::Nullable<std::string> dtype,
+//                                            Rcpp::Nullable<std::string> layout,
+//                                            Rcpp::Nullable<std::string> device,
+//                                            Rcpp::Nullable<bool> requires_grad
+// ) {
+//   return make_tensor_ptr(torch::logspace(scalar_from_r_(start), scalar_from_r_(end), steps, tensor_options_(dtype, layout, device, requires_grad)));
+// }
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_ones_ (std::vector<std::int64_t> size,
+                                       Rcpp::Nullable<std::string> dtype,
+                                       Rcpp::Nullable<std::string> layout,
+                                       Rcpp::Nullable<std::string> device,
+                                       Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::ones(size, tensor_options_(dtype, layout, device, requires_grad)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_rand_ (std::vector<std::int64_t> size,
+                                       Rcpp::Nullable<std::string> dtype,
+                                       Rcpp::Nullable<std::string> layout,
+                                       Rcpp::Nullable<std::string> device,
+                                       Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::rand(size, tensor_options_(dtype, layout, device, requires_grad)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_randint_ (std::int64_t low,
+                                          std::int64_t high,
+                                          std::vector<std::int64_t> size,
+                                          Rcpp::Nullable<std::string> dtype,
+                                          Rcpp::Nullable<std::string> layout,
+                                          Rcpp::Nullable<std::string> device,
+                                          Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::randint(low, high, size, tensor_options_(dtype, layout, device, requires_grad)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_randperm_ (std::int64_t n,
+                                           Rcpp::Nullable<std::string> dtype,
+                                           Rcpp::Nullable<std::string> layout,
+                                           Rcpp::Nullable<std::string> device,
+                                           Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::randperm(n, tensor_options_(dtype, layout, device, requires_grad)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_zeros_ (std::vector<std::int64_t> size,
+                                       Rcpp::Nullable<std::string> dtype,
+                                       Rcpp::Nullable<std::string> layout,
+                                       Rcpp::Nullable<std::string> device,
+                                       Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::zeros(size, tensor_options_(dtype, layout, device, requires_grad)));
 }
 
 // Tensor Methods --------------------------------------------------------------

@@ -933,7 +933,7 @@ test_that("empty", {
 })
 
 test_that("eye", {
-  x <- tch_eye(c(2, 4))
+  x <- tch_eye(2, 4)
   expect_equal(dim(as.array(x)), c(2L, 4L))
   expect_equal(as.array(x), diag(nrow = 2, ncol = 4))
 
@@ -952,4 +952,68 @@ test_that("full", {
   expect_equal(as.array(y), array(-1, c(2, 4, 3)))
 })
 
+# test_that("linspace", {
+#   x <- tch_linspace(3, 10, steps = 5)
+#   expect_null(dim(as.array(x)))
+#   expect_equal(as.array(x), c(3, 4.75, 6.50, 8.25, 10))
+#
+#   y <- tch_linspace(-10, 10, steps = 5)
+#   expect_null(dim(as.array(y)))
+#   expect_equal(as.array(y), c(-10, -5, 0, 5, 10))
+# })
+#
+# test_that("logspace", {
+#   x <- tch_logspace(-10, 10, steps = 5)
+#   expect_null(dim(as.array(x)))
+#   expect_equal(as.array(x), c(1.0e-10,  1.0e-05,  1.0,  1.0e+05,  1.0e+10))
+#
+#   y <- tch_logspace(start=0.1, end=1.0, steps=5)
+#   expect_null(dim(as.array(y)))
+#   expect_equal(as.array(y), c(1.2589, 2.1135, 3.5481, 5.9566, 10.0000))
+# })
 
+test_that("ones", {
+  x <- tch_ones(c(2, 4))
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+  expect_equal(as.array(x), array(1, c(2, 4)))
+
+  y <- tch_ones(5)
+  expect_null(dim(as.array(y)))
+  expect_equal(as.array(y), rep(1, 5))
+})
+
+test_that("rand", {
+  x <- tch_rand(c(2,2))
+  expect_equal(dim(as.array(x)), c(2L, 2L))
+  expect_equal(x$dtype(), "float")
+
+  expect_error(x <- tch_rand(c(2, 2), dtype = "int"))
+
+  x <- tch_rand(c(2,2), dtype = "double")
+  expect_equal(x$dtype(), "double")
+})
+
+test_that("randint", {
+  x <- tch_randint(10, c(2, 2))
+  expect_equal(dim(as.array(x)), c(2L, 2L))
+  expect_equal(x$dtype(), "int")
+
+  y <- tch_randint(3, 10, c(2, 2), dtype = "double")
+  expect_equal(y$dtype(), "double")
+})
+
+test_that("randperm", {
+  x <- tch_randperm(10)
+  expect_null(dim(as.array(x)))
+  expect_equal(x$dtype(), "int")
+})
+
+test_that("zeros", {
+  x <- tch_zeros(c(2, 4))
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+  expect_equal(as.array(x), array(0, c(2, 4)))
+
+  y <- tch_zeros(5)
+  expect_null(dim(as.array(y)))
+  expect_equal(as.array(y), rep(0, 5))
+})
