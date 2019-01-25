@@ -29,6 +29,10 @@ torch_empty_ <- function(size, dtype, layout, device, requires_grad) {
     .Call('_torch_torch_empty_', PACKAGE = 'torch', size, dtype, layout, device, requires_grad)
 }
 
+torch_eye_ <- function(n, m, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_eye_', PACKAGE = 'torch', n, m, dtype, layout, device, requires_grad)
+}
+
 tensor_print_ <- function(x) {
     invisible(.Call('_torch_tensor_print_', PACKAGE = 'torch', x))
 }

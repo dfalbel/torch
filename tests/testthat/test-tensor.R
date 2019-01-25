@@ -932,4 +932,14 @@ test_that("empty", {
   expect_equal(dim(as.array(x)), c(2L, 4L))
 })
 
+test_that("eye", {
+  x <- tch_eye(c(2, 4))
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+  expect_equal(as.array(x), diag(nrow = 2, ncol = 4))
+
+  y <- tch_eye(3)
+  expect_equal(dim(as.array(y)), c(3L, 3L))
+  expect_equal(as.array(y), diag(3))
+})
+
 

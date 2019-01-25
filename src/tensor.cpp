@@ -191,6 +191,17 @@ Rcpp::XPtr<torch::Tensor> torch_empty_ (std::vector<std::int64_t> size,
   return make_tensor_ptr(torch::empty(size, tensor_options_(dtype, layout, device, requires_grad)));
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_eye_ (std::int64_t n,
+                                        std::int64_t m,
+                                        Rcpp::Nullable<std::string> dtype,
+                                        Rcpp::Nullable<std::string> layout,
+                                        Rcpp::Nullable<std::string> device,
+                                        Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::eye(n, m, tensor_options_(dtype, layout, device, requires_grad)));
+}
+
 // Tensor Methods --------------------------------------------------------------
 
 // [[Rcpp::export]]

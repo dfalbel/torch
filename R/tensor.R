@@ -1013,3 +1013,29 @@ tch_empty <- function(sizes, dtype = NULL, layout = NULL, device = NULL, require
   `torch::Tensor`$dispatch(torch_empty_(sizes, dtype, layout, device, requires_grad))
 }
 
+#' Eye matrix (identity matrix)
+#'
+#' Returns a 2-D tensor with ones on the diagonal and zeros elsewhere.
+#'
+#' @param n integer. The number of rows.
+#' @param m (optional) integer. The number of columns with default being n.
+#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
+#' data type from `x`.
+#' @param the desired layout of returned Tensor. Default: 'strided'
+#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
+#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
+#' device will be the CPU for CPU tensor types and the current CUDA device for
+#' CUDA tensor types.
+#' @param requires_grad If autograd should record operations on the
+#' returned tensor. Default: `FALSE`.
+#'
+#' @examples
+#' tch_eye(3)
+#' tch_eye(2,4)
+#'
+#'
+#' @export
+tch_eye <- function(n, m = n, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
+  `torch::Tensor`$dispatch(torch_eye_(n, m, dtype, layout, device, requires_grad))
+}
+
