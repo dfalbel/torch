@@ -34,7 +34,7 @@
   public = list(
 
     initialize = function (xp) {
-     private$xp <- xp
+      private$xp <- xp
     },
 
     print = function (...){
@@ -369,13 +369,70 @@
       }
     },
 
+    equal = function(other) {
+      tensor_equal_(self$pointer, other$pointer)
+    },
+
+    erf = function() {
+      `torch::Tensor`$dispatch(tensor_erf_(self$pointer))
+    },
+
+    erf_ = function() {
+      tensor_erf__(self$pointer)
+      invisible(self)
+    },
+
+    erfc = function() {
+      `torch::Tensor`$dispatch(tensor_erfc_(self$pointer))
+    },
+
+    erfc_ = function() {
+      tensor_erfc__(self$pointer)
+      invisible(self)
+    },
+
+    erfinv = function() {
+      `torch::Tensor`$dispatch(tensor_erfinv_(self$pointer))
+    },
+
+    erfinv_ = function() {
+      tensor_erfinv__(self$pointer)
+      invisible(self)
+    },
+
+    exp = function() {
+      `torch::Tensor`$dispatch(tensor_exp_(self$pointer))
+    },
+
+    exp_ = function() {
+      tensor_exp__(self$pointer)
+      invisible(self)
+    },
+
+    expand = function(sizes) {
+      `torch::Tensor`$dispatch(tensor_expand_(self$pointer, sizes))
+    },
+
+    expand_as = function(other) {
+      `torch::Tensor`$dispatch(tensor_expand_as_(self$pointer, other$pointer))
+    },
+
+    expm1 = function() {
+      `torch::Tensor`$dispatch(tensor_expm1_(self$pointer))
+    },
+
+    expm1_ = function() {
+      tensor_expm1__(self$pointer)
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
     },
 
     mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-    `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
+      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
 
     mm = function(mat2) {

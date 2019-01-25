@@ -802,6 +802,23 @@ tch_eig <- function(x, eigenvectors = FALSE) {
   x$eq(other)
 }
 
+#' Equal
+#'
+#' `TRUE` if two tensors have the same size and elements, `FALSE` otherwise.
+#'
+#' @param x tensor object
+#' @param other tensor object to compare
+#'
+#' @examples
+#' x <- tensor(c(1,2))
+#' y <- tensor(c(1,2))
+#' tch_equal(x, y)
+#'
+#' @export
+tch_equal <- function(x, other) {
+  x$equal(other)
+}
+
 #' Gels
 #'
 #' Computes the solution to the least squares and least norm problems for a full

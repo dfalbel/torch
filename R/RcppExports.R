@@ -341,6 +341,58 @@ tensor_eq_tensor_ <- function(x, other) {
     .Call('_torch_tensor_eq_tensor_', PACKAGE = 'torch', x, other)
 }
 
+tensor_equal_ <- function(x, other) {
+    .Call('_torch_tensor_equal_', PACKAGE = 'torch', x, other)
+}
+
+tensor_erf_ <- function(x) {
+    .Call('_torch_tensor_erf_', PACKAGE = 'torch', x)
+}
+
+tensor_erf__ <- function(x) {
+    .Call('_torch_tensor_erf__', PACKAGE = 'torch', x)
+}
+
+tensor_erfc_ <- function(x) {
+    .Call('_torch_tensor_erfc_', PACKAGE = 'torch', x)
+}
+
+tensor_erfc__ <- function(x) {
+    .Call('_torch_tensor_erfc__', PACKAGE = 'torch', x)
+}
+
+tensor_erfinv_ <- function(x) {
+    .Call('_torch_tensor_erfinv_', PACKAGE = 'torch', x)
+}
+
+tensor_erfinv__ <- function(x) {
+    .Call('_torch_tensor_erfinv__', PACKAGE = 'torch', x)
+}
+
+tensor_exp_ <- function(x) {
+    .Call('_torch_tensor_exp_', PACKAGE = 'torch', x)
+}
+
+tensor_exp__ <- function(x) {
+    .Call('_torch_tensor_exp__', PACKAGE = 'torch', x)
+}
+
+tensor_expand_ <- function(x, size, implicit = FALSE) {
+    .Call('_torch_tensor_expand_', PACKAGE = 'torch', x, size, implicit)
+}
+
+tensor_expand_as_ <- function(x, other) {
+    .Call('_torch_tensor_expand_as_', PACKAGE = 'torch', x, other)
+}
+
+tensor_expm1_ <- function(x) {
+    .Call('_torch_tensor_expm1_', PACKAGE = 'torch', x)
+}
+
+tensor_expm1__ <- function(x) {
+    .Call('_torch_tensor_expm1__', PACKAGE = 'torch', x)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

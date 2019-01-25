@@ -4,8 +4,9 @@
 \alias{tch_arange}
 \title{arange}
 \usage{
-tch_arange(start = 0, end = NULL, step = 1, out = NULL, dtype = NULL,
-  layout = NULL, device = NULL, requires_grad = FALSE)
+tch_arange(start = 0, end = NULL, step = 1, out = NULL,
+  dtype = NULL, layout = NULL, device = NULL,
+  requires_grad = FALSE)
 }
 \arguments{
 \item{start}{the starting value for the set of points}

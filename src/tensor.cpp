@@ -751,6 +751,74 @@ Rcpp::XPtr<torch::Tensor> tensor_eq_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::
 }
 
 // [[Rcpp::export]]
+bool tensor_equal_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return x->equal(*other);
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_erf_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->erf());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_erf__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->erf_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_erfc_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->erfc());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_erfc__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->erfc_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_erfinv_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->erfinv());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_erfinv__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->erfinv_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_exp_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->exp());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_exp__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->exp_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_expand_ (Rcpp::XPtr<torch::Tensor> x,
+                                       std::vector<std::int64_t> size,
+                                       bool implicit = false) {
+  return make_tensor_ptr(x->expand(size, implicit));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_expand_as_ (Rcpp::XPtr<torch::Tensor> x,
+                                             Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->expand_as(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_expm1_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->expm1());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_expm1__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->expm1_());
+}
+
+// [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
   auto out = x->gels(*A);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
