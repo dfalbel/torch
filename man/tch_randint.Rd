@@ -34,8 +34,8 @@ Returns a tensor filled with random integers generated uniformly between low (in
 The shape of the tensor is defined by the variable argument size.
 }
 \examples{
-tch_randint(3, 5, (3,))
-tch_randint(10, (2, 2))
-tch_randint(3, 10, (2, 2))
+tch_randint(3, 5, 3)
+tch_randint(10, c(2, 2))
+tch_randint(3, 10, c(2, 2))
 
 }

@@ -1219,9 +1219,9 @@ tch_rand <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires
 #' returned tensor. Default: `FALSE`.
 #'
 #' @examples
-#' tch_randint(3, 5, (3,))
-#' tch_randint(10, (2, 2))
-#' tch_randint(3, 10, (2, 2))
+#' tch_randint(3, 5, 3)
+#' tch_randint(10, c(2, 2))
+#' tch_randint(3, 10, c(2, 2))
 #'
 #' @export
 tch_randint <- function(low = 0, high = NULL, sizes = NULL, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {

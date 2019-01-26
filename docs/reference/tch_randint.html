@@ -172,13 +172,18 @@ returned tensor. Default: <code>FALSE</code>.</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>tch_randint(3, 5, (3,))
-tch_randint(10, (2, 2))
-tch_randint(3, 10, (2, 2))
-
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:1:21: unexpected ','</span>
-#&gt; <span class='error'>1: tch_randint(3, 5, (3,</span>
-#&gt; <span class='error'>                        ^</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>tch_randint</span>(<span class='fl'>3</span>, <span class='fl'>5</span>, <span class='fl'>3</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;  3
+#&gt;  4
+#&gt;  4
+#&gt; [ Variable[CPUFloatType]{3} ]</div><div class='input'><span class='fu'>tch_randint</span>(<span class='fl'>10</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; tensor 
+#&gt;  9  4
+#&gt;  6  0
+#&gt; [ Variable[CPUFloatType]{2,2} ]</div><div class='input'><span class='fu'>tch_randint</span>(<span class='fl'>3</span>, <span class='fl'>10</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; tensor 
+#&gt;  7  3
+#&gt;  7  8
+#&gt; [ Variable[CPUFloatType]{2,2} ]</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
