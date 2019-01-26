@@ -4,8 +4,8 @@
 \alias{tch_full}
 \title{Full tensor (one value filled tensor)}
 \usage{
-tch_full(size, fill_value, dtype = NULL, layout = NULL, device = NULL,
-  requires_grad = FALSE)
+tch_full(size, fill_value, dtype = NULL, layout = NULL,
+  device = NULL, requires_grad = FALSE)
 }
 \arguments{
 \item{size}{a sequence of integers defining the shape of the output tensor.}

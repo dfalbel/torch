@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Random normal — tch_randn • torch</title>
+<title>Random uniform — tch_rand • torch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,9 @@
 
 
 
-<meta property="og:title" content="Random normal — tch_randn" />
+<meta property="og:title" content="Random uniform — tch_rand" />
 
-<meta property="og:description" content="Returns a tensor filled with random numbers
-from a normal distribution with mean 0 and variance 1
-(also called the standard normal distribution)." />
+<meta property="og:description" content="Returns a tensor filled with random numbers from a uniform distribution on the interval [0, 1)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -116,20 +114,18 @@ from a normal distribution with mean 0 and variance 1
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Random normal</h1>
+    <h1>Random uniform</h1>
     <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
-    <div class="hidden name"><code>tch_randn.Rd</code></div>
+    <div class="hidden name"><code>tch_rand.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Returns a tensor filled with random numbers
-from a normal distribution with mean 0 and variance 1
-(also called the standard normal distribution).</p>
+    <p>Returns a tensor filled with random numbers from a uniform distribution on the interval [0, 1).</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tch_randn</span>(<span class='no'>sizes</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>tch_rand</span>(<span class='no'>sizes</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -168,12 +164,12 @@ returned tensor. Default: <code>FALSE</code>.</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tch_randn</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt; tensor 
-#&gt;  0.6891  0.3225
-#&gt; -0.4092 -0.7822
-#&gt; [ Variable[CPUFloatType]{2,2} ]</div><div class='input'><span class='fu'>tch_randn</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>), <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='st'>"double"</span>)</div><div class='output co'>#&gt; tensor 
-#&gt; -1.4856 -0.2648
-#&gt;  1.1587  0.5481
+    <pre class="examples"><div class='input'><span class='fu'>tch_rand</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; tensor 
+#&gt;  0.3041  0.3689
+#&gt;  0.6805  0.5816
+#&gt; [ Variable[CPUFloatType]{2,2} ]</div><div class='input'><span class='fu'>tch_rand</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>), <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='st'>"double"</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;  0.3637  0.8613
+#&gt;  0.0587  0.3505
 #&gt; [ Variable[CPUDoubleType]{2,2} ]</div><div class='input'>
 </div></pre>
   </div>

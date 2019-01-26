@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Random normal — tch_randn • torch</title>
+<title>Loglinear spaced tensor — tch_logspace • torch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,9 @@
 
 
 
-<meta property="og:title" content="Random normal — tch_randn" />
+<meta property="og:title" content="Loglinear spaced tensor — tch_logspace" />
 
-<meta property="og:description" content="Returns a tensor filled with random numbers
-from a normal distribution with mean 0 and variance 1
-(also called the standard normal distribution)." />
+<meta property="og:description" content="Returns a one-dimensional tensor of steps points logarithmically spaced between 10^start and 10^end." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -116,28 +114,34 @@ from a normal distribution with mean 0 and variance 1
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Random normal</h1>
+    <h1>Loglinear spaced tensor</h1>
     <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
-    <div class="hidden name"><code>tch_randn.Rd</code></div>
+    <div class="hidden name"><code>tch_logspace.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Returns a tensor filled with random numbers
-from a normal distribution with mean 0 and variance 1
-(also called the standard normal distribution).</p>
+    <p>Returns a one-dimensional tensor of steps points logarithmically spaced between 10^start and 10^end.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tch_randn</span>(<span class='no'>sizes</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>tch_logspace</span>(<span class='no'>start</span>, <span class='no'>end</span>, <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>sizes</th>
-      <td><p>a sequence of integers defining the shape of the output tensor.</p></td>
+      <th>start</th>
+      <td><p>the starting value for the set of points.</p></td>
+    </tr>
+    <tr>
+      <th>end</th>
+      <td><p>the ending value for the set of points.</p></td>
+    </tr>
+    <tr>
+      <th>steps</th>
+      <td><p>number of points to sample between start and end. Default: 100.</p></td>
     </tr>
     <tr>
       <th>dtype</th>
@@ -157,6 +161,10 @@ CUDA tensor types.</p></td>
 returned tensor. Default: <code>FALSE</code>.</p></td>
     </tr>
     <tr>
+      <th>fill_value</th>
+      <td><p>the number to fill the output tensor with.</p></td>
+    </tr>
+    <tr>
       <th>the</th>
       <td><p>desired layout of returned Tensor. Default: 'strided'</p></td>
     </tr>
@@ -164,17 +172,130 @@ returned tensor. Default: <code>FALSE</code>.</p></td>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The shape of the tensor is defined by the variable argument sizes.</p>
+    <p>The output tensor is 1-D of size steps.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tch_randn</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt; tensor 
-#&gt;  0.6891  0.3225
-#&gt; -0.4092 -0.7822
-#&gt; [ Variable[CPUFloatType]{2,2} ]</div><div class='input'><span class='fu'>tch_randn</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>), <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='st'>"double"</span>)</div><div class='output co'>#&gt; tensor 
-#&gt; -1.4856 -0.2648
-#&gt;  1.1587  0.5481
-#&gt; [ Variable[CPUDoubleType]{2,2} ]</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'><a href='tch_linspace.html'>tch_linspace</a></span>(<span class='fl'>3</span>, <span class='fl'>10</span>, <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;   3.0000
+#&gt;   4.7500
+#&gt;   6.5000
+#&gt;   8.2500
+#&gt;  10.0000
+#&gt; [ Variable[CPUFloatType]{5} ]</div><div class='input'><span class='fu'><a href='tch_linspace.html'>tch_linspace</a></span>(-<span class='fl'>10</span>, <span class='fl'>10</span>, <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; -10
+#&gt;  -5
+#&gt;   0
+#&gt;   5
+#&gt;  10
+#&gt; [ Variable[CPUFloatType]{5} ]</div><div class='input'><span class='fu'><a href='tch_linspace.html'>tch_linspace</a></span>(<span class='kw'>start</span> <span class='kw'>=</span> -<span class='fl'>10</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; -10
+#&gt;  -5
+#&gt;   0
+#&gt;   5
+#&gt;  10
+#&gt; [ Variable[CPUFloatType]{5} ]</div><div class='input'><span class='fu'><a href='tch_linspace.html'>tch_linspace</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;  0.0000
+#&gt;  0.0101
+#&gt;  0.0202
+#&gt;  0.0303
+#&gt;  0.0404
+#&gt;  0.0505
+#&gt;  0.0606
+#&gt;  0.0707
+#&gt;  0.0808
+#&gt;  0.0909
+#&gt;  0.1010
+#&gt;  0.1111
+#&gt;  0.1212
+#&gt;  0.1313
+#&gt;  0.1414
+#&gt;  0.1515
+#&gt;  0.1616
+#&gt;  0.1717
+#&gt;  0.1818
+#&gt;  0.1919
+#&gt;  0.2020
+#&gt;  0.2121
+#&gt;  0.2222
+#&gt;  0.2323
+#&gt;  0.2424
+#&gt;  0.2525
+#&gt;  0.2626
+#&gt;  0.2727
+#&gt;  0.2828
+#&gt;  0.2929
+#&gt;  0.3030
+#&gt;  0.3131
+#&gt;  0.3232
+#&gt;  0.3333
+#&gt;  0.3434
+#&gt;  0.3535
+#&gt;  0.3636
+#&gt;  0.3737
+#&gt;  0.3838
+#&gt;  0.3939
+#&gt;  0.4040
+#&gt;  0.4141
+#&gt;  0.4242
+#&gt;  0.4343
+#&gt;  0.4444
+#&gt;  0.4545
+#&gt;  0.4646
+#&gt;  0.4747
+#&gt;  0.4848
+#&gt;  0.4949
+#&gt;  0.5051
+#&gt;  0.5152
+#&gt;  0.5253
+#&gt;  0.5354
+#&gt;  0.5455
+#&gt;  0.5556
+#&gt;  0.5657
+#&gt;  0.5758
+#&gt;  0.5859
+#&gt;  0.5960
+#&gt;  0.6061
+#&gt;  0.6162
+#&gt;  0.6263
+#&gt;  0.6364
+#&gt;  0.6465
+#&gt;  0.6566
+#&gt;  0.6667
+#&gt;  0.6768
+#&gt;  0.6869
+#&gt;  0.6970
+#&gt;  0.7071
+#&gt;  0.7172
+#&gt;  0.7273
+#&gt;  0.7374
+#&gt;  0.7475
+#&gt;  0.7576
+#&gt;  0.7677
+#&gt;  0.7778
+#&gt;  0.7879
+#&gt;  0.7980
+#&gt;  0.8081
+#&gt;  0.8182
+#&gt;  0.8283
+#&gt;  0.8384
+#&gt;  0.8485
+#&gt;  0.8586
+#&gt;  0.8687
+#&gt;  0.8788
+#&gt;  0.8889
+#&gt;  0.8990
+#&gt;  0.9091
+#&gt;  0.9192
+#&gt;  0.9293
+#&gt;  0.9394
+#&gt;  0.9495
+#&gt;  0.9596
+#&gt;  0.9697
+#&gt;  0.9798
+#&gt;  0.9899
+#&gt;  1.0000
+#&gt; [ Variable[CPUFloatType]{100} ]</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Random normal — tch_randn • torch</title>
+<title>Random discrete uniform — tch_randint • torch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,9 @@
 
 
 
-<meta property="og:title" content="Random normal — tch_randn" />
+<meta property="og:title" content="Random discrete uniform — tch_randint" />
 
-<meta property="og:description" content="Returns a tensor filled with random numbers
-from a normal distribution with mean 0 and variance 1
-(also called the standard normal distribution)." />
+<meta property="og:description" content="Returns a tensor filled with random integers generated uniformly between low (inclusive) and high (exclusive)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -116,25 +114,27 @@ from a normal distribution with mean 0 and variance 1
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Random normal</h1>
+    <h1>Random discrete uniform</h1>
     <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
-    <div class="hidden name"><code>tch_randn.Rd</code></div>
+    <div class="hidden name"><code>tch_randint.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Returns a tensor filled with random numbers
-from a normal distribution with mean 0 and variance 1
-(also called the standard normal distribution).</p>
+    <p>Returns a tensor filled with random integers generated uniformly between low (inclusive) and high (exclusive).</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tch_randn</span>(<span class='no'>sizes</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>tch_randint</span>(<span class='kw'>low</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>high</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sizes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>low</th>
+      <td><p>(optional) Lowest integer to be drawn from the distribution. Default: 0.</p></td>
+    </tr>
     <tr>
       <th>sizes</th>
       <td><p>a sequence of integers defining the shape of the output tensor.</p></td>
@@ -157,6 +157,10 @@ CUDA tensor types.</p></td>
 returned tensor. Default: <code>FALSE</code>.</p></td>
     </tr>
     <tr>
+      <th>hogh</th>
+      <td><p>One above the highest integer to be drawn from the distribution.</p></td>
+    </tr>
+    <tr>
       <th>the</th>
       <td><p>desired layout of returned Tensor. Default: 'strided'</p></td>
     </tr>
@@ -164,18 +168,17 @@ returned tensor. Default: <code>FALSE</code>.</p></td>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The shape of the tensor is defined by the variable argument sizes.</p>
+    <p>The shape of the tensor is defined by the variable argument size.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tch_randn</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt; tensor 
-#&gt;  0.6891  0.3225
-#&gt; -0.4092 -0.7822
-#&gt; [ Variable[CPUFloatType]{2,2} ]</div><div class='input'><span class='fu'>tch_randn</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>), <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='st'>"double"</span>)</div><div class='output co'>#&gt; tensor 
-#&gt; -1.4856 -0.2648
-#&gt;  1.1587  0.5481
-#&gt; [ Variable[CPUDoubleType]{2,2} ]</div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'>tch_randint(3, 5, (3,))
+tch_randint(10, (2, 2))
+tch_randint(3, 10, (2, 2))
+
+</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:1:21: unexpected ','</span>
+#&gt; <span class='error'>1: tch_randint(3, 5, (3,</span>
+#&gt; <span class='error'>                        ^</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
