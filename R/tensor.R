@@ -1111,7 +1111,7 @@ tch_full <- function(size, fill_value, dtype = NULL, layout = NULL, device = NUL
 #'
 #' @export
 tch_linspace <- function(start, end, steps = 100, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  # `torch::Tensor`$dispatch(torch_linspace_(start, end, steps, dtype, layout, device, requires_grad))
+  `torch::Tensor`$dispatch(torch_linspace_(start, end, steps, dtype, layout, device, requires_grad))
 }
 
 
@@ -1143,7 +1143,7 @@ tch_linspace <- function(start, end, steps = 100, dtype = NULL, layout = NULL, d
 #'
 #' @export
 tch_logspace <- function(start, end, steps = 100, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  # `torch::Tensor`$dispatch(torch_logspace_(start, end, steps, dtype, layout, device, requires_grad))
+  `torch::Tensor`$dispatch(torch_logspace_(start, end, steps, dtype, layout, device, requires_grad))
 }
 
 

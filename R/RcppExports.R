@@ -37,6 +37,14 @@ torch_full_ <- function(size, fill_value, dtype, layout, device, requires_grad) 
     .Call('_torch_torch_full_', PACKAGE = 'torch', size, fill_value, dtype, layout, device, requires_grad)
 }
 
+torch_linspace_ <- function(start, end, steps, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_linspace_', PACKAGE = 'torch', start, end, steps, dtype, layout, device, requires_grad)
+}
+
+torch_logspace_ <- function(start, end, steps, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_logspace_', PACKAGE = 'torch', start, end, steps, dtype, layout, device, requires_grad)
+}
+
 torch_ones_ <- function(size, dtype, layout, device, requires_grad) {
     .Call('_torch_torch_ones_', PACKAGE = 'torch', size, dtype, layout, device, requires_grad)
 }

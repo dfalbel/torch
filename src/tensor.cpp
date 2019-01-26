@@ -213,29 +213,30 @@ Rcpp::XPtr<torch::Tensor> torch_full_ (std::vector<std::int64_t> size,
   return make_tensor_ptr(torch::full(size, scalar_from_r_(fill_value), tensor_options_(dtype, layout, device, requires_grad)));
 }
 
-// // [[Rcpp::export]]
-// Rcpp::XPtr<torch::Tensor> torch_linspace_ (SEXP start,
-//                                            SEXP end,
-//                                            std::vector<std::int64_t> steps,
-//                                            Rcpp::Nullable<std::string> dtype,
-//                                            Rcpp::Nullable<std::string> layout,
-//                                            Rcpp::Nullable<std::string> device,
-//                                            Rcpp::Nullable<bool> requires_grad
-// ) {
-//   return make_tensor_ptr(torch::linspace(scalar_from_r_(start), scalar_from_r_(end), steps, tensor_options_(dtype, layout, device, requires_grad)));
-// }
-//
-// // [[Rcpp::export]]
-// Rcpp::XPtr<torch::Tensor> torch_logspace_ (SEXP start,
-//                                            SEXP end,
-//                                            std::vector<std::int64_t> steps,
-//                                            Rcpp::Nullable<std::string> dtype,
-//                                            Rcpp::Nullable<std::string> layout,
-//                                            Rcpp::Nullable<std::string> device,
-//                                            Rcpp::Nullable<bool> requires_grad
-// ) {
-//   return make_tensor_ptr(torch::logspace(scalar_from_r_(start), scalar_from_r_(end), steps, tensor_options_(dtype, layout, device, requires_grad)));
-// }
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_linspace_ (SEXP start,
+                                           SEXP end,
+                                           std::int64_t steps,
+                                           Rcpp::Nullable<std::string> dtype,
+                                           Rcpp::Nullable<std::string> layout,
+                                           Rcpp::Nullable<std::string> device,
+                                           Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::linspace(scalar_from_r_(start), scalar_from_r_(end), steps, tensor_options_(dtype, layout, device, requires_grad)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> torch_logspace_ (SEXP start,
+                                           SEXP end,
+                                           std::int64_t steps,
+                                           Rcpp::Nullable<std::string> dtype,
+                                           Rcpp::Nullable<std::string> layout,
+                                           Rcpp::Nullable<std::string> device,
+                                           Rcpp::Nullable<bool> requires_grad
+) {
+  return make_tensor_ptr(torch::logspace(scalar_from_r_(start), scalar_from_r_(end), steps, tensor_options_(dtype, layout, device, requires_grad)));
+}
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> torch_ones_ (std::vector<std::int64_t> size,
