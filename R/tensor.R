@@ -1225,7 +1225,8 @@ tch_rand <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires
 #'
 #' @export
 tch_randint <- function(low = 0, high = NULL, sizes = NULL, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  # this is necessary to make the call tch_randint(10, c(2, 2)) works because the first argument is low instead of high.
+  # this is necessary to make the call tch_randint(10, c(2, 2))
+  # works because the first argument is low instead of high.
   if(is.null(sizes)) {
     sizes <- high
     high <- low
