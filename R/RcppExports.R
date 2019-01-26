@@ -29,6 +29,42 @@ torch_empty_ <- function(size, dtype, layout, device, requires_grad) {
     .Call('_torch_torch_empty_', PACKAGE = 'torch', size, dtype, layout, device, requires_grad)
 }
 
+torch_eye_ <- function(n, m, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_eye_', PACKAGE = 'torch', n, m, dtype, layout, device, requires_grad)
+}
+
+torch_full_ <- function(size, fill_value, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_full_', PACKAGE = 'torch', size, fill_value, dtype, layout, device, requires_grad)
+}
+
+torch_linspace_ <- function(start, end, steps, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_linspace_', PACKAGE = 'torch', start, end, steps, dtype, layout, device, requires_grad)
+}
+
+torch_logspace_ <- function(start, end, steps, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_logspace_', PACKAGE = 'torch', start, end, steps, dtype, layout, device, requires_grad)
+}
+
+torch_ones_ <- function(size, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_ones_', PACKAGE = 'torch', size, dtype, layout, device, requires_grad)
+}
+
+torch_rand_ <- function(size, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_rand_', PACKAGE = 'torch', size, dtype, layout, device, requires_grad)
+}
+
+torch_randint_ <- function(low, high, size, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_randint_', PACKAGE = 'torch', low, high, size, dtype, layout, device, requires_grad)
+}
+
+torch_randperm_ <- function(n, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_randperm_', PACKAGE = 'torch', n, dtype, layout, device, requires_grad)
+}
+
+torch_zeros_ <- function(size, dtype, layout, device, requires_grad) {
+    .Call('_torch_torch_zeros_', PACKAGE = 'torch', size, dtype, layout, device, requires_grad)
+}
+
 tensor_print_ <- function(x) {
     invisible(.Call('_torch_tensor_print_', PACKAGE = 'torch', x))
 }

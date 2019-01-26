@@ -36,6 +36,15 @@ reference:
     - tch_randn
     - tch_arange
     - tch_empty
+    - tch_eye
+    - tch_full
+    - tch_linspace
+    - tch_logspace
+    - tch_ones
+    - tch_rand
+    - tch_randint
+    - tch_randperm
+    - tch_zeros
 - title: "Autograd"
   desc: "Utility functions related to autograd."
   contents:

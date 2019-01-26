@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create torch Tensor from R object — tensor_from_r • torch</title>
+<title>Loglinear spaced tensor — tch_logspace • torch</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Create torch Tensor from R object — tensor_from_r" />
+<meta property="og:title" content="Loglinear spaced tensor — tch_logspace" />
 
-<meta property="og:description" content="Create torch Tensor from R object" />
+<meta property="og:description" content="Returns a one-dimensional tensor of steps points logarithmically spaced between 10^start and 10^end." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -114,77 +114,196 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create torch Tensor from R object</h1>
+    <h1>Loglinear spaced tensor</h1>
     <small class="dont-index">Source: <a href='https://github.com/dfalbel/torch/blob/master/R/tensor.R'><code>R/tensor.R</code></a></small>
-    <div class="hidden name"><code>tensor_from_r.Rd</code></div>
+    <div class="hidden name"><code>tch_logspace.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Create torch Tensor from R object</p>
+    <p>Returns a one-dimensional tensor of steps points logarithmically spaced between 10^start and 10^end.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tensor_from_r</span>(<span class='no'>x</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>tch_logspace</span>(<span class='no'>start</span>, <span class='no'>end</span>, <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>an R vector, matrix or array.</p></td>
+      <th>start</th>
+      <td><p>the starting value for the set of points.</p></td>
+    </tr>
+    <tr>
+      <th>end</th>
+      <td><p>the ending value for the set of points.</p></td>
+    </tr>
+    <tr>
+      <th>steps</th>
+      <td><p>number of points to sample between start and end. Default: 100.</p></td>
     </tr>
     <tr>
       <th>dtype</th>
-      <td><p>dtype</p></td>
+      <td><p>the desired data type of returned tensor. Default: if <code>NULL</code>, infers
+data type from <code>x</code>.</p></td>
     </tr>
     <tr>
       <th>device</th>
-      <td><p>device</p></td>
+      <td><p>the desired device of returned tensor. Default: if <code>NULL</code>, uses
+the current device for the default tensor type (see <code>tch_set_default_tensor_type()</code>).
+device will be the CPU for CPU tensor types and the current CUDA device for
+CUDA tensor types.</p></td>
     </tr>
     <tr>
       <th>requires_grad</th>
-      <td><p>requires_grad</p></td>
+      <td><p>If autograd should record operations on the
+returned tensor. Default: <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>fill_value</th>
+      <td><p>the number to fill the output tensor with.</p></td>
+    </tr>
+    <tr>
+      <th>the</th>
+      <td><p>desired layout of returned Tensor. Default: 'strided'</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>it uses the R type when creating the tensor.</p>
+    <p>The output tensor is 1-D of size steps.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tensor_from_r</span>(<span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt; tensor 
-#&gt;   1
-#&gt;   2
-#&gt;   3
-#&gt;   4
+    <pre class="examples"><div class='input'><span class='fu'><a href='tch_linspace.html'>tch_linspace</a></span>(<span class='fl'>3</span>, <span class='fl'>10</span>, <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;   3.0000
+#&gt;   4.7500
+#&gt;   6.5000
+#&gt;   8.2500
+#&gt;  10.0000
+#&gt; [ Variable[CPUFloatType]{5} ]</div><div class='input'><span class='fu'><a href='tch_linspace.html'>tch_linspace</a></span>(-<span class='fl'>10</span>, <span class='fl'>10</span>, <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; -10
+#&gt;  -5
+#&gt;   0
 #&gt;   5
-#&gt;   6
-#&gt;   7
-#&gt;   8
-#&gt;   9
 #&gt;  10
-#&gt; [ Variable[CPUIntType]{10} ]</div><div class='input'><span class='fu'>tensor_from_r</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>8</span>), <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>)))</div><div class='output co'>#&gt; tensor 
-#&gt; (1,.,.) = 
-#&gt;   0.6066  0.7655
-#&gt;   0.6799  0.7303
-#&gt; 
-#&gt; (2,.,.) = 
-#&gt;   0.8810  0.6270
-#&gt;   0.1429  0.4237
-#&gt; [ Variable[CPUFloatType]{2,2,2} ]</div><div class='input'><span class='fu'>tensor_from_r</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>4</span>))</div><div class='output co'>#&gt; tensor 
-#&gt;  1  0  1  0
-#&gt;  0  1  0  1
-#&gt;  1  0  1  0
-#&gt; [ Variable[CPUByteType]{3,4} ]</div></pre>
+#&gt; [ Variable[CPUFloatType]{5} ]</div><div class='input'><span class='fu'><a href='tch_linspace.html'>tch_linspace</a></span>(<span class='kw'>start</span> <span class='kw'>=</span> -<span class='fl'>10</span>, <span class='kw'>end</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; -10
+#&gt;  -5
+#&gt;   0
+#&gt;   5
+#&gt;  10
+#&gt; [ Variable[CPUFloatType]{5} ]</div><div class='input'><span class='fu'><a href='tch_linspace.html'>tch_linspace</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;  0.0000
+#&gt;  0.0101
+#&gt;  0.0202
+#&gt;  0.0303
+#&gt;  0.0404
+#&gt;  0.0505
+#&gt;  0.0606
+#&gt;  0.0707
+#&gt;  0.0808
+#&gt;  0.0909
+#&gt;  0.1010
+#&gt;  0.1111
+#&gt;  0.1212
+#&gt;  0.1313
+#&gt;  0.1414
+#&gt;  0.1515
+#&gt;  0.1616
+#&gt;  0.1717
+#&gt;  0.1818
+#&gt;  0.1919
+#&gt;  0.2020
+#&gt;  0.2121
+#&gt;  0.2222
+#&gt;  0.2323
+#&gt;  0.2424
+#&gt;  0.2525
+#&gt;  0.2626
+#&gt;  0.2727
+#&gt;  0.2828
+#&gt;  0.2929
+#&gt;  0.3030
+#&gt;  0.3131
+#&gt;  0.3232
+#&gt;  0.3333
+#&gt;  0.3434
+#&gt;  0.3535
+#&gt;  0.3636
+#&gt;  0.3737
+#&gt;  0.3838
+#&gt;  0.3939
+#&gt;  0.4040
+#&gt;  0.4141
+#&gt;  0.4242
+#&gt;  0.4343
+#&gt;  0.4444
+#&gt;  0.4545
+#&gt;  0.4646
+#&gt;  0.4747
+#&gt;  0.4848
+#&gt;  0.4949
+#&gt;  0.5051
+#&gt;  0.5152
+#&gt;  0.5253
+#&gt;  0.5354
+#&gt;  0.5455
+#&gt;  0.5556
+#&gt;  0.5657
+#&gt;  0.5758
+#&gt;  0.5859
+#&gt;  0.5960
+#&gt;  0.6061
+#&gt;  0.6162
+#&gt;  0.6263
+#&gt;  0.6364
+#&gt;  0.6465
+#&gt;  0.6566
+#&gt;  0.6667
+#&gt;  0.6768
+#&gt;  0.6869
+#&gt;  0.6970
+#&gt;  0.7071
+#&gt;  0.7172
+#&gt;  0.7273
+#&gt;  0.7374
+#&gt;  0.7475
+#&gt;  0.7576
+#&gt;  0.7677
+#&gt;  0.7778
+#&gt;  0.7879
+#&gt;  0.7980
+#&gt;  0.8081
+#&gt;  0.8182
+#&gt;  0.8283
+#&gt;  0.8384
+#&gt;  0.8485
+#&gt;  0.8586
+#&gt;  0.8687
+#&gt;  0.8788
+#&gt;  0.8889
+#&gt;  0.8990
+#&gt;  0.9091
+#&gt;  0.9192
+#&gt;  0.9293
+#&gt;  0.9394
+#&gt;  0.9495
+#&gt;  0.9596
+#&gt;  0.9697
+#&gt;  0.9798
+#&gt;  0.9899
+#&gt;  1.0000
+#&gt; [ Variable[CPUFloatType]{100} ]</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#note">Note</a></li>
+      <li><a href="#details">Details</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
