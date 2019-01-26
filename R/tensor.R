@@ -1074,8 +1074,8 @@ tch_eye <- function(n, m = n, dtype = NULL, layout = NULL, device = NULL, requir
 #' returned tensor. Default: `FALSE`.
 #'
 #' @examples
-#' tch_full((2, 3), 3.141592)
-#' tch_full((2, 3, 4), 0)
+#' tch_full(c(2, 3), 3.141592)
+#' tch_full(c(2, 3, 4), 0)
 #'
 #' @export
 tch_full <- function(size, fill_value, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {

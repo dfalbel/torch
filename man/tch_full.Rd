@@ -29,7 +29,7 @@ returned tensor. Default: \code{FALSE}.}
 Returns a tensor of given size filled with fill_value.
 }
 \examples{
-tch_full((2, 3), 3.141592)
-tch_full((2, 3, 4), 0)
+tch_full(c(2, 3), 3.141592)
+tch_full(c(2, 3, 4), 0)
 
 }

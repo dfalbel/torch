@@ -164,12 +164,21 @@ returned tensor. Default: <code>FALSE</code>.</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>tch_full((2, 3), 3.141592)
-tch_full((2, 3, 4), 0)
-
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:1:12: unexpected ','</span>
-#&gt; <span class='error'>1: tch_full((2,</span>
-#&gt; <span class='error'>               ^</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>tch_full</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>3</span>), <span class='fl'>3.141592</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;  3.1416  3.1416  3.1416
+#&gt;  3.1416  3.1416  3.1416
+#&gt; [ Variable[CPUFloatType]{2,3} ]</div><div class='input'><span class='fu'>tch_full</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>), <span class='fl'>0</span>)</div><div class='output co'>#&gt; tensor 
+#&gt; (1,.,.) = 
+#&gt;   0  0  0  0
+#&gt;   0  0  0  0
+#&gt;   0  0  0  0
+#&gt; 
+#&gt; (2,.,.) = 
+#&gt;   0  0  0  0
+#&gt;   0  0  0  0
+#&gt;   0  0  0  0
+#&gt; [ Variable[CPUFloatType]{2,3,4} ]</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
