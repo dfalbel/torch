@@ -18,6 +18,7 @@ then
   then
     # for OS X only CPU backend
     TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip'
+    TORCH_MKL_BINARIES='https://github.com/intel/mkl-dnn/releases/download/v0.17.2/mklml_mac_2019.0.1.20180928.tgz'
   else
     echo "OS is not supported"
     exit 1
@@ -45,6 +46,15 @@ else
   wget -nv $TORCH_BINARIES -P ~ -O $TORCH_HOME/libtorch.zip
   echo "unzipping libtorch to $TORCH_HOME"
   unzip $TORCH_HOME/libtorch.zip -d `dirname $TORCH_HOME`
+  
+  if [[ "$OSTYPE" == "darwin"* ]]
+  then
+    echo "downloading mkl lib"
+    wget -nv $TORCH_MKL_BINARIES -P ~ -O $TORCH_HOME/mkl.tgz
+    echo "unzipping mkl library"
+    gunzip -c $TORCH_HOME/mkl.tgz | tar xopf - --directory $TORCH_HOME/lib --strip-components=2 *.dylib
+  fi
+
 fi
 TORCH_HOME="$TORCH_HOME"
 #---------------------------------------------------------
