@@ -4,7 +4,8 @@ Title: Torch from R
 Version: 0.0.1.9000
 Authors@R: c(
     person("Daniel", "Falbel", , "dfalbel@gmail.com", c("aut", "cre")),
-    person("Dmitriy", "Selivanov", role = c("ctb", "cph"))
+    person("Dmitriy", "Selivanov", role = c("ctb", "cph")),
+    person("Athos", "Damiani", role = c("ctb", "cph"))
     )
 Description: Wraps the libtorch C++ to be used from R.
 License: MIT + file LICENSE
