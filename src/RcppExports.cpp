@@ -6,6 +6,16 @@
 
 using namespace Rcpp;
 
+// cuda_is_available_
+bool cuda_is_available_();
+RcppExport SEXP _torch_cuda_is_available_() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(cuda_is_available_());
+    return rcpp_result_gen;
+END_RCPP
+}
 // set_grad_mode
 void set_grad_mode(bool enabled);
 RcppExport SEXP _torch_set_grad_mode(SEXP enabledSEXP) {
@@ -1483,6 +1493,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_torch_cuda_is_available_", (DL_FUNC) &_torch_cuda_is_available_, 0},
     {"_torch_set_grad_mode", (DL_FUNC) &_torch_set_grad_mode, 1},
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 5},
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
