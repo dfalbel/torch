@@ -815,6 +815,15 @@ test_that("expm1 works", {
   expect_equal(as.array(x),  r, tol = 1e-6)
 })
 
+test_that("fill works", {
+  x <- tch_empty(c(2,2))
+  x$fill_(2)
+  expect_equal(as.array(x), matrix(2, nrow = 2, ncol = 2))
+  y <- tch_empty(1)$sum()
+  x$fill_(y)
+  expect_equal(as.array(x), matrix(0, nrow = 2, ncol = 2))
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

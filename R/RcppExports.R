@@ -405,6 +405,14 @@ tensor_expm1__ <- function(x) {
     .Call('_torch_tensor_expm1__', PACKAGE = 'torch', x)
 }
 
+tensor_fill_scalar__ <- function(x, value) {
+    .Call('_torch_tensor_fill_scalar__', PACKAGE = 'torch', x, value)
+}
+
+tensor_fill_tensor__ <- function(x, value) {
+    .Call('_torch_tensor_fill_tensor__', PACKAGE = 'torch', x, value)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

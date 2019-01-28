@@ -426,6 +426,15 @@
       invisible(self)
     },
 
+    fill_ = function(value) {
+      if (is(value, "tensor")) {
+        tensor_fill_tensor__(self$pointer, value$pointer)
+      } else {
+        tensor_fill_scalar__(self$pointer, value)
+      }
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
