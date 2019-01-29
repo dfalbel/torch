@@ -149,6 +149,14 @@
       `torch::Tensor`$dispatch(tensor_atan2_(self$pointer, other$pointer))
     },
 
+    tan = function() {
+      `torch::Tensor`$dispatch(tensor_tan_(self$pointer))
+    },
+
+    tanh = function() {
+      `torch::Tensor`$dispatch(tensor_tanh_(self$pointer))
+    },
+
     backward = function(gradient = NULL, keep_graph = FALSE, create_graph = FALSE) {
       tensor_backward_(self$pointer, gradient$pointer, keep_graph, create_graph)
     },

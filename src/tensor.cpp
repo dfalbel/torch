@@ -443,6 +443,16 @@ Rcpp::XPtr<torch::Tensor> tensor_atan2_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tan_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->tan());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tanh_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->tanh());
+}
+
+// [[Rcpp::export]]
 void tensor_backward_ (Rcpp::XPtr<torch::Tensor> x,
                        Rcpp::Nullable<Rcpp::XPtr<torch::Tensor>> gradient,
                        bool keep_graph, bool create_graph) {

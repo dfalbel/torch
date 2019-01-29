@@ -319,6 +319,16 @@ test_that("atan2 works", {
   expect_equal(as.array(tch_atan2(tensor(x), tensor(y))), atan2(x, y), tol = 1e-7)
 })
 
+test_that("tan works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_tan(tensor(x))), tan(x), tol = 1e-7)
+})
+
+test_that("tanh works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_tanh(tensor(x))), tanh(x), tol = 1e-7)
+})
+
 test_that("backward works", {
   # TODO include tests for backward operation. for example python only accepts scalars, etc.
   x <- tensor(runif(10), requires_grad = TRUE)

@@ -344,6 +344,32 @@ tch_atan <- function(x) {
   x$atan()
 }
 
+#' tan
+#'
+#' Returns a new tensor with the tangent of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_tan(x)
+#' @export
+tch_tan <- function(x) {
+  x$tan()
+}
+
+#' tanh
+#'
+#' Returns a new tensor with the hyperbolic tangent of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_tanh(x)
+#' @export
+tch_tanh <- function(x) {
+  x$tanh()
+}
+
 #' atan2
 #'
 #' Returns a new tensor with the arctangent of the elements of input1 and input2.

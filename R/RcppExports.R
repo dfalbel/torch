@@ -153,6 +153,14 @@ tensor_atan2_ <- function(x, other) {
     .Call('_torch_tensor_atan2_', PACKAGE = 'torch', x, other)
 }
 
+tensor_tan_ <- function(x) {
+    .Call('_torch_tensor_tan_', PACKAGE = 'torch', x)
+}
+
+tensor_tanh_ <- function(x) {
+    .Call('_torch_tensor_tanh_', PACKAGE = 'torch', x)
+}
+
 tensor_backward_ <- function(x, gradient, keep_graph, create_graph) {
     invisible(.Call('_torch_tensor_backward_', PACKAGE = 'torch', x, gradient, keep_graph, create_graph))
 }
