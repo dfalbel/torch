@@ -314,7 +314,7 @@ test_that("sin works", {
 
 test_that("sinh works", {
   x <- runif(100)
-  expect_equal(as.array(tch_sinh(tensor(x))), sinh(x), tol = 1e-7)
+  expect_equal(as.array(tch_sinh(tensor(x))), sin(x), tol = 1e-7)
 })
 
 test_that("atan works", {
@@ -893,6 +893,52 @@ test_that("gels works", {
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
+})
+
+test_that("var works", {
+  n <- 10
+  x <- runif(n)
+
+  expect_equal(as.array(tch_var(tensor(x))), var(x), tol = 1e-7)
+  expect_equal(as.array(tch_var(tensor(x), unbiased = FALSE)), var(x) * (n - 1)/n, tol = 1e-7)
+})
+
+test_that("std works", {
+  n <- 10
+  x <- runif(n)
+
+  expect_equal(as.array(tch_std(tensor(x))), std(x), tol = 1e-7)
+  expect_equal(as.array(tch_std(tensor(x), unbiased = FALSE)), sd(x) * sqrt((n - 1)/n), tol = 1e-7)
+})
+
+test_that("min works", {
+  x <- runif(10)
+  expect_equal(as.array(tch_min(tensor(x))), min(x), tol = 1e-7)
+})
+
+test_that("median works", {
+  x <- runif(10)
+  expect_equal(as.array(tch_median(tensor(x))), median(x), tol = 1e-7)
+})
+
+test_that("max works", {
+  x <- runif(10)
+  expect_equal(as.array(tch_max(tensor(x))), max(x), tol = 1e-7)
+})
+
+test_that("prod works", {
+  x <- runif(10) + 1
+  expect_equal(as.array(tch_prod(tensor(x))), prod(x), tol = 1e-7)
+})
+
+test_that("mode works", {
+  x <- runif(10)
+  expect_equal(as.array(tch_mode(tensor(x))), mode(x), tol = 1e-7)
+})
+
+test_that("logsumexp works", {
+  x <- runif(10) + 0.5
+  expect_equal(as.array(tch_logsumexp(tensor(x))), log(sum(exp(x))), tol = 1e-7)
 })
 
 test_that("mm works", {

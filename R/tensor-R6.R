@@ -508,6 +508,26 @@
       `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
 
+    var = function(unbiased, dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim, dtype))
+    },
+
+    std = function(unbiased, dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
+    },
+
+    min = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_min_(self$pointer, dim, keepdim, dtype))
+    },
+
+    # median = function(dim = -1, values = NULL, indices = NULL, keepdim = NULL, dtype = NULL) {
+    #   `torch::Tensor`$dispatch(tensor_median_(self$pointer, dim, values, indices, keepdim, dtype))
+    # },
+
+    max = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim, dtype))
+    },
+
     mm = function(mat2) {
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },

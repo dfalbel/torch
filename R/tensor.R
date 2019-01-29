@@ -889,6 +889,8 @@ tch_gels <- function(x, A) {
 
 #' mean
 #'
+#' Returns the mean value of all elements in the x tensor.
+#'
 #' @param x tensor object
 #' @param dim dimension in which to sum
 #' @param keepdim wether to keep or not the dim
@@ -900,6 +902,98 @@ tch_gels <- function(x, A) {
 #' @export
 tch_mean <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
   x$mean(dim, keepdim, dtype)
+}
+
+#' var
+#'
+#' Returns the variance of all elements in the x tensor.
+#' If unbiased is FALSE, then the variance will be calculated via the biased estimator. Otherwise, Bessel’s correction will be used.
+#'
+#' @param x tensor object
+#' @param unbiased whether to use the unbiased estimation or not
+#' @param dim dimension in which to sum
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_var(x)
+#' @export
+tch_var <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  x$var(dim, unbiased, keepdim, dtype)
+}
+
+
+#' std
+#'
+#' Returns the standard-deviation of all elements in the x tensor.
+#' If unbiased is FALSE, then the standard-deviation will be calculated via the biased estimator. Otherwise, Bessel’s correction will be used.
+#'
+#' @param x tensor object
+#' @param unbiased whether to use the unbiased estimation or not
+#' @param dim dimension in which to sum
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_std(x)
+#' @export
+tch_std <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  x$std(dim, unbiased, keepdim, dtype)
+}
+
+#' min
+#'
+#' Returns the minimum value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim dimension in which to sum
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_min(x)
+#' @export
+tch_min <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  x$min(dim, keepdim, dtype)
+}
+
+#' median
+#'
+#' Returns the median value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim dimension in which to sum
+#' @param values the output tensor
+#' @param indices the output index tensor
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tch_randn(4, 5)
+#' tch_median(x)
+#' @export
+tch_median <- function(x, dim = -1, values = NULL, indices = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  # x$median(dim, keepdim, dtype, values, indices)
+}
+
+#' maX
+#'
+#' Returns the maximum value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim dimension in which to sum
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_max(x)
+#' @export
+tch_max <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  x$max(dim, keepdim, dtype)
 }
 
 #' matrix multiplication
