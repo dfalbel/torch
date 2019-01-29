@@ -413,6 +413,10 @@ tensor_fill_tensor__ <- function(x, value) {
     .Call('_torch_tensor_fill_tensor__', PACKAGE = 'torch', x, value)
 }
 
+tensor_flatten_ <- function(x, start_dim, end_dim = -1L) {
+    .Call('_torch_tensor_flatten_', PACKAGE = 'torch', x, start_dim, end_dim)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

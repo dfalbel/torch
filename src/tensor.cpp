@@ -830,6 +830,11 @@ Rcpp::XPtr<torch::Tensor> tensor_fill_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcp
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_flatten_ (Rcpp::XPtr<torch::Tensor> x, int64_t start_dim, int64_t end_dim = -1) {
+  return make_tensor_ptr(x->flatten(start_dim, end_dim));
+}
+
+// [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
   auto out = x->gels(*A);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));

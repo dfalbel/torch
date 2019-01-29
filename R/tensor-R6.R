@@ -435,6 +435,10 @@
       invisible(self)
     },
 
+    flatten = function(start_dim = 0, end_dim = -1) {
+      `torch::Tensor`$dispatch(tensor_flatten_(self$pointer, start_dim, end_dim))
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

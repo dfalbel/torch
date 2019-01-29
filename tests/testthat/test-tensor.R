@@ -824,6 +824,13 @@ test_that("fill works", {
   expect_equal(as.array(x), matrix(0, nrow = 2, ncol = 2))
 })
 
+test_that("flatten works", {
+  x <- tch_randn(c(2,2,2))
+  expect_equal(length(as.array(x$flatten())), 8)
+  expect_equal(dim(as.array(x$flatten(start_dim = 1))), c(2,4))
+  expect_equal(dim(as.array(x$flatten(end_dim = 1))), c(4,2))
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)
