@@ -307,6 +307,16 @@ test_that("asin works", {
   expect_equal(as.array(tch_asin(tensor(x))), asin(x), tol = 1e-7)
 })
 
+test_that("sin works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_sin(tensor(x))), sin(x), tol = 1e-7)
+})
+
+test_that("sinh works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_sinh(tensor(x))), sinh(x), tol = 1e-7)
+})
+
 test_that("atan works", {
   x <- runif(100)
   expect_equal(as.array(tch_atan(tensor(x))), atan(x), tol = 1e-7)

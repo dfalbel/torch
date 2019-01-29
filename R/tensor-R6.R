@@ -141,6 +141,14 @@
       `torch::Tensor`$dispatch(tensor_asin_(self$pointer))
     },
 
+    sin = function(){
+      `torch::Tensor`$dispatch(tensor_sin_(self$pointer))
+    },
+
+    sinh = function(){
+      `torch::Tensor`$dispatch(tensor_sinh_(self$pointer))
+    },
+
     atan = function() {
       `torch::Tensor`$dispatch(tensor_atan_(self$pointer))
     },

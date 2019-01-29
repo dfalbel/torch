@@ -503,6 +503,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_sin_
+Rcpp::XPtr<torch::Tensor> tensor_sin_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_sin_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_sin_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_sinh_
+Rcpp::XPtr<torch::Tensor> tensor_sinh_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_sinh_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_sinh_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_atan_
 Rcpp::XPtr<torch::Tensor> tensor_atan_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_atan_(SEXP xSEXP) {
@@ -1699,6 +1721,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_as_strided_", (DL_FUNC) &_torch_tensor_as_strided_, 4},
     {"_torch_tensor_to_string_", (DL_FUNC) &_torch_tensor_to_string_, 1},
     {"_torch_tensor_asin_", (DL_FUNC) &_torch_tensor_asin_, 1},
+    {"_torch_tensor_sin_", (DL_FUNC) &_torch_tensor_sin_, 1},
+    {"_torch_tensor_sinh_", (DL_FUNC) &_torch_tensor_sinh_, 1},
     {"_torch_tensor_atan_", (DL_FUNC) &_torch_tensor_atan_, 1},
     {"_torch_tensor_atan2_", (DL_FUNC) &_torch_tensor_atan2_, 2},
     {"_torch_tensor_tan_", (DL_FUNC) &_torch_tensor_tan_, 1},

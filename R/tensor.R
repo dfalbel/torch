@@ -331,6 +331,32 @@ tch_asin <- function(x) {
   x$asin()
 }
 
+#' sin
+#'
+#' Returns a new tensor with the sine of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_sin(x)
+#' @export
+tch_sin <- function(x) {
+  x$sin()
+}
+
+#' sinh
+#'
+#' Returns a new tensor with the hyperbolic sine of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_asin(x)
+#' @export
+tch_sinh <- function(x) {
+  x$sinh()
+}
+
 #' atan
 #'
 #' Returns a new tensor with the arctangent of the elements of input.
