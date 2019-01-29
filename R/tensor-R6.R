@@ -409,6 +409,42 @@
       invisible(self)
     },
 
+    log = function() {
+      `torch::Tensor`$dispatch(tensor_log_(self$pointer))
+    },
+
+    log_ = function() {
+      tensor_log__(self$pointer)
+      invisible(self)
+    },
+
+    log2 = function() {
+      `torch::Tensor`$dispatch(tensor_log2_(self$pointer))
+    },
+
+    log2_ = function() {
+      tensor_log2__(self$pointer)
+      invisible(self)
+    },
+
+    log10 = function() {
+      `torch::Tensor`$dispatch(tensor_log10_(self$pointer))
+    },
+
+    log10_ = function() {
+      tensor_log10__(self$pointer)
+      invisible(self)
+    },
+
+    log1p = function() {
+      `torch::Tensor`$dispatch(tensor_log1p_(self$pointer))
+    },
+
+    log1p_ = function() {
+      tensor_log1p__(self$pointer)
+      invisible(self)
+    },
+
     expand = function(sizes) {
       `torch::Tensor`$dispatch(tensor_expand_(self$pointer, sizes))
     },

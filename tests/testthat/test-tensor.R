@@ -23,6 +23,7 @@ test_that("device", {
   expect_identical(1, 1)
 })
 
+
 context("integer tensors")
 
 test_that("creation of 1d integer tensor", {
@@ -969,6 +970,15 @@ test_that("to works", {
 
   expect_equal(as.array(tensor(x)$to(dtype = "int")), matrix(0L, ncol = 3, nrow = 2))
 })
+
+test_that("log family works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_log(tensor(x))), log(x), tol = 1e-7)
+  expect_equal(as.array(tch_log2(tensor(x))), log2(x), tol = 1e-7)
+  expect_equal(as.array(tch_log10(tensor(x))), log10(x), tol = 1e-7)
+  expect_equal(as.array(tch_log1p(tensor(x))), log1p(x), tol = 1e-7)
+})
+
 
 context("numeric tensors")
 

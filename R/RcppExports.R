@@ -389,6 +389,38 @@ tensor_exp__ <- function(x) {
     .Call('_torch_tensor_exp__', PACKAGE = 'torch', x)
 }
 
+tensor_log_ <- function(x) {
+    .Call('_torch_tensor_log_', PACKAGE = 'torch', x)
+}
+
+tensor_log__ <- function(x) {
+    .Call('_torch_tensor_log__', PACKAGE = 'torch', x)
+}
+
+tensor_log2_ <- function(x) {
+    .Call('_torch_tensor_log2_', PACKAGE = 'torch', x)
+}
+
+tensor_log2__ <- function(x) {
+    .Call('_torch_tensor_log2__', PACKAGE = 'torch', x)
+}
+
+tensor_log10_ <- function(x) {
+    .Call('_torch_tensor_log10_', PACKAGE = 'torch', x)
+}
+
+tensor_log10__ <- function(x) {
+    .Call('_torch_tensor_log10__', PACKAGE = 'torch', x)
+}
+
+tensor_log1p_ <- function(x) {
+    .Call('_torch_tensor_log1p_', PACKAGE = 'torch', x)
+}
+
+tensor_log1p__ <- function(x) {
+    .Call('_torch_tensor_log1p__', PACKAGE = 'torch', x)
+}
+
 tensor_expand_ <- function(x, size, implicit = FALSE) {
     .Call('_torch_tensor_expand_', PACKAGE = 'torch', x, size, implicit)
 }

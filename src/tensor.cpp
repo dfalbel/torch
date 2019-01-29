@@ -797,6 +797,46 @@ Rcpp::XPtr<torch::Tensor> tensor_exp__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log2_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log2());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log2__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log2_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log10_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log10());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log10__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log10_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log1p_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log1p());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log1p__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log1p_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_expand_ (Rcpp::XPtr<torch::Tensor> x,
                                        std::vector<std::int64_t> size,
                                        bool implicit = false) {

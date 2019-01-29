@@ -1285,3 +1285,58 @@ tch_randperm <- function(n, dtype = NULL, layout = NULL, device = NULL, requires
 tch_zeros <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
   `torch::Tensor`$dispatch(torch_zeros_(sizes, dtype, layout, device, requires_grad))
 }
+
+#' log
+#'
+#' Returns a new tensor with the logarithm of the elements of input. The available logarithm functions are:
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tch_randn(c(2,2))
+#'
+#' @name log
+NULL
+
+#' @rdname log
+#' @description tch_log: Natural logarithm.
+#'
+#' @examples
+#' tch_log(x)
+#'
+#' @export
+tch_log <- function(x) {
+  x$log()
+}
+
+#' @rdname log
+#' @description tch_log2: Base 2 logarithm.
+#'
+#' @examples
+#' tch_log2(x)
+#'
+#' @export
+tch_log2 <- function(x) {
+  x$log2()
+}
+
+#' @rdname log
+#' @description tch_log10: Base 10 logarithm.
+#'
+#' @examples
+#' tch_log10(x)
+#'
+#' @export
+tch_log10 <- function(x) {
+  x$log10()
+}
+
+#' @rdname log
+#' @description tch_log1p: Same as tch_log(1 + x). This function is more accurate than tch_log() for small values of x.
+#'
+#' @examples
+#' tch_log1p(x)
+#'
+#' @export
+tch_log1p <- function(x) {
+  x$log1p()
+}

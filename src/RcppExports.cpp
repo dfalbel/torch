@@ -1222,6 +1222,94 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_log_
+Rcpp::XPtr<torch::Tensor> tensor_log_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_log_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_log_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_log__
+Rcpp::XPtr<torch::Tensor> tensor_log__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_log__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_log__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_log2_
+Rcpp::XPtr<torch::Tensor> tensor_log2_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_log2_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_log2_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_log2__
+Rcpp::XPtr<torch::Tensor> tensor_log2__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_log2__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_log2__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_log10_
+Rcpp::XPtr<torch::Tensor> tensor_log10_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_log10_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_log10_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_log10__
+Rcpp::XPtr<torch::Tensor> tensor_log10__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_log10__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_log10__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_log1p_
+Rcpp::XPtr<torch::Tensor> tensor_log1p_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_log1p_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_log1p_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_log1p__
+Rcpp::XPtr<torch::Tensor> tensor_log1p__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_log1p__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_log1p__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_expand_
 Rcpp::XPtr<torch::Tensor> tensor_expand_(Rcpp::XPtr<torch::Tensor> x, std::vector<std::int64_t> size, bool implicit);
 RcppExport SEXP _torch_tensor_expand_(SEXP xSEXP, SEXP sizeSEXP, SEXP implicitSEXP) {
@@ -1650,6 +1738,14 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_erfinv__", (DL_FUNC) &_torch_tensor_erfinv__, 1},
     {"_torch_tensor_exp_", (DL_FUNC) &_torch_tensor_exp_, 1},
     {"_torch_tensor_exp__", (DL_FUNC) &_torch_tensor_exp__, 1},
+    {"_torch_tensor_log_", (DL_FUNC) &_torch_tensor_log_, 1},
+    {"_torch_tensor_log__", (DL_FUNC) &_torch_tensor_log__, 1},
+    {"_torch_tensor_log2_", (DL_FUNC) &_torch_tensor_log2_, 1},
+    {"_torch_tensor_log2__", (DL_FUNC) &_torch_tensor_log2__, 1},
+    {"_torch_tensor_log10_", (DL_FUNC) &_torch_tensor_log10_, 1},
+    {"_torch_tensor_log10__", (DL_FUNC) &_torch_tensor_log10__, 1},
+    {"_torch_tensor_log1p_", (DL_FUNC) &_torch_tensor_log1p_, 1},
+    {"_torch_tensor_log1p__", (DL_FUNC) &_torch_tensor_log1p__, 1},
     {"_torch_tensor_expand_", (DL_FUNC) &_torch_tensor_expand_, 3},
     {"_torch_tensor_expand_as_", (DL_FUNC) &_torch_tensor_expand_as_, 2},
     {"_torch_tensor_expm1_", (DL_FUNC) &_torch_tensor_expm1_, 1},
