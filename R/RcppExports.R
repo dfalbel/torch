@@ -421,6 +421,10 @@ tensor_flip_ <- function(x, dims) {
     .Call('_torch_tensor_flip_', PACKAGE = 'torch', x, dims)
 }
 
+tensor_float_ <- function(x) {
+    .Call('_torch_tensor_float_', PACKAGE = 'torch', x)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

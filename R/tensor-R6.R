@@ -443,6 +443,10 @@
       `torch::Tensor`$dispatch(tensor_flip_(self$pointer, dims))
     },
 
+    float = function() {
+      `torch::Tensor`$dispatch(tensor_float_(self$pointer))
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

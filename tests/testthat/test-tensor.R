@@ -839,6 +839,18 @@ test_that("flip works", {
   expect_equal((as.array(x$flip(1))), matrix(c(9L, 10L, 7L, 8L, 5L, 6L, 3L, 4L, 1L, 2L), nrow = 2))
 })
 
+test_that("float works", {
+  x <- tensor(1:10)
+  y <- x$float()
+  expect_equal(y$dtype(), "float")
+
+  # float does not copy
+  x <- tensor(1)
+  y <- x$float()
+  y$sub_(1)
+  expect_equal(as.array(x), 0)
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)
