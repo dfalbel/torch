@@ -473,6 +473,36 @@
       invisible(self)
     },
 
+    frac = function() {
+      `torch::Tensor`$dispatch(tensor_frac_(self$pointer))
+    },
+
+    frac_ = function() {
+      tensor_frac__(self$pointer)
+      invisible(self)
+    },
+
+    gather = function(dim, index) {
+      `torch::Tensor`$dispatch(tensor_gather_(self$pointer, dim, index$pointer))
+    },
+
+    ge = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_ge_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_ge_scalar_(self$pointer, other))
+      }
+    },
+
+    ge_ = function(other) {
+      if (is(other, "tensor")) {
+        tensor_ge_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_ge_scalar__(self$pointer, other)
+      }
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

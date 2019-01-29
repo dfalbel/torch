@@ -865,6 +865,36 @@ test_that("float works", {
   expect_equal(as.array(x), 0)
 })
 
+test_that("frac works", {
+  x <- tensor(c(2.5, 1.1))
+  expect_equal(as.array(x$frac()), c(0.5, 0.1), tol = 1e-6)
+  x$frac_()
+  expect_equal(as.array(x), c(0.5, 0.1), tol = 1e-6)
+})
+
+test_that("gather works", {
+  x <- tensor(c(1, 2))
+  expect_equal(as.array(x$gather(0, tensor(c(1L, 0L), dtype = "long"))), c(2,1))
+})
+
+test_that("ge works", {
+  x <- runif(100)
+  y <- runif(100)
+
+  x_t <- tensor(x)
+  y_t <- tensor(y)
+
+  expect_equal(as.array(x_t$ge(0.5)), x >= 0.5)
+  expect_equal(as.array(x_t$ge(y_t)), x >= y)
+
+  z <- tensor(1)
+  expect_equal(as.array(z$ge(1)), TRUE)
+  expect_equal(as.array(z$ge(0.99)), TRUE)
+
+  x_t$ge_(0.5)
+  expect_equal(as.array(x_t), as.numeric(x>= 0.5))
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

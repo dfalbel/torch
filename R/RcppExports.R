@@ -449,6 +449,34 @@ tensor_fmod_tensor__ <- function(x, other) {
     .Call('_torch_tensor_fmod_tensor__', PACKAGE = 'torch', x, other)
 }
 
+tensor_frac_ <- function(x) {
+    .Call('_torch_tensor_frac_', PACKAGE = 'torch', x)
+}
+
+tensor_frac__ <- function(x) {
+    .Call('_torch_tensor_frac__', PACKAGE = 'torch', x)
+}
+
+tensor_gather_ <- function(x, dim, index) {
+    .Call('_torch_tensor_gather_', PACKAGE = 'torch', x, dim, index)
+}
+
+tensor_ge_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_ge_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_ge_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_ge_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_ge_tensor__ <- function(x, other) {
+    .Call('_torch_tensor_ge_tensor__', PACKAGE = 'torch', x, other)
+}
+
+tensor_ge_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_ge_scalar__', PACKAGE = 'torch', x, other)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }
