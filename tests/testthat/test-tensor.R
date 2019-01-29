@@ -831,6 +831,14 @@ test_that("flatten works", {
   expect_equal(dim(as.array(x$flatten(end_dim = 1))), c(4,2))
 })
 
+test_that("flip works", {
+  x <- tensor(1:10)
+  expect_equal(as.array(x$flip(0)), 10:1)
+
+  x <- tensor(matrix(1:10, ncol = 5))
+  expect_equal((as.array(x$flip(1))), matrix(c(9L, 10L, 7L, 8L, 5L, 6L, 3L, 4L, 1L, 2L), nrow = 2))
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)

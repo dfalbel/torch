@@ -439,6 +439,10 @@
       `torch::Tensor`$dispatch(tensor_flatten_(self$pointer, start_dim, end_dim))
     },
 
+    flip = function(dims) {
+      `torch::Tensor`$dispatch(tensor_flip_(self$pointer, dims))
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
