@@ -802,6 +802,23 @@ tch_eig <- function(x, eigenvectors = FALSE) {
   x$eq(other)
 }
 
+#' Equal
+#'
+#' `TRUE` if two tensors have the same size and elements, `FALSE` otherwise.
+#'
+#' @param x tensor object
+#' @param other tensor object to compare
+#'
+#' @examples
+#' x <- tensor(c(1,2))
+#' y <- tensor(c(1,2))
+#' tch_equal(x, y)
+#'
+#' @export
+tch_equal <- function(x, other) {
+  x$equal(other)
+}
+
 #' Gels
 #'
 #' Computes the solution to the least squares and least norm problems for a full
@@ -1057,8 +1074,8 @@ tch_eye <- function(n, m = n, dtype = NULL, layout = NULL, device = NULL, requir
 #' returned tensor. Default: `FALSE`.
 #'
 #' @examples
-#' tch_full((2, 3), 3.141592)
-#' tch_full((2, 3, 4), 0)
+#' tch_full(c(2, 3), 3.141592)
+#' tch_full(c(2, 3, 4), 0)
 #'
 #' @export
 tch_full <- function(size, fill_value, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
@@ -1094,7 +1111,7 @@ tch_full <- function(size, fill_value, dtype = NULL, layout = NULL, device = NUL
 #'
 #' @export
 tch_linspace <- function(start, end, steps = 100, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  # `torch::Tensor`$dispatch(torch_linspace_(start, end, steps, dtype, layout, device, requires_grad))
+  `torch::Tensor`$dispatch(torch_linspace_(start, end, steps, dtype, layout, device, requires_grad))
 }
 
 
@@ -1126,7 +1143,7 @@ tch_linspace <- function(start, end, steps = 100, dtype = NULL, layout = NULL, d
 #'
 #' @export
 tch_logspace <- function(start, end, steps = 100, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  # `torch::Tensor`$dispatch(torch_logspace_(start, end, steps, dtype, layout, device, requires_grad))
+  `torch::Tensor`$dispatch(torch_logspace_(start, end, steps, dtype, layout, device, requires_grad))
 }
 
 
@@ -1202,13 +1219,14 @@ tch_rand <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires
 #' returned tensor. Default: `FALSE`.
 #'
 #' @examples
-#' tch_randint(3, 5, (3,))
-#' tch_randint(10, (2, 2))
-#' tch_randint(3, 10, (2, 2))
+#' tch_randint(3, 5, 3)
+#' tch_randint(10, c(2, 2))
+#' tch_randint(3, 10, c(2, 2))
 #'
 #' @export
 tch_randint <- function(low = 0, high = NULL, sizes = NULL, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  # this is necessary to make the call tch_randint(10, c(2, 2)) works because the first argument is low instead of high.
+  # this is necessary to make the call tch_randint(10, c(2, 2))
+  # works because the first argument is low instead of high.
   if(is.null(sizes)) {
     sizes <- high
     high <- low

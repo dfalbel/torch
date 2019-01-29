@@ -4,8 +4,8 @@
 \alias{tch_full}
 \title{Full tensor (one value filled tensor)}
 \usage{
-tch_full(size, fill_value, dtype = NULL, layout = NULL, device = NULL,
-  requires_grad = FALSE)
+tch_full(size, fill_value, dtype = NULL, layout = NULL,
+  device = NULL, requires_grad = FALSE)
 }
 \arguments{
 \item{size}{a sequence of integers defining the shape of the output tensor.}
@@ -29,7 +29,7 @@ returned tensor. Default: \code{FALSE}.}
 Returns a tensor of given size filled with fill_value.
 }
 \examples{
-tch_full((2, 3), 3.141592)
-tch_full((2, 3, 4), 0)
+tch_full(c(2, 3), 3.141592)
+tch_full(c(2, 3, 4), 0)
 
 }
