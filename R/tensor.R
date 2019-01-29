@@ -996,6 +996,23 @@ tch_max <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
   x$max(dim, keepdim, dtype)
 }
 
+#' logsumexp
+#'
+#' Returns the log(sum(exp(x))) of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim dimension in which to sum
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(runif(10))
+#' tch_logsumexp(x)
+#' @export
+tch_logsumexp <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  x$logsumexp(dim, keepdim, dtype)
+}
+
 #' matrix multiplication
 #'
 #' Performs matrix multiplication for 2 tensors.

@@ -528,6 +528,10 @@
       `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim, dtype))
     },
 
+    logsumexp = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim, dtype))
+    },
+
     mm = function(mat2) {
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },
