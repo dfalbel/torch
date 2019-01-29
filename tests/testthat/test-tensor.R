@@ -831,6 +831,13 @@ test_that("floor works", {
   expect_equal(as.array(x), 3)
 })
 
+test_that("fmod works", {
+  x <- tensor(3)
+  expect_equal(as.array(x$fmod(2)), 1)
+  x$fmod_(2)
+  expect_equal(as.array(x), 1)
+})
+
 test_that("flatten works", {
   x <- tch_randn(c(2,2,2))
   expect_equal(length(as.array(x$flatten())), 8)

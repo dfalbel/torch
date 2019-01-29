@@ -433,6 +433,22 @@ tensor_floor__ <- function(x) {
     .Call('_torch_tensor_floor__', PACKAGE = 'torch', x)
 }
 
+tensor_fmod_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_fmod_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_fmod_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_fmod_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_fmod_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_fmod_scalar__', PACKAGE = 'torch', x, other)
+}
+
+tensor_fmod_tensor__ <- function(x, other) {
+    .Call('_torch_tensor_fmod_tensor__', PACKAGE = 'torch', x, other)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }

@@ -456,6 +456,23 @@
       invisible(self)
     },
 
+    fmod = function(other) {
+      if(is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_fmod_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_fmod_scalar_(self$pointer, other))
+      }
+    },
+
+    fmod_ = function(other) {
+      if(is(other, "tensor")) {
+        tensor_fmod_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_fmod_scalar__(self$pointer, other)
+      }
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
