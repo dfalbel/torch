@@ -824,6 +824,13 @@ test_that("fill works", {
   expect_equal(as.array(x), matrix(0, nrow = 2, ncol = 2))
 })
 
+test_that("floor works", {
+  x <- tensor(pi)
+  expect_equal(as.array(x$floor()), 3)
+  x$floor_()
+  expect_equal(as.array(x), 3)
+})
+
 test_that("flatten works", {
   x <- tch_randn(c(2,2,2))
   expect_equal(length(as.array(x$flatten())), 8)

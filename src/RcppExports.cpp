@@ -1329,6 +1329,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_floor_
+Rcpp::XPtr<torch::Tensor> tensor_floor_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_floor_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_floor_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_floor__
+Rcpp::XPtr<torch::Tensor> tensor_floor__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_floor__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_floor__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_gels_
 Rcpp::List tensor_gels_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A);
 RcppExport SEXP _torch_tensor_gels_(SEXP xSEXP, SEXP ASEXP) {
@@ -1659,6 +1681,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_flatten_", (DL_FUNC) &_torch_tensor_flatten_, 3},
     {"_torch_tensor_flip_", (DL_FUNC) &_torch_tensor_flip_, 2},
     {"_torch_tensor_float_", (DL_FUNC) &_torch_tensor_float_, 1},
+    {"_torch_tensor_floor_", (DL_FUNC) &_torch_tensor_floor_, 1},
+    {"_torch_tensor_floor__", (DL_FUNC) &_torch_tensor_floor__, 1},
     {"_torch_tensor_gels_", (DL_FUNC) &_torch_tensor_gels_, 2},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},

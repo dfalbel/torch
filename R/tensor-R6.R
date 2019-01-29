@@ -447,6 +447,15 @@
       `torch::Tensor`$dispatch(tensor_float_(self$pointer))
     },
 
+    floor = function() {
+      `torch::Tensor`$dispatch(tensor_floor_(self$pointer))
+    },
+
+    floor_ = function() {
+      tensor_floor__(self$pointer)
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)

@@ -425,6 +425,14 @@ tensor_float_ <- function(x) {
     .Call('_torch_tensor_float_', PACKAGE = 'torch', x)
 }
 
+tensor_floor_ <- function(x) {
+    .Call('_torch_tensor_floor_', PACKAGE = 'torch', x)
+}
+
+tensor_floor__ <- function(x) {
+    .Call('_torch_tensor_floor__', PACKAGE = 'torch', x)
+}
+
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
 }
