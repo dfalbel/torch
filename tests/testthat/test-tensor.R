@@ -819,7 +819,7 @@ test_that("fill works", {
   x <- tch_empty(c(2,2))
   x$fill_(2)
   expect_equal(as.array(x), matrix(2, nrow = 2, ncol = 2))
-  y <- tch_empty(1)$sum()
+  y <- tensor(0)$sum()
   x$fill_(y)
   expect_equal(as.array(x), matrix(0, nrow = 2, ncol = 2))
 })
