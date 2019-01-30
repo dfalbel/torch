@@ -974,21 +974,6 @@ Rcpp::XPtr<torch::Tensor> tensor_min_ (Rcpp::XPtr<torch::Tensor> x,
   Rcpp::stop("Not yet implemented");
 }
 
-// [[Rcpp::export]]
-// Rcpp::XPtr<torch::Tensor> tensor_median_ (Rcpp::XPtr<torch::Tensor> x,
-//                                           Rcpp::Nullable<Rcpp::IntegerVector> dim,
-//                                           Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-//                                           Rcpp::Nullable<Rcpp::CharacterVector> dtype,
-//                                           Rcpp::Nullable<Rcpp::XPtr<torch::Tensor>> values,
-//                                           Rcpp::Nullable<Rcpp::XPtr<torch::Tensor>> indices) {
-//
-//   if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
-//     return make_tensor_ptr(x->median(values, indices));
-//   }
-//
-//   // TODO handle other sum arguments.
-//   Rcpp::stop("Not yet implemented");
-// }
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_max_ (Rcpp::XPtr<torch::Tensor> x,
@@ -1019,27 +1004,13 @@ Rcpp::XPtr<torch::Tensor> tensor_prod_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_mode_ (Rcpp::XPtr<torch::Tensor> x,
-                                        Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                        Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                        Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
-
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
-    return make_tensor_ptr(x->mode());
-  }
-
-  // TODO handle other sum arguments.
-  Rcpp::stop("Not yet implemented");
-}
-
-// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_logsumexp_ (Rcpp::XPtr<torch::Tensor> x,
-                                             Rcpp::Nullable<Rcpp::IntegerVector> dim,
+                                             std::int64_t dim,
                                              Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
                                              Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
-    return make_tensor_ptr(x->logsumexp());
+  if (keepdim.isNull() & dtype.isNull()) {
+    return make_tensor_ptr(x->logsumexp(dim));
   }
 
   // TODO handle other sum arguments.

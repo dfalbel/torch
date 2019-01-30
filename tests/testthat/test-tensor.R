@@ -937,8 +937,14 @@ test_that("mode works", {
 })
 
 test_that("logsumexp works", {
-  x <- runif(10) + 0.5
-  expect_equal(as.array(tch_logsumexp(tensor(x))), log(sum(exp(x))), tol = 1e-7)
+  logsumexp <- function(x) log(sum(exp(x)))
+
+  x <- array(runif(5*4*2), dim = c(5, 4, 2))
+  t_x <- tensor(x)
+
+  expect_equal(as.array(tch_logsumexp(t_x, 2)), apply(x, c(1, 2), logsumexp), tol = 1e-7)
+  expect_equal(as.array(tch_logsumexp(t_x, 1)), apply(x, c(1, 3), logsumexp), tol = 1e-7)
+  expect_equal(as.array(tch_logsumexp(t_x, 0)), apply(x, c(2, 3), logsumexp), tol = 1e-7)
 })
 
 test_that("mm works", {

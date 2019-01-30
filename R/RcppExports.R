@@ -485,6 +485,30 @@ tensor_mean_ <- function(x, dim, keepdim, dtype) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim, dtype)
 }
 
+tensor_var_ <- function(x, unbiased, dim, keepdim, dtype) {
+    .Call('_torch_tensor_var_', PACKAGE = 'torch', x, unbiased, dim, keepdim, dtype)
+}
+
+tensor_std_ <- function(x, unbiased, dim, keepdim, dtype) {
+    .Call('_torch_tensor_std_', PACKAGE = 'torch', x, unbiased, dim, keepdim, dtype)
+}
+
+tensor_min_ <- function(x, dim, keepdim, dtype) {
+    .Call('_torch_tensor_min_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+}
+
+tensor_max_ <- function(x, dim, keepdim, dtype) {
+    .Call('_torch_tensor_max_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+}
+
+tensor_prod_ <- function(x, dim, keepdim, dtype) {
+    .Call('_torch_tensor_prod_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+}
+
+tensor_logsumexp_ <- function(x, dim, keepdim, dtype) {
+    .Call('_torch_tensor_logsumexp_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+}
+
 tensor_mm_ <- function(x, mat2) {
     .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
 }
