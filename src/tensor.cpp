@@ -905,11 +905,75 @@ Rcpp::XPtr<torch::Tensor> tensor_float_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_floor_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->floor());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_floor__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->floor_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_fmod_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->fmod(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_fmod_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->fmod(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_fmod_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->fmod_(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_fmod_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->fmod_(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_frac_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->frac());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_frac__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->frac_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_gather_ (Rcpp::XPtr<torch::Tensor> x, int64_t dim, Rcpp::XPtr<torch::Tensor> index) {
+  return make_tensor_ptr(x->gather(dim, *index));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_ge_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->ge(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_ge_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->ge(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_ge_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->ge_(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_ge_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->ge_(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
 Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
   auto out = x->gels(*A);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
 }
-
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {

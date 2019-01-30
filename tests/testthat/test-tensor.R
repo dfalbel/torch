@@ -845,6 +845,20 @@ test_that("fill works", {
   expect_equal(as.array(x), matrix(0, nrow = 2, ncol = 2))
 })
 
+test_that("floor works", {
+  x <- tensor(pi)
+  expect_equal(as.array(x$floor()), 3)
+  x$floor_()
+  expect_equal(as.array(x), 3)
+})
+
+test_that("fmod works", {
+  x <- tensor(3)
+  expect_equal(as.array(x$fmod(2)), 1)
+  x$fmod_(2)
+  expect_equal(as.array(x), 1)
+})
+
 test_that("flatten works", {
   x <- tch_randn(c(2,2,2))
   expect_equal(length(as.array(x$flatten())), 8)
@@ -870,6 +884,36 @@ test_that("float works", {
   y <- x$float()
   y$sub_(1)
   expect_equal(as.array(x), 0)
+})
+
+test_that("frac works", {
+  x <- tensor(c(2.5, 1.1))
+  expect_equal(as.array(x$frac()), c(0.5, 0.1), tol = 1e-6)
+  x$frac_()
+  expect_equal(as.array(x), c(0.5, 0.1), tol = 1e-6)
+})
+
+test_that("gather works", {
+  x <- tensor(c(1, 2))
+  expect_equal(as.array(x$gather(0, tensor(c(1L, 0L), dtype = "long"))), c(2,1))
+})
+
+test_that("ge works", {
+  x <- runif(100)
+  y <- runif(100)
+
+  x_t <- tensor(x)
+  y_t <- tensor(y)
+
+  expect_equal(as.array(x_t$ge(0.5)), x >= 0.5)
+  expect_equal(as.array(x_t$ge(y_t)), x >= y)
+
+  z <- tensor(1)
+  expect_equal(as.array(z$ge(1)), TRUE)
+  expect_equal(as.array(z$ge(0.99)), TRUE)
+
+  x_t$ge_(0.5)
+  expect_equal(as.array(x_t), as.numeric(x>= 0.5))
 })
 
 test_that("gels works", {
