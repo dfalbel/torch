@@ -892,8 +892,8 @@ tch_gels <- function(x, A) {
 #' Returns the mean value of all elements in the x tensor.
 #'
 #' @param x tensor object
-#' @param dim dimension in which to sum
-#' @param keepdim wether to keep or not the dim
+#' @param dim the dimension to reduce
+#' @param keepdim whether the output tensor has dim retained or not
 #' @param dtype optionaly cast the sum result
 #'
 #' @examples
@@ -911,7 +911,7 @@ tch_mean <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
 #'
 #' @param x tensor object
 #' @param unbiased whether to use the unbiased estimation or not
-#' @param dim dimension in which to sum
+#' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
 #' @param dtype optionaly cast the sum result
 #'
@@ -931,7 +931,7 @@ tch_var <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL
 #'
 #' @param x tensor object
 #' @param unbiased whether to use the unbiased estimation or not
-#' @param dim dimension in which to sum
+#' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
 #' @param dtype optionaly cast the sum result
 #'
@@ -948,7 +948,7 @@ tch_std <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL
 #' Returns the minimum value of all elements in the x tensor.
 #'
 #' @param x tensor object
-#' @param dim dimension in which to sum
+#' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
 #' @param dtype optionaly cast the sum result
 #'
@@ -962,10 +962,12 @@ tch_min <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
 
 #' median
 #'
-#' Returns the median value of all elements in the x tensor.
+#' Returns the median value of each row of the input tensor in the given dimension dim.
+#' Also returns the index location of the median value as a LongTensor.
+#' By default, dim is the last dimension of the input tensor.
 #'
 #' @param x tensor object
-#' @param dim dimension in which to sum
+#' @param dim the dimension to reduce
 #' @param values the output tensor
 #' @param indices the output index tensor
 #' @param keepdim wether to keep or not the dim
@@ -979,12 +981,33 @@ tch_median <- function(x, dim = -1, values = NULL, indices = NULL, keepdim = NUL
   # x$median(dim, keepdim, dtype, values, indices)
 }
 
+#' mode
+#'
+#' Returns the mode value of each row of the x tensor in the given dimension dim.
+#' Also returns the index location of the mode value as a LongTensor.
+#' By default, dim is the last dimension of the input tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param values the output tensor
+#' @param indices the output index tensor
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tch_randn(4, 5)
+#' tch_mode(x)
+#' @export
+tch_mode <- function(x, dim = -1, values = NULL, indices = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  # x$mode(dim, keepdim, dtype, values, indices)
+}
+
 #' maX
 #'
 #' Returns the maximum value of all elements in the x tensor.
 #'
 #' @param x tensor object
-#' @param dim dimension in which to sum
+#' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
 #' @param dtype optionaly cast the sum result
 #'
@@ -996,12 +1019,29 @@ tch_max <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
   x$max(dim, keepdim, dtype)
 }
 
+#' prod
+#'
+#' Returns the product of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(runif(10))
+#' tch_prod(x)
+#' @export
+tch_prod <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+  x$prod(dim, keepdim, dtype)
+}
+
 #' logsumexp
 #'
 #' Returns the log(sum(exp(x))) of all elements in the x tensor.
 #'
 #' @param x tensor object
-#' @param dim dimension in which to sum
+#' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
 #' @param dtype optionaly cast the sum result
 #'
