@@ -1001,6 +1001,7 @@ Rcpp::XPtr<torch::Tensor> tensor_var_ (Rcpp::XPtr<torch::Tensor> x,
                                        Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
                                        Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
 
+
   if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
     return make_tensor_ptr(x->var(unbiased));
   }

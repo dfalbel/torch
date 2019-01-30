@@ -951,7 +951,7 @@ test_that("std works", {
   n <- 10
   x <- runif(n)
 
-  expect_equal(as.array(tch_std(tensor(x))), std(x), tol = 1e-7)
+  expect_equal(as.array(tch_std(tensor(x))), sd(x), tol = 1e-7)
   expect_equal(as.array(tch_std(tensor(x), unbiased = FALSE)), sd(x) * sqrt((n - 1)/n), tol = 1e-7)
 })
 

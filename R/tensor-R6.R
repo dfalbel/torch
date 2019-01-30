@@ -564,11 +564,11 @@
       `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
 
-    var = function(unbiased, dim = NULL, keepdim = NULL, dtype = NULL) {
+    var = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim, dtype))
     },
 
-    std = function(unbiased, dim = NULL, keepdim = NULL, dtype = NULL) {
+    std = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
     },
 
