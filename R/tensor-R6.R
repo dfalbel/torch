@@ -175,6 +175,11 @@
       `torch::Tensor`$dispatch(tensor_tanh_(self$pointer))
     },
 
+    tanh_ = function() {
+      tensor_tanh__(self$pointer)
+      invisible(NULL)
+    },
+
     backward = function(gradient = NULL, keep_graph = FALSE, create_graph = FALSE) {
       tensor_backward_(self$pointer, gradient$pointer, keep_graph, create_graph)
     },
