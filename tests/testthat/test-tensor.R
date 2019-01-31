@@ -1172,6 +1172,14 @@ test_that("sqrt works", {
   expect_equal(as.array(tch_sqrt(tensor(x))), sqrt(x), tol = 1e-7)
 })
 
+test_that("trunc works", {
+  x <- tensor(array(c(-1.1, -0.1, 0.1, 1.5, 1.51, 2.5, Inf)))
+  expect_equal(as.array(tch_trunc(x)), c(-1, 0, 0, 1, 1, 2, Inf), tol = 1e-7)
+
+  y <- tensor(array(c(0.5, 1.5, 2.5, 3.5, 4.5)))
+  expect_equal(as.array(tch_trunc(y)), c(0, 1, 2, 3, 4), tol = 1e-7)
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

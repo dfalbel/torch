@@ -570,6 +570,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_tan__
+Rcpp::XPtr<torch::Tensor> tensor_tan__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_tan__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_tan__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_tanh_
 Rcpp::XPtr<torch::Tensor> tensor_tanh_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_tanh_(SEXP xSEXP) {
@@ -578,6 +589,39 @@ BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_tanh_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_tanh__
+Rcpp::XPtr<torch::Tensor> tensor_tanh__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_tanh__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_tanh__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_trunc_
+Rcpp::XPtr<torch::Tensor> tensor_trunc_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_trunc_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_trunc_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_trunc__
+Rcpp::XPtr<torch::Tensor> tensor_trunc__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_trunc__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_trunc__(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -2115,7 +2159,11 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_atan_", (DL_FUNC) &_torch_tensor_atan_, 1},
     {"_torch_tensor_atan2_", (DL_FUNC) &_torch_tensor_atan2_, 2},
     {"_torch_tensor_tan_", (DL_FUNC) &_torch_tensor_tan_, 1},
+    {"_torch_tensor_tan__", (DL_FUNC) &_torch_tensor_tan__, 1},
     {"_torch_tensor_tanh_", (DL_FUNC) &_torch_tensor_tanh_, 1},
+    {"_torch_tensor_tanh__", (DL_FUNC) &_torch_tensor_tanh__, 1},
+    {"_torch_tensor_trunc_", (DL_FUNC) &_torch_tensor_trunc_, 1},
+    {"_torch_tensor_trunc__", (DL_FUNC) &_torch_tensor_trunc__, 1},
     {"_torch_tensor_backward_", (DL_FUNC) &_torch_tensor_backward_, 4},
     {"_torch_tensor_baddbmm_", (DL_FUNC) &_torch_tensor_baddbmm_, 5},
     {"_torch_tensor_bernoulli_", (DL_FUNC) &_torch_tensor_bernoulli_, 2},

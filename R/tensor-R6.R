@@ -715,6 +715,15 @@
       tensor_to_string_(self$pointer)
     },
 
+    trunc = function() {
+      `torch::Tensor`$dispatch(tensor_trunc_(self$pointer))
+    },
+
+    trunc_ = function() {
+      tensor_trunc__(self$pointer)
+      invisible(NULL)
+    },
+
     var = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim, dtype))
     },

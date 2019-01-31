@@ -169,8 +169,24 @@ tensor_tan_ <- function(x) {
     .Call('_torch_tensor_tan_', PACKAGE = 'torch', x)
 }
 
+tensor_tan__ <- function(x) {
+    .Call('_torch_tensor_tan__', PACKAGE = 'torch', x)
+}
+
 tensor_tanh_ <- function(x) {
     .Call('_torch_tensor_tanh_', PACKAGE = 'torch', x)
+}
+
+tensor_tanh__ <- function(x) {
+    .Call('_torch_tensor_tanh__', PACKAGE = 'torch', x)
+}
+
+tensor_trunc_ <- function(x) {
+    .Call('_torch_tensor_trunc_', PACKAGE = 'torch', x)
+}
+
+tensor_trunc__ <- function(x) {
+    .Call('_torch_tensor_trunc__', PACKAGE = 'torch', x)
 }
 
 tensor_backward_ <- function(x, gradient, keep_graph, create_graph) {

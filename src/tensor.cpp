@@ -478,6 +478,16 @@ Rcpp::XPtr<torch::Tensor> tensor_tanh__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_trunc_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->trunc());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_trunc__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->trunc_());
+}
+
+// [[Rcpp::export]]
 void tensor_backward_ (Rcpp::XPtr<torch::Tensor> x,
                        Rcpp::Nullable<Rcpp::XPtr<torch::Tensor>> gradient,
                        bool keep_graph, bool create_graph) {

@@ -1680,3 +1680,16 @@ tch_sign <- function(x) {
 tch_sqrt <- function(x) {
   x$sqrt()
 }
+
+#' trunc
+#'
+#' Returns a new tensor with the truncated integer values of the elements of x.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_trunc(x)
+#' @export
+tch_trunc <- function(x) {
+  x$trunc()
+}
