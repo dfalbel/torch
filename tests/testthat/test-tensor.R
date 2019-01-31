@@ -75,11 +75,19 @@ test_that("abs works", {
 
   x <- array(-runif(80), dim = c(20, 2, 2))
   expect_equal(as.array(tch_abs(tensor(x))), abs(x), tol = 1e-7)
+
+  x <- tensor(-1)
+  x$abs_()
+  expect_equal(as.array(x), 1)
 })
 
 test_that("acos works", {
   x <- array(-runif(80), dim = c(20, 2, 2))
   expect_equal(as.array(tch_acos(tensor(x))), acos(x), tol = 1e-7)
+
+  x <- tensor(1)
+  x$acos_()
+  expect_equal(as.array(x), acos(1), tol = 1e-7)
 })
 
 test_that("add works", {
@@ -305,11 +313,19 @@ test_that("as_strided works", {
 test_that("asin works", {
   x <- runif(100)
   expect_equal(as.array(tch_asin(tensor(x))), asin(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$asin_()
+  expect_equal(as.array(x_t), asin(x), tol = 1e-7)
 })
 
 test_that("sin works", {
   x <- runif(100)
   expect_equal(as.array(tch_sin(tensor(x))), sin(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$sin_()
+  expect_equal(as.array(x_t), sin(x), tol = 1e-7)
 })
 
 test_that("sinh works", {
@@ -320,6 +336,10 @@ test_that("sinh works", {
 test_that("atan works", {
   x <- runif(100)
   expect_equal(as.array(tch_atan(tensor(x))), atan(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$atan_()
+  expect_equal(as.array(x_t), atan(x), tol = 1e-7)
 })
 
 test_that("atan2 works", {
@@ -332,11 +352,19 @@ test_that("atan2 works", {
 test_that("tan works", {
   x <- runif(100)
   expect_equal(as.array(tch_tan(tensor(x))), tan(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$tan_()
+  expect_equal(as.array(x_t), tan(x), tol = 1e-7)
 })
 
 test_that("tanh works", {
   x <- runif(100)
   expect_equal(as.array(tch_tanh(tensor(x))), tanh(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$tanh_()
+  expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
 })
 
 test_that("backward works", {
@@ -1113,6 +1141,23 @@ test_that("log family works", {
   expect_equal(as.array(tch_log2(tensor(x))), log2(x), tol = 1e-7)
   expect_equal(as.array(tch_log10(tensor(x))), log10(x), tol = 1e-7)
   expect_equal(as.array(tch_log1p(tensor(x))), log1p(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$log_()
+  expect_equal(as.array(x_t), log(x), tol = 1e-7)
+
+
+  x_t <- tensor(x)
+  x_t$log2_()
+  expect_equal(as.array(x_t), log2(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$log10_()
+  expect_equal(as.array(x_t), log10(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$log1p_()
+  expect_equal(as.array(x_t), log1p(x), tol = 1e-7)
 })
 
 test_that("tril works", {
@@ -1166,6 +1211,10 @@ test_that("round works", {
 test_that("rsqrt works", {
   x <- array(c(0.1, 1.5, 1.51, 2.5, Inf))
   expect_equivalent(as.array(tch_rsqrt(tensor(x))), 1/sqrt(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$rsqrt_()
+  expect_equivalent(as.array(x_t), 1/sqrt(x), tol = 1e-7)
 })
 
 test_that("sigmoid works", {
@@ -1183,6 +1232,12 @@ test_that("sqrt works", {
   res <- as.array(tch_sqrt(tensor(x)))
   res2 <- as.numeric(sqrt(x))
   expect_equivalent(res, res2, tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$sqrt_()
+
+  res <- as.array(x_t)
+  expect_equivalent(res, res2, tol = 1e-7)
 })
 
 test_that("trunc works", {
@@ -1191,6 +1246,16 @@ test_that("trunc works", {
 
   y <- tensor(array(c(0.5, 1.5, 2.5, 3.5, 4.5)))
   expect_equal(as.array(tch_trunc(y)), c(0, 1, 2, 3, 4), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$trunc_()
+  expect_equal(as.array(x_t), c(-1, 0, 0, 1, 1, 2, Inf), tol = 1e-7)
+})
+
+test_that("zero_ works", {
+  x <- tensor(1)
+  x$zero_()
+  expect_equal(as.array(x), 0)
 })
 
 context("numeric tensors")
