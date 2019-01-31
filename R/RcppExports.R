@@ -621,6 +621,14 @@ tensor_t_ <- function(x) {
     .Call('_torch_tensor_t_', PACKAGE = 'torch', x)
 }
 
+tensor_tril_ <- function(x, diagonal) {
+    .Call('_torch_tensor_tril_', PACKAGE = 'torch', x, diagonal)
+}
+
+tensor_triu_ <- function(x, diagonal) {
+    .Call('_torch_tensor_triu_', PACKAGE = 'torch', x, diagonal)
+}
+
 tensor_to_ <- function(x, dtype, device, requires_grad) {
     .Call('_torch_tensor_to_', PACKAGE = 'torch', x, dtype, device, requires_grad)
 }

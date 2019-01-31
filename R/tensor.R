@@ -1564,3 +1564,49 @@ tch_log10 <- function(x) {
 tch_log1p <- function(x) {
   x$log1p()
 }
+
+#' Lower triangle
+#'
+#' Returns the lower triangular part of the matrix (2-D tensor) x, the other elements of the result tensor out are set to 0.
+#' The lower triangular part of the matrix is defined as the elements on and below the diagonal.
+#'
+#' The argument diagonal controls which diagonal to consider. If diagonal = 0, all elements on and below the main diagonal are retained.
+#' A positive value includes just as many diagonals above the main diagonal, and similarly a negative value excludes just as many diagonals below the main diagonal.
+#'
+#' @param x tensor object
+#' @diagonal integer. the diagonal to consider
+#'
+#' @examples
+#' x <- array(1:20, c(4, 5))
+#' tch_tril(tensor(x))
+#' tch_tril(tensor(x), 1)
+#' tch_tril(tensor(x), 2)
+#' tch_tril(tensor(x), -1)
+#' tch_tril(tensor(x), -2)
+#' @export
+tch_tril <- function(x, diagonal = 0) {
+  x$tril(diagonal)
+}
+
+#' Upper triangle
+#'
+#' Returns the upper triangular part of the matrix (2-D tensor) x, the other elements of the result tensor out are set to 0.
+#' The upper triangular part of the matrix is defined as the elements on and above the diagonal.
+#'
+#' The argument diagonal controls which diagonal to consider. If diagonal = 0, all elements on and above the main diagonal are retained.
+#' A positive value excludes just as many diagonals above the main diagonal, and similarly a negative value includes just as many diagonals below the main diagonal.
+#'
+#' @param x tensor object
+#' @diagonal integer. the diagonal to consider
+#'
+#' @examples
+#' x <- array(1:20, c(4, 5))
+#' tch_triu(tensor(x))
+#' tch_triu(tensor(x), 1)
+#' tch_triu(tensor(x), 2)
+#' tch_triu(tensor(x), -1)
+#' tch_triu(tensor(x), -2)
+#' @export
+tch_triu <- function(x, diagonal = 0) {
+  x$triu(diagonal)
+}

@@ -648,6 +648,14 @@
       `torch::Tensor`$dispatch(tensor_t_(self$pointer))
     },
 
+    tril = function(diagonal = 0) {
+      `torch::Tensor`$dispatch(tensor_tril_(self$pointer, diagonal))
+    },
+
+    triu = function(diagonal = 0) {
+      `torch::Tensor`$dispatch(tensor_triu_(self$pointer, diagonal))
+    },
+
     to = function(dtype = NULL, device = NULL, requires_grad = FALSE) {
       `torch::Tensor`$dispatch(tensor_to_(self$pointer, dtype, device, requires_grad))
     },

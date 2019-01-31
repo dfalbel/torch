@@ -1923,6 +1923,30 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_tril_
+Rcpp::XPtr<torch::Tensor> tensor_tril_(Rcpp::XPtr<torch::Tensor> x, std::int64_t diagonal);
+RcppExport SEXP _torch_tensor_tril_(SEXP xSEXP, SEXP diagonalSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type diagonal(diagonalSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_tril_(x, diagonal));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_triu_
+Rcpp::XPtr<torch::Tensor> tensor_triu_(Rcpp::XPtr<torch::Tensor> x, std::int64_t diagonal);
+RcppExport SEXP _torch_tensor_triu_(SEXP xSEXP, SEXP diagonalSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type diagonal(diagonalSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_triu_(x, diagonal));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_to_
 Rcpp::XPtr<torch::Tensor> tensor_to_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::string> dtype, Rcpp::Nullable<std::string> device, bool requires_grad);
 RcppExport SEXP _torch_tensor_to_(SEXP xSEXP, SEXP dtypeSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
@@ -2105,6 +2129,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_sub_scalar__", (DL_FUNC) &_torch_tensor_sub_scalar__, 3},
     {"_torch_tensor_sum_", (DL_FUNC) &_torch_tensor_sum_, 4},
     {"_torch_tensor_t_", (DL_FUNC) &_torch_tensor_t_, 1},
+    {"_torch_tensor_tril_", (DL_FUNC) &_torch_tensor_tril_, 2},
+    {"_torch_tensor_triu_", (DL_FUNC) &_torch_tensor_triu_, 2},
     {"_torch_tensor_to_", (DL_FUNC) &_torch_tensor_to_, 4},
     {"_torch_tensor_zero__", (DL_FUNC) &_torch_tensor_zero__, 1},
     {NULL, NULL, 0}

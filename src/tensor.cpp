@@ -1191,6 +1191,19 @@ Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->t());
 }
 
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tril_ (Rcpp::XPtr<torch::Tensor> x,
+                                        std::int64_t diagonal) {
+  return make_tensor_ptr(x->tril(diagonal));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_triu_ (Rcpp::XPtr<torch::Tensor> x,
+                                        std::int64_t diagonal) {
+  return make_tensor_ptr(x->triu(diagonal));
+}
+
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
                                       Rcpp::Nullable<std::string> dtype,

@@ -1104,6 +1104,46 @@ test_that("log family works", {
   expect_equal(as.array(tch_log1p(tensor(x))), log1p(x), tol = 1e-7)
 })
 
+test_that("tril works", {
+  x <- array(1, c(3, 3))
+  matrix_help <- function(x) matrix(x, 3, 3, byrow = TRUE)
+  expect_equal(as.array(tch_tril(tensor(x))), matrix_help(c(1, 0, 0,
+                                                            1, 1, 0,
+                                                            1, 1, 1)))
+  expect_equal(as.array(tch_tril(tensor(x), 1)), matrix_help(c(1, 1, 0,
+                                                               1, 1, 1,
+                                                               1, 1, 1)))
+  expect_equal(as.array(tch_tril(tensor(x), 2)), matrix_help(c(1, 1, 1,
+                                                               1, 1, 1,
+                                                               1, 1, 1)))
+  expect_equal(as.array(tch_tril(tensor(x), -1)), matrix_help(c(0, 0, 0,
+                                                                1, 0, 0,
+                                                                1, 1, 0)))
+  expect_equal(as.array(tch_tril(tensor(x), -2)), matrix_help(c(0, 0, 0,
+                                                                0, 0, 0,
+                                                                1, 0, 0)))
+})
+
+test_that("triu works", {
+  x <- array(1, c(3, 3))
+  matrix_help <- function(x) matrix(x, 3, 3, byrow = TRUE)
+  expect_equal(as.array(tch_triu(tensor(x))), matrix_help(c(1, 1, 1,
+                                                            0, 1, 1,
+                                                            0, 0, 1)))
+  expect_equal(as.array(tch_triu(tensor(x), 1)), matrix_help(c(0, 1, 1,
+                                                               0, 0, 1,
+                                                               0, 0, 0)))
+  expect_equal(as.array(tch_triu(tensor(x), 2)), matrix_help(c(0, 0, 1,
+                                                               0, 0, 0,
+                                                               0, 0, 0)))
+  expect_equal(as.array(tch_triu(tensor(x), -1)), matrix_help(c(1, 1, 1,
+                                                                1, 1, 1,
+                                                                0, 1, 1)))
+  expect_equal(as.array(tch_triu(tensor(x), -2)), matrix_help(c(1, 1, 1,
+                                                                1, 1, 1,
+                                                                1, 1, 1)))
+})
+
 
 context("numeric tensors")
 
