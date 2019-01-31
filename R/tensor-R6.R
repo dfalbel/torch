@@ -425,42 +425,6 @@
       invisible(self)
     },
 
-    log = function() {
-      `torch::Tensor`$dispatch(tensor_log_(self$pointer))
-    },
-
-    log_ = function() {
-      tensor_log__(self$pointer)
-      invisible(self)
-    },
-
-    log2 = function() {
-      `torch::Tensor`$dispatch(tensor_log2_(self$pointer))
-    },
-
-    log2_ = function() {
-      tensor_log2__(self$pointer)
-      invisible(self)
-    },
-
-    log10 = function() {
-      `torch::Tensor`$dispatch(tensor_log10_(self$pointer))
-    },
-
-    log10_ = function() {
-      tensor_log10__(self$pointer)
-      invisible(self)
-    },
-
-    log1p = function() {
-      `torch::Tensor`$dispatch(tensor_log1p_(self$pointer))
-    },
-
-    log1p_ = function() {
-      tensor_log1p__(self$pointer)
-      invisible(self)
-    },
-
     expand = function(sizes) {
       `torch::Tensor`$dispatch(tensor_expand_(self$pointer, sizes))
     },
@@ -560,28 +524,52 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
-    mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
+    log = function() {
+      `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },
 
-    var = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim, dtype))
+    log_ = function() {
+      tensor_log__(self$pointer)
+      invisible(self)
     },
 
-    std = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
+    log2 = function() {
+      `torch::Tensor`$dispatch(tensor_log2_(self$pointer))
     },
 
-    min = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_min_(self$pointer, dim, keepdim, dtype))
+    log2_ = function() {
+      tensor_log2__(self$pointer)
+      invisible(self)
+    },
+
+    log10 = function() {
+      `torch::Tensor`$dispatch(tensor_log10_(self$pointer))
+    },
+
+    log10_ = function() {
+      tensor_log10__(self$pointer)
+      invisible(self)
+    },
+
+    log1p = function() {
+      `torch::Tensor`$dispatch(tensor_log1p_(self$pointer))
+    },
+
+    log1p_ = function() {
+      tensor_log1p__(self$pointer)
+      invisible(self)
+    },
+
+    logsumexp = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim, dtype))
     },
 
     max = function(dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim, dtype))
     },
 
-    prod = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim, dtype))
+    mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
     },
 
     median = function(dim = -1, keepdim = FALSE) {
@@ -589,14 +577,13 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    min = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_min_(self$pointer, dim, keepdim, dtype))
+    },
+
     mode = function(dim = -1, keepdim = FALSE) {
       out <- tensor_mode_(self$pointer, dim, keepdim)
       lapply(out, `torch::Tensor`$dispatch)
-    },
-
-
-    logsumexp = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim, dtype))
     },
 
     mm = function(mat2) {
@@ -623,9 +610,17 @@
       }
     },
 
+    prod = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim, dtype))
+    },
+
     qr = function() {
       out <- tensor_qr_(self$pointer)
       lapply(out, `torch::Tensor`$dispatch)
+    },
+
+    std = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
     },
 
     sub = function(other, alpha = 1) {
@@ -659,6 +654,10 @@
 
     to_string = function () {
       tensor_to_string_(self$pointer)
+    },
+
+    var = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim, dtype))
     },
 
     zero_ = function() {
