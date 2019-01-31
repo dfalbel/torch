@@ -1693,3 +1693,21 @@ tch_sqrt <- function(x) {
 tch_trunc <- function(x) {
   x$trunc()
 }
+
+#' lerp
+#'
+#' Does a linear interpolation of two tensors start and end based on a scalar weight and returns the resulting out tensor.
+#'
+#' out = start - weight * (end - start)
+#'
+#' @param start the tensor with the starting points.
+#' @param end the tensor with the ending points.
+#' @param weight the weight for the interpolation formula.
+#' @examples
+#' start <- tch_arange(1, 5)
+#' end <- tch_empty(4)$fill_(10)
+#' tch_lerp(start, end, 0.5)
+#' @export
+tch_lerp <- function(start, end, weight) {
+  start$lerp(end, weight)
+}

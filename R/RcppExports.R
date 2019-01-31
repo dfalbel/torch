@@ -77,8 +77,16 @@ tensor_abs_ <- function(x) {
     .Call('_torch_tensor_abs_', PACKAGE = 'torch', x)
 }
 
+tensor_abs__ <- function(x) {
+    .Call('_torch_tensor_abs__', PACKAGE = 'torch', x)
+}
+
 tensor_acos_ <- function(x) {
     .Call('_torch_tensor_acos_', PACKAGE = 'torch', x)
+}
+
+tensor_acos__ <- function(x) {
+    .Call('_torch_tensor_acos__', PACKAGE = 'torch', x)
 }
 
 tensor_add_tensor_ <- function(x, y) {
@@ -145,6 +153,10 @@ tensor_asin_ <- function(x) {
     .Call('_torch_tensor_asin_', PACKAGE = 'torch', x)
 }
 
+tensor_asin__ <- function(x) {
+    .Call('_torch_tensor_asin__', PACKAGE = 'torch', x)
+}
+
 tensor_sin_ <- function(x) {
     .Call('_torch_tensor_sin_', PACKAGE = 'torch', x)
 }
@@ -159,6 +171,10 @@ tensor_sinh_ <- function(x) {
 
 tensor_atan_ <- function(x) {
     .Call('_torch_tensor_atan_', PACKAGE = 'torch', x)
+}
+
+tensor_atan__ <- function(x) {
+    .Call('_torch_tensor_atan__', PACKAGE = 'torch', x)
 }
 
 tensor_atan2_ <- function(x, other) {
@@ -523,6 +539,10 @@ tensor_frac_ <- function(x) {
 
 tensor_frac__ <- function(x) {
     .Call('_torch_tensor_frac__', PACKAGE = 'torch', x)
+}
+
+tensor_lerp_ <- function(start, end, weight) {
+    .Call('_torch_tensor_lerp_', PACKAGE = 'torch', start, end, weight)
 }
 
 tensor_gather_ <- function(x, dim, index) {

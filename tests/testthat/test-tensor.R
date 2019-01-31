@@ -859,6 +859,13 @@ test_that("fmod works", {
   expect_equal(as.array(x), 1)
 })
 
+test_that("lerp works", {
+  start <- tch_arange(1, 5)
+  end <- tch_empty(4)$fill_(10)
+
+  expect_equal(as.array(tch_lerp(start, end, 0.5)), c(5.5,  6,  6.5,  7))
+})
+
 test_that("flatten works", {
   x <- tch_randn(c(2,2,2))
   expect_equal(length(as.array(x$flatten())), 8)

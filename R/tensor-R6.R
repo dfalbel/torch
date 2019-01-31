@@ -173,6 +173,11 @@
       `torch::Tensor`$dispatch(tensor_atan_(self$pointer))
     },
 
+    atan_ = function() {
+      tensor_atan__(self$pointer)
+      invisible(NULL)
+    },
+
     atan2 = function(other) {
       `torch::Tensor`$dispatch(tensor_atan2_(self$pointer, other$pointer))
     },
@@ -526,6 +531,10 @@
     frac_ = function() {
       tensor_frac__(self$pointer)
       invisible(self)
+    },
+
+    lerp = function(end, weight) {
+      `torch::Tensor`$dispatch(tensor_lerp_(self$pointer, end$pointer, weight))
     },
 
     gather = function(dim, index) {

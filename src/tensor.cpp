@@ -468,6 +468,11 @@ Rcpp::XPtr<torch::Tensor> tensor_atan_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_atan__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->atan_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_atan2_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
   return make_tensor_ptr(x->atan2(*other));
 }
@@ -982,6 +987,14 @@ Rcpp::XPtr<torch::Tensor> tensor_frac_ (Rcpp::XPtr<torch::Tensor> x) {
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_frac__ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->frac_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_lerp_ (Rcpp::XPtr<torch::Tensor> start,
+                                        Rcpp::XPtr<torch::Tensor> end,
+                                        SEXP weight
+                                        ) {
+  return make_tensor_ptr(start->lerp(*end, scalar_from_r_(weight)));
 }
 
 // [[Rcpp::export]]
