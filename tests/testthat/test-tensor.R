@@ -1159,7 +1159,7 @@ test_that("rsqrt works", {
 
 test_that("sigmoid works", {
   x <- array(c(rnorm(10), Inf))
-  expect_equal(as.array(tch_sigmoid(tensor(x))), 1/sqrt(x), tol = 1e-7)
+  expect_equal(as.array(tch_sigmoid(tensor(x))), 1/(1 + exp(-x)), tol = 1e-7)
 })
 
 
