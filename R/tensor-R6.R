@@ -650,6 +650,16 @@
       invisible(NULL)
     },
 
+    sqrt = function() {
+      `torch::Tensor`$dispatch(tensor_sqrt_(self$pointer))
+    },
+
+    sqrt_ = function() {
+      tensor_sqrt__(self$pointer)
+      invisible(NULL)
+    },
+
+
     std = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
     },

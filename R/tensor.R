@@ -1639,7 +1639,7 @@ tch_rsqrt <- function(x) {
   x$rsqrt()
 }
 
-#' rsqrt
+#' sigmoid
 #'
 #' Returns a new tensor with the sigmoid of the elements of each of the elements of x: 1/(1 + exp(-x)).
 #'
@@ -1665,4 +1665,18 @@ tch_sigmoid <- function(x) {
 #' @export
 tch_sign <- function(x) {
   x$sign()
+}
+
+#' sqrt
+#'
+#' Returns a new tensor with the square-root of the elements of x
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sqrt(x)
+#' @export
+tch_sqrt <- function(x) {
+  x$sqrt()
 }

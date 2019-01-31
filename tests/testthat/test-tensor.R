@@ -1167,6 +1167,11 @@ test_that("sign works", {
   expect_equal(as.array(tch_sign(tensor(x))), sign(x), tol = 1e-7)
 })
 
+test_that("sqrt works", {
+  x <- array(c(0.1, 1.5, 1.51, 2.5, Inf))
+  expect_equal(as.array(tch_sqrt(tensor(x))), sqrt(x), tol = 1e-7)
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

@@ -1176,6 +1176,16 @@ Rcpp::XPtr<torch::Tensor> tensor_sign_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sqrt_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sqrt());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sqrt__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sqrt_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sub_tensor_ (Rcpp::XPtr<torch::Tensor> x,
                                               Rcpp::XPtr<torch::Tensor> other,
                                               SEXP alpha) {
