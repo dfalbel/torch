@@ -601,6 +601,14 @@ tensor_round_ <- function(x) {
     .Call('_torch_tensor_round_', PACKAGE = 'torch', x)
 }
 
+tensor_rsqrt_ <- function(x) {
+    .Call('_torch_tensor_rsqrt_', PACKAGE = 'torch', x)
+}
+
+tensor_rsqrt__ <- function(x) {
+    .Call('_torch_tensor_rsqrt__', PACKAGE = 'torch', x)
+}
+
 tensor_sub_tensor_ <- function(x, other, alpha) {
     .Call('_torch_tensor_sub_tensor_', PACKAGE = 'torch', x, other, alpha)
 }

@@ -1857,6 +1857,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_rsqrt_
+Rcpp::XPtr<torch::Tensor> tensor_rsqrt_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_rsqrt_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_rsqrt_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_rsqrt__
+Rcpp::XPtr<torch::Tensor> tensor_rsqrt__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_rsqrt__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_rsqrt__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_sub_tensor_
 Rcpp::XPtr<torch::Tensor> tensor_sub_tensor_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other, SEXP alpha);
 RcppExport SEXP _torch_tensor_sub_tensor_(SEXP xSEXP, SEXP otherSEXP, SEXP alphaSEXP) {
@@ -2135,6 +2157,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_pow_scalar_", (DL_FUNC) &_torch_tensor_pow_scalar_, 2},
     {"_torch_tensor_qr_", (DL_FUNC) &_torch_tensor_qr_, 1},
     {"_torch_tensor_round_", (DL_FUNC) &_torch_tensor_round_, 1},
+    {"_torch_tensor_rsqrt_", (DL_FUNC) &_torch_tensor_rsqrt_, 1},
+    {"_torch_tensor_rsqrt__", (DL_FUNC) &_torch_tensor_rsqrt__, 1},
     {"_torch_tensor_sub_tensor_", (DL_FUNC) &_torch_tensor_sub_tensor_, 3},
     {"_torch_tensor_sub_scalar_", (DL_FUNC) &_torch_tensor_sub_scalar_, 3},
     {"_torch_tensor_sub_tensor__", (DL_FUNC) &_torch_tensor_sub_tensor__, 3},

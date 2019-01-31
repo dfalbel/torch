@@ -1625,3 +1625,16 @@ tch_round <- function(x) {
   x$round()
 }
 
+#' rsqrt
+#'
+#' Returns a new tensor with the reciprocal of the square-root of each of the elements of x.
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(runif(6), nrow = 3))
+#' tch_rsqrt(x)
+#' @export
+tch_rsqrt <- function(x) {
+  x$rsqrt()
+}

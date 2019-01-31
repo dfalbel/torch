@@ -623,6 +623,15 @@
       `torch::Tensor`$dispatch(tensor_round_(self$pointer))
     },
 
+    rsqrt = function() {
+      `torch::Tensor`$dispatch(tensor_rsqrt_(self$pointer))
+    },
+
+    rsqrt_ = function() {
+      tensor_rsqrt__(self$pointer)
+      invisible(NULL)
+    },
+
     std = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
     },

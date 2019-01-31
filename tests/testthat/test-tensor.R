@@ -1152,6 +1152,11 @@ test_that("round works", {
   expect_equal(as.array(tch_round(y)), c(0, 2, 2, 4, 4), tol = 1e-7) #what??
 })
 
+test_that("rsqrt works", {
+  x <- array(c(0.1, 1.5, 1.51, 2.5, Inf))
+  expect_equal(as.array(tch_rsqrt(tensor(x))), 1/sqrt(x), tol = 1e-7)
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {
