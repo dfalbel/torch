@@ -617,6 +617,10 @@ tensor_sigmoid__ <- function(x) {
     .Call('_torch_tensor_sigmoid__', PACKAGE = 'torch', x)
 }
 
+tensor_sign_ <- function(x) {
+    .Call('_torch_tensor_sign_', PACKAGE = 'torch', x)
+}
+
 tensor_sub_tensor_ <- function(x, other, alpha) {
     .Call('_torch_tensor_sub_tensor_', PACKAGE = 'torch', x, other, alpha)
 }

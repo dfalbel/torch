@@ -1652,3 +1652,17 @@ tch_rsqrt <- function(x) {
 tch_sigmoid <- function(x) {
   x$sigmoid()
 }
+
+#' sign
+#'
+#' Returns a new tensor with the sign of the elements of x.
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sign(x)
+#' @export
+tch_sign <- function(x) {
+  x$sign()
+}

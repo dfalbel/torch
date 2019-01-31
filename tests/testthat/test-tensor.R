@@ -1162,6 +1162,10 @@ test_that("sigmoid works", {
   expect_equal(as.array(tch_sigmoid(tensor(x))), 1/(1 + exp(-x)), tol = 1e-7)
 })
 
+test_that("sign works", {
+  x <- array(c(rnorm(10), Inf))
+  expect_equal(as.array(tch_sign(tensor(x))), sign(x), tol = 1e-7)
+})
 
 context("numeric tensors")
 
