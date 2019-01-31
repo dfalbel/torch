@@ -463,6 +463,11 @@ Rcpp::XPtr<torch::Tensor> tensor_tan_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tan__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->tan_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_tanh_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->tanh());
 }

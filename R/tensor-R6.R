@@ -166,6 +166,11 @@
       `torch::Tensor`$dispatch(tensor_tan_(self$pointer))
     },
 
+    tan_ = function() {
+      tensor_tan__(self$pointer)
+      invisible(NULL)
+    },
+
     tanh = function() {
       `torch::Tensor`$dispatch(tensor_tanh_(self$pointer))
     },
