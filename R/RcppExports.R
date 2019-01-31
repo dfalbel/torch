@@ -573,8 +573,8 @@ tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }
 
-tensor_mean_ <- function(x, dim, keepdim, dtype) {
-    .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+tensor_mean_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
 tensor_var_ <- function(x, unbiased, dim, keepdim, dtype) {
@@ -605,8 +605,8 @@ tensor_mode_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mode_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
-tensor_logsumexp_ <- function(x, dim, keepdim, dtype) {
-    .Call('_torch_tensor_logsumexp_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+tensor_logsumexp_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_logsumexp_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
 tensor_mm_ <- function(x, mat2) {

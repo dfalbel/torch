@@ -939,14 +939,13 @@ tch_log1p <- function(x) {
 #' @param x tensor object
 #' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
-#' @param dtype optionaly cast the sum result
 #'
 #' @examples
 #' x <- tensor(runif(10))
-#' tch_logsumexp(x)
+#' tch_logsumexp(x, 1)
 #' @export
-tch_logsumexp <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  x$logsumexp(dim, keepdim, dtype)
+tch_logsumexp <- function(x, dim, keepdim = FALSE) {
+  x$logsumexp(dim, keepdim)
 }
 
 #' mean
@@ -956,14 +955,13 @@ tch_logsumexp <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = F
 #' @param x tensor object
 #' @param dim the dimension to reduce
 #' @param keepdim whether the output tensor has dim retained or not
-#' @param dtype optionaly cast the sum result
 #'
 #' @examples
 #' x <- tensor(runif(100))
 #' tch_mean(x)
 #' @export
-tch_mean <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  x$mean(dim, keepdim, dtype)
+tch_mean <- function(x, dim = NULL, keepdim = NULL) {
+  x$mean(dim, keepdim)
 }
 
 #' min

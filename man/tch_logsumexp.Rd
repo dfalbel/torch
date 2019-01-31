@@ -4,8 +4,7 @@
 \alias{tch_logsumexp}
 \title{logsumexp}
 \usage{
-tch_logsumexp(x, dim = NULL, keepdim = NULL, dtype = NULL,
-  na.rm = FALSE)
+tch_logsumexp(x, dim, keepdim = FALSE)
 }
 \arguments{
 \item{x}{tensor object}
@@ -13,13 +12,11 @@ tch_logsumexp(x, dim = NULL, keepdim = NULL, dtype = NULL,
 \item{dim}{the dimension to reduce}
 
 \item{keepdim}{wether to keep or not the dim}
-
-\item{dtype}{optionaly cast the sum result}
 }
 \description{
 Returns the log(sum(exp(x))) of all elements in the x tensor.
 }
 \examples{
 x <- tensor(runif(10))
-tch_logsumexp(x)
+tch_logsumexp(x, 1)
 }

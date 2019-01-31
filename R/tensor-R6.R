@@ -599,16 +599,16 @@
       invisible(self)
     },
 
-    logsumexp = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim, dtype))
+    logsumexp = function(dim, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim))
     },
 
     max = function(dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim, dtype))
     },
 
-    mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
+    mean = function(dim = NULL, keepdim = NULL) {
+      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim))
     },
 
     median = function(dim = -1, keepdim = FALSE) {

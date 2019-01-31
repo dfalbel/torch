@@ -1035,11 +1035,10 @@ Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
-                                        Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                        Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                        Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+                                        Rcpp::Nullable<std::int64_t> dim,
+                                        Rcpp::Nullable<bool> keepdim) {
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+  if (dim.isNull() & keepdim.isNull()) {
     return make_tensor_ptr(x->mean());
   }
 
@@ -1140,15 +1139,8 @@ Rcpp::List tensor_mode_ (Rcpp::XPtr<torch::Tensor> x,
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_logsumexp_ (Rcpp::XPtr<torch::Tensor> x,
                                              std::int64_t dim,
-                                             Rcpp::Nullable<bool> keepdim,
-                                             Rcpp::Nullable<std::string> dtype) {
-
-  if (keepdim.isNull() & dtype.isNull()) {
-    return make_tensor_ptr(x->logsumexp(dim));
-  }
-
-  // TODO handle other sum arguments.
-  Rcpp::stop("Not yet implemented");
+                                             bool keepdim) {
+  return make_tensor_ptr(x->logsumexp(dim, keepdim));
 }
 
 // [[Rcpp::export]]
