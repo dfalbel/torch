@@ -980,9 +980,8 @@ test_that("mode works", {
 
 test_that("median works", {
   x <- array(1:20, c(4,5))
-  expect_equal(lapply(tch_median(tensor(x)), as.array), list(array(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
-  expect_equal(lapply(tch_median(tensor(x), 1), as.array), list(array(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
-  expect_equal(lapply(tch_median(tensor(x), 0), as.array), list(array(c(2, 6, 10, 14, 18), c(1,5)), array(1, c(1,5))), tol = 1e-7)
+  expect_equal(lapply(tch_median(tensor(x)), as.matrix), list(matrix(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
+  expect_equal(lapply(tch_median(tensor(x), 1), as.matrix), list(matrix(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
 })
 
 test_that("max works", {
@@ -993,11 +992,6 @@ test_that("max works", {
 test_that("prod works", {
   x <- runif(10) + 1
   expect_equal(as.array(tch_prod(tensor(x))), prod(x), tol = 1e-6)
-})
-
-test_that("mode works", {
-  x <- runif(10)
-  expect_equal(as.array(tch_mode(tensor(x))), mode(x), tol = 1e-7)
 })
 
 test_that("logsumexp works", {
@@ -1165,22 +1159,24 @@ test_that("round works", {
 
 test_that("rsqrt works", {
   x <- array(c(0.1, 1.5, 1.51, 2.5, Inf))
-  expect_equal(as.array(tch_rsqrt(tensor(x))), 1/sqrt(x), tol = 1e-7)
+  expect_equivalent(as.array(tch_rsqrt(tensor(x))), 1/sqrt(x), tol = 1e-7)
 })
 
 test_that("sigmoid works", {
   x <- array(c(rnorm(10), Inf))
-  expect_equal(as.array(tch_sigmoid(tensor(x))), 1/(1 + exp(-x)), tol = 1e-7)
+  expect_equivalent(as.array(tch_sigmoid(tensor(x))), 1/(1 + exp(-x)), tol = 1e-7)
 })
 
 test_that("sign works", {
   x <- array(c(rnorm(10), Inf))
-  expect_equal(as.array(tch_sign(tensor(x))), sign(x), tol = 1e-7)
+  expect_equivalent(as.array(tch_sign(tensor(x))), sign(x), tol = 1e-7)
 })
 
 test_that("sqrt works", {
   x <- array(c(0.1, 1.5, 1.51, 2.5, Inf))
-  expect_equal(as.array(tch_sqrt(tensor(x))), sqrt(x), tol = 1e-7)
+  res <- as.array(tch_sqrt(tensor(x)))
+  res2 <- as.numeric(sqrt(x))
+  expect_equivalent(res, res2, tol = 1e-7)
 })
 
 test_that("trunc works", {
