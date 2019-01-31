@@ -607,7 +607,7 @@
       `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim, dtype))
     },
 
-    mean = function(dim = NULL, keepdim = NULL) {
+    mean = function(dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim))
     },
 

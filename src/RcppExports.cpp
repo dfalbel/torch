@@ -1750,14 +1750,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_mean_
-Rcpp::XPtr<torch::Tensor> tensor_mean_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::int64_t> dim, Rcpp::Nullable<bool> keepdim);
+Rcpp::XPtr<torch::Tensor> tensor_mean_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::vector<std::int64_t>> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_mean_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<std::int64_t> >::type dim(dimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<bool> >::type keepdim(keepdimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::vector<std::int64_t>> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_mean_(x, dim, keepdim));
     return rcpp_result_gen;
 END_RCPP

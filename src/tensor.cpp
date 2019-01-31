@@ -993,7 +993,7 @@ Rcpp::XPtr<torch::Tensor> tensor_frac__ (Rcpp::XPtr<torch::Tensor> x) {
 Rcpp::XPtr<torch::Tensor> tensor_lerp_ (Rcpp::XPtr<torch::Tensor> start,
                                         Rcpp::XPtr<torch::Tensor> end,
                                         SEXP weight
-                                        ) {
+) {
   return make_tensor_ptr(start->lerp(*end, scalar_from_r_(weight)));
 }
 
@@ -1035,14 +1035,16 @@ Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
-                                        Rcpp::Nullable<std::int64_t> dim,
-                                        Rcpp::Nullable<bool> keepdim) {
+                                        Rcpp::Nullable<std::vector<std::int64_t>> dim,
+                                        bool keepdim
+                                        ) {
 
-  if (dim.isNull() & keepdim.isNull()) {
+  if (dim.isNull()) {
     return make_tensor_ptr(x->mean());
+  } else if (dim.isNotNull()) {
+    return make_tensor_ptr(x->mean(Rcpp::as<std::vector<std::int64_t>>(dim), keepdim));
   }
 
-  // TODO handle other sum arguments.
   Rcpp::stop("Not yet implemented");
 }
 

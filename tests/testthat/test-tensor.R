@@ -944,6 +944,12 @@ test_that("gels works", {
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
+
+  x <- matrix(runif(10), nrow = 2)
+  expect_equal(as.array(tch_mean(tensor(x), dim = 0)), apply(x, 2, mean), tol = 1e-7)
+  expect_equal(as.array(tch_mean(tensor(x), 1)), apply(x, 1, mean), tol = 1e-7)
+  expect_equal(dim(as.array(tch_mean(tensor(x), dim = 0, keepdim = TRUE))), c(1,5))
+
 })
 
 test_that("var works", {

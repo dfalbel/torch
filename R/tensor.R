@@ -954,13 +954,13 @@ tch_logsumexp <- function(x, dim, keepdim = FALSE) {
 #'
 #' @param x tensor object
 #' @param dim the dimension to reduce
-#' @param keepdim whether the output tensor has dim retained or not
+#' @param keepdim whether the output tensor has dim retained or not. (ignored if dim is `NULL`)
 #'
 #' @examples
 #' x <- tensor(runif(100))
 #' tch_mean(x)
 #' @export
-tch_mean <- function(x, dim = NULL, keepdim = NULL) {
+tch_mean <- function(x, dim = NULL, keepdim = FALSE) {
   x$mean(dim, keepdim)
 }
 
