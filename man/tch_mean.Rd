@@ -4,17 +4,14 @@
 \alias{tch_mean}
 \title{mean}
 \usage{
-tch_mean(x, dim = NULL, keepdim = NULL, dtype = NULL,
-  na.rm = FALSE)
+tch_mean(x, dim = NULL, keepdim = FALSE)
 }
 \arguments{
 \item{x}{tensor object}
 
 \item{dim}{the dimension to reduce}
 
-\item{keepdim}{whether the output tensor has dim retained or not}
-
-\item{dtype}{optionaly cast the sum result}
+\item{keepdim}{whether the output tensor has dim retained or not. (ignored if dim is \code{NULL})}
 }
 \description{
 Returns the mean value of all elements in the x tensor.

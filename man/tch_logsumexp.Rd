@@ -18,5 +18,5 @@ Returns the log(sum(exp(x))) of all elements in the x tensor.
 }
 \examples{
 x <- tensor(runif(10))
-tch_logsumexp(x, 1)
+tch_logsumexp(x, 0)
 }

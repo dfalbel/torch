@@ -942,7 +942,7 @@ tch_log1p <- function(x) {
 #'
 #' @examples
 #' x <- tensor(runif(10))
-#' tch_logsumexp(x, 1)
+#' tch_logsumexp(x, 0)
 #' @export
 tch_logsumexp <- function(x, dim, keepdim = FALSE) {
   x$logsumexp(dim, keepdim)
