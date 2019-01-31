@@ -969,17 +969,15 @@ tch_min <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
 #'
 #' @param x tensor object
 #' @param dim the dimension to reduce
-#' @param values the output tensor
-#' @param indices the output index tensor
 #' @param keepdim wether to keep or not the dim
 #' @param dtype optionaly cast the sum result
 #'
 #' @examples
-#' x <- tch_randn(4, 5)
+#' x <- tch_randn(c(4, 5))
 #' tch_mode(x)
 #' @export
-tch_mode <- function(x, dim = -1, values = NULL, indices = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  # x$mode(dim, keepdim, dtype, values, indices)
+tch_mode <- function(x, dim = -1, keepdim = NULL) {
+  x$mode(dim, keepdim)
 }
 
 #' maX

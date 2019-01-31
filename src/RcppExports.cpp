@@ -1836,41 +1836,41 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_median_
-Rcpp::List tensor_median_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::LogicalVector keepdim);
+Rcpp::List tensor_median_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim);
 RcppExport SEXP _torch_tensor_median_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::LogicalVector >::type keepdim(keepdimSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_median_(x, dim, keepdim));
     return rcpp_result_gen;
 END_RCPP
 }
 // tensor_mode_
-Rcpp::List tensor_mode_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::LogicalVector keepdim);
+Rcpp::List tensor_mode_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim);
 RcppExport SEXP _torch_tensor_mode_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::LogicalVector >::type keepdim(keepdimSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_mode_(x, dim, keepdim));
     return rcpp_result_gen;
 END_RCPP
 }
 // tensor_logsumexp_
-Rcpp::XPtr<torch::Tensor> tensor_logsumexp_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::Nullable<Rcpp::LogicalVector> keepdim, Rcpp::Nullable<Rcpp::CharacterVector> dtype);
+Rcpp::XPtr<torch::Tensor> tensor_logsumexp_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::Nullable<bool> keepdim, Rcpp::Nullable<std::string> dtype);
 RcppExport SEXP _torch_tensor_logsumexp_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP, SEXP dtypeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::LogicalVector> >::type keepdim(keepdimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::CharacterVector> >::type dtype(dtypeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<bool> >::type keepdim(keepdimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type dtype(dtypeSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_logsumexp_(x, dim, keepdim, dtype));
     return rcpp_result_gen;
 END_RCPP

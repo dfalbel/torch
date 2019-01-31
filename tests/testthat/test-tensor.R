@@ -969,9 +969,13 @@ test_that("min works", {
 
 test_that("mode works", {
   x <- array(c(1 , 1, 1, 2, 2, 3, 3, 4, 4, 4), c(2,5))
-  expect_equal(lapply(tch_mode(tensor(x)), as.array), list(array(c(1, 4), c(2, 1)), array(c(1, 4), c(2, 1))), tol = 1e-7)
-  expect_equal(lapply(tch_mode(tensor(x), 1), as.array), list(array(c(1, 4), c(2, 1)), array(c(1, 4), c(2, 1))), tol = 1e-7)
-  expect_equal(lapply(tch_mode(tensor(x), 0), as.array), list(array(c(1, 1, 2, 3, 4), c(5, 1)), array(c(1, 0, 0, 0, 1), c(1, 5))), tol = 1e-7)
+  res <- lapply(tch_mode(tensor(x)), as.array)
+  expect_equivalent(res[[1]], array(c(1, 4), c(2, 1)))
+  expect_equivalent(res[[2]], array(c(1, 4), c(2, 1)))
+
+  res <- lapply(tch_mode(tensor(x), 0), as.array)
+  expect_equivalent(res[[1]], array(c(1, 1, 2, 3, 4), c(5, 1)))
+  expect_equivalent(res[[2]], array(c(1, 0, 0, 0, 1), c(1, 5)))
 })
 
 test_that("median works", {
