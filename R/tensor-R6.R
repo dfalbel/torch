@@ -145,6 +145,11 @@
       `torch::Tensor`$dispatch(tensor_sin_(self$pointer))
     },
 
+    sin_ = function(){
+      tensor_sin__(self$pointer)
+      invisible(NULL)
+    },
+
     sinh = function(){
       `torch::Tensor`$dispatch(tensor_sinh_(self$pointer))
     },

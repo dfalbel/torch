@@ -438,6 +438,11 @@ Rcpp::XPtr<torch::Tensor> tensor_sin_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sin__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sin_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sinh_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->sinh());
 }

@@ -149,6 +149,10 @@ tensor_sin_ <- function(x) {
     .Call('_torch_tensor_sin_', PACKAGE = 'torch', x)
 }
 
+tensor_sin__ <- function(x) {
+    .Call('_torch_tensor_sin__', PACKAGE = 'torch', x)
+}
+
 tensor_sinh_ <- function(x) {
     .Call('_torch_tensor_sinh_', PACKAGE = 'torch', x)
 }
