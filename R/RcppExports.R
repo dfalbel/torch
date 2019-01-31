@@ -557,6 +557,10 @@ tensor_prod_ <- function(x, dim, keepdim, dtype) {
     .Call('_torch_tensor_prod_', PACKAGE = 'torch', x, dim, keepdim, dtype)
 }
 
+tensor_median_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_median_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
 tensor_logsumexp_ <- function(x, dim, keepdim, dtype) {
     .Call('_torch_tensor_logsumexp_', PACKAGE = 'torch', x, dim, keepdim, dtype)
 }

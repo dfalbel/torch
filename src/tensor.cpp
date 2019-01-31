@@ -1067,6 +1067,15 @@ Rcpp::XPtr<torch::Tensor> tensor_prod_ (Rcpp::XPtr<torch::Tensor> x,
   Rcpp::stop("Not yet implemented");
 }
 
+//
+// [[Rcpp::export]]
+Rcpp::List tensor_median_ (Rcpp::XPtr<torch::Tensor> x,
+                           std::int64_t dim,
+                           Rcpp::LogicalVector keepdim) {
+  auto out = x->median(dim, keepdim);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_logsumexp_ (Rcpp::XPtr<torch::Tensor> x,
                                              std::int64_t dim,

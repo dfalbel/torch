@@ -2,30 +2,26 @@
 % Please edit documentation in R/tensor.R
 \name{tch_median}
 \alias{tch_median}
-\title{median}
+\title{prod}
 \usage{
-tch_median(x, dim = -1, values = NULL, indices = NULL,
-  keepdim = NULL, dtype = NULL, na.rm = FALSE)
+tch_median(x, dim = -1, keepdim = FALSE)
 }
 \arguments{
 \item{x}{tensor object}
 
 \item{dim}{the dimension to reduce}
 
-\item{values}{the output tensor}
-
-\item{indices}{the output index tensor}
-
 \item{keepdim}{wether to keep or not the dim}
-
-\item{dtype}{optionaly cast the sum result}
 }
 \description{
-Returns the median value of each row of the input tensor in the given dimension dim.
-Also returns the index location of the median value as a LongTensor.
+Returns the median value of each row of the input tensor in the given dimension dim. Also returns the index location of the median value as a LongTensor.
+}
+\details{
 By default, dim is the last dimension of the input tensor.
 }
 \examples{
-x <- tch_randn(4, 5)
+x <- tensor(array(1:20, c(5,4)))
 tch_median(x)
+tch_median(x, 0)
+tch_median(x, 1)
 }

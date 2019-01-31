@@ -960,26 +960,6 @@ tch_min <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
   x$min(dim, keepdim, dtype)
 }
 
-#' median
-#'
-#' Returns the median value of each row of the input tensor in the given dimension dim.
-#' Also returns the index location of the median value as a LongTensor.
-#' By default, dim is the last dimension of the input tensor.
-#'
-#' @param x tensor object
-#' @param dim the dimension to reduce
-#' @param values the output tensor
-#' @param indices the output index tensor
-#' @param keepdim wether to keep or not the dim
-#' @param dtype optionaly cast the sum result
-#'
-#' @examples
-#' x <- tch_randn(4, 5)
-#' tch_median(x)
-#' @export
-tch_median <- function(x, dim = -1, values = NULL, indices = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  # x$median(dim, keepdim, dtype, values, indices)
-}
 
 #' mode
 #'
@@ -1034,6 +1014,26 @@ tch_max <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
 #' @export
 tch_prod <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
   x$prod(dim, keepdim, dtype)
+}
+
+#' prod
+#'
+#' Returns the median value of each row of the input tensor in the given dimension dim. Also returns the index location of the median value as a LongTensor.
+#'
+#' By default, dim is the last dimension of the input tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(array(1:20, c(5,4)))
+#' tch_median(x)
+#' tch_median(x, 0)
+#' tch_median(x, 1)
+#' @export
+tch_median <- function(x, dim = -1, keepdim = FALSE) {
+  x$median(dim, keepdim)
 }
 
 #' logsumexp

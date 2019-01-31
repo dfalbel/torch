@@ -961,8 +961,10 @@ test_that("min works", {
 })
 
 test_that("median works", {
-  x <- runif(10)
-  expect_equal(as.array(tch_median(tensor(x))), median(x), tol = 1e-7)
+  x <- array(1:20, c(4,5))
+  expect_equal(lapply(tch_median(tensor(x)), as.array), list(array(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
+  expect_equal(lapply(tch_median(tensor(x), 1), as.array), list(array(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
+  expect_equal(lapply(tch_median(tensor(x), 0), as.array), list(array(c(2, 6, 10, 14, 18), c(1,5)), array(1, c(1,5))), tol = 1e-7)
 })
 
 test_that("max works", {
