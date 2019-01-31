@@ -8,6 +8,8 @@ tch_tril(x, diagonal = 0)
 }
 \arguments{
 \item{x}{tensor object}
+
+\item{diagonal}{integer. the diagonal to consider}
 }
 \description{
 Returns the lower triangular part of the matrix (2-D tensor) x, the other elements of the result tensor out are set to 0.
