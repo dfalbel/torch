@@ -314,6 +314,11 @@ Rcpp::XPtr<torch::Tensor> tensor_acos_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_acos__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->acos_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_add_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> y) {
   return make_tensor_ptr(x->add(*y));
 }

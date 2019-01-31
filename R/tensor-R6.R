@@ -72,6 +72,11 @@
       `torch::Tensor`$dispatch(tensor_acos_(self$pointer))
     },
 
+    acos_ = function() {
+      tensor_acos__(self$pointer)
+      invisible(NULL)
+    },
+
     add = function(y) {
       if (is(y, "tensor")) {
         `torch::Tensor`$dispatch(tensor_add_tensor_(self$pointer, y$pointer))
