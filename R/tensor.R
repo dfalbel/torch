@@ -919,8 +919,8 @@ tch_mean <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
 #' x <- tensor(runif(100))
 #' tch_var(x)
 #' @export
-tch_var <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  x$var(dim, unbiased, keepdim, dtype)
+tch_var <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
+  x$var(unbiased, dim, keepdim, dtype)
 }
 
 
@@ -940,7 +940,7 @@ tch_var <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL
 #' tch_std(x)
 #' @export
 tch_std <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  x$std(dim, unbiased, keepdim, dtype)
+  x$std(unbiased, dim, keepdim, dtype)
 }
 
 #' min

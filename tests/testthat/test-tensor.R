@@ -314,7 +314,7 @@ test_that("sin works", {
 
 test_that("sinh works", {
   x <- runif(100)
-  expect_equal(as.array(tch_sinh(tensor(x))), sin(x), tol = 1e-7)
+  expect_equal(as.array(tch_sinh(tensor(x))), sinh(x), tol = 1e-7)
 })
 
 test_that("atan works", {
@@ -951,7 +951,7 @@ test_that("std works", {
   n <- 10
   x <- runif(n)
 
-  expect_equal(as.array(tch_std(tensor(x))), std(x), tol = 1e-7)
+  expect_equal(as.array(tch_std(tensor(x))), sd(x), tol = 1e-7)
   expect_equal(as.array(tch_std(tensor(x), unbiased = FALSE)), sd(x) * sqrt((n - 1)/n), tol = 1e-7)
 })
 
@@ -974,7 +974,7 @@ test_that("max works", {
 
 test_that("prod works", {
   x <- runif(10) + 1
-  expect_equal(as.array(tch_prod(tensor(x))), prod(x), tol = 1e-7)
+  expect_equal(as.array(tch_prod(tensor(x))), prod(x), tol = 1e-6)
 })
 
 test_that("mode works", {
