@@ -1610,3 +1610,18 @@ tch_tril <- function(x, diagonal = 0) {
 tch_triu <- function(x, diagonal = 0) {
   x$triu(diagonal)
 }
+
+#' round
+#'
+#' Returns a new tensor with each of the elements of x rounded to the closest integer.
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(runif(6), nrow = 3))
+#' tch_round(x)
+#' @export
+tch_round <- function(x) {
+  x$round()
+}
+

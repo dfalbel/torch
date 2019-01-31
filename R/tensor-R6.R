@@ -619,6 +619,10 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    round = function() {
+      `torch::Tensor`$dispatch(tensor_round_(self$pointer))
+    },
+
     std = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
     },

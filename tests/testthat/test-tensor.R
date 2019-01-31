@@ -1144,6 +1144,13 @@ test_that("triu works", {
                                                                 1, 1, 1)))
 })
 
+test_that("round works", {
+  x <- tensor(array(c(-1.1, -0.1, 0.1, 1.5, 1.51, 2.5, Inf)))
+  expect_equal(as.array(tch_round(x)), c(-1, 0, 0, 2, 2, 2, Inf), tol = 1e-7)
+
+  y <- tensor(array(c(0.5, 1.5, 2.5, 3.5, 4.5)))
+  expect_equal(as.array(tch_round(y)), c(0, 2, 2, 4, 4), tol = 1e-7) #what??
+})
 
 context("numeric tensors")
 

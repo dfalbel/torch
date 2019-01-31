@@ -597,6 +597,10 @@ tensor_qr_ <- function(x) {
     .Call('_torch_tensor_qr_', PACKAGE = 'torch', x)
 }
 
+tensor_round_ <- function(x) {
+    .Call('_torch_tensor_round_', PACKAGE = 'torch', x)
+}
+
 tensor_sub_tensor_ <- function(x, other, alpha) {
     .Call('_torch_tensor_sub_tensor_', PACKAGE = 'torch', x, other, alpha)
 }
