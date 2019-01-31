@@ -10,7 +10,7 @@ tch_rsqrt(x)
 \item{x}{tensor object}
 }
 \description{
-Returns a new tensor with the reciprocal of the square-root of each of the elements of x.
+Returns a new tensor with the reciprocal of the square-root of each of the elements of x: 1/sqrt(x).
 }
 \examples{
 x <- tensor(matrix(runif(6), nrow = 3))

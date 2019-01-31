@@ -1156,6 +1156,16 @@ Rcpp::XPtr<torch::Tensor> tensor_rsqrt__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sigmoid_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sigmoid());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sigmoid__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sigmoid_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sub_tensor_ (Rcpp::XPtr<torch::Tensor> x,
                                               Rcpp::XPtr<torch::Tensor> other,
                                               SEXP alpha) {

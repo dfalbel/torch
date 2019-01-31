@@ -1627,7 +1627,7 @@ tch_round <- function(x) {
 
 #' rsqrt
 #'
-#' Returns a new tensor with the reciprocal of the square-root of each of the elements of x.
+#' Returns a new tensor with the reciprocal of the square-root of each of the elements of x: 1/sqrt(x).
 #'
 #' @param x tensor object
 #'
@@ -1637,4 +1637,18 @@ tch_round <- function(x) {
 #' @export
 tch_rsqrt <- function(x) {
   x$rsqrt()
+}
+
+#' rsqrt
+#'
+#' Returns a new tensor with the sigmoid of the elements of each of the elements of x: 1/(1 + exp(-x)).
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sigmoid(x)
+#' @export
+tch_sigmoid <- function(x) {
+  x$sigmoid()
 }

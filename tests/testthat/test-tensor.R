@@ -1157,6 +1157,12 @@ test_that("rsqrt works", {
   expect_equal(as.array(tch_rsqrt(tensor(x))), 1/sqrt(x), tol = 1e-7)
 })
 
+test_that("sigmoid works", {
+  x <- array(c(rnorm(10), Inf))
+  expect_equal(as.array(tch_sigmoid(tensor(x))), 1/sqrt(x), tol = 1e-7)
+})
+
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {

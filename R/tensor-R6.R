@@ -632,6 +632,15 @@
       invisible(NULL)
     },
 
+    sigmoid = function() {
+      `torch::Tensor`$dispatch(tensor_sigmoid_(self$pointer))
+    },
+
+    sigmoid_ = function() {
+      tensor_sigmoid__(self$pointer)
+      invisible(NULL)
+    },
+
     std = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
     },
