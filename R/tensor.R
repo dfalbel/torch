@@ -1016,11 +1016,12 @@ tch_prod <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
   x$prod(dim, keepdim, dtype)
 }
 
-#' prod
+#' median
 #'
-#' Returns the median value of each row of the input tensor in the given dimension dim. Also returns the index location of the median value as a LongTensor.
+#' Returns the median value of each row of the x tensor in the given dimension dim.
+#' Also returns the index location of the median value as a LongTensor.
 #'
-#' By default, dim is the last dimension of the input tensor.
+#' By default, dim is the last dimension of the x tensor.
 #'
 #' @param x tensor object
 #' @param dim the dimension to reduce
@@ -1034,6 +1035,26 @@ tch_prod <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
 #' @export
 tch_median <- function(x, dim = -1, keepdim = FALSE) {
   x$median(dim, keepdim)
+}
+
+#' mode
+#'
+#' Returns the mode value of each row of the x tensor in the given dimension dim.
+#' Also returns the index location of the mode value as a LongTensor.
+#' By default, dim is the last dimension of the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(array(1:20, c(5,4)))
+#' tch_mode(x)
+#' tch_mode(x, 0)
+#' tch_mode(x, 1)
+#' @export
+tch_mode <- function(x, dim = -1, keepdim = FALSE) {
+  x$mode(dim, keepdim)
 }
 
 #' logsumexp

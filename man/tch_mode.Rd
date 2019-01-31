@@ -4,28 +4,43 @@
 \alias{tch_mode}
 \title{mode}
 \usage{
-tch_mode(x, dim = -1, values = NULL, indices = NULL,
-  keepdim = NULL, dtype = NULL, na.rm = FALSE)
+tch_mode(x, dim = -1, keepdim = FALSE)
+
+tch_mode(x, dim = -1, keepdim = FALSE)
 }
 \arguments{
 \item{x}{tensor object}
 
 \item{dim}{the dimension to reduce}
 
+\item{keepdim}{wether to keep or not the dim}
+
 \item{values}{the output tensor}
 
 \item{indices}{the output index tensor}
 
-\item{keepdim}{wether to keep or not the dim}
-
 \item{dtype}{optionaly cast the sum result}
+
+\item{x}{tensor object}
+
+\item{dim}{the dimension to reduce}
+
+\item{keepdim}{wether to keep or not the dim}
 }
 \description{
 Returns the mode value of each row of the x tensor in the given dimension dim.
 Also returns the index location of the mode value as a LongTensor.
 By default, dim is the last dimension of the input tensor.
+
+Returns the mode value of each row of the x tensor in the given dimension dim.
+Also returns the index location of the mode value as a LongTensor.
+By default, dim is the last dimension of the x tensor.
 }
 \examples{
 x <- tch_randn(4, 5)
 tch_mode(x)
+x <- tensor(array(1:20, c(5,4)))
+tch_mode(x)
+tch_mode(x, 0)
+tch_mode(x, 1)
 }

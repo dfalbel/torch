@@ -576,11 +576,6 @@
       `torch::Tensor`$dispatch(tensor_min_(self$pointer, dim, keepdim, dtype))
     },
 
-    # mode = function(dim = -1, values = NULL, indices = NULL, keepdim = NULL, dtype = NULL) {
-    #   `torch::Tensor`$dispatch(tensor_mode_(self$pointer, dim, values, indices, keepdim, dtype))
-    # },
-
-
     max = function(dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim, dtype))
     },
@@ -593,6 +588,12 @@
       out <- tensor_median_(self$pointer, dim, keepdim)
       lapply(out, `torch::Tensor`$dispatch)
     },
+
+    mode = function(dim = -1, keepdim = FALSE) {
+      out <- tensor_mode_(self$pointer, dim, keepdim)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
 
     logsumexp = function(dim = NULL, keepdim = NULL, dtype = NULL) {
       `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim, dtype))

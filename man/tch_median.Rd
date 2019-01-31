@@ -2,7 +2,7 @@
 % Please edit documentation in R/tensor.R
 \name{tch_median}
 \alias{tch_median}
-\title{prod}
+\title{median}
 \usage{
 tch_median(x, dim = -1, keepdim = FALSE)
 }
@@ -14,10 +14,11 @@ tch_median(x, dim = -1, keepdim = FALSE)
 \item{keepdim}{wether to keep or not the dim}
 }
 \description{
-Returns the median value of each row of the input tensor in the given dimension dim. Also returns the index location of the median value as a LongTensor.
+Returns the median value of each row of the x tensor in the given dimension dim.
+Also returns the index location of the median value as a LongTensor.
 }
 \details{
-By default, dim is the last dimension of the input tensor.
+By default, dim is the last dimension of the x tensor.
 }
 \examples{
 x <- tensor(array(1:20, c(5,4)))

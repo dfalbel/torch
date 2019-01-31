@@ -1736,6 +1736,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_mode_
+Rcpp::List tensor_mode_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::LogicalVector keepdim);
+RcppExport SEXP _torch_tensor_mode_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::LogicalVector >::type keepdim(keepdimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_mode_(x, dim, keepdim));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_logsumexp_
 Rcpp::XPtr<torch::Tensor> tensor_logsumexp_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::Nullable<Rcpp::LogicalVector> keepdim, Rcpp::Nullable<Rcpp::CharacterVector> dtype);
 RcppExport SEXP _torch_tensor_logsumexp_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP, SEXP dtypeSEXP) {
@@ -2077,6 +2090,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_max_", (DL_FUNC) &_torch_tensor_max_, 4},
     {"_torch_tensor_prod_", (DL_FUNC) &_torch_tensor_prod_, 4},
     {"_torch_tensor_median_", (DL_FUNC) &_torch_tensor_median_, 3},
+    {"_torch_tensor_mode_", (DL_FUNC) &_torch_tensor_mode_, 3},
     {"_torch_tensor_logsumexp_", (DL_FUNC) &_torch_tensor_logsumexp_, 4},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},
     {"_torch_tensor_mul_tensor_", (DL_FUNC) &_torch_tensor_mul_tensor_, 2},

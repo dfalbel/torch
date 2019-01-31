@@ -5,7 +5,7 @@
 \title{var}
 \usage{
 tch_var(x, unbiased = TRUE, dim = NULL, keepdim = NULL,
-  dtype = NULL, na.rm = FALSE)
+  dtype = NULL)
 }
 \arguments{
 \item{x}{tensor object}
