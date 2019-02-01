@@ -5,8 +5,10 @@ matrix:
   include:
     - os: linux
     - os: linux
-      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-macos-latest.zip
+      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
     - os: osx
+    - os: osx
+      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-macos-latest.zip
 sudo: true
 cache: packages
 warnings_are_errors: false
