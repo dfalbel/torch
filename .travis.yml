@@ -1,9 +1,12 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
-os:
-  - linux
-  - osx
+matrix:
+  include:
+    - os: linux
+    - os: linux
+      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-macos-latest.zip
+    - os: osx
 sudo: true
 cache: packages
 warnings_are_errors: false
