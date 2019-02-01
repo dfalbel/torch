@@ -1003,12 +1003,16 @@ test_that("min works", {
 
 test_that("mode works", {
   x <- array(c(1 , 1, 1, 2, 2, 3, 3, 4, 4, 4), c(2,5))
-  res <- lapply(tch_mode(tensor(x)), as.array)
+  res <- lapply(tch_mode(tensor(x)), as.matrix)
   expect_equivalent(res[[1]], array(c(1, 4), c(2, 1)))
   expect_equivalent(res[[2]], array(c(1, 4), c(2, 1)))
 
-  res <- lapply(tch_mode(tensor(x), 0), as.array)
+  res <- lapply(tch_mode(tensor(x), 0), as.matrix)
   expect_equivalent(res[[1]], array(c(1, 1, 2, 3, 4), c(5, 1)))
+  expect_equivalent(res[[2]], array(c(1, 0, 0, 0, 1), c(5, 1)))
+
+  res <- lapply(tch_mode(tensor(x), 0, TRUE), as.matrix)
+  expect_equivalent(res[[1]], array(c(1, 1, 2, 3, 4), c(1, 5)))
   expect_equivalent(res[[2]], array(c(1, 0, 0, 0, 1), c(1, 5)))
 })
 
