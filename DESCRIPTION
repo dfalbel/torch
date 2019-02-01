@@ -19,7 +19,6 @@ LinkingTo:
 Imports:
     Rcpp,
     R6,
-    glue,
     withr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
