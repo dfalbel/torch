@@ -26,6 +26,16 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// function_print
+void function_print(Rcpp::XPtr<std::shared_ptr<torch::autograd::Function>> x);
+RcppExport SEXP _torch_function_print(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<std::shared_ptr<torch::autograd::Function>> >::type x(xSEXP);
+    function_print(x);
+    return R_NilValue;
+END_RCPP
+}
 // tensor_from_r_
 Rcpp::XPtr<torch::Tensor> tensor_from_r_(SEXP x, std::vector<int64_t> dim, Rcpp::Nullable<std::string> dtype, Rcpp::Nullable<std::string> device, bool requires_grad);
 RcppExport SEXP _torch_tensor_from_r_(SEXP xSEXP, SEXP dimSEXP, SEXP dtypeSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
@@ -1494,6 +1504,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_grad_fn_
+Rcpp::XPtr<std::shared_ptr<torch::autograd::Function>> tensor_grad_fn_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_grad_fn_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_grad_fn_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_grad_
 Rcpp::XPtr<torch::Tensor> tensor_grad_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_grad_(SEXP xSEXP) {
@@ -1708,6 +1729,7 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_torch_cuda_is_available_", (DL_FUNC) &_torch_cuda_is_available_, 0},
     {"_torch_set_grad_mode", (DL_FUNC) &_torch_set_grad_mode, 1},
+    {"_torch_function_print", (DL_FUNC) &_torch_function_print, 1},
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 5},
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
@@ -1826,6 +1848,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_ge_tensor__", (DL_FUNC) &_torch_tensor_ge_tensor__, 2},
     {"_torch_tensor_ge_scalar__", (DL_FUNC) &_torch_tensor_ge_scalar__, 2},
     {"_torch_tensor_gels_", (DL_FUNC) &_torch_tensor_gels_, 2},
+    {"_torch_tensor_grad_fn_", (DL_FUNC) &_torch_tensor_grad_fn_, 1},
     {"_torch_tensor_grad_", (DL_FUNC) &_torch_tensor_grad_, 1},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 4},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},

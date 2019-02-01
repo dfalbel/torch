@@ -1,0 +1,77 @@
+---
+title: "Autograd: Automatic Differentiation"
+author: "Daniel Falbel"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+> This document is an R translation for the [article with the same name](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html#sphx-glr-beginner-blitz-autograd-tutorial-py) 
+> in PyTorch docs.
+
+Central to all neural networks in `torch` is the autograd package. Let’s first briefly visit this, and we will then go to training our first neural network.
+
+The `autograd` feature provides automatic differentiation for all operations on Tensors. It is a define-by-run framework, which means that your backprop is defined by how your code is run, and that every single iteration can be different.
+
+Let us see this in more simple terms with some examples.
+
+## Tensor
+
+`tensor` is the central class of the package. If you set its attribute `$requires_grad` as `TRUE`, 
+it starts to track all operations on it. When you finish your computation you can 
+call `$backward()` and have all the gradients computed automatically. 
+The gradient for this tensor will be accumulated into `$grad` attribute.
+
+To stop a tensor from tracking history, you can call `$detach()` to detach it 
+from the computation history, and to prevent future computation from being tracked.
+
+To prevent tracking history (and using memory), you can also wrap the code block in with `with_no_grad()`. 
+This can be particularly helpful when evaluating a model because the model may have
+trainable parameters with `requires_grad=TRUE`, but for which we don’t need the gradients.
+
+There’s one more class which is very important for autograd implementation - a `Function`.
+
+`tensor` and `Function` are interconnected and build up an acyclic graph, that encodes
+a complete history of computation. Each tensor has a `$grad_fn` attribute that references 
+a `Function` that has created the `tensor` (except for Tensors created by the user - their `grad_fn` is `NULL`).
+
+If you want to compute the derivatives, you can call `$backward()` on a `tensor`. 
+If Tensor is a scalar (i.e. it holds a one element data), you don’t need to specify 
+any arguments to backward(), however if it has more elements, you need to specify 
+a gradient argument that is a `tensor` of matching shape.
+
+```{r}
+library(torch)
+```
+
+Create a tensor and set `requires_grad=TRUE` to track computation with it:
+
+```{r}
+x <- tch_ones(c(2,2), requires_grad = TRUE)
+x
+```
+
+Do a tensor operation:
+
+```{r}
+y <- x + 2
+y
+```
+
+`y` was created as a result of an operation so it has a `grad_fn`:
+
+```{r, eval = FALSE}
+y$grad_fn
+```
+
+

@@ -9,6 +9,10 @@ set_grad_mode <- function(enabled) {
     invisible(.Call('_torch_set_grad_mode', PACKAGE = 'torch', enabled))
 }
 
+function_print <- function(x) {
+    invisible(.Call('_torch_function_print', PACKAGE = 'torch', x))
+}
+
 tensor_from_r_ <- function(x, dim, dtype, device, requires_grad = FALSE) {
     .Call('_torch_tensor_from_r_', PACKAGE = 'torch', x, dim, dtype, device, requires_grad)
 }
@@ -479,6 +483,10 @@ tensor_ge_scalar__ <- function(x, other) {
 
 tensor_gels_ <- function(x, A) {
     .Call('_torch_tensor_gels_', PACKAGE = 'torch', x, A)
+}
+
+tensor_grad_fn_ <- function(x) {
+    .Call('_torch_tensor_grad_fn_', PACKAGE = 'torch', x)
 }
 
 tensor_grad_ <- function(x) {

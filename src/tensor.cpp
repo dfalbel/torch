@@ -9,6 +9,17 @@ Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
   return Rcpp::XPtr<torch::Tensor>(out);
 }
 
+Rcpp::XPtr<std::shared_ptr<torch::autograd::Function>> make_function_ptr (std::shared_ptr<torch::autograd::Function> x) {
+  auto * out = new std::shared_ptr<torch::autograd::Function>(x);
+  return Rcpp::XPtr<std::shared_ptr<torch::autograd::Function>>(out);
+}
+
+// [[Rcpp::export]]
+void function_print (Rcpp::XPtr<std::shared_ptr<torch::autograd::Function>> x) {
+  auto out = x->get();
+  Rcpp::Rcout << out << std::endl;
+}
+
 // Tensor from R code ----------------------------------------------------------
 
 std::vector<int64_t> reverse_int_seq (int n) {
@@ -916,9 +927,18 @@ Rcpp::List tensor_gels_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> 
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<std::shared_ptr<torch::autograd::Function>> tensor_grad_fn_ (Rcpp::XPtr<torch::Tensor> x) {
+  torch::autograd::Variable y(*x);
+  auto test = y.grad_fn().get()->cdata;
+  Rcpp::Rcout << test.name() << std::endl;
+  return make_function_ptr(y.grad_fn());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->grad());
 }
+
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
