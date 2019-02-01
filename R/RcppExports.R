@@ -597,8 +597,12 @@ tensor_prod_ <- function(x, dim, keepdim, dtype) {
     .Call('_torch_tensor_prod_', PACKAGE = 'torch', x, dim, keepdim, dtype)
 }
 
-tensor_median_ <- function(x, dim, keepdim) {
-    .Call('_torch_tensor_median_', PACKAGE = 'torch', x, dim, keepdim)
+tensor_median_dim_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_median_dim_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_median_ <- function(x) {
+    .Call('_torch_tensor_median_', PACKAGE = 'torch', x)
 }
 
 tensor_mode_ <- function(x, dim, keepdim) {

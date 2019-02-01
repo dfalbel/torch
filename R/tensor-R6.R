@@ -611,9 +611,13 @@
       `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim))
     },
 
-    median = function(dim = -1, keepdim = FALSE) {
-      out <- tensor_median_(self$pointer, dim, keepdim)
-      lapply(out, `torch::Tensor`$dispatch)
+    median = function(dim = NULL, keepdim = FALSE) {
+      if(is.null(dim)) {
+        `torch::Tensor`$dispatch(tensor_median_(self$pointer))
+      } else if(!is.null(dim)) {
+        out <- tensor_median_dim_(self$pointer, dim, keepdim)
+        lapply(out, `torch::Tensor`$dispatch)
+      }
     },
 
     min = function(dim = NULL, keepdim = FALSE) {

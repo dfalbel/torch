@@ -1016,7 +1016,7 @@ tch_max <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
 #' tch_median(x, 0)
 #' tch_median(x, 1)
 #' @export
-tch_median <- function(x, dim = -1, keepdim = FALSE) {
+tch_median <- function(x, dim = NULL, keepdim = FALSE) {
   x$median(dim, keepdim)
 }
 

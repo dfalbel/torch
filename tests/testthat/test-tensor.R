@@ -1014,8 +1014,11 @@ test_that("mode works", {
 
 test_that("median works", {
   x <- array(1:20, c(4,5))
-  expect_equal(lapply(tch_median(tensor(x)), as.matrix), list(matrix(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
+  expect_equal(lapply(tch_median(tensor(x), 0), as.matrix), list(matrix(c(2, 6, 10, 14, 18), c(5,1)), array(1, c(5,1))), tol = 1e-7)
+  expect_equal(lapply(tch_median(tensor(x), 0, TRUE), as.matrix), list(matrix(c(2, 6, 10, 14, 18), c(1,5)), array(1, c(1,5))), tol = 1e-7)
   expect_equal(lapply(tch_median(tensor(x), 1), as.matrix), list(matrix(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
+  expect_equal(as.matrix(tch_median(tensor(x))), matrix(10, c(1,1)), tol = 1e-7)
+
 })
 
 test_that("max works", {

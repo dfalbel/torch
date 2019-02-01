@@ -1834,16 +1834,27 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// tensor_median_
-Rcpp::List tensor_median_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim);
-RcppExport SEXP _torch_tensor_median_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
+// tensor_median_dim_
+Rcpp::List tensor_median_dim_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, bool keepdim);
+RcppExport SEXP _torch_tensor_median_dim_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
     Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
-    rcpp_result_gen = Rcpp::wrap(tensor_median_(x, dim, keepdim));
+    rcpp_result_gen = Rcpp::wrap(tensor_median_dim_(x, dim, keepdim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_median_
+Rcpp::XPtr<torch::Tensor> tensor_median_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_median_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_median_(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -2321,7 +2332,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_min_", (DL_FUNC) &_torch_tensor_min_, 4},
     {"_torch_tensor_max_", (DL_FUNC) &_torch_tensor_max_, 4},
     {"_torch_tensor_prod_", (DL_FUNC) &_torch_tensor_prod_, 4},
-    {"_torch_tensor_median_", (DL_FUNC) &_torch_tensor_median_, 3},
+    {"_torch_tensor_median_dim_", (DL_FUNC) &_torch_tensor_median_dim_, 3},
+    {"_torch_tensor_median_", (DL_FUNC) &_torch_tensor_median_, 1},
     {"_torch_tensor_mode_", (DL_FUNC) &_torch_tensor_mode_, 3},
     {"_torch_tensor_logsumexp_", (DL_FUNC) &_torch_tensor_logsumexp_, 3},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},

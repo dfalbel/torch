@@ -4,7 +4,7 @@
 \alias{tch_median}
 \title{median}
 \usage{
-tch_median(x, dim = -1, keepdim = FALSE)
+tch_median(x, dim = NULL, keepdim = FALSE)
 }
 \arguments{
 \item{x}{tensor object}
