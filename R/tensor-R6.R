@@ -603,7 +603,7 @@
       `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim))
     },
 
-    max = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+    max = function(dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim, dtype))
     },
 
@@ -616,8 +616,8 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
-    min = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_min_(self$pointer, dim, keepdim, dtype))
+    min = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_min_(self$pointer, dim, keepdim))
     },
 
     mode = function(dim = -1, keepdim = FALSE) {
@@ -649,8 +649,8 @@
       }
     },
 
-    prod = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim, dtype))
+    prod = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim))
     },
 
     qr = function() {
@@ -694,8 +694,8 @@
     },
 
 
-    std = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim, dtype))
+    std = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim))
     },
 
     sub = function(other, alpha = 1) {
@@ -715,8 +715,8 @@
       invisible(NULL)
     },
 
-    sum = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim, dtype))
+    sum = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim))
     },
 
     t = function() {
@@ -748,8 +748,8 @@
       invisible(NULL)
     },
 
-    var = function(unbiased = TRUE, dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim, dtype))
+    var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim))
     },
 
     zero_ = function() {

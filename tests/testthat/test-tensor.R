@@ -1037,6 +1037,7 @@ test_that("logsumexp works", {
   expect_equal(as.array(tch_logsumexp(t_x, 2)), apply(x, c(1, 2), logsumexp), tol = 1e-7)
   expect_equal(as.array(tch_logsumexp(t_x, 1)), apply(x, c(1, 3), logsumexp), tol = 1e-7)
   expect_equal(as.array(tch_logsumexp(t_x, 0)), apply(x, c(2, 3), logsumexp), tol = 1e-7)
+  expect_error(as.array(tch_logsumexp(t_x))) # logsumexp() missing 1 required positional arguments: "dim"
 })
 
 test_that("mm works", {
