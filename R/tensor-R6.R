@@ -603,8 +603,15 @@
       `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim))
     },
 
-    max = function(dim = NULL, keepdim = FALSE) {
-      `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim))
+    max = function(dim = NULL, keepdim = FALSE, other = NULL) {
+      if (is.null(dim) && is.null(other)) {
+        `torch::Tensor`$dispatch(tensor_max_(self$pointer))
+      } else if (!is.null(dim) && is.null(other)) {
+        out <- tensor_max_dim_(self$pointer, dim, keepdim)
+        lapply(out, `torch::Tensor`$dispatch)
+      } else if (!is.null(other) && is.null(dim)) {
+        `torch::Tensor`$dispatch(tensor_max_tensor_(self$pointer, other$pointer))
+      }
     },
 
     mean = function(dim = NULL, keepdim = FALSE) {
@@ -620,8 +627,15 @@
       }
     },
 
-    min = function(dim = NULL, keepdim = FALSE) {
-      `torch::Tensor`$dispatch(tensor_min_(self$pointer, dim, keepdim))
+    min = function(dim = NULL, keepdim = FALSE, other = NULL) {
+      if (is.null(dim) && is.null(other)) {
+        `torch::Tensor`$dispatch(tensor_min_(self$pointer))
+      } else if (!is.null(dim) && is.null(other)) {
+        out <- tensor_min_dim_(self$pointer, dim, keepdim)
+        lapply(out, `torch::Tensor`$dispatch)
+      } else if (!is.null(other) && is.null(dim)) {
+        `torch::Tensor`$dispatch(tensor_min_tensor_(self$pointer, other$pointer))
+      }
     },
 
     mode = function(dim = -1, keepdim = FALSE) {
@@ -653,8 +667,8 @@
       }
     },
 
-    prod = function(dim = NULL, keepdim = FALSE) {
-      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim))
+    prod = function(dim = NULL, keepdim = FALSE, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim, dtype))
     },
 
     qr = function() {

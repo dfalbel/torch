@@ -971,13 +971,14 @@ tch_mean <- function(x, dim = NULL, keepdim = FALSE) {
 #' @param x tensor object
 #' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
+#' @param other a tensor.
 #'
 #' @examples
 #' x <- tensor(runif(100))
 #' tch_min(x)
 #' @export
-tch_min <- function(x, dim = NULL, keepdim = NULL, na.rm = FALSE) {
-  x$min(dim, keepdim)
+tch_min <- function(x, dim = NULL, keepdim = FALSE, other = NULL) {
+  x$min(dim, keepdim, other)
 }
 
 
@@ -988,13 +989,14 @@ tch_min <- function(x, dim = NULL, keepdim = NULL, na.rm = FALSE) {
 #' @param x tensor object
 #' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
+#' @param other a tensor.
 #'
 #' @examples
 #' x <- tensor(runif(100))
 #' tch_max(x)
 #' @export
-tch_max <- function(x, dim = NULL, keepdim = NULL, na.rm = FALSE) {
-  x$max(dim, keepdim, dtype)
+tch_max <- function(x, dim = NULL, keepdim = FALSE, other = NULL) {
+  x$max(dim, keepdim, other)
 }
 
 #' median
@@ -1151,7 +1153,7 @@ tch_qr <- function(x) {
 #' x <- tensor(runif(100))
 #' tch_std(x)
 #' @export
-tch_std <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL) {
+tch_std <- function(x, unbiased = TRUE, dim = NULL, keepdim = FALSE) {
   x$std(unbiased, dim, keepdim)
 }
 

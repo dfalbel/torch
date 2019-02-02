@@ -577,20 +577,36 @@ tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
-tensor_var_ <- function(x, unbiased, dim, keepdim, dtype) {
-    .Call('_torch_tensor_var_', PACKAGE = 'torch', x, unbiased, dim, keepdim, dtype)
+tensor_var_ <- function(x, unbiased, dim, keepdim = FALSE) {
+    .Call('_torch_tensor_var_', PACKAGE = 'torch', x, unbiased, dim, keepdim)
 }
 
-tensor_std_ <- function(x, unbiased, dim, keepdim, dtype) {
-    .Call('_torch_tensor_std_', PACKAGE = 'torch', x, unbiased, dim, keepdim, dtype)
+tensor_std_ <- function(x, unbiased, dim, keepdim) {
+    .Call('_torch_tensor_std_', PACKAGE = 'torch', x, unbiased, dim, keepdim)
 }
 
-tensor_min_ <- function(x, dim, keepdim, dtype) {
-    .Call('_torch_tensor_min_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+tensor_min_ <- function(x) {
+    .Call('_torch_tensor_min_', PACKAGE = 'torch', x)
 }
 
-tensor_max_ <- function(x, dim, keepdim, dtype) {
-    .Call('_torch_tensor_max_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+tensor_min_dim_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_min_dim_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_min_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_min_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_max_ <- function(x) {
+    .Call('_torch_tensor_max_', PACKAGE = 'torch', x)
+}
+
+tensor_max_dim_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_max_dim_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_max_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_max_tensor_', PACKAGE = 'torch', x, other)
 }
 
 tensor_prod_ <- function(x, dim, keepdim, dtype) {

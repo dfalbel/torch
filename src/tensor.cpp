@@ -1051,74 +1051,90 @@ Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_var_ (Rcpp::XPtr<torch::Tensor> x,
                                        bool unbiased,
-                                       Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                       Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                       Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+                                       Rcpp::Nullable<std::int64_t> dim,
+                                       bool keepdim = false
+                                       ) {
 
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+  if (dim.isNull()) {
     return make_tensor_ptr(x->var(unbiased));
+  } else if (dim.isNotNull()) {
+    return make_tensor_ptr(x->var(Rcpp::as<std::int64_t>(dim), unbiased, keepdim));
   }
 
-  // TODO handle other sum arguments.
   Rcpp::stop("Not yet implemented");
 }
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_std_ (Rcpp::XPtr<torch::Tensor> x,
                                        bool unbiased,
-                                       Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                       Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                       Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+                                       Rcpp::Nullable<std::int64_t> dim,
+                                       bool keepdim
+                                       ) {
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+  if (dim.isNull()) {
     return make_tensor_ptr(x->std(unbiased));
+  } else if (dim.isNotNull()) {
+    return make_tensor_ptr(x->std(Rcpp::as<std::int64_t>(dim), unbiased, keepdim));
   }
 
-  // TODO handle other sum arguments.
   Rcpp::stop("Not yet implemented");
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_min_ (Rcpp::XPtr<torch::Tensor> x,
-                                       Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                       Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                       Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
-
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
-    return make_tensor_ptr(x->min());
-  }
-
-  // TODO handle other sum arguments.
-  Rcpp::stop("Not yet implemented");
+Rcpp::XPtr<torch::Tensor> tensor_min_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->min());
 }
 
+// [[Rcpp::export]]
+Rcpp::List tensor_min_dim_ (Rcpp::XPtr<torch::Tensor> x,
+                            std::int64_t dim,
+                            bool keepdim) {
+  auto out = x->min(dim, keepdim);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_max_ (Rcpp::XPtr<torch::Tensor> x,
-                                       Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                       Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                       Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+Rcpp::XPtr<torch::Tensor> tensor_min_tensor_ (Rcpp::XPtr<torch::Tensor> x,
+                               Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->min(*other));
+}
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
-    return make_tensor_ptr(x->max());
-  }
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_max_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->max());
+}
 
-  // TODO handle other sum arguments.
-  Rcpp::stop("Not yet implemented");
+// [[Rcpp::export]]
+Rcpp::List tensor_max_dim_ (Rcpp::XPtr<torch::Tensor> x,
+                            std::int64_t dim,
+                            bool keepdim) {
+  auto out = x->max(dim, keepdim);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_max_tensor_ (Rcpp::XPtr<torch::Tensor> x,
+                                              Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->max(*other));
 }
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_prod_ (Rcpp::XPtr<torch::Tensor> x,
-                                        Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                        Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                        Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+                                        Rcpp::Nullable<std::int64_t> dim,
+                                        bool keepdim,
+                                        Rcpp::Nullable<std::string> dtype) {
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+  if (dim.isNull() & dtype.isNull()) {
     return make_tensor_ptr(x->prod());
+  } else if (dim.isNull() & dtype.isNotNull()) {
+    return make_tensor_ptr(x->prod(scalar_type_from_string(Rcpp::as<std::string>(dtype))));
+  } else if (dim.isNotNull() & dtype.isNull()) {
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), keepdim));
+  } else if (dim.isNotNull() * dtype.isNotNull()) {
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), keepdim, scalar_type_from_string(Rcpp::as<std::string>(dtype))));
   }
 
-  // TODO handle other sum arguments.
   Rcpp::stop("Not yet implemented");
 }
 
