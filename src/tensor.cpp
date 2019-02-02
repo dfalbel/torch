@@ -282,10 +282,10 @@ Rcpp::XPtr<torch::Tensor> torch_randperm_ (std::int64_t n,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> torch_zeros_ (std::vector<std::int64_t> size,
-                                       Rcpp::Nullable<std::string> dtype,
-                                       Rcpp::Nullable<std::string> layout,
-                                       Rcpp::Nullable<std::string> device,
-                                       Rcpp::Nullable<bool> requires_grad
+                                        Rcpp::Nullable<std::string> dtype,
+                                        Rcpp::Nullable<std::string> layout,
+                                        Rcpp::Nullable<std::string> device,
+                                        Rcpp::Nullable<bool> requires_grad
 ) {
   return make_tensor_ptr(torch::zeros(size, tensor_options_(dtype, layout, device, requires_grad)));
 }
@@ -304,8 +304,18 @@ Rcpp::XPtr<torch::Tensor> tensor_abs_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_abs__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->abs_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_acos_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->acos());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_acos__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->acos_());
 }
 
 // [[Rcpp::export]]
@@ -433,13 +443,68 @@ Rcpp::XPtr<torch::Tensor> tensor_asin_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_asin__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->asin_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sin_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sin());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sin__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sin_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sinh_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sinh());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_atan_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->atan());
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_atan__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->atan_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_atan2_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
   return make_tensor_ptr(x->atan2(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tan_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->tan());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tan__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->tan_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tanh_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->tanh());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tanh__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->tanh_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_trunc_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->trunc());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_trunc__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->trunc_());
 }
 
 // [[Rcpp::export]]
@@ -797,9 +862,49 @@ Rcpp::XPtr<torch::Tensor> tensor_exp__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log2_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log2());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log2__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log2_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log10_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log10());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log10__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log10_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log1p_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log1p());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_log1p__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->log1p_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_expand_ (Rcpp::XPtr<torch::Tensor> x,
-                                       std::vector<std::int64_t> size,
-                                       bool implicit = false) {
+                                          std::vector<std::int64_t> size,
+                                          bool implicit = false) {
   return make_tensor_ptr(x->expand(size, implicit));
 }
 
@@ -885,6 +990,14 @@ Rcpp::XPtr<torch::Tensor> tensor_frac__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_lerp_ (Rcpp::XPtr<torch::Tensor> start,
+                                        Rcpp::XPtr<torch::Tensor> end,
+                                        SEXP weight
+) {
+  return make_tensor_ptr(start->lerp(*end, scalar_from_r_(weight)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_gather_ (Rcpp::XPtr<torch::Tensor> x, int64_t dim, Rcpp::XPtr<torch::Tensor> index) {
   return make_tensor_ptr(x->gather(dim, *index));
 }
@@ -922,16 +1035,135 @@ Rcpp::XPtr<torch::Tensor> tensor_grad_ (Rcpp::XPtr<torch::Tensor> x) {
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
-                                        Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                        Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                        Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+                                        Rcpp::Nullable<std::vector<std::int64_t>> dim,
+                                        bool keepdim
+                                        ) {
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+  if (dim.isNull()) {
     return make_tensor_ptr(x->mean());
+  } else if (dim.isNotNull()) {
+    return make_tensor_ptr(x->mean(Rcpp::as<std::vector<std::int64_t>>(dim), keepdim));
   }
 
-  // TODO handle other sum arguments.
   Rcpp::stop("Not yet implemented");
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_var_ (Rcpp::XPtr<torch::Tensor> x,
+                                       bool unbiased,
+                                       Rcpp::Nullable<std::int64_t> dim,
+                                       bool keepdim = false
+                                       ) {
+
+
+  if (dim.isNull()) {
+    return make_tensor_ptr(x->var(unbiased));
+  } else if (dim.isNotNull()) {
+    return make_tensor_ptr(x->var(Rcpp::as<std::int64_t>(dim), unbiased, keepdim));
+  }
+
+  Rcpp::stop("Not yet implemented");
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_std_ (Rcpp::XPtr<torch::Tensor> x,
+                                       bool unbiased,
+                                       Rcpp::Nullable<std::int64_t> dim,
+                                       bool keepdim
+                                       ) {
+
+  if (dim.isNull()) {
+    return make_tensor_ptr(x->std(unbiased));
+  } else if (dim.isNotNull()) {
+    return make_tensor_ptr(x->std(Rcpp::as<std::int64_t>(dim), unbiased, keepdim));
+  }
+
+  Rcpp::stop("Not yet implemented");
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_min_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->min());
+}
+
+// [[Rcpp::export]]
+Rcpp::List tensor_min_dim_ (Rcpp::XPtr<torch::Tensor> x,
+                            std::int64_t dim,
+                            bool keepdim) {
+  auto out = x->min(dim, keepdim);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_min_tensor_ (Rcpp::XPtr<torch::Tensor> x,
+                               Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->min(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_max_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->max());
+}
+
+// [[Rcpp::export]]
+Rcpp::List tensor_max_dim_ (Rcpp::XPtr<torch::Tensor> x,
+                            std::int64_t dim,
+                            bool keepdim) {
+  auto out = x->max(dim, keepdim);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_max_tensor_ (Rcpp::XPtr<torch::Tensor> x,
+                                              Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->max(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_prod_ (Rcpp::XPtr<torch::Tensor> x,
+                                        Rcpp::Nullable<std::int64_t> dim,
+                                        bool keepdim,
+                                        Rcpp::Nullable<std::string> dtype) {
+
+  if (dim.isNull() & dtype.isNull()) {
+    return make_tensor_ptr(x->prod());
+  } else if (dim.isNull() & dtype.isNotNull()) {
+    return make_tensor_ptr(x->prod(scalar_type_from_string(Rcpp::as<std::string>(dtype))));
+  } else if (dim.isNotNull() & dtype.isNull()) {
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), keepdim));
+  } else if (dim.isNotNull() * dtype.isNotNull()) {
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), keepdim, scalar_type_from_string(Rcpp::as<std::string>(dtype))));
+  }
+
+  Rcpp::stop("Not yet implemented");
+}
+
+// [[Rcpp::export]]
+Rcpp::List tensor_median_dim_ (Rcpp::XPtr<torch::Tensor> x,
+                                    std::int64_t dim,
+                                    bool keepdim) {
+  auto out = x->median(dim, keepdim);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_median_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->median());
+}
+
+// [[Rcpp::export]]
+Rcpp::List tensor_mode_ (Rcpp::XPtr<torch::Tensor> x,
+                         std::int64_t dim,
+                         bool keepdim) {
+  auto out = x->mode(dim, keepdim);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_logsumexp_ (Rcpp::XPtr<torch::Tensor> x,
+                                             std::int64_t dim,
+                                             bool keepdim) {
+  return make_tensor_ptr(x->logsumexp(dim, keepdim));
 }
 
 
@@ -978,6 +1210,46 @@ Rcpp::List tensor_qr_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_round_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->round());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_rsqrt_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->rsqrt());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_rsqrt__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->rsqrt_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sigmoid_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sigmoid());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sigmoid__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sigmoid_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sign_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sign());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sqrt_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sqrt());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sqrt__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sqrt_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sub_tensor_ (Rcpp::XPtr<torch::Tensor> x,
                                               Rcpp::XPtr<torch::Tensor> other,
                                               SEXP alpha) {
@@ -1010,15 +1282,16 @@ Rcpp::XPtr<torch::Tensor> tensor_sub_scalar__ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
-                                       Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                       Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                       Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+                                       Rcpp::Nullable<std::vector<std::int64_t>> dim,
+                                       bool keepdim = false
+                                      ) {
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+  if (dim.isNull()) {
     return make_tensor_ptr(x->sum());
+  } else if (dim.isNotNull()) {
+    return make_tensor_ptr(x->sum(Rcpp::as<std::vector<std::int64_t>>(dim), keepdim));
   }
 
-  // TODO handle other sum arguments.
   Rcpp::stop("Not yet implemented");
 }
 
@@ -1026,6 +1299,19 @@ Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->t());
+}
+
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_tril_ (Rcpp::XPtr<torch::Tensor> x,
+                                        std::int64_t diagonal) {
+  return make_tensor_ptr(x->tril(diagonal));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_triu_ (Rcpp::XPtr<torch::Tensor> x,
+                                        std::int64_t diagonal) {
+  return make_tensor_ptr(x->triu(diagonal));
 }
 
 // [[Rcpp::export]]

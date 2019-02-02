@@ -63,8 +63,18 @@
       `torch::Tensor`$dispatch(tensor_abs_(self$pointer))
     },
 
+    abs_ = function() {
+      tensor_abs__(self$pointer)
+      invisible(NULL)
+    },
+
     acos = function () {
       `torch::Tensor`$dispatch(tensor_acos_(self$pointer))
+    },
+
+    acos_ = function() {
+      tensor_acos__(self$pointer)
+      invisible(NULL)
     },
 
     add = function(y) {
@@ -141,12 +151,53 @@
       `torch::Tensor`$dispatch(tensor_asin_(self$pointer))
     },
 
+    asin_ = function() {
+      tensor_asin__(self$pointer)
+      invisible(NULL)
+    },
+
+    sin = function(){
+      `torch::Tensor`$dispatch(tensor_sin_(self$pointer))
+    },
+
+    sin_ = function(){
+      tensor_sin__(self$pointer)
+      invisible(NULL)
+    },
+
+    sinh = function(){
+      `torch::Tensor`$dispatch(tensor_sinh_(self$pointer))
+    },
+
     atan = function() {
       `torch::Tensor`$dispatch(tensor_atan_(self$pointer))
     },
 
+    atan_ = function() {
+      tensor_atan__(self$pointer)
+      invisible(NULL)
+    },
+
     atan2 = function(other) {
       `torch::Tensor`$dispatch(tensor_atan2_(self$pointer, other$pointer))
+    },
+
+    tan = function() {
+      `torch::Tensor`$dispatch(tensor_tan_(self$pointer))
+    },
+
+    tan_ = function() {
+      tensor_tan__(self$pointer)
+      invisible(NULL)
+    },
+
+    tanh = function() {
+      `torch::Tensor`$dispatch(tensor_tanh_(self$pointer))
+    },
+
+    tanh_ = function() {
+      tensor_tanh__(self$pointer)
+      invisible(NULL)
     },
 
     backward = function(gradient = NULL, keep_graph = FALSE, create_graph = FALSE) {
@@ -482,6 +533,10 @@
       invisible(self)
     },
 
+    lerp = function(end, weight) {
+      `torch::Tensor`$dispatch(tensor_lerp_(self$pointer, end$pointer, weight))
+    },
+
     gather = function(dim, index) {
       `torch::Tensor`$dispatch(tensor_gather_(self$pointer, dim, index$pointer))
     },
@@ -508,8 +563,84 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
-    mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
+    log = function() {
+      `torch::Tensor`$dispatch(tensor_log_(self$pointer))
+    },
+
+    log_ = function() {
+      tensor_log__(self$pointer)
+      invisible(self)
+    },
+
+    log2 = function() {
+      `torch::Tensor`$dispatch(tensor_log2_(self$pointer))
+    },
+
+    log2_ = function() {
+      tensor_log2__(self$pointer)
+      invisible(self)
+    },
+
+    log10 = function() {
+      `torch::Tensor`$dispatch(tensor_log10_(self$pointer))
+    },
+
+    log10_ = function() {
+      tensor_log10__(self$pointer)
+      invisible(self)
+    },
+
+    log1p = function() {
+      `torch::Tensor`$dispatch(tensor_log1p_(self$pointer))
+    },
+
+    log1p_ = function() {
+      tensor_log1p__(self$pointer)
+      invisible(self)
+    },
+
+    logsumexp = function(dim, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim))
+    },
+
+    max = function(dim = NULL, keepdim = FALSE, other = NULL) {
+      if (is.null(dim) && is.null(other)) {
+        `torch::Tensor`$dispatch(tensor_max_(self$pointer))
+      } else if (!is.null(dim) && is.null(other)) {
+        out <- tensor_max_dim_(self$pointer, dim, keepdim)
+        lapply(out, `torch::Tensor`$dispatch)
+      } else if (!is.null(other) && is.null(dim)) {
+        `torch::Tensor`$dispatch(tensor_max_tensor_(self$pointer, other$pointer))
+      }
+    },
+
+    mean = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim))
+    },
+
+    median = function(dim = NULL, keepdim = FALSE) {
+      if(is.null(dim)) {
+        `torch::Tensor`$dispatch(tensor_median_(self$pointer))
+      } else if(!is.null(dim)) {
+        out <- tensor_median_dim_(self$pointer, dim, keepdim)
+        lapply(out, `torch::Tensor`$dispatch)
+      }
+    },
+
+    min = function(dim = NULL, keepdim = FALSE, other = NULL) {
+      if (is.null(dim) && is.null(other)) {
+        `torch::Tensor`$dispatch(tensor_min_(self$pointer))
+      } else if (!is.null(dim) && is.null(other)) {
+        out <- tensor_min_dim_(self$pointer, dim, keepdim)
+        lapply(out, `torch::Tensor`$dispatch)
+      } else if (!is.null(other) && is.null(dim)) {
+        `torch::Tensor`$dispatch(tensor_min_tensor_(self$pointer, other$pointer))
+      }
+    },
+
+    mode = function(dim = -1, keepdim = FALSE) {
+      out <- tensor_mode_(self$pointer, dim, keepdim)
+      lapply(out, `torch::Tensor`$dispatch)
     },
 
     mm = function(mat2) {
@@ -536,9 +667,53 @@
       }
     },
 
+    prod = function(dim = NULL, keepdim = FALSE, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim, dtype))
+    },
+
     qr = function() {
       out <- tensor_qr_(self$pointer)
       lapply(out, `torch::Tensor`$dispatch)
+    },
+
+    round = function() {
+      `torch::Tensor`$dispatch(tensor_round_(self$pointer))
+    },
+
+    rsqrt = function() {
+      `torch::Tensor`$dispatch(tensor_rsqrt_(self$pointer))
+    },
+
+    rsqrt_ = function() {
+      tensor_rsqrt__(self$pointer)
+      invisible(NULL)
+    },
+
+    sigmoid = function() {
+      `torch::Tensor`$dispatch(tensor_sigmoid_(self$pointer))
+    },
+
+    sign = function() {
+      `torch::Tensor`$dispatch(tensor_sign_(self$pointer))
+    },
+
+    sigmoid_ = function() {
+      tensor_sigmoid__(self$pointer)
+      invisible(NULL)
+    },
+
+    sqrt = function() {
+      `torch::Tensor`$dispatch(tensor_sqrt_(self$pointer))
+    },
+
+    sqrt_ = function() {
+      tensor_sqrt__(self$pointer)
+      invisible(NULL)
+    },
+
+
+    std = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim))
     },
 
     sub = function(other, alpha = 1) {
@@ -558,12 +733,20 @@
       invisible(NULL)
     },
 
-    sum = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim, dtype))
+    sum = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim))
     },
 
     t = function() {
       `torch::Tensor`$dispatch(tensor_t_(self$pointer))
+    },
+
+    tril = function(diagonal = 0) {
+      `torch::Tensor`$dispatch(tensor_tril_(self$pointer, diagonal))
+    },
+
+    triu = function(diagonal = 0) {
+      `torch::Tensor`$dispatch(tensor_triu_(self$pointer, diagonal))
     },
 
     to = function(dtype = NULL, device = NULL, requires_grad = FALSE) {
@@ -572,6 +755,19 @@
 
     to_string = function () {
       tensor_to_string_(self$pointer)
+    },
+
+    trunc = function() {
+      `torch::Tensor`$dispatch(tensor_trunc_(self$pointer))
+    },
+
+    trunc_ = function() {
+      tensor_trunc__(self$pointer)
+      invisible(NULL)
+    },
+
+    var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim))
     },
 
     zero_ = function() {

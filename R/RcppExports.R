@@ -77,8 +77,16 @@ tensor_abs_ <- function(x) {
     .Call('_torch_tensor_abs_', PACKAGE = 'torch', x)
 }
 
+tensor_abs__ <- function(x) {
+    .Call('_torch_tensor_abs__', PACKAGE = 'torch', x)
+}
+
 tensor_acos_ <- function(x) {
     .Call('_torch_tensor_acos_', PACKAGE = 'torch', x)
+}
+
+tensor_acos__ <- function(x) {
+    .Call('_torch_tensor_acos__', PACKAGE = 'torch', x)
 }
 
 tensor_add_tensor_ <- function(x, y) {
@@ -145,12 +153,56 @@ tensor_asin_ <- function(x) {
     .Call('_torch_tensor_asin_', PACKAGE = 'torch', x)
 }
 
+tensor_asin__ <- function(x) {
+    .Call('_torch_tensor_asin__', PACKAGE = 'torch', x)
+}
+
+tensor_sin_ <- function(x) {
+    .Call('_torch_tensor_sin_', PACKAGE = 'torch', x)
+}
+
+tensor_sin__ <- function(x) {
+    .Call('_torch_tensor_sin__', PACKAGE = 'torch', x)
+}
+
+tensor_sinh_ <- function(x) {
+    .Call('_torch_tensor_sinh_', PACKAGE = 'torch', x)
+}
+
 tensor_atan_ <- function(x) {
     .Call('_torch_tensor_atan_', PACKAGE = 'torch', x)
 }
 
+tensor_atan__ <- function(x) {
+    .Call('_torch_tensor_atan__', PACKAGE = 'torch', x)
+}
+
 tensor_atan2_ <- function(x, other) {
     .Call('_torch_tensor_atan2_', PACKAGE = 'torch', x, other)
+}
+
+tensor_tan_ <- function(x) {
+    .Call('_torch_tensor_tan_', PACKAGE = 'torch', x)
+}
+
+tensor_tan__ <- function(x) {
+    .Call('_torch_tensor_tan__', PACKAGE = 'torch', x)
+}
+
+tensor_tanh_ <- function(x) {
+    .Call('_torch_tensor_tanh_', PACKAGE = 'torch', x)
+}
+
+tensor_tanh__ <- function(x) {
+    .Call('_torch_tensor_tanh__', PACKAGE = 'torch', x)
+}
+
+tensor_trunc_ <- function(x) {
+    .Call('_torch_tensor_trunc_', PACKAGE = 'torch', x)
+}
+
+tensor_trunc__ <- function(x) {
+    .Call('_torch_tensor_trunc__', PACKAGE = 'torch', x)
 }
 
 tensor_backward_ <- function(x, gradient, keep_graph, create_graph) {
@@ -389,6 +441,38 @@ tensor_exp__ <- function(x) {
     .Call('_torch_tensor_exp__', PACKAGE = 'torch', x)
 }
 
+tensor_log_ <- function(x) {
+    .Call('_torch_tensor_log_', PACKAGE = 'torch', x)
+}
+
+tensor_log__ <- function(x) {
+    .Call('_torch_tensor_log__', PACKAGE = 'torch', x)
+}
+
+tensor_log2_ <- function(x) {
+    .Call('_torch_tensor_log2_', PACKAGE = 'torch', x)
+}
+
+tensor_log2__ <- function(x) {
+    .Call('_torch_tensor_log2__', PACKAGE = 'torch', x)
+}
+
+tensor_log10_ <- function(x) {
+    .Call('_torch_tensor_log10_', PACKAGE = 'torch', x)
+}
+
+tensor_log10__ <- function(x) {
+    .Call('_torch_tensor_log10__', PACKAGE = 'torch', x)
+}
+
+tensor_log1p_ <- function(x) {
+    .Call('_torch_tensor_log1p_', PACKAGE = 'torch', x)
+}
+
+tensor_log1p__ <- function(x) {
+    .Call('_torch_tensor_log1p__', PACKAGE = 'torch', x)
+}
+
 tensor_expand_ <- function(x, size, implicit = FALSE) {
     .Call('_torch_tensor_expand_', PACKAGE = 'torch', x, size, implicit)
 }
@@ -457,6 +541,10 @@ tensor_frac__ <- function(x) {
     .Call('_torch_tensor_frac__', PACKAGE = 'torch', x)
 }
 
+tensor_lerp_ <- function(start, end, weight) {
+    .Call('_torch_tensor_lerp_', PACKAGE = 'torch', start, end, weight)
+}
+
 tensor_gather_ <- function(x, dim, index) {
     .Call('_torch_tensor_gather_', PACKAGE = 'torch', x, dim, index)
 }
@@ -485,8 +573,60 @@ tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
 }
 
-tensor_mean_ <- function(x, dim, keepdim, dtype) {
-    .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+tensor_mean_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_var_ <- function(x, unbiased, dim, keepdim = FALSE) {
+    .Call('_torch_tensor_var_', PACKAGE = 'torch', x, unbiased, dim, keepdim)
+}
+
+tensor_std_ <- function(x, unbiased, dim, keepdim) {
+    .Call('_torch_tensor_std_', PACKAGE = 'torch', x, unbiased, dim, keepdim)
+}
+
+tensor_min_ <- function(x) {
+    .Call('_torch_tensor_min_', PACKAGE = 'torch', x)
+}
+
+tensor_min_dim_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_min_dim_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_min_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_min_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_max_ <- function(x) {
+    .Call('_torch_tensor_max_', PACKAGE = 'torch', x)
+}
+
+tensor_max_dim_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_max_dim_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_max_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_max_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_prod_ <- function(x, dim, keepdim, dtype) {
+    .Call('_torch_tensor_prod_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+}
+
+tensor_median_dim_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_median_dim_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_median_ <- function(x) {
+    .Call('_torch_tensor_median_', PACKAGE = 'torch', x)
+}
+
+tensor_mode_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_mode_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_logsumexp_ <- function(x, dim, keepdim) {
+    .Call('_torch_tensor_logsumexp_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
 tensor_mm_ <- function(x, mat2) {
@@ -517,6 +657,38 @@ tensor_qr_ <- function(x) {
     .Call('_torch_tensor_qr_', PACKAGE = 'torch', x)
 }
 
+tensor_round_ <- function(x) {
+    .Call('_torch_tensor_round_', PACKAGE = 'torch', x)
+}
+
+tensor_rsqrt_ <- function(x) {
+    .Call('_torch_tensor_rsqrt_', PACKAGE = 'torch', x)
+}
+
+tensor_rsqrt__ <- function(x) {
+    .Call('_torch_tensor_rsqrt__', PACKAGE = 'torch', x)
+}
+
+tensor_sigmoid_ <- function(x) {
+    .Call('_torch_tensor_sigmoid_', PACKAGE = 'torch', x)
+}
+
+tensor_sigmoid__ <- function(x) {
+    .Call('_torch_tensor_sigmoid__', PACKAGE = 'torch', x)
+}
+
+tensor_sign_ <- function(x) {
+    .Call('_torch_tensor_sign_', PACKAGE = 'torch', x)
+}
+
+tensor_sqrt_ <- function(x) {
+    .Call('_torch_tensor_sqrt_', PACKAGE = 'torch', x)
+}
+
+tensor_sqrt__ <- function(x) {
+    .Call('_torch_tensor_sqrt__', PACKAGE = 'torch', x)
+}
+
 tensor_sub_tensor_ <- function(x, other, alpha) {
     .Call('_torch_tensor_sub_tensor_', PACKAGE = 'torch', x, other, alpha)
 }
@@ -533,12 +705,20 @@ tensor_sub_scalar__ <- function(x, other, alpha) {
     .Call('_torch_tensor_sub_scalar__', PACKAGE = 'torch', x, other, alpha)
 }
 
-tensor_sum_ <- function(x, dim, keepdim, dtype) {
-    .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+tensor_sum_ <- function(x, dim, keepdim = FALSE) {
+    .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
 tensor_t_ <- function(x) {
     .Call('_torch_tensor_t_', PACKAGE = 'torch', x)
+}
+
+tensor_tril_ <- function(x, diagonal) {
+    .Call('_torch_tensor_tril_', PACKAGE = 'torch', x, diagonal)
+}
+
+tensor_triu_ <- function(x, diagonal) {
+    .Call('_torch_tensor_triu_', PACKAGE = 'torch', x, diagonal)
 }
 
 tensor_to_ <- function(x, dtype, device, requires_grad) {
