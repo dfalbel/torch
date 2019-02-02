@@ -38,7 +38,7 @@
     },
 
     print = function (...){
-      cat(glue::glue("{cl}", cl = class(self)[[1]]), "\n")
+      cat(sprintf("%s", class(self)[[1]]), "\n")
       tensor_print_(self$pointer)
       invisible(self)
     },
@@ -604,7 +604,7 @@
     },
 
     max = function(dim = NULL, keepdim = FALSE) {
-      `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim, dtype))
+      `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim))
     },
 
     mean = function(dim = NULL, keepdim = FALSE) {
