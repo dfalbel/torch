@@ -2108,16 +2108,15 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_sum_
-Rcpp::XPtr<torch::Tensor> tensor_sum_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::IntegerVector> dim, Rcpp::Nullable<Rcpp::LogicalVector> keepdim, Rcpp::Nullable<Rcpp::CharacterVector> dtype);
-RcppExport SEXP _torch_tensor_sum_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP, SEXP dtypeSEXP) {
+Rcpp::XPtr<torch::Tensor> tensor_sum_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::vector<std::int64_t>> dim, bool keepdim);
+RcppExport SEXP _torch_tensor_sum_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::IntegerVector> >::type dim(dimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::LogicalVector> >::type keepdim(keepdimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::CharacterVector> >::type dtype(dtypeSEXP);
-    rcpp_result_gen = Rcpp::wrap(tensor_sum_(x, dim, keepdim, dtype));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::vector<std::int64_t>> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_sum_(x, dim, keepdim));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -2355,7 +2354,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_sub_scalar_", (DL_FUNC) &_torch_tensor_sub_scalar_, 3},
     {"_torch_tensor_sub_tensor__", (DL_FUNC) &_torch_tensor_sub_tensor__, 3},
     {"_torch_tensor_sub_scalar__", (DL_FUNC) &_torch_tensor_sub_scalar__, 3},
-    {"_torch_tensor_sum_", (DL_FUNC) &_torch_tensor_sum_, 4},
+    {"_torch_tensor_sum_", (DL_FUNC) &_torch_tensor_sum_, 3},
     {"_torch_tensor_t_", (DL_FUNC) &_torch_tensor_t_, 1},
     {"_torch_tensor_tril_", (DL_FUNC) &_torch_tensor_tril_, 2},
     {"_torch_tensor_triu_", (DL_FUNC) &_torch_tensor_triu_, 2},
