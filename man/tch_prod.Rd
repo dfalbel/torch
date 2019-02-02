@@ -4,7 +4,7 @@
 \alias{tch_prod}
 \title{prod}
 \usage{
-tch_prod(x, dim = NULL, keepdim = NULL, dtype = NULL)
+tch_prod(x, dim = NULL, keepdim = FALSE, dtype = NULL)
 }
 \arguments{
 \item{x}{tensor object}
@@ -13,12 +13,16 @@ tch_prod(x, dim = NULL, keepdim = NULL, dtype = NULL)
 
 \item{keepdim}{wether to keep or not the dim}
 
-\item{dtype}{optionaly cast the sum result}
+\item{dtype}{the desired data type of returned tensor. If specified, the input tensor is casted to dtype before the operation is performed.
+This is useful for preventing data type overflows. Default: NULL.}
 }
 \description{
 Returns the product of all elements in the x tensor.
 }
 \examples{
-x <- tensor(runif(10))
+x <- tch_randn(c(2,2))
 tch_prod(x)
+tch_prod(x, 0)
+tch_prod(x, 1, TRUE)
+tch_prod(x, 1, TRUE, "double")
 }

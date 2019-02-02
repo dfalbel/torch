@@ -653,8 +653,8 @@
       }
     },
 
-    prod = function(dim = NULL, keepdim = FALSE) {
-      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim))
+    prod = function(dim = NULL, keepdim = FALSE, dtype = NULL) {
+      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim, dtype))
     },
 
     qr = function() {

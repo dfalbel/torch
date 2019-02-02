@@ -1821,15 +1821,15 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_prod_
-Rcpp::XPtr<torch::Tensor> tensor_prod_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::IntegerVector> dim, Rcpp::Nullable<Rcpp::LogicalVector> keepdim, Rcpp::Nullable<Rcpp::CharacterVector> dtype);
+Rcpp::XPtr<torch::Tensor> tensor_prod_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::int64_t> dim, Rcpp::Nullable<bool> keepdim, Rcpp::Nullable<std::string> dtype);
 RcppExport SEXP _torch_tensor_prod_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP, SEXP dtypeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::IntegerVector> >::type dim(dimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::LogicalVector> >::type keepdim(keepdimSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::CharacterVector> >::type dtype(dtypeSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::int64_t> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<bool> >::type keepdim(keepdimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::string> >::type dtype(dtypeSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_prod_(x, dim, keepdim, dtype));
     return rcpp_result_gen;
 END_RCPP

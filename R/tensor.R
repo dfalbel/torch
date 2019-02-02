@@ -982,7 +982,7 @@ tch_min <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
 }
 
 
-#' maX
+#' max
 #'
 #' Returns the maximum value of all elements in the x tensor.
 #'
@@ -1108,13 +1108,17 @@ tch_permute <- function(x, dims) {
 #' @param x tensor object
 #' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
-#' @param dtype optionaly cast the sum result
+#' @param dtype the desired data type of returned tensor. If specified, the input tensor is casted to dtype before the operation is performed.
+#' This is useful for preventing data type overflows. Default: NULL.
 #'
 #' @examples
-#' x <- tensor(runif(10))
+#' x <- tch_randn(c(2,2))
 #' tch_prod(x)
+#' tch_prod(x, 0)
+#' tch_prod(x, 1, TRUE)
+#' tch_prod(x, 1, TRUE, "double")
 #' @export
-tch_prod <- function(x, dim = NULL, keepdim = NULL, dtype = NULL) {
+tch_prod <- function(x, dim = NULL, keepdim = FALSE, dtype = NULL) {
   x$prod(dim, keepdim, dtype)
 }
 

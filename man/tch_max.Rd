@@ -2,7 +2,7 @@
 % Please edit documentation in R/tensor.R
 \name{tch_max}
 \alias{tch_max}
-\title{maX}
+\title{max}
 \usage{
 tch_max(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
 }
