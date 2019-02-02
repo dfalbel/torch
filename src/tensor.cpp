@@ -1166,6 +1166,7 @@ Rcpp::XPtr<torch::Tensor> tensor_logsumexp_ (Rcpp::XPtr<torch::Tensor> x,
   return make_tensor_ptr(x->logsumexp(dim, keepdim));
 }
 
+
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat2) {
   return make_tensor_ptr(x->mm(*mat2));

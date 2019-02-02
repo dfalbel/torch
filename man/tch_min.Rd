@@ -4,7 +4,7 @@
 \alias{tch_min}
 \title{min}
 \usage{
-tch_min(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
+tch_min(x, dim = NULL, keepdim = FALSE, other = NULL)
 }
 \arguments{
 \item{x}{tensor object}
@@ -13,7 +13,7 @@ tch_min(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
 
 \item{keepdim}{wether to keep or not the dim}
 
-\item{dtype}{optionaly cast the sum result}
+\item{other}{a tensor.}
 }
 \description{
 Returns the minimum value of all elements in the x tensor.

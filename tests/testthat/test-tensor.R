@@ -1031,7 +1031,10 @@ test_that("max works", {
 })
 
 test_that("prod works", {
-  x <- runif(10) + 1
+  x <- array(c(1, 2, 3, -1, -2, -3), c(2, 3))
+  x_t <- tensor(x)
+
+  expect_equal(as.array(tch_prod(x_t)), prod(x), tol = 1e-6)
   expect_equal(as.array(tch_prod(tensor(x))), prod(x), tol = 1e-6)
 })
 

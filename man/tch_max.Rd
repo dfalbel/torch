@@ -2,9 +2,9 @@
 % Please edit documentation in R/tensor.R
 \name{tch_max}
 \alias{tch_max}
-\title{maX}
+\title{max}
 \usage{
-tch_max(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
+tch_max(x, dim = NULL, keepdim = FALSE, other = NULL)
 }
 \arguments{
 \item{x}{tensor object}
@@ -13,7 +13,7 @@ tch_max(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
 
 \item{keepdim}{wether to keep or not the dim}
 
-\item{dtype}{optionaly cast the sum result}
+\item{other}{a tensor.}
 }
 \description{
 Returns the maximum value of all elements in the x tensor.
