@@ -4,8 +4,7 @@
 \alias{tch_var}
 \title{var}
 \usage{
-tch_var(x, unbiased = TRUE, dim = NULL, keepdim = NULL,
-  dtype = NULL)
+tch_var(x, unbiased = TRUE, dim = NULL, keepdim = FALSE)
 }
 \arguments{
 \item{x}{tensor object}
@@ -15,8 +14,6 @@ tch_var(x, unbiased = TRUE, dim = NULL, keepdim = NULL,
 \item{dim}{the dimension to reduce}
 
 \item{keepdim}{wether to keep or not the dim}
-
-\item{dtype}{optionaly cast the sum result}
 }
 \description{
 Returns the variance of all elements in the x tensor.
