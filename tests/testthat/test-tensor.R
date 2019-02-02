@@ -1035,11 +1035,6 @@ test_that("prod works", {
   x_t <- tensor(x)
 
   expect_equal(as.array(tch_prod(x_t)), prod(x), tol = 1e-6)
-  expect_equal(as.array(tch_prod(x_t, 0)), prod(x), tol = 1e-6)
-  tch_prod(x)
-  tch_prod(x, 0)
-  tch_prod(x, 1, TRUE)
-  tch_prod(x, 1, TRUE, "double")
   expect_equal(as.array(tch_prod(tensor(x))), prod(x), tol = 1e-6)
 })
 
