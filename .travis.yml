@@ -5,6 +5,8 @@ matrix:
   include:
     - os: linux
     - os: linux
+      dist: xenial
+    - os: linux
       env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
     - os: osx
 sudo: true
