@@ -915,7 +915,7 @@ test_that("gels works", {
 
 test_that("mean works", {
   x <- runif(100)
-  expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
+  expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-6)
 })
 
 test_that("mm works", {
