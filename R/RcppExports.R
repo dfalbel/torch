@@ -689,8 +689,8 @@ tensor_sub_scalar__ <- function(x, other, alpha) {
     .Call('_torch_tensor_sub_scalar__', PACKAGE = 'torch', x, other, alpha)
 }
 
-tensor_sum_ <- function(x, dim, keepdim, dtype) {
-    .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim, dtype)
+tensor_sum_ <- function(x, dim, keepdim = FALSE) {
+    .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
 tensor_t_ <- function(x) {

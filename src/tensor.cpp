@@ -1265,15 +1265,16 @@ Rcpp::XPtr<torch::Tensor> tensor_sub_scalar__ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
-                                       Rcpp::Nullable<Rcpp::IntegerVector> dim,
-                                       Rcpp::Nullable<Rcpp::LogicalVector> keepdim,
-                                       Rcpp::Nullable<Rcpp::CharacterVector> dtype) {
+                                       Rcpp::Nullable<std::vector<std::int64_t>> dim,
+                                       bool keepdim = false
+                                      ) {
 
-  if (dim.isNull() & keepdim.isNull() & dtype.isNull()) {
+  if (dim.isNull()) {
     return make_tensor_ptr(x->sum());
+  } else if (dim.isNotNull()) {
+    return make_tensor_ptr(x->sum(Rcpp::as<std::vector<std::int64_t>>(dim), keepdim));
   }
 
-  // TODO handle other sum arguments.
   Rcpp::stop("Not yet implemented");
 }
 

@@ -1180,8 +1180,8 @@ tch_std <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL) {
 #' x <- tensor(1:10)
 #' tch_sum(x)
 #' @export
-tch_sum <- function(x, dim = NULL, keepdim = FALSE, dtype = NULL) {
-  x$sum(dim, keepdim, dtype)
+tch_sum <- function(x, dim = NULL, keepdim = FALSE) {
+  x$sum(dim, keepdim)
 }
 
 #' transpose
