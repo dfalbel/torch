@@ -3,6 +3,8 @@
 torch::Device device_from_string(std::string device) {
   if (device == "CPU") {
     return torch::Device(torch::DeviceType::CPU);
+  } else if (device == "CUDA") {
+    return torch::Device(torch::DeviceType::CUDA);
   }
   Rcpp::stop("device not handled");
 }

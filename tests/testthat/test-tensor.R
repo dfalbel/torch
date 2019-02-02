@@ -8,14 +8,21 @@ test_that("requires_grad", {
 })
 
 test_that("dtype", {
-  type <- typeof(as.array(tensor(1:10, dtype = "double")))
-  expect_identical(type, "double")
+  x <- tensor(1:10, dtype = "double")
+  expect_identical(x$dtype(), "double")
+
+  x <- tensor(1:10, dtype = "float32")
+  expect_identical(x$dtype(), "float")
+
+  x <- tensor(1:10)
+  expect_identical(x$dtype(), "int")
 })
 
 test_that("device", {
   # TODO can't test device without a gpu :(
   expect_identical(1, 1)
 })
+
 
 context("integer tensors")
 
@@ -68,11 +75,19 @@ test_that("abs works", {
 
   x <- array(-runif(80), dim = c(20, 2, 2))
   expect_equal(as.array(tch_abs(tensor(x))), abs(x), tol = 1e-7)
+
+  x <- tensor(-1)
+  x$abs_()
+  expect_equal(as.array(x), 1)
 })
 
 test_that("acos works", {
   x <- array(-runif(80), dim = c(20, 2, 2))
   expect_equal(as.array(tch_acos(tensor(x))), acos(x), tol = 1e-7)
+
+  x <- tensor(1)
+  x$acos_()
+  expect_equal(as.array(x), acos(1), tol = 1e-7)
 })
 
 test_that("add works", {
@@ -298,11 +313,33 @@ test_that("as_strided works", {
 test_that("asin works", {
   x <- runif(100)
   expect_equal(as.array(tch_asin(tensor(x))), asin(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$asin_()
+  expect_equal(as.array(x_t), asin(x), tol = 1e-7)
+})
+
+test_that("sin works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_sin(tensor(x))), sin(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$sin_()
+  expect_equal(as.array(x_t), sin(x), tol = 1e-7)
+})
+
+test_that("sinh works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_sinh(tensor(x))), sinh(x), tol = 1e-7)
 })
 
 test_that("atan works", {
   x <- runif(100)
   expect_equal(as.array(tch_atan(tensor(x))), atan(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$atan_()
+  expect_equal(as.array(x_t), atan(x), tol = 1e-7)
 })
 
 test_that("atan2 works", {
@@ -310,6 +347,24 @@ test_that("atan2 works", {
   y <- runif(100)
 
   expect_equal(as.array(tch_atan2(tensor(x), tensor(y))), atan2(x, y), tol = 1e-7)
+})
+
+test_that("tan works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_tan(tensor(x))), tan(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$tan_()
+  expect_equal(as.array(x_t), tan(x), tol = 1e-7)
+})
+
+test_that("tanh works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_tanh(tensor(x))), tanh(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$tanh_()
+  expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
 })
 
 test_that("backward works", {
@@ -722,15 +777,6 @@ test_that("dot works", {
   )
 })
 
-# TODO dtype
-# test_that("dtype works", {
-#   x <- tensor(1:10)
-#   expect_equal(x$dtype(), "kInt")
-#   x <- tensor(runif(10))
-#   expect_equal(x$dtype(), "kDouble")
-#   # test for other tensor types.
-# })
-
 test_that("eig works", {
   x_r <- cbind(c(1,-1), c(-1,1))
 
@@ -750,15 +796,172 @@ test_that("eq works", {
   expect_equal(as.array(x == 1), 1:10 == 1)
 })
 
+test_that("equal works", {
+  x <- tensor(c(1,2))
+  y <- tensor(c(1,2))
+  expect_equal(tch_equal(x, y), TRUE)
+  y <- tensor(c(1,1))
+  expect_equal(tch_equal(x, y), FALSE)
+  y <- tensor(c(1,2), dtype = "double")
+  expect_error(tch_equal(x, y))
+})
+
+test_that("erf works", {
+  x <- tensor(1)
+  r <- 2 * pnorm(1 * sqrt(2)) - 1
+  expect_equal(as.array(x$erf()), r)
+  x$erf_()
+  expect_equal(as.array(x), r)
+})
+
+test_that("erfc works", {
+  x <- tensor(1)
+  r <- 2 * pnorm(1 * sqrt(2)) - 1
+  expect_equal(as.array(x$erfc()), 1 - r)
+  x$erfc_()
+  expect_equal(as.array(x),  1- r)
+})
+
+test_that("erfinv works", {
+  x <- tensor(1)
+  r <- qnorm((1 + 1)/2)/sqrt(2)
+  expect_equal(as.array(x$erfinv()), r)
+  x$erfinv_()
+  expect_equal(as.array(x),  r)
+})
+
+test_that("exp works", {
+  x <- tensor(1)
+  r <- exp(1)
+  expect_equal(as.array(x$exp()), r, tol = 1e-6)
+  x$exp_()
+  expect_equal(as.array(x),  r, tol = 1e-6)
+})
+
+test_that("expand works", {
+  x <- tch_randn(c(2,2))
+  y <- x$expand(c(1,2,2))
+  expect_equal(dim(as.array(y)), c(1L,2L,2L))
+  y <- x$expand(c(1,-1,-1))
+  expect_equal(dim(as.array(y)), c(1L,2L,2L))
+})
+
+test_that("expand_as works", {
+  x <- tch_randn(c(2,2))
+  y <- tch_randn(c(1,2,2))
+  z <- x$expand_as(y)
+  expect_equal(dim(as.array(z)), c(1L,2L,2L))
+
+  y <- tch_randn(c(1))
+  expect_error(x$expand_as(y))
+})
+
+test_that("expm1 works", {
+  x <- tensor(1)
+  r <- expm1(1)
+  expect_equal(as.array(x$expm1()), r, tol = 1e-6)
+  x$expm1_()
+  expect_equal(as.array(x),  r, tol = 1e-6)
+})
+
+test_that("fill works", {
+  x <- tch_empty(c(2,2))
+  x$fill_(2)
+  expect_equal(as.array(x), matrix(2, nrow = 2, ncol = 2))
+  y <- tensor(0)$sum()
+  x$fill_(y)
+  expect_equal(as.array(x), matrix(0, nrow = 2, ncol = 2))
+})
+
+test_that("floor works", {
+  x <- tensor(pi)
+  expect_equal(as.array(x$floor()), 3)
+  x$floor_()
+  expect_equal(as.array(x), 3)
+})
+
+test_that("fmod works", {
+  x <- tensor(3)
+  expect_equal(as.array(x$fmod(2)), 1)
+  x$fmod_(2)
+  expect_equal(as.array(x), 1)
+})
+
+test_that("lerp works", {
+  start <- tch_arange(1, 5)
+  end <- tch_empty(4)$fill_(10)
+
+  expect_equal(as.array(tch_lerp(start, end, 0.5)), c(5.5,  6,  6.5,  7))
+})
+
+test_that("flatten works", {
+  x <- tch_randn(c(2,2,2))
+  expect_equal(length(as.array(x$flatten())), 8)
+  expect_equal(dim(as.array(x$flatten(start_dim = 1))), c(2,4))
+  expect_equal(dim(as.array(x$flatten(end_dim = 1))), c(4,2))
+})
+
+test_that("flip works", {
+  x <- tensor(1:10)
+  expect_equal(as.array(x$flip(0)), 10:1)
+
+  x <- tensor(matrix(1:10, ncol = 5))
+  expect_equal((as.array(x$flip(1))), matrix(c(9L, 10L, 7L, 8L, 5L, 6L, 3L, 4L, 1L, 2L), nrow = 2))
+})
+
+test_that("float works", {
+  x <- tensor(1:10)
+  y <- x$float()
+  expect_equal(y$dtype(), "float")
+
+  # float does not copy
+  x <- tensor(1)
+  y <- x$float()
+  y$sub_(1)
+  expect_equal(as.array(x), 0)
+})
+
+test_that("frac works", {
+  x <- tensor(c(2.5, 1.1))
+  expect_equal(as.array(x$frac()), c(0.5, 0.1), tol = 1e-6)
+  x$frac_()
+  expect_equal(as.array(x), c(0.5, 0.1), tol = 1e-6)
+})
+
+test_that("gather works", {
+  x <- tensor(c(1, 2))
+  expect_equal(as.array(x$gather(0, tensor(c(1L, 0L), dtype = "long"))), c(2,1))
+})
+
+test_that("ge works", {
+  x <- runif(100)
+  y <- runif(100)
+
+  x_t <- tensor(x)
+  y_t <- tensor(y)
+
+  expect_equal(as.array(x_t$ge(0.5)), x >= 0.5)
+  expect_equal(as.array(x_t$ge(y_t)), x >= y)
+
+  z <- tensor(1)
+  expect_equal(as.array(z$ge(1)), TRUE)
+  expect_equal(as.array(z$ge(0.99)), TRUE)
+
+  x_t$ge_(0.5)
+  expect_equal(as.array(x_t), as.numeric(x>= 0.5))
+})
+
 test_that("gels works", {
   y <- runif(10)
   X <- matrix(runif(100), ncol = 10)
 
-  expect_equal(
-    .lm.fit(X, y)$coefficients,
-    tch_gels(tensor(y), tensor(X))[[1]] %>% as.array() %>% as.numeric(),
-    tol = 1e-5
-  )
+  expect_silent(tch_gels(tensor(y), tensor(X)))
+
+  # expect_equal(
+  #   .lm.fit(X, y)$coefficients,
+  #   tch_gels(tensor(y), tensor(X))[[1]] %>% as.array() %>% as.numeric(),
+  #   tol = 1e-2
+  # )
   # expect_equivalent(
   #   .lm.fit(X, y)$qr,
   #   tch_gels(tensor(y), tensor(X))[[2]] %>% as.array()
@@ -769,6 +972,79 @@ test_that("gels works", {
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
+
+  x <- matrix(runif(10), nrow = 2)
+  expect_equal(as.array(tch_mean(tensor(x), dim = 0)), apply(x, 2, mean), tol = 1e-7)
+  expect_equal(as.array(tch_mean(tensor(x), 1)), apply(x, 1, mean), tol = 1e-7)
+  expect_equal(dim(as.array(tch_mean(tensor(x), dim = 0, keepdim = TRUE))), c(1,5))
+
+})
+
+test_that("var works", {
+  n <- 10
+  x <- runif(n)
+
+  expect_equal(as.array(tch_var(tensor(x))), var(x), tol = 1e-7)
+  expect_equal(as.array(tch_var(tensor(x), unbiased = FALSE)), var(x) * (n - 1)/n, tol = 1e-7)
+})
+
+test_that("std works", {
+  n <- 10
+  x <- runif(n)
+
+  expect_equal(as.array(tch_std(tensor(x))), sd(x), tol = 1e-7)
+  expect_equal(as.array(tch_std(tensor(x), unbiased = FALSE)), sd(x) * sqrt((n - 1)/n), tol = 1e-7)
+})
+
+test_that("min works", {
+  x <- runif(10)
+  expect_equal(as.array(tch_min(tensor(x))), min(x), tol = 1e-7)
+})
+
+test_that("mode works", {
+  x <- array(c(1 , 1, 1, 2, 2, 3, 3, 4, 4, 4), c(2,5))
+  res <- lapply(tch_mode(tensor(x)), as.matrix)
+  expect_equivalent(res[[1]], array(c(1, 4), c(2, 1)))
+  expect_equivalent(res[[2]], array(c(1, 4), c(2, 1)))
+
+  res <- lapply(tch_mode(tensor(x), 0), as.matrix)
+  expect_equivalent(res[[1]], array(c(1, 1, 2, 3, 4), c(5, 1)))
+  expect_equivalent(res[[2]], array(c(1, 0, 0, 0, 1), c(5, 1)))
+
+  res <- lapply(tch_mode(tensor(x), 0, TRUE), as.matrix)
+  expect_equivalent(res[[1]], array(c(1, 1, 2, 3, 4), c(1, 5)))
+  expect_equivalent(res[[2]], array(c(1, 0, 0, 0, 1), c(1, 5)))
+})
+
+test_that("median works", {
+  x <- array(1:20, c(4,5))
+  expect_equal(lapply(tch_median(tensor(x), 0), as.matrix), list(matrix(c(2, 6, 10, 14, 18), c(5,1)), array(1, c(5,1))), tol = 1e-7)
+  expect_equal(lapply(tch_median(tensor(x), 0, TRUE), as.matrix), list(matrix(c(2, 6, 10, 14, 18), c(1,5)), array(1, c(1,5))), tol = 1e-7)
+  expect_equal(lapply(tch_median(tensor(x), 1), as.matrix), list(matrix(9:12, c(4,1)), array(2, c(4,1))), tol = 1e-7)
+  expect_equal(as.matrix(tch_median(tensor(x))), matrix(10, c(1,1)), tol = 1e-7)
+
+})
+
+test_that("max works", {
+  x <- runif(10)
+  expect_equal(as.array(tch_max(tensor(x))), max(x), tol = 1e-7)
+})
+
+test_that("prod works", {
+  x <- runif(10) + 1
+  expect_equal(as.array(tch_prod(tensor(x))), prod(x), tol = 1e-6)
+})
+
+test_that("logsumexp works", {
+  logsumexp <- function(x) log(sum(exp(x)))
+
+  x <- array(runif(5*4*2), dim = c(5, 4, 2))
+  t_x <- tensor(x)
+
+  expect_equal(as.array(tch_logsumexp(t_x, 2)), apply(x, c(1, 2), logsumexp), tol = 1e-7)
+  expect_equal(as.array(tch_logsumexp(t_x, 1)), apply(x, c(1, 3), logsumexp), tol = 1e-7)
+  expect_equal(as.array(tch_logsumexp(t_x, 0)), apply(x, c(2, 3), logsumexp), tol = 1e-7)
+  expect_error(as.array(tch_logsumexp(t_x))) # logsumexp() missing 1 required positional arguments: "dim"
 })
 
 test_that("mm works", {
@@ -867,6 +1143,129 @@ test_that("to works", {
   expect_equal(as.array(tensor(x)$to(dtype = "int")), matrix(0L, ncol = 3, nrow = 2))
 })
 
+test_that("log family works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_log(tensor(x))), log(x), tol = 1e-7)
+  expect_equal(as.array(tch_log2(tensor(x))), log2(x), tol = 1e-7)
+  expect_equal(as.array(tch_log10(tensor(x))), log10(x), tol = 1e-7)
+  expect_equal(as.array(tch_log1p(tensor(x))), log1p(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$log_()
+  expect_equal(as.array(x_t), log(x), tol = 1e-7)
+
+
+  x_t <- tensor(x)
+  x_t$log2_()
+  expect_equal(as.array(x_t), log2(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$log10_()
+  expect_equal(as.array(x_t), log10(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$log1p_()
+  expect_equal(as.array(x_t), log1p(x), tol = 1e-7)
+})
+
+test_that("tril works", {
+  x <- array(1, c(3, 3))
+  matrix_help <- function(x) matrix(x, 3, 3, byrow = TRUE)
+  expect_equal(as.array(tch_tril(tensor(x))), matrix_help(c(1, 0, 0,
+                                                            1, 1, 0,
+                                                            1, 1, 1)))
+  expect_equal(as.array(tch_tril(tensor(x), 1)), matrix_help(c(1, 1, 0,
+                                                               1, 1, 1,
+                                                               1, 1, 1)))
+  expect_equal(as.array(tch_tril(tensor(x), 2)), matrix_help(c(1, 1, 1,
+                                                               1, 1, 1,
+                                                               1, 1, 1)))
+  expect_equal(as.array(tch_tril(tensor(x), -1)), matrix_help(c(0, 0, 0,
+                                                                1, 0, 0,
+                                                                1, 1, 0)))
+  expect_equal(as.array(tch_tril(tensor(x), -2)), matrix_help(c(0, 0, 0,
+                                                                0, 0, 0,
+                                                                1, 0, 0)))
+})
+
+test_that("triu works", {
+  x <- array(1, c(3, 3))
+  matrix_help <- function(x) matrix(x, 3, 3, byrow = TRUE)
+  expect_equal(as.array(tch_triu(tensor(x))), matrix_help(c(1, 1, 1,
+                                                            0, 1, 1,
+                                                            0, 0, 1)))
+  expect_equal(as.array(tch_triu(tensor(x), 1)), matrix_help(c(0, 1, 1,
+                                                               0, 0, 1,
+                                                               0, 0, 0)))
+  expect_equal(as.array(tch_triu(tensor(x), 2)), matrix_help(c(0, 0, 1,
+                                                               0, 0, 0,
+                                                               0, 0, 0)))
+  expect_equal(as.array(tch_triu(tensor(x), -1)), matrix_help(c(1, 1, 1,
+                                                                1, 1, 1,
+                                                                0, 1, 1)))
+  expect_equal(as.array(tch_triu(tensor(x), -2)), matrix_help(c(1, 1, 1,
+                                                                1, 1, 1,
+                                                                1, 1, 1)))
+})
+
+test_that("round works", {
+  x <- tensor(array(c(-1.1, -0.1, 0.1, 1.5, 1.51, 2.5, Inf)))
+  expect_equal(as.array(tch_round(x)), c(-1, 0, 0, 2, 2, 2, Inf), tol = 1e-7)
+
+  y <- tensor(array(c(0.5, 1.5, 2.5, 3.5, 4.5)))
+  expect_equal(as.array(tch_round(y)), c(0, 2, 2, 4, 4), tol = 1e-7) #what??
+})
+
+test_that("rsqrt works", {
+  x <- array(c(0.1, 1.5, 1.51, 2.5, Inf))
+  expect_equivalent(as.array(tch_rsqrt(tensor(x))), 1/sqrt(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$rsqrt_()
+  expect_equivalent(as.array(x_t), 1/sqrt(x), tol = 1e-7)
+})
+
+test_that("sigmoid works", {
+  x <- array(c(rnorm(10), Inf))
+  expect_equivalent(as.array(tch_sigmoid(tensor(x))), 1/(1 + exp(-x)), tol = 1e-7)
+})
+
+test_that("sign works", {
+  x <- array(c(rnorm(10), Inf))
+  expect_equivalent(as.array(tch_sign(tensor(x))), sign(x), tol = 1e-7)
+})
+
+test_that("sqrt works", {
+  x <- array(c(0.1, 1.5, 1.51, 2.5, Inf))
+  res <- as.array(tch_sqrt(tensor(x)))
+  res2 <- as.numeric(sqrt(x))
+  expect_equivalent(res, res2, tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$sqrt_()
+
+  res <- as.array(x_t)
+  expect_equivalent(res, res2, tol = 1e-7)
+})
+
+test_that("trunc works", {
+  x <- tensor(array(c(-1.1, -0.1, 0.1, 1.5, 1.51, 2.5, Inf)))
+  expect_equal(as.array(tch_trunc(x)), c(-1, 0, 0, 1, 1, 2, Inf), tol = 1e-7)
+
+  y <- tensor(array(c(0.5, 1.5, 2.5, 3.5, 4.5)))
+  expect_equal(as.array(tch_trunc(y)), c(0, 1, 2, 3, 4), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$trunc_()
+  expect_equal(as.array(x_t), c(-1, 0, 0, 1, 1, 2, Inf), tol = 1e-7)
+})
+
+test_that("zero_ works", {
+  x <- tensor(1)
+  x$zero_()
+  expect_equal(as.array(x), 0)
+})
+
 context("numeric tensors")
 
 test_that("creation of 1d numeric tensor", {
@@ -886,8 +1285,140 @@ test_that("creation of 3d numeric tensor", {
 
 context("factory functions")
 
+test_that("tensor from tensors", {
+  x <- tensor(runif(10), requires_grad = TRUE)
+  expect_silent(tensor(x))
+})
+
+test_that("tensor is really cloned in tensors", {
+  x <- tensor(1, requires_grad = TRUE)
+  w <- tensor(2, requires_grad = TRUE)
+  b <- tensor(3, requires_grad = TRUE)
+  a <- tensor(x, requires_grad = TRUE)
+  y <- w * x + b
+  y$backward()
+  expect_error(as.array(a$grad)) # TODO handle undefined tensors in as.array.
+})
+
 test_that("randn", {
   x <- tch_randn(c(2,2))
   expect_equal(dim(as.array(x)), c(2L, 2L))
+  expect_equal(x$dtype(), "float")
+
+  expect_error(x <- tch_randn(c(2,2), dtype = "int"))
+
+  x <- tch_randn(c(2,2), dtype = "double")
+  expect_equal(x$dtype(), "double")
 })
 
+test_that("arange", {
+  x <- tch_arange(5)
+  expect_equal(as.array(x), c(0L, 1L, 2L, 3L, 4L))
+  expect_null(dim(as.array(x)))
+  expect_equal(x$dtype(), "float")
+
+  y <- tch_arange(1, 4)
+  expect_equal(as.array(y), c(1, 2, 3))
+  expect_null(dim(as.array(y)))
+
+  z <- tch_arange(1, 2.5, 0.5)
+  expect_equal(as.array(z), c(1.0, 1.5, 2.0))
+  expect_null(dim(as.array(z)))
+
+  x <- tch_arange(5, dtype = "int")
+  expect_equal(x$dtype(), "int")
+})
+
+test_that("empty", {
+  x <- tch_empty(c(2, 4))
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+
+  x <- tch_empty(c(2, 4), dtype = "int")
+  expect_equal(x$dtype(), "int")
+})
+
+test_that("eye", {
+  x <- tch_eye(2, 4)
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+  expect_equal(as.array(x), diag(nrow = 2, ncol = 4))
+
+  y <- tch_eye(3)
+  expect_equal(dim(as.array(y)), c(3L, 3L))
+  expect_equal(as.array(y), diag(3))
+})
+
+test_that("full", {
+  x <- tch_full(c(2, 4), 10)
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+  expect_equal(as.array(x), array(10, c(2, 4)))
+
+  y <- tch_full(c(2, 4, 3), -1)
+  expect_equal(dim(as.array(y)), c(2L, 4L, 3L))
+  expect_equal(as.array(y), array(-1, c(2, 4, 3)))
+})
+
+test_that("linspace", {
+  x <- tch_linspace(3, 10, steps = 5)
+  expect_null(dim(as.array(x)))
+  expect_equal(as.array(x), c(3, 4.75, 6.50, 8.25, 10))
+
+  y <- tch_linspace(-10, 10, steps = 5)
+  expect_null(dim(as.array(y)))
+  expect_equal(as.array(y), c(-10, -5, 0, 5, 10))
+})
+
+test_that("logspace", {
+  x <- tch_logspace(-10, 10, steps = 5)
+  expect_null(dim(as.array(x)))
+  expect_equal(as.array(x), c(1.0e-10,  1.0e-05,  1.0,  1.0e+05,  1.0e+10), tol = 1e-4)
+
+  y <- tch_logspace(start=0.1, end=1.0, steps=5)
+  expect_null(dim(as.array(y)))
+  expect_equal(as.array(y), c(1.2589, 2.1135, 3.5481, 5.9566, 10.0000), tol = 1e-4)
+})
+
+test_that("ones", {
+  x <- tch_ones(c(2, 4))
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+  expect_equal(as.array(x), array(1, c(2, 4)))
+
+  y <- tch_ones(5)
+  expect_null(dim(as.array(y)))
+  expect_equal(as.array(y), rep(1, 5))
+})
+
+test_that("rand", {
+  x <- tch_rand(c(2,2))
+  expect_equal(dim(as.array(x)), c(2L, 2L))
+  expect_equal(x$dtype(), "float")
+
+  expect_error(x <- tch_rand(c(2, 2), dtype = "int"))
+
+  x <- tch_rand(c(2,2), dtype = "double")
+  expect_equal(x$dtype(), "double")
+})
+
+test_that("randint", {
+  x <- tch_randint(10, c(2, 2))
+  expect_equal(dim(as.array(x)), c(2L, 2L))
+  expect_equal(x$dtype(), "float")
+
+  y <- tch_randint(3, 10, c(2, 2), dtype = "double")
+  expect_equal(y$dtype(), "double")
+})
+
+test_that("randperm", {
+  x <- tch_randperm(10)
+  expect_null(dim(as.array(x)))
+  expect_equal(x$dtype(), "float")
+})
+
+test_that("zeros", {
+  x <- tch_zeros(c(2, 4))
+  expect_equal(dim(as.array(x)), c(2L, 4L))
+  expect_equal(as.array(x), array(0, c(2, 4)))
+
+  y <- tch_zeros(5)
+  expect_null(dim(as.array(y)))
+  expect_equal(as.array(y), rep(0, 5))
+})

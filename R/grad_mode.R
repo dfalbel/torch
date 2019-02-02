@@ -10,11 +10,13 @@
 #' x
 #'
 #' @export
-with_no_grad <- withr::with_(
-  set = function() {
-    set_grad_mode(FALSE)
-  },
-  reset = function(old) {
-    set_grad_mode(TRUE)
-  }
-)
+with_no_grad <- function(code) {
+  withr::with_(
+    set = function() {
+      set_grad_mode(FALSE)
+    },
+    reset = function(old) {
+      set_grad_mode(TRUE)
+    }
+  )(code)
+}

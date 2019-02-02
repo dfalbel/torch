@@ -1,20 +1,17 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
-os:
-  - linux
-  - osx
+matrix:
+  include:
+    - os: linux
+    - os: linux
+      dist: xenial
+    - os: linux
+      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
+    - os: osx
 sudo: true
 cache: packages
 warnings_are_errors: false
-before_install:
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget https://github.com/intel/mkl-dnn/releases/download/v0.17.2/mklml_mac_2019.0.1.20180928.tgz; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo gunzip -c mklml_mac_2019.0.1.20180928.tgz | tar xopf -; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo cp mklml_mac_2019.0.1.20180928/lib/*.dylib /usr/local/lib/libtorch/lib/; fi
 
 after_success:
     - Rscript -e 'covr::codecov()'

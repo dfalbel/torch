@@ -34,11 +34,11 @@
   public = list(
 
     initialize = function (xp) {
-     private$xp <- xp
+      private$xp <- xp
     },
 
     print = function (...){
-      cat(glue::glue("{cl}", cl = class(self)[[1]]), "\n")
+      cat(sprintf("%s", class(self)[[1]]), "\n")
       tensor_print_(self$pointer)
       invisible(self)
     },
@@ -63,8 +63,18 @@
       `torch::Tensor`$dispatch(tensor_abs_(self$pointer))
     },
 
+    abs_ = function() {
+      tensor_abs__(self$pointer)
+      invisible(NULL)
+    },
+
     acos = function () {
       `torch::Tensor`$dispatch(tensor_acos_(self$pointer))
+    },
+
+    acos_ = function() {
+      tensor_acos__(self$pointer)
+      invisible(NULL)
     },
 
     add = function(y) {
@@ -141,12 +151,53 @@
       `torch::Tensor`$dispatch(tensor_asin_(self$pointer))
     },
 
+    asin_ = function() {
+      tensor_asin__(self$pointer)
+      invisible(NULL)
+    },
+
+    sin = function(){
+      `torch::Tensor`$dispatch(tensor_sin_(self$pointer))
+    },
+
+    sin_ = function(){
+      tensor_sin__(self$pointer)
+      invisible(NULL)
+    },
+
+    sinh = function(){
+      `torch::Tensor`$dispatch(tensor_sinh_(self$pointer))
+    },
+
     atan = function() {
       `torch::Tensor`$dispatch(tensor_atan_(self$pointer))
     },
 
+    atan_ = function() {
+      tensor_atan__(self$pointer)
+      invisible(NULL)
+    },
+
     atan2 = function(other) {
       `torch::Tensor`$dispatch(tensor_atan2_(self$pointer, other$pointer))
+    },
+
+    tan = function() {
+      `torch::Tensor`$dispatch(tensor_tan_(self$pointer))
+    },
+
+    tan_ = function() {
+      tensor_tan__(self$pointer)
+      invisible(NULL)
+    },
+
+    tanh = function() {
+      `torch::Tensor`$dispatch(tensor_tanh_(self$pointer))
+    },
+
+    tanh_ = function() {
+      tensor_tanh__(self$pointer)
+      invisible(NULL)
     },
 
     backward = function(gradient = NULL, keep_graph = FALSE, create_graph = FALSE) {
@@ -352,9 +403,9 @@
       `torch::Tensor`$dispatch(tensor_dot_(self$pointer, tensor$pointer))
     },
 
-    # dtype = function() {
-    #   tensor_dtype_(self$pointer)
-    # },
+    dtype = function() {
+      tensor_dtype_(self$pointer)
+    },
 
     eig = function(eigenvectors = FALSE) {
       out <- tensor_eig_(self$pointer, eigenvectors)
@@ -369,13 +420,213 @@
       }
     },
 
+    equal = function(other) {
+      tensor_equal_(self$pointer, other$pointer)
+    },
+
+    erf = function() {
+      `torch::Tensor`$dispatch(tensor_erf_(self$pointer))
+    },
+
+    erf_ = function() {
+      tensor_erf__(self$pointer)
+      invisible(self)
+    },
+
+    erfc = function() {
+      `torch::Tensor`$dispatch(tensor_erfc_(self$pointer))
+    },
+
+    erfc_ = function() {
+      tensor_erfc__(self$pointer)
+      invisible(self)
+    },
+
+    erfinv = function() {
+      `torch::Tensor`$dispatch(tensor_erfinv_(self$pointer))
+    },
+
+    erfinv_ = function() {
+      tensor_erfinv__(self$pointer)
+      invisible(self)
+    },
+
+    exp = function() {
+      `torch::Tensor`$dispatch(tensor_exp_(self$pointer))
+    },
+
+    exp_ = function() {
+      tensor_exp__(self$pointer)
+      invisible(self)
+    },
+
+    expand = function(sizes) {
+      `torch::Tensor`$dispatch(tensor_expand_(self$pointer, sizes))
+    },
+
+    expand_as = function(other) {
+      `torch::Tensor`$dispatch(tensor_expand_as_(self$pointer, other$pointer))
+    },
+
+    expm1 = function() {
+      `torch::Tensor`$dispatch(tensor_expm1_(self$pointer))
+    },
+
+    expm1_ = function() {
+      tensor_expm1__(self$pointer)
+      invisible(self)
+    },
+
+    fill_ = function(value) {
+      if (is(value, "tensor")) {
+        tensor_fill_tensor__(self$pointer, value$pointer)
+      } else {
+        tensor_fill_scalar__(self$pointer, value)
+      }
+      invisible(self)
+    },
+
+    flatten = function(start_dim = 0, end_dim = -1) {
+      `torch::Tensor`$dispatch(tensor_flatten_(self$pointer, start_dim, end_dim))
+    },
+
+    flip = function(dims) {
+      `torch::Tensor`$dispatch(tensor_flip_(self$pointer, dims))
+    },
+
+    float = function() {
+      `torch::Tensor`$dispatch(tensor_float_(self$pointer))
+    },
+
+    floor = function() {
+      `torch::Tensor`$dispatch(tensor_floor_(self$pointer))
+    },
+
+    floor_ = function() {
+      tensor_floor__(self$pointer)
+      invisible(self)
+    },
+
+    fmod = function(other) {
+      if(is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_fmod_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_fmod_scalar_(self$pointer, other))
+      }
+    },
+
+    fmod_ = function(other) {
+      if(is(other, "tensor")) {
+        tensor_fmod_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_fmod_scalar__(self$pointer, other)
+      }
+      invisible(self)
+    },
+
+    frac = function() {
+      `torch::Tensor`$dispatch(tensor_frac_(self$pointer))
+    },
+
+    frac_ = function() {
+      tensor_frac__(self$pointer)
+      invisible(self)
+    },
+
+    lerp = function(end, weight) {
+      `torch::Tensor`$dispatch(tensor_lerp_(self$pointer, end$pointer, weight))
+    },
+
+    gather = function(dim, index) {
+      `torch::Tensor`$dispatch(tensor_gather_(self$pointer, dim, index$pointer))
+    },
+
+    ge = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_ge_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_ge_scalar_(self$pointer, other))
+      }
+    },
+
+    ge_ = function(other) {
+      if (is(other, "tensor")) {
+        tensor_ge_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_ge_scalar__(self$pointer, other)
+      }
+      invisible(self)
+    },
+
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
     },
 
-    mean = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-    `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim, dtype))
+    log = function() {
+      `torch::Tensor`$dispatch(tensor_log_(self$pointer))
+    },
+
+    log_ = function() {
+      tensor_log__(self$pointer)
+      invisible(self)
+    },
+
+    log2 = function() {
+      `torch::Tensor`$dispatch(tensor_log2_(self$pointer))
+    },
+
+    log2_ = function() {
+      tensor_log2__(self$pointer)
+      invisible(self)
+    },
+
+    log10 = function() {
+      `torch::Tensor`$dispatch(tensor_log10_(self$pointer))
+    },
+
+    log10_ = function() {
+      tensor_log10__(self$pointer)
+      invisible(self)
+    },
+
+    log1p = function() {
+      `torch::Tensor`$dispatch(tensor_log1p_(self$pointer))
+    },
+
+    log1p_ = function() {
+      tensor_log1p__(self$pointer)
+      invisible(self)
+    },
+
+    logsumexp = function(dim, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_logsumexp_(self$pointer, dim, keepdim))
+    },
+
+    max = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_max_(self$pointer, dim, keepdim))
+    },
+
+    mean = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_mean_(self$pointer, dim, keepdim))
+    },
+
+    median = function(dim = NULL, keepdim = FALSE) {
+      if(is.null(dim)) {
+        `torch::Tensor`$dispatch(tensor_median_(self$pointer))
+      } else if(!is.null(dim)) {
+        out <- tensor_median_dim_(self$pointer, dim, keepdim)
+        lapply(out, `torch::Tensor`$dispatch)
+      }
+    },
+
+    min = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_min_(self$pointer, dim, keepdim))
+    },
+
+    mode = function(dim = -1, keepdim = FALSE) {
+      out <- tensor_mode_(self$pointer, dim, keepdim)
+      lapply(out, `torch::Tensor`$dispatch)
     },
 
     mm = function(mat2) {
@@ -402,9 +653,53 @@
       }
     },
 
+    prod = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim))
+    },
+
     qr = function() {
       out <- tensor_qr_(self$pointer)
       lapply(out, `torch::Tensor`$dispatch)
+    },
+
+    round = function() {
+      `torch::Tensor`$dispatch(tensor_round_(self$pointer))
+    },
+
+    rsqrt = function() {
+      `torch::Tensor`$dispatch(tensor_rsqrt_(self$pointer))
+    },
+
+    rsqrt_ = function() {
+      tensor_rsqrt__(self$pointer)
+      invisible(NULL)
+    },
+
+    sigmoid = function() {
+      `torch::Tensor`$dispatch(tensor_sigmoid_(self$pointer))
+    },
+
+    sign = function() {
+      `torch::Tensor`$dispatch(tensor_sign_(self$pointer))
+    },
+
+    sigmoid_ = function() {
+      tensor_sigmoid__(self$pointer)
+      invisible(NULL)
+    },
+
+    sqrt = function() {
+      `torch::Tensor`$dispatch(tensor_sqrt_(self$pointer))
+    },
+
+    sqrt_ = function() {
+      tensor_sqrt__(self$pointer)
+      invisible(NULL)
+    },
+
+
+    std = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_std_(self$pointer, unbiased, dim, keepdim))
     },
 
     sub = function(other, alpha = 1) {
@@ -424,12 +719,20 @@
       invisible(NULL)
     },
 
-    sum = function(dim = NULL, keepdim = NULL, dtype = NULL) {
-      `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim, dtype))
+    sum = function(dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim))
     },
 
     t = function() {
       `torch::Tensor`$dispatch(tensor_t_(self$pointer))
+    },
+
+    tril = function(diagonal = 0) {
+      `torch::Tensor`$dispatch(tensor_tril_(self$pointer, diagonal))
+    },
+
+    triu = function(diagonal = 0) {
+      `torch::Tensor`$dispatch(tensor_triu_(self$pointer, diagonal))
     },
 
     to = function(dtype = NULL, device = NULL, requires_grad = FALSE) {
@@ -438,6 +741,19 @@
 
     to_string = function () {
       tensor_to_string_(self$pointer)
+    },
+
+    trunc = function() {
+      `torch::Tensor`$dispatch(tensor_trunc_(self$pointer))
+    },
+
+    trunc_ = function() {
+      tensor_trunc__(self$pointer)
+      invisible(NULL)
+    },
+
+    var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim))
     },
 
     zero_ = function() {

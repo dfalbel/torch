@@ -31,9 +31,9 @@ knitr::kable(data.frame(
 ))
 ```
 
-# Tensor Creation
+## Tensor Creation
 
-## From R
+### From R
 
 We can create new tensors from R objects using the `tensor` function.
 
@@ -73,7 +73,7 @@ x_ten <- tensor(x)
 x_ten
 ```
 
-##  Using a Factory Function
+###  Using a Factory Function
 
 The following factory functions are available at the time of this writing:
 
@@ -97,4 +97,18 @@ x <- tch_randn(c(2,2))
 x
 ```
 
+## Configuring Properties of the Tensor
 
+There are 4 construction axis for a tensor, they are:
+
+* The dtype, which controls the data type of the elements stored in the tensor,
+* The layout, which is either strided (dense) or sparse,
+* The device, which represents a compute device on which a tensor is stored (like a CPU or CUDA GPU),
+* The requires_grad boolean to enable or disable gradient recording for a tensor,
+
+If you are used to PyTorch in Python, these axes will sound very familiar. The allowed values for these axes at the moment are:
+
+* For `dtype`: `uint8`, `int` or `int32`, `float` or `float32` and `double` or `float64`,
+* For `layout`: `strided` or `dense`,
+* For `device`: `cpu`, (no `cuda` support yet),
+* For `requires_grad`: either `TRUE` or  `FALSE`.

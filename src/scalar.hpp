@@ -29,6 +29,10 @@ torch::ScalarType scalar_type_from_string(std::string scalar_type) {
     return torch::kDouble;
   } else if (scalar_type == "float32" | scalar_type == "float") {
     return torch::kFloat;
+  } else if (scalar_type == "uint8") {
+    return torch::kByte;
+  } else if (scalar_type == "int64" | scalar_type == "long") {
+    return torch::kLong;
   }
   Rcpp::stop("scalar not handled");
 }
@@ -40,6 +44,16 @@ std::string scalar_type_to_string(torch::ScalarType scalar_type) {
     return "double";
   } else if (scalar_type == torch::kFloat) {
     return "float";
+  } else if (scalar_type == torch::kLong) {
+    return "long";
   }
   Rcpp::stop("scalar not handled");
+}
+
+std::string caffe_type_to_string (caffe2::TypeMeta type) {
+  std::string name = type.name();
+  if (name == "unsigned char") {
+    name = "uint8";
+  }
+  return name;
 }

@@ -129,7 +129,8 @@ from a normal distribution with mean 0 and variance 1
     
     </div>
 
-    <pre class="usage"><span class='fu'>tch_randn</span>(<span class='no'>sizes</span>)</pre>
+    <pre class="usage"><span class='fu'>tch_randn</span>(<span class='no'>sizes</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>layout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>requires_grad</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,6 +138,27 @@ from a normal distribution with mean 0 and variance 1
     <tr>
       <th>sizes</th>
       <td><p>a sequence of integers defining the shape of the output tensor.</p></td>
+    </tr>
+    <tr>
+      <th>dtype</th>
+      <td><p>the desired data type of returned tensor. Default: if <code>NULL</code>, infers
+data type from <code>x</code>.</p></td>
+    </tr>
+    <tr>
+      <th>device</th>
+      <td><p>the desired device of returned tensor. Default: if <code>NULL</code>, uses
+the current device for the default tensor type (see <code>tch_set_default_tensor_type()</code>).
+device will be the CPU for CPU tensor types and the current CUDA device for
+CUDA tensor types.</p></td>
+    </tr>
+    <tr>
+      <th>requires_grad</th>
+      <td><p>If autograd should record operations on the
+returned tensor. Default: <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>the</th>
+      <td><p>desired layout of returned Tensor. Default: 'strided'</p></td>
     </tr>
     </table>
     
@@ -147,9 +169,12 @@ from a normal distribution with mean 0 and variance 1
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>tch_randn</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>))</div><div class='output co'>#&gt; tensor 
-#&gt;  0.7565  0.6664
-#&gt; -0.8835  0.3487
-#&gt; [ Variable[CPUFloatType]{2,2} ]</div><div class='input'>
+#&gt;  0.2264  1.1311
+#&gt; -0.5004  1.4787
+#&gt; [ Variable[CPUFloatType]{2,2} ]</div><div class='input'><span class='fu'>tch_randn</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>), <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='st'>"double"</span>)</div><div class='output co'>#&gt; tensor 
+#&gt;  0.0974  0.3096
+#&gt; -0.5537 -0.3121
+#&gt; [ Variable[CPUDoubleType]{2,2} ]</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

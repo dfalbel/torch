@@ -1,88 +1,51 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+torch
+=====
 
-# torch
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) [![Travis build status](https://travis-ci.org/dfalbel/torch.svg?branch=master)](https://travis-ci.org/dfalbel/torch) [![Coverage status](https://codecov.io/gh/dfalbel/torch/branch/master/graph/badge.svg)](https://codecov.io/github/dfalbel/torch?branch=master)
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build
-status](https://travis-ci.org/dfalbel/torch.svg?branch=master)](https://travis-ci.org/dfalbel/torch)
-[![Coverage
-status](https://codecov.io/gh/dfalbel/torch/branch/master/graph/badge.svg)](https://codecov.io/github/dfalbel/torch?branch=master)
+torch from R!
 
-torch from R\!
+> A proof of concept for calling libtorch functions from R. API will change! Use at your own risk. Most libtorch’s functionality is not implemented here too.
 
-> A proof of concept for calling libtorch functions from R. API will
-> change\! Use at your own risk. Most libtorch’s functionality is not
-> implemented here too.
+Installation
+------------
 
-## Installation
-
-Before installing you should install [libtorch](https://pytorch.org/).
-Usually it makes sense to install `libtorch` to `/usr/local/lib`.
-However you can install it to any place and later provide location to R
-by setting `TORCH_HOME` environment variable (see examples
-below).
+Installation is very simple:
 
 ### CPU
 
-**Linux**
-
-``` sh
-wget https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-latest.zip
-sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
-```
-
-**OS X**
-
-``` sh
-https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip
-sudo unzip libtorch-macos-latest.zip -d /usr/local/lib/
-```
-
-After that you can install set `TORCH_HOME` environment variable and
-install `torch` package:
-
 ``` r
-Sys.setenv("TORCH_HOME" = "/usr/local/lib/libtorch")
+Sys.setenv(TORCH_HOME="/libtorch")
 devtools::install_github("dfalbel/torch")
 ```
+
+Code above will check whether `libtorch` is installed to `TORCH_HOME` dir. If not it will automatically download `libtorch` binaries from [`pytorch.org`](https://pytorch.org/) and unpack them to `TORCH_HOME`. After that it will install `torch` R package. If you don't set the `TORCH_HOME` env var it will use `/libtorch` as default.
+
+Alternatively you can provide URL for binaries download by adding setting the `TORCH_BINARIES` environment variable.
 
 ### GPU
 
-On Linux you can also install `torch` with **CUDA 9.0** support (still
-very initial stage)
+On Linux you can also install `torch` with **CUDA 9.0** support (still very initial stage)
 
 **Install CUDA 9.0**
 
-  - [follow these
-    instructions](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
-    and add necessary repositories
-  - install **cuda-9-0** - `sudo apt-get install cuda-9-0`
+-   [follow these instructions](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and add necessary repositories
+-   install **cuda-9.0** - `sudo apt-get install cuda-9-0`
+-   install **cuDNN &gt; 7** - follow the instructions [here](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html).
 
-**Install
-libtorch**
-
-``` sh
-wget https://download.pytorch.org/libtorch/cu90/libtorch-shared-with-deps-latest.zip
-sudo unzip libtorch-shared-with-deps-latest.zip -d /usr/local/lib/
-```
-
-**Install torch package**
-
-Define `TORCH_BACKEND_CUDA`, `TORCH_HOME` environment variables and
-install pkg:
+**Install libtorch and torch R package**
 
 ``` r
-Sys.setenv("TORCH_BACKEND_CUDA" = "YES")
-Sys.setenv("TORCH_HOME" = "/usr/local/lib/libtorch")
+Sys.setenv(TORCH_BACKEND = "CUDA")
 devtools::install_github("dfalbel/torch")
 ```
 
-## Example
+Example
+-------
 
-Currently this package is only a prrof of concept and you can only
-create a Torch Tensor from an R object. And then convert back from a
-torch Tensor to an R object.
+Currently this package is only a prrof of concept and you can only create a Torch Tensor from an R object. And then convert back from a torch Tensor to an R object.
 
 ``` r
 library(torch)
@@ -91,12 +54,12 @@ y <- tensor(x)
 y
 #> tensor 
 #> (1,.,.) = 
-#>   0.9947  0.8106
-#>   0.1551  0.0735
+#>   0.2062  0.7407
+#>   0.3839  0.1304
 #> 
 #> (2,.,.) = 
-#>   0.7466  0.7760
-#>   0.0058  0.8846
+#>   0.1738  0.0036
+#>   0.6013  0.9410
 #> [ Variable[CPUFloatType]{2,2,2} ]
 identical(x, as.array(y))
 #> [1] FALSE
@@ -104,8 +67,7 @@ identical(x, as.array(y))
 
 ### Simple Autograd Example
 
-In the following snippet we let torch, using the autograd feature,
-calculate the derivatives:
+In the following snippet we let torch, using the autograd feature, calculate the derivatives:
 
 ``` r
 x <- tensor(1, requires_grad = TRUE)
@@ -131,11 +93,9 @@ b$grad
 
 ### Linear Regression
 
-In the following example we are going to fit a linear regression from
-scratch using torch’s Autograd.
+In the following example we are going to fit a linear regression from scratch using torch's Autograd.
 
-**Note** all methods that end with `_` (eg. `sub_`), will modify the
-tensors in place.
+**Note** all methods that end with `_` (eg. `sub_`), will modify the tensors in place.
 
 ``` r
 x <- matrix(runif(100), ncol = 2)
@@ -166,12 +126,11 @@ for (i in 1:100) {
 
 print(w)
 #> tensor 
-#>  0.5217
-#> -0.6676
+#>  0.4974
+#> -0.7013
 #> [ Variable[CPUFloatType]{2,1} ]
 print(b) 
 #> tensor 
-#> 0.01 *
-#>  6.9575
+#>  0.1021
 #> [ Variable[CPUFloatType]{1} ]
 ```

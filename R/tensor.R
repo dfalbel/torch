@@ -30,9 +30,14 @@ tensor_from_r <- function(x, dtype = NULL, device = NULL, requires_grad = FALSE)
 #' Creates a torch tensor.
 #'
 #' @param x an R object or a torch tensor.
-#' @param dtype a string with torch types. Allowed types are double, float and int.
-#' @param device a device type
-#' @param requires_grad boolean indicating if tensor requires grad.
+#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
+#' data type from `x`.
+#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
+#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
+#' device will be the CPU for CPU tensor types and the current CUDA device for
+#' CUDA tensor types.
+#' @param requires_grad If autograd should record operations on the
+#' returned tensor. Default: `FALSE`.
 #'
 #' @examples
 #' x <- tensor(1:10)
@@ -80,24 +85,6 @@ as.array.tensor <- function(x) {
 #' @export
 as.matrix.tensor <- function(x) {
   as.matrix(x$as_vector())
-}
-
-#' Random normal
-#'
-#' Returns a tensor filled with random numbers
-#' from a normal distribution with mean 0 and variance 1
-#' (also called the standard normal distribution).
-#'
-#' The shape of the tensor is defined by the variable argument sizes.
-#'
-#' @param sizes a sequence of integers defining the shape of the output tensor.
-#'
-#' @examples
-#' tch_randn(c(2,2))
-#'
-#' @export
-tch_randn <- function(sizes) {
-  `torch::Tensor`$dispatch(torch_randn_(sizes))
 }
 
 #' Abs
@@ -316,6 +303,32 @@ tch_asin <- function(x) {
   x$asin()
 }
 
+#' sin
+#'
+#' Returns a new tensor with the sine of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_sin(x)
+#' @export
+tch_sin <- function(x) {
+  x$sin()
+}
+
+#' sinh
+#'
+#' Returns a new tensor with the hyperbolic sine of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_asin(x)
+#' @export
+tch_sinh <- function(x) {
+  x$sinh()
+}
+
 #' atan
 #'
 #' Returns a new tensor with the arctangent of the elements of input.
@@ -327,6 +340,32 @@ tch_asin <- function(x) {
 #' @export
 tch_atan <- function(x) {
   x$atan()
+}
+
+#' tan
+#'
+#' Returns a new tensor with the tangent of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_tan(x)
+#' @export
+tch_tan <- function(x) {
+  x$tan()
+}
+
+#' tanh
+#'
+#' Returns a new tensor with the hyperbolic tangent of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_tanh(x)
+#' @export
+tch_tanh <- function(x) {
+  x$tanh()
 }
 
 #' atan2
@@ -787,6 +826,23 @@ tch_eig <- function(x, eigenvectors = FALSE) {
   x$eq(other)
 }
 
+#' Equal
+#'
+#' `TRUE` if two tensors have the same size and elements, `FALSE` otherwise.
+#'
+#' @param x tensor object
+#' @param other tensor object to compare
+#'
+#' @examples
+#' x <- tensor(c(1,2))
+#' y <- tensor(c(1,2))
+#' tch_equal(x, y)
+#'
+#' @export
+tch_equal <- function(x, other) {
+  x$equal(other)
+}
+
 #' Gels
 #'
 #' Computes the solution to the least squares and least norm problems for a full
@@ -803,19 +859,183 @@ tch_gels <- function(x, A) {
   x$gels(A)
 }
 
-#' mean
+#' lerp
+#'
+#' Does a linear interpolation of two tensors start and end based on a scalar weight and returns the resulting out tensor.
+#'
+#' out = start - weight * (end - start)
+#'
+#' @param start the tensor with the starting points.
+#' @param end the tensor with the ending points.
+#' @param weight the weight for the interpolation formula.
+#' @examples
+#' start <- tch_arange(1, 5)
+#' end <- tch_empty(4)$fill_(10)
+#' tch_lerp(start, end, 0.5)
+#' @export
+tch_lerp <- function(start, end, weight) {
+  start$lerp(end, weight)
+}
+
+#' log
+#'
+#' Returns a new tensor with the logarithm of the elements of input. The available logarithm functions are:
 #'
 #' @param x tensor object
-#' @param dim dimension in which to sum
+#' @examples
+#' x <- tch_randn(c(2,2))
+#'
+#' @name log
+NULL
+
+#' @rdname log
+#' @description tch_log: Natural logarithm.
+#'
+#' @examples
+#' tch_log(x)
+#'
+#' @export
+tch_log <- function(x) {
+  x$log()
+}
+
+#' @rdname log
+#' @description tch_log2: Base 2 logarithm.
+#'
+#' @examples
+#' tch_log2(x)
+#'
+#' @export
+tch_log2 <- function(x) {
+  x$log2()
+}
+
+#' @rdname log
+#' @description tch_log10: Base 10 logarithm.
+#'
+#' @examples
+#' tch_log10(x)
+#'
+#' @export
+tch_log10 <- function(x) {
+  x$log10()
+}
+
+#' @rdname log
+#' @description tch_log1p: Same as tch_log(1 + x). This function is more accurate than tch_log() for small values of x.
+#'
+#' @examples
+#' tch_log1p(x)
+#'
+#' @export
+tch_log1p <- function(x) {
+  x$log1p()
+}
+
+#' logsumexp
+#'
+#' Returns the log(sum(exp(x))) of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
-#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(runif(10))
+#' tch_logsumexp(x, 0)
+#' @export
+tch_logsumexp <- function(x, dim, keepdim = FALSE) {
+  x$logsumexp(dim, keepdim)
+}
+
+#' mean
+#'
+#' Returns the mean value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim whether the output tensor has dim retained or not. (ignored if dim is `NULL`)
 #'
 #' @examples
 #' x <- tensor(runif(100))
 #' tch_mean(x)
 #' @export
-tch_mean <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  x$mean(dim, keepdim, dtype)
+tch_mean <- function(x, dim = NULL, keepdim = FALSE) {
+  x$mean(dim, keepdim)
+}
+
+#' min
+#'
+#' Returns the minimum value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_min(x)
+#' @export
+tch_min <- function(x, dim = NULL, keepdim = NULL, na.rm = FALSE) {
+  x$min(dim, keepdim)
+}
+
+
+#' max
+#'
+#' Returns the maximum value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_max(x)
+#' @export
+tch_max <- function(x, dim = NULL, keepdim = NULL, na.rm = FALSE) {
+  x$max(dim, keepdim, dtype)
+}
+
+#' median
+#'
+#' Returns the median value of each row of the x tensor in the given dimension dim.
+#' Also returns the index location of the median value as a LongTensor.
+#'
+#' By default, dim is the last dimension of the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(array(1:20, c(5,4)))
+#' tch_median(x)
+#' tch_median(x, 0)
+#' tch_median(x, 1)
+#' @export
+tch_median <- function(x, dim = NULL, keepdim = FALSE) {
+  x$median(dim, keepdim)
+}
+
+#' mode
+#'
+#' Returns the mode value of each row of the x tensor in the given dimension dim.
+#' Also returns the index location of the mode value as a LongTensor.
+#' By default, dim is the last dimension of the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(array(1:20, c(5,4)))
+#' tch_mode(x)
+#' tch_mode(x, 0)
+#' tch_mode(x, 1)
+#' @export
+tch_mode <- function(x, dim = -1, keepdim = FALSE) {
+  x$mode(dim, keepdim)
 }
 
 #' matrix multiplication
@@ -879,6 +1099,27 @@ tch_permute <- function(x, dims) {
   x$pow(y)
 }
 
+#' prod
+#'
+#' Returns the product of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#' @param dtype the desired data type of returned tensor. If specified, the input tensor is casted to dtype before the operation is performed.
+#' This is useful for preventing data type overflows. Default: NULL.
+#'
+#' @examples
+#' x <- tch_randn(c(2,2))
+#' tch_prod(x)
+#' tch_prod(x, 0)
+#' tch_prod(x, 1, TRUE)
+#' tch_prod(x, 1, TRUE, "double")
+#' @export
+tch_prod <- function(x, dim = NULL, keepdim = FALSE, dtype = NULL) {
+  x$prod(dim, keepdim, dtype)
+}
+
 #' QR decomposition
 #'
 #' Computes the QR decomposition of a matrix input, and returns matrices Q and R
@@ -894,6 +1135,24 @@ tch_permute <- function(x, dims) {
 #' @export
 tch_qr <- function(x) {
   x$qr()
+}
+
+#' std
+#'
+#' Returns the standard-deviation of all elements in the x tensor.
+#' If unbiased is FALSE, then the standard-deviation will be calculated via the biased estimator. Otherwise, Bessel’s correction will be used.
+#'
+#' @param x tensor object
+#' @param unbiased whether to use the unbiased estimation or not
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_std(x)
+#' @export
+tch_std <- function(x, unbiased = TRUE, dim = NULL, keepdim = NULL) {
+  x$std(unbiased, dim, keepdim)
 }
 
 #' substraction
@@ -921,7 +1180,7 @@ tch_qr <- function(x) {
 #' x <- tensor(1:10)
 #' tch_sum(x)
 #' @export
-tch_sum <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
+tch_sum <- function(x, dim = NULL, keepdim = FALSE, dtype = NULL) {
   x$sum(dim, keepdim, dtype)
 }
 
@@ -936,3 +1195,154 @@ tch_sum <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) 
 tch_t <- function(x) {
   x$t()
 }
+
+
+
+#' Lower triangle
+#'
+#' Returns the lower triangular part of the matrix (2-D tensor) x, the other elements of the result tensor out are set to 0.
+#' The lower triangular part of the matrix is defined as the elements on and below the diagonal.
+#'
+#' The argument diagonal controls which diagonal to consider. If diagonal = 0, all elements on and below the main diagonal are retained.
+#' A positive value includes just as many diagonals above the main diagonal, and similarly a negative value excludes just as many diagonals below the main diagonal.
+#'
+#' @param x tensor object
+#' @param diagonal integer. the diagonal to consider
+#'
+#' @examples
+#' x <- array(1:20, c(4, 5))
+#' tch_tril(tensor(x))
+#' tch_tril(tensor(x), 1)
+#' tch_tril(tensor(x), 2)
+#' tch_tril(tensor(x), -1)
+#' tch_tril(tensor(x), -2)
+#' @export
+tch_tril <- function(x, diagonal = 0) {
+  x$tril(diagonal)
+}
+
+#' Upper triangle
+#'
+#' Returns the upper triangular part of the matrix (2-D tensor) x, the other elements of the result tensor out are set to 0.
+#' The upper triangular part of the matrix is defined as the elements on and above the diagonal.
+#'
+#' The argument diagonal controls which diagonal to consider. If diagonal = 0, all elements on and above the main diagonal are retained.
+#' A positive value excludes just as many diagonals above the main diagonal, and similarly a negative value includes just as many diagonals below the main diagonal.
+#'
+#' @param x tensor object
+#' @param diagonal integer. the diagonal to consider
+#'
+#' @examples
+#' x <- array(1:20, c(4, 5))
+#' tch_triu(tensor(x))
+#' tch_triu(tensor(x), 1)
+#' tch_triu(tensor(x), 2)
+#' tch_triu(tensor(x), -1)
+#' tch_triu(tensor(x), -2)
+#' @export
+tch_triu <- function(x, diagonal = 0) {
+  x$triu(diagonal)
+}
+
+#' round
+#'
+#' Returns a new tensor with each of the elements of x rounded to the closest integer.
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(runif(6), nrow = 3))
+#' tch_round(x)
+#' @export
+tch_round <- function(x) {
+  x$round()
+}
+
+#' rsqrt
+#'
+#' Returns a new tensor with the reciprocal of the square-root of each of the elements of x: 1/sqrt(x).
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(runif(6), nrow = 3))
+#' tch_rsqrt(x)
+#' @export
+tch_rsqrt <- function(x) {
+  x$rsqrt()
+}
+
+#' sigmoid
+#'
+#' Returns a new tensor with the sigmoid of the elements of each of the elements of x: 1/(1 + exp(-x)).
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sigmoid(x)
+#' @export
+tch_sigmoid <- function(x) {
+  x$sigmoid()
+}
+
+#' sign
+#'
+#' Returns a new tensor with the sign of the elements of x.
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sign(x)
+#' @export
+tch_sign <- function(x) {
+  x$sign()
+}
+
+#' sqrt
+#'
+#' Returns a new tensor with the square-root of the elements of x
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sqrt(x)
+#' @export
+tch_sqrt <- function(x) {
+  x$sqrt()
+}
+
+#' trunc
+#'
+#' Returns a new tensor with the truncated integer values of the elements of x.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_trunc(x)
+#' @export
+tch_trunc <- function(x) {
+  x$trunc()
+}
+
+#' var
+#'
+#' Returns the variance of all elements in the x tensor.
+#' If unbiased is FALSE, then the variance will be calculated via the biased estimator. Otherwise, Bessel’s correction will be used.
+#'
+#' @param x tensor object
+#' @param unbiased whether to use the unbiased estimation or not
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_var(x)
+#' @export
+tch_var <- function(x, unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+  x$var(unbiased, dim, keepdim)
+}
+
+
