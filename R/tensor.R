@@ -880,6 +880,7 @@ tch_lerp <- function(start, end, weight) {
 #' log
 #'
 #' Returns a new tensor with the logarithm of the elements of input. The available logarithm functions are:
+
 #'
 #' @param x tensor object
 #' @examples
@@ -959,6 +960,38 @@ tch_logsumexp <- function(x, dim, keepdim = FALSE) {
 #' @examples
 #' x <- tensor(runif(100))
 #' tch_mean(x)
+#' @export
+tch_mean <- function(x, dim = NULL, keepdim = FALSE) {
+  x$mean(dim, keepdim)
+}
+
+#' min
+#'
+#' Returns the minimum value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(runif(10))
+#' tch_logsumexp(x, 0)
+#' @export
+tch_logsumexp <- function(x, dim, keepdim = FALSE) {
+  x$logsumexp(dim, keepdim)
+}
+
+#' mean
+#'
+#' Returns the mean value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim whether the output tensor has dim retained or not. (ignored if dim is `NULL`)
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_min(x)
 #' @export
 tch_mean <- function(x, dim = NULL, keepdim = FALSE) {
   x$mean(dim, keepdim)
