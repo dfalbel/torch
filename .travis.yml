@@ -7,15 +7,16 @@ matrix:
     - os: linux
     - os: linux
       dist: xenial
-      env: CXX=g++-4.9 CXX11=g++-4.9
       addons:
         apt:
           packages:
             - g++-4.9
+            - gcc-4.9
       before_install:
         - mkdir -p ~/.R
         - echo "CXX11=g++-4.9"  > ~/.R/Makevars
         - echo "CXX=g++-4.9" >> ~/.R/Makevars
+        - echo "CC=gcc-4.9" >> ~/.R/Makevars
         - cat ~/.R/Makevars
     - os: linux
       env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
