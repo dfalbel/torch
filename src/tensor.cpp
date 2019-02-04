@@ -378,9 +378,16 @@ Rcpp::XPtr<torch::Tensor> tensor_addcmul__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::X
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat1,
-                                         Rcpp::XPtr<torch::Tensor> mat2, double beta, double alpha
+                                         Rcpp::XPtr<torch::Tensor> mat2, SEXP beta, SEXP alpha
 ) {
-  return make_tensor_ptr(x->addmm(*mat1, *mat2, beta, alpha));
+  return make_tensor_ptr(x->addmm(*mat1, *mat2, scalar_from_r_(beta), scalar_from_r_(alpha)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_addmm__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat1,
+                                         Rcpp::XPtr<torch::Tensor> mat2, SEXP beta, SEXP alpha
+) {
+  return make_tensor_ptr(x->addmm_(*mat1, *mat2, scalar_from_r_(beta), scalar_from_r_(alpha)));
 }
 
 // [[Rcpp::export]]

@@ -132,6 +132,11 @@
       )
     },
 
+    addmm_ = function(mat1, mat2, beta = 1, alpha = 1) {
+      tensor_addmm__(self$pointer, mat1$pointer, mat2$pointer, beta, alpha)
+      invisible(self)
+    },
+
     addmv = function(mat, vec, beta = 1, alpha = 1) {
       `torch::Tensor`$dispatch(
         tensor_addmv_(self$pointer, mat$pointer, vec$pointer, beta, alpha)

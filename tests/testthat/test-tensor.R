@@ -170,14 +170,20 @@ test_that("addcmul works", {
 
 test_that("addmm works", {
 
-  x <- tensor(matrix(runif(6), nrow = 2, ncol = 3))
-  mat1 <- tensor(array(runif(6), dim = c(2, 3)))
-  mat2 <- tensor(array(runif(6), dim = c(3, 3)))
+  x <- matrix(0, nrow = 2, ncol = 2)
+  mat1 <- matrix(2, nrow = 2, ncol = 3)
+  mat2 <- matrix(3, nrow = 3, ncol = 2)
 
-  res <- as.array(tch_addmm(x, mat1, mat2, 1))
+  res <- as.array(tch_addmm(tensor(x), tensor(mat1), tensor(mat2), 1))
+  expect_equal(res, x + mat1 %*% mat2)
 
-  expect_true(is.array(res))
-  expect_identical(dim(res), c(2L, 3L))
+  x <- matrix(0, nrow = 2, ncol = 2)
+  mat1 <- matrix(2, nrow = 2, ncol = 3)
+  mat2 <- matrix(3, nrow = 3, ncol = 2)
+
+  x_t <- tensor(x)
+  expect_silent(x_t$addmm_(tensor(mat1), tensor(mat2)))
+  expect_equal(as.array(x_t), x + mat1 %*% mat2)
 })
 
 test_that("addmv works", {
