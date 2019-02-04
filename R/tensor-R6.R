@@ -121,6 +121,11 @@
       )
     },
 
+    addcmul_ = function(tensor1, tensor2, value = 1) {
+      tensor_addcmul__(self$pointer, tensor1$pointer, tensor2$pointer, value)
+      invisible(self)
+    },
+
     addmm = function(mat1, mat2, beta = 1, alpha = 1) {
       `torch::Tensor`$dispatch(
         tensor_addmm_(self$pointer, mat1$pointer, mat2$pointer, beta, alpha)

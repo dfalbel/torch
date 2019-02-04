@@ -161,6 +161,11 @@ test_that("addcmul works", {
 
   expect_true(is.array(res))
   expect_identical(dim(res), c(3L, 3L))
+
+  x <- matrix(runif(3), nrow = 1, ncol = 3)
+  x_t <- tensor(x)
+  expect_silent(x_t$addcmul_(tensor(2), tensor(2), 1))
+  expect_equal(as.array(x_t), x + 4, tol = 1e-6)
 })
 
 test_that("addmm works", {

@@ -417,7 +417,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_addcmul_
-Rcpp::XPtr<torch::Tensor> tensor_addcmul_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1, Rcpp::XPtr<torch::Tensor> tensor2, double value);
+Rcpp::XPtr<torch::Tensor> tensor_addcmul_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1, Rcpp::XPtr<torch::Tensor> tensor2, SEXP value);
 RcppExport SEXP _torch_tensor_addcmul_(SEXP xSEXP, SEXP tensor1SEXP, SEXP tensor2SEXP, SEXP valueSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -425,8 +425,22 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type tensor1(tensor1SEXP);
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type tensor2(tensor2SEXP);
-    Rcpp::traits::input_parameter< double >::type value(valueSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type value(valueSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_addcmul_(x, tensor1, tensor2, value));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_addcmul__
+Rcpp::XPtr<torch::Tensor> tensor_addcmul__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1, Rcpp::XPtr<torch::Tensor> tensor2, SEXP value);
+RcppExport SEXP _torch_tensor_addcmul__(SEXP xSEXP, SEXP tensor1SEXP, SEXP tensor2SEXP, SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type tensor1(tensor1SEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type tensor2(tensor2SEXP);
+    Rcpp::traits::input_parameter< SEXP >::type value(valueSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_addcmul__(x, tensor1, tensor2, value));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -2332,6 +2346,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_addcdiv_", (DL_FUNC) &_torch_tensor_addcdiv_, 4},
     {"_torch_tensor_addcdiv__", (DL_FUNC) &_torch_tensor_addcdiv__, 4},
     {"_torch_tensor_addcmul_", (DL_FUNC) &_torch_tensor_addcmul_, 4},
+    {"_torch_tensor_addcmul__", (DL_FUNC) &_torch_tensor_addcmul__, 4},
     {"_torch_tensor_addmm_", (DL_FUNC) &_torch_tensor_addmm_, 5},
     {"_torch_tensor_addmv_", (DL_FUNC) &_torch_tensor_addmv_, 5},
     {"_torch_tensor_addr_", (DL_FUNC) &_torch_tensor_addr_, 5},

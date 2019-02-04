@@ -125,6 +125,10 @@ tensor_addcmul_ <- function(x, tensor1, tensor2, value) {
     .Call('_torch_tensor_addcmul_', PACKAGE = 'torch', x, tensor1, tensor2, value)
 }
 
+tensor_addcmul__ <- function(x, tensor1, tensor2, value) {
+    .Call('_torch_tensor_addcmul__', PACKAGE = 'torch', x, tensor1, tensor2, value)
+}
+
 tensor_addmm_ <- function(x, mat1, mat2, beta, alpha) {
     .Call('_torch_tensor_addmm_', PACKAGE = 'torch', x, mat1, mat2, beta, alpha)
 }
