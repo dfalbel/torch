@@ -15,6 +15,7 @@ matrix:
       before_install:
         - mkdir -p ~/.R
         - echo "CXX11=g++-4.9"  > ~/.R/Makevars
+        - echo "CXX=g++-4.9" >> ~/.R/Makevars
         - cat ~/.R/Makevars
     - os: linux
       env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
