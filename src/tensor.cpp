@@ -352,9 +352,14 @@ Rcpp::XPtr<torch::Tensor> tensor_addbmm__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XP
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addcdiv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1,
-                                           Rcpp::XPtr<torch::Tensor> tensor2, double value
-) {
-  return make_tensor_ptr(x->addcdiv(*tensor1, *tensor2, value));
+                                           Rcpp::XPtr<torch::Tensor> tensor2, SEXP value) {
+  return make_tensor_ptr(x->addcdiv(*tensor1, *tensor2, scalar_from_r_(value)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_addcdiv__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1,
+                                           Rcpp::XPtr<torch::Tensor> tensor2, SEXP value) {
+  return make_tensor_ptr(x->addcdiv_(*tensor1, *tensor2, scalar_from_r_(value)));
 }
 
 // [[Rcpp::export]]

@@ -110,6 +110,11 @@
       )
     },
 
+    addcdiv_ = function(tensor1, tensor2, value = 1) {
+      tensor_addcdiv__(self$pointer, tensor1$pointer, tensor2$pointer, value)
+      invisible(self)
+    },
+
     addcmul = function(tensor1, tensor2, value = 1) {
       `torch::Tensor`$dispatch(
         tensor_addcmul_(self$pointer, tensor1$pointer, tensor2$pointer, value)

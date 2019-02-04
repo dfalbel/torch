@@ -117,6 +117,10 @@ tensor_addcdiv_ <- function(x, tensor1, tensor2, value) {
     .Call('_torch_tensor_addcdiv_', PACKAGE = 'torch', x, tensor1, tensor2, value)
 }
 
+tensor_addcdiv__ <- function(x, tensor1, tensor2, value) {
+    .Call('_torch_tensor_addcdiv__', PACKAGE = 'torch', x, tensor1, tensor2, value)
+}
+
 tensor_addcmul_ <- function(x, tensor1, tensor2, value) {
     .Call('_torch_tensor_addcmul_', PACKAGE = 'torch', x, tensor1, tensor2, value)
 }

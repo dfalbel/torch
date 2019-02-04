@@ -144,6 +144,11 @@ test_that("addcdiv works", {
 
   expect_true(is.array(res))
   expect_identical(dim(res), c(3L, 3L))
+
+  x <- matrix(runif(3), nrow = 1, ncol = 3)
+  x_t <- tensor(x)
+  expect_silent(x_t$addcdiv_(tensor(1), tensor(2), 1))
+  expect_equal(as.array(x_t), x + 0.5, tol = 1e-6)
 })
 
 test_that("addcmul works", {
