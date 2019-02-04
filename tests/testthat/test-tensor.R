@@ -187,14 +187,16 @@ test_that("addmm works", {
 })
 
 test_that("addmv works", {
+  x <- c(1,0)
+  mat <- matrix(1, nrow = 2, ncol = 4)
+  vec <- c(1,2,3,4)
 
-  x <- tensor(runif(2))
-  mat <- tensor(array(runif(6), dim = c(2, 3)))
-  vec <- tensor(runif(3))
+  res <- as.array(tch_addmv(tensor(x), tensor(mat), tensor(vec)))
+  expect_equal(res, as.numeric(x + mat %*% vec))
 
-  res <- as.array(tch_addmv(x, mat, vec))
-
-  expect_identical(length(res), 2L)
+  x_t <- tensor(x)
+  x_t$addmv_(tensor(mat), tensor(vec))
+  expect_equal(as.array(x_t), as.numeric(x + mat %*% vec))
 })
 
 test_that("addr works", {

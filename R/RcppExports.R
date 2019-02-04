@@ -141,6 +141,10 @@ tensor_addmv_ <- function(x, mat, vec, beta, alpha) {
     .Call('_torch_tensor_addmv_', PACKAGE = 'torch', x, mat, vec, beta, alpha)
 }
 
+tensor_addmv__ <- function(x, mat, vec, beta, alpha) {
+    .Call('_torch_tensor_addmv__', PACKAGE = 'torch', x, mat, vec, beta, alpha)
+}
+
 tensor_addr_ <- function(x, vec1, vec2, beta, alpha) {
     .Call('_torch_tensor_addr_', PACKAGE = 'torch', x, vec1, vec2, beta, alpha)
 }

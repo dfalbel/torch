@@ -143,6 +143,10 @@
       )
     },
 
+    addmv_ = function(mat, vec, beta = 1, alpha = 1) {
+      tensor_addmv__(self$pointer, mat$pointer, vec$pointer, beta, alpha)
+    },
+
     addr = function(vec1, vec2, beta = 1, alpha = 1) {
       `torch::Tensor`$dispatch(
         tensor_addr_(self$pointer, vec1$pointer, vec2$pointer, beta, alpha)
