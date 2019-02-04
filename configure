@@ -35,12 +35,11 @@ then
   echo "CXX11 compiler:  $CPP"
   CPP_v=$(eval "$CPP -dumpversion")
   echo "CXX11 compiler version:  $CPP_v"
-  echo $(vercomp $CPP_v "4.2" =)
   if [[ $CPP == *"g++"* &&  $CPP_v == *"4.9"* ]]
   then
     echo "CXX11 compiler OK."
   else
-    echo -e "\e[101m**WARNING** You should use the g++-4.9 compiler if on Linux.\e[0m"
+    echo -e "**WARNING** You should use the g++-4.9 compiler if on Linux."
   fi
 fi
 
