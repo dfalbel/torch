@@ -1,13 +1,19 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
+
+addons:
+  apt:
+    packages:
+      - g++-4.9
+
 matrix:
   include:
     - os: linux
     - os: linux
       dist: xenial
     - os: linux
-      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
+      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip CXX=g++-4.9
     - os: osx
 sudo: true
 cache: packages
