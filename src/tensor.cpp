@@ -616,7 +616,10 @@ Rcpp::XPtr<torch::Tensor> tensor_cross_ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_cuda_ (Rcpp::XPtr<torch::Tensor> x) {
-  return make_tensor_ptr(x->cuda());
+  if (torch::cuda::is_available()) {
+    return make_tensor_ptr(x->cuda());
+  }
+  Rcpp::stop("CUDA is not available.");
 }
 
 // [[Rcpp::export]]
