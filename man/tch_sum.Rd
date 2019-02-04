@@ -4,7 +4,7 @@
 \alias{tch_sum}
 \title{sum}
 \usage{
-tch_sum(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE)
+tch_sum(x, dim = NULL, keepdim = FALSE)
 }
 \arguments{
 \item{x}{tensor object}

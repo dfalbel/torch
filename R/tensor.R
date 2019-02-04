@@ -87,34 +87,6 @@ as.matrix.tensor <- function(x) {
   as.matrix(x$as_vector())
 }
 
-#' Random normal
-#'
-#' Returns a tensor filled with random numbers
-#' from a normal distribution with mean 0 and variance 1
-#' (also called the standard normal distribution).
-#'
-#' The shape of the tensor is defined by the variable argument sizes.
-#'
-#' @param sizes a sequence of integers defining the shape of the output tensor.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_randn(c(2,2))
-#' tch_randn(c(2,2), dtype = "double")
-#'
-#' @export
-tch_randn <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_randn_(sizes, dtype, layout, device, requires_grad))
-}
-
 #' Abs
 #'
 #' Returns absolute values of tensor elements.
@@ -331,6 +303,32 @@ tch_asin <- function(x) {
   x$asin()
 }
 
+#' sin
+#'
+#' Returns a new tensor with the sine of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_sin(x)
+#' @export
+tch_sin <- function(x) {
+  x$sin()
+}
+
+#' sinh
+#'
+#' Returns a new tensor with the hyperbolic sine of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_asin(x)
+#' @export
+tch_sinh <- function(x) {
+  x$sinh()
+}
+
 #' atan
 #'
 #' Returns a new tensor with the arctangent of the elements of input.
@@ -342,6 +340,32 @@ tch_asin <- function(x) {
 #' @export
 tch_atan <- function(x) {
   x$atan()
+}
+
+#' tan
+#'
+#' Returns a new tensor with the tangent of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_tan(x)
+#' @export
+tch_tan <- function(x) {
+  x$tan()
+}
+
+#' tanh
+#'
+#' Returns a new tensor with the hyperbolic tangent of the elements of input.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_tanh(x)
+#' @export
+tch_tanh <- function(x) {
+  x$tanh()
 }
 
 #' atan2
@@ -835,19 +859,218 @@ tch_gels <- function(x, A) {
   x$gels(A)
 }
 
-#' mean
+#' lerp
+#'
+#' Does a linear interpolation of two tensors start and end based on a scalar weight and returns the resulting out tensor.
+#'
+#' out = start - weight * (end - start)
+#'
+#' @param start the tensor with the starting points.
+#' @param end the tensor with the ending points.
+#' @param weight the weight for the interpolation formula.
+#' @examples
+#' start <- tch_arange(1, 5)
+#' end <- tch_empty(4)$fill_(10)
+#' tch_lerp(start, end, 0.5)
+#' @export
+tch_lerp <- function(start, end, weight) {
+  start$lerp(end, weight)
+}
+
+#' log
+#'
+#' Returns a new tensor with the logarithm of the elements of input. The available logarithm functions are:
+
 #'
 #' @param x tensor object
-#' @param dim dimension in which to sum
+#' @examples
+#' x <- tch_randn(c(2,2))
+#'
+#' @name log
+NULL
+
+#' @rdname log
+#' @description tch_log: Natural logarithm.
+#'
+#' @examples
+#' tch_log(x)
+#'
+#' @export
+tch_log <- function(x) {
+  x$log()
+}
+
+#' @rdname log
+#' @description tch_log2: Base 2 logarithm.
+#'
+#' @examples
+#' tch_log2(x)
+#'
+#' @export
+tch_log2 <- function(x) {
+  x$log2()
+}
+
+#' @rdname log
+#' @description tch_log10: Base 10 logarithm.
+#'
+#' @examples
+#' tch_log10(x)
+#'
+#' @export
+tch_log10 <- function(x) {
+  x$log10()
+}
+
+#' @rdname log
+#' @description tch_log1p: Same as tch_log(1 + x). This function is more accurate than tch_log() for small values of x.
+#'
+#' @examples
+#' tch_log1p(x)
+#'
+#' @export
+tch_log1p <- function(x) {
+  x$log1p()
+}
+
+#' logsumexp
+#'
+#' Returns the log(sum(exp(x))) of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
 #' @param keepdim wether to keep or not the dim
-#' @param dtype optionaly cast the sum result
+#'
+#' @examples
+#' x <- tensor(runif(10))
+#' tch_logsumexp(x, 0)
+#' @export
+tch_logsumexp <- function(x, dim, keepdim = FALSE) {
+  x$logsumexp(dim, keepdim)
+}
+
+#' mean
+#'
+#' Returns the mean value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim whether the output tensor has dim retained or not. (ignored if dim is `NULL`)
 #'
 #' @examples
 #' x <- tensor(runif(100))
 #' tch_mean(x)
 #' @export
-tch_mean <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  x$mean(dim, keepdim, dtype)
+tch_mean <- function(x, dim = NULL, keepdim = FALSE) {
+  x$mean(dim, keepdim)
+}
+
+#' min
+#'
+#' Returns the minimum value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(runif(10))
+#' tch_logsumexp(x, 0)
+#' @export
+tch_logsumexp <- function(x, dim, keepdim = FALSE) {
+  x$logsumexp(dim, keepdim)
+}
+
+#' mean
+#'
+#' Returns the mean value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim whether the output tensor has dim retained or not. (ignored if dim is `NULL`)
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_min(x)
+#' @export
+tch_mean <- function(x, dim = NULL, keepdim = FALSE) {
+  x$mean(dim, keepdim)
+}
+
+#' min
+#'
+#' Returns the minimum value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#' @param other a tensor.
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_min(x)
+#' @export
+tch_min <- function(x, dim = NULL, keepdim = FALSE, other = NULL) {
+  x$min(dim, keepdim, other)
+}
+
+
+#' max
+#'
+#' Returns the maximum value of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#' @param other a tensor.
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_max(x)
+#' @export
+tch_max <- function(x, dim = NULL, keepdim = FALSE, other = NULL) {
+  x$max(dim, keepdim, other)
+}
+
+#' median
+#'
+#' Returns the median value of each row of the x tensor in the given dimension dim.
+#' Also returns the index location of the median value as a LongTensor.
+#'
+#' By default, dim is the last dimension of the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(array(1:20, c(5,4)))
+#' tch_median(x)
+#' tch_median(x, 0)
+#' tch_median(x, 1)
+#' @export
+tch_median <- function(x, dim = NULL, keepdim = FALSE) {
+  x$median(dim, keepdim)
+}
+
+#' mode
+#'
+#' Returns the mode value of each row of the x tensor in the given dimension dim.
+#' Also returns the index location of the mode value as a LongTensor.
+#' By default, dim is the last dimension of the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(array(1:20, c(5,4)))
+#' tch_mode(x)
+#' tch_mode(x, 0)
+#' tch_mode(x, 1)
+#' @export
+tch_mode <- function(x, dim = -1, keepdim = FALSE) {
+  x$mode(dim, keepdim)
 }
 
 #' matrix multiplication
@@ -911,6 +1134,27 @@ tch_permute <- function(x, dims) {
   x$pow(y)
 }
 
+#' prod
+#'
+#' Returns the product of all elements in the x tensor.
+#'
+#' @param x tensor object
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#' @param dtype the desired data type of returned tensor. If specified, the input tensor is casted to dtype before the operation is performed.
+#' This is useful for preventing data type overflows. Default: NULL.
+#'
+#' @examples
+#' x <- tch_randn(c(2,2))
+#' tch_prod(x)
+#' tch_prod(x, 0)
+#' tch_prod(x, 1, TRUE)
+#' tch_prod(x, 1, TRUE, "double")
+#' @export
+tch_prod <- function(x, dim = NULL, keepdim = FALSE, dtype = NULL) {
+  x$prod(dim, keepdim, dtype)
+}
+
 #' QR decomposition
 #'
 #' Computes the QR decomposition of a matrix input, and returns matrices Q and R
@@ -926,6 +1170,24 @@ tch_permute <- function(x, dims) {
 #' @export
 tch_qr <- function(x) {
   x$qr()
+}
+
+#' std
+#'
+#' Returns the standard-deviation of all elements in the x tensor.
+#' If unbiased is FALSE, then the standard-deviation will be calculated via the biased estimator. Otherwise, Bessel’s correction will be used.
+#'
+#' @param x tensor object
+#' @param unbiased whether to use the unbiased estimation or not
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_std(x)
+#' @export
+tch_std <- function(x, unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+  x$std(unbiased, dim, keepdim)
 }
 
 #' substraction
@@ -953,8 +1215,8 @@ tch_qr <- function(x) {
 #' x <- tensor(1:10)
 #' tch_sum(x)
 #' @export
-tch_sum <- function(x, dim = NULL, keepdim = NULL, dtype = NULL, na.rm = FALSE) {
-  x$sum(dim, keepdim, dtype)
+tch_sum <- function(x, dim = NULL, keepdim = FALSE) {
+  x$sum(dim, keepdim)
 }
 
 #' transpose
@@ -969,319 +1231,153 @@ tch_t <- function(x) {
   x$t()
 }
 
-#' arange
+
+
+#' Lower triangle
 #'
-#' Returns a 1-D tensor of size \code{floor((end - start)/end)} with values from the interval [start, end) taken with common difference step beginning from start.
-#' Note that non-integer step is subject to floating point rounding errors when comparing against end; to avoid inconsistency, we advise adding a small epsilon to
-#' end in such cases.
+#' Returns the lower triangular part of the matrix (2-D tensor) x, the other elements of the result tensor out are set to 0.
+#' The lower triangular part of the matrix is defined as the elements on and below the diagonal.
 #'
-#' @param start the starting value for the set of points
-#' @param end the ending value for the set of points
-#' @param step the gap between each pair of adjacent points
-#' @param out (optional) the output tensor
-#' @param dtype the desired data type of returned tensor. Default: if None, uses a global default (see torch.set_default_tensor_type()). If dtype is not given,
-#' infer the data type from the other input arguments. If any of start, end, or stop are floating-point, the dtype is inferred to be the default dtype, see
-#' get_default_dtype(). Otherwise, the dtype is inferred to be torch.int64.
-#' @param layout the desired layout of returned Tensor
-#' @param device the desired device of returned tensor. Default: if None, uses the current device for the default tensor type (see torch.set_default_tensor_type()).
-#' device will be the CPU for CPU tensor types and the current CUDA device for CUDA tensor types
-#' @param requires_grad boolean. If autograd should record operations on the returned tensor
+#' The argument diagonal controls which diagonal to consider. If diagonal = 0, all elements on and below the main diagonal are retained.
+#' A positive value includes just as many diagonals above the main diagonal, and similarly a negative value excludes just as many diagonals below the main diagonal.
+#'
+#' @param x tensor object
+#' @param diagonal integer. the diagonal to consider
 #'
 #' @examples
-#' tch_arange(5)
-#' tch_arange(1, 4)
-#' tch_arange(1, 2.5, 0.5)
-#'
+#' x <- array(1:20, c(4, 5))
+#' tch_tril(tensor(x))
+#' tch_tril(tensor(x), 1)
+#' tch_tril(tensor(x), 2)
+#' tch_tril(tensor(x), -1)
+#' tch_tril(tensor(x), -2)
 #' @export
-#'
-tch_arange <- function(start = 0, end = NULL, step = 1, out = NULL, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  # this is necessary to make the call tch_arange(2) works because the first argument is start instead of end.
-  if(is.null(end)) {
-    end <- start
-    start <- 0
-  }
+tch_tril <- function(x, diagonal = 0) {
+  x$tril(diagonal)
+}
 
-  `torch::Tensor`$dispatch(torch_arange_(start, end, step, dtype, layout, device, requires_grad))
+#' Upper triangle
+#'
+#' Returns the upper triangular part of the matrix (2-D tensor) x, the other elements of the result tensor out are set to 0.
+#' The upper triangular part of the matrix is defined as the elements on and above the diagonal.
+#'
+#' The argument diagonal controls which diagonal to consider. If diagonal = 0, all elements on and above the main diagonal are retained.
+#' A positive value excludes just as many diagonals above the main diagonal, and similarly a negative value includes just as many diagonals below the main diagonal.
+#'
+#' @param x tensor object
+#' @param diagonal integer. the diagonal to consider
+#'
+#' @examples
+#' x <- array(1:20, c(4, 5))
+#' tch_triu(tensor(x))
+#' tch_triu(tensor(x), 1)
+#' tch_triu(tensor(x), 2)
+#' tch_triu(tensor(x), -1)
+#' tch_triu(tensor(x), -2)
+#' @export
+tch_triu <- function(x, diagonal = 0) {
+  x$triu(diagonal)
+}
+
+#' round
+#'
+#' Returns a new tensor with each of the elements of x rounded to the closest integer.
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(runif(6), nrow = 3))
+#' tch_round(x)
+#' @export
+tch_round <- function(x) {
+  x$round()
+}
+
+#' rsqrt
+#'
+#' Returns a new tensor with the reciprocal of the square-root of each of the elements of x: 1/sqrt(x).
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(runif(6), nrow = 3))
+#' tch_rsqrt(x)
+#' @export
+tch_rsqrt <- function(x) {
+  x$rsqrt()
+}
+
+#' sigmoid
+#'
+#' Returns a new tensor with the sigmoid of the elements of each of the elements of x: 1/(1 + exp(-x)).
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sigmoid(x)
+#' @export
+tch_sigmoid <- function(x) {
+  x$sigmoid()
+}
+
+#' sign
+#'
+#' Returns a new tensor with the sign of the elements of x.
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sign(x)
+#' @export
+tch_sign <- function(x) {
+  x$sign()
+}
+
+#' sqrt
+#'
+#' Returns a new tensor with the square-root of the elements of x
+#'
+#' @param x tensor object
+#'
+#' @examples
+#' x <- tensor(matrix(rnorm(6), nrow = 3))
+#' tch_sqrt(x)
+#' @export
+tch_sqrt <- function(x) {
+  x$sqrt()
+}
+
+#' trunc
+#'
+#' Returns a new tensor with the truncated integer values of the elements of x.
+#'
+#' @param x tensor object
+#' @examples
+#' x <- tensor(array(runif(8), dim = c(2,2,2)))
+#' tch_trunc(x)
+#' @export
+tch_trunc <- function(x) {
+  x$trunc()
+}
+
+#' var
+#'
+#' Returns the variance of all elements in the x tensor.
+#' If unbiased is FALSE, then the variance will be calculated via the biased estimator. Otherwise, Bessel’s correction will be used.
+#'
+#' @param x tensor object
+#' @param unbiased whether to use the unbiased estimation or not
+#' @param dim the dimension to reduce
+#' @param keepdim wether to keep or not the dim
+#'
+#' @examples
+#' x <- tensor(runif(100))
+#' tch_var(x)
+#' @export
+tch_var <- function(x, unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+  x$var(unbiased, dim, keepdim)
 }
 
 
-#' Empty tensor
-#'
-#' Returns a tensor filled with uninitialized data.
-#'
-#' The shape of the tensor is defined by the variable argument sizes.
-#'
-#' @param sizes a sequence of integers defining the shape of the output tensor.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_empty(c(2, 2))
-#'
-#' @export
-tch_empty <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_empty_(sizes, dtype, layout, device, requires_grad))
-}
-
-#' Eye matrix (identity matrix)
-#'
-#' Returns a 2-D tensor with ones on the diagonal and zeros elsewhere.
-#'
-#' @param n integer. The number of rows.
-#' @param m (optional) integer. The number of columns with default being n.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_eye(3)
-#' tch_eye(2, 4)
-#'
-#'
-#' @export
-tch_eye <- function(n, m = n, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_eye_(n, m, dtype, layout, device, requires_grad))
-}
-
-
-#' Full tensor (one value filled tensor)
-#'
-#' Returns a tensor of given size filled with fill_value.
-#'
-#' @param size a sequence of integers defining the shape of the output tensor.
-#' @param fill_value the number to fill the output tensor with.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_full(c(2, 3), 3.141592)
-#' tch_full(c(2, 3, 4), 0)
-#'
-#' @export
-tch_full <- function(size, fill_value, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_full_(size, fill_value, dtype, layout, device, requires_grad))
-}
-
-
-#' Linear spaced tensor
-#'
-#' Returns a one-dimensional tensor of steps equally spaced points between start and end.
-#'
-#' The output tensor is 1-D of size steps.
-#'
-#' @param start the starting value for the set of points.
-#' @param end the ending value for the set of points.
-#' @param steps number of points to sample between start and end. Default: 100.
-#' @param fill_value the number to fill the output tensor with.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_linspace(3, 10, steps = 5)
-#' tch_linspace(-10, 10, steps = 5)
-#' tch_linspace(start = -10, end = 10, steps = 5)
-#' tch_linspace(0, 1)
-#'
-#' @export
-tch_linspace <- function(start, end, steps = 100, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_linspace_(start, end, steps, dtype, layout, device, requires_grad))
-}
-
-
-#' Loglinear spaced tensor
-#'
-#' Returns a one-dimensional tensor of steps points logarithmically spaced between 10^start and 10^end.
-#'
-#' The output tensor is 1-D of size steps.
-#'
-#' @param start the starting value for the set of points.
-#' @param end the ending value for the set of points.
-#' @param steps number of points to sample between start and end. Default: 100.
-#' @param fill_value the number to fill the output tensor with.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_linspace(3, 10, steps = 5)
-#' tch_linspace(-10, 10, steps = 5)
-#' tch_linspace(start = -10, end = 10, steps = 5)
-#' tch_linspace(0, 1)
-#'
-#' @export
-tch_logspace <- function(start, end, steps = 100, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_logspace_(start, end, steps, dtype, layout, device, requires_grad))
-}
-
-
-#' One filled tensor
-#'
-#' Returns a tensor filled with the scalar value 1, with the shape defined by the variable argument sizes.
-#'
-#' @param sizes a sequence of integers defining the shape of the output tensor.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_ones(c(2, 4))
-#' tch_ones(5)
-#'
-#' @export
-tch_ones <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_ones_(sizes, dtype, layout, device, requires_grad))
-}
-
-
-#' Random uniform
-#'
-#' Returns a tensor filled with random numbers from a uniform distribution on the interval [0, 1).
-#'
-#' The shape of the tensor is defined by the variable argument sizes.
-#'
-#' @param sizes a sequence of integers defining the shape of the output tensor.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_rand(c(2, 2))
-#' tch_rand(c(2, 2), dtype = "double")
-#'
-#' @export
-tch_rand <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_rand_(sizes, dtype, layout, device, requires_grad))
-}
-
-
-#' Random discrete uniform
-#'
-#' Returns a tensor filled with random integers generated uniformly between low (inclusive) and high (exclusive).
-#'
-#' The shape of the tensor is defined by the variable argument size.
-#'
-#' @param low (optional) Lowest integer to be drawn from the distribution. Default: 0.
-#' @param hogh One above the highest integer to be drawn from the distribution.
-#' @param sizes a sequence of integers defining the shape of the output tensor.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_randint(3, 5, 3)
-#' tch_randint(10, c(2, 2))
-#' tch_randint(3, 10, c(2, 2))
-#'
-#' @export
-tch_randint <- function(low = 0, high = NULL, sizes = NULL, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  # this is necessary to make the call tch_randint(10, c(2, 2))
-  # works because the first argument is low instead of high.
-  if(is.null(sizes)) {
-    sizes <- high
-    high <- low
-    low <- 0
-  }
-
-  `torch::Tensor`$dispatch(torch_randint_(low, high, sizes, dtype, layout, device, requires_grad))
-}
-
-#' Random permutation
-#'
-#' Returns a random permutation of integers from 0 to n - 1.
-#'
-#' The shape of the tensor is defined by the variable argument sizes.
-#'
-#' @param n the upper bound (exclusive).
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_randperm(4)
-#'
-#' @export
-tch_randperm <- function(n, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_randperm_(n, dtype, layout, device, requires_grad))
-}
-
-
-#' Zero filled tensor
-#'
-#' Returns a tensor filled with the scalar value 0, with the shape defined by the variable argument sizes.
-#'
-#' @param sizes a sequence of integers defining the shape of the output tensor.
-#' @param dtype the desired data type of returned tensor. Default: if `NULL`, infers
-#' data type from `x`.
-#' @param the desired layout of returned Tensor. Default: 'strided'
-#' @param device  the desired device of returned tensor. Default: if `NULL`, uses
-#' the current device for the default tensor type (see `tch_set_default_tensor_type()`).
-#' device will be the CPU for CPU tensor types and the current CUDA device for
-#' CUDA tensor types.
-#' @param requires_grad If autograd should record operations on the
-#' returned tensor. Default: `FALSE`.
-#'
-#' @examples
-#' tch_zeros(c(2, 4))
-#' tch_zeros(5)
-#'
-#' @export
-tch_zeros <- function(sizes, dtype = NULL, layout = NULL, device = NULL, requires_grad = FALSE) {
-  `torch::Tensor`$dispatch(torch_zeros_(sizes, dtype, layout, device, requires_grad))
-}
