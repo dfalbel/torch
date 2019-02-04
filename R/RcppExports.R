@@ -217,6 +217,10 @@ tensor_sinh_ <- function(x) {
     .Call('_torch_tensor_sinh_', PACKAGE = 'torch', x)
 }
 
+tensor_sinh__ <- function(x) {
+    .Call('_torch_tensor_sinh__', PACKAGE = 'torch', x)
+}
+
 tensor_tan_ <- function(x) {
     .Call('_torch_tensor_tan_', PACKAGE = 'torch', x)
 }
@@ -247,6 +251,10 @@ tensor_backward_ <- function(x, gradient, keep_graph, create_graph) {
 
 tensor_baddbmm_ <- function(x, batch1, batch2, beta, alpha) {
     .Call('_torch_tensor_baddbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
+}
+
+tensor_baddbmm__ <- function(x, batch1, batch2, beta, alpha) {
+    .Call('_torch_tensor_baddbmm__', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
 }
 
 tensor_bernoulli_ <- function(x, p) {

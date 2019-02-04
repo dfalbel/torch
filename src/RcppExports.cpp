@@ -727,6 +727,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_sinh__
+Rcpp::XPtr<torch::Tensor> tensor_sinh__(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_sinh__(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_sinh__(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_tan_
 Rcpp::XPtr<torch::Tensor> tensor_tan_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_tan_(SEXP xSEXP) {
@@ -807,7 +818,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_baddbmm_
-Rcpp::XPtr<torch::Tensor> tensor_baddbmm_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1, Rcpp::XPtr<torch::Tensor> batch2, double beta, double alpha);
+Rcpp::XPtr<torch::Tensor> tensor_baddbmm_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1, Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha);
 RcppExport SEXP _torch_tensor_baddbmm_(SEXP xSEXP, SEXP batch1SEXP, SEXP batch2SEXP, SEXP betaSEXP, SEXP alphaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -815,9 +826,24 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type batch1(batch1SEXP);
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type batch2(batch2SEXP);
-    Rcpp::traits::input_parameter< double >::type beta(betaSEXP);
-    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type alpha(alphaSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_baddbmm_(x, batch1, batch2, beta, alpha));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_baddbmm__
+Rcpp::XPtr<torch::Tensor> tensor_baddbmm__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1, Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha);
+RcppExport SEXP _torch_tensor_baddbmm__(SEXP xSEXP, SEXP batch1SEXP, SEXP batch2SEXP, SEXP betaSEXP, SEXP alphaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type batch1(batch1SEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type batch2(batch2SEXP);
+    Rcpp::traits::input_parameter< SEXP >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type alpha(alphaSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_baddbmm__(x, batch1, batch2, beta, alpha));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -2426,6 +2452,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_sin_", (DL_FUNC) &_torch_tensor_sin_, 1},
     {"_torch_tensor_sin__", (DL_FUNC) &_torch_tensor_sin__, 1},
     {"_torch_tensor_sinh_", (DL_FUNC) &_torch_tensor_sinh_, 1},
+    {"_torch_tensor_sinh__", (DL_FUNC) &_torch_tensor_sinh__, 1},
     {"_torch_tensor_tan_", (DL_FUNC) &_torch_tensor_tan_, 1},
     {"_torch_tensor_tan__", (DL_FUNC) &_torch_tensor_tan__, 1},
     {"_torch_tensor_tanh_", (DL_FUNC) &_torch_tensor_tanh_, 1},
@@ -2434,6 +2461,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_trunc__", (DL_FUNC) &_torch_tensor_trunc__, 1},
     {"_torch_tensor_backward_", (DL_FUNC) &_torch_tensor_backward_, 4},
     {"_torch_tensor_baddbmm_", (DL_FUNC) &_torch_tensor_baddbmm_, 5},
+    {"_torch_tensor_baddbmm__", (DL_FUNC) &_torch_tensor_baddbmm__, 5},
     {"_torch_tensor_bernoulli_", (DL_FUNC) &_torch_tensor_bernoulli_, 2},
     {"_torch_tensor_bernoulli_double__", (DL_FUNC) &_torch_tensor_bernoulli_double__, 2},
     {"_torch_tensor_bernoulli_tensor__", (DL_FUNC) &_torch_tensor_bernoulli_tensor__, 2},

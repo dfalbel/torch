@@ -370,40 +370,6 @@ test_that("as_strided works", {
   expect_identical(class(k)[1], "tensor")
 })
 
-
-test_that("sin works", {
-  x <- runif(100)
-  expect_equal(as.array(tch_sin(tensor(x))), sin(x), tol = 1e-7)
-
-  x_t <- tensor(x)
-  x_t$sin_()
-  expect_equal(as.array(x_t), sin(x), tol = 1e-7)
-})
-
-test_that("sinh works", {
-  x <- runif(100)
-  expect_equal(as.array(tch_sinh(tensor(x))), sinh(x), tol = 1e-7)
-})
-
-
-test_that("tan works", {
-  x <- runif(100)
-  expect_equal(as.array(tch_tan(tensor(x))), tan(x), tol = 1e-7)
-
-  x_t <- tensor(x)
-  x_t$tan_()
-  expect_equal(as.array(x_t), tan(x), tol = 1e-7)
-})
-
-test_that("tanh works", {
-  x <- runif(100)
-  expect_equal(as.array(tch_tanh(tensor(x))), tanh(x), tol = 1e-7)
-
-  x_t <- tensor(x)
-  x_t$tanh_()
-  expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
-})
-
 test_that("backward works", {
   # TODO include tests for backward operation. for example python only accepts scalars, etc.
   x <- tensor(runif(10), requires_grad = TRUE)
@@ -419,6 +385,8 @@ test_that("baddbmm works", {
 
   expect_silent(y <- tch_baddbmm(x, batch1, batch2))
   expect_equal(class(y)[1], "tensor")
+
+  expect_silent(x$baddbmm_(batch1, batch2))
 })
 
 test_that("bernoulli works", {
@@ -1459,6 +1427,42 @@ test_that("randperm", {
   x <- tch_randperm(10)
   expect_null(dim(as.array(x)))
   expect_equal(x$dtype(), "float")
+})
+
+test_that("sin works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_sin(tensor(x))), sin(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$sin_()
+  expect_equal(as.array(x_t), sin(x), tol = 1e-7)
+})
+
+test_that("sinh works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_sinh(tensor(x))), sinh(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$sinh_()
+  expect_equal(as.array(x_t), sinh(x), tol = 1e-7)
+})
+
+test_that("tan works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_tan(tensor(x))), tan(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$tan_()
+  expect_equal(as.array(x_t), tan(x), tol = 1e-7)
+})
+
+test_that("tanh works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_tanh(tensor(x))), tanh(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$tanh_()
+  expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
 })
 
 test_that("zeros", {

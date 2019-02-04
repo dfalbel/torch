@@ -530,6 +530,11 @@ Rcpp::XPtr<torch::Tensor> tensor_sinh_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sinh__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sinh_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_tan_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->tan());
 }
@@ -574,8 +579,14 @@ void tensor_backward_ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_baddbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
-                                           Rcpp::XPtr<torch::Tensor> batch2, double beta, double alpha) {
-  return make_tensor_ptr(x->baddbmm(*batch1, *batch2, beta, alpha));
+                                           Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha) {
+  return make_tensor_ptr(x->baddbmm(*batch1, *batch2, scalar_from_r_(beta), scalar_from_r_(alpha)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_baddbmm__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
+                                           Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha) {
+  return make_tensor_ptr(x->baddbmm_(*batch1, *batch2, scalar_from_r_(beta), scalar_from_r_(alpha)));
 }
 
 // [[Rcpp::export]]
