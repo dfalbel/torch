@@ -505,7 +505,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_addr_
-Rcpp::XPtr<torch::Tensor> tensor_addr_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> vec1, Rcpp::XPtr<torch::Tensor> vec2, double beta, double alpha);
+Rcpp::XPtr<torch::Tensor> tensor_addr_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> vec1, Rcpp::XPtr<torch::Tensor> vec2, SEXP beta, SEXP alpha);
 RcppExport SEXP _torch_tensor_addr_(SEXP xSEXP, SEXP vec1SEXP, SEXP vec2SEXP, SEXP betaSEXP, SEXP alphaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -513,9 +513,24 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type vec1(vec1SEXP);
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type vec2(vec2SEXP);
-    Rcpp::traits::input_parameter< double >::type beta(betaSEXP);
-    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type alpha(alphaSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_addr_(x, vec1, vec2, beta, alpha));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_addr__
+Rcpp::XPtr<torch::Tensor> tensor_addr__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> vec1, Rcpp::XPtr<torch::Tensor> vec2, SEXP beta, SEXP alpha);
+RcppExport SEXP _torch_tensor_addr__(SEXP xSEXP, SEXP vec1SEXP, SEXP vec2SEXP, SEXP betaSEXP, SEXP alphaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type vec1(vec1SEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type vec2(vec2SEXP);
+    Rcpp::traits::input_parameter< SEXP >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type alpha(alphaSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_addr__(x, vec1, vec2, beta, alpha));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -2382,6 +2397,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_addmv_", (DL_FUNC) &_torch_tensor_addmv_, 5},
     {"_torch_tensor_addmv__", (DL_FUNC) &_torch_tensor_addmv__, 5},
     {"_torch_tensor_addr_", (DL_FUNC) &_torch_tensor_addr_, 5},
+    {"_torch_tensor_addr__", (DL_FUNC) &_torch_tensor_addr__, 5},
     {"_torch_tensor_all_", (DL_FUNC) &_torch_tensor_all_, 3},
     {"_torch_tensor_allclose_", (DL_FUNC) &_torch_tensor_allclose_, 5},
     {"_torch_tensor_any_", (DL_FUNC) &_torch_tensor_any_, 3},

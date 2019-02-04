@@ -153,6 +153,10 @@
       )
     },
 
+    addr_ = function(vec1, vec2, beta = 1, alpha = 1) {
+      tensor_addr__(self$pointer, vec1$pointer, vec2$pointer, beta, alpha)
+    },
+
     all = function(dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_all_(self$pointer, dim, keepdim))
     },

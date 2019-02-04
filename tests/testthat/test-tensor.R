@@ -200,13 +200,15 @@ test_that("addmv works", {
 })
 
 test_that("addr works", {
-  vec1 <- tensor(c(1,2,3))
-  vec2 <- tensor(c(1,2))
-  x <- tensor(matrix(0, nrow = 3, ncol = 2))
+  vec1 <- c(1,2,3)
+  vec2 <- c(1,2)
+  x <- matrix(runif(6), nrow = 3, ncol = 2)
 
-  res <- as.array(tch_addr(x, vec1, vec2))
-  res_ <- matrix(c(1,2,3,2,4,6), ncol = 2)
-  expect_identical(res, res_)
+  expect_equal(as.array(tch_addr(tensor(x), tensor(vec1), tensor(vec2))), x + vec1 %o% vec2, tol = 1e-6)
+
+  x_t <- tensor(x)
+  x_t$addr_(tensor(vec1), tensor(vec2))
+  expect_equal(as.array(x_t), x + vec1 %o% vec2, tol = 1e-6)
 })
 
 test_that("all works", {

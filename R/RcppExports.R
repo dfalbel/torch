@@ -149,6 +149,10 @@ tensor_addr_ <- function(x, vec1, vec2, beta, alpha) {
     .Call('_torch_tensor_addr_', PACKAGE = 'torch', x, vec1, vec2, beta, alpha)
 }
 
+tensor_addr__ <- function(x, vec1, vec2, beta, alpha) {
+    .Call('_torch_tensor_addr__', PACKAGE = 'torch', x, vec1, vec2, beta, alpha)
+}
+
 tensor_all_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_all_', PACKAGE = 'torch', x, dim, keepdim)
 }
