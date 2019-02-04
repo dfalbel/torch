@@ -40,7 +40,7 @@ then
   then
     echo "CXX11 compiler OK."
   else
-    echo "**WARNING** You should use the g++-4.9 compiler if on Linux."
+    echo "\e[101m**WARNING** You should use the g++-4.9 compiler if on Linux.\e[0m"
   fi
 fi
 
