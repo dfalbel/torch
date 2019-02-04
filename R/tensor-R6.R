@@ -177,19 +177,37 @@
       `torch::Tensor`$dispatch(tensor_argmin_(self$pointer, dim, keepdim))
     },
 
-    as_strided = function(size, stride, storage_offset = NULL) {
-      `torch::Tensor`$dispatch(tensor_as_strided_(
-        self$pointer, size, stride, storage_offset)
-      )
-    },
-
     asin = function(){
       `torch::Tensor`$dispatch(tensor_asin_(self$pointer))
     },
 
     asin_ = function() {
       tensor_asin__(self$pointer)
-      invisible(NULL)
+      invisible(self)
+    },
+
+    atan = function() {
+      `torch::Tensor`$dispatch(tensor_atan_(self$pointer))
+    },
+
+    atan_ = function() {
+      tensor_atan__(self$pointer)
+      invisible(self)
+    },
+
+    atan2 = function(other) {
+      `torch::Tensor`$dispatch(tensor_atan2_(self$pointer, other$pointer))
+    },
+
+    atan2_ = function(other) {
+      tensor_atan2__(self$pointer, other$pointer)
+      invisible(self)
+    },
+
+    as_strided = function(size, stride, storage_offset = NULL) {
+      `torch::Tensor`$dispatch(tensor_as_strided_(
+        self$pointer, size, stride, storage_offset)
+      )
     },
 
     sin = function(){
@@ -203,19 +221,6 @@
 
     sinh = function(){
       `torch::Tensor`$dispatch(tensor_sinh_(self$pointer))
-    },
-
-    atan = function() {
-      `torch::Tensor`$dispatch(tensor_atan_(self$pointer))
-    },
-
-    atan_ = function() {
-      tensor_atan__(self$pointer)
-      invisible(NULL)
-    },
-
-    atan2 = function(other) {
-      `torch::Tensor`$dispatch(tensor_atan2_(self$pointer, other$pointer))
     },
 
     tan = function() {

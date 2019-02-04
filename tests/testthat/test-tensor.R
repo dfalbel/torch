@@ -327,20 +327,6 @@ test_that("argmin works", {
   expect_identical(as.array(tch_argmin(x, -1)), apply(l, c(1,2), which.min) - 1L)
 })
 
-test_that("as_strided works", {
-  # TODO better testint as_strided - undocument in the python side too.
-  l <- array(1:6000, dim = c(10, 20, 30))
-  x <- tensor(l)
-
-  k <- tch_as_strided(x, 0, 2)
-
-  expect_identical(class(k)[1], "tensor")
-
-  k <- tch_as_strided(x, 0, 2, 1)
-
-  expect_identical(class(k)[1], "tensor")
-})
-
 test_that("asin works", {
   x <- runif(100)
   expect_equal(as.array(tch_asin(tensor(x))), asin(x), tol = 1e-7)
@@ -348,20 +334,6 @@ test_that("asin works", {
   x_t <- tensor(x)
   x_t$asin_()
   expect_equal(as.array(x_t), asin(x), tol = 1e-7)
-})
-
-test_that("sin works", {
-  x <- runif(100)
-  expect_equal(as.array(tch_sin(tensor(x))), sin(x), tol = 1e-7)
-
-  x_t <- tensor(x)
-  x_t$sin_()
-  expect_equal(as.array(x_t), sin(x), tol = 1e-7)
-})
-
-test_that("sinh works", {
-  x <- runif(100)
-  expect_equal(as.array(tch_sinh(tensor(x))), sinh(x), tol = 1e-7)
 })
 
 test_that("atan works", {
@@ -378,7 +350,41 @@ test_that("atan2 works", {
   y <- runif(100)
 
   expect_equal(as.array(tch_atan2(tensor(x), tensor(y))), atan2(x, y), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$atan2_(tensor(y))
+  expect_equal(as.array(x_t), atan2(x, y), tol = 1e-7)
 })
+
+test_that("as_strided works", {
+  # TODO better testint as_strided - undocument in the python side too.
+  l <- array(1:6000, dim = c(10, 20, 30))
+  x <- tensor(l)
+
+  k <- tch_as_strided(x, 0, 2)
+
+  expect_identical(class(k)[1], "tensor")
+
+  k <- tch_as_strided(x, 0, 2, 1)
+
+  expect_identical(class(k)[1], "tensor")
+})
+
+
+test_that("sin works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_sin(tensor(x))), sin(x), tol = 1e-7)
+
+  x_t <- tensor(x)
+  x_t$sin_()
+  expect_equal(as.array(x_t), sin(x), tol = 1e-7)
+})
+
+test_that("sinh works", {
+  x <- runif(100)
+  expect_equal(as.array(tch_sinh(tensor(x))), sinh(x), tol = 1e-7)
+})
+
 
 test_that("tan works", {
   x <- runif(100)

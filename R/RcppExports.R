@@ -173,32 +173,12 @@ tensor_argmin_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_argmin_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
-tensor_as_strided_ <- function(x, size, stride, storage_offset) {
-    .Call('_torch_tensor_as_strided_', PACKAGE = 'torch', x, size, stride, storage_offset)
-}
-
-tensor_to_string_ <- function(x) {
-    .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
-}
-
 tensor_asin_ <- function(x) {
     .Call('_torch_tensor_asin_', PACKAGE = 'torch', x)
 }
 
 tensor_asin__ <- function(x) {
     .Call('_torch_tensor_asin__', PACKAGE = 'torch', x)
-}
-
-tensor_sin_ <- function(x) {
-    .Call('_torch_tensor_sin_', PACKAGE = 'torch', x)
-}
-
-tensor_sin__ <- function(x) {
-    .Call('_torch_tensor_sin__', PACKAGE = 'torch', x)
-}
-
-tensor_sinh_ <- function(x) {
-    .Call('_torch_tensor_sinh_', PACKAGE = 'torch', x)
 }
 
 tensor_atan_ <- function(x) {
@@ -211,6 +191,30 @@ tensor_atan__ <- function(x) {
 
 tensor_atan2_ <- function(x, other) {
     .Call('_torch_tensor_atan2_', PACKAGE = 'torch', x, other)
+}
+
+tensor_atan2__ <- function(x, other) {
+    .Call('_torch_tensor_atan2__', PACKAGE = 'torch', x, other)
+}
+
+tensor_as_strided_ <- function(x, size, stride, storage_offset) {
+    .Call('_torch_tensor_as_strided_', PACKAGE = 'torch', x, size, stride, storage_offset)
+}
+
+tensor_to_string_ <- function(x) {
+    .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
+}
+
+tensor_sin_ <- function(x) {
+    .Call('_torch_tensor_sin_', PACKAGE = 'torch', x)
+}
+
+tensor_sin__ <- function(x) {
+    .Call('_torch_tensor_sin__', PACKAGE = 'torch', x)
+}
+
+tensor_sinh_ <- function(x) {
+    .Call('_torch_tensor_sinh_', PACKAGE = 'torch', x)
 }
 
 tensor_tan_ <- function(x) {

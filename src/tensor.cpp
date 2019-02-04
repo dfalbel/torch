@@ -466,6 +466,36 @@ Rcpp::XPtr<torch::Tensor> tensor_argmin_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_asin_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->asin());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_asin__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->asin_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_atan_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->atan());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_atan__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->atan_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_atan2_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->atan2(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_atan2__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->atan2_(*other));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_as_strided_ (Rcpp::XPtr<torch::Tensor> x,
                                               std::vector<int64_t> size,
                                               std::vector<int64_t> stride,
@@ -485,16 +515,6 @@ std::string tensor_to_string_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_asin_ (Rcpp::XPtr<torch::Tensor> x) {
-  return make_tensor_ptr(x->asin());
-}
-
-// [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_asin__ (Rcpp::XPtr<torch::Tensor> x) {
-  return make_tensor_ptr(x->asin_());
-}
-
-// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sin_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->sin());
 }
@@ -507,21 +527,6 @@ Rcpp::XPtr<torch::Tensor> tensor_sin__ (Rcpp::XPtr<torch::Tensor> x) {
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_sinh_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->sinh());
-}
-
-// [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_atan_ (Rcpp::XPtr<torch::Tensor> x) {
-  return make_tensor_ptr(x->atan());
-}
-
-// [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_atan__ (Rcpp::XPtr<torch::Tensor> x) {
-  return make_tensor_ptr(x->atan_());
-}
-
-// [[Rcpp::export]]
-Rcpp::XPtr<torch::Tensor> tensor_atan2_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
-  return make_tensor_ptr(x->atan2(*other));
 }
 
 // [[Rcpp::export]]
