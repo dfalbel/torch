@@ -12,8 +12,9 @@ matrix:
     - os: linux
     - os: linux
       dist: xenial
+      env: CXX=g++-4.9
     - os: linux
-      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip CXX=g++-4.9
+      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
     - os: osx
 sudo: true
 cache: packages
