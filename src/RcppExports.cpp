@@ -334,6 +334,30 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_add_tensor__
+Rcpp::XPtr<torch::Tensor> tensor_add_tensor__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> y);
+RcppExport SEXP _torch_tensor_add_tensor__(SEXP xSEXP, SEXP ySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type y(ySEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_add_tensor__(x, y));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_add_scalar__
+Rcpp::XPtr<torch::Tensor> tensor_add_scalar__(Rcpp::XPtr<torch::Tensor> x, SEXP y);
+RcppExport SEXP _torch_tensor_add_scalar__(SEXP xSEXP, SEXP ySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type y(ySEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_add_scalar__(x, y));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_addbmm_
 Rcpp::XPtr<torch::Tensor> tensor_addbmm_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1, Rcpp::XPtr<torch::Tensor> batch2, double beta, double alpha);
 RcppExport SEXP _torch_tensor_addbmm_(SEXP xSEXP, SEXP batch1SEXP, SEXP batch2SEXP, SEXP betaSEXP, SEXP alphaSEXP) {
@@ -2272,6 +2296,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_acos__", (DL_FUNC) &_torch_tensor_acos__, 1},
     {"_torch_tensor_add_tensor_", (DL_FUNC) &_torch_tensor_add_tensor_, 2},
     {"_torch_tensor_add_scalar_", (DL_FUNC) &_torch_tensor_add_scalar_, 2},
+    {"_torch_tensor_add_tensor__", (DL_FUNC) &_torch_tensor_add_tensor__, 2},
+    {"_torch_tensor_add_scalar__", (DL_FUNC) &_torch_tensor_add_scalar__, 2},
     {"_torch_tensor_addbmm_", (DL_FUNC) &_torch_tensor_addbmm_, 5},
     {"_torch_tensor_addcdiv_", (DL_FUNC) &_torch_tensor_addcdiv_, 4},
     {"_torch_tensor_addcmul_", (DL_FUNC) &_torch_tensor_addcmul_, 4},

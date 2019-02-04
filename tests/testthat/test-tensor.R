@@ -101,6 +101,14 @@ test_that("add works", {
 
   x <- runif(100)
   expect_equal(as.array(tensor(x) + 1), x + 1, tol = 1e-7)
+
+  x <- tensor(1)
+  x$add_(2)
+  expect_equal(as.array(x), 3)
+
+  x <- tensor(1)
+  x$add_(tensor(2))
+  expect_equal(as.array(x), 3)
 })
 
 test_that("add does not modify in palce", {

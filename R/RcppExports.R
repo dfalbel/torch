@@ -97,6 +97,14 @@ tensor_add_scalar_ <- function(x, y) {
     .Call('_torch_tensor_add_scalar_', PACKAGE = 'torch', x, y)
 }
 
+tensor_add_tensor__ <- function(x, y) {
+    .Call('_torch_tensor_add_tensor__', PACKAGE = 'torch', x, y)
+}
+
+tensor_add_scalar__ <- function(x, y) {
+    .Call('_torch_tensor_add_scalar__', PACKAGE = 'torch', x, y)
+}
+
 tensor_addbmm_ <- function(x, batch1, batch2, beta, alpha) {
     .Call('_torch_tensor_addbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
 }

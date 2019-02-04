@@ -85,6 +85,14 @@
       }
     },
 
+    add_ = function(y) {
+      if (is(y, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_add_tensor__(self$pointer, y$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_add_scalar__(self$pointer, y))
+      }
+    },
+
     addbmm = function(batch1, batch2, beta = 1, alpha = 1) {
       `torch::Tensor`$dispatch(
         tensor_addbmm_(self$pointer, batch1$pointer, batch2$pointer, beta, alpha)
