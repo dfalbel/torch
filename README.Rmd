@@ -42,6 +42,21 @@ Code above will check whether `libtorch` is installed to `TORCH_HOME` dir. If no
 
 Alternatively you can provide URL for binaries download by adding setting the `TORCH_BINARIES` environment variable.
 
+**Note**: The package will return `std::bad_alloc` errors (and they crash the R session) if compiled with recent versions of `g++` (eg. the default version of Ubuntu Xenial - 5.4.0). It's recommended to compile the package with `g++-4.9`. In order to do it:
+
+```bash
+sudo apt-get install g++-4.9
+```
+
+And add the following to your `.R/Makevars` (`usethis::edit_r_makevars()`):
+
+```
+CXX=g++-4.9
+CXX11=g++-4.9
+```
+
+You may need to reinstall the `Rcpp` package.
+
 ### GPU
 
 On Linux you can also install `torch` with **CUDA 9.0** support (still very initial stage)
