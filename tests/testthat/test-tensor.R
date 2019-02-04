@@ -129,6 +129,9 @@ test_that("addbmm works", {
 
   expect_true(is.array(res))
   expect_identical(dim(res), c(3L, 5L))
+
+  expect_silent(x$addbmm_(b1, b2, 1, 1))
+  expect_identical(dim(as.array(x)), c(3L, 5L))
 })
 
 test_that("addcdiv works", {

@@ -99,6 +99,11 @@
       )
     },
 
+    addbmm_ = function(batch1, batch2, beta = 1, alpha = 1) {
+      tensor_addbmm__(self$pointer, batch1$pointer, batch2$pointer, beta, alpha)
+      invisible(self)
+    },
+
     addcdiv = function(tensor1, tensor2, value = 1) {
       `torch::Tensor`$dispatch(
         tensor_addcdiv_(self$pointer, tensor1$pointer, tensor2$pointer, value)

@@ -109,6 +109,10 @@ tensor_addbmm_ <- function(x, batch1, batch2, beta, alpha) {
     .Call('_torch_tensor_addbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
 }
 
+tensor_addbmm__ <- function(x, batch1, batch2, beta, alpha) {
+    .Call('_torch_tensor_addbmm__', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
+}
+
 tensor_addcdiv_ <- function(x, tensor1, tensor2, value) {
     .Call('_torch_tensor_addcdiv_', PACKAGE = 'torch', x, tensor1, tensor2, value)
 }

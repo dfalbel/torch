@@ -340,8 +340,14 @@ Rcpp::XPtr<torch::Tensor> tensor_add_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
-                                          Rcpp::XPtr<torch::Tensor> batch2, double beta, double alpha) {
-  return make_tensor_ptr(x->addbmm(*batch1, *batch2, beta, alpha));
+                                          Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha) {
+  return make_tensor_ptr(x->addbmm(*batch1, *batch2, scalar_from_r_(beta), scalar_from_r_(alpha)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_addbmm__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
+                                          Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha) {
+  return make_tensor_ptr(x->addbmm_(*batch1, *batch2, scalar_from_r_(beta), scalar_from_r_(alpha)));
 }
 
 // [[Rcpp::export]]
