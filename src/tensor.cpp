@@ -635,6 +635,17 @@ Rcpp::List tensor_btrifact_ (Rcpp::XPtr<torch::Tensor> x, bool pivot) {
 }
 
 // [[Rcpp::export]]
+Rcpp::List tensor_btrifact_with_info_ (Rcpp::XPtr<torch::Tensor> x, bool pivot) {
+  auto out = x->btrifact_with_info(pivot);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)), make_tensor_ptr(std::get<2>(out)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_byte_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->to(torch::kByte));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_btrisolve_ (Rcpp::XPtr<torch::Tensor> x,
                                              Rcpp::XPtr<torch::Tensor> LU_data,
                                              Rcpp::XPtr<torch::Tensor> LU_pivots) {

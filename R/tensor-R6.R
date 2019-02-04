@@ -254,6 +254,19 @@
       )
     },
 
+    btrifact_with_info = function(pivot = TRUE) {
+      x <- tensor_btrifact_with_info_(self$pointer, pivot)
+      list(
+        `torch::Tensor`$dispatch(x[[1]]),
+        `torch::Tensor`$dispatch(x[[2]]),
+        `torch::Tensor`$dispatch(x[[3]])
+      )
+    },
+
+    byte = function() {
+      `torch::Tensor`$dispatch(tensor_byte_(self$pointer))
+    },
+
     btrisolve = function(LU_data, LU_pivots) {
       `torch::Tensor`$dispatch(
         tensor_btrisolve_(self$pointer, LU_data$pointer, LU_pivots$pointer)

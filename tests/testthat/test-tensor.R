@@ -426,7 +426,7 @@ test_that("bmm works", {
   expect_equal(dim(res), c(10, 3, 5))
 })
 
-test_that("btrifact works", {
+test_that("btrifact works and btrifact_with_info", {
   x <- tensor(array(runif(18), dim = c(2, 3, 3)))
   res <- tch_btrifact(x)
 
@@ -435,6 +435,21 @@ test_that("btrifact works", {
 
   expect_equal(dim(a_lu), c(2, 3, 3))
   expect_equal(dim(pivot), c(2, 3))
+
+  res <- x$btrifact_with_info()
+
+  a_lu <- as.array(res[[1]])
+  pivot <- as.array(res[[2]])
+
+  expect_equal(dim(a_lu), c(2, 3, 3))
+  expect_equal(dim(pivot), c(2, 3))
+})
+
+test_that("byte works", {
+  x <- tensor(c(0,1,1,0,1))
+  x <- x$byte()
+  expect_equal(x$dtype(), "uint8")
+  expect_equal(as.array(x), c(FALSE, TRUE, TRUE, FALSE, TRUE))
 })
 
 test_that("btrisolve works", {
