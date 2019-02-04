@@ -217,6 +217,14 @@ tensor_bernoulli_ <- function(x, p) {
     .Call('_torch_tensor_bernoulli_', PACKAGE = 'torch', x, p)
 }
 
+tensor_bernoulli_double__ <- function(x, p = 0.5) {
+    .Call('_torch_tensor_bernoulli_double__', PACKAGE = 'torch', x, p)
+}
+
+tensor_bernoulli_tensor__ <- function(x, p) {
+    .Call('_torch_tensor_bernoulli_tensor__', PACKAGE = 'torch', x, p)
+}
+
 tensor_bincount_ <- function(x, weights, minlength) {
     .Call('_torch_tensor_bincount_', PACKAGE = 'torch', x, weights, minlength)
 }

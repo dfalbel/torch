@@ -393,6 +393,14 @@ test_that("bernoulli works", {
 
   x <- tensor(rep(1, 100))
   expect_equal(sum(as.array(tch_bernoulli(x))), 100)
+
+  x <- tch_empty(c(2,2))
+  x$bernoulli_(p = 1)
+  expect_equal(sum(as.array(x)), 4)
+
+  x <- tch_empty(c(2,2))
+  x$bernoulli_(p = tensor(matrix(c(0, 1), nrow = 2, ncol = 2)))
+  expect_equal(sum(as.array(x)), 2)
 })
 
 test_that("bincount works", {

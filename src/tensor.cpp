@@ -528,13 +528,23 @@ Rcpp::XPtr<torch::Tensor> tensor_baddbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XP
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_bernoulli_ (Rcpp::XPtr<torch::Tensor> x,
-                                             Rcpp::Nullable<Rcpp::NumericVector> p) {
+                                             Rcpp::Nullable<double> p) {
   if (p.isNull()) {
     return make_tensor_ptr(x->bernoulli());
   } else {
-    double p2 = Rcpp::as<double>(p.get());
-    return make_tensor_ptr(x->bernoulli(p2));
+    return make_tensor_ptr(x->bernoulli(Rcpp::as<double>(p)));
   }
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_bernoulli_double__ (Rcpp::XPtr<torch::Tensor> x, double p = 0.5) {
+  return make_tensor_ptr(x->bernoulli_(p));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_bernoulli_tensor__ (Rcpp::XPtr<torch::Tensor> x,
+                                                     Rcpp::XPtr<torch::Tensor> p) {
+  return make_tensor_ptr(x->bernoulli_(*p));
 }
 
 // [[Rcpp::export]]

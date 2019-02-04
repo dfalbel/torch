@@ -214,6 +214,15 @@
       `torch::Tensor`$dispatch(tensor_bernoulli_(self$pointer, p))
     },
 
+    bernoulli_ = function(p) {
+      if (is(p, "tensor")) {
+        tensor_bernoulli_tensor__(self$pointer, p$pointer)
+      } else {
+        tensor_bernoulli_double__(self$pointer, p)
+      }
+      invisible(self)
+    },
+
     bincount = function(weights = NULL, minlength = 0) {
       `torch::Tensor`$dispatch(tensor_bincount_(self$pointer, weights$pointer, minlength))
     },

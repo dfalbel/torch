@@ -698,14 +698,38 @@ BEGIN_RCPP
 END_RCPP
 }
 // tensor_bernoulli_
-Rcpp::XPtr<torch::Tensor> tensor_bernoulli_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<Rcpp::NumericVector> p);
+Rcpp::XPtr<torch::Tensor> tensor_bernoulli_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<double> p);
 RcppExport SEXP _torch_tensor_bernoulli_(SEXP xSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::NumericVector> >::type p(pSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<double> >::type p(pSEXP);
     rcpp_result_gen = Rcpp::wrap(tensor_bernoulli_(x, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_bernoulli_double__
+Rcpp::XPtr<torch::Tensor> tensor_bernoulli_double__(Rcpp::XPtr<torch::Tensor> x, double p);
+RcppExport SEXP _torch_tensor_bernoulli_double__(SEXP xSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_bernoulli_double__(x, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_bernoulli_tensor__
+Rcpp::XPtr<torch::Tensor> tensor_bernoulli_tensor__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> p);
+RcppExport SEXP _torch_tensor_bernoulli_tensor__(SEXP xSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_bernoulli_tensor__(x, p));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -2278,6 +2302,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_backward_", (DL_FUNC) &_torch_tensor_backward_, 4},
     {"_torch_tensor_baddbmm_", (DL_FUNC) &_torch_tensor_baddbmm_, 5},
     {"_torch_tensor_bernoulli_", (DL_FUNC) &_torch_tensor_bernoulli_, 2},
+    {"_torch_tensor_bernoulli_double__", (DL_FUNC) &_torch_tensor_bernoulli_double__, 2},
+    {"_torch_tensor_bernoulli_tensor__", (DL_FUNC) &_torch_tensor_bernoulli_tensor__, 2},
     {"_torch_tensor_bincount_", (DL_FUNC) &_torch_tensor_bincount_, 3},
     {"_torch_tensor_bmm_", (DL_FUNC) &_torch_tensor_bmm_, 2},
     {"_torch_tensor_btrifact_", (DL_FUNC) &_torch_tensor_btrifact_, 2},
