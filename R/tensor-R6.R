@@ -287,6 +287,14 @@
       invisible(NULL)
     },
 
+    char = function () {
+      `torch::Tensor`$dispatch(tensor_char_(self$pointer))
+    },
+
+    cholesky = function(upper = FALSE) {
+      `torch::Tensor`$dispatch(tensor_cholesky_(self$pointer))
+    },
+
     chunk = function(chunks, dim) {
       lapply(
         tensor_chunk_(self$pointer, chunks, dim),

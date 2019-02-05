@@ -485,6 +485,20 @@ test_that("ceil_ works", {
   expect_equal(as.array(x), rep(1, 10))
 })
 
+test_that("char works", {
+  x <- tensor(c(1,2,3))
+  y <- x$char()
+  expect_equal(y$dtype(), "signed char")
+})
+
+test_that("cholesky works", {
+  m <- matrix(c(5,1,1,3),2,2)
+  m_t <- tensor(m)
+  res1 <- as.numeric(chol(m))[-2]
+  res2 <- as.numeric(as.array(m_t$cholesky()))[-3]
+  expect_equal(res1, res2, tol = 1e-6)
+})
+
 test_that("chunk works", {
   a <- array(runif(100), dim = c(4, 5, 5))
   x <- tensor(a)

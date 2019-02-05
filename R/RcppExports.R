@@ -305,6 +305,14 @@ tensor_ceil__ <- function(x) {
     .Call('_torch_tensor_ceil__', PACKAGE = 'torch', x)
 }
 
+tensor_char_ <- function(x) {
+    .Call('_torch_tensor_char_', PACKAGE = 'torch', x)
+}
+
+tensor_cholesky_ <- function(x, upper = FALSE) {
+    .Call('_torch_tensor_cholesky_', PACKAGE = 'torch', x, upper)
+}
+
 tensor_chunk_ <- function(x, chunks, dim) {
     .Call('_torch_tensor_chunk_', PACKAGE = 'torch', x, chunks, dim)
 }

@@ -668,6 +668,16 @@ Rcpp::XPtr<torch::Tensor> tensor_ceil__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_char_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->to(torch::kChar));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_cholesky_ (Rcpp::XPtr<torch::Tensor> x, bool upper = false) {
+  return make_tensor_ptr(x->cholesky(upper));
+}
+
+// [[Rcpp::export]]
 Rcpp::List tensor_chunk_ (Rcpp::XPtr<torch::Tensor> x, int64_t chunks, int64_t dim) {
 
   auto chunks_vector = x->chunk(chunks, dim);

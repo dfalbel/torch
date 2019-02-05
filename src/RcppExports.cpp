@@ -991,6 +991,29 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_char_
+Rcpp::XPtr<torch::Tensor> tensor_char_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_char_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_char_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_cholesky_
+Rcpp::XPtr<torch::Tensor> tensor_cholesky_(Rcpp::XPtr<torch::Tensor> x, bool upper);
+RcppExport SEXP _torch_tensor_cholesky_(SEXP xSEXP, SEXP upperSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< bool >::type upper(upperSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_cholesky_(x, upper));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_chunk_
 Rcpp::List tensor_chunk_(Rcpp::XPtr<torch::Tensor> x, int64_t chunks, int64_t dim);
 RcppExport SEXP _torch_tensor_chunk_(SEXP xSEXP, SEXP chunksSEXP, SEXP dimSEXP) {
@@ -2497,6 +2520,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_cauchy__", (DL_FUNC) &_torch_tensor_cauchy__, 3},
     {"_torch_tensor_ceil_", (DL_FUNC) &_torch_tensor_ceil_, 1},
     {"_torch_tensor_ceil__", (DL_FUNC) &_torch_tensor_ceil__, 1},
+    {"_torch_tensor_char_", (DL_FUNC) &_torch_tensor_char_, 1},
+    {"_torch_tensor_cholesky_", (DL_FUNC) &_torch_tensor_cholesky_, 2},
     {"_torch_tensor_chunk_", (DL_FUNC) &_torch_tensor_chunk_, 3},
     {"_torch_tensor_clamp_", (DL_FUNC) &_torch_tensor_clamp_, 3},
     {"_torch_tensor_clamp__", (DL_FUNC) &_torch_tensor_clamp__, 3},
