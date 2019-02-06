@@ -1166,6 +1166,12 @@ Rcpp::XPtr<torch::Tensor> tensor_geometric__ (Rcpp::XPtr<torch::Tensor> x, doubl
 }
 
 // [[Rcpp::export]]
+Rcpp::List tensor_geqrf_ (Rcpp::XPtr<torch::Tensor> x) {
+  auto out = x->geqrf();
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim

@@ -630,6 +630,11 @@
       invisible(self)
     },
 
+    geqrf = function() {
+      out <- tensor_geqrf_(self$pointer)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

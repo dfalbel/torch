@@ -1043,6 +1043,12 @@ test_that("geometric works", {
   expect_true(all(as.array(x) > 0))
 })
 
+test_that("geqrf works", {
+  x <- tch_randn(c(5,5))
+  expect_silent(out <- x$geqrf())
+  expect_equal(length(out), 2)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
