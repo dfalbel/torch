@@ -625,6 +625,11 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    geometric_ = function(p) {
+      tensor_geometric__(self$pointer, p)
+      invisible(self)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

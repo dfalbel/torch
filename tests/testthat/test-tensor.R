@@ -1037,6 +1037,11 @@ test_that("gels works", {
   # )
 })
 
+test_that("geometric works", {
+  x <- tch_empty(100)
+  expect_silent(x$geometric_(0.5))
+  expect_true(all(as.array(x) > 0))
+})
 
 test_that("mean works", {
   x <- runif(100)
