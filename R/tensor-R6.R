@@ -644,6 +644,10 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    get_device = function() {
+      tensor_get_device_(self$pointer)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

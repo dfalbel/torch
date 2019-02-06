@@ -677,6 +677,10 @@ tensor_gesv_ <- function(x, A) {
     .Call('_torch_tensor_gesv_', PACKAGE = 'torch', x, A)
 }
 
+tensor_get_device_ <- function(x) {
+    .Call('_torch_tensor_get_device_', PACKAGE = 'torch', x)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

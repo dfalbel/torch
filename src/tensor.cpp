@@ -1183,6 +1183,14 @@ Rcpp::List tensor_gesv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> 
 }
 
 // [[Rcpp::export]]
+std::int64_t tensor_get_device_ (Rcpp::XPtr<torch::Tensor> x) {
+  if (torch::cuda::is_available())
+    return x->get_device();
+
+  Rcpp::stop("get_device is not implemented for tensors with CPU backend.");
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim

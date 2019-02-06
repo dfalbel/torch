@@ -1063,6 +1063,16 @@ test_that("gesv works", {
   expect_equal(dim(as.array(out[[1]])), c(5,5))
 })
 
+test_that("get_device works", {
+  if (tch_cuda_is_available()) {
+    x <- tensor(1, device = "CUDA")
+    expect_true(is.integer(x$get_device))
+  } else {
+    x <- tensor(1)
+    expect_error(x$get_device())
+  }
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
