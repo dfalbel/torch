@@ -66,7 +66,7 @@
 
     abs_ = function() {
       tensor_abs__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     acos = function () {
@@ -75,7 +75,7 @@
 
     acos_ = function() {
       tensor_acos__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     add = function(y) {
@@ -276,7 +276,7 @@
 
     cauchy_ = function(median = 0, sigma = 1) {
       tensor_cauchy__(self$pointer, median, sigma)
-      invisible(NULL)
+      invisible(self)
     },
 
     ceil = function() {
@@ -285,7 +285,7 @@
 
     ceil_ = function() {
       tensor_ceil__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     char = function () {
@@ -309,7 +309,7 @@
 
     clamp_ = function(min, max) {
       tensor_clamp__(self$pointer, min, max)
-      invisible(NULL)
+      invisible(self)
     },
 
     clamp_max = function(max) {
@@ -318,7 +318,7 @@
 
     clamp_max_ = function(max) {
       tensor_clamp_max__(self$pointer, max)
-      invisible(NULL)
+      invisible(self)
     },
 
     clamp_min = function(min) {
@@ -327,7 +327,7 @@
 
     clamp_min_ = function(min) {
       tensor_clamp_min__(self$pointer, min)
-      invisible(NULL)
+      invisible(self)
     },
 
     contiguous = function() {
@@ -336,7 +336,7 @@
 
     copy_ = function(src, non_blocking = FALSE) {
       tensor_copy__(self$pointer, src$pointer, non_blocking)
-      invisible(NULL)
+      invisible(self)
     },
 
     cos = function() {
@@ -345,7 +345,7 @@
 
     cos_ = function() {
       tensor_cos__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     cosh = function() {
@@ -354,7 +354,7 @@
 
     cosh_ = function() {
       tensor_cosh__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     cpu = function() {
@@ -391,7 +391,7 @@
 
     detach_ = function() {
       tensor_detach__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     device = function() {
@@ -416,7 +416,7 @@
 
     digamma_ = function(){
       tensor_digamma__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     dim = function() {
@@ -441,7 +441,7 @@
       } else {
         tensor_div_scalar__(self$pointer, other)
       }
-      invisible(NULL)
+      invisible(self)
     },
 
     dot = function(tensor) {
@@ -734,7 +734,7 @@
 
     rsqrt_ = function() {
       tensor_rsqrt__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     sigmoid = function() {
@@ -747,7 +747,7 @@
 
     sigmoid_ = function() {
       tensor_sigmoid__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     sin = function(){
@@ -774,7 +774,7 @@
 
     sqrt_ = function() {
       tensor_sqrt__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
 
@@ -796,7 +796,7 @@
       } else {
         tensor_sub_scalar__(self$pointer, other, alpha)
       }
-      invisible(NULL)
+      invisible(self)
     },
 
     sum = function(dim = NULL, keepdim = FALSE) {
@@ -813,7 +813,7 @@
 
     tan_ = function() {
       tensor_tan__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     tanh = function() {
@@ -822,7 +822,7 @@
 
     tanh_ = function() {
       tensor_tanh__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     tril = function(diagonal = 0) {
@@ -847,7 +847,7 @@
 
     trunc_ = function() {
       tensor_trunc__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
@@ -856,7 +856,7 @@
 
     zero_ = function() {
       tensor_zero__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     }
 
   )

@@ -680,6 +680,13 @@ test_that("cumsum works", {
   )
 })
 
+test_that("data_ptr works", {
+  x <- tensor(c(1,2,3,4))
+  y <- x$clone()
+
+  expect_true(x$data_ptr() != y$data_ptr())
+})
+
 test_that("det works", {
   x <- matrix(runif(36), ncol = 6)
 
