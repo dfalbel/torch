@@ -907,6 +907,11 @@ Rcpp::XPtr<torch::Tensor> tensor_dot_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_double_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->to(torch::kDouble));
+}
+
+// [[Rcpp::export]]
 std::string tensor_dtype_ (Rcpp::XPtr<torch::Tensor> x) {
   return caffe_type_to_string(x->dtype());
 }

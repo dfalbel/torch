@@ -465,6 +465,10 @@ tensor_dot_ <- function(x, tensor) {
     .Call('_torch_tensor_dot_', PACKAGE = 'torch', x, tensor)
 }
 
+tensor_double_ <- function(x) {
+    .Call('_torch_tensor_double_', PACKAGE = 'torch', x)
+}
+
 tensor_dtype_ <- function(x) {
     .Call('_torch_tensor_dtype_', PACKAGE = 'torch', x)
 }

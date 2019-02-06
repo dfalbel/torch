@@ -452,6 +452,10 @@
       `torch::Tensor`$dispatch(tensor_dot_(self$pointer, tensor$pointer))
     },
 
+    double = function() {
+      `torch::Tensor`$dispatch(tensor_double_(self$pointer))
+    },
+
     dtype = function() {
       tensor_dtype_(self$pointer)
     },

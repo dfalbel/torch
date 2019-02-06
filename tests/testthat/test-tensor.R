@@ -826,6 +826,12 @@ test_that("dot works", {
   )
 })
 
+test_that("double", {
+  x <- tensor(1:10)
+  x <- x$double()
+  expect_equal(x$dtype(), "double")
+})
+
 test_that("eig works", {
   x_r <- cbind(c(1,-1), c(-1,1))
 
