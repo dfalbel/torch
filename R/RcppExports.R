@@ -669,6 +669,10 @@ tensor_geqrf_ <- function(x) {
     .Call('_torch_tensor_geqrf_', PACKAGE = 'torch', x)
 }
 
+tensor_ger_ <- function(x, vec2) {
+    .Call('_torch_tensor_ger_', PACKAGE = 'torch', x, vec2)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

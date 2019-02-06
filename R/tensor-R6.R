@@ -635,6 +635,10 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    ger = function(vec2) {
+      `torch::Tensor`$dispatch(tensor_ger_(self$pointer, vec2$pointer))
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

@@ -1172,6 +1172,11 @@ Rcpp::List tensor_geqrf_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_ger_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> vec2) {
+  return make_tensor_ptr(x->ger(*vec2));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim

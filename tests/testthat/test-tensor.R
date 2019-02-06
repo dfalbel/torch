@@ -1049,6 +1049,12 @@ test_that("geqrf works", {
   expect_equal(length(out), 2)
 })
 
+test_that("ger works", {
+  x <- tch_randn(10)
+  vec2 <- tch_randn(10)
+  expect_silent(x$ger(vec2))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
