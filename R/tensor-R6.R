@@ -377,6 +377,10 @@
       `torch::Tensor`$dispatch(tensor_cumsum_(self$pointer, dim))
     },
 
+    data_ptr = function() {
+      tensor_data_ptr_(self$pointer)
+    },
+
     det = function() {
       `torch::Tensor`$dispatch(tensor_det_(self$pointer))
     },

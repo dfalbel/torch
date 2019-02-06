@@ -393,6 +393,10 @@ tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }
 
+tensor_data_ptr_ <- function(x) {
+    .Call('_torch_tensor_data_ptr_', PACKAGE = 'torch', x)
+}
+
 tensor_det_ <- function(x) {
     .Call('_torch_tensor_det_', PACKAGE = 'torch', x)
 }

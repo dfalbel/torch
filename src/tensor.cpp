@@ -800,6 +800,13 @@ Rcpp::XPtr<torch::Tensor> tensor_data_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+std::string tensor_data_ptr_ (Rcpp::XPtr<torch::Tensor> x) {
+  std::ostringstream s;
+  s << (x->data_ptr());
+  return s.str();
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_det_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->det());
 }
