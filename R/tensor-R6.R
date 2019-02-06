@@ -648,6 +648,23 @@
       tensor_get_device_(self$pointer)
     },
 
+    gt = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_gt_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_gt_scalar_(self$pointer, other))
+      }
+    },
+
+    gt_ = function(other) {
+      if (is(other, "tensor")) {
+        tensor_gt_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_gt_scalar__(self$pointer, other)
+      }
+      invisible(self)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

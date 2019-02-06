@@ -1073,6 +1073,19 @@ test_that("get_device works", {
   }
 })
 
+test_that("gt works", {
+  x <- tensor(1)
+  expect_equal(as.array(x$gt(0)), TRUE)
+  expect_equal(as.array(x$gt(tensor(2))), FALSE)
+
+  x <- tensor(1)
+  x$gt_(2)
+  expect_equal(as.array(x$to("uint8")), FALSE)
+  x <- tensor(10)
+  x$gt_(tensor(9))
+  expect_equal(as.array(x$to("uint8")), TRUE)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)

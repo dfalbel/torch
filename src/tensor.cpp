@@ -1191,6 +1191,26 @@ std::int64_t tensor_get_device_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_gt_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->gt(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_gt_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->gt(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_gt_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->gt_(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_gt_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->gt_(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim
