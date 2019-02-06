@@ -708,7 +708,10 @@
       }
     },
 
-    prod = function(dim = NULL, keepdim = FALSE, dtype = NULL) {
+    prod = function(dim = NULL, keepdim = NULL, dtype = NULL) {
+      if(!is.null(dim)) {
+        if(is.null(keepdim)) keepdim <- FALSE
+      }
       `torch::Tensor`$dispatch(tensor_prod_(self$pointer, dim, keepdim, dtype))
     },
 

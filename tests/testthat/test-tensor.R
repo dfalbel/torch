@@ -1077,7 +1077,13 @@ test_that("prod works", {
   x_t <- tensor(x)
 
   expect_equal(as.array(tch_prod(x_t)), prod(x), tol = 1e-6)
-  expect_equal(as.array(tch_prod(tensor(x))), prod(x), tol = 1e-6)
+  expect_equal(as.array(tch_prod(x_t, 0)), apply(x, 2, prod), tol = 1e-6)
+  expect_equal(as.array(tch_prod(x_t, 0)), as.array(tch_prod(x_t, 0, FALSE)), tol = 1e-6)
+  expect_equal(as.array(tch_prod(x_t, 1)), apply(x, 1, prod), tol = 1e-6)
+  expect_equal(as.array(tch_prod(x_t, 1)), as.array(tch_prod(x_t, 1, FALSE)), tol = 1e-6)
+  expect_equal(as.array(tch_prod(x_t, 0, TRUE)), matrix(apply(x, 2, prod), 1, 3), tol = 1e-6)
+  expect_equal(as.array(tch_prod(x_t, 1, TRUE)), matrix(apply(x, 1, prod), 2, 1), tol = 1e-6)
+  expect_equal(tch_prod(x_t, 1, TRUE, "double")$dtype(), "double")
 })
 
 test_that("logsumexp works", {

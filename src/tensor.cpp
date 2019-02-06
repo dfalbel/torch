@@ -1219,17 +1219,17 @@ Rcpp::XPtr<torch::Tensor> tensor_max_tensor_ (Rcpp::XPtr<torch::Tensor> x,
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_prod_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::int64_t> dim,
-                                        bool keepdim,
+                                        Rcpp::Nullable<bool> keepdim,
                                         Rcpp::Nullable<std::string> dtype) {
 
-  if (dim.isNull() & dtype.isNull()) {
+  if(dim.isNull() & keepdim.isNull() & dtype.isNull()) { //2
     return make_tensor_ptr(x->prod());
-  } else if (dim.isNull() & dtype.isNotNull()) {
+  } else if(dim.isNull() & keepdim.isNull() & dtype.isNotNull()) { //1
     return make_tensor_ptr(x->prod(scalar_type_from_string(Rcpp::as<std::string>(dtype))));
-  } else if (dim.isNotNull() & dtype.isNull()) {
-    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), keepdim));
-  } else if (dim.isNotNull() * dtype.isNotNull()) {
-    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), keepdim, scalar_type_from_string(Rcpp::as<std::string>(dtype))));
+  } else if(dim.isNotNull() & keepdim.isNotNull() & dtype.isNotNull()) { //5 ou //3
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), Rcpp::as<bool>(keepdim), scalar_type_from_string(Rcpp::as<std::string>(dtype))));
+  } else if(dim.isNotNull() & keepdim.isNotNull() & dtype.isNull()) { //4
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), Rcpp::as<bool>(keepdim)));
   }
 
   Rcpp::stop("Not yet implemented");
@@ -1410,6 +1410,8 @@ Rcpp::XPtr<torch::Tensor> tensor_triu_ (Rcpp::XPtr<torch::Tensor> x,
                                         std::int64_t diagonal) {
   return make_tensor_ptr(x->triu(diagonal));
 }
+
+
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
