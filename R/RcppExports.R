@@ -697,6 +697,10 @@ tensor_gt_scalar__ <- function(x, other) {
     .Call('_torch_tensor_gt_scalar__', PACKAGE = 'torch', x, other)
 }
 
+tensor_half_ <- function(x) {
+    .Call('_torch_tensor_half_', PACKAGE = 'torch', x)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

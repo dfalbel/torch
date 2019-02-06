@@ -665,6 +665,10 @@
       invisible(self)
     },
 
+    half = function() {
+      `torch::Tensor`$dispatch(tensor_half_(self$pointer))
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

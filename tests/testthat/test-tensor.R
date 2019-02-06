@@ -1086,6 +1086,12 @@ test_that("gt works", {
   expect_equal(as.array(x$to("uint8")), TRUE)
 })
 
+test_that("half works", {
+  x <- tensor(1)
+  x <- x$half()
+  expect_equal(x$dtype(), "half")
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)

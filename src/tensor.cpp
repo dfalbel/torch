@@ -1211,6 +1211,11 @@ Rcpp::XPtr<torch::Tensor> tensor_gt_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP 
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_half_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->to(torch::kHalf));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim
