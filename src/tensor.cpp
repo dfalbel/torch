@@ -1177,6 +1177,12 @@ Rcpp::XPtr<torch::Tensor> tensor_ger_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<t
 }
 
 // [[Rcpp::export]]
+Rcpp::List tensor_gesv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> A) {
+  auto out = x->gesv(*A);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim

@@ -1055,6 +1055,14 @@ test_that("ger works", {
   expect_silent(x$ger(vec2))
 })
 
+test_that("gesv works", {
+  x <- tch_randn(c(5,5))
+  A <- tch_randn(c(5,5))
+  expect_silent(out <- x$gesv(A))
+  expect_equal(length(out), 2)
+  expect_equal(dim(as.array(out[[1]])), c(5,5))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)

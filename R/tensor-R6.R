@@ -639,6 +639,11 @@
       `torch::Tensor`$dispatch(tensor_ger_(self$pointer, vec2$pointer))
     },
 
+    gesv = function(A) {
+      out <- tensor_gesv_(self$pointer, A$pointer)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },
