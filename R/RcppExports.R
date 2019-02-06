@@ -477,6 +477,10 @@ tensor_eig_ <- function(x, eigenvectors = FALSE) {
     .Call('_torch_tensor_eig_', PACKAGE = 'torch', x, eigenvectors)
 }
 
+tensor_element_size_ <- function(x) {
+    .Call('_torch_tensor_element_size_', PACKAGE = 'torch', x)
+}
+
 tensor_eq_scalar_ <- function(x, other) {
     .Call('_torch_tensor_eq_scalar_', PACKAGE = 'torch', x, other)
 }

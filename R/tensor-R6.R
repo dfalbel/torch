@@ -465,6 +465,10 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    element_size = function() {
+      tensor_element_size_(self$pointer)
+    },
+
     eq = function(other) {
       if (is(other, "tensor")) {
         `torch::Tensor`$dispatch(tensor_eq_tensor_(self$pointer, other$pointer))

@@ -924,6 +924,11 @@ Rcpp::List tensor_eig_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+int tensor_element_size_ (Rcpp::XPtr<torch::Tensor> x) {
+  return x->dtype().itemsize();
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_eq_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
   return make_tensor_ptr(x->eq(scalar_from_r_(other)));
 }

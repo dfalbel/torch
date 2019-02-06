@@ -843,6 +843,14 @@ test_that("eig works", {
   expect_equal(as.array(out[[2]]), -out_r$vectors)
 })
 
+test_that("element size works", {
+  x <- tensor(1)
+  expect_equal(x$element_size(), 4)
+
+  x <- x$to("double")
+  expect_equal(x$element_size(), 8)
+})
+
 test_that("eq works", {
   x <- tensor(1:10)
   y <- tensor(c(1:5, 10:6))

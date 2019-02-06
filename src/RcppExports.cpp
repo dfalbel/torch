@@ -1497,6 +1497,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_element_size_
+int tensor_element_size_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_element_size_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_element_size_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_eq_scalar_
 Rcpp::XPtr<torch::Tensor> tensor_eq_scalar_(Rcpp::XPtr<torch::Tensor> x, SEXP other);
 RcppExport SEXP _torch_tensor_eq_scalar_(SEXP xSEXP, SEXP otherSEXP) {
@@ -2599,6 +2610,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_double_", (DL_FUNC) &_torch_tensor_double_, 1},
     {"_torch_tensor_dtype_", (DL_FUNC) &_torch_tensor_dtype_, 1},
     {"_torch_tensor_eig_", (DL_FUNC) &_torch_tensor_eig_, 2},
+    {"_torch_tensor_element_size_", (DL_FUNC) &_torch_tensor_element_size_, 1},
     {"_torch_tensor_eq_scalar_", (DL_FUNC) &_torch_tensor_eq_scalar_, 2},
     {"_torch_tensor_eq_tensor_", (DL_FUNC) &_torch_tensor_eq_tensor_, 2},
     {"_torch_tensor_equal_", (DL_FUNC) &_torch_tensor_equal_, 2},
