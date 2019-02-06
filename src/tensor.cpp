@@ -1226,12 +1226,10 @@ Rcpp::XPtr<torch::Tensor> tensor_prod_ (Rcpp::XPtr<torch::Tensor> x,
     return make_tensor_ptr(x->prod());
   } else if(dim.isNull() & keepdim.isNull() & dtype.isNotNull()) { //1
     return make_tensor_ptr(x->prod(scalar_type_from_string(Rcpp::as<std::string>(dtype))));
-  } else if(dim.isNotNull() & keepdim.isNull() & dtype.isNotNull()) { //5
-    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), scalar_type_from_string(Rcpp::as<std::string>(dtype))));
+  } else if(dim.isNotNull() & keepdim.isNotNull() & dtype.isNotNull()) { //5 ou //3
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), Rcpp::as<bool>(keepdim), scalar_type_from_string(Rcpp::as<std::string>(dtype))));
   } else if(dim.isNotNull() & keepdim.isNotNull() & dtype.isNull()) { //4
     return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), Rcpp::as<bool>(keepdim)));
-  } else if(dim.isNotNull() & keepdim.isNotNull() & dtype.isNotNull()) { //3
-    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), Rcpp::as<bool>(keepdim), scalar_type_from_string(Rcpp::as<std::string>(dtype))));
   }
 
   Rcpp::stop("Not yet implemented");

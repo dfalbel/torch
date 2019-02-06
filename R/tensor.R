@@ -1151,7 +1151,7 @@ tch_permute <- function(x, dims) {
 #' tch_prod(x, 1, TRUE)
 #' tch_prod(x, 1, TRUE, "double")
 #' @export
-tch_prod <- function(x, dim = NULL, keepdim = FALSE, dtype = NULL) {
+tch_prod <- function(x, dim = NULL, keepdim = NULL, dtype = NULL) {
   x$prod(dim, keepdim, dtype)
 }
 
