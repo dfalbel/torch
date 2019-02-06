@@ -1317,6 +1317,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_diag_embed_
+Rcpp::XPtr<torch::Tensor> tensor_diag_embed_(Rcpp::XPtr<torch::Tensor> x, std::int64_t offset, std::int64_t dim1, std::int64_t dim2);
+RcppExport SEXP _torch_tensor_diag_embed_(SEXP xSEXP, SEXP offsetSEXP, SEXP dim1SEXP, SEXP dim2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type offset(offsetSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim1(dim1SEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim2(dim2SEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_diag_embed_(x, offset, dim1, dim2));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_diagflat_
 Rcpp::XPtr<torch::Tensor> tensor_diagflat_(Rcpp::XPtr<torch::Tensor> x, std::int64_t offset);
 RcppExport SEXP _torch_tensor_diagflat_(SEXP xSEXP, SEXP offsetSEXP) {
@@ -2559,6 +2573,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_detach__", (DL_FUNC) &_torch_tensor_detach__, 1},
     {"_torch_tensor_device_", (DL_FUNC) &_torch_tensor_device_, 1},
     {"_torch_tensor_diag_", (DL_FUNC) &_torch_tensor_diag_, 2},
+    {"_torch_tensor_diag_embed_", (DL_FUNC) &_torch_tensor_diag_embed_, 4},
     {"_torch_tensor_diagflat_", (DL_FUNC) &_torch_tensor_diagflat_, 2},
     {"_torch_tensor_diagonal_", (DL_FUNC) &_torch_tensor_diagonal_, 4},
     {"_torch_tensor_digamma_", (DL_FUNC) &_torch_tensor_digamma_, 1},

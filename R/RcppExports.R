@@ -417,6 +417,10 @@ tensor_diag_ <- function(x, diagonal = 0L) {
     .Call('_torch_tensor_diag_', PACKAGE = 'torch', x, diagonal)
 }
 
+tensor_diag_embed_ <- function(x, offset = 0L, dim1 = -2L, dim2 = -1L) {
+    .Call('_torch_tensor_diag_embed_', PACKAGE = 'torch', x, offset, dim1, dim2)
+}
+
 tensor_diagflat_ <- function(x, offset = 0L) {
     .Call('_torch_tensor_diagflat_', PACKAGE = 'torch', x, offset)
 }

@@ -18,12 +18,6 @@ test_that("dtype", {
   expect_identical(x$dtype(), "int")
 })
 
-test_that("device", {
-  # TODO can't test device without a gpu :(
-  expect_identical(1, 1)
-})
-
-
 context("integer tensors")
 
 test_that("creation of 1d integer tensor", {
@@ -727,6 +721,12 @@ test_that("diag works", {
     as.array(tch_diag(x)),
     as.integer(c(1, 7, 13, 19, 25))
   )
+})
+
+test_that("diagembed works", {
+  x <- tch_randn(c(4,4))
+  expect_silent(x$diag_embed(dim1 = 0))
+  expect_silent(x$diag_embed())
 })
 
 test_that("diagflat works", {

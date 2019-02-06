@@ -402,6 +402,10 @@
       `torch::Tensor`$dispatch(tensor_diag_(self$pointer, diagonal))
     },
 
+    diag_embed = function(offset = 0, dim1 = -2, dim2 = -1) {
+      `torch::Tensor`$dispatch(tensor_diag_embed_(self$pointer, offset, dim1, dim2))
+    },
+
     diagflat = function(offset = 0) {
       `torch::Tensor`$dispatch(tensor_diagflat_(self$pointer, offset))
     },

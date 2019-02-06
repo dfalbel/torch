@@ -833,6 +833,14 @@ Rcpp::XPtr<torch::Tensor> tensor_diag_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_diag_embed_ (Rcpp::XPtr<torch::Tensor> x,
+                                        std::int64_t offset = 0,
+                                        std::int64_t dim1 = -2,
+                                        std::int64_t dim2 = -1) {
+  return make_tensor_ptr(x->diag_embed(offset, dim1, dim2));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_diagflat_ (Rcpp::XPtr<torch::Tensor> x,
                                             std::int64_t offset = 0) {
   return make_tensor_ptr(x->diagflat(offset));
