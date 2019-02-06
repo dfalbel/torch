@@ -1,5 +1,6 @@
 `torch::Tensor` <- R6::R6Class(
   "tensor",
+  cloneable = FALSE,
 
   private = list(
     xp = NULL
@@ -327,11 +328,6 @@
     clamp_min_ = function(min) {
       tensor_clamp_min__(self$pointer, min)
       invisible(NULL)
-    },
-
-    clone_ = function() {
-      # TODO decide if clone_ is the best name for this method.
-      `torch::Tensor`$dispatch(tensor_clone_(self$pointer))
     },
 
     contiguous = function() {
@@ -859,6 +855,11 @@
   )
 
 )
+
+`torch::Tensor`$set("public", "clone", function() {
+  # TODO decide if clone_ is the best name for this method.
+  `torch::Tensor`$dispatch(tensor_clone_(self$pointer))
+})
 
 external_ptr <- function(class, xp) {
   class$new(xp)
