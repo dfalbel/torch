@@ -1222,31 +1222,20 @@ Rcpp::XPtr<torch::Tensor> tensor_prod_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<bool> keepdim,
                                         Rcpp::Nullable<std::string> dtype) {
 
-  torch::ScalarType dtype_ = scalar_type_from_string(Rcpp::as<std::string>(dtype));
-  std::int64_t dim_ = Rcpp::as<std::int64_t>(dim);
-  bool keepdim_ = Rcpp::as<bool>(keepdim);
-
   if(dim.isNull() & keepdim.isNull() & dtype.isNull()) { //2
     return make_tensor_ptr(x->prod());
   } else if(dim.isNull() & keepdim.isNull() & dtype.isNotNull()) { //1
-    return make_tensor_ptr(x->min());
-    // return make_tensor_ptr(x->prod(dtype_));
+    return make_tensor_ptr(x->prod(scalar_type_from_string(Rcpp::as<std::string>(dtype))));
   } else if(dim.isNotNull() & keepdim.isNull() & dtype.isNotNull()) { //5
-    return make_tensor_ptr(x->max());
-    // return make_tensor_ptr(x->prod(dim_, dtype_));
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), scalar_type_from_string(Rcpp::as<std::string>(dtype))));
   } else if(dim.isNotNull() & keepdim.isNotNull() & dtype.isNull()) { //4
-    return make_tensor_ptr(x->mean());
-    // return make_tensor_ptr(x->prod(dim_, keepdim_));
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), Rcpp::as<bool>(keepdim)));
   } else if(dim.isNotNull() & keepdim.isNotNull() & dtype.isNotNull()) { //3
-    return make_tensor_ptr(x->std());
-    // return make_tensor_ptr(x->prod(dim_, keepdim_, dtype_));
+    return make_tensor_ptr(x->prod(Rcpp::as<std::int64_t>(dim), Rcpp::as<bool>(keepdim), scalar_type_from_string(Rcpp::as<std::string>(dtype))));
   }
 
-  // Rcpp::stop("Not yet implemented");
-  return make_tensor_ptr(x->mean());
+  Rcpp::stop("Not yet implemented");
 }
-
-torch::Tensor::prod
 
 // [[Rcpp::export]]
 Rcpp::List tensor_median_dim_ (Rcpp::XPtr<torch::Tensor> x,
