@@ -1,14 +1,25 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
+
 matrix:
   include:
     - os: linux
     - os: linux
       dist: xenial
+      addons:
+        apt:
+          packages:
+            - g++-4.9
+      before_install:
+        - mkdir -p ~/.R
+        - echo "CXX11=g++-4.9"  > ~/.R/Makevars
+        - echo "CXX=g++-4.9" >> ~/.R/Makevars
+        - cat ~/.R/Makevars
     - os: linux
       env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
     - os: osx
+
 sudo: true
 cache: packages
 warnings_are_errors: false

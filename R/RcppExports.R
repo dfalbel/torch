@@ -97,28 +97,60 @@ tensor_add_scalar_ <- function(x, y) {
     .Call('_torch_tensor_add_scalar_', PACKAGE = 'torch', x, y)
 }
 
+tensor_add_tensor__ <- function(x, y) {
+    .Call('_torch_tensor_add_tensor__', PACKAGE = 'torch', x, y)
+}
+
+tensor_add_scalar__ <- function(x, y) {
+    .Call('_torch_tensor_add_scalar__', PACKAGE = 'torch', x, y)
+}
+
 tensor_addbmm_ <- function(x, batch1, batch2, beta, alpha) {
     .Call('_torch_tensor_addbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
+}
+
+tensor_addbmm__ <- function(x, batch1, batch2, beta, alpha) {
+    .Call('_torch_tensor_addbmm__', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
 }
 
 tensor_addcdiv_ <- function(x, tensor1, tensor2, value) {
     .Call('_torch_tensor_addcdiv_', PACKAGE = 'torch', x, tensor1, tensor2, value)
 }
 
+tensor_addcdiv__ <- function(x, tensor1, tensor2, value) {
+    .Call('_torch_tensor_addcdiv__', PACKAGE = 'torch', x, tensor1, tensor2, value)
+}
+
 tensor_addcmul_ <- function(x, tensor1, tensor2, value) {
     .Call('_torch_tensor_addcmul_', PACKAGE = 'torch', x, tensor1, tensor2, value)
+}
+
+tensor_addcmul__ <- function(x, tensor1, tensor2, value) {
+    .Call('_torch_tensor_addcmul__', PACKAGE = 'torch', x, tensor1, tensor2, value)
 }
 
 tensor_addmm_ <- function(x, mat1, mat2, beta, alpha) {
     .Call('_torch_tensor_addmm_', PACKAGE = 'torch', x, mat1, mat2, beta, alpha)
 }
 
+tensor_addmm__ <- function(x, mat1, mat2, beta, alpha) {
+    .Call('_torch_tensor_addmm__', PACKAGE = 'torch', x, mat1, mat2, beta, alpha)
+}
+
 tensor_addmv_ <- function(x, mat, vec, beta, alpha) {
     .Call('_torch_tensor_addmv_', PACKAGE = 'torch', x, mat, vec, beta, alpha)
 }
 
+tensor_addmv__ <- function(x, mat, vec, beta, alpha) {
+    .Call('_torch_tensor_addmv__', PACKAGE = 'torch', x, mat, vec, beta, alpha)
+}
+
 tensor_addr_ <- function(x, vec1, vec2, beta, alpha) {
     .Call('_torch_tensor_addr_', PACKAGE = 'torch', x, vec1, vec2, beta, alpha)
+}
+
+tensor_addr__ <- function(x, vec1, vec2, beta, alpha) {
+    .Call('_torch_tensor_addr__', PACKAGE = 'torch', x, vec1, vec2, beta, alpha)
 }
 
 tensor_all_ <- function(x, dim, keepdim) {
@@ -141,20 +173,36 @@ tensor_argmin_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_argmin_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
-tensor_as_strided_ <- function(x, size, stride, storage_offset) {
-    .Call('_torch_tensor_as_strided_', PACKAGE = 'torch', x, size, stride, storage_offset)
-}
-
-tensor_to_string_ <- function(x) {
-    .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
-}
-
 tensor_asin_ <- function(x) {
     .Call('_torch_tensor_asin_', PACKAGE = 'torch', x)
 }
 
 tensor_asin__ <- function(x) {
     .Call('_torch_tensor_asin__', PACKAGE = 'torch', x)
+}
+
+tensor_atan_ <- function(x) {
+    .Call('_torch_tensor_atan_', PACKAGE = 'torch', x)
+}
+
+tensor_atan__ <- function(x) {
+    .Call('_torch_tensor_atan__', PACKAGE = 'torch', x)
+}
+
+tensor_atan2_ <- function(x, other) {
+    .Call('_torch_tensor_atan2_', PACKAGE = 'torch', x, other)
+}
+
+tensor_atan2__ <- function(x, other) {
+    .Call('_torch_tensor_atan2__', PACKAGE = 'torch', x, other)
+}
+
+tensor_as_strided_ <- function(x, size, stride, storage_offset) {
+    .Call('_torch_tensor_as_strided_', PACKAGE = 'torch', x, size, stride, storage_offset)
+}
+
+tensor_to_string_ <- function(x) {
+    .Call('_torch_tensor_to_string_', PACKAGE = 'torch', x)
 }
 
 tensor_sin_ <- function(x) {
@@ -169,16 +217,8 @@ tensor_sinh_ <- function(x) {
     .Call('_torch_tensor_sinh_', PACKAGE = 'torch', x)
 }
 
-tensor_atan_ <- function(x) {
-    .Call('_torch_tensor_atan_', PACKAGE = 'torch', x)
-}
-
-tensor_atan__ <- function(x) {
-    .Call('_torch_tensor_atan__', PACKAGE = 'torch', x)
-}
-
-tensor_atan2_ <- function(x, other) {
-    .Call('_torch_tensor_atan2_', PACKAGE = 'torch', x, other)
+tensor_sinh__ <- function(x) {
+    .Call('_torch_tensor_sinh__', PACKAGE = 'torch', x)
 }
 
 tensor_tan_ <- function(x) {
@@ -213,8 +253,20 @@ tensor_baddbmm_ <- function(x, batch1, batch2, beta, alpha) {
     .Call('_torch_tensor_baddbmm_', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
 }
 
+tensor_baddbmm__ <- function(x, batch1, batch2, beta, alpha) {
+    .Call('_torch_tensor_baddbmm__', PACKAGE = 'torch', x, batch1, batch2, beta, alpha)
+}
+
 tensor_bernoulli_ <- function(x, p) {
     .Call('_torch_tensor_bernoulli_', PACKAGE = 'torch', x, p)
+}
+
+tensor_bernoulli_double__ <- function(x, p = 0.5) {
+    .Call('_torch_tensor_bernoulli_double__', PACKAGE = 'torch', x, p)
+}
+
+tensor_bernoulli_tensor__ <- function(x, p) {
+    .Call('_torch_tensor_bernoulli_tensor__', PACKAGE = 'torch', x, p)
 }
 
 tensor_bincount_ <- function(x, weights, minlength) {
@@ -227,6 +279,14 @@ tensor_bmm_ <- function(x, mat2) {
 
 tensor_btrifact_ <- function(x, pivot) {
     .Call('_torch_tensor_btrifact_', PACKAGE = 'torch', x, pivot)
+}
+
+tensor_btrifact_with_info_ <- function(x, pivot) {
+    .Call('_torch_tensor_btrifact_with_info_', PACKAGE = 'torch', x, pivot)
+}
+
+tensor_byte_ <- function(x) {
+    .Call('_torch_tensor_byte_', PACKAGE = 'torch', x)
 }
 
 tensor_btrisolve_ <- function(x, LU_data, LU_pivots) {
@@ -243,6 +303,14 @@ tensor_ceil_ <- function(x) {
 
 tensor_ceil__ <- function(x) {
     .Call('_torch_tensor_ceil__', PACKAGE = 'torch', x)
+}
+
+tensor_char_ <- function(x) {
+    .Call('_torch_tensor_char_', PACKAGE = 'torch', x)
+}
+
+tensor_cholesky_ <- function(x, upper = FALSE) {
+    .Call('_torch_tensor_cholesky_', PACKAGE = 'torch', x, upper)
 }
 
 tensor_chunk_ <- function(x, chunks, dim) {

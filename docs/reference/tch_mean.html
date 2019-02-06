@@ -32,7 +32,7 @@
 
 <meta property="og:title" content="mean — tch_mean" />
 
-<meta property="og:description" content="mean" />
+<meta property="og:description" content="Returns the mean value of all elements in the x tensor." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -121,12 +121,11 @@
 
     <div class="ref-description">
     
-    <p>mean</p>
+    <p>Returns the mean value of all elements in the x tensor.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tch_mean</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dtype</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>tch_mean</span>(<span class='no'>x</span>, <span class='kw'>dim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>keepdim</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,15 +136,11 @@
     </tr>
     <tr>
       <th>dim</th>
-      <td><p>dimension in which to sum</p></td>
+      <td><p>the dimension to reduce</p></td>
     </tr>
     <tr>
       <th>keepdim</th>
-      <td><p>wether to keep or not the dim</p></td>
-    </tr>
-    <tr>
-      <th>dtype</th>
-      <td><p>optionaly cast the sum result</p></td>
+      <td><p>whether the output tensor has dim retained or not. (ignored if dim is <code>NULL</code>)</p></td>
     </tr>
     </table>
     
@@ -153,7 +148,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tensor.html'>tensor</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Uniform'>runif</a></span>(<span class='fl'>100</span>))
 <span class='fu'>tch_mean</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; tensor 
-#&gt; 0.496859
+#&gt; 0.493348
 #&gt; [ Variable[CPUFloatType]{} ]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
