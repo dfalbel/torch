@@ -927,6 +927,12 @@ test_that("expm1 works", {
   expect_equal(as.array(x),  r, tol = 1e-6)
 })
 
+test_that("exponential works", {
+  x <- tch_empty(c(4,4))
+  expect_silent(x$exponential_(1))
+  expect_true(all(as.array(x) > 0))
+})
+
 test_that("fill works", {
   x <- tch_empty(c(2,2))
   x$fill_(2)

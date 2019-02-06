@@ -1767,6 +1767,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_exponential__
+Rcpp::XPtr<torch::Tensor> tensor_exponential__(Rcpp::XPtr<torch::Tensor> x, double lambd);
+RcppExport SEXP _torch_tensor_exponential__(SEXP xSEXP, SEXP lambdSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type lambd(lambdSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_exponential__(x, lambd));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_fill_scalar__
 Rcpp::XPtr<torch::Tensor> tensor_fill_scalar__(Rcpp::XPtr<torch::Tensor> x, SEXP value);
 RcppExport SEXP _torch_tensor_fill_scalar__(SEXP xSEXP, SEXP valueSEXP) {
@@ -2634,6 +2646,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_expand_as_", (DL_FUNC) &_torch_tensor_expand_as_, 2},
     {"_torch_tensor_expm1_", (DL_FUNC) &_torch_tensor_expm1_, 1},
     {"_torch_tensor_expm1__", (DL_FUNC) &_torch_tensor_expm1__, 1},
+    {"_torch_tensor_exponential__", (DL_FUNC) &_torch_tensor_exponential__, 2},
     {"_torch_tensor_fill_scalar__", (DL_FUNC) &_torch_tensor_fill_scalar__, 2},
     {"_torch_tensor_fill_tensor__", (DL_FUNC) &_torch_tensor_fill_tensor__, 2},
     {"_torch_tensor_flatten_", (DL_FUNC) &_torch_tensor_flatten_, 3},

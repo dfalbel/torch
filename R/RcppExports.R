@@ -573,6 +573,10 @@ tensor_expm1__ <- function(x) {
     .Call('_torch_tensor_expm1__', PACKAGE = 'torch', x)
 }
 
+tensor_exponential__ <- function(x, lambd = 1) {
+    .Call('_torch_tensor_exponential__', PACKAGE = 'torch', x, lambd)
+}
+
 tensor_fill_scalar__ <- function(x, value) {
     .Call('_torch_tensor_fill_scalar__', PACKAGE = 'torch', x, value)
 }

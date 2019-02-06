@@ -534,6 +534,11 @@
       invisible(self)
     },
 
+    exponential_ = function(lambd = 1) {
+      tensor_exponential__(self$pointer)
+      invisible(self)
+    },
+
     fill_ = function(value) {
       if (is(value, "tensor")) {
         tensor_fill_tensor__(self$pointer, value$pointer)

@@ -1047,6 +1047,11 @@ Rcpp::XPtr<torch::Tensor> tensor_expm1__ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_exponential__ (Rcpp::XPtr<torch::Tensor> x, double lambd = 1) {
+  return make_tensor_ptr(x->exponential_(lambd));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_fill_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP value) {
   return make_tensor_ptr(x->fill_(scalar_from_r_(value)));
 }
