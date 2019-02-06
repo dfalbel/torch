@@ -5,8 +5,16 @@
 \title{logsumexp}
 \usage{
 tch_logsumexp(x, dim, keepdim = FALSE)
+
+tch_logsumexp(x, dim, keepdim = FALSE)
 }
 \arguments{
+\item{x}{tensor object}
+
+\item{dim}{the dimension to reduce}
+
+\item{keepdim}{wether to keep or not the dim}
+
 \item{x}{tensor object}
 
 \item{dim}{the dimension to reduce}
@@ -15,8 +23,12 @@ tch_logsumexp(x, dim, keepdim = FALSE)
 }
 \description{
 Returns the log(sum(exp(x))) of all elements in the x tensor.
+
+Returns the minimum value of all elements in the x tensor.
 }
 \examples{
+x <- tensor(runif(10))
+tch_logsumexp(x, 0)
 x <- tensor(runif(10))
 tch_logsumexp(x, 0)
 }

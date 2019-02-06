@@ -5,8 +5,16 @@
 \title{mean}
 \usage{
 tch_mean(x, dim = NULL, keepdim = FALSE)
+
+tch_mean(x, dim = NULL, keepdim = FALSE)
 }
 \arguments{
+\item{x}{tensor object}
+
+\item{dim}{the dimension to reduce}
+
+\item{keepdim}{whether the output tensor has dim retained or not. (ignored if dim is \code{NULL})}
+
 \item{x}{tensor object}
 
 \item{dim}{the dimension to reduce}
@@ -15,8 +23,12 @@ tch_mean(x, dim = NULL, keepdim = FALSE)
 }
 \description{
 Returns the mean value of all elements in the x tensor.
+
+Returns the mean value of all elements in the x tensor.
 }
 \examples{
 x <- tensor(runif(100))
 tch_mean(x)
+x <- tensor(runif(100))
+tch_min(x)
 }
