@@ -1,5 +1,6 @@
 `torch::Tensor` <- R6::R6Class(
   "tensor",
+  cloneable = FALSE,
 
   private = list(
     xp = NULL
@@ -65,7 +66,7 @@
 
     abs_ = function() {
       tensor_abs__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     acos = function () {
@@ -74,7 +75,7 @@
 
     acos_ = function() {
       tensor_acos__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     add = function(y) {
@@ -275,7 +276,7 @@
 
     cauchy_ = function(median = 0, sigma = 1) {
       tensor_cauchy__(self$pointer, median, sigma)
-      invisible(NULL)
+      invisible(self)
     },
 
     ceil = function() {
@@ -284,7 +285,7 @@
 
     ceil_ = function() {
       tensor_ceil__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     char = function () {
@@ -308,7 +309,7 @@
 
     clamp_ = function(min, max) {
       tensor_clamp__(self$pointer, min, max)
-      invisible(NULL)
+      invisible(self)
     },
 
     clamp_max = function(max) {
@@ -317,7 +318,7 @@
 
     clamp_max_ = function(max) {
       tensor_clamp_max__(self$pointer, max)
-      invisible(NULL)
+      invisible(self)
     },
 
     clamp_min = function(min) {
@@ -326,12 +327,7 @@
 
     clamp_min_ = function(min) {
       tensor_clamp_min__(self$pointer, min)
-      invisible(NULL)
-    },
-
-    clone_ = function() {
-      # TODO decide if clone_ is the best name for this method.
-      `torch::Tensor`$dispatch(tensor_clone_(self$pointer))
+      invisible(self)
     },
 
     contiguous = function() {
@@ -340,7 +336,7 @@
 
     copy_ = function(src, non_blocking = FALSE) {
       tensor_copy__(self$pointer, src$pointer, non_blocking)
-      invisible(NULL)
+      invisible(self)
     },
 
     cos = function() {
@@ -349,7 +345,7 @@
 
     cos_ = function() {
       tensor_cos__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     cosh = function() {
@@ -358,7 +354,7 @@
 
     cosh_ = function() {
       tensor_cosh__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     cpu = function() {
@@ -381,6 +377,10 @@
       `torch::Tensor`$dispatch(tensor_cumsum_(self$pointer, dim))
     },
 
+    data_ptr = function() {
+      tensor_data_ptr_(self$pointer)
+    },
+
     det = function() {
       `torch::Tensor`$dispatch(tensor_det_(self$pointer))
     },
@@ -391,7 +391,7 @@
 
     detach_ = function() {
       tensor_detach__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     device = function() {
@@ -400,6 +400,10 @@
 
     diag = function(diagonal = 0) {
       `torch::Tensor`$dispatch(tensor_diag_(self$pointer, diagonal))
+    },
+
+    diag_embed = function(offset = 0, dim1 = -2, dim2 = -1) {
+      `torch::Tensor`$dispatch(tensor_diag_embed_(self$pointer, offset, dim1, dim2))
     },
 
     diagflat = function(offset = 0) {
@@ -416,7 +420,7 @@
 
     digamma_ = function(){
       tensor_digamma__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     dim = function() {
@@ -441,11 +445,15 @@
       } else {
         tensor_div_scalar__(self$pointer, other)
       }
-      invisible(NULL)
+      invisible(self)
     },
 
     dot = function(tensor) {
       `torch::Tensor`$dispatch(tensor_dot_(self$pointer, tensor$pointer))
+    },
+
+    double = function() {
+      `torch::Tensor`$dispatch(tensor_double_(self$pointer))
     },
 
     dtype = function() {
@@ -455,6 +463,10 @@
     eig = function(eigenvectors = FALSE) {
       out <- tensor_eig_(self$pointer, eigenvectors)
       lapply(out, `torch::Tensor`$dispatch)
+    },
+
+    element_size = function() {
+      tensor_element_size_(self$pointer)
     },
 
     eq = function(other) {
@@ -519,6 +531,11 @@
 
     expm1_ = function() {
       tensor_expm1__(self$pointer)
+      invisible(self)
+    },
+
+    exponential_ = function(lambd = 1) {
+      tensor_exponential__(self$pointer)
       invisible(self)
     },
 
@@ -606,6 +623,50 @@
     gels = function(A) {
       out <- tensor_gels_(self$pointer, A$pointer)
       lapply(out, `torch::Tensor`$dispatch)
+    },
+
+    geometric_ = function(p) {
+      tensor_geometric__(self$pointer, p)
+      invisible(self)
+    },
+
+    geqrf = function() {
+      out <- tensor_geqrf_(self$pointer)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
+    ger = function(vec2) {
+      `torch::Tensor`$dispatch(tensor_ger_(self$pointer, vec2$pointer))
+    },
+
+    gesv = function(A) {
+      out <- tensor_gesv_(self$pointer, A$pointer)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
+    get_device = function() {
+      tensor_get_device_(self$pointer)
+    },
+
+    gt = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_gt_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_gt_scalar_(self$pointer, other))
+      }
+    },
+
+    gt_ = function(other) {
+      if (is(other, "tensor")) {
+        tensor_gt_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_gt_scalar__(self$pointer, other)
+      }
+      invisible(self)
+    },
+
+    half = function() {
+      `torch::Tensor`$dispatch(tensor_half_(self$pointer))
     },
 
     log = function() {
@@ -734,7 +795,7 @@
 
     rsqrt_ = function() {
       tensor_rsqrt__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     sigmoid = function() {
@@ -747,7 +808,7 @@
 
     sigmoid_ = function() {
       tensor_sigmoid__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     sin = function(){
@@ -774,7 +835,7 @@
 
     sqrt_ = function() {
       tensor_sqrt__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
 
@@ -796,7 +857,7 @@
       } else {
         tensor_sub_scalar__(self$pointer, other, alpha)
       }
-      invisible(NULL)
+      invisible(self)
     },
 
     sum = function(dim = NULL, keepdim = FALSE) {
@@ -813,7 +874,7 @@
 
     tan_ = function() {
       tensor_tan__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     tanh = function() {
@@ -822,7 +883,7 @@
 
     tanh_ = function() {
       tensor_tanh__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     tril = function(diagonal = 0) {
@@ -847,7 +908,7 @@
 
     trunc_ = function() {
       tensor_trunc__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     },
 
     var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
@@ -856,12 +917,17 @@
 
     zero_ = function() {
       tensor_zero__(self$pointer)
-      invisible(NULL)
+      invisible(self)
     }
 
   )
 
 )
+
+`torch::Tensor`$set("public", "clone", function() {
+  # TODO decide if clone_ is the best name for this method.
+  `torch::Tensor`$dispatch(tensor_clone_(self$pointer))
+})
 
 external_ptr <- function(class, xp) {
   class$new(xp)

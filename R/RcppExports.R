@@ -393,6 +393,10 @@ tensor_data_ <- function(x) {
     .Call('_torch_tensor_data_', PACKAGE = 'torch', x)
 }
 
+tensor_data_ptr_ <- function(x) {
+    .Call('_torch_tensor_data_ptr_', PACKAGE = 'torch', x)
+}
+
 tensor_det_ <- function(x) {
     .Call('_torch_tensor_det_', PACKAGE = 'torch', x)
 }
@@ -411,6 +415,10 @@ tensor_device_ <- function(x) {
 
 tensor_diag_ <- function(x, diagonal = 0L) {
     .Call('_torch_tensor_diag_', PACKAGE = 'torch', x, diagonal)
+}
+
+tensor_diag_embed_ <- function(x, offset = 0L, dim1 = -2L, dim2 = -1L) {
+    .Call('_torch_tensor_diag_embed_', PACKAGE = 'torch', x, offset, dim1, dim2)
 }
 
 tensor_diagflat_ <- function(x, offset = 0L) {
@@ -457,12 +465,20 @@ tensor_dot_ <- function(x, tensor) {
     .Call('_torch_tensor_dot_', PACKAGE = 'torch', x, tensor)
 }
 
+tensor_double_ <- function(x) {
+    .Call('_torch_tensor_double_', PACKAGE = 'torch', x)
+}
+
 tensor_dtype_ <- function(x) {
     .Call('_torch_tensor_dtype_', PACKAGE = 'torch', x)
 }
 
 tensor_eig_ <- function(x, eigenvectors = FALSE) {
     .Call('_torch_tensor_eig_', PACKAGE = 'torch', x, eigenvectors)
+}
+
+tensor_element_size_ <- function(x) {
+    .Call('_torch_tensor_element_size_', PACKAGE = 'torch', x)
 }
 
 tensor_eq_scalar_ <- function(x, other) {
@@ -557,6 +573,10 @@ tensor_expm1__ <- function(x) {
     .Call('_torch_tensor_expm1__', PACKAGE = 'torch', x)
 }
 
+tensor_exponential__ <- function(x, lambd = 1) {
+    .Call('_torch_tensor_exponential__', PACKAGE = 'torch', x, lambd)
+}
+
 tensor_fill_scalar__ <- function(x, value) {
     .Call('_torch_tensor_fill_scalar__', PACKAGE = 'torch', x, value)
 }
@@ -639,6 +659,46 @@ tensor_gels_ <- function(x, A) {
 
 tensor_grad_ <- function(x) {
     .Call('_torch_tensor_grad_', PACKAGE = 'torch', x)
+}
+
+tensor_geometric__ <- function(x, p) {
+    .Call('_torch_tensor_geometric__', PACKAGE = 'torch', x, p)
+}
+
+tensor_geqrf_ <- function(x) {
+    .Call('_torch_tensor_geqrf_', PACKAGE = 'torch', x)
+}
+
+tensor_ger_ <- function(x, vec2) {
+    .Call('_torch_tensor_ger_', PACKAGE = 'torch', x, vec2)
+}
+
+tensor_gesv_ <- function(x, A) {
+    .Call('_torch_tensor_gesv_', PACKAGE = 'torch', x, A)
+}
+
+tensor_get_device_ <- function(x) {
+    .Call('_torch_tensor_get_device_', PACKAGE = 'torch', x)
+}
+
+tensor_gt_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_gt_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_gt_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_gt_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_gt_tensor__ <- function(x, other) {
+    .Call('_torch_tensor_gt_tensor__', PACKAGE = 'torch', x, other)
+}
+
+tensor_gt_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_gt_scalar__', PACKAGE = 'torch', x, other)
+}
+
+tensor_half_ <- function(x) {
+    .Call('_torch_tensor_half_', PACKAGE = 'torch', x)
 }
 
 tensor_mean_ <- function(x, dim, keepdim) {

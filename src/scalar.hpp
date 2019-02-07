@@ -54,6 +54,8 @@ std::string caffe_type_to_string (caffe2::TypeMeta type) {
   std::string name = type.name();
   if (name == "unsigned char") {
     name = "uint8";
+  } else if (name == "c10::Half") {
+    name = "half";
   }
   return name;
 }

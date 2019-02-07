@@ -18,12 +18,6 @@ test_that("dtype", {
   expect_identical(x$dtype(), "int")
 })
 
-test_that("device", {
-  # TODO can't test device without a gpu :(
-  expect_identical(1, 1)
-})
-
-
 context("integer tensors")
 
 test_that("creation of 1d integer tensor", {
@@ -590,9 +584,9 @@ test_that("clamp_min_ works", {
   expect_equal(min(res), 0.7)
 })
 
-test_that("clone_ works", {
+test_that("clone works", {
   x <- tensor(1:10)
-  y <- x$clone_()
+  y <- x$clone()
   x$clamp_max_(5)
 
   expect_false(all(as.array(x) == as.array(y)))
@@ -680,6 +674,13 @@ test_that("cumsum works", {
   )
 })
 
+test_that("data_ptr works", {
+  x <- tensor(c(1,2,3,4))
+  y <- x$clone()
+
+  expect_true(x$data_ptr() != y$data_ptr())
+})
+
 test_that("det works", {
   x <- matrix(runif(36), ncol = 6)
 
@@ -720,6 +721,12 @@ test_that("diag works", {
     as.array(tch_diag(x)),
     as.integer(c(1, 7, 13, 19, 25))
   )
+})
+
+test_that("diagembed works", {
+  x <- tch_randn(c(4,4))
+  expect_silent(x$diag_embed(dim1 = 0))
+  expect_silent(x$diag_embed())
 })
 
 test_that("diagflat works", {
@@ -819,6 +826,12 @@ test_that("dot works", {
   )
 })
 
+test_that("double", {
+  x <- tensor(1:10)
+  x <- x$double()
+  expect_equal(x$dtype(), "double")
+})
+
 test_that("eig works", {
   x_r <- cbind(c(1,-1), c(-1,1))
 
@@ -828,6 +841,14 @@ test_that("eig works", {
 
   expect_equal(as.array(out[[1]])[,1], out_r$values)
   expect_equal(as.array(out[[2]]), -out_r$vectors)
+})
+
+test_that("element size works", {
+  x <- tensor(1)
+  expect_equal(x$element_size(), 4)
+
+  x <- x$to("double")
+  expect_equal(x$element_size(), 8)
 })
 
 test_that("eq works", {
@@ -904,6 +925,12 @@ test_that("expm1 works", {
   expect_equal(as.array(x$expm1()), r, tol = 1e-6)
   x$expm1_()
   expect_equal(as.array(x),  r, tol = 1e-6)
+})
+
+test_that("exponential works", {
+  x <- tch_empty(c(4,4))
+  expect_silent(x$exponential_(1))
+  expect_true(all(as.array(x) > 0))
 })
 
 test_that("fill works", {
@@ -1010,6 +1037,60 @@ test_that("gels works", {
   # )
 })
 
+test_that("geometric works", {
+  x <- tch_empty(100)
+  expect_silent(x$geometric_(0.5))
+  expect_true(all(as.array(x) > 0))
+})
+
+test_that("geqrf works", {
+  x <- tch_randn(c(5,5))
+  expect_silent(out <- x$geqrf())
+  expect_equal(length(out), 2)
+})
+
+test_that("ger works", {
+  x <- tch_randn(10)
+  vec2 <- tch_randn(10)
+  expect_silent(x$ger(vec2))
+})
+
+test_that("gesv works", {
+  x <- tch_randn(c(5,5))
+  A <- tch_randn(c(5,5))
+  expect_silent(out <- x$gesv(A))
+  expect_equal(length(out), 2)
+  expect_equal(dim(as.array(out[[1]])), c(5,5))
+})
+
+test_that("get_device works", {
+  if (tch_cuda_is_available()) {
+    x <- tensor(1, device = "CUDA")
+    expect_true(is.integer(x$get_device))
+  } else {
+    x <- tensor(1)
+    expect_error(x$get_device())
+  }
+})
+
+test_that("gt works", {
+  x <- tensor(1)
+  expect_equal(as.array(x$gt(0)), TRUE)
+  expect_equal(as.array(x$gt(tensor(2))), FALSE)
+
+  x <- tensor(1)
+  x$gt_(2)
+  expect_equal(as.array(x$to("uint8")), FALSE)
+  x <- tensor(10)
+  x$gt_(tensor(9))
+  expect_equal(as.array(x$to("uint8")), TRUE)
+})
+
+test_that("half works", {
+  x <- tensor(1)
+  x <- x$half()
+  expect_equal(x$dtype(), "half")
+})
 
 test_that("mean works", {
   x <- runif(100)
