@@ -853,6 +853,14 @@ tensor_to_ <- function(x, dtype, device, requires_grad) {
     .Call('_torch_tensor_to_', PACKAGE = 'torch', x, dtype, device, requires_grad)
 }
 
+tensor_unsqueeze_ <- function(x, dim) {
+    .Call('_torch_tensor_unsqueeze_', PACKAGE = 'torch', x, dim)
+}
+
+tensor_unsqueeze__ <- function(x, dim) {
+    .Call('_torch_tensor_unsqueeze__', PACKAGE = 'torch', x, dim)
+}
+
 tensor_zero__ <- function(x) {
     .Call('_torch_tensor_zero__', PACKAGE = 'torch', x)
 }

@@ -4,7 +4,7 @@
 \alias{tch_prod}
 \title{prod}
 \usage{
-tch_prod(x, dim = NULL, keepdim = FALSE, dtype = NULL)
+tch_prod(x, dim = NULL, keepdim = NULL, dtype = NULL)
 }
 \arguments{
 \item{x}{tensor object}

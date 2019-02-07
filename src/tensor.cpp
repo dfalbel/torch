@@ -416,7 +416,7 @@ Rcpp::XPtr<torch::Tensor> tensor_addr__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_all_ (Rcpp::XPtr<torch::Tensor> x,
-                                       Rcpp::Nullable<int64_t> dim,
+                                       Rcpp::Nullable<std::int64_t> dim,
                                        bool keepdim) {
 
   if (dim.isNull())
@@ -439,29 +439,29 @@ Rcpp::XPtr<torch::Tensor> tensor_any_ (Rcpp::XPtr<torch::Tensor> x,
   if (dim.isNull())
     return make_tensor_ptr(x->any());
   else {
-    return make_tensor_ptr(x->any(Rcpp::as<int64_t>(dim), keepdim));
+    return make_tensor_ptr(x->any(Rcpp::as<std::int64_t>(dim), keepdim));
   }
 }
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_argmax_ (Rcpp::XPtr<torch::Tensor> x,
-                                          Rcpp::Nullable<int64_t> dim,
+                                          Rcpp::Nullable<std::int64_t> dim,
                                           bool keepdim) {
   if (dim.isNull())
     return make_tensor_ptr(x->argmax());
   else {
-    return make_tensor_ptr(x->argmax(Rcpp::as<int64_t>(dim), keepdim));
+    return make_tensor_ptr(x->argmax(Rcpp::as<std::int64_t>(dim), keepdim));
   }
 }
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_argmin_ (Rcpp::XPtr<torch::Tensor> x,
-                                          Rcpp::Nullable<int64_t> dim,
+                                          Rcpp::Nullable<std::int64_t> dim,
                                           bool keepdim) {
   if (dim.isNull())
     return make_tensor_ptr(x->argmin());
   else {
-    return make_tensor_ptr(x->argmin(Rcpp::as<int64_t>(dim), keepdim));
+    return make_tensor_ptr(x->argmin(Rcpp::as<std::int64_t>(dim), keepdim));
   }
 }
 
@@ -1522,6 +1522,18 @@ Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
   }
 
   return make_tensor_ptr(tensor);
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_unsqueeze_ (Rcpp::XPtr<torch::Tensor> x,
+                                             std::int64_t dim) {
+  return make_tensor_ptr(x->unsqueeze(dim));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_unsqueeze__ (Rcpp::XPtr<torch::Tensor> x,
+                                              std::int64_t dim) {
+  return make_tensor_ptr(x->unsqueeze_(dim));
 }
 
 // [[Rcpp::export]]

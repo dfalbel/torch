@@ -1581,6 +1581,18 @@ test_that("tanh works", {
   expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
 })
 
+test_that("unsqueeze works", {
+  x <- array(0, c(2, 2, 2))
+  x_t <- tensor(x)
+  expect_equal(dim(as.array(x_t$unsqueeze(0))), c(1, 2, 2, 2))
+  expect_equal(dim(as.array(x_t$unsqueeze(1))), c(2, 1, 2, 2))
+  expect_equal(dim(as.array(x_t$unsqueeze(2))), c(2, 2, 1, 2))
+  expect_equal(dim(as.array(x_t$unsqueeze(3))), c(2, 2, 2, 1))
+
+  x_t$unsqueeze_(3)
+  expect_equal(dim(as.array(x_t)), c(2, 2, 2, 1))
+})
+
 test_that("zeros", {
   x <- tch_zeros(c(2, 4))
   expect_equal(dim(as.array(x)), c(2L, 4L))

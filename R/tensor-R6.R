@@ -918,6 +918,15 @@
     zero_ = function() {
       tensor_zero__(self$pointer)
       invisible(self)
+    },
+
+    unsqueeze = function(dim) {
+      `torch::Tensor`$dispatch(tensor_unsqueeze_(self$pointer, dim))
+    },
+
+    unsqueeze_ = function(dim) {
+      tensor_unsqueeze__(self$pointer, dim)
+      invisible(self)
     }
 
   )
