@@ -673,6 +673,11 @@
       `torch::Tensor`$dispatch(tensor_histc_(self$pointer, bins, min, max))
     },
 
+    index_add_ = function(dim, index, source) {
+      tensor_index_add__(self$pointer, dim, index$pointer, source$pointer)
+      invisible(self)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

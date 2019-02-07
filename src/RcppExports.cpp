@@ -2159,6 +2159,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_index_add__
+Rcpp::XPtr<torch::Tensor> tensor_index_add__(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::XPtr<torch::Tensor> index, Rcpp::XPtr<torch::Tensor> source);
+RcppExport SEXP _torch_tensor_index_add__(SEXP xSEXP, SEXP dimSEXP, SEXP indexSEXP, SEXP sourceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type index(indexSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type source(sourceSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_index_add__(x, dim, index, source));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_mean_
 Rcpp::XPtr<torch::Tensor> tensor_mean_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::vector<std::int64_t>> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_mean_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
@@ -2834,6 +2848,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_gt_scalar__", (DL_FUNC) &_torch_tensor_gt_scalar__, 2},
     {"_torch_tensor_half_", (DL_FUNC) &_torch_tensor_half_, 1},
     {"_torch_tensor_histc_", (DL_FUNC) &_torch_tensor_histc_, 4},
+    {"_torch_tensor_index_add__", (DL_FUNC) &_torch_tensor_index_add__, 4},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 3},
     {"_torch_tensor_var_", (DL_FUNC) &_torch_tensor_var_, 4},
     {"_torch_tensor_std_", (DL_FUNC) &_torch_tensor_std_, 4},
