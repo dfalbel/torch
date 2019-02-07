@@ -1525,6 +1525,18 @@ Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_unsqueeze_ (Rcpp::XPtr<torch::Tensor> x,
+                                             std::int64_t dim) {
+  return make_tensor_ptr(x->unsqueeze(dim));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_unsqueeze__ (Rcpp::XPtr<torch::Tensor> x,
+                                              std::int64_t dim) {
+  return make_tensor_ptr(x->unsqueeze_(dim));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_zero__ (Rcpp::XPtr<torch::Tensor> x) {
   x->zero_();
   return x;
