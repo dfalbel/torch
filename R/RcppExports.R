@@ -701,6 +701,10 @@ tensor_half_ <- function(x) {
     .Call('_torch_tensor_half_', PACKAGE = 'torch', x)
 }
 
+tensor_histc_ <- function(x, bins = 100L, min = 0L, max = 0L) {
+    .Call('_torch_tensor_histc_', PACKAGE = 'torch', x, bins, min, max)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

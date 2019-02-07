@@ -1216,6 +1216,13 @@ Rcpp::XPtr<torch::Tensor> tensor_half_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_histc_ (Rcpp::XPtr<torch::Tensor> x,
+                                         std::int64_t bins = 100,
+                                         SEXP min = 0, SEXP max = 0) {
+  return make_tensor_ptr(x->histc(bins, scalar_from_r_(min), scalar_from_r_(max)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim

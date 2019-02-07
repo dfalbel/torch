@@ -1092,6 +1092,12 @@ test_that("half works", {
   expect_equal(x$dtype(), "half")
 })
 
+test_that("histc works", {
+  x <- tch_randn(1000)
+  y <- x$histc(bins = 5)
+  expect_equal(sum(as.array(y)), 1000)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
