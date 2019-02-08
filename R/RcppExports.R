@@ -701,6 +701,14 @@ tensor_half_ <- function(x) {
     .Call('_torch_tensor_half_', PACKAGE = 'torch', x)
 }
 
+tensor_histc_ <- function(x, bins = 100L, min = 0L, max = 0L) {
+    .Call('_torch_tensor_histc_', PACKAGE = 'torch', x, bins, min, max)
+}
+
+tensor_index_add__ <- function(x, dim, index, source) {
+    .Call('_torch_tensor_index_add__', PACKAGE = 'torch', x, dim, index, source)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }
@@ -851,6 +859,14 @@ tensor_triu_ <- function(x, diagonal) {
 
 tensor_to_ <- function(x, dtype, device, requires_grad) {
     .Call('_torch_tensor_to_', PACKAGE = 'torch', x, dtype, device, requires_grad)
+}
+
+tensor_unsqueeze_ <- function(x, dim) {
+    .Call('_torch_tensor_unsqueeze_', PACKAGE = 'torch', x, dim)
+}
+
+tensor_unsqueeze__ <- function(x, dim) {
+    .Call('_torch_tensor_unsqueeze__', PACKAGE = 'torch', x, dim)
 }
 
 tensor_zero__ <- function(x) {
