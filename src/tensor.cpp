@@ -1541,6 +1541,25 @@ Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::List tensor_unique_return_inverse_ (Rcpp::XPtr<torch::Tensor> x, bool sorted, Rcpp::Nullable<std::int64_t> dim) {
+  if(dim.isNull()) {
+    auto out = x->_unique(sorted, false);
+  } else if(dim.isNotNull()) {
+    auto out = x->_unique_dim(sorted, false, dim);
+  }
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_unique_ (Rcpp::XPtr<torch::Tensor> x, bool sorted, Rcpp::Nullable<std::int64_t> dim) {
+  if(dim.isNull()) {
+    return make_tensor_ptr(x->_unique(sorted, true));
+  } else if(dim.isNotNull()) {
+    return make_tensor_ptr(x->_unique_dim(sorted, true, dim));
+  }
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_unsqueeze_ (Rcpp::XPtr<torch::Tensor> x,
                                              std::int64_t dim) {
   return make_tensor_ptr(x->unsqueeze(dim));
