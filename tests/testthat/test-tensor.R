@@ -1092,6 +1092,20 @@ test_that("half works", {
   expect_equal(x$dtype(), "half")
 })
 
+test_that("histc works", {
+  x <- tch_randn(1000)
+  y <- x$histc(bins = 5)
+  expect_equal(sum(as.array(y)), 1000)
+})
+
+test_that("index_add_ works", {
+  x <- tch_ones(c(5,3))
+  t <- tensor(matrix(1:9, nrow = 3), dtype = "float")
+  index <- tensor(c(0L, 4L, 2L), dtype = "long")
+  expect_silent(x$index_add_(0, index, t))
+  expect_equal(as.array(x)[1,], c(2, 5, 8))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
@@ -1579,6 +1593,18 @@ test_that("tanh works", {
   x_t <- tensor(x)
   x_t$tanh_()
   expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
+})
+
+test_that("unsqueeze works", {
+  x <- array(0, c(2, 2, 2))
+  x_t <- tensor(x)
+  expect_equal(dim(as.array(x_t$unsqueeze(0))), c(1, 2, 2, 2))
+  expect_equal(dim(as.array(x_t$unsqueeze(1))), c(2, 1, 2, 2))
+  expect_equal(dim(as.array(x_t$unsqueeze(2))), c(2, 2, 1, 2))
+  expect_equal(dim(as.array(x_t$unsqueeze(3))), c(2, 2, 2, 1))
+
+  x_t$unsqueeze_(3)
+  expect_equal(dim(as.array(x_t)), c(2, 2, 2, 1))
 })
 
 test_that("zeros", {
