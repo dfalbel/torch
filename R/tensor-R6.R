@@ -669,6 +669,15 @@
       `torch::Tensor`$dispatch(tensor_half_(self$pointer))
     },
 
+    histc = function(bins = 100, min = 0, max = 0) {
+      `torch::Tensor`$dispatch(tensor_histc_(self$pointer, bins, min, max))
+    },
+
+    index_add_ = function(dim, index, source) {
+      tensor_index_add__(self$pointer, dim, index$pointer, source$pointer)
+      invisible(self)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },
