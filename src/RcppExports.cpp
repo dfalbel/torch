@@ -2635,6 +2635,32 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_unique_return_inverse_
+Rcpp::List tensor_unique_return_inverse_(Rcpp::XPtr<torch::Tensor> x, bool sorted, Rcpp::Nullable<std::int64_t> dim);
+RcppExport SEXP _torch_tensor_unique_return_inverse_(SEXP xSEXP, SEXP sortedSEXP, SEXP dimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< bool >::type sorted(sortedSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::int64_t> >::type dim(dimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_unique_return_inverse_(x, sorted, dim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_unique_
+Rcpp::XPtr<torch::Tensor> tensor_unique_(Rcpp::XPtr<torch::Tensor> x, bool sorted, Rcpp::Nullable<std::int64_t> dim);
+RcppExport SEXP _torch_tensor_unique_(SEXP xSEXP, SEXP sortedSEXP, SEXP dimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< bool >::type sorted(sortedSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::int64_t> >::type dim(dimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_unique_(x, sorted, dim));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_unsqueeze_
 Rcpp::XPtr<torch::Tensor> tensor_unsqueeze_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim);
 RcppExport SEXP _torch_tensor_unsqueeze_(SEXP xSEXP, SEXP dimSEXP) {
@@ -2887,6 +2913,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_tril_", (DL_FUNC) &_torch_tensor_tril_, 2},
     {"_torch_tensor_triu_", (DL_FUNC) &_torch_tensor_triu_, 2},
     {"_torch_tensor_to_", (DL_FUNC) &_torch_tensor_to_, 4},
+    {"_torch_tensor_unique_return_inverse_", (DL_FUNC) &_torch_tensor_unique_return_inverse_, 3},
+    {"_torch_tensor_unique_", (DL_FUNC) &_torch_tensor_unique_, 3},
     {"_torch_tensor_unsqueeze_", (DL_FUNC) &_torch_tensor_unsqueeze_, 2},
     {"_torch_tensor_unsqueeze__", (DL_FUNC) &_torch_tensor_unsqueeze__, 2},
     {"_torch_tensor_zero__", (DL_FUNC) &_torch_tensor_zero__, 1},
