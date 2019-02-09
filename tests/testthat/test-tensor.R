@@ -1596,35 +1596,35 @@ test_that("tanh works", {
 })
 
 test_that("unique works", {
-  x <- array(c(c(1,1,1),
-               c(1,1,0),
-               c(1,1,0)), c(3, 3))
+  x <- matrix(c(c(0,0,0),
+                c(0,0,1),
+                c(0,0,1)), 3, byrow = TRUE)
   x_t <- tensor(x)
 
   # return_inverse = FALSE
   expect_equal(as.array(x_t$unique()), c(1, 0))
   expect_equal(as.array(x_t$unique(sorted = TRUE)), c(0, 1))
-  expect_equal(as.array(x_t$unique(dim = 0)), array(c(c(1,1,0),
-                                                      c(1,1,1)), c(2, 3)))
-  expect_equal(as.array(x_t$unique(dim = 1)), array(c(c(1,1),
-                                                      c(0,1),
-                                                      c(0,1)), c(3, 2)))
+  expect_equal(as.array(x_t$unique(dim = 0)), matrix(c(c(0,0,0),
+                                                       c(0,0,1)), 2, byrow = TRUE))
+  expect_equal(as.array(x_t$unique(dim = 1)), matrix(c(c(0,0),
+                                                       c(0,1),
+                                                       c(0,1)), 3, byrow = TRUE))
 
   # return_inverse = TRUE
   expect_equal(class(x_t$unique(return_inverse = TRUE)), "list")
-  expect_equal(lapply(x_t$unique(return_inverse = TRUE), as.array), list(c(1, 0), array(c(c(0,0,0),
-                                                                                          c(0,0,1),
-                                                                                          c(0,0,1)), c(3, 3))))
-  expect_equal(lapply(x_t$unique(sorted = TRUE, return_inverse = TRUE), as.array), list(c(1, 0), array(c(c(1,1,1),
-                                                                                                         c(1,1,0),
-                                                                                                         c(1,1,0)), c(3, 3))))
-  expect_equal(lapply(x_t$unique(return_inverse = TRUE, dim = 0), as.array), list(array(c(c(1,1,0),
-                                                                                          c(1,1,1)), c(2, 3)),
-                                                                                  c(1, 0, 0)))
-  expect_equal(lapply(x_t$unique(return_inverse = TRUE, dim = 1), as.array), list(array(c(c(1,1),
-                                                                                          c(0,1),
-                                                                                          c(0,1)), c(3, 2)),
-                                                                                  c(1, 1, 0)))
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE), as.array), list(c(1, 0), matrix(c(c(1,1,1),
+                                                                                           c(1,1,0),
+                                                                                           c(1,1,0)), 3, byrow = TRUE)))
+  expect_equal(lapply(x_t$unique(sorted = TRUE, return_inverse = TRUE), as.array), list(c(0, 1), matrix(c(c(0,0,0),
+                                                                                                          c(0,0,1),
+                                                                                                          c(0,0,1)), 3, byrow = TRUE)))
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE, dim = 0), as.array), list(matrix(c(c(0,0,0),
+                                                                                           c(0,0,1)), 2, byrow = TRUE),
+                                                                                  c(0, 1, 1)))
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE, dim = 1), as.array), list(matrix(c(c(0,0),
+                                                                                           c(0,1),
+                                                                                           c(0,1)), 3, byrow = TRUE),
+                                                                                  c(0, 0, 1)))
 })
 
 test_that("unsqueeze works", {
