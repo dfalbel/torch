@@ -709,6 +709,14 @@ tensor_index_add__ <- function(x, dim, index, source) {
     .Call('_torch_tensor_index_add__', PACKAGE = 'torch', x, dim, index, source)
 }
 
+tensor_index_copy__ <- function(x, dim, index, source) {
+    .Call('_torch_tensor_index_copy__', PACKAGE = 'torch', x, dim, index, source)
+}
+
+tensor_index_fill__ <- function(x, dim, index, value) {
+    .Call('_torch_tensor_index_fill__', PACKAGE = 'torch', x, dim, index, value)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

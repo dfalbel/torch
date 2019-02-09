@@ -1106,6 +1106,21 @@ test_that("index_add_ works", {
   expect_equal(as.array(x)[1,], c(2, 5, 8))
 })
 
+test_that("index_copy_ works", {
+  x <- tch_ones(c(5,3))
+  t <- tensor(matrix(1:9, nrow = 3), dtype = "float")
+  index <- tensor(c(0L, 4L, 2L), dtype = "long")
+  expect_silent(x$index_copy_(0, index, t))
+  expect_equal(as.array(x)[1,], c(1, 4, 7))
+})
+
+test_that("index_fill_ works", {
+  x <- tch_ones(c(5,3))
+  index <- tensor(c(0L, 4L, 2L), dtype = "long")
+  expect_silent(x$index_fill_(0, index, 0))
+  expect_equal(as.array(x)[1,], c(0, 0, 0))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)

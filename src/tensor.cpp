@@ -1231,6 +1231,24 @@ Rcpp::XPtr<torch::Tensor> tensor_index_add__ (Rcpp::XPtr<torch::Tensor> x,
   return make_tensor_ptr(x->index_add_(dim, *index, *source));
 }
 
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_index_copy__ (Rcpp::XPtr<torch::Tensor> x,
+                                              std::int64_t dim,
+                                              Rcpp::XPtr<torch::Tensor> index,
+                                              Rcpp::XPtr<torch::Tensor> source
+) {
+  return make_tensor_ptr(x->index_copy_(dim, *index, *source));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_index_fill__ (Rcpp::XPtr<torch::Tensor> x,
+                                               std::int64_t dim,
+                                               Rcpp::XPtr<torch::Tensor> index,
+                                               SEXP value) {
+  return make_tensor_ptr(x->index_fill_(dim, *index, scalar_from_r_(value)));
+}
+
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,

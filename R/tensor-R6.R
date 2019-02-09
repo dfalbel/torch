@@ -678,6 +678,16 @@
       invisible(self)
     },
 
+    index_copy_ = function(dim, index, source) {
+      tensor_index_copy__(self$pointer, dim, index$pointer, source$pointer)
+      invisible(self)
+    },
+
+    index_fill_ = function(dim, index, value) {
+      tensor_index_fill__(self$pointer, dim, index$pointer, value)
+      invisible(self)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },
