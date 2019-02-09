@@ -1595,6 +1595,38 @@ test_that("tanh works", {
   expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
 })
 
+test_that("unique works", {
+  x <- matrix(c(c(0,0,0),
+                c(0,0,1),
+                c(0,0,1)), 3, byrow = TRUE)
+  x_t <- tensor(x)
+
+  # return_inverse = FALSE
+  expect_equal(as.array(x_t$unique()), c(1, 0))
+  expect_equal(as.array(x_t$unique(sorted = TRUE)), c(0, 1))
+  expect_equal(as.array(x_t$unique(dim = 0)), matrix(c(c(0,0,0),
+                                                       c(0,0,1)), 2, byrow = TRUE))
+  expect_equal(as.array(x_t$unique(dim = 1)), matrix(c(c(0,0),
+                                                       c(0,1),
+                                                       c(0,1)), 3, byrow = TRUE))
+
+  # return_inverse = TRUE
+  expect_equal(class(x_t$unique(return_inverse = TRUE)), "list")
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE), as.array), list(c(1, 0), matrix(c(c(1,1,1),
+                                                                                           c(1,1,0),
+                                                                                           c(1,1,0)), 3, byrow = TRUE)))
+  expect_equal(lapply(x_t$unique(sorted = TRUE, return_inverse = TRUE), as.array), list(c(0, 1), matrix(c(c(0,0,0),
+                                                                                                          c(0,0,1),
+                                                                                                          c(0,0,1)), 3, byrow = TRUE)))
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE, dim = 0), as.array), list(matrix(c(c(0,0,0),
+                                                                                           c(0,0,1)), 2, byrow = TRUE),
+                                                                                  c(0, 1, 1)))
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE, dim = 1), as.array), list(matrix(c(c(0,0),
+                                                                                           c(0,1),
+                                                                                           c(0,1)), 3, byrow = TRUE),
+                                                                                  c(0, 0, 1)))
+})
+
 test_that("unsqueeze works", {
   x <- array(0, c(2, 2, 2))
   x_t <- tensor(x)

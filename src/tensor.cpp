@@ -346,7 +346,7 @@ Rcpp::XPtr<torch::Tensor> tensor_addbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPt
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addbmm__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
-                                          Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha) {
+                                           Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha) {
   return make_tensor_ptr(x->addbmm_(*batch1, *batch2, scalar_from_r_(beta), scalar_from_r_(alpha)));
 }
 
@@ -358,7 +358,7 @@ Rcpp::XPtr<torch::Tensor> tensor_addcdiv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XP
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addcdiv__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1,
-                                           Rcpp::XPtr<torch::Tensor> tensor2, SEXP value) {
+                                            Rcpp::XPtr<torch::Tensor> tensor2, SEXP value) {
   return make_tensor_ptr(x->addcdiv_(*tensor1, *tensor2, scalar_from_r_(value)));
 }
 
@@ -371,7 +371,7 @@ Rcpp::XPtr<torch::Tensor> tensor_addcmul_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XP
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addcmul__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor1,
-                                           Rcpp::XPtr<torch::Tensor> tensor2, SEXP value
+                                            Rcpp::XPtr<torch::Tensor> tensor2, SEXP value
 ) {
   return make_tensor_ptr(x->addcmul_(*tensor1, *tensor2, scalar_from_r_(value)));
 }
@@ -385,7 +385,7 @@ Rcpp::XPtr<torch::Tensor> tensor_addmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addmm__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat1,
-                                         Rcpp::XPtr<torch::Tensor> mat2, SEXP beta, SEXP alpha
+                                          Rcpp::XPtr<torch::Tensor> mat2, SEXP beta, SEXP alpha
 ) {
   return make_tensor_ptr(x->addmm_(*mat1, *mat2, scalar_from_r_(beta), scalar_from_r_(alpha)));
 }
@@ -398,7 +398,7 @@ Rcpp::XPtr<torch::Tensor> tensor_addmv_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addmv__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat,
-                                         Rcpp::XPtr<torch::Tensor> vec, SEXP beta, SEXP alpha) {
+                                          Rcpp::XPtr<torch::Tensor> vec, SEXP beta, SEXP alpha) {
   return make_tensor_ptr(x->addmv_(*mat, *vec, scalar_from_r_(beta), scalar_from_r_(alpha)));
 }
 
@@ -410,7 +410,7 @@ Rcpp::XPtr<torch::Tensor> tensor_addr_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_addr__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> vec1,
-                                        Rcpp::XPtr<torch::Tensor> vec2, SEXP beta, SEXP alpha) {
+                                         Rcpp::XPtr<torch::Tensor> vec2, SEXP beta, SEXP alpha) {
   return make_tensor_ptr(x->addr_(*vec1, *vec2, scalar_from_r_(beta), scalar_from_r_(alpha)));
 }
 
@@ -585,7 +585,7 @@ Rcpp::XPtr<torch::Tensor> tensor_baddbmm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XP
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_baddbmm__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> batch1,
-                                           Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha) {
+                                            Rcpp::XPtr<torch::Tensor> batch2, SEXP beta, SEXP alpha) {
   return make_tensor_ptr(x->baddbmm_(*batch1, *batch2, scalar_from_r_(beta), scalar_from_r_(alpha)));
 }
 
@@ -834,9 +834,9 @@ Rcpp::XPtr<torch::Tensor> tensor_diag_ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_diag_embed_ (Rcpp::XPtr<torch::Tensor> x,
-                                        std::int64_t offset = 0,
-                                        std::int64_t dim1 = -2,
-                                        std::int64_t dim2 = -1) {
+                                              std::int64_t offset = 0,
+                                              std::int64_t dim1 = -2,
+                                              std::int64_t dim2 = -1) {
   return make_tensor_ptr(x->diag_embed(offset, dim1, dim2));
 }
 
@@ -1224,10 +1224,10 @@ Rcpp::XPtr<torch::Tensor> tensor_histc_ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_index_add__ (Rcpp::XPtr<torch::Tensor> x,
-                                         std::int64_t dim,
-                                         Rcpp::XPtr<torch::Tensor> index,
-                                         Rcpp::XPtr<torch::Tensor> source
-                                         ) {
+                                              std::int64_t dim,
+                                              Rcpp::XPtr<torch::Tensor> index,
+                                              Rcpp::XPtr<torch::Tensor> source
+) {
   return make_tensor_ptr(x->index_add_(dim, *index, *source));
 }
 
@@ -1235,7 +1235,7 @@ Rcpp::XPtr<torch::Tensor> tensor_index_add__ (Rcpp::XPtr<torch::Tensor> x,
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim
-                                        ) {
+) {
 
   if (dim.isNull()) {
     return make_tensor_ptr(x->mean());
@@ -1251,7 +1251,7 @@ Rcpp::XPtr<torch::Tensor> tensor_var_ (Rcpp::XPtr<torch::Tensor> x,
                                        bool unbiased,
                                        Rcpp::Nullable<std::int64_t> dim,
                                        bool keepdim = false
-                                       ) {
+) {
 
 
   if (dim.isNull()) {
@@ -1268,7 +1268,7 @@ Rcpp::XPtr<torch::Tensor> tensor_std_ (Rcpp::XPtr<torch::Tensor> x,
                                        bool unbiased,
                                        Rcpp::Nullable<std::int64_t> dim,
                                        bool keepdim
-                                       ) {
+) {
 
   if (dim.isNull()) {
     return make_tensor_ptr(x->std(unbiased));
@@ -1294,7 +1294,7 @@ Rcpp::List tensor_min_dim_ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_min_tensor_ (Rcpp::XPtr<torch::Tensor> x,
-                               Rcpp::XPtr<torch::Tensor> other) {
+                                              Rcpp::XPtr<torch::Tensor> other) {
   return make_tensor_ptr(x->min(*other));
 }
 
@@ -1338,8 +1338,8 @@ Rcpp::XPtr<torch::Tensor> tensor_prod_ (Rcpp::XPtr<torch::Tensor> x,
 
 // [[Rcpp::export]]
 Rcpp::List tensor_median_dim_ (Rcpp::XPtr<torch::Tensor> x,
-                                    std::int64_t dim,
-                                    bool keepdim) {
+                               std::int64_t dim,
+                               bool keepdim) {
   auto out = x->median(dim, keepdim);
   return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
 }
@@ -1482,7 +1482,7 @@ Rcpp::XPtr<torch::Tensor> tensor_sub_scalar__ (Rcpp::XPtr<torch::Tensor> x,
 Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
                                        Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                        bool keepdim = false
-                                      ) {
+) {
 
   if (dim.isNull()) {
     return make_tensor_ptr(x->sum());
@@ -1538,6 +1538,32 @@ Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
   }
 
   return make_tensor_ptr(tensor);
+}
+
+// [[Rcpp::export]]
+Rcpp::List tensor_unique_return_inverse_ (Rcpp::XPtr<torch::Tensor> x,
+                                          bool sorted,
+                                          Rcpp::Nullable<std::int64_t> dim) {
+  if(dim.isNull()) {
+    auto out = at::_unique(*x, sorted, true);
+    return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+  } else {
+    auto out = at::_unique_dim(*x, Rcpp::as<std::int64_t>(dim), sorted, true);
+    return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+  }
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_unique_ (Rcpp::XPtr<torch::Tensor> x,
+                                          bool sorted,
+                                          Rcpp::Nullable<std::int64_t> dim) {
+  if(dim.isNull()) {
+    auto out = at::_unique(*x, sorted, false);
+    return make_tensor_ptr(std::get<0>(out));
+  } else {
+    auto out = at::_unique_dim(*x, Rcpp::as<std::int64_t>(dim), sorted, false);
+    return make_tensor_ptr(std::get<0>(out));
+  }
 }
 
 // [[Rcpp::export]]

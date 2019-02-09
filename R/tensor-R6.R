@@ -920,6 +920,15 @@
       invisible(self)
     },
 
+    unique = function(sorted = FALSE, return_inverse = FALSE, dim = NULL) {
+      if(!return_inverse) {
+        `torch::Tensor`$dispatch(tensor_unique_(self$pointer, sorted, dim))
+      } else if(return_inverse) {
+        out <- tensor_unique_return_inverse_(self$pointer, sorted, dim)
+        lapply(out, `torch::Tensor`$dispatch)
+      }
+    },
+
     var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim))
     },
