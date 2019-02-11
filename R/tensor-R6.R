@@ -688,6 +688,16 @@
       invisible(self)
     },
 
+    index_put_ = function(indices, values, accumulate = FALSE) {
+      tensor_index_put__(
+        self$pointer,
+        lapply(indices, function(x) x$pointer),
+        values$pointer,
+        accumulate
+      )
+      invisible(self)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

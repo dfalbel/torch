@@ -9,6 +9,15 @@ Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
   return Rcpp::XPtr<torch::Tensor>(out);
 }
 
+std::vector<torch::Tensor> tensor_list_from_r_ (Rcpp::List x) {
+  std::vector<torch::Tensor> out;
+  for (int i = 0; i < x.size(); i++) {
+    auto tmp = Rcpp::as<Rcpp::XPtr<torch::Tensor>>(x[i]);
+    out.push_back(*tmp);
+  }
+  return out;
+}
+
 // Tensor from R code ----------------------------------------------------------
 
 std::vector<int64_t> reverse_int_seq (int n) {
@@ -683,7 +692,7 @@ Rcpp::List tensor_chunk_ (Rcpp::XPtr<torch::Tensor> x, int64_t chunks, int64_t d
   auto chunks_vector = x->chunk(chunks, dim);
   Rcpp::List out;
 
-  for (int i = 0; i < chunks_vector.size(); i++) {
+  for (int i = 0; i < chunks_vector.size(); ++i) {
     out.push_back(make_tensor_ptr(chunks_vector[i]));
   }
 
@@ -1247,6 +1256,14 @@ Rcpp::XPtr<torch::Tensor> tensor_index_fill__ (Rcpp::XPtr<torch::Tensor> x,
                                                Rcpp::XPtr<torch::Tensor> index,
                                                SEXP value) {
   return make_tensor_ptr(x->index_fill_(dim, *index, scalar_from_r_(value)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_index_put__ (Rcpp::XPtr<torch::Tensor> x,
+                                              Rcpp::List indices,
+                                              Rcpp::XPtr<torch::Tensor> values,
+                                              bool accumulate = false) {
+  return make_tensor_ptr(x->index_put_(tensor_list_from_r_(indices), *values, accumulate));
 }
 
 // [[Rcpp::export]]

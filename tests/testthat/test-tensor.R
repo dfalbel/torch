@@ -1121,6 +1121,16 @@ test_that("index_fill_ works", {
   expect_equal(as.array(x)[1,], c(0, 0, 0))
 })
 
+test_that("index_put_ works", {
+  x <- tch_zeros(c(5))
+  indices <- list(
+    tensor(0:2, dtype = "long")
+  )
+  value <- tch_ones(c(1))
+  expect_silent(x$index_put_(indices, value))
+  expect_equal(sum(as.array(x)), 3)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)

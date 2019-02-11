@@ -717,6 +717,10 @@ tensor_index_fill__ <- function(x, dim, index, value) {
     .Call('_torch_tensor_index_fill__', PACKAGE = 'torch', x, dim, index, value)
 }
 
+tensor_index_put__ <- function(x, indices, values, accumulate = FALSE) {
+    .Call('_torch_tensor_index_put__', PACKAGE = 'torch', x, indices, values, accumulate)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }
