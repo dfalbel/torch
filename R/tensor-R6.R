@@ -710,6 +710,10 @@
       `torch::Tensor`$dispatch(tensor_inverse_(self$pointer))
     },
 
+    is_contiguous = function() {
+      tensor_is_contiguous_(self$pointer)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

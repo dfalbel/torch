@@ -1148,6 +1148,11 @@ test_that("inverse works", {
   expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-6)
 })
 
+test_that("is_contiguous", {
+  x <- tch_randn(10)
+  expect_true(x$is_contiguous())
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
