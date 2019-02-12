@@ -698,6 +698,10 @@
       invisible(self)
     },
 
+    index_select = function(dim, index) {
+      `torch::Tensor`$dispatch(tensor_index_select_(self$pointer, dim, index$pointer))
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

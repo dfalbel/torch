@@ -1131,6 +1131,12 @@ test_that("index_put_ works", {
   expect_equal(sum(as.array(x)), 3)
 })
 
+test_that("index select", {
+  x <- tch_randn(c(5, 5))
+  a <- x$index_select(dim = 1, tensor(c(0,1), dtype = "long"))
+  expect_equal(as.array(x)[, 1:2], as.array(a))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
