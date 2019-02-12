@@ -702,6 +702,10 @@
       `torch::Tensor`$dispatch(tensor_index_select_(self$pointer, dim, index$pointer))
     },
 
+    int = function() {
+      `torch::Tensor`$dispatch(tensor_int_(self$pointer))
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

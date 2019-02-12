@@ -725,6 +725,10 @@ tensor_index_select_ <- function(x, dim, index) {
     .Call('_torch_tensor_index_select_', PACKAGE = 'torch', x, dim, index)
 }
 
+tensor_int_ <- function(x) {
+    .Call('_torch_tensor_int_', PACKAGE = 'torch', x)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

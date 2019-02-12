@@ -1137,6 +1137,12 @@ test_that("index select", {
   expect_equal(as.array(x)[, 1:2], as.array(a))
 })
 
+test_that("int", {
+  x <- tensor(c(1,2,3,4))
+  x <- x$int()
+  expect_equal(x$dtype(), "int")
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
