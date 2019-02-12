@@ -729,6 +729,10 @@ tensor_int_ <- function(x) {
     .Call('_torch_tensor_int_', PACKAGE = 'torch', x)
 }
 
+tensor_inverse_ <- function(x) {
+    .Call('_torch_tensor_inverse_', PACKAGE = 'torch', x)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

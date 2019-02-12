@@ -1143,6 +1143,11 @@ test_that("int", {
   expect_equal(x$dtype(), "int")
 })
 
+test_that("inverse works", {
+  x <- tch_randn(c(5,5))
+  expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-6)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)

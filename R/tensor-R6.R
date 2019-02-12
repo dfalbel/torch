@@ -706,6 +706,10 @@
       `torch::Tensor`$dispatch(tensor_int_(self$pointer))
     },
 
+    inverse = function() {
+      `torch::Tensor`$dispatch(tensor_inverse_(self$pointer))
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

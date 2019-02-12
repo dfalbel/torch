@@ -1279,6 +1279,11 @@ Rcpp::XPtr<torch::Tensor> tensor_int_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_inverse_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->inverse());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim
