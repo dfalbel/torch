@@ -2,6 +2,7 @@
 
 language: R
 
+env:
 matrix:
   include:
     - os: linux
