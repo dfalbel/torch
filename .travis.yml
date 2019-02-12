@@ -6,10 +6,8 @@ env:
 matrix:
   include:
     - os: linux
-      env:
     - os: linux
       dist: xenial
-      env:
       addons:
         apt:
           packages:
@@ -20,7 +18,8 @@ matrix:
         - echo "CXX=g++-4.9" >> ~/.R/Makevars
         - cat ~/.R/Makevars
     - os: osx
-      env:
+    - os: linux
+      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
   allow_failures:
     - os: linux
       env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
