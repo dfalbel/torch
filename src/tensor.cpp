@@ -1289,6 +1289,11 @@ bool tensor_is_contiguous_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+bool tensor_is_cuda_ (Rcpp::XPtr<torch::Tensor> x) {
+  return x->is_cuda();
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim

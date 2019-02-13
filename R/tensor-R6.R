@@ -714,6 +714,10 @@
       tensor_is_contiguous_(self$pointer)
     },
 
+    is_cuda = function() {
+      tensor_is_cuda_(self$pointer)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

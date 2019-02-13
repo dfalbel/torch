@@ -1153,6 +1153,11 @@ test_that("is_contiguous", {
   expect_true(x$is_contiguous())
 })
 
+test_that("is_cuda", {
+  x <- tch_randn(10)
+  expect_true(x$is_cuda() == FALSE)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
