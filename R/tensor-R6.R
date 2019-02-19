@@ -722,6 +722,10 @@
       tensor_is_set_to_(self$pointer, tensor$pointer)
     },
 
+    is_signed = function() {
+      tensor_is_signed_(self$pointer)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

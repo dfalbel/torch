@@ -1299,6 +1299,11 @@ bool tensor_is_set_to_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> t
 }
 
 // [[Rcpp::export]]
+bool tensor_is_signed_ (Rcpp::XPtr<torch::Tensor> x) {
+  return x->is_signed();
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim
