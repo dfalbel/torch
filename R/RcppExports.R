@@ -741,6 +741,10 @@ tensor_is_cuda_ <- function(x) {
     .Call('_torch_tensor_is_cuda_', PACKAGE = 'torch', x)
 }
 
+tensor_is_set_to_ <- function(x, tensor) {
+    .Call('_torch_tensor_is_set_to_', PACKAGE = 'torch', x, tensor)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

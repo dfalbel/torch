@@ -2272,6 +2272,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_is_set_to_
+bool tensor_is_set_to_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor);
+RcppExport SEXP _torch_tensor_is_set_to_(SEXP xSEXP, SEXP tensorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type tensor(tensorSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_is_set_to_(x, tensor));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_mean_
 Rcpp::XPtr<torch::Tensor> tensor_mean_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::vector<std::int64_t>> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_mean_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
@@ -2982,6 +2994,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_inverse_", (DL_FUNC) &_torch_tensor_inverse_, 1},
     {"_torch_tensor_is_contiguous_", (DL_FUNC) &_torch_tensor_is_contiguous_, 1},
     {"_torch_tensor_is_cuda_", (DL_FUNC) &_torch_tensor_is_cuda_, 1},
+    {"_torch_tensor_is_set_to_", (DL_FUNC) &_torch_tensor_is_set_to_, 2},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 3},
     {"_torch_tensor_var_", (DL_FUNC) &_torch_tensor_var_, 4},
     {"_torch_tensor_std_", (DL_FUNC) &_torch_tensor_std_, 4},

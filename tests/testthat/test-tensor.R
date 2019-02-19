@@ -1158,6 +1158,13 @@ test_that("is_cuda", {
   expect_true(x$is_cuda() == FALSE)
 })
 
+test_that("is_set_to works", {
+  x <- tch_randn(10)
+  y <- tch_randn(10)
+  expect_true(x$is_set_to(x))
+  expect_true(!x$is_set_to(y))
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)

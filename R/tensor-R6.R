@@ -718,6 +718,10 @@
       tensor_is_cuda_(self$pointer)
     },
 
+    is_set_to = function(tensor) {
+      tensor_is_set_to_(self$pointer, tensor$pointer)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },
