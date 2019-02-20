@@ -749,6 +749,10 @@ tensor_is_signed_ <- function(x) {
     .Call('_torch_tensor_is_signed_', PACKAGE = 'torch', x)
 }
 
+tensor_kthvalue_ <- function(x, k, dim = -1L, keepdim = FALSE) {
+    .Call('_torch_tensor_kthvalue_', PACKAGE = 'torch', x, k, dim, keepdim)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

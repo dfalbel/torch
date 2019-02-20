@@ -1304,6 +1304,13 @@ bool tensor_is_signed_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::List tensor_kthvalue_ (Rcpp::XPtr<torch::Tensor> x,
+                             int64_t k, int64_t dim = -1, bool keepdim = false) {
+  auto out = x->kthvalue(k, dim, keepdim);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim

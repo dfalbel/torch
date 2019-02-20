@@ -2295,6 +2295,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_kthvalue_
+Rcpp::List tensor_kthvalue_(Rcpp::XPtr<torch::Tensor> x, int64_t k, int64_t dim, bool keepdim);
+RcppExport SEXP _torch_tensor_kthvalue_(SEXP xSEXP, SEXP kSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int64_t >::type k(kSEXP);
+    Rcpp::traits::input_parameter< int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_kthvalue_(x, k, dim, keepdim));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_mean_
 Rcpp::XPtr<torch::Tensor> tensor_mean_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::vector<std::int64_t>> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_mean_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
@@ -3007,6 +3021,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_is_cuda_", (DL_FUNC) &_torch_tensor_is_cuda_, 1},
     {"_torch_tensor_is_set_to_", (DL_FUNC) &_torch_tensor_is_set_to_, 2},
     {"_torch_tensor_is_signed_", (DL_FUNC) &_torch_tensor_is_signed_, 1},
+    {"_torch_tensor_kthvalue_", (DL_FUNC) &_torch_tensor_kthvalue_, 4},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 3},
     {"_torch_tensor_var_", (DL_FUNC) &_torch_tensor_var_, 4},
     {"_torch_tensor_std_", (DL_FUNC) &_torch_tensor_std_, 4},

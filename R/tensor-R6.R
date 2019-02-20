@@ -735,6 +735,11 @@
       }
     },
 
+    kthvalue = function(k, dim = -1, keepdim = FALSE) {
+      out <- tensor_kthvalue_(self$pointer, k, dim, keepdim)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

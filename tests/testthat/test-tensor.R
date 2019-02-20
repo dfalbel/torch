@@ -1183,6 +1183,14 @@ test_that("item works", {
   expect_error(x$item())
 })
 
+test_that("kthvalue", {
+  x <- tch_rand(10)
+  res <- lapply(x$kthvalue(1), as.array)
+
+  expect_equal(res[[1]], min(as.array(x)))
+  expect_equal(res[[2]], which.min(as.array(x)) - 1)
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
