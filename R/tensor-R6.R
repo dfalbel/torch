@@ -726,6 +726,15 @@
       tensor_is_signed_(self$pointer)
     },
 
+    item = function() {
+      x <- as.array(self)
+      if (length(x) == 1) {
+        return(x)
+      } else {
+        stop("only one element tensors can be converted to R scalars")
+      }
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },

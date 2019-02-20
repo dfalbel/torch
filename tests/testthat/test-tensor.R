@@ -1176,6 +1176,13 @@ test_that("is_signed works", {
   expect_true(!x$is_signed())
 })
 
+test_that("item works", {
+  x <- tch_rand(1)
+  expect_equal(x$item(), as.array(x))
+  x <- tch_rand(c(10,10))
+  expect_error(x$item())
+})
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
