@@ -1311,6 +1311,26 @@ Rcpp::List tensor_kthvalue_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_le_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->le(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_le_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->le(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_le_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->le_(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_le_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->le_(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mean_ (Rcpp::XPtr<torch::Tensor> x,
                                         Rcpp::Nullable<std::vector<std::int64_t>> dim,
                                         bool keepdim

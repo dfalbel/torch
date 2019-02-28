@@ -753,6 +753,22 @@ tensor_kthvalue_ <- function(x, k, dim = -1L, keepdim = FALSE) {
     .Call('_torch_tensor_kthvalue_', PACKAGE = 'torch', x, k, dim, keepdim)
 }
 
+tensor_le_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_le_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_le_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_le_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_le_tensor__ <- function(x, other) {
+    .Call('_torch_tensor_le_tensor__', PACKAGE = 'torch', x, other)
+}
+
+tensor_le_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_le_scalar__', PACKAGE = 'torch', x, other)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }

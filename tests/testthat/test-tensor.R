@@ -1191,6 +1191,20 @@ test_that("kthvalue", {
   expect_equal(res[[2]], which.min(as.array(x)) - 1)
 })
 
+test_that("le works", {
+  x <- tensor(c(1:10))
+  expect_equal(as.array(x$le(5)), 1:10 <= 5)
+  x$le_(5)
+  expect_equal(as.array(x), as.integer(1:10 <= 5))
+
+  x <- tensor(1:10)
+  y <- tensor(c(1:5, 1:5))
+  expect_equal(as.array(x$le(y)), 1:10 <= c(1:5, 1:5))
+  x$le_(y)
+  expect_equal(as.array(x), as.integer(1:10 <= c(1:5, 1:5)))
+})
+
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)

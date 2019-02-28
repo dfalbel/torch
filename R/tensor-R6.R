@@ -740,6 +740,22 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    le = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_le_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_le_scalar_(self$pointer, other))
+      }
+    },
+
+    le_ = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_le_tensor__(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_le_scalar__(self$pointer, other))
+      }
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },
