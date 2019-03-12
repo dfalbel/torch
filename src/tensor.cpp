@@ -1640,6 +1640,15 @@ Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_unfold_ (Rcpp::XPtr<torch::Tensor> x,
+                                          std::int64_t dim,
+                                          std::int64_t size,
+                                          std::int64_t step
+) {
+  return make_tensor_ptr(x->unfold(dim, size, step));
+}
+
+// [[Rcpp::export]]
 Rcpp::List tensor_unique_return_inverse_ (Rcpp::XPtr<torch::Tensor> x,
                                           bool sorted,
                                           Rcpp::Nullable<std::int64_t> dim) {
