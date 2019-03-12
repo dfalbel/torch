@@ -1709,7 +1709,7 @@ test_that("unique works", {
                                                        c(0,1),
                                                        c(0,1)), 3, byrow = TRUE))
 
-  ## return_inverse = TRUE
+  # return_inverse = TRUE
   expect_equal(class(x_t$unique(return_inverse = TRUE)), "list")
   expect_equal(lapply(x_t$unique(return_inverse = TRUE), as.array), list(c(1, 0), matrix(c(c(1,1,1),
                                                                                            c(1,1,0),
