@@ -1106,6 +1106,105 @@ test_that("index_add_ works", {
   expect_equal(as.array(x)[1,], c(2, 5, 8))
 })
 
+test_that("index_copy_ works", {
+  x <- tch_ones(c(5,3))
+  t <- tensor(matrix(1:9, nrow = 3), dtype = "float")
+  index <- tensor(c(0L, 4L, 2L), dtype = "long")
+  expect_silent(x$index_copy_(0, index, t))
+  expect_equal(as.array(x)[1,], c(1, 4, 7))
+})
+
+test_that("index_fill_ works", {
+  x <- tch_ones(c(5,3))
+  index <- tensor(c(0L, 4L, 2L), dtype = "long")
+  expect_silent(x$index_fill_(0, index, 0))
+  expect_equal(as.array(x)[1,], c(0, 0, 0))
+})
+
+test_that("index_put_ works", {
+  x <- tch_zeros(c(5))
+  indices <- list(
+    tensor(0:2, dtype = "long")
+  )
+  value <- tch_ones(c(1))
+  expect_silent(x$index_put_(indices, value))
+  expect_equal(sum(as.array(x)), 3)
+})
+
+test_that("index select", {
+  x <- tch_randn(c(5, 5))
+  a <- x$index_select(dim = 1, tensor(c(0,1), dtype = "long"))
+  expect_equal(as.array(x)[, 1:2], as.array(a))
+})
+
+test_that("int", {
+  x <- tensor(c(1,2,3,4))
+  x <- x$int()
+  expect_equal(x$dtype(), "int")
+})
+
+test_that("inverse works", {
+  x <- tch_randn(c(5,5))
+  expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-6)
+})
+
+test_that("is_contiguous", {
+  x <- tch_randn(10)
+  expect_true(x$is_contiguous())
+})
+
+test_that("is_cuda", {
+  x <- tch_randn(10)
+  expect_true(x$is_cuda() == FALSE)
+})
+
+test_that("is_set_to works", {
+  x <- tch_randn(10)
+  y <- tch_randn(10)
+  expect_true(x$is_set_to(x))
+  expect_true(!x$is_set_to(y))
+})
+
+test_that("is_signed works", {
+  x <- tch_randn(10)
+  expect_true(x$is_signed())
+
+  x <- tensor(1:10)
+  expect_true(x$is_signed())
+
+  x <- tensor(TRUE)
+  expect_true(!x$is_signed())
+})
+
+test_that("item works", {
+  x <- tch_rand(1)
+  expect_equal(x$item(), as.array(x))
+  x <- tch_rand(c(10,10))
+  expect_error(x$item())
+})
+
+test_that("kthvalue", {
+  x <- tch_rand(10)
+  res <- lapply(x$kthvalue(1), as.array)
+
+  expect_equal(res[[1]], min(as.array(x)))
+  expect_equal(res[[2]], which.min(as.array(x)) - 1)
+})
+
+test_that("le works", {
+  x <- tensor(c(1:10))
+  expect_equal(as.array(x$le(5)), 1:10 <= 5)
+  x$le_(5)
+  expect_equal(as.array(x), as.integer(1:10 <= 5))
+
+  x <- tensor(1:10)
+  y <- tensor(c(1:5, 1:5))
+  expect_equal(as.array(x$le(y)), 1:10 <= c(1:5, 1:5))
+  x$le_(y)
+  expect_equal(as.array(x), as.integer(1:10 <= c(1:5, 1:5)))
+})
+
+
 test_that("mean works", {
   x <- runif(100)
   expect_equal(as.array(tch_mean(tensor(x))), mean(x), tol = 1e-7)
@@ -1593,6 +1692,38 @@ test_that("tanh works", {
   x_t <- tensor(x)
   x_t$tanh_()
   expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
+})
+
+test_that("unique works", {
+  x <- matrix(c(c(0,0,0),
+                c(0,0,1),
+                c(0,0,1)), 3, byrow = TRUE)
+  x_t <- tensor(x)
+
+  # return_inverse = FALSE
+  expect_equal(as.array(x_t$unique()), c(1, 0))
+  expect_equal(as.array(x_t$unique(sorted = TRUE)), c(0, 1))
+  expect_equal(as.array(x_t$unique(dim = 0)), matrix(c(c(0,0,0),
+                                                       c(0,0,1)), 2, byrow = TRUE))
+  expect_equal(as.array(x_t$unique(dim = 1)), matrix(c(c(0,0),
+                                                       c(0,1),
+                                                       c(0,1)), 3, byrow = TRUE))
+
+  # return_inverse = TRUE
+  expect_equal(class(x_t$unique(return_inverse = TRUE)), "list")
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE), as.array), list(c(1, 0), matrix(c(c(1,1,1),
+                                                                                           c(1,1,0),
+                                                                                           c(1,1,0)), 3, byrow = TRUE)))
+  expect_equal(lapply(x_t$unique(sorted = TRUE, return_inverse = TRUE), as.array), list(c(0, 1), matrix(c(c(0,0,0),
+                                                                                                          c(0,0,1),
+                                                                                                          c(0,0,1)), 3, byrow = TRUE)))
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE, dim = 0), as.array), list(matrix(c(c(0,0,0),
+                                                                                           c(0,0,1)), 2, byrow = TRUE),
+                                                                                  c(0, 1, 1)))
+  expect_equal(lapply(x_t$unique(return_inverse = TRUE, dim = 1), as.array), list(matrix(c(c(0,0),
+                                                                                           c(0,1),
+                                                                                           c(0,1)), 3, byrow = TRUE),
+                                                                                  c(0, 0, 1)))
 })
 
 test_that("unsqueeze works", {

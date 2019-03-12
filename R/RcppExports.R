@@ -709,6 +709,66 @@ tensor_index_add__ <- function(x, dim, index, source) {
     .Call('_torch_tensor_index_add__', PACKAGE = 'torch', x, dim, index, source)
 }
 
+tensor_index_copy__ <- function(x, dim, index, source) {
+    .Call('_torch_tensor_index_copy__', PACKAGE = 'torch', x, dim, index, source)
+}
+
+tensor_index_fill__ <- function(x, dim, index, value) {
+    .Call('_torch_tensor_index_fill__', PACKAGE = 'torch', x, dim, index, value)
+}
+
+tensor_index_put__ <- function(x, indices, values, accumulate = FALSE) {
+    .Call('_torch_tensor_index_put__', PACKAGE = 'torch', x, indices, values, accumulate)
+}
+
+tensor_index_select_ <- function(x, dim, index) {
+    .Call('_torch_tensor_index_select_', PACKAGE = 'torch', x, dim, index)
+}
+
+tensor_int_ <- function(x) {
+    .Call('_torch_tensor_int_', PACKAGE = 'torch', x)
+}
+
+tensor_inverse_ <- function(x) {
+    .Call('_torch_tensor_inverse_', PACKAGE = 'torch', x)
+}
+
+tensor_is_contiguous_ <- function(x) {
+    .Call('_torch_tensor_is_contiguous_', PACKAGE = 'torch', x)
+}
+
+tensor_is_cuda_ <- function(x) {
+    .Call('_torch_tensor_is_cuda_', PACKAGE = 'torch', x)
+}
+
+tensor_is_set_to_ <- function(x, tensor) {
+    .Call('_torch_tensor_is_set_to_', PACKAGE = 'torch', x, tensor)
+}
+
+tensor_is_signed_ <- function(x) {
+    .Call('_torch_tensor_is_signed_', PACKAGE = 'torch', x)
+}
+
+tensor_kthvalue_ <- function(x, k, dim = -1L, keepdim = FALSE) {
+    .Call('_torch_tensor_kthvalue_', PACKAGE = 'torch', x, k, dim, keepdim)
+}
+
+tensor_le_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_le_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_le_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_le_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_le_tensor__ <- function(x, other) {
+    .Call('_torch_tensor_le_tensor__', PACKAGE = 'torch', x, other)
+}
+
+tensor_le_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_le_scalar__', PACKAGE = 'torch', x, other)
+}
+
 tensor_mean_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_mean_', PACKAGE = 'torch', x, dim, keepdim)
 }
@@ -859,6 +919,14 @@ tensor_triu_ <- function(x, diagonal) {
 
 tensor_to_ <- function(x, dtype, device, requires_grad) {
     .Call('_torch_tensor_to_', PACKAGE = 'torch', x, dtype, device, requires_grad)
+}
+
+tensor_unique_return_inverse_ <- function(x, sorted, dim) {
+    .Call('_torch_tensor_unique_return_inverse_', PACKAGE = 'torch', x, sorted, dim)
+}
+
+tensor_unique_ <- function(x, sorted, dim) {
+    .Call('_torch_tensor_unique_', PACKAGE = 'torch', x, sorted, dim)
 }
 
 tensor_unsqueeze_ <- function(x, dim) {

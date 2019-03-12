@@ -16,9 +16,12 @@ matrix:
         - echo "CXX11=g++-4.9"  > ~/.R/Makevars
         - echo "CXX=g++-4.9" >> ~/.R/Makevars
         - cat ~/.R/Makevars
+    - os: osx
     - os: linux
       env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
-    - os: osx
+  allow_failures:
+    - os: linux
+      env: TORCH_BINARIES=https://download.pytorch.org/libtorch/nightly/cpu/libtorch-shared-with-deps-latest.zip
 
 sudo: true
 cache: packages

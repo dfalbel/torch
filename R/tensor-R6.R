@@ -678,6 +678,84 @@
       invisible(self)
     },
 
+    index_copy_ = function(dim, index, source) {
+      tensor_index_copy__(self$pointer, dim, index$pointer, source$pointer)
+      invisible(self)
+    },
+
+    index_fill_ = function(dim, index, value) {
+      tensor_index_fill__(self$pointer, dim, index$pointer, value)
+      invisible(self)
+    },
+
+    index_put_ = function(indices, values, accumulate = FALSE) {
+      tensor_index_put__(
+        self$pointer,
+        lapply(indices, function(x) x$pointer),
+        values$pointer,
+        accumulate
+      )
+      invisible(self)
+    },
+
+    index_select = function(dim, index) {
+      `torch::Tensor`$dispatch(tensor_index_select_(self$pointer, dim, index$pointer))
+    },
+
+    int = function() {
+      `torch::Tensor`$dispatch(tensor_int_(self$pointer))
+    },
+
+    inverse = function() {
+      `torch::Tensor`$dispatch(tensor_inverse_(self$pointer))
+    },
+
+    is_contiguous = function() {
+      tensor_is_contiguous_(self$pointer)
+    },
+
+    is_cuda = function() {
+      tensor_is_cuda_(self$pointer)
+    },
+
+    is_set_to = function(tensor) {
+      tensor_is_set_to_(self$pointer, tensor$pointer)
+    },
+
+    is_signed = function() {
+      tensor_is_signed_(self$pointer)
+    },
+
+    item = function() {
+      x <- as.array(self)
+      if (length(x) == 1) {
+        return(x)
+      } else {
+        stop("only one element tensors can be converted to R scalars")
+      }
+    },
+
+    kthvalue = function(k, dim = -1, keepdim = FALSE) {
+      out <- tensor_kthvalue_(self$pointer, k, dim, keepdim)
+      lapply(out, `torch::Tensor`$dispatch)
+    },
+
+    le = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_le_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_le_scalar_(self$pointer, other))
+      }
+    },
+
+    le_ = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_le_tensor__(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_le_scalar__(self$pointer, other))
+      }
+    },
+
     log = function() {
       `torch::Tensor`$dispatch(tensor_log_(self$pointer))
     },
@@ -918,6 +996,15 @@
     trunc_ = function() {
       tensor_trunc__(self$pointer)
       invisible(self)
+    },
+
+    unique = function(sorted = FALSE, return_inverse = FALSE, dim = NULL) {
+      if(!return_inverse) {
+        `torch::Tensor`$dispatch(tensor_unique_(self$pointer, sorted, dim))
+      } else if(return_inverse) {
+        out <- tensor_unique_return_inverse_(self$pointer, sorted, dim)
+        lapply(out, `torch::Tensor`$dispatch)
+      }
     },
 
     var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {

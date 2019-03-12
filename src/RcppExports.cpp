@@ -2173,6 +2173,190 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_index_copy__
+Rcpp::XPtr<torch::Tensor> tensor_index_copy__(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::XPtr<torch::Tensor> index, Rcpp::XPtr<torch::Tensor> source);
+RcppExport SEXP _torch_tensor_index_copy__(SEXP xSEXP, SEXP dimSEXP, SEXP indexSEXP, SEXP sourceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type index(indexSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type source(sourceSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_index_copy__(x, dim, index, source));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_index_fill__
+Rcpp::XPtr<torch::Tensor> tensor_index_fill__(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::XPtr<torch::Tensor> index, SEXP value);
+RcppExport SEXP _torch_tensor_index_fill__(SEXP xSEXP, SEXP dimSEXP, SEXP indexSEXP, SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type index(indexSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type value(valueSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_index_fill__(x, dim, index, value));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_index_put__
+Rcpp::XPtr<torch::Tensor> tensor_index_put__(Rcpp::XPtr<torch::Tensor> x, Rcpp::List indices, Rcpp::XPtr<torch::Tensor> values, bool accumulate);
+RcppExport SEXP _torch_tensor_index_put__(SEXP xSEXP, SEXP indicesSEXP, SEXP valuesSEXP, SEXP accumulateSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::List >::type indices(indicesSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type values(valuesSEXP);
+    Rcpp::traits::input_parameter< bool >::type accumulate(accumulateSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_index_put__(x, indices, values, accumulate));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_index_select_
+Rcpp::XPtr<torch::Tensor> tensor_index_select_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim, Rcpp::XPtr<torch::Tensor> index);
+RcppExport SEXP _torch_tensor_index_select_(SEXP xSEXP, SEXP dimSEXP, SEXP indexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type index(indexSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_index_select_(x, dim, index));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_int_
+Rcpp::XPtr<torch::Tensor> tensor_int_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_int_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_int_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_inverse_
+Rcpp::XPtr<torch::Tensor> tensor_inverse_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_inverse_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_inverse_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_is_contiguous_
+bool tensor_is_contiguous_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_is_contiguous_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_is_contiguous_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_is_cuda_
+bool tensor_is_cuda_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_is_cuda_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_is_cuda_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_is_set_to_
+bool tensor_is_set_to_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> tensor);
+RcppExport SEXP _torch_tensor_is_set_to_(SEXP xSEXP, SEXP tensorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type tensor(tensorSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_is_set_to_(x, tensor));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_is_signed_
+bool tensor_is_signed_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_is_signed_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_is_signed_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_kthvalue_
+Rcpp::List tensor_kthvalue_(Rcpp::XPtr<torch::Tensor> x, int64_t k, int64_t dim, bool keepdim);
+RcppExport SEXP _torch_tensor_kthvalue_(SEXP xSEXP, SEXP kSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int64_t >::type k(kSEXP);
+    Rcpp::traits::input_parameter< int64_t >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepdim(keepdimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_kthvalue_(x, k, dim, keepdim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_le_tensor_
+Rcpp::XPtr<torch::Tensor> tensor_le_tensor_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other);
+RcppExport SEXP _torch_tensor_le_tensor_(SEXP xSEXP, SEXP otherSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type other(otherSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_le_tensor_(x, other));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_le_scalar_
+Rcpp::XPtr<torch::Tensor> tensor_le_scalar_(Rcpp::XPtr<torch::Tensor> x, SEXP other);
+RcppExport SEXP _torch_tensor_le_scalar_(SEXP xSEXP, SEXP otherSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type other(otherSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_le_scalar_(x, other));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_le_tensor__
+Rcpp::XPtr<torch::Tensor> tensor_le_tensor__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other);
+RcppExport SEXP _torch_tensor_le_tensor__(SEXP xSEXP, SEXP otherSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type other(otherSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_le_tensor__(x, other));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_le_scalar__
+Rcpp::XPtr<torch::Tensor> tensor_le_scalar__(Rcpp::XPtr<torch::Tensor> x, SEXP other);
+RcppExport SEXP _torch_tensor_le_scalar__(SEXP xSEXP, SEXP otherSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type other(otherSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_le_scalar__(x, other));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_mean_
 Rcpp::XPtr<torch::Tensor> tensor_mean_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::vector<std::int64_t>> dim, bool keepdim);
 RcppExport SEXP _torch_tensor_mean_(SEXP xSEXP, SEXP dimSEXP, SEXP keepdimSEXP) {
@@ -2635,6 +2819,32 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_unique_return_inverse_
+Rcpp::List tensor_unique_return_inverse_(Rcpp::XPtr<torch::Tensor> x, bool sorted, Rcpp::Nullable<std::int64_t> dim);
+RcppExport SEXP _torch_tensor_unique_return_inverse_(SEXP xSEXP, SEXP sortedSEXP, SEXP dimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< bool >::type sorted(sortedSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::int64_t> >::type dim(dimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_unique_return_inverse_(x, sorted, dim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_unique_
+Rcpp::XPtr<torch::Tensor> tensor_unique_(Rcpp::XPtr<torch::Tensor> x, bool sorted, Rcpp::Nullable<std::int64_t> dim);
+RcppExport SEXP _torch_tensor_unique_(SEXP xSEXP, SEXP sortedSEXP, SEXP dimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< bool >::type sorted(sortedSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::int64_t> >::type dim(dimSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_unique_(x, sorted, dim));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_unsqueeze_
 Rcpp::XPtr<torch::Tensor> tensor_unsqueeze_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim);
 RcppExport SEXP _torch_tensor_unsqueeze_(SEXP xSEXP, SEXP dimSEXP) {
@@ -2849,6 +3059,21 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_half_", (DL_FUNC) &_torch_tensor_half_, 1},
     {"_torch_tensor_histc_", (DL_FUNC) &_torch_tensor_histc_, 4},
     {"_torch_tensor_index_add__", (DL_FUNC) &_torch_tensor_index_add__, 4},
+    {"_torch_tensor_index_copy__", (DL_FUNC) &_torch_tensor_index_copy__, 4},
+    {"_torch_tensor_index_fill__", (DL_FUNC) &_torch_tensor_index_fill__, 4},
+    {"_torch_tensor_index_put__", (DL_FUNC) &_torch_tensor_index_put__, 4},
+    {"_torch_tensor_index_select_", (DL_FUNC) &_torch_tensor_index_select_, 3},
+    {"_torch_tensor_int_", (DL_FUNC) &_torch_tensor_int_, 1},
+    {"_torch_tensor_inverse_", (DL_FUNC) &_torch_tensor_inverse_, 1},
+    {"_torch_tensor_is_contiguous_", (DL_FUNC) &_torch_tensor_is_contiguous_, 1},
+    {"_torch_tensor_is_cuda_", (DL_FUNC) &_torch_tensor_is_cuda_, 1},
+    {"_torch_tensor_is_set_to_", (DL_FUNC) &_torch_tensor_is_set_to_, 2},
+    {"_torch_tensor_is_signed_", (DL_FUNC) &_torch_tensor_is_signed_, 1},
+    {"_torch_tensor_kthvalue_", (DL_FUNC) &_torch_tensor_kthvalue_, 4},
+    {"_torch_tensor_le_tensor_", (DL_FUNC) &_torch_tensor_le_tensor_, 2},
+    {"_torch_tensor_le_scalar_", (DL_FUNC) &_torch_tensor_le_scalar_, 2},
+    {"_torch_tensor_le_tensor__", (DL_FUNC) &_torch_tensor_le_tensor__, 2},
+    {"_torch_tensor_le_scalar__", (DL_FUNC) &_torch_tensor_le_scalar__, 2},
     {"_torch_tensor_mean_", (DL_FUNC) &_torch_tensor_mean_, 3},
     {"_torch_tensor_var_", (DL_FUNC) &_torch_tensor_var_, 4},
     {"_torch_tensor_std_", (DL_FUNC) &_torch_tensor_std_, 4},
@@ -2887,6 +3112,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_tril_", (DL_FUNC) &_torch_tensor_tril_, 2},
     {"_torch_tensor_triu_", (DL_FUNC) &_torch_tensor_triu_, 2},
     {"_torch_tensor_to_", (DL_FUNC) &_torch_tensor_to_, 4},
+    {"_torch_tensor_unique_return_inverse_", (DL_FUNC) &_torch_tensor_unique_return_inverse_, 3},
+    {"_torch_tensor_unique_", (DL_FUNC) &_torch_tensor_unique_, 3},
     {"_torch_tensor_unsqueeze_", (DL_FUNC) &_torch_tensor_unsqueeze_, 2},
     {"_torch_tensor_unsqueeze__", (DL_FUNC) &_torch_tensor_unsqueeze__, 2},
     {"_torch_tensor_zero__", (DL_FUNC) &_torch_tensor_zero__, 1},
