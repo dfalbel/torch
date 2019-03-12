@@ -998,6 +998,10 @@
       invisible(self)
     },
 
+    unfold = function(dim, size, step) {
+      `torch::Tensor`$dispatch(tensor_unfold_(self$pointer, dim, size, step))
+    },
+
     unique = function(sorted = FALSE, return_inverse = FALSE, dim = NULL) {
       if(!return_inverse) {
         `torch::Tensor`$dispatch(tensor_unique_(self$pointer, sorted, dim))
@@ -1007,21 +1011,21 @@
       }
     },
 
-    var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
-      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim))
-    },
-
-    zero_ = function() {
-      tensor_zero__(self$pointer)
-      invisible(self)
-    },
-
     unsqueeze = function(dim) {
       `torch::Tensor`$dispatch(tensor_unsqueeze_(self$pointer, dim))
     },
 
     unsqueeze_ = function(dim) {
       tensor_unsqueeze__(self$pointer, dim)
+      invisible(self)
+    },
+
+    var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim))
+    },
+
+    zero_ = function() {
+      tensor_zero__(self$pointer)
       invisible(self)
     }
 

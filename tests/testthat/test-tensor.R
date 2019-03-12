@@ -1694,6 +1694,23 @@ test_that("tanh works", {
   expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
 })
 
+test_that("unfold works", {
+  x <- array(c(1, 2, 3, -1, -2, -3), c(2, 3))
+  x_t <- tensor(x)
+  expect_equal(dim(as.array(x_t$unfold(0, 1, 1))), c(2, 3, 1), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(0, 2, 1))), c(1, 3, 2), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(0, 1, 2))), c(1, 3, 1), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(0, 2, 2))), c(1, 3, 2), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(1, 1, 1))), c(2, 3, 1), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(1, 2, 1))), c(2, 2, 2), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(1, 1, 2))), c(2, 2, 1), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(1, 2, 2))), c(2, 1, 2), tol = 1e-7)
+
+  expect_error(as.array(x_t$unfold(0, 3, 1)))
+  expect_error(as.array(x_t$unfold(2, 1, 1)))
+
+})
+
 test_that("unique works", {
   x <- matrix(c(c(0,0,0),
                 c(0,0,1),

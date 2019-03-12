@@ -921,6 +921,10 @@ tensor_to_ <- function(x, dtype, device, requires_grad) {
     .Call('_torch_tensor_to_', PACKAGE = 'torch', x, dtype, device, requires_grad)
 }
 
+tensor_unfold_ <- function(x, dim, size, step) {
+    .Call('_torch_tensor_unfold_', PACKAGE = 'torch', x, dim, size, step)
+}
+
 tensor_unique_return_inverse_ <- function(x, sorted, dim) {
     .Call('_torch_tensor_unique_return_inverse_', PACKAGE = 'torch', x, sorted, dim)
 }
