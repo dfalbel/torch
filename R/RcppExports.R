@@ -917,6 +917,10 @@ tensor_triu_ <- function(x, diagonal) {
     .Call('_torch_tensor_triu_', PACKAGE = 'torch', x, diagonal)
 }
 
+tensor_topk_ <- function(x, k, dim, largest, sorted) {
+    .Call('_torch_tensor_topk_', PACKAGE = 'torch', x, k, dim, largest, sorted)
+}
+
 tensor_to_ <- function(x, dtype, device, requires_grad) {
     .Call('_torch_tensor_to_', PACKAGE = 'torch', x, dtype, device, requires_grad)
 }

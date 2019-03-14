@@ -1612,6 +1612,16 @@ Rcpp::XPtr<torch::Tensor> tensor_triu_ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 
+// [[Rcpp::export]]
+Rcpp::List tensor_topk_ (Rcpp::XPtr<torch::Tensor> x,
+                         std::int64_t k,
+                         Rcpp::Nullable<std::int64_t> dim,
+                         bool largest,
+                         bool sorted) {
+  auto out = x->topk(k, Rcpp::as<std::int64_t>(dim), largest, sorted);
+  return Rcpp::List::create(make_tensor_ptr(std::get<0>(out)), make_tensor_ptr(std::get<1>(out)));
+}
+
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_to_ (Rcpp::XPtr<torch::Tensor> x,
