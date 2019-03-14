@@ -2805,6 +2805,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_topk_
+Rcpp::List tensor_topk_(Rcpp::XPtr<torch::Tensor> x, std::int64_t k, Rcpp::Nullable<std::int64_t> dim, bool largest, bool sorted);
+RcppExport SEXP _torch_tensor_topk_(SEXP xSEXP, SEXP kSEXP, SEXP dimSEXP, SEXP largestSEXP, SEXP sortedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type k(kSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::int64_t> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< bool >::type largest(largestSEXP);
+    Rcpp::traits::input_parameter< bool >::type sorted(sortedSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_topk_(x, k, dim, largest, sorted));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_to_
 Rcpp::XPtr<torch::Tensor> tensor_to_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::string> dtype, Rcpp::Nullable<std::string> device, bool requires_grad);
 RcppExport SEXP _torch_tensor_to_(SEXP xSEXP, SEXP dtypeSEXP, SEXP deviceSEXP, SEXP requires_gradSEXP) {
@@ -3125,6 +3140,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_t_", (DL_FUNC) &_torch_tensor_t_, 1},
     {"_torch_tensor_tril_", (DL_FUNC) &_torch_tensor_tril_, 2},
     {"_torch_tensor_triu_", (DL_FUNC) &_torch_tensor_triu_, 2},
+    {"_torch_tensor_topk_", (DL_FUNC) &_torch_tensor_topk_, 5},
     {"_torch_tensor_to_", (DL_FUNC) &_torch_tensor_to_, 4},
     {"_torch_tensor_unfold_", (DL_FUNC) &_torch_tensor_unfold_, 4},
     {"_torch_tensor_unique_return_inverse_", (DL_FUNC) &_torch_tensor_unique_return_inverse_, 3},

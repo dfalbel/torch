@@ -989,6 +989,14 @@
       tensor_to_string_(self$pointer)
     },
 
+    topk = function(k, dim = -1, largest = TRUE, sorted = TRUE) {
+      x <- tensor_topk_(self$pointer, k, dim, largest, sorted)
+      list(
+        `torch::Tensor`$dispatch(x[[1]]),
+        `torch::Tensor`$dispatch(x[[2]])
+      )
+    },
+
     trunc = function() {
       `torch::Tensor`$dispatch(tensor_trunc_(self$pointer))
     },

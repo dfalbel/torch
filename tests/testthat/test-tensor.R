@@ -1388,6 +1388,20 @@ test_that("to works", {
   expect_equal(as.array(tensor(x)$to(dtype = "int")), matrix(0L, ncol = 3, nrow = 2))
 })
 
+test_that("topk works", {
+  x <- array(c(1, 2, 3, -1, -2, -3), c(2, 3))
+  x_t <- tensor(x)
+  expect_equal(length(x_t$topk(3)), 2)
+  expect_equal(length(x_t$topk(3, 1, FALSE, FALSE)), 2)
+  expect_equal(length(x_t$topk(3, 1, FALSE, TRUE)), 2)
+  expect_equal(length(x_t$topk(3, 1, TRUE, FALSE)), 2)
+  expect_equal(length(x_t$topk(3, 1, TRUE, TRUE)), 2)
+
+  expect_error(x_t$topk())
+  expect_error(x_t$topk(4))
+
+})
+
 test_that("log family works", {
   x <- runif(100)
   expect_equal(as.array(tch_log(tensor(x))), log(x), tol = 1e-7)
