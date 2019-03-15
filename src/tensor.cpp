@@ -1507,6 +1507,16 @@ Rcpp::List tensor_qr_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_reciprocal_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->reciprocal());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_reciprocal__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->reciprocal_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_round_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->round());
 }
