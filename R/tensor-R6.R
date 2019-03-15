@@ -858,6 +858,11 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    masked_scatter_ = function(mask, source){
+      tensor_masked_scatter__(self$pointer, mask$pointer, source$pointer)
+      invisible(self)
+    },
+
     mm = function(mat2) {
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },

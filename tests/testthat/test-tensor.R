@@ -1840,3 +1840,19 @@ test_that("sort works", {
   expect_error(x_t$sort(-4))
 
 })
+
+test_that("masked_scatter_ works", {
+  x <- tensor(array(c(1, 1, 1, 1, 2, 2), c(3, 2)))
+  mask <- x$eq(1)
+  source <- tensor(array(c(10, 20, 30, 40, 50, 60), c(2, 3)))
+
+  x$masked_scatter_(mask, source)
+  expect_equal(as.array(x), array(c(10, 50, 20, 30, 2, 2), c(3, 2)))
+
+
+  source <- tensor(array(c(5, 5), c(2, 1)))
+  x_clone <- x$clone()
+  expect_error(x$masked_scatter_(mask, source))
+  # expect_equal(as.array(x), as.array(x_clone)) # bug? issue https://github.com/pytorch/pytorch/issues/18086
+})
+

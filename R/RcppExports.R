@@ -845,6 +845,10 @@ tensor_logsumexp_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_logsumexp_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
+tensor_masked_scatter__ <- function(x, mask, source) {
+    .Call('_torch_tensor_masked_scatter__', PACKAGE = 'torch', x, mask, source)
+}
+
 tensor_mm_ <- function(x, mat2) {
     .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
 }
