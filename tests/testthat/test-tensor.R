@@ -1471,6 +1471,9 @@ test_that("round works", {
   x <- tensor(array(c(-1.1, -0.1, 0.1, 1.5, 1.51, 2.5, Inf)))
   expect_equal(as.array(tch_round(x)), c(-1, 0, 0, 2, 2, 2, Inf), tol = 1e-7)
 
+  x$round_()
+  expect_equal(as.array(x), c(-1, 0, 0, 2, 2, 2, Inf), tol = 1e-7)
+
   y <- tensor(array(c(0.5, 1.5, 2.5, 3.5, 4.5)))
   expect_equal(as.array(tch_round(y)), c(0, 2, 2, 4, 4), tol = 1e-7) #what??
 })
@@ -1777,4 +1780,17 @@ test_that("zeros", {
   y <- tch_zeros(5)
   expect_null(dim(as.array(y)))
   expect_equal(as.array(y), rep(0, 5))
+})
+
+test_that("sort works", {
+  x <- array(1:12, c(2, 2, 3))
+  x_t <- tensor(x)
+  expect_equal(length(as.array(x_t$sort())), 2)
+  expect_equal(length(as.array(x_t$sort(0))), 2)
+  expect_equal(length(as.array(x_t$sort(1, TRUE))), 2)
+  expect_equal(length(as.array(x_t$sort(2, FALSE))), 2)
+
+  expect_error(x_t$sort(3))
+  expect_error(x_t$sort(-4))
+
 })

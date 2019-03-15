@@ -876,6 +876,11 @@
       `torch::Tensor`$dispatch(tensor_round_(self$pointer))
     },
 
+    round_ = function(){
+      tensor_round__(self$pointer)
+      invisible(self)
+    },
+
     rsqrt = function() {
       `torch::Tensor`$dispatch(tensor_rsqrt_(self$pointer))
     },
@@ -914,6 +919,14 @@
     sinh_ = function(){
       tensor_sinh__(self$pointer)
       invisible(self)
+    },
+
+    sort = function(dim = -1, descending = FALSE) {
+      x <- tensor_sort_(self$pointer, dim, descending)
+      list(
+        `torch::Tensor`$dispatch(x[[1]]),
+        `torch::Tensor`$dispatch(x[[2]])
+      )
     },
 
     sqrt = function() {

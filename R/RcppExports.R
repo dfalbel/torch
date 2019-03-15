@@ -857,6 +857,10 @@ tensor_round_ <- function(x) {
     .Call('_torch_tensor_round_', PACKAGE = 'torch', x)
 }
 
+tensor_round__ <- function(x) {
+    .Call('_torch_tensor_round__', PACKAGE = 'torch', x)
+}
+
 tensor_rsqrt_ <- function(x) {
     .Call('_torch_tensor_rsqrt_', PACKAGE = 'torch', x)
 }
@@ -875,6 +879,10 @@ tensor_sigmoid__ <- function(x) {
 
 tensor_sign_ <- function(x) {
     .Call('_torch_tensor_sign_', PACKAGE = 'torch', x)
+}
+
+tensor_sort_ <- function(x, dim, descending) {
+    .Call('_torch_tensor_sort_', PACKAGE = 'torch', x, dim, descending)
 }
 
 tensor_sqrt_ <- function(x) {
