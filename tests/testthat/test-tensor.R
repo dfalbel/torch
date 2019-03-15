@@ -1863,5 +1863,12 @@ test_that("masked_fill_ works", {
 
   x$masked_fill_(mask, value)
   expect_equal(as.array(x), array(c(value, value, value, value, 2, 2), c(3, 2)))
+})
 
+test_that("masked_select works", {
+  x <- tensor(array(c(1, 1, 1, 1, 20, 200), c(3, 2)))
+  mask <- x$ge(2)
+
+
+  expect_equal(as.array(x$masked_select(mask)), c(20, 200))
 })

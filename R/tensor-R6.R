@@ -868,6 +868,10 @@
       invisible(self)
     },
 
+    masked_select = function(mask){
+      `torch::Tensor`$dispatch(tensor_masked_select_(self$pointer, mask$pointer))
+    },
+
     mm = function(mat2) {
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },

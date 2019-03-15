@@ -853,6 +853,10 @@ tensor_masked_fill__ <- function(x, mask, value) {
     .Call('_torch_tensor_masked_fill__', PACKAGE = 'torch', x, mask, value)
 }
 
+tensor_masked_select_ <- function(x, mask) {
+    .Call('_torch_tensor_masked_select_', PACKAGE = 'torch', x, mask)
+}
+
 tensor_mm_ <- function(x, mat2) {
     .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
 }
