@@ -857,6 +857,10 @@ tensor_round_ <- function(x) {
     .Call('_torch_tensor_round_', PACKAGE = 'torch', x)
 }
 
+tensor_round__ <- function(x) {
+    .Call('_torch_tensor_round__', PACKAGE = 'torch', x)
+}
+
 tensor_rsqrt_ <- function(x) {
     .Call('_torch_tensor_rsqrt_', PACKAGE = 'torch', x)
 }

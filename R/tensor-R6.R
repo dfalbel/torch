@@ -876,6 +876,11 @@
       `torch::Tensor`$dispatch(tensor_round_(self$pointer))
     },
 
+    round_ = function(){
+      tensor_round__(self$pointer)
+      invisible(self)
+    },
+
     rsqrt = function() {
       `torch::Tensor`$dispatch(tensor_rsqrt_(self$pointer))
     },

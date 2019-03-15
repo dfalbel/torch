@@ -1512,6 +1512,11 @@ Rcpp::XPtr<torch::Tensor> tensor_round_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_round__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->round_());
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_rsqrt_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->rsqrt());
 }
