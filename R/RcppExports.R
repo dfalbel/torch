@@ -685,6 +685,22 @@ tensor_get_device_ <- function(x) {
     .Call('_torch_tensor_get_device_', PACKAGE = 'torch', x)
 }
 
+tensor_lt_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_lt_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_lt_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_lt_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_lt_tensor__ <- function(x, other) {
+    .Call('_torch_tensor_lt_tensor__', PACKAGE = 'torch', x, other)
+}
+
+tensor_lt_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_lt_scalar__', PACKAGE = 'torch', x, other)
+}
+
 tensor_gt_tensor_ <- function(x, other) {
     .Call('_torch_tensor_gt_tensor_', PACKAGE = 'torch', x, other)
 }

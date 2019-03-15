@@ -1077,6 +1077,19 @@ test_that("get_device works", {
   }
 })
 
+test_that("lt works", {
+  x <- tensor(1)
+  expect_equal(as.array(x$lt(2)), TRUE)
+  expect_equal(as.array(x$lt(tensor(0))), FALSE)
+
+  x <- tensor(1)
+  x$lt_(0)
+  expect_equal(as.array(x$to("uint8")), FALSE)
+  x <- tensor(10)
+  x$lt_(tensor(11))
+  expect_equal(as.array(x$to("uint8")), TRUE)
+})
+
 test_that("gt works", {
   x <- tensor(1)
   expect_equal(as.array(x$gt(0)), TRUE)
