@@ -2651,6 +2651,7 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
 // tensor_resize__
 Rcpp::XPtr<torch::Tensor> tensor_resize__(Rcpp::XPtr<torch::Tensor> x, std::vector<int64_t> sizes);
 RcppExport SEXP _torch_tensor_resize__(SEXP xSEXP, SEXP sizesSEXP) {
@@ -2663,6 +2664,7 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
 // tensor_round_
 Rcpp::XPtr<torch::Tensor> tensor_round_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_round_(SEXP xSEXP) {
@@ -3198,6 +3200,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_reciprocal_", (DL_FUNC) &_torch_tensor_reciprocal_, 1},
     {"_torch_tensor_reciprocal__", (DL_FUNC) &_torch_tensor_reciprocal__, 1},
     {"_torch_tensor_resize__", (DL_FUNC) &_torch_tensor_resize__, 2},
+
     {"_torch_tensor_round_", (DL_FUNC) &_torch_tensor_round_, 1},
     {"_torch_tensor_round__", (DL_FUNC) &_torch_tensor_round__, 1},
     {"_torch_tensor_rsqrt_", (DL_FUNC) &_torch_tensor_rsqrt_, 1},

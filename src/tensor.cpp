@@ -1522,7 +1522,6 @@ Rcpp::XPtr<torch::Tensor> tensor_reciprocal__ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->reciprocal_());
 }
 
-
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_resize__ (Rcpp::XPtr<torch::Tensor> x,
                                           std::vector<int64_t> sizes) {
