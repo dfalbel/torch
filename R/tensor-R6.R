@@ -872,8 +872,27 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    rep = function(sizes) {
+      # a.k.a "repeat"
+      `torch::Tensor`$dispatch(tensor_repeat_(self$pointer, sizes))
+    },
+
+    reciprocal = function() {
+      `torch::Tensor`$dispatch(tensor_reciprocal_(self$pointer))
+    },
+
+    reciprocal_ = function(){
+      tensor_reciprocal__(self$pointer)
+      invisible(self)
+    },
+
     round = function() {
       `torch::Tensor`$dispatch(tensor_round_(self$pointer))
+    },
+
+    round_ = function(){
+      tensor_round__(self$pointer)
+      invisible(self)
     },
 
     rsqrt = function() {
@@ -914,6 +933,14 @@
     sinh_ = function(){
       tensor_sinh__(self$pointer)
       invisible(self)
+    },
+
+    sort = function(dim = -1, descending = FALSE) {
+      x <- tensor_sort_(self$pointer, dim, descending)
+      list(
+        `torch::Tensor`$dispatch(x[[1]]),
+        `torch::Tensor`$dispatch(x[[2]])
+      )
     },
 
     sqrt = function() {
@@ -989,6 +1016,14 @@
       tensor_to_string_(self$pointer)
     },
 
+    topk = function(k, dim = -1, largest = TRUE, sorted = TRUE) {
+      x <- tensor_topk_(self$pointer, k, dim, largest, sorted)
+      list(
+        `torch::Tensor`$dispatch(x[[1]]),
+        `torch::Tensor`$dispatch(x[[2]])
+      )
+    },
+
     trunc = function() {
       `torch::Tensor`$dispatch(tensor_trunc_(self$pointer))
     },
@@ -996,6 +1031,10 @@
     trunc_ = function() {
       tensor_trunc__(self$pointer)
       invisible(self)
+    },
+
+    unfold = function(dim, size, step) {
+      `torch::Tensor`$dispatch(tensor_unfold_(self$pointer, dim, size, step))
     },
 
     unique = function(sorted = FALSE, return_inverse = FALSE, dim = NULL) {
@@ -1007,21 +1046,21 @@
       }
     },
 
-    var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
-      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim))
-    },
-
-    zero_ = function() {
-      tensor_zero__(self$pointer)
-      invisible(self)
-    },
-
     unsqueeze = function(dim) {
       `torch::Tensor`$dispatch(tensor_unsqueeze_(self$pointer, dim))
     },
 
     unsqueeze_ = function(dim) {
       tensor_unsqueeze__(self$pointer, dim)
+      invisible(self)
+    },
+
+    var = function(unbiased = TRUE, dim = NULL, keepdim = FALSE) {
+      `torch::Tensor`$dispatch(tensor_var_(self$pointer, unbiased, dim, keepdim))
+    },
+
+    zero_ = function() {
+      tensor_zero__(self$pointer)
       invisible(self)
     }
 

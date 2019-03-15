@@ -853,8 +853,24 @@ tensor_qr_ <- function(x) {
     .Call('_torch_tensor_qr_', PACKAGE = 'torch', x)
 }
 
+tensor_repeat_ <- function(x, sizes) {
+    .Call('_torch_tensor_repeat_', PACKAGE = 'torch', x, sizes)
+}
+
+tensor_reciprocal_ <- function(x) {
+    .Call('_torch_tensor_reciprocal_', PACKAGE = 'torch', x)
+}
+
+tensor_reciprocal__ <- function(x) {
+    .Call('_torch_tensor_reciprocal__', PACKAGE = 'torch', x)
+}
+
 tensor_round_ <- function(x) {
     .Call('_torch_tensor_round_', PACKAGE = 'torch', x)
+}
+
+tensor_round__ <- function(x) {
+    .Call('_torch_tensor_round__', PACKAGE = 'torch', x)
 }
 
 tensor_rsqrt_ <- function(x) {
@@ -875,6 +891,10 @@ tensor_sigmoid__ <- function(x) {
 
 tensor_sign_ <- function(x) {
     .Call('_torch_tensor_sign_', PACKAGE = 'torch', x)
+}
+
+tensor_sort_ <- function(x, dim, descending) {
+    .Call('_torch_tensor_sort_', PACKAGE = 'torch', x, dim, descending)
 }
 
 tensor_sqrt_ <- function(x) {
@@ -917,8 +937,16 @@ tensor_triu_ <- function(x, diagonal) {
     .Call('_torch_tensor_triu_', PACKAGE = 'torch', x, diagonal)
 }
 
+tensor_topk_ <- function(x, k, dim, largest, sorted) {
+    .Call('_torch_tensor_topk_', PACKAGE = 'torch', x, k, dim, largest, sorted)
+}
+
 tensor_to_ <- function(x, dtype, device, requires_grad) {
     .Call('_torch_tensor_to_', PACKAGE = 'torch', x, dtype, device, requires_grad)
+}
+
+tensor_unfold_ <- function(x, dim, size, step) {
+    .Call('_torch_tensor_unfold_', PACKAGE = 'torch', x, dim, size, step)
 }
 
 tensor_unique_return_inverse_ <- function(x, sorted, dim) {

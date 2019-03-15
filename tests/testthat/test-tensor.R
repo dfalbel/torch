@@ -1388,6 +1388,20 @@ test_that("to works", {
   expect_equal(as.array(tensor(x)$to(dtype = "int")), matrix(0L, ncol = 3, nrow = 2))
 })
 
+test_that("topk works", {
+  x <- array(c(1, 2, 3, -1, -2, -3), c(2, 3))
+  x_t <- tensor(x)
+  expect_equal(length(x_t$topk(3)), 2)
+  expect_equal(length(x_t$topk(3, 1, FALSE, FALSE)), 2)
+  expect_equal(length(x_t$topk(3, 1, FALSE, TRUE)), 2)
+  expect_equal(length(x_t$topk(3, 1, TRUE, FALSE)), 2)
+  expect_equal(length(x_t$topk(3, 1, TRUE, TRUE)), 2)
+
+  expect_error(x_t$topk())
+  expect_error(x_t$topk(4))
+
+})
+
 test_that("log family works", {
   x <- runif(100)
   expect_equal(as.array(tch_log(tensor(x))), log(x), tol = 1e-7)
@@ -1453,9 +1467,29 @@ test_that("triu works", {
                                                                 1, 1, 1)))
 })
 
+test_that("rep (torch's repeat) works", {
+  x <- tensor(array(1:6, c(1, 2, 3)))
+  expect_equal(dim(as.array(x$rep(c(2, 2, 2)))), c(2, 4, 6))
+  expect_equal(dim(as.array(x$rep(c(1, 1, 1, 2)))), c(1, 1, 2, 6))
+
+  expect_error(x$rep(c(2, 2)))
+  expect_error(x$rep(c(2, 2, 0.5)))
+})
+
+test_that("reciprocal works", {
+  x <- tensor(array(c(-Inf, -10, -0.1, 0, 0.1, 10, Inf)))
+  expect_equal(as.array(x$reciprocal()), c(0, -0.1, -10, Inf, 10, 0.1, 0), tol = 1e-7)
+
+  x$reciprocal_()
+  expect_equal(as.array(x), c(0, -0.1, -10, Inf, 10, 0.1, 0), tol = 1e-7)
+})
+
 test_that("round works", {
   x <- tensor(array(c(-1.1, -0.1, 0.1, 1.5, 1.51, 2.5, Inf)))
   expect_equal(as.array(tch_round(x)), c(-1, 0, 0, 2, 2, 2, Inf), tol = 1e-7)
+
+  x$round_()
+  expect_equal(as.array(x), c(-1, 0, 0, 2, 2, 2, Inf), tol = 1e-7)
 
   y <- tensor(array(c(0.5, 1.5, 2.5, 3.5, 4.5)))
   expect_equal(as.array(tch_round(y)), c(0, 2, 2, 4, 4), tol = 1e-7) #what??
@@ -1694,6 +1728,23 @@ test_that("tanh works", {
   expect_equal(as.array(x_t), tanh(x), tol = 1e-7)
 })
 
+test_that("unfold works", {
+  x <- array(c(1, 2, 3, -1, -2, -3), c(2, 3))
+  x_t <- tensor(x)
+  expect_equal(dim(as.array(x_t$unfold(0, 1, 1))), c(2, 3, 1), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(0, 2, 1))), c(1, 3, 2), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(0, 1, 2))), c(1, 3, 1), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(0, 2, 2))), c(1, 3, 2), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(1, 1, 1))), c(2, 3, 1), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(1, 2, 1))), c(2, 2, 2), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(1, 1, 2))), c(2, 2, 1), tol = 1e-7)
+  expect_equal(dim(as.array(x_t$unfold(1, 2, 2))), c(2, 1, 2), tol = 1e-7)
+
+  expect_error(as.array(x_t$unfold(0, 3, 1)))
+  expect_error(as.array(x_t$unfold(2, 1, 1)))
+
+})
+
 test_that("unique works", {
   x <- matrix(c(c(0,0,0),
                 c(0,0,1),
@@ -1746,4 +1797,17 @@ test_that("zeros", {
   y <- tch_zeros(5)
   expect_null(dim(as.array(y)))
   expect_equal(as.array(y), rep(0, 5))
+})
+
+test_that("sort works", {
+  x <- array(1:12, c(2, 2, 3))
+  x_t <- tensor(x)
+  expect_equal(length(as.array(x_t$sort())), 2)
+  expect_equal(length(as.array(x_t$sort(0))), 2)
+  expect_equal(length(as.array(x_t$sort(1, TRUE))), 2)
+  expect_equal(length(as.array(x_t$sort(2, FALSE))), 2)
+
+  expect_error(x_t$sort(3))
+  expect_error(x_t$sort(-4))
+
 })
