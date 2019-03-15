@@ -1468,13 +1468,13 @@ test_that("triu works", {
 })
 
 
-test_that("repeatt works", {
+test_that("rep (torch's repeat) works", {
   x <- tensor(array(1:6, c(1, 2, 3)))
-  expect_equal(dim(as.array(x$repeatt(c(2, 2, 2)))), c(2, 4, 6))
+  expect_equal(dim(as.array(x$rep(c(2, 2, 2)))), c(2, 4, 6))
+  expect_equal(dim(as.array(x$rep(c(1, 1, 1, 2)))), c(1, 1, 2, 6))
 
-  expect_error(x$repeatt(c(2, 2)))
-  expect_error(x$repeatt(c(2, 2, 2, 2)))
-  expect_error(x$repeatt(c(2, 2, 0.5)))
+  expect_error(x$rep(c(2, 2)))
+  expect_error(x$rep(c(2, 2, 0.5)))
 })
 
 test_that("reciprocal works", {
