@@ -1944,6 +1944,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_lerp__
+Rcpp::XPtr<torch::Tensor> tensor_lerp__(Rcpp::XPtr<torch::Tensor> start, Rcpp::XPtr<torch::Tensor> end, SEXP weight);
+RcppExport SEXP _torch_tensor_lerp__(SEXP startSEXP, SEXP endSEXP, SEXP weightSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type start(startSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type end(endSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type weight(weightSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_lerp__(start, end, weight));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_gather_
 Rcpp::XPtr<torch::Tensor> tensor_gather_(Rcpp::XPtr<torch::Tensor> x, int64_t dim, Rcpp::XPtr<torch::Tensor> index);
 RcppExport SEXP _torch_tensor_gather_(SEXP xSEXP, SEXP dimSEXP, SEXP indexSEXP) {
@@ -3127,6 +3140,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_frac_", (DL_FUNC) &_torch_tensor_frac_, 1},
     {"_torch_tensor_frac__", (DL_FUNC) &_torch_tensor_frac__, 1},
     {"_torch_tensor_lerp_", (DL_FUNC) &_torch_tensor_lerp_, 3},
+    {"_torch_tensor_lerp__", (DL_FUNC) &_torch_tensor_lerp__, 3},
     {"_torch_tensor_gather_", (DL_FUNC) &_torch_tensor_gather_, 3},
     {"_torch_tensor_ge_tensor_", (DL_FUNC) &_torch_tensor_ge_tensor_, 2},
     {"_torch_tensor_ge_scalar_", (DL_FUNC) &_torch_tensor_ge_scalar_, 2},

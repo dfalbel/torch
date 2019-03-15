@@ -1134,6 +1134,14 @@ Rcpp::XPtr<torch::Tensor> tensor_lerp_ (Rcpp::XPtr<torch::Tensor> start,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_lerp__ (Rcpp::XPtr<torch::Tensor> start,
+                                        Rcpp::XPtr<torch::Tensor> end,
+                                        SEXP weight
+) {
+  return make_tensor_ptr(start->lerp_(*end, scalar_from_r_(weight)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_gather_ (Rcpp::XPtr<torch::Tensor> x, int64_t dim, Rcpp::XPtr<torch::Tensor> index) {
   return make_tensor_ptr(x->gather(dim, *index));
 }

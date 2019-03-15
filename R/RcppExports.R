@@ -633,6 +633,10 @@ tensor_lerp_ <- function(start, end, weight) {
     .Call('_torch_tensor_lerp_', PACKAGE = 'torch', start, end, weight)
 }
 
+tensor_lerp__ <- function(start, end, weight) {
+    .Call('_torch_tensor_lerp__', PACKAGE = 'torch', start, end, weight)
+}
+
 tensor_gather_ <- function(x, dim, index) {
     .Call('_torch_tensor_gather_', PACKAGE = 'torch', x, dim, index)
 }

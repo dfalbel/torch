@@ -961,6 +961,10 @@ test_that("lerp works", {
   end <- tch_empty(4)$fill_(10)
 
   expect_equal(as.array(tch_lerp(start, end, 0.5)), c(5.5,  6,  6.5,  7))
+
+  start$lerp_(end, 0.5)
+  expect_equal(as.array(start), c(5.5,  6,  6.5,  7))
+
 })
 
 test_that("flatten works", {

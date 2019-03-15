@@ -599,6 +599,11 @@
       `torch::Tensor`$dispatch(tensor_lerp_(self$pointer, end$pointer, weight))
     },
 
+    lerp_ = function(end, weight) {
+      tensor_lerp__(self$pointer, end$pointer, weight)
+      invisible(self)
+    },
+
     gather = function(dim, index) {
       `torch::Tensor`$dispatch(tensor_gather_(self$pointer, dim, index$pointer))
     },
