@@ -2683,6 +2683,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_sort_
+Rcpp::List tensor_sort_(Rcpp::XPtr<torch::Tensor> x, Rcpp::Nullable<std::int64_t> dim, bool descending);
+RcppExport SEXP _torch_tensor_sort_(SEXP xSEXP, SEXP dimSEXP, SEXP descendingSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<std::int64_t> >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< bool >::type descending(descendingSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_sort_(x, dim, descending));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_sqrt_
 Rcpp::XPtr<torch::Tensor> tensor_sqrt_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_sqrt_(SEXP xSEXP) {
@@ -3130,6 +3143,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_sigmoid_", (DL_FUNC) &_torch_tensor_sigmoid_, 1},
     {"_torch_tensor_sigmoid__", (DL_FUNC) &_torch_tensor_sigmoid__, 1},
     {"_torch_tensor_sign_", (DL_FUNC) &_torch_tensor_sign_, 1},
+    {"_torch_tensor_sort_", (DL_FUNC) &_torch_tensor_sort_, 3},
     {"_torch_tensor_sqrt_", (DL_FUNC) &_torch_tensor_sqrt_, 1},
     {"_torch_tensor_sqrt__", (DL_FUNC) &_torch_tensor_sqrt__, 1},
     {"_torch_tensor_sub_tensor_", (DL_FUNC) &_torch_tensor_sub_tensor_, 3},

@@ -916,6 +916,14 @@
       invisible(self)
     },
 
+    sort = function(dim = -1, descending = FALSE) {
+      x <- tensor_sort_(self$pointer, dim, descending)
+      list(
+        `torch::Tensor`$dispatch(x[[1]]),
+        `torch::Tensor`$dispatch(x[[2]])
+      )
+    },
+
     sqrt = function() {
       `torch::Tensor`$dispatch(tensor_sqrt_(self$pointer))
     },

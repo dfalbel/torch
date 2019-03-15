@@ -1778,3 +1778,16 @@ test_that("zeros", {
   expect_null(dim(as.array(y)))
   expect_equal(as.array(y), rep(0, 5))
 })
+
+test_that("sort works", {
+  x <- array(1:12, c(2, 2, 3))
+  x_t <- tensor(x)
+  expect_equal(length(as.array(x_t$sort())), 2)
+  expect_equal(length(as.array(x_t$sort(0))), 2)
+  expect_equal(length(as.array(x_t$sort(1, TRUE))), 2)
+  expect_equal(length(as.array(x_t$sort(2, FALSE))), 2)
+
+  expect_error(x_t$sort(3))
+  expect_error(x_t$sort(-4))
+
+})

@@ -877,6 +877,10 @@ tensor_sign_ <- function(x) {
     .Call('_torch_tensor_sign_', PACKAGE = 'torch', x)
 }
 
+tensor_sort_ <- function(x, dim, descending) {
+    .Call('_torch_tensor_sort_', PACKAGE = 'torch', x, dim, descending)
+}
+
 tensor_sqrt_ <- function(x) {
     .Call('_torch_tensor_sqrt_', PACKAGE = 'torch', x)
 }
