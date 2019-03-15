@@ -1856,3 +1856,12 @@ test_that("masked_scatter_ works", {
   # expect_equal(as.array(x), as.array(x_clone)) # bug? issue https://github.com/pytorch/pytorch/issues/18086
 })
 
+test_that("masked_fill_ works", {
+  x <- tensor(array(c(1, 1, 1, 1, 2, 2), c(3, 2)))
+  mask <- x$eq(1)
+  value <- 10
+
+  x$masked_fill_(mask, value)
+  expect_equal(as.array(x), array(c(value, value, value, value, 2, 2), c(3, 2)))
+
+})

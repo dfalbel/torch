@@ -2608,6 +2608,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_masked_fill__
+Rcpp::XPtr<torch::Tensor> tensor_masked_fill__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mask, SEXP value);
+RcppExport SEXP _torch_tensor_masked_fill__(SEXP xSEXP, SEXP maskSEXP, SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type mask(maskSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type value(valueSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_masked_fill__(x, mask, value));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_mm_
 Rcpp::XPtr<torch::Tensor> tensor_mm_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat2);
 RcppExport SEXP _torch_tensor_mm_(SEXP xSEXP, SEXP mat2SEXP) {
@@ -3281,6 +3294,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_mode_", (DL_FUNC) &_torch_tensor_mode_, 3},
     {"_torch_tensor_logsumexp_", (DL_FUNC) &_torch_tensor_logsumexp_, 3},
     {"_torch_tensor_masked_scatter__", (DL_FUNC) &_torch_tensor_masked_scatter__, 3},
+    {"_torch_tensor_masked_fill__", (DL_FUNC) &_torch_tensor_masked_fill__, 3},
     {"_torch_tensor_mm_", (DL_FUNC) &_torch_tensor_mm_, 2},
     {"_torch_tensor_mul_tensor_", (DL_FUNC) &_torch_tensor_mul_tensor_, 2},
     {"_torch_tensor_mul_scalar_", (DL_FUNC) &_torch_tensor_mul_scalar_, 2},

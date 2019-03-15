@@ -1499,6 +1499,13 @@ Rcpp::XPtr<torch::Tensor> tensor_masked_scatter__ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_masked_fill__ (Rcpp::XPtr<torch::Tensor> x,
+                                                   Rcpp::XPtr<torch::Tensor> mask,
+                                                   SEXP value) {
+  return make_tensor_ptr(x->masked_fill_(*mask, scalar_from_r_(value)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat2) {
   return make_tensor_ptr(x->mm(*mat2));
 }

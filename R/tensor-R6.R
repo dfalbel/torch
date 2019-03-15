@@ -863,6 +863,11 @@
       invisible(self)
     },
 
+    masked_fill_ = function(mask, value){
+      tensor_masked_fill__(self$pointer, mask$pointer, value)
+      invisible(self)
+    },
+
     mm = function(mat2) {
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },

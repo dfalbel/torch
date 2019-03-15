@@ -849,6 +849,10 @@ tensor_masked_scatter__ <- function(x, mask, source) {
     .Call('_torch_tensor_masked_scatter__', PACKAGE = 'torch', x, mask, source)
 }
 
+tensor_masked_fill__ <- function(x, mask, value) {
+    .Call('_torch_tensor_masked_fill__', PACKAGE = 'torch', x, mask, value)
+}
+
 tensor_mm_ <- function(x, mat2) {
     .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
 }
