@@ -1145,7 +1145,7 @@ test_that("int", {
 
 test_that("inverse works", {
   x <- tch_randn(c(5,5))
-  expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-6)
+  expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-5)
 })
 
 test_that("is_contiguous", {
