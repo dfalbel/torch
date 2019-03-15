@@ -872,6 +872,15 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    reciprocal = function() {
+      `torch::Tensor`$dispatch(tensor_reciprocal_(self$pointer))
+    },
+
+    reciprocal_ = function(){
+      tensor_reciprocal__(self$pointer)
+      invisible(self)
+    },
+
     round = function() {
       `torch::Tensor`$dispatch(tensor_round_(self$pointer))
     },

@@ -1467,6 +1467,14 @@ test_that("triu works", {
                                                                 1, 1, 1)))
 })
 
+test_that("reciprocal works", {
+  x <- tensor(array(c(-Inf, -10, -0.1, 0, 0.1, 10, Inf)))
+  expect_equal(as.array(x$reciprocal()), c(0, -0.1, -10, Inf, 10, 0.1, 0), tol = 1e-7)
+
+  x$reciprocal_()
+  expect_equal(as.array(x), c(0, -0.1, -10, Inf, 10, 0.1, 0), tol = 1e-7)
+})
+
 test_that("round works", {
   x <- tensor(array(c(-1.1, -0.1, 0.1, 1.5, 1.51, 2.5, Inf)))
   expect_equal(as.array(tch_round(x)), c(-1, 0, 0, 2, 2, 2, Inf), tol = 1e-7)

@@ -853,6 +853,14 @@ tensor_qr_ <- function(x) {
     .Call('_torch_tensor_qr_', PACKAGE = 'torch', x)
 }
 
+tensor_reciprocal_ <- function(x) {
+    .Call('_torch_tensor_reciprocal_', PACKAGE = 'torch', x)
+}
+
+tensor_reciprocal__ <- function(x) {
+    .Call('_torch_tensor_reciprocal__', PACKAGE = 'torch', x)
+}
+
 tensor_round_ <- function(x) {
     .Call('_torch_tensor_round_', PACKAGE = 'torch', x)
 }
