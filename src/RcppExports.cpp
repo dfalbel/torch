@@ -2617,6 +2617,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_repeat_
+Rcpp::XPtr<torch::Tensor> tensor_repeat_(Rcpp::XPtr<torch::Tensor> x, std::vector<int64_t> sizes);
+RcppExport SEXP _torch_tensor_repeat_(SEXP xSEXP, SEXP sizesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::vector<int64_t> >::type sizes(sizesSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_repeat_(x, sizes));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_reciprocal_
 Rcpp::XPtr<torch::Tensor> tensor_reciprocal_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_reciprocal_(SEXP xSEXP) {
@@ -3170,6 +3182,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_pow_tensor_", (DL_FUNC) &_torch_tensor_pow_tensor_, 2},
     {"_torch_tensor_pow_scalar_", (DL_FUNC) &_torch_tensor_pow_scalar_, 2},
     {"_torch_tensor_qr_", (DL_FUNC) &_torch_tensor_qr_, 1},
+    {"_torch_tensor_repeat_", (DL_FUNC) &_torch_tensor_repeat_, 2},
     {"_torch_tensor_reciprocal_", (DL_FUNC) &_torch_tensor_reciprocal_, 1},
     {"_torch_tensor_reciprocal__", (DL_FUNC) &_torch_tensor_reciprocal__, 1},
     {"_torch_tensor_round_", (DL_FUNC) &_torch_tensor_round_, 1},

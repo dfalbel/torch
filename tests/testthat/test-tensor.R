@@ -1467,6 +1467,15 @@ test_that("triu works", {
                                                                 1, 1, 1)))
 })
 
+test_that("rep (torch's repeat) works", {
+  x <- tensor(array(1:6, c(1, 2, 3)))
+  expect_equal(dim(as.array(x$rep(c(2, 2, 2)))), c(2, 4, 6))
+  expect_equal(dim(as.array(x$rep(c(1, 1, 1, 2)))), c(1, 1, 2, 6))
+
+  expect_error(x$rep(c(2, 2)))
+  expect_error(x$rep(c(2, 2, 0.5)))
+})
+
 test_that("reciprocal works", {
   x <- tensor(array(c(-Inf, -10, -0.1, 0, 0.1, 10, Inf)))
   expect_equal(as.array(x$reciprocal()), c(0, -0.1, -10, Inf, 10, 0.1, 0), tol = 1e-7)

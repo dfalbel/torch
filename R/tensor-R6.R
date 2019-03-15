@@ -872,6 +872,11 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    rep = function(sizes) {
+      # a.k.a "repeat"
+      `torch::Tensor`$dispatch(tensor_repeat_(self$pointer, sizes))
+    },
+
     reciprocal = function() {
       `torch::Tensor`$dispatch(tensor_reciprocal_(self$pointer))
     },
