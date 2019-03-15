@@ -865,6 +865,10 @@ tensor_reciprocal__ <- function(x) {
     .Call('_torch_tensor_reciprocal__', PACKAGE = 'torch', x)
 }
 
+tensor_resize__ <- function(x, sizes) {
+    .Call('_torch_tensor_resize__', PACKAGE = 'torch', x, sizes)
+}
+
 tensor_round_ <- function(x) {
     .Call('_torch_tensor_round_', PACKAGE = 'torch', x)
 }
