@@ -1387,6 +1387,18 @@ test_that("sum works", {
   expect_equal(as.array(tch_sum(tensor(x))), sum(x), tol = 1e-6)
 })
 
+test_that("transpose works", {
+  x <- matrix(runif(6), ncol = 3)
+  x_t <- tensor(x)
+  expect_equal(as.array(x_t$transpose(0, 1)), t(x), tol = 1e-7)
+
+  expect_error(x_t$transpose())
+
+  x_t$transpose_(0, 1)
+  expect_equal(as.array(x_t), t(x), tol = 1e-7)
+
+})
+
 test_that("t works", {
   x <- matrix(runif(6), ncol = 3)
 

@@ -1000,6 +1000,15 @@
       `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim))
     },
 
+    transpose = function(dim0, dim1) {
+      `torch::Tensor`$dispatch(tensor_transpose_(self$pointer, dim0, dim1))
+    },
+
+    transpose_ = function(dim0, dim1) {
+      tensor_transpose__(self$pointer, dim0, dim1)
+      invisible(self)
+    },
+
     t = function() {
       `torch::Tensor`$dispatch(tensor_t_(self$pointer))
     },

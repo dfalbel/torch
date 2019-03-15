@@ -2889,6 +2889,32 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_transpose_
+Rcpp::XPtr<torch::Tensor> tensor_transpose_(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim0, std::int64_t dim1);
+RcppExport SEXP _torch_tensor_transpose_(SEXP xSEXP, SEXP dim0SEXP, SEXP dim1SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim0(dim0SEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim1(dim1SEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_transpose_(x, dim0, dim1));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_transpose__
+Rcpp::XPtr<torch::Tensor> tensor_transpose__(Rcpp::XPtr<torch::Tensor> x, std::int64_t dim0, std::int64_t dim1);
+RcppExport SEXP _torch_tensor_transpose__(SEXP xSEXP, SEXP dim0SEXP, SEXP dim1SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim0(dim0SEXP);
+    Rcpp::traits::input_parameter< std::int64_t >::type dim1(dim1SEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_transpose__(x, dim0, dim1));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_t_
 Rcpp::XPtr<torch::Tensor> tensor_t_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_t_(SEXP xSEXP) {
@@ -3266,6 +3292,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_sub_tensor__", (DL_FUNC) &_torch_tensor_sub_tensor__, 3},
     {"_torch_tensor_sub_scalar__", (DL_FUNC) &_torch_tensor_sub_scalar__, 3},
     {"_torch_tensor_sum_", (DL_FUNC) &_torch_tensor_sum_, 3},
+    {"_torch_tensor_transpose_", (DL_FUNC) &_torch_tensor_transpose_, 3},
+    {"_torch_tensor_transpose__", (DL_FUNC) &_torch_tensor_transpose__, 3},
     {"_torch_tensor_t_", (DL_FUNC) &_torch_tensor_t_, 1},
     {"_torch_tensor_tril_", (DL_FUNC) &_torch_tensor_tril_, 2},
     {"_torch_tensor_triu_", (DL_FUNC) &_torch_tensor_triu_, 2},

@@ -945,6 +945,14 @@ tensor_sum_ <- function(x, dim, keepdim = FALSE) {
     .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
+tensor_transpose_ <- function(x, dim0, dim1) {
+    .Call('_torch_tensor_transpose_', PACKAGE = 'torch', x, dim0, dim1)
+}
+
+tensor_transpose__ <- function(x, dim0, dim1) {
+    .Call('_torch_tensor_transpose__', PACKAGE = 'torch', x, dim0, dim1)
+}
+
 tensor_t_ <- function(x) {
     .Call('_torch_tensor_t_', PACKAGE = 'torch', x)
 }

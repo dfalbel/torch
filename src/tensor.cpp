@@ -1649,6 +1649,19 @@ Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
   Rcpp::stop("Not yet implemented");
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_transpose_ (Rcpp::XPtr<torch::Tensor> x,
+                                             std::int64_t dim0,
+                                             std::int64_t dim1) {
+  return make_tensor_ptr(x->transpose(dim0, dim1));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_transpose__ (Rcpp::XPtr<torch::Tensor> x,
+                                             std::int64_t dim0,
+                                             std::int64_t dim1) {
+  return make_tensor_ptr(x->transpose_(dim0, dim1));
+}
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {
