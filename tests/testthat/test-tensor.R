@@ -954,6 +954,14 @@ test_that("fmod works", {
   expect_equal(as.array(x$fmod(2)), 1)
   x$fmod_(2)
   expect_equal(as.array(x), 1)
+
+  z <- tch_arange(1, 10)
+  y <- tch_ones(9)
+
+  expect_equal(as.array(z$fmod(y)), rep(0, 9))
+
+  z$fmod_(y)
+  expect_equal(as.array(z),  rep(0, 9))
 })
 
 test_that("lerp works", {
