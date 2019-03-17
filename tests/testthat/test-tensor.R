@@ -957,8 +957,10 @@ test_that("fmod works", {
 
   z <- tch_arange(1, 10)
   y <- tch_ones(9)
+  w <- tch_ones(8)
 
   expect_equal(as.array(z$fmod(y)), rep(0, 9))
+  expect_error(as.array(z$fmod(w))) # putt it to reminds us when this bug were fixed.
 
   z$fmod_(y)
   expect_equal(as.array(z),  rep(0, 9))
