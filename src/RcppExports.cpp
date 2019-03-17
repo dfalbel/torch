@@ -2826,6 +2826,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_resize__
+Rcpp::XPtr<torch::Tensor> tensor_resize__(Rcpp::XPtr<torch::Tensor> x, std::vector<int64_t> sizes);
+RcppExport SEXP _torch_tensor_resize__(SEXP xSEXP, SEXP sizesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::vector<int64_t> >::type sizes(sizesSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_resize__(x, sizes));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_round_
 Rcpp::XPtr<torch::Tensor> tensor_round_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_round_(SEXP xSEXP) {
@@ -3400,6 +3412,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_remainder_tensor_", (DL_FUNC) &_torch_tensor_remainder_tensor_, 2},
     {"_torch_tensor_remainder_scalar__", (DL_FUNC) &_torch_tensor_remainder_scalar__, 2},
     {"_torch_tensor_remainder_tensor__", (DL_FUNC) &_torch_tensor_remainder_tensor__, 2},
+    {"_torch_tensor_resize__", (DL_FUNC) &_torch_tensor_resize__, 2},
     {"_torch_tensor_round_", (DL_FUNC) &_torch_tensor_round_, 1},
     {"_torch_tensor_round__", (DL_FUNC) &_torch_tensor_round__, 1},
     {"_torch_tensor_rsqrt_", (DL_FUNC) &_torch_tensor_rsqrt_, 1},

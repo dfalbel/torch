@@ -948,6 +948,12 @@
       invisible(self)
     },
 
+    resize_ = function(sizes){
+      tensor_resize__(self$pointer, sizes)
+      invisible(self)
+
+    },
+
     round = function() {
       `torch::Tensor`$dispatch(tensor_round_(self$pointer))
     },
