@@ -922,6 +922,15 @@
       invisible(self)
     },
 
+    renorm = function(p, dim, maxnorm) {
+      `torch::Tensor`$dispatch(tensor_renorm_(self$pointer, p, dim, maxnorm))
+    },
+
+    renorm_ = function(p, dim, maxnorm) {
+      tensor_renorm__(self$pointer, p, dim, maxnorm)
+      invisible(self)
+    },
+
     round = function() {
       `torch::Tensor`$dispatch(tensor_round_(self$pointer))
     },
