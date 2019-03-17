@@ -931,6 +931,23 @@
       invisible(self)
     },
 
+    remainder = function(divisor) {
+      if(is(divisor, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_remainder_tensor_(self$pointer, divisor$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_remainder_scalar_(self$pointer, divisor))
+      }
+    },
+
+    remainder_ = function(divisor) {
+      if(is(divisor, "tensor")) {
+        tensor_remainder_tensor__(self$pointer, divisor$pointer)
+      } else {
+        tensor_remainder_scalar__(self$pointer, divisor)
+      }
+      invisible(self)
+    },
+
     round = function() {
       `torch::Tensor`$dispatch(tensor_round_(self$pointer))
     },
