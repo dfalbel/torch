@@ -1585,6 +1585,11 @@ Rcpp::XPtr<torch::Tensor> tensor_renorm__ (Rcpp::XPtr<torch::Tensor> x,
   return make_tensor_ptr(x->renorm_(scalar_from_r_(p), dim, scalar_from_r_(maxnorm)));
 }
 
+Rcpp::XPtr<torch::Tensor> tensor_resize__ (Rcpp::XPtr<torch::Tensor> x,
+                                          std::vector<int64_t> sizes) {
+  return make_tensor_ptr(x->resize_(sizes));
+}
+
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_round_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->round());

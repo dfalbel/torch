@@ -2753,6 +2753,9 @@ END_RCPP
 // tensor_renorm_
 Rcpp::XPtr<torch::Tensor> tensor_renorm_(Rcpp::XPtr<torch::Tensor> x, SEXP p, std::int64_t dim, SEXP maxnorm);
 RcppExport SEXP _torch_tensor_renorm_(SEXP xSEXP, SEXP pSEXP, SEXP dimSEXP, SEXP maxnormSEXP) {
+// tensor_resize__
+Rcpp::XPtr<torch::Tensor> tensor_resize__(Rcpp::XPtr<torch::Tensor> x, std::vector<int64_t> sizes);
+RcppExport SEXP _torch_tensor_resize__(SEXP xSEXP, SEXP sizesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -2778,6 +2781,12 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+    Rcpp::traits::input_parameter< std::vector<int64_t> >::type sizes(sizesSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_resize__(x, sizes));
+    return rcpp_result_gen;
+END_RCPP
+}
+
 // tensor_round_
 Rcpp::XPtr<torch::Tensor> tensor_round_(Rcpp::XPtr<torch::Tensor> x);
 RcppExport SEXP _torch_tensor_round_(SEXP xSEXP) {
@@ -3348,6 +3357,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_reciprocal__", (DL_FUNC) &_torch_tensor_reciprocal__, 1},
     {"_torch_tensor_renorm_", (DL_FUNC) &_torch_tensor_renorm_, 4},
     {"_torch_tensor_renorm__", (DL_FUNC) &_torch_tensor_renorm__, 4},
+    {"_torch_tensor_resize__", (DL_FUNC) &_torch_tensor_resize__, 2},
     {"_torch_tensor_round_", (DL_FUNC) &_torch_tensor_round_, 1},
     {"_torch_tensor_round__", (DL_FUNC) &_torch_tensor_round__, 1},
     {"_torch_tensor_rsqrt_", (DL_FUNC) &_torch_tensor_rsqrt_, 1},

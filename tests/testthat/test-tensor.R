@@ -1162,7 +1162,7 @@ test_that("int", {
 
 test_that("inverse works", {
   x <- tch_randn(c(5,5))
-  expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-6)
+  expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-5)
 })
 
 test_that("is_contiguous", {
@@ -1511,6 +1511,20 @@ test_that("reciprocal works", {
 
   x$reciprocal_()
   expect_equal(as.array(x), c(0, -0.1, -10, Inf, 10, 0.1, 0), tol = 1e-7)
+})
+
+test_that("resize works", {
+  x <- array(1:12, c(2, 2, 3))
+  x_t <- tensor(x)
+
+  x_t$resize_(c(2, 2, 3))
+  expect_equal(as.array(x_t), x)
+
+  x_t$resize_(c(2, 2))
+  expect_equal(dim(as.array(x_t)), c(2, 2))
+
+  x_t$resize_(c(2))
+  expect_true(is.null(dim(as.array(x_t))))
 })
 
 test_that("round works", {

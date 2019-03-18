@@ -928,6 +928,10 @@
 
     renorm_ = function(p, dim, maxnorm) {
       tensor_renorm__(self$pointer, p, dim, maxnorm)
+    },
+        
+    resize_ = function(sizes){
+      tensor_resize__(self$pointer, sizes)
       invisible(self)
     },
 
