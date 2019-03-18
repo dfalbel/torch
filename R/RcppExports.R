@@ -897,6 +897,14 @@ tensor_reciprocal__ <- function(x) {
     .Call('_torch_tensor_reciprocal__', PACKAGE = 'torch', x)
 }
 
+tensor_renorm_ <- function(x, p, dim, maxnorm) {
+    .Call('_torch_tensor_renorm_', PACKAGE = 'torch', x, p, dim, maxnorm)
+}
+
+tensor_renorm__ <- function(x, p, dim, maxnorm) {
+    .Call('_torch_tensor_renorm__', PACKAGE = 'torch', x, p, dim, maxnorm)
+}
+
 tensor_resize__ <- function(x, sizes) {
     .Call('_torch_tensor_resize__', PACKAGE = 'torch', x, sizes)
 }

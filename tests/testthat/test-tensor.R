@@ -1886,3 +1886,13 @@ test_that("masked_select works", {
 
   expect_equal(as.array(x$masked_select(mask)), c(20, 200))
 })
+
+test_that("renorm works", {
+  x <- tensor(array(c(1, 2, 3, 1, 2, 3, 1, 2, 3), c(3, 3)))
+
+  expect_equal(as.array(x$renorm(1, 0, 5)), array(c(3, 5, 5, 3, 5, 5, 3, 5, 5)/3, c(3, 3)), tol = 1e-7)
+
+  x$renorm_(1, 0, 5)
+  expect_equal(as.array(x), array(c(3, 5, 5, 3, 5, 5, 3, 5, 5)/3, c(3, 3)), tol = 1e-7)
+})
+
