@@ -2778,6 +2778,54 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_remainder_scalar_
+Rcpp::XPtr<torch::Tensor> tensor_remainder_scalar_(Rcpp::XPtr<torch::Tensor> x, SEXP divisor);
+RcppExport SEXP _torch_tensor_remainder_scalar_(SEXP xSEXP, SEXP divisorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type divisor(divisorSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_remainder_scalar_(x, divisor));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_remainder_tensor_
+Rcpp::XPtr<torch::Tensor> tensor_remainder_tensor_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> divisor);
+RcppExport SEXP _torch_tensor_remainder_tensor_(SEXP xSEXP, SEXP divisorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type divisor(divisorSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_remainder_tensor_(x, divisor));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_remainder_scalar__
+Rcpp::XPtr<torch::Tensor> tensor_remainder_scalar__(Rcpp::XPtr<torch::Tensor> x, SEXP divisor);
+RcppExport SEXP _torch_tensor_remainder_scalar__(SEXP xSEXP, SEXP divisorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< SEXP >::type divisor(divisorSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_remainder_scalar__(x, divisor));
+    return rcpp_result_gen;
+END_RCPP
+}
+// tensor_remainder_tensor__
+Rcpp::XPtr<torch::Tensor> tensor_remainder_tensor__(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> divisor);
+RcppExport SEXP _torch_tensor_remainder_tensor__(SEXP xSEXP, SEXP divisorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type divisor(divisorSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_remainder_tensor__(x, divisor));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_resize__
 Rcpp::XPtr<torch::Tensor> tensor_resize__(Rcpp::XPtr<torch::Tensor> x, std::vector<int64_t> sizes);
 RcppExport SEXP _torch_tensor_resize__(SEXP xSEXP, SEXP sizesSEXP) {
@@ -3360,6 +3408,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_reciprocal__", (DL_FUNC) &_torch_tensor_reciprocal__, 1},
     {"_torch_tensor_renorm_", (DL_FUNC) &_torch_tensor_renorm_, 4},
     {"_torch_tensor_renorm__", (DL_FUNC) &_torch_tensor_renorm__, 4},
+    {"_torch_tensor_remainder_scalar_", (DL_FUNC) &_torch_tensor_remainder_scalar_, 2},
+    {"_torch_tensor_remainder_tensor_", (DL_FUNC) &_torch_tensor_remainder_tensor_, 2},
+    {"_torch_tensor_remainder_scalar__", (DL_FUNC) &_torch_tensor_remainder_scalar__, 2},
+    {"_torch_tensor_remainder_tensor__", (DL_FUNC) &_torch_tensor_remainder_tensor__, 2},
     {"_torch_tensor_resize__", (DL_FUNC) &_torch_tensor_resize__, 2},
     {"_torch_tensor_round_", (DL_FUNC) &_torch_tensor_round_, 1},
     {"_torch_tensor_round__", (DL_FUNC) &_torch_tensor_round__, 1},

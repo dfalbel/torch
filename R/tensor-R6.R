@@ -928,11 +928,30 @@
 
     renorm_ = function(p, dim, maxnorm) {
       tensor_renorm__(self$pointer, p, dim, maxnorm)
+      invisible(self)
     },
-        
+
+    remainder = function(divisor) {
+      if(is(divisor, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_remainder_tensor_(self$pointer, divisor$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_remainder_scalar_(self$pointer, divisor))
+      }
+    },
+
+    remainder_ = function(divisor) {
+      if(is(divisor, "tensor")) {
+        tensor_remainder_tensor__(self$pointer, divisor$pointer)
+      } else {
+        tensor_remainder_scalar__(self$pointer, divisor)
+      }
+      invisible(self)
+    },
+
     resize_ = function(sizes){
       tensor_resize__(self$pointer, sizes)
       invisible(self)
+
     },
 
     round = function() {

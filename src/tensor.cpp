@@ -1586,6 +1586,26 @@ Rcpp::XPtr<torch::Tensor> tensor_renorm__ (Rcpp::XPtr<torch::Tensor> x,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_remainder_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP divisor) {
+  return make_tensor_ptr(x->remainder(scalar_from_r_(divisor)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_remainder_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> divisor) {
+  return make_tensor_ptr(x->remainder(*divisor));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_remainder_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP divisor) {
+  return make_tensor_ptr(x->remainder_(scalar_from_r_(divisor)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_remainder_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> divisor) {
+  return make_tensor_ptr(x->remainder_(*divisor));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_resize__ (Rcpp::XPtr<torch::Tensor> x,
                                           std::vector<int64_t> sizes) {
   return make_tensor_ptr(x->resize_(sizes));

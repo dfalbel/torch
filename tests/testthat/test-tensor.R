@@ -954,6 +954,16 @@ test_that("fmod works", {
   expect_equal(as.array(x$fmod(2)), 1)
   x$fmod_(2)
   expect_equal(as.array(x), 1)
+
+  z <- tch_arange(1, 10)
+  y <- tch_ones(9)
+  w <- tch_ones(8)
+
+  expect_equal(as.array(z$fmod(y)), rep(0, 9))
+  expect_error(as.array(z$fmod(w))) # putt it to reminds us when this bug were fixed.
+
+  z$fmod_(y)
+  expect_equal(as.array(z),  rep(0, 9))
 })
 
 test_that("lerp works", {
@@ -1894,5 +1904,22 @@ test_that("renorm works", {
 
   x$renorm_(1, 0, 5)
   expect_equal(as.array(x), array(c(3, 5, 5, 3, 5, 5, 3, 5, 5)/3, c(3, 3)), tol = 1e-7)
+})
+
+test_that("remainder works", {
+  x <- tch_arange(1, 10)
+
+  expect_equal(as.array(x$remainder(3)), c(1, 2, 0, 1, 2, 0, 1, 2, 0))
+
+  x$remainder_(3)
+  expect_equal(as.array(x), c(1, 2, 0, 1, 2, 0, 1, 2, 0))
+
+  z <- tch_arange(1, 10)
+  y <- tch_ones(9)
+
+  expect_equal(as.array(z$remainder(y)), rep(0, 9))
+
+  z$remainder_(y)
+  expect_equal(as.array(z),  rep(0, 9))
 })
 

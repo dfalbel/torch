@@ -905,6 +905,22 @@ tensor_renorm__ <- function(x, p, dim, maxnorm) {
     .Call('_torch_tensor_renorm__', PACKAGE = 'torch', x, p, dim, maxnorm)
 }
 
+tensor_remainder_scalar_ <- function(x, divisor) {
+    .Call('_torch_tensor_remainder_scalar_', PACKAGE = 'torch', x, divisor)
+}
+
+tensor_remainder_tensor_ <- function(x, divisor) {
+    .Call('_torch_tensor_remainder_tensor_', PACKAGE = 'torch', x, divisor)
+}
+
+tensor_remainder_scalar__ <- function(x, divisor) {
+    .Call('_torch_tensor_remainder_scalar__', PACKAGE = 'torch', x, divisor)
+}
+
+tensor_remainder_tensor__ <- function(x, divisor) {
+    .Call('_torch_tensor_remainder_tensor__', PACKAGE = 'torch', x, divisor)
+}
+
 tensor_resize__ <- function(x, sizes) {
     .Call('_torch_tensor_resize__', PACKAGE = 'torch', x, sizes)
 }
