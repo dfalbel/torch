@@ -954,6 +954,16 @@ test_that("fmod works", {
   expect_equal(as.array(x$fmod(2)), 1)
   x$fmod_(2)
   expect_equal(as.array(x), 1)
+
+  z <- tch_arange(1, 10)
+  y <- tch_ones(9)
+  w <- tch_ones(8)
+
+  expect_equal(as.array(z$fmod(y)), rep(0, 9))
+  expect_error(as.array(z$fmod(w))) # putt it to reminds us when this bug were fixed.
+
+  z$fmod_(y)
+  expect_equal(as.array(z),  rep(0, 9))
 })
 
 test_that("lerp works", {
@@ -961,6 +971,10 @@ test_that("lerp works", {
   end <- tch_empty(4)$fill_(10)
 
   expect_equal(as.array(tch_lerp(start, end, 0.5)), c(5.5,  6,  6.5,  7))
+
+  start$lerp_(end, 0.5)
+  expect_equal(as.array(start), c(5.5,  6,  6.5,  7))
+
 })
 
 test_that("flatten works", {
@@ -1073,6 +1087,19 @@ test_that("get_device works", {
   }
 })
 
+test_that("lt works", {
+  x <- tensor(1)
+  expect_equal(as.array(x$lt(2)), TRUE)
+  expect_equal(as.array(x$lt(tensor(0))), FALSE)
+
+  x <- tensor(1)
+  x$lt_(0)
+  expect_equal(as.array(x$to("uint8")), FALSE)
+  x <- tensor(10)
+  x$lt_(tensor(11))
+  expect_equal(as.array(x$to("uint8")), TRUE)
+})
+
 test_that("gt works", {
   x <- tensor(1)
   expect_equal(as.array(x$gt(0)), TRUE)
@@ -1145,7 +1172,7 @@ test_that("int", {
 
 test_that("inverse works", {
   x <- tch_randn(c(5,5))
-  expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-6)
+  expect_equal(as.array(x$inverse()), solve(as.array(x)), tol = 1e-5)
 })
 
 test_that("is_contiguous", {
@@ -1370,6 +1397,18 @@ test_that("sum works", {
   expect_equal(as.array(tch_sum(tensor(x))), sum(x), tol = 1e-6)
 })
 
+test_that("transpose works", {
+  x <- matrix(runif(6), ncol = 3)
+  x_t <- tensor(x)
+  expect_equal(as.array(x_t$transpose(0, 1)), t(x), tol = 1e-7)
+
+  expect_error(x_t$transpose())
+
+  x_t$transpose_(0, 1)
+  expect_equal(as.array(x_t), t(x), tol = 1e-7)
+
+})
+
 test_that("t works", {
   x <- matrix(runif(6), ncol = 3)
 
@@ -1482,6 +1521,20 @@ test_that("reciprocal works", {
 
   x$reciprocal_()
   expect_equal(as.array(x), c(0, -0.1, -10, Inf, 10, 0.1, 0), tol = 1e-7)
+})
+
+test_that("resize works", {
+  x <- array(1:12, c(2, 2, 3))
+  x_t <- tensor(x)
+
+  x_t$resize_(c(2, 2, 3))
+  expect_equal(as.array(x_t), x)
+
+  x_t$resize_(c(2, 2))
+  expect_equal(dim(as.array(x_t)), c(2, 2))
+
+  x_t$resize_(c(2))
+  expect_true(is.null(dim(as.array(x_t))))
 })
 
 test_that("round works", {
@@ -1811,3 +1864,62 @@ test_that("sort works", {
   expect_error(x_t$sort(-4))
 
 })
+
+test_that("masked_scatter_ works", {
+  x <- tensor(array(c(1, 1, 1, 1, 2, 2), c(3, 2)))
+  mask <- x$eq(1)
+  source <- tensor(array(c(10, 20, 30, 40, 50, 60), c(2, 3)))
+
+  x$masked_scatter_(mask, source)
+  expect_equal(as.array(x), array(c(10, 50, 20, 30, 2, 2), c(3, 2)))
+
+
+  source <- tensor(array(c(5, 5), c(2, 1)))
+  x_clone <- x$clone()
+  expect_error(x$masked_scatter_(mask, source))
+  # expect_equal(as.array(x), as.array(x_clone)) # bug? issue https://github.com/pytorch/pytorch/issues/18086
+})
+
+test_that("masked_fill_ works", {
+  x <- tensor(array(c(1, 1, 1, 1, 2, 2), c(3, 2)))
+  mask <- x$eq(1)
+  value <- 10
+
+  x$masked_fill_(mask, value)
+  expect_equal(as.array(x), array(c(value, value, value, value, 2, 2), c(3, 2)))
+})
+
+test_that("masked_select works", {
+  x <- tensor(array(c(1, 1, 1, 1, 20, 200), c(3, 2)))
+  mask <- x$ge(2)
+
+
+  expect_equal(as.array(x$masked_select(mask)), c(20, 200))
+})
+
+test_that("renorm works", {
+  x <- tensor(array(c(1, 2, 3, 1, 2, 3, 1, 2, 3), c(3, 3)))
+
+  expect_equal(as.array(x$renorm(1, 0, 5)), array(c(3, 5, 5, 3, 5, 5, 3, 5, 5)/3, c(3, 3)), tol = 1e-7)
+
+  x$renorm_(1, 0, 5)
+  expect_equal(as.array(x), array(c(3, 5, 5, 3, 5, 5, 3, 5, 5)/3, c(3, 3)), tol = 1e-7)
+})
+
+test_that("remainder works", {
+  x <- tch_arange(1, 10)
+
+  expect_equal(as.array(x$remainder(3)), c(1, 2, 0, 1, 2, 0, 1, 2, 0))
+
+  x$remainder_(3)
+  expect_equal(as.array(x), c(1, 2, 0, 1, 2, 0, 1, 2, 0))
+
+  z <- tch_arange(1, 10)
+  y <- tch_ones(9)
+
+  expect_equal(as.array(z$remainder(y)), rep(0, 9))
+
+  z$remainder_(y)
+  expect_equal(as.array(z),  rep(0, 9))
+})
+

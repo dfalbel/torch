@@ -633,6 +633,10 @@ tensor_lerp_ <- function(start, end, weight) {
     .Call('_torch_tensor_lerp_', PACKAGE = 'torch', start, end, weight)
 }
 
+tensor_lerp__ <- function(start, end, weight) {
+    .Call('_torch_tensor_lerp__', PACKAGE = 'torch', start, end, weight)
+}
+
 tensor_gather_ <- function(x, dim, index) {
     .Call('_torch_tensor_gather_', PACKAGE = 'torch', x, dim, index)
 }
@@ -679,6 +683,22 @@ tensor_gesv_ <- function(x, A) {
 
 tensor_get_device_ <- function(x) {
     .Call('_torch_tensor_get_device_', PACKAGE = 'torch', x)
+}
+
+tensor_lt_tensor_ <- function(x, other) {
+    .Call('_torch_tensor_lt_tensor_', PACKAGE = 'torch', x, other)
+}
+
+tensor_lt_scalar_ <- function(x, other) {
+    .Call('_torch_tensor_lt_scalar_', PACKAGE = 'torch', x, other)
+}
+
+tensor_lt_tensor__ <- function(x, other) {
+    .Call('_torch_tensor_lt_tensor__', PACKAGE = 'torch', x, other)
+}
+
+tensor_lt_scalar__ <- function(x, other) {
+    .Call('_torch_tensor_lt_scalar__', PACKAGE = 'torch', x, other)
 }
 
 tensor_gt_tensor_ <- function(x, other) {
@@ -825,6 +845,18 @@ tensor_logsumexp_ <- function(x, dim, keepdim) {
     .Call('_torch_tensor_logsumexp_', PACKAGE = 'torch', x, dim, keepdim)
 }
 
+tensor_masked_scatter__ <- function(x, mask, source) {
+    .Call('_torch_tensor_masked_scatter__', PACKAGE = 'torch', x, mask, source)
+}
+
+tensor_masked_fill__ <- function(x, mask, value) {
+    .Call('_torch_tensor_masked_fill__', PACKAGE = 'torch', x, mask, value)
+}
+
+tensor_masked_select_ <- function(x, mask) {
+    .Call('_torch_tensor_masked_select_', PACKAGE = 'torch', x, mask)
+}
+
 tensor_mm_ <- function(x, mat2) {
     .Call('_torch_tensor_mm_', PACKAGE = 'torch', x, mat2)
 }
@@ -863,6 +895,34 @@ tensor_reciprocal_ <- function(x) {
 
 tensor_reciprocal__ <- function(x) {
     .Call('_torch_tensor_reciprocal__', PACKAGE = 'torch', x)
+}
+
+tensor_renorm_ <- function(x, p, dim, maxnorm) {
+    .Call('_torch_tensor_renorm_', PACKAGE = 'torch', x, p, dim, maxnorm)
+}
+
+tensor_renorm__ <- function(x, p, dim, maxnorm) {
+    .Call('_torch_tensor_renorm__', PACKAGE = 'torch', x, p, dim, maxnorm)
+}
+
+tensor_remainder_scalar_ <- function(x, divisor) {
+    .Call('_torch_tensor_remainder_scalar_', PACKAGE = 'torch', x, divisor)
+}
+
+tensor_remainder_tensor_ <- function(x, divisor) {
+    .Call('_torch_tensor_remainder_tensor_', PACKAGE = 'torch', x, divisor)
+}
+
+tensor_remainder_scalar__ <- function(x, divisor) {
+    .Call('_torch_tensor_remainder_scalar__', PACKAGE = 'torch', x, divisor)
+}
+
+tensor_remainder_tensor__ <- function(x, divisor) {
+    .Call('_torch_tensor_remainder_tensor__', PACKAGE = 'torch', x, divisor)
+}
+
+tensor_resize__ <- function(x, sizes) {
+    .Call('_torch_tensor_resize__', PACKAGE = 'torch', x, sizes)
 }
 
 tensor_round_ <- function(x) {
@@ -923,6 +983,14 @@ tensor_sub_scalar__ <- function(x, other, alpha) {
 
 tensor_sum_ <- function(x, dim, keepdim = FALSE) {
     .Call('_torch_tensor_sum_', PACKAGE = 'torch', x, dim, keepdim)
+}
+
+tensor_transpose_ <- function(x, dim0, dim1) {
+    .Call('_torch_tensor_transpose_', PACKAGE = 'torch', x, dim0, dim1)
+}
+
+tensor_transpose__ <- function(x, dim0, dim1) {
+    .Call('_torch_tensor_transpose__', PACKAGE = 'torch', x, dim0, dim1)
 }
 
 tensor_t_ <- function(x) {

@@ -599,6 +599,11 @@
       `torch::Tensor`$dispatch(tensor_lerp_(self$pointer, end$pointer, weight))
     },
 
+    lerp_ = function(end, weight) {
+      tensor_lerp__(self$pointer, end$pointer, weight)
+      invisible(self)
+    },
+
     gather = function(dim, index) {
       `torch::Tensor`$dispatch(tensor_gather_(self$pointer, dim, index$pointer))
     },
@@ -646,6 +651,23 @@
 
     get_device = function() {
       tensor_get_device_(self$pointer)
+    },
+
+    lt = function(other) {
+      if (is(other, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_lt_tensor_(self$pointer, other$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_lt_scalar_(self$pointer, other))
+      }
+    },
+
+    lt_ = function(other) {
+      if (is(other, "tensor")) {
+        tensor_lt_tensor__(self$pointer, other$pointer)
+      } else {
+        tensor_lt_scalar__(self$pointer, other)
+      }
+      invisible(self)
     },
 
     gt = function(other) {
@@ -836,6 +858,20 @@
       lapply(out, `torch::Tensor`$dispatch)
     },
 
+    masked_scatter_ = function(mask, source){
+      tensor_masked_scatter__(self$pointer, mask$pointer, source$pointer)
+      invisible(self)
+    },
+
+    masked_fill_ = function(mask, value){
+      tensor_masked_fill__(self$pointer, mask$pointer, value)
+      invisible(self)
+    },
+
+    masked_select = function(mask){
+      `torch::Tensor`$dispatch(tensor_masked_select_(self$pointer, mask$pointer))
+    },
+
     mm = function(mat2) {
       `torch::Tensor`$dispatch(tensor_mm_(self$pointer, mat2$pointer))
     },
@@ -884,6 +920,38 @@
     reciprocal_ = function(){
       tensor_reciprocal__(self$pointer)
       invisible(self)
+    },
+
+    renorm = function(p, dim, maxnorm) {
+      `torch::Tensor`$dispatch(tensor_renorm_(self$pointer, p, dim, maxnorm))
+    },
+
+    renorm_ = function(p, dim, maxnorm) {
+      tensor_renorm__(self$pointer, p, dim, maxnorm)
+      invisible(self)
+    },
+
+    remainder = function(divisor) {
+      if(is(divisor, "tensor")) {
+        `torch::Tensor`$dispatch(tensor_remainder_tensor_(self$pointer, divisor$pointer))
+      } else {
+        `torch::Tensor`$dispatch(tensor_remainder_scalar_(self$pointer, divisor))
+      }
+    },
+
+    remainder_ = function(divisor) {
+      if(is(divisor, "tensor")) {
+        tensor_remainder_tensor__(self$pointer, divisor$pointer)
+      } else {
+        tensor_remainder_scalar__(self$pointer, divisor)
+      }
+      invisible(self)
+    },
+
+    resize_ = function(sizes){
+      tensor_resize__(self$pointer, sizes)
+      invisible(self)
+
     },
 
     round = function() {
@@ -976,6 +1044,15 @@
 
     sum = function(dim = NULL, keepdim = FALSE) {
       `torch::Tensor`$dispatch(tensor_sum_(self$pointer, dim, keepdim))
+    },
+
+    transpose = function(dim0, dim1) {
+      `torch::Tensor`$dispatch(tensor_transpose_(self$pointer, dim0, dim1))
+    },
+
+    transpose_ = function(dim0, dim1) {
+      tensor_transpose__(self$pointer, dim0, dim1)
+      invisible(self)
     },
 
     t = function() {

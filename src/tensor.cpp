@@ -1134,6 +1134,14 @@ Rcpp::XPtr<torch::Tensor> tensor_lerp_ (Rcpp::XPtr<torch::Tensor> start,
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_lerp__ (Rcpp::XPtr<torch::Tensor> start,
+                                        Rcpp::XPtr<torch::Tensor> end,
+                                        SEXP weight
+) {
+  return make_tensor_ptr(start->lerp_(*end, scalar_from_r_(weight)));
+}
+
+// [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_gather_ (Rcpp::XPtr<torch::Tensor> x, int64_t dim, Rcpp::XPtr<torch::Tensor> index) {
   return make_tensor_ptr(x->gather(dim, *index));
 }
@@ -1197,6 +1205,26 @@ std::int64_t tensor_get_device_ (Rcpp::XPtr<torch::Tensor> x) {
     return x->get_device();
 
   Rcpp::stop("get_device is not implemented for tensors with CPU backend.");
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_lt_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->lt(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_lt_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->lt(scalar_from_r_(other)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_lt_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> other) {
+  return make_tensor_ptr(x->lt_(*other));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_lt_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP other) {
+  return make_tensor_ptr(x->lt_(scalar_from_r_(other)));
 }
 
 // [[Rcpp::export]]
@@ -1463,6 +1491,25 @@ Rcpp::XPtr<torch::Tensor> tensor_logsumexp_ (Rcpp::XPtr<torch::Tensor> x,
   return make_tensor_ptr(x->logsumexp(dim, keepdim));
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_masked_scatter__ (Rcpp::XPtr<torch::Tensor> x,
+                                                   Rcpp::XPtr<torch::Tensor> mask,
+                                                   Rcpp::XPtr<torch::Tensor> source) {
+  return make_tensor_ptr(x->masked_scatter_(*mask, *source));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_masked_fill__ (Rcpp::XPtr<torch::Tensor> x,
+                                                Rcpp::XPtr<torch::Tensor> mask,
+                                                SEXP value) {
+  return make_tensor_ptr(x->masked_fill_(*mask, scalar_from_r_(value)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_masked_select_ (Rcpp::XPtr<torch::Tensor> x,
+                                                 Rcpp::XPtr<torch::Tensor> mask) {
+  return make_tensor_ptr(x->masked_select(*mask));
+}
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_mm_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> mat2) {
@@ -1508,7 +1555,7 @@ Rcpp::List tensor_qr_ (Rcpp::XPtr<torch::Tensor> x) {
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_repeat_ (Rcpp::XPtr<torch::Tensor> x,
-                                          std::vector<int64_t> sizes) {
+                                          std::vector<std::int64_t> sizes) {
   return make_tensor_ptr(x->repeat(sizes));
 }
 
@@ -1520,6 +1567,48 @@ Rcpp::XPtr<torch::Tensor> tensor_reciprocal_ (Rcpp::XPtr<torch::Tensor> x) {
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_reciprocal__ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->reciprocal_());
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_renorm_ (Rcpp::XPtr<torch::Tensor> x,
+                                          SEXP p,
+                                          std::int64_t dim,
+                                          SEXP maxnorm) {
+  return make_tensor_ptr(x->renorm(scalar_from_r_(p), dim, scalar_from_r_(maxnorm)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_renorm__ (Rcpp::XPtr<torch::Tensor> x,
+                                           SEXP p,
+                                           std::int64_t dim,
+                                           SEXP maxnorm) {
+  return make_tensor_ptr(x->renorm_(scalar_from_r_(p), dim, scalar_from_r_(maxnorm)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_remainder_scalar_ (Rcpp::XPtr<torch::Tensor> x, SEXP divisor) {
+  return make_tensor_ptr(x->remainder(scalar_from_r_(divisor)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_remainder_tensor_ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> divisor) {
+  return make_tensor_ptr(x->remainder(*divisor));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_remainder_scalar__ (Rcpp::XPtr<torch::Tensor> x, SEXP divisor) {
+  return make_tensor_ptr(x->remainder_(scalar_from_r_(divisor)));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_remainder_tensor__ (Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> divisor) {
+  return make_tensor_ptr(x->remainder_(*divisor));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_resize__ (Rcpp::XPtr<torch::Tensor> x,
+                                          std::vector<int64_t> sizes) {
+  return make_tensor_ptr(x->resize_(sizes));
 }
 
 // [[Rcpp::export]]
@@ -1621,6 +1710,19 @@ Rcpp::XPtr<torch::Tensor> tensor_sum_ (Rcpp::XPtr<torch::Tensor> x,
   Rcpp::stop("Not yet implemented");
 }
 
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_transpose_ (Rcpp::XPtr<torch::Tensor> x,
+                                             std::int64_t dim0,
+                                             std::int64_t dim1) {
+  return make_tensor_ptr(x->transpose(dim0, dim1));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_transpose__ (Rcpp::XPtr<torch::Tensor> x,
+                                             std::int64_t dim0,
+                                             std::int64_t dim1) {
+  return make_tensor_ptr(x->transpose_(dim0, dim1));
+}
 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_t_ (Rcpp::XPtr<torch::Tensor> x) {
