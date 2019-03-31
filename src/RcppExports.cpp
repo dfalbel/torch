@@ -943,6 +943,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_short_
+Rcpp::XPtr<torch::Tensor> tensor_short_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_short_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(tensor_short_(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // tensor_btrisolve_
 Rcpp::XPtr<torch::Tensor> tensor_btrisolve_(Rcpp::XPtr<torch::Tensor> x, Rcpp::XPtr<torch::Tensor> LU_data, Rcpp::XPtr<torch::Tensor> LU_pivots);
 RcppExport SEXP _torch_tensor_btrisolve_(SEXP xSEXP, SEXP LU_dataSEXP, SEXP LU_pivotsSEXP) {
@@ -3265,6 +3276,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_btrifact_", (DL_FUNC) &_torch_tensor_btrifact_, 2},
     {"_torch_tensor_btrifact_with_info_", (DL_FUNC) &_torch_tensor_btrifact_with_info_, 2},
     {"_torch_tensor_byte_", (DL_FUNC) &_torch_tensor_byte_, 1},
+    {"_torch_tensor_short_", (DL_FUNC) &_torch_tensor_short_, 1},
     {"_torch_tensor_btrisolve_", (DL_FUNC) &_torch_tensor_btrisolve_, 3},
     {"_torch_tensor_cauchy__", (DL_FUNC) &_torch_tensor_cauchy__, 3},
     {"_torch_tensor_ceil_", (DL_FUNC) &_torch_tensor_ceil_, 1},

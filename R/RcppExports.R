@@ -289,6 +289,10 @@ tensor_byte_ <- function(x) {
     .Call('_torch_tensor_byte_', PACKAGE = 'torch', x)
 }
 
+tensor_short_ <- function(x) {
+    .Call('_torch_tensor_short_', PACKAGE = 'torch', x)
+}
+
 tensor_btrisolve_ <- function(x, LU_data, LU_pivots) {
     .Call('_torch_tensor_btrisolve_', PACKAGE = 'torch', x, LU_data, LU_pivots)
 }
