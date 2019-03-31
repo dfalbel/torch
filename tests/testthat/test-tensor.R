@@ -1564,7 +1564,11 @@ test_that("sigmoid works", {
 
 test_that("sign works", {
   x <- array(c(rnorm(10), Inf))
-  expect_equivalent(as.array(tch_sign(tensor(x))), sign(x), tol = 1e-7)
+  x_t <- tensor(x)
+  expect_equivalent(as.array(tch_sign(x_t)), sign(x), tol = 1e-7)
+
+  x_t$sign_()
+  expect_equivalent(as.array(x_t), sign(x), tol = 1e-7)
 })
 
 test_that("sqrt works", {

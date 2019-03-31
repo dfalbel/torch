@@ -980,6 +980,12 @@
       `torch::Tensor`$dispatch(tensor_sign_(self$pointer))
     },
 
+    sign_ = function() {
+      tensor_sign__(self$pointer)
+      invisible(self)
+    },
+
+
     sigmoid_ = function() {
       tensor_sigmoid__(self$pointer)
       invisible(self)
