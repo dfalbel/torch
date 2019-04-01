@@ -161,6 +161,8 @@ Rcpp::List as_array_tensor_ (Rcpp::XPtr<torch::Tensor> x) {
     return as_array_tensor_impl_<INTSXP, int32_t>(ten.to(torch::kInt));
   } else if (ten.dtype() == torch::kFloat) {
     return as_array_tensor_impl_<REALSXP, double>(ten.to(torch::kDouble));
+  } else if (ten.dtype() == torch::kInt16) {
+    return as_array_tensor_impl_<INTSXP, int16_t>(ten.to(torch::kInt16));
   }
 
   Rcpp::stop("dtype not handled");
@@ -652,6 +654,11 @@ Rcpp::List tensor_btrifact_with_info_ (Rcpp::XPtr<torch::Tensor> x, bool pivot) 
 // [[Rcpp::export]]
 Rcpp::XPtr<torch::Tensor> tensor_byte_ (Rcpp::XPtr<torch::Tensor> x) {
   return make_tensor_ptr(x->to(torch::kByte));
+}
+
+// [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_short_ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->to(torch::kInt16));
 }
 
 // [[Rcpp::export]]

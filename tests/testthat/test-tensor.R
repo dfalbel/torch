@@ -446,6 +446,13 @@ test_that("byte works", {
   expect_equal(as.array(x), c(FALSE, TRUE, TRUE, FALSE, TRUE))
 })
 
+test_that("short works", {
+  x <- tensor(c(0,1,1,0,1))
+  x <- x$short()
+  expect_equal(x$dtype(), "short")
+  expect_equal(as.array(x), c(0,1,1,0,1))
+})
+
 test_that("btrisolve works", {
   A <- tensor(array(runif(18), dim = c(2,3,3)))
   b <- tensor(matrix(runif(6), ncol = 3))

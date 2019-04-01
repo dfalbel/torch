@@ -268,6 +268,10 @@
       `torch::Tensor`$dispatch(tensor_byte_(self$pointer))
     },
 
+    short = function() {
+      `torch::Tensor`$dispatch(tensor_short_(self$pointer))
+    },
+
     btrisolve = function(LU_data, LU_pivots) {
       `torch::Tensor`$dispatch(
         tensor_btrisolve_(self$pointer, LU_data$pointer, LU_pivots$pointer)
@@ -984,8 +988,7 @@
       tensor_sign__(self$pointer)
       invisible(self)
     },
-
-
+        
     sigmoid_ = function() {
       tensor_sigmoid__(self$pointer)
       invisible(self)
