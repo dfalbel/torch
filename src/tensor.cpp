@@ -1647,6 +1647,10 @@ Rcpp::XPtr<torch::Tensor> tensor_sign_ (Rcpp::XPtr<torch::Tensor> x) {
 }
 
 // [[Rcpp::export]]
+Rcpp::XPtr<torch::Tensor> tensor_sign__ (Rcpp::XPtr<torch::Tensor> x) {
+  return make_tensor_ptr(x->sign_());
+}
+// [[Rcpp::export]]
 Rcpp::List tensor_sort_ (Rcpp::XPtr<torch::Tensor> x,
                          Rcpp::Nullable<std::int64_t> dim,
                          bool descending) {
