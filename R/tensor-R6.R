@@ -988,7 +988,7 @@
       tensor_sign__(self$pointer)
       invisible(self)
     },
-
+        
     sigmoid_ = function() {
       tensor_sigmoid__(self$pointer)
       invisible(self)
