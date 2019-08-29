@@ -252,6 +252,9 @@ arguments_call_string <- function(argument) {
 
   argument_name <- argument$name
 
+  if (grepl("c10::optional", argument$type) && !argument$dynamic_type == "ScalarType")
+    argument_name <- glue::glue("resolve_null_argument({argument_name})")
+
   if (argument$dynamic_type == "Scalar")
     argument_name <- glue::glue("scalar_from_r_({argument_name})")
 
@@ -260,6 +263,9 @@ arguments_call_string <- function(argument) {
 
   if (argument$dynamic_type == "TensorList")
     argument_name <- glue::glue("tensor_list_from_r_({argument_name})")
+
+  if (argument$dynamic_type == "Tensor")
+    argument_name <- glue::glue("*{argument_name}")
 
   if (argument$dynamic_type == "Generator *")
     return(NA_character_)

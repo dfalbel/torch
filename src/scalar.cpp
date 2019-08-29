@@ -37,6 +37,14 @@ torch::ScalarType scalar_type_from_string(std::string scalar_type) {
   Rcpp::stop("scalar not handled");
 }
 
+torch::ScalarType scalar_type_from_string(Rcpp::Nullable<std::string> scalar_type) {
+  if (scalar_type.isNull()) {
+    return torch::ScalarType::Undefined;
+  } else {
+    return scalar_type_from_string(Rcpp::as<std::string>(scalar_type));
+  }
+}
+
 std::string scalar_type_to_string(torch::ScalarType scalar_type) {
   if (scalar_type == torch::kInt) {
     return "int";
