@@ -2,6 +2,7 @@
 # The generated code is created by  splitting methods in the follwing groups:
 #
 # - Methods that have a single signature
+#   - NUllable arguments based in c10::optional can be solved with `resolve_null_argument`
 # - Methods that don't have a single signature
 #   - Methods that have different signatures for scalars and tensors
 #   - Methods that have a single additional argument.
