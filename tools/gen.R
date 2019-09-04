@@ -264,8 +264,13 @@ arguments_call_string <- function(argument) {
   if (argument$dynamic_type == "TensorList")
     argument_name <- glue::glue("tensor_list_from_r_({argument_name})")
 
-  if (argument$dynamic_type == "Tensor")
+  if (argument$dynamic_type == "Tensor") {
+
+    if (argument$is_nullable)
+      argument_name <- glue::glue("Rcpp::as<Rcpp::XPtr<torch::Tensor>>({argument_name})")
+
     argument_name <- glue::glue("*{argument_name}")
+  }
 
   if (argument$dynamic_type == "Generator *")
     return(NA_character_)
