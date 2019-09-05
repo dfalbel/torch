@@ -22,6 +22,7 @@ torch::Scalar scalar_from_r_ (SEXP x) {
   }
 };
 
+
 torch::ScalarType scalar_type_from_string(std::string scalar_type) {
   if (scalar_type == "int32" | scalar_type == "int") {
     return torch::kInt;

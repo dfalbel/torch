@@ -31,7 +31,7 @@ tensor_methods <- declarations %>%
 
 method_names <- unique(map_chr(tensor_methods, ~.x$name))
 
-exceptions <- c("qscheme", "item")
+exceptions <- c("qscheme", "item", "polygamma", "set_quantizer_")
 
 method_names <- method_names[!method_names %in% exceptions]
 
@@ -200,7 +200,7 @@ argument_string <- function(argument) {
   if (type == "TensorList")
     type <- "Rcpp::List"
 
-  if (argument$is_nullable)
+  if (argument$is_nullable && argument$dynamic_type != "Scalar")
     type <- glue::glue("Rcpp::Nullable<{type}>")
 
   if (type == "Generator *")
@@ -252,11 +252,14 @@ arguments_call_string <- function(argument) {
 
   argument_name <- argument$name
 
-  if (grepl("c10::optional", argument$type) && !argument$dynamic_type == "ScalarType")
+  if (grepl("c10::optional", argument$type) && !argument$dynamic_type %in% c("ScalarType", "Scalar"))
     argument_name <- glue::glue("resolve_null_argument({argument_name})")
 
-  if (argument$dynamic_type == "Scalar")
+  if (argument$dynamic_type == "Scalar" && ! argument$is_nullable)
     argument_name <- glue::glue("scalar_from_r_({argument_name})")
+
+  if (argument$dynamic_type == "Scalar" && argument$is_nullable)
+    argument_name <- glue::glue("resolve_null_scalar({argument_name})")
 
   if (argument$dynamic_type == "ScalarType")
     argument_name <- glue::glue("scalar_type_from_string({argument_name})")
@@ -294,7 +297,12 @@ arguments_preprocess <- function(arguments) {
 body_string <- function(method) {
 
   # create intermediary result for inplace and non inplace
-  body <- glue::glue("auto out = self->{method$name}({arguments_preprocess(method$arguments[-1])});")
+
+  body <- glue::glue("self->{method$name}({arguments_preprocess(method$arguments[-1])});")
+
+  if (method$returns[[1]]$dynamic_type != "void"){
+    body <- glue::glue("auto out = {body}")
+  }
 
   # create output based on return types
   if (length(method$returns) == 1) {
