@@ -29,156 +29,15 @@ declarations <- yaml::read_yaml(
 tensor_methods <- declarations %>%
   keep(~"Tensor" %in% .x$method_of)
 
-method_names <- unique(map_chr(tensor_methods, ~.x$name))
-
 exceptions <- c("qscheme", "item", "polygamma", "set_quantizer_")
 
 method_names <- method_names[!method_names %in% exceptions]
 
-# finds out if multiple signatures are just because we deal differently with
-# tensors vs scalars. eg.: add
-case_tensor_vs_scalar <- function(method) {
-
-  arguments <- method %>%
-    map(~.x$arguments) %>%
-    map_df(
-      ~map_df(
-        .x,
-        ~tibble::tibble(
-          name = .x$name %||% NA,
-          type = .x$dynamic_type
-        )
-      ),
-      .id = "id"
-    )
-
-  summary <- arguments %>%
-    dplyr::group_by(name) %>%
-    dplyr::summarise(
-      n = dplyr::n_distinct(id),
-      ntypes = dplyr::n_distinct(type),
-      scalar_and_tensor = all(c("Scalar", "Tensor") %in% type) | all(c("double", "Tensor") %in% type)
-    )
-
-  # not all arguments have the same name for all signatures
-  if (!all(summary$n == summary$n[1]))
-    return(FALSE)
-
-  # all arguments expect one have 2 types
-  if (!nrow(dplyr::filter(summary, ntypes > 1) == 1))
-    return(FALSE)
-
-  # we dont have any scalar and a tensor
-  if (!any(summary$scalar_and_tensor))
-    return(FALSE)
-
-  TRUE
-}
-
-# single scalar argument is different
-case_single_additional_argument <- function(method) {
-
-  arguments <- method %>%
-    map(~.x$arguments) %>%
-    map_df(
-      ~map_df(
-        .x,
-        ~tibble::tibble(
-          name = .x$name,
-          type = .x$dynamic_type
-        )
-      ),
-      .id = "id"
-    )
-
-  summary <- arguments %>%
-    dplyr::group_by(name) %>%
-    dplyr::summarise(
-      n = dplyr::n_distinct(id),
-      ntypes = dplyr::n_distinct(type)
-    )
-
-  # more than 2 methods
-  if (max(summary$n) > 2)
-    return(FALSE)
-
-  if (!nrow(dplyr::filter(summary, n == 1)) == 1)
-    return(FALSE)
-
-  additional_arg_name <- dplyr::filter(summary, n == 1)$name
-  if (!arguments$type[arguments$name == additional_arg_name] == "double")
-    return(FALSE)
-
-  TRUE
-}
-
-# one of the signatures is have dim and keepdim args.
-case_dim_and_keepdim <- function(method) {
-
-  arguments <- method %>%
-    map(~.x$arguments) %>%
-    map_df(
-      ~map_df(
-        .x,
-        ~tibble::tibble(
-          name = .x$name,
-          type = .x$dynamic_type
-        )
-      ),
-      .id = "id"
-    )
-
-  if (! all(c("dim", "keepdim") %in% arguments$name))
-    return(FALSE)
-
-  summary <- arguments %>%
-    dplyr::group_by(id) %>%
-    dplyr::summarise(
-      nargs = dplyr::n(),
-      args = list(unique(name))
-      )
-
-  if (! nrow(summary) == 2)
-    return(FALSE)
-
-  if (! max(summary$nargs) == min(summary$nargs) + 2)
-    return(FALSE)
-
-  TRUE
-}
-
-case_dim_keepdim_and_other <- function(method) {
-
-  arguments <- method %>%
-    map(~.x$arguments) %>%
-    map_df(
-      ~map_df(
-        .x,
-        ~tibble::tibble(
-          name = .x$name,
-          type = .x$dynamic_type
-        )
-      ),
-      .id = "id"
-    )
-
-  if (! all(c("dim", "keepdim", "other") %in% arguments$name))
-    return(FALSE)
-
-  summary <- arguments %>%
-    dplyr::group_by(id) %>%
-    dplyr::summarise(
-      nargs = dplyr::n(),
-      args = list(unique(name))
-    )
-
-  if (! nrow(summary) == 3)
-    return(FALSE)
-
-  if (! all(c(1,2,3) %in% summary$nargs))
-    return(FALSE)
-
-  TRUE
+# creates a single id for the function based on the
+hash_arguments <- function(arguments) {
+  types <- paste0(map_chr(arguments, ~.x$type), collapse = "")
+  names <- paste0(map_chr(arguments, ~.x$name), collapse = "")
+  openssl::md5(glue::glue("{types}{names}"))
 }
 
 argument_string <- function(argument) {
@@ -197,8 +56,17 @@ argument_string <- function(argument) {
   if (type == "ScalarType")
     type <- "std::string"
 
+  if (type == "Device")
+    type <- "std::string"
+
+  if (type == "Storage")
+    type <- "Rcpp::XPtr<torch::Storage>"
+
   if (type == "TensorList")
     type <- "Rcpp::List"
+
+  if (type == "TensorOptions")
+    type <- "Rcpp::XPtr<torch::TensorOptions>"
 
   if (argument$is_nullable && argument$dynamic_type != "Scalar")
     type <- glue::glue("Rcpp::Nullable<{type}>")
@@ -242,7 +110,7 @@ signature_string <- function(method) {
   return_type <-
 
   glue::glue("
-     {return_type_string(method)} torch_{method$name}_ (
+     {return_type_string(method)} torch_{method$name}_{hash_arguments(method$arguments)} (
      {arguments_string(method$arguments)}
      )
      ")
@@ -266,6 +134,15 @@ arguments_call_string <- function(argument) {
 
   if (argument$dynamic_type == "TensorList")
     argument_name <- glue::glue("tensor_list_from_r_({argument_name})")
+
+  if (argument$dynamic_type == "Device")
+    argument_name <- glue::glue("device_from_string({argument_name})")
+
+  if (argument$dynamic_type == "Storage")
+    argument_name <- glue::glue("*{argument_name}")
+
+  if (argument$dynamic_type == "TensorOptions")
+    argument_name <- glue::glue("*{argument_name}")
 
   if (argument$dynamic_type == "Tensor") {
 
@@ -307,13 +184,19 @@ body_string <- function(method) {
   # create output based on return types
   if (length(method$returns) == 1) {
 
-    if (method$returns[[1]]$dynamic_type == "Tensor")
+    dynamic_type <- method$returns[[1]]$dynamic_type
+
+    if (dynamic_type == "Tensor") {
       body <- paste(body, "return make_tensor_ptr(out);", sep = "\n")
-    else if (method$returns[[1]]$dynamic_type == "void") {
+    } else if (dynamic_type == "QScheme") {
+      body <- paste(body, "return make_qscheme_ptr(out);", sep = "\n")
+    } else if (dynamic_type == "Scalar") {
+      body <- paste(body, "return scalar_to_r_(out);", sep = "\n")
+    } else if (dynamic_type == "void") {
       # explcitily doing nothing
-    } else if (method$returns[[1]]$dynamic_type %in% c("double", "bool", "int64_t")) {
+    } else if (dynamic_type %in% c("double", "bool", "int64_t")) {
       body <- paste(body, "return out;", sep = "\n")
-    } else if (method$returns[[1]]$dynamic_type == "TensorList") {
+    } else if (dynamic_type == "TensorList") {
 
       body <- paste(body,
                     glue::glue(
@@ -360,35 +243,14 @@ method_string <- function(method) {
   }};")
 }
 
-make_method_code <- function(method) {
-
-  if (length(method) == 1) {
-
-    method_string(method[[1]])
-
-  } else {
-
-    if (case_tensor_vs_scalar(method)) {
-
-    } else if (case_single_additional_argument(method)) {
-
-    } else if (case_dim_and_keepdim(method)) {
-
-    } else if (case_dim_keepdim_and_other(method)) {
-
-    } else {
-      message(name, " must be manually implemented")
-    }
-
-  }
-
-}
-
 methods_code <- c()
+for (method in tensor_methods) {
 
-for (name in method_names) {
-  method <- keep(tensor_methods, ~.x$name == name)
-  methods_code <- c(methods_code, make_method_code(method))
+  if (method$name %in% exceptions)
+    next
+
+
+  methods_code <- c(methods_code, method_string(method))
 }
 
 if (file.exists(methods_fname))
