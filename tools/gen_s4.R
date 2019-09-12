@@ -16,25 +16,46 @@ declarations <- yaml::read_yaml(
 tensor_methods <- declarations %>%
   keep(~"Tensor" %in% .x$method_of)
 
+get_possible_argument_names <- function(methods) {
+
+  # remove args that are not wraped
+  arguments <- map(methods, ~.x$arguments)
+
+  argument_names <- map(arguments, ~map_chr(.x, function(.x) {
+
+    if (.x$dynamic_type == "Generator *")
+      return(NA_character_)
+
+    .x$name
+  }) %>% discard(is.na))
+
+  unq <- argument_names %>%
+    flatten_chr() %>%
+    unique()
+
+  ind <-  unq %>%
+    map(function(x) {
+      map_int(argument_names, ~which(.x == x)[1])
+    }) %>%
+    map_int(max, na.rm = TRUE) %>%
+    order()
+
+  unq[ind]
+}
 
 # create all generics
 generics_code <- tensor_methods %>%
   map_chr(~.x$name) %>%
   unique() %>%
   map_chr(function(nm) {
+
     possible_names <- tensor_methods %>%
       keep(~.x$name == nm) %>%
-      map(~.x$arguments %>% map_chr(function(.x) {
-        if (.x$dynamic_type == "Generator *")
-          return(NA_character_)
-
-        .x$name
-      }) %>% discard(is.na)) %>%
-      flatten_chr() %>%
-      unique()
+      get_possible_argument_names()
 
     glue::glue('setGeneric("torch_{nm}_", function({paste(possible_names, collapse =", ")}) standardGeneric("torch_{nm}_"))')
   })
+
 
 exceptions <- c("qscheme", "item", "polygamma", "set_quantizer_")
 
@@ -88,6 +109,9 @@ arg_r_type <- function(argument) {
     argument_type <- "character"
 
   if (argument_type == "TensorList")
+    argument_type <- "list"
+
+  if (argument_type == "TensorOptions")
     argument_type <- "list"
 
   glue::glue("{argument_name}='{argument_type}'")
