@@ -24,18 +24,17 @@ generics_code <- tensor_methods %>%
   map_chr(function(nm) {
     possible_names <- tensor_methods %>%
       keep(~.x$name == nm) %>%
-      map(~.x$arguments %>% map_chr(~.x$name)) %>%
+      map(~.x$arguments %>% map_chr(function(.x) {
+        if (.x$dynamic_type == "Generator *")
+          return(NA_character_)
+
+        .x$name
+      }) %>% discard(is.na)) %>%
       flatten_chr() %>%
       unique()
+
     glue::glue('setGeneric("torch_{nm}_", function({paste(possible_names, collapse =", ")}) standardGeneric("torch_{nm}_"))')
   })
-
-possible_arguments_method_name <- function(method_name) {
-  tensor_methods %>%
-    keep(~.x$name == method_name) %>%
-    map(~.argumen)
-}
-
 
 exceptions <- c("qscheme", "item", "polygamma", "set_quantizer_")
 
@@ -56,17 +55,51 @@ generic_name <- function(method) {
 
 s4_signature_string <- function(method) {
   argument_types <- sapply(method$arguments, arg_r_type)
+  argument_types <- purrr::discard(argument_types, is.null)
   glue::glue("list({paste(argument_types, collapse = ', ')})")
 }
 
 arg_r_type <- function(argument) {
   argument_name <- argument$name
   argument_type <- argument$dynamic_type
+
+  if (argument_type == "bool")
+    argument_type <- "logical"
+
+  if (argument_type == "Tensor")
+    argument_type <- "externalptr"
+
+  if (argument_type == "Scalar")
+    argument_type <- "numeric"
+
+  if (argument_type == "int64_t")
+    argument_type <- "numeric"
+
+  if (argument_type == "IntArrayRef")
+    argument_type <- "numeric"
+
+  if (argument_type == "Generator *")
+    return(NULL)
+
+  if (argument_type == "ScalarType")
+    argument_type <- "character"
+
+  if (argument_type == "MemoryFormat")
+    argument_type <- "character"
+
+  if (argument_type == "TensorList")
+    argument_type <- "list"
+
   glue::glue("{argument_name}='{argument_type}'")
 }
 
 arguments_string <- function(method) {
-  args <- sapply(method$arguments, function(x) x$name)
+  args <- sapply(method$arguments, function(x) {
+    if (x$dynamic_type == "Generator *")
+      return(NULL)
+    x$name
+  })
+  args <- purrr::discard(args, is.null)
   paste0(args, collapse = ", ")
 }
 
