@@ -28,12 +28,11 @@ std::vector<torch::Tensor> tensor_list_from_r_(Rcpp::Nullable<Rcpp::List> x) {
   }
 }
 
-template<class T>
-torch::optional<T> resolve_null_argument (Rcpp::Nullable<T> x) {
+torch::optional<std::int64_t> resolve_null_argument (Rcpp::Nullable<std::int64_t> x) {
   if (x.isNull()) {
     return torch::nullopt;
   } else {
-    return Rcpp::as<T>(x);
+    return Rcpp::as<std::int64_t>(x);
   }
 }
 

@@ -18,8 +18,8 @@ then
   elif [[ "$OSTYPE" == "darwin"* ]]
   then
     # for OS X only CPU backend
-    TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-macos-latest.zip'
-    TORCH_MKL_BINARIES='https://github.com/intel/mkl-dnn/releases/download/v0.17.2/mklml_mac_2019.0.1.20180928.tgz'
+    TORCH_BINARIES='https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.2.0.zip'
+    TORCH_MKL_BINARIES='https://github.com/intel/mkl-dnn/releases/download/v0.20/mklml_mac_2019.0.5.20190502.tgz'
   else
     echo "OS is not supported"
     exit 1
