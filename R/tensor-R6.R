@@ -48,10 +48,6 @@
 
 )
 
-`torch::Tensor`$set("public", "clone", function() {
-  # TODO decide if clone_ is the best name for this method.
-  `torch::Tensor`$dispatch(tensor_clone_(self$pointer))
-})
 
 external_ptr <- function(class, xp) {
   class$new(xp)

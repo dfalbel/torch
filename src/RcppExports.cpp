@@ -46,6 +46,16 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tensor_print_
+void tensor_print_(Rcpp::XPtr<torch::Tensor> x);
+RcppExport SEXP _torch_tensor_print_(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type x(xSEXP);
+    tensor_print_(x);
+    return R_NilValue;
+END_RCPP
+}
 // cuda_is_available_
 bool cuda_is_available_();
 RcppExport SEXP _torch_cuda_is_available_() {
@@ -5016,6 +5026,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_tensor_from_r_", (DL_FUNC) &_torch_tensor_from_r_, 5},
     {"_torch_tensor_", (DL_FUNC) &_torch_tensor_, 4},
     {"_torch_as_array_tensor_", (DL_FUNC) &_torch_as_array_tensor_, 1},
+    {"_torch_tensor_print_", (DL_FUNC) &_torch_tensor_print_, 1},
     {"_torch_cuda_is_available_", (DL_FUNC) &_torch_cuda_is_available_, 0},
     {"_torch_set_grad_mode", (DL_FUNC) &_torch_set_grad_mode, 1},
     {"_torch_torch_backward_0427181972d30e1747ec208d30a7470a", (DL_FUNC) &_torch_torch_backward_0427181972d30e1747ec208d30a7470a, 4},

@@ -13,6 +13,10 @@ as_array_tensor_ <- function(x) {
     .Call('_torch_as_array_tensor_', PACKAGE = 'torch', x)
 }
 
+tensor_print_ <- function(x) {
+    invisible(.Call('_torch_tensor_print_', PACKAGE = 'torch', x))
+}
+
 cuda_is_available_ <- function() {
     .Call('_torch_cuda_is_available_', PACKAGE = 'torch')
 }
