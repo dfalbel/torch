@@ -53,7 +53,7 @@ method_cpp_return_type <- function(method) {
 #'
 #' @inheritParams method_cpp_code
 method_cpp_name <- function(method) {
-
+  glue::glue("torch_{method$name}_{hash_arguments(method$arguments)}")
 }
 
 #' Makes the signature of the cpp function.
@@ -62,6 +62,7 @@ method_cpp_name <- function(method) {
 method_cpp_signature <- function(method) {
 
 }
+
 
 #' Makes the body of the cpp function.
 #'
