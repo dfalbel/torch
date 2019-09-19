@@ -17,6 +17,36 @@ method_cpp_code <- function(method) {
 #' @inheritParams method_cpp_code
 method_cpp_return_type <- function(method) {
 
+  if (length(method$returns) == 1) {
+
+    dynamic_type <- method$returns[[1]]$dynamic_type
+
+    if (dynamic_type == "Tensor") {
+
+      return("Rcpp::XPtr<torch::Tensor>")
+
+    } else if (dynamic_type %in% c("void", "bool", "double", "int64_t")) {
+
+      return(dynamic_type)
+
+    } else if (dynamic_type == "TensorList") {
+
+      return("Rcpp::List")
+
+    }
+
+  } else if (all(purrr::map_chr(method$returns, ~.x$dynamic_type) == "Tensor")) {
+
+    return("Rcpp::List")
+
+  }
+
+  stop(
+    "Don't know how to deal with the return type: ",
+    dput(method$returns),
+    call. = FALSE
+  )
+
 }
 
 #' Makes the name of the cpp function.
