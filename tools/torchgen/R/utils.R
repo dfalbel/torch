@@ -42,7 +42,7 @@ tensor_methods <- function() {
 #' Based on all the arguments.
 #
 hash_arguments <- function(arguments) {
-  types <- paste0(map_chr(arguments, ~.x$type), collapse = "")
-  names <- paste0(map_chr(arguments, ~.x$name), collapse = "")
-  openssl::md5(glue::glue("{types}{names}"))
+  types <- paste0(purrr::map_chr(arguments, ~.x$type), collapse = "")
+  names <- paste0(purrr::map_chr(arguments, ~.x$name), collapse = "")
+  substr(openssl::md5(glue::glue("{types}{names}")), 1,5)
 }

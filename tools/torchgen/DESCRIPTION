@@ -15,4 +15,6 @@ Imports:
     purrr,
     glue,
     yaml,
-    openssl
+    openssl,
+    magrittr
+RoxygenNote: 6.1.1
