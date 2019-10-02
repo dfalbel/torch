@@ -37,6 +37,29 @@ tensor_methods <- function() {
     purrr::keep(~"Tensor" %in% .x$method_of)
 }
 
+#' Takes an object like `declarations()` and
+#' returns the list of unique names in it.
+#'
+#' @param declarations list of methods/function contained
+#'  in the declaration.
+#'
+function_names <- function(declarations) {
+  declarations %>%
+    purrr::map_chr(~.x$name) %>%
+    unique()
+}
+
+#' Filters the declarations getting only those with
+#' the same name.
+#'
+#' @inheritParams  function_names
+#' @param name name to filter.
+#'
+declarations_with_name <- function(declarations, name) {
+  declarations %>%
+    purrr::keep(~.x$name == name)
+}
+
 #' Creates a single id for a function.
 #'
 #' Based on all the arguments.
