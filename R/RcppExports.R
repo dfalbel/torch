@@ -25,1615 +25,1615 @@ set_grad_mode <- function(enabled) {
     invisible(.Call('_torch_set_grad_mode', PACKAGE = 'torch', enabled))
 }
 
-torch_backward_0427181972d30e1747ec208d30a7470a <- function(self, gradient, keep_graph, create_graph) {
-    invisible(.Call('_torch_torch_backward_0427181972d30e1747ec208d30a7470a', PACKAGE = 'torch', self, gradient, keep_graph, create_graph))
+torch_backward_04271 <- function(self, gradient, keep_graph, create_graph) {
+    invisible(.Call('_torch_torch_backward_04271', PACKAGE = 'torch', self, gradient, keep_graph, create_graph))
 }
 
-torch_set_data_89728a9882441111256f356aa2c7bd2d <- function(self, new_data) {
-    invisible(.Call('_torch_torch_set_data_89728a9882441111256f356aa2c7bd2d', PACKAGE = 'torch', self, new_data))
+torch_set_data_89728 <- function(self, new_data) {
+    invisible(.Call('_torch_torch_set_data_89728', PACKAGE = 'torch', self, new_data))
 }
 
-torch_abs_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_abs_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_abs_68396 <- function(self) {
+    .Call('_torch_torch_abs_68396', PACKAGE = 'torch', self)
 }
 
-torch_abs__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_abs__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_abs__77059 <- function(self) {
+    .Call('_torch_torch_abs__77059', PACKAGE = 'torch', self)
 }
 
-torch_acos_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_acos_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_acos_68396 <- function(self) {
+    .Call('_torch_torch_acos_68396', PACKAGE = 'torch', self)
 }
 
-torch_acos__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_acos__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_acos__77059 <- function(self) {
+    .Call('_torch_torch_acos__77059', PACKAGE = 'torch', self)
 }
 
-torch_add_02bec2e8e54b6237090a5042dd1e991c <- function(self, other, alpha) {
-    .Call('_torch_torch_add_02bec2e8e54b6237090a5042dd1e991c', PACKAGE = 'torch', self, other, alpha)
+torch_add_02bec <- function(self, other, alpha) {
+    .Call('_torch_torch_add_02bec', PACKAGE = 'torch', self, other, alpha)
 }
 
-torch_add__6b3a76c4ed9f62ef65e1cec9d661dfa5 <- function(self, other, alpha) {
-    .Call('_torch_torch_add__6b3a76c4ed9f62ef65e1cec9d661dfa5', PACKAGE = 'torch', self, other, alpha)
+torch_add__6b3a7 <- function(self, other, alpha) {
+    .Call('_torch_torch_add__6b3a7', PACKAGE = 'torch', self, other, alpha)
 }
 
-torch_add_783c8a98771291069457898dc444b949 <- function(self, other, alpha) {
-    .Call('_torch_torch_add_783c8a98771291069457898dc444b949', PACKAGE = 'torch', self, other, alpha)
+torch_add_783c8 <- function(self, other, alpha) {
+    .Call('_torch_torch_add_783c8', PACKAGE = 'torch', self, other, alpha)
 }
 
-torch_add__407c973b091671443effd1a0b4dfe28f <- function(self, other, alpha) {
-    .Call('_torch_torch_add__407c973b091671443effd1a0b4dfe28f', PACKAGE = 'torch', self, other, alpha)
+torch_add__407c9 <- function(self, other, alpha) {
+    .Call('_torch_torch_add__407c9', PACKAGE = 'torch', self, other, alpha)
 }
 
-torch_addmv_1072d7a4d7a0dab6482cb299987e26ff <- function(self, mat, vec, beta, alpha) {
-    .Call('_torch_torch_addmv_1072d7a4d7a0dab6482cb299987e26ff', PACKAGE = 'torch', self, mat, vec, beta, alpha)
+torch_addmv_1072d <- function(self, mat, vec, beta, alpha) {
+    .Call('_torch_torch_addmv_1072d', PACKAGE = 'torch', self, mat, vec, beta, alpha)
 }
 
-torch_addmv__4820c49a5d1d67877f59e1d57a262a9d <- function(self, mat, vec, beta, alpha) {
-    .Call('_torch_torch_addmv__4820c49a5d1d67877f59e1d57a262a9d', PACKAGE = 'torch', self, mat, vec, beta, alpha)
+torch_addmv__4820c <- function(self, mat, vec, beta, alpha) {
+    .Call('_torch_torch_addmv__4820c', PACKAGE = 'torch', self, mat, vec, beta, alpha)
 }
 
-torch_addr_ab5fbf3dbf88b209e751ed0770b30e5c <- function(self, vec1, vec2, beta, alpha) {
-    .Call('_torch_torch_addr_ab5fbf3dbf88b209e751ed0770b30e5c', PACKAGE = 'torch', self, vec1, vec2, beta, alpha)
+torch_addr_ab5fb <- function(self, vec1, vec2, beta, alpha) {
+    .Call('_torch_torch_addr_ab5fb', PACKAGE = 'torch', self, vec1, vec2, beta, alpha)
 }
 
-torch_addr__d04ad2d4b220f065f90babfb039cafc0 <- function(self, vec1, vec2, beta, alpha) {
-    .Call('_torch_torch_addr__d04ad2d4b220f065f90babfb039cafc0', PACKAGE = 'torch', self, vec1, vec2, beta, alpha)
+torch_addr__d04ad <- function(self, vec1, vec2, beta, alpha) {
+    .Call('_torch_torch_addr__d04ad', PACKAGE = 'torch', self, vec1, vec2, beta, alpha)
 }
 
-torch_all_a00d65de0c17931eb6106e885279f146 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_all_a00d65de0c17931eb6106e885279f146', PACKAGE = 'torch', self, dim, keepdim)
+torch_all_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_all_a00d6', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_allclose_68991204bc2d1d5ac874203da18b195a <- function(self, other, rtol, atol, equal_nan) {
-    .Call('_torch_torch_allclose_68991204bc2d1d5ac874203da18b195a', PACKAGE = 'torch', self, other, rtol, atol, equal_nan)
+torch_allclose_68991 <- function(self, other, rtol, atol, equal_nan) {
+    .Call('_torch_torch_allclose_68991', PACKAGE = 'torch', self, other, rtol, atol, equal_nan)
 }
 
-torch_any_a00d65de0c17931eb6106e885279f146 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_any_a00d65de0c17931eb6106e885279f146', PACKAGE = 'torch', self, dim, keepdim)
+torch_any_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_any_a00d6', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_argmax_49e69c8c7172be362fffe33e9ea73ccb <- function(self, dim, keepdim) {
-    .Call('_torch_torch_argmax_49e69c8c7172be362fffe33e9ea73ccb', PACKAGE = 'torch', self, dim, keepdim)
+torch_argmax_49e69 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_argmax_49e69', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_argmin_49e69c8c7172be362fffe33e9ea73ccb <- function(self, dim, keepdim) {
-    .Call('_torch_torch_argmin_49e69c8c7172be362fffe33e9ea73ccb', PACKAGE = 'torch', self, dim, keepdim)
+torch_argmin_49e69 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_argmin_49e69', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_as_strided_48a5ca9ebdf2e93013f04622e447af23 <- function(self, size, stride, storage_offset) {
-    .Call('_torch_torch_as_strided_48a5ca9ebdf2e93013f04622e447af23', PACKAGE = 'torch', self, size, stride, storage_offset)
+torch_as_strided_48a5c <- function(self, size, stride, storage_offset) {
+    .Call('_torch_torch_as_strided_48a5c', PACKAGE = 'torch', self, size, stride, storage_offset)
 }
 
-torch_as_strided__854a1e8405883f30f2ac785b62b9df35 <- function(self, size, stride, storage_offset) {
-    .Call('_torch_torch_as_strided__854a1e8405883f30f2ac785b62b9df35', PACKAGE = 'torch', self, size, stride, storage_offset)
+torch_as_strided__854a1 <- function(self, size, stride, storage_offset) {
+    .Call('_torch_torch_as_strided__854a1', PACKAGE = 'torch', self, size, stride, storage_offset)
 }
 
-torch_asin_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_asin_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_asin_68396 <- function(self) {
+    .Call('_torch_torch_asin_68396', PACKAGE = 'torch', self)
 }
 
-torch_asin__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_asin__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_asin__77059 <- function(self) {
+    .Call('_torch_torch_asin__77059', PACKAGE = 'torch', self)
 }
 
-torch_atan_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_atan_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_atan_68396 <- function(self) {
+    .Call('_torch_torch_atan_68396', PACKAGE = 'torch', self)
 }
 
-torch_atan__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_atan__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_atan__77059 <- function(self) {
+    .Call('_torch_torch_atan__77059', PACKAGE = 'torch', self)
 }
 
-torch_baddbmm_f084ab37fd7cee9fb89f911187c51117 <- function(self, batch1, batch2, beta, alpha) {
-    .Call('_torch_torch_baddbmm_f084ab37fd7cee9fb89f911187c51117', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
+torch_baddbmm_f084a <- function(self, batch1, batch2, beta, alpha) {
+    .Call('_torch_torch_baddbmm_f084a', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
 }
 
-torch_baddbmm__e39679a201c809cf04d4768abd5f9472 <- function(self, batch1, batch2, beta, alpha) {
-    .Call('_torch_torch_baddbmm__e39679a201c809cf04d4768abd5f9472', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
+torch_baddbmm__e3967 <- function(self, batch1, batch2, beta, alpha) {
+    .Call('_torch_torch_baddbmm__e3967', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
 }
 
-torch_bernoulli_172e9e81db927896b92b352cb077113b <- function(self) {
-    .Call('_torch_torch_bernoulli_172e9e81db927896b92b352cb077113b', PACKAGE = 'torch', self)
+torch_bernoulli_172e9 <- function(self) {
+    .Call('_torch_torch_bernoulli_172e9', PACKAGE = 'torch', self)
 }
 
-torch_bernoulli__a2c4898743bb0b00055eccf935534a10 <- function(self, p) {
-    .Call('_torch_torch_bernoulli__a2c4898743bb0b00055eccf935534a10', PACKAGE = 'torch', self, p)
+torch_bernoulli__a2c48 <- function(self, p) {
+    .Call('_torch_torch_bernoulli__a2c48', PACKAGE = 'torch', self, p)
 }
 
-torch_bernoulli__c0d7479cf591e60afc5ecc0adace5091 <- function(self, p) {
-    .Call('_torch_torch_bernoulli__c0d7479cf591e60afc5ecc0adace5091', PACKAGE = 'torch', self, p)
+torch_bernoulli__c0d74 <- function(self, p) {
+    .Call('_torch_torch_bernoulli__c0d74', PACKAGE = 'torch', self, p)
 }
 
-torch_bernoulli_7c6a3063d6c9160addd43f700047fc1d <- function(self, p) {
-    .Call('_torch_torch_bernoulli_7c6a3063d6c9160addd43f700047fc1d', PACKAGE = 'torch', self, p)
+torch_bernoulli_7c6a3 <- function(self, p) {
+    .Call('_torch_torch_bernoulli_7c6a3', PACKAGE = 'torch', self, p)
 }
 
-torch_bincount_f4aaee0119fb1bbeda5d6924832e6ccd <- function(self, weights, minlength) {
-    .Call('_torch_torch_bincount_f4aaee0119fb1bbeda5d6924832e6ccd', PACKAGE = 'torch', self, weights, minlength)
+torch_bincount_f4aae <- function(self, weights, minlength) {
+    .Call('_torch_torch_bincount_f4aae', PACKAGE = 'torch', self, weights, minlength)
 }
 
-torch_bitwise_not_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_bitwise_not_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_bitwise_not_68396 <- function(self) {
+    .Call('_torch_torch_bitwise_not_68396', PACKAGE = 'torch', self)
 }
 
-torch_bitwise_not__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_bitwise_not__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_bitwise_not__77059 <- function(self) {
+    .Call('_torch_torch_bitwise_not__77059', PACKAGE = 'torch', self)
 }
 
-torch_bmm_4179872982cdd9692065c1d0412bcd54 <- function(self, mat2) {
-    .Call('_torch_torch_bmm_4179872982cdd9692065c1d0412bcd54', PACKAGE = 'torch', self, mat2)
+torch_bmm_41798 <- function(self, mat2) {
+    .Call('_torch_torch_bmm_41798', PACKAGE = 'torch', self, mat2)
 }
 
-torch_ceil_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_ceil_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_ceil_68396 <- function(self) {
+    .Call('_torch_torch_ceil_68396', PACKAGE = 'torch', self)
 }
 
-torch_ceil__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_ceil__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_ceil__77059 <- function(self) {
+    .Call('_torch_torch_ceil__77059', PACKAGE = 'torch', self)
 }
 
-torch_chunk_d1ba7cb9ab45bed064482d6655a047ba <- function(self, chunks, dim) {
-    .Call('_torch_torch_chunk_d1ba7cb9ab45bed064482d6655a047ba', PACKAGE = 'torch', self, chunks, dim)
+torch_chunk_d1ba7 <- function(self, chunks, dim) {
+    .Call('_torch_torch_chunk_d1ba7', PACKAGE = 'torch', self, chunks, dim)
 }
 
-torch_clamp_70f48b9c0a72bac849220903ec22a50a <- function(self, min, max) {
-    .Call('_torch_torch_clamp_70f48b9c0a72bac849220903ec22a50a', PACKAGE = 'torch', self, min, max)
+torch_clamp_70f48 <- function(self, min, max) {
+    .Call('_torch_torch_clamp_70f48', PACKAGE = 'torch', self, min, max)
 }
 
-torch_clamp__de153b8f9dac7cff075500db6ee1f472 <- function(self, min, max) {
-    .Call('_torch_torch_clamp__de153b8f9dac7cff075500db6ee1f472', PACKAGE = 'torch', self, min, max)
+torch_clamp__de153 <- function(self, min, max) {
+    .Call('_torch_torch_clamp__de153', PACKAGE = 'torch', self, min, max)
 }
 
-torch_clamp_max_632290f0e396f400e950acd849169431 <- function(self, max) {
-    .Call('_torch_torch_clamp_max_632290f0e396f400e950acd849169431', PACKAGE = 'torch', self, max)
+torch_clamp_max_63229 <- function(self, max) {
+    .Call('_torch_torch_clamp_max_63229', PACKAGE = 'torch', self, max)
 }
 
-torch_clamp_max__1319c907c5eeba718b7832b2e9395f61 <- function(self, max) {
-    .Call('_torch_torch_clamp_max__1319c907c5eeba718b7832b2e9395f61', PACKAGE = 'torch', self, max)
+torch_clamp_max__1319c <- function(self, max) {
+    .Call('_torch_torch_clamp_max__1319c', PACKAGE = 'torch', self, max)
 }
 
-torch_clamp_min_96a46b6306a546d929ea4f53bd544b90 <- function(self, min) {
-    .Call('_torch_torch_clamp_min_96a46b6306a546d929ea4f53bd544b90', PACKAGE = 'torch', self, min)
+torch_clamp_min_96a46 <- function(self, min) {
+    .Call('_torch_torch_clamp_min_96a46', PACKAGE = 'torch', self, min)
 }
 
-torch_clamp_min__a683f5abd859c5ad58289c38de974579 <- function(self, min) {
-    .Call('_torch_torch_clamp_min__a683f5abd859c5ad58289c38de974579', PACKAGE = 'torch', self, min)
+torch_clamp_min__a683f <- function(self, min) {
+    .Call('_torch_torch_clamp_min__a683f', PACKAGE = 'torch', self, min)
 }
 
-torch_contiguous_d11f20d0c3dedbed7060d922567eeb82 <- function(self) {
-    .Call('_torch_torch_contiguous_d11f20d0c3dedbed7060d922567eeb82', PACKAGE = 'torch', self)
+torch_contiguous_d11f2 <- function(self) {
+    .Call('_torch_torch_contiguous_d11f2', PACKAGE = 'torch', self)
 }
 
-torch_copy__1ccfd2368a7db3f7bcf684e5471b9cbe <- function(self, src, non_blocking) {
-    .Call('_torch_torch_copy__1ccfd2368a7db3f7bcf684e5471b9cbe', PACKAGE = 'torch', self, src, non_blocking)
+torch_copy__1ccfd <- function(self, src, non_blocking) {
+    .Call('_torch_torch_copy__1ccfd', PACKAGE = 'torch', self, src, non_blocking)
 }
 
-torch_cos_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_cos_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_cos_68396 <- function(self) {
+    .Call('_torch_torch_cos_68396', PACKAGE = 'torch', self)
 }
 
-torch_cos__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_cos__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_cos__77059 <- function(self) {
+    .Call('_torch_torch_cos__77059', PACKAGE = 'torch', self)
 }
 
-torch_cosh_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_cosh_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_cosh_68396 <- function(self) {
+    .Call('_torch_torch_cosh_68396', PACKAGE = 'torch', self)
 }
 
-torch_cosh__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_cosh__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_cosh__77059 <- function(self) {
+    .Call('_torch_torch_cosh__77059', PACKAGE = 'torch', self)
 }
 
-torch_cumsum_497aca3433c567f5542cfedd28714419 <- function(self, dim, dtype) {
-    .Call('_torch_torch_cumsum_497aca3433c567f5542cfedd28714419', PACKAGE = 'torch', self, dim, dtype)
+torch_cumsum_497ac <- function(self, dim, dtype) {
+    .Call('_torch_torch_cumsum_497ac', PACKAGE = 'torch', self, dim, dtype)
 }
 
-torch_cumprod_497aca3433c567f5542cfedd28714419 <- function(self, dim, dtype) {
-    .Call('_torch_torch_cumprod_497aca3433c567f5542cfedd28714419', PACKAGE = 'torch', self, dim, dtype)
+torch_cumprod_497ac <- function(self, dim, dtype) {
+    .Call('_torch_torch_cumprod_497ac', PACKAGE = 'torch', self, dim, dtype)
 }
 
-torch_det_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_det_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_det_68396 <- function(self) {
+    .Call('_torch_torch_det_68396', PACKAGE = 'torch', self)
 }
 
-torch_diag_embed_83af1f3094a6ddea435a5fde5762756f <- function(self, offset, dim1, dim2) {
-    .Call('_torch_torch_diag_embed_83af1f3094a6ddea435a5fde5762756f', PACKAGE = 'torch', self, offset, dim1, dim2)
+torch_diag_embed_83af1 <- function(self, offset, dim1, dim2) {
+    .Call('_torch_torch_diag_embed_83af1', PACKAGE = 'torch', self, offset, dim1, dim2)
 }
 
-torch_diagflat_c2bc38d3bfe8c6855ff8eac707000e71 <- function(self, offset) {
-    .Call('_torch_torch_diagflat_c2bc38d3bfe8c6855ff8eac707000e71', PACKAGE = 'torch', self, offset)
+torch_diagflat_c2bc3 <- function(self, offset) {
+    .Call('_torch_torch_diagflat_c2bc3', PACKAGE = 'torch', self, offset)
 }
 
-torch_diagonal_83af1f3094a6ddea435a5fde5762756f <- function(self, offset, dim1, dim2) {
-    .Call('_torch_torch_diagonal_83af1f3094a6ddea435a5fde5762756f', PACKAGE = 'torch', self, offset, dim1, dim2)
+torch_diagonal_83af1 <- function(self, offset, dim1, dim2) {
+    .Call('_torch_torch_diagonal_83af1', PACKAGE = 'torch', self, offset, dim1, dim2)
 }
 
-torch_fill_diagonal__afd80df47ca4531a8d0038af1e0e0e29 <- function(self, fill_value, wrap) {
-    .Call('_torch_torch_fill_diagonal__afd80df47ca4531a8d0038af1e0e0e29', PACKAGE = 'torch', self, fill_value, wrap)
+torch_fill_diagonal__afd80 <- function(self, fill_value, wrap) {
+    .Call('_torch_torch_fill_diagonal__afd80', PACKAGE = 'torch', self, fill_value, wrap)
 }
 
-torch_div_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_div_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_div_7f12b <- function(self, other) {
+    .Call('_torch_torch_div_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_div__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_div__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_div__5d476 <- function(self, other) {
+    .Call('_torch_torch_div__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_div_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_div_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_div_828c7 <- function(self, other) {
+    .Call('_torch_torch_div_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_div__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_div__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_div__7c9cc <- function(self, other) {
+    .Call('_torch_torch_div__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_dot_20e8a5d03011737e0a350fd8208fc32a <- function(self, tensor) {
-    .Call('_torch_torch_dot_20e8a5d03011737e0a350fd8208fc32a', PACKAGE = 'torch', self, tensor)
+torch_dot_20e8a <- function(self, tensor) {
+    .Call('_torch_torch_dot_20e8a', PACKAGE = 'torch', self, tensor)
 }
 
-torch_resize__b5c406f407e1edb269082d30571274a2 <- function(self, size) {
-    .Call('_torch_torch_resize__b5c406f407e1edb269082d30571274a2', PACKAGE = 'torch', self, size)
+torch_resize__b5c40 <- function(self, size) {
+    .Call('_torch_torch_resize__b5c40', PACKAGE = 'torch', self, size)
 }
 
-torch_erf_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_erf_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_erf_68396 <- function(self) {
+    .Call('_torch_torch_erf_68396', PACKAGE = 'torch', self)
 }
 
-torch_erf__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_erf__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_erf__77059 <- function(self) {
+    .Call('_torch_torch_erf__77059', PACKAGE = 'torch', self)
 }
 
-torch_erfc_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_erfc_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_erfc_68396 <- function(self) {
+    .Call('_torch_torch_erfc_68396', PACKAGE = 'torch', self)
 }
 
-torch_erfc__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_erfc__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_erfc__77059 <- function(self) {
+    .Call('_torch_torch_erfc__77059', PACKAGE = 'torch', self)
 }
 
-torch_exp_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_exp_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_exp_68396 <- function(self) {
+    .Call('_torch_torch_exp_68396', PACKAGE = 'torch', self)
 }
 
-torch_exp__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_exp__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_exp__77059 <- function(self) {
+    .Call('_torch_torch_exp__77059', PACKAGE = 'torch', self)
 }
 
-torch_expm1_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_expm1_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_expm1_68396 <- function(self) {
+    .Call('_torch_torch_expm1_68396', PACKAGE = 'torch', self)
 }
 
-torch_expm1__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_expm1__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_expm1__77059 <- function(self) {
+    .Call('_torch_torch_expm1__77059', PACKAGE = 'torch', self)
 }
 
-torch_expand_8fb715dc6dd8860dc19da19157c6a569 <- function(self, size, implicit) {
-    .Call('_torch_torch_expand_8fb715dc6dd8860dc19da19157c6a569', PACKAGE = 'torch', self, size, implicit)
+torch_expand_8fb71 <- function(self, size, implicit) {
+    .Call('_torch_torch_expand_8fb71', PACKAGE = 'torch', self, size, implicit)
 }
 
-torch_expand_as_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_expand_as_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_expand_as_7f12b <- function(self, other) {
+    .Call('_torch_torch_expand_as_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_flatten_81cfa679173f7cf487978866e858e0d7 <- function(self, start_dim, end_dim) {
-    .Call('_torch_torch_flatten_81cfa679173f7cf487978866e858e0d7', PACKAGE = 'torch', self, start_dim, end_dim)
+torch_flatten_81cfa <- function(self, start_dim, end_dim) {
+    .Call('_torch_torch_flatten_81cfa', PACKAGE = 'torch', self, start_dim, end_dim)
 }
 
-torch_fill__07130a53d127abf9a9f43e9ab5623ac4 <- function(self, value) {
-    .Call('_torch_torch_fill__07130a53d127abf9a9f43e9ab5623ac4', PACKAGE = 'torch', self, value)
+torch_fill__07130 <- function(self, value) {
+    .Call('_torch_torch_fill__07130', PACKAGE = 'torch', self, value)
 }
 
-torch_fill__e477b33acb65374ba9ec28a77721a45e <- function(self, value) {
-    .Call('_torch_torch_fill__e477b33acb65374ba9ec28a77721a45e', PACKAGE = 'torch', self, value)
+torch_fill__e477b <- function(self, value) {
+    .Call('_torch_torch_fill__e477b', PACKAGE = 'torch', self, value)
 }
 
-torch_floor_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_floor_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_floor_68396 <- function(self) {
+    .Call('_torch_torch_floor_68396', PACKAGE = 'torch', self)
 }
 
-torch_floor__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_floor__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_floor__77059 <- function(self) {
+    .Call('_torch_torch_floor__77059', PACKAGE = 'torch', self)
 }
 
-torch_frac_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_frac_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_frac_68396 <- function(self) {
+    .Call('_torch_torch_frac_68396', PACKAGE = 'torch', self)
 }
 
-torch_frac__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_frac__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_frac__77059 <- function(self) {
+    .Call('_torch_torch_frac__77059', PACKAGE = 'torch', self)
 }
 
-torch_ger_5c12932d2aad63902edd715966d08934 <- function(self, vec2) {
-    .Call('_torch_torch_ger_5c12932d2aad63902edd715966d08934', PACKAGE = 'torch', self, vec2)
+torch_ger_5c129 <- function(self, vec2) {
+    .Call('_torch_torch_ger_5c129', PACKAGE = 'torch', self, vec2)
 }
 
-torch_fft_b40ab26de564940dc199a685b56a303c <- function(self, signal_ndim, normalized) {
-    .Call('_torch_torch_fft_b40ab26de564940dc199a685b56a303c', PACKAGE = 'torch', self, signal_ndim, normalized)
+torch_fft_b40ab <- function(self, signal_ndim, normalized) {
+    .Call('_torch_torch_fft_b40ab', PACKAGE = 'torch', self, signal_ndim, normalized)
 }
 
-torch_ifft_b40ab26de564940dc199a685b56a303c <- function(self, signal_ndim, normalized) {
-    .Call('_torch_torch_ifft_b40ab26de564940dc199a685b56a303c', PACKAGE = 'torch', self, signal_ndim, normalized)
+torch_ifft_b40ab <- function(self, signal_ndim, normalized) {
+    .Call('_torch_torch_ifft_b40ab', PACKAGE = 'torch', self, signal_ndim, normalized)
 }
 
-torch_rfft_952cd2ec36e935286dd362c64eddbc76 <- function(self, signal_ndim, normalized, onesided) {
-    .Call('_torch_torch_rfft_952cd2ec36e935286dd362c64eddbc76', PACKAGE = 'torch', self, signal_ndim, normalized, onesided)
+torch_rfft_952cd <- function(self, signal_ndim, normalized, onesided) {
+    .Call('_torch_torch_rfft_952cd', PACKAGE = 'torch', self, signal_ndim, normalized, onesided)
 }
 
-torch_irfft_8dbe0873d7287e95651dac3536aaaab4 <- function(self, signal_ndim, normalized, onesided, signal_sizes) {
-    .Call('_torch_torch_irfft_8dbe0873d7287e95651dac3536aaaab4', PACKAGE = 'torch', self, signal_ndim, normalized, onesided, signal_sizes)
+torch_irfft_8dbe0 <- function(self, signal_ndim, normalized, onesided, signal_sizes) {
+    .Call('_torch_torch_irfft_8dbe0', PACKAGE = 'torch', self, signal_ndim, normalized, onesided, signal_sizes)
 }
 
-torch_index_814b37e08ed831a0d37f0f073ffe1b56 <- function(self, indices) {
-    .Call('_torch_torch_index_814b37e08ed831a0d37f0f073ffe1b56', PACKAGE = 'torch', self, indices)
+torch_index_814b3 <- function(self, indices) {
+    .Call('_torch_torch_index_814b3', PACKAGE = 'torch', self, indices)
 }
 
-torch_index_copy__0be4630fe46f5a3434059ed7debb5603 <- function(self, dim, index, source) {
-    .Call('_torch_torch_index_copy__0be4630fe46f5a3434059ed7debb5603', PACKAGE = 'torch', self, dim, index, source)
+torch_index_copy__0be46 <- function(self, dim, index, source) {
+    .Call('_torch_torch_index_copy__0be46', PACKAGE = 'torch', self, dim, index, source)
 }
 
-torch_index_copy_073fd53276f8ca2975951ef418c77979 <- function(self, dim, index, source) {
-    .Call('_torch_torch_index_copy_073fd53276f8ca2975951ef418c77979', PACKAGE = 'torch', self, dim, index, source)
+torch_index_copy_073fd <- function(self, dim, index, source) {
+    .Call('_torch_torch_index_copy_073fd', PACKAGE = 'torch', self, dim, index, source)
 }
 
-torch_index_put__59690c3dcdbff4a75d67259ec5ecedd7 <- function(self, indices, values, accumulate) {
-    .Call('_torch_torch_index_put__59690c3dcdbff4a75d67259ec5ecedd7', PACKAGE = 'torch', self, indices, values, accumulate)
+torch_index_put__59690 <- function(self, indices, values, accumulate) {
+    .Call('_torch_torch_index_put__59690', PACKAGE = 'torch', self, indices, values, accumulate)
 }
 
-torch_index_put_17d445458eace87a93650394814e7abd <- function(self, indices, values, accumulate) {
-    .Call('_torch_torch_index_put_17d445458eace87a93650394814e7abd', PACKAGE = 'torch', self, indices, values, accumulate)
+torch_index_put_17d44 <- function(self, indices, values, accumulate) {
+    .Call('_torch_torch_index_put_17d44', PACKAGE = 'torch', self, indices, values, accumulate)
 }
 
-torch_inverse_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_inverse_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_inverse_68396 <- function(self) {
+    .Call('_torch_torch_inverse_68396', PACKAGE = 'torch', self)
 }
 
-torch_isclose_68991204bc2d1d5ac874203da18b195a <- function(self, other, rtol, atol, equal_nan) {
-    .Call('_torch_torch_isclose_68991204bc2d1d5ac874203da18b195a', PACKAGE = 'torch', self, other, rtol, atol, equal_nan)
+torch_isclose_68991 <- function(self, other, rtol, atol, equal_nan) {
+    .Call('_torch_torch_isclose_68991', PACKAGE = 'torch', self, other, rtol, atol, equal_nan)
 }
 
-torch_is_distributed_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_is_distributed_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_is_distributed_68396 <- function(self) {
+    .Call('_torch_torch_is_distributed_68396', PACKAGE = 'torch', self)
 }
 
-torch_is_floating_point_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_is_floating_point_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_is_floating_point_68396 <- function(self) {
+    .Call('_torch_torch_is_floating_point_68396', PACKAGE = 'torch', self)
 }
 
-torch_is_complex_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_is_complex_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_is_complex_68396 <- function(self) {
+    .Call('_torch_torch_is_complex_68396', PACKAGE = 'torch', self)
 }
 
-torch_is_nonzero_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_is_nonzero_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_is_nonzero_68396 <- function(self) {
+    .Call('_torch_torch_is_nonzero_68396', PACKAGE = 'torch', self)
 }
 
-torch_is_same_size_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_is_same_size_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_is_same_size_7f12b <- function(self, other) {
+    .Call('_torch_torch_is_same_size_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_is_signed_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_is_signed_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_is_signed_68396 <- function(self) {
+    .Call('_torch_torch_is_signed_68396', PACKAGE = 'torch', self)
 }
 
-torch_kthvalue_552a2f1f5a868450b9902d289f1bc34a <- function(self, k, dim, keepdim) {
-    .Call('_torch_torch_kthvalue_552a2f1f5a868450b9902d289f1bc34a', PACKAGE = 'torch', self, k, dim, keepdim)
+torch_kthvalue_552a2 <- function(self, k, dim, keepdim) {
+    .Call('_torch_torch_kthvalue_552a2', PACKAGE = 'torch', self, k, dim, keepdim)
 }
 
-torch_log_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_log_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_log_68396 <- function(self) {
+    .Call('_torch_torch_log_68396', PACKAGE = 'torch', self)
 }
 
-torch_log__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_log__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_log__77059 <- function(self) {
+    .Call('_torch_torch_log__77059', PACKAGE = 'torch', self)
 }
 
-torch_log10_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_log10_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_log10_68396 <- function(self) {
+    .Call('_torch_torch_log10_68396', PACKAGE = 'torch', self)
 }
 
-torch_log10__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_log10__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_log10__77059 <- function(self) {
+    .Call('_torch_torch_log10__77059', PACKAGE = 'torch', self)
 }
 
-torch_log1p_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_log1p_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_log1p_68396 <- function(self) {
+    .Call('_torch_torch_log1p_68396', PACKAGE = 'torch', self)
 }
 
-torch_log1p__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_log1p__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_log1p__77059 <- function(self) {
+    .Call('_torch_torch_log1p__77059', PACKAGE = 'torch', self)
 }
 
-torch_log2_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_log2_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_log2_68396 <- function(self) {
+    .Call('_torch_torch_log2_68396', PACKAGE = 'torch', self)
 }
 
-torch_log2__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_log2__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_log2__77059 <- function(self) {
+    .Call('_torch_torch_log2__77059', PACKAGE = 'torch', self)
 }
 
-torch_logdet_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_logdet_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_logdet_68396 <- function(self) {
+    .Call('_torch_torch_logdet_68396', PACKAGE = 'torch', self)
 }
 
-torch_log_softmax_497aca3433c567f5542cfedd28714419 <- function(self, dim, dtype) {
-    .Call('_torch_torch_log_softmax_497aca3433c567f5542cfedd28714419', PACKAGE = 'torch', self, dim, dtype)
+torch_log_softmax_497ac <- function(self, dim, dtype) {
+    .Call('_torch_torch_log_softmax_497ac', PACKAGE = 'torch', self, dim, dtype)
 }
 
-torch_logsumexp_3d8e8f11c9689ef6a75a9c7ca8d6b7b6 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_logsumexp_3d8e8f11c9689ef6a75a9c7ca8d6b7b6', PACKAGE = 'torch', self, dim, keepdim)
+torch_logsumexp_3d8e8 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_logsumexp_3d8e8', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_matmul_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_matmul_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_matmul_7f12b <- function(self, other) {
+    .Call('_torch_torch_matmul_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_matrix_power_fbba1f43b92fd902db09be10350c6bdf <- function(self, n) {
-    .Call('_torch_torch_matrix_power_fbba1f43b92fd902db09be10350c6bdf', PACKAGE = 'torch', self, n)
+torch_matrix_power_fbba1 <- function(self, n) {
+    .Call('_torch_torch_matrix_power_fbba1', PACKAGE = 'torch', self, n)
 }
 
-torch_max_a00d65de0c17931eb6106e885279f146 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_max_a00d65de0c17931eb6106e885279f146', PACKAGE = 'torch', self, dim, keepdim)
+torch_max_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_max_a00d6', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_max_values_3d8e8f11c9689ef6a75a9c7ca8d6b7b6 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_max_values_3d8e8f11c9689ef6a75a9c7ca8d6b7b6', PACKAGE = 'torch', self, dim, keepdim)
+torch_max_values_3d8e8 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_max_values_3d8e8', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_mean_e9eab74b972ba6cab392179a4f0a1630 <- function(self, dtype) {
-    .Call('_torch_torch_mean_e9eab74b972ba6cab392179a4f0a1630', PACKAGE = 'torch', self, dtype)
+torch_mean_e9eab <- function(self, dtype) {
+    .Call('_torch_torch_mean_e9eab', PACKAGE = 'torch', self, dtype)
 }
 
-torch_mean_b75b9fc8150d6ec976bec5e79e01d1d3 <- function(self, dim, keepdim, dtype) {
-    .Call('_torch_torch_mean_b75b9fc8150d6ec976bec5e79e01d1d3', PACKAGE = 'torch', self, dim, keepdim, dtype)
+torch_mean_b75b9 <- function(self, dim, keepdim, dtype) {
+    .Call('_torch_torch_mean_b75b9', PACKAGE = 'torch', self, dim, keepdim, dtype)
 }
 
-torch_median_a00d65de0c17931eb6106e885279f146 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_median_a00d65de0c17931eb6106e885279f146', PACKAGE = 'torch', self, dim, keepdim)
+torch_median_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_median_a00d6', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_min_a00d65de0c17931eb6106e885279f146 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_min_a00d65de0c17931eb6106e885279f146', PACKAGE = 'torch', self, dim, keepdim)
+torch_min_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_min_a00d6', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_min_values_3d8e8f11c9689ef6a75a9c7ca8d6b7b6 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_min_values_3d8e8f11c9689ef6a75a9c7ca8d6b7b6', PACKAGE = 'torch', self, dim, keepdim)
+torch_min_values_3d8e8 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_min_values_3d8e8', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_mm_4179872982cdd9692065c1d0412bcd54 <- function(self, mat2) {
-    .Call('_torch_torch_mm_4179872982cdd9692065c1d0412bcd54', PACKAGE = 'torch', self, mat2)
+torch_mm_41798 <- function(self, mat2) {
+    .Call('_torch_torch_mm_41798', PACKAGE = 'torch', self, mat2)
 }
 
-torch_mode_a00d65de0c17931eb6106e885279f146 <- function(self, dim, keepdim) {
-    .Call('_torch_torch_mode_a00d65de0c17931eb6106e885279f146', PACKAGE = 'torch', self, dim, keepdim)
+torch_mode_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_torch_mode_a00d6', PACKAGE = 'torch', self, dim, keepdim)
 }
 
-torch_mul_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_mul_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_mul_7f12b <- function(self, other) {
+    .Call('_torch_torch_mul_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_mul__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_mul__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_mul__5d476 <- function(self, other) {
+    .Call('_torch_torch_mul__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_mul_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_mul_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_mul_828c7 <- function(self, other) {
+    .Call('_torch_torch_mul_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_mul__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_mul__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_mul__7c9cc <- function(self, other) {
+    .Call('_torch_torch_mul__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_mv_98e027563655aaef18dcf0fdd62aa4e7 <- function(self, vec) {
-    .Call('_torch_torch_mv_98e027563655aaef18dcf0fdd62aa4e7', PACKAGE = 'torch', self, vec)
+torch_mv_98e02 <- function(self, vec) {
+    .Call('_torch_torch_mv_98e02', PACKAGE = 'torch', self, vec)
 }
 
-torch_mvlgamma_9a31517035e3d70163aa3a03599742d1 <- function(self, p) {
-    .Call('_torch_torch_mvlgamma_9a31517035e3d70163aa3a03599742d1', PACKAGE = 'torch', self, p)
+torch_mvlgamma_9a315 <- function(self, p) {
+    .Call('_torch_torch_mvlgamma_9a315', PACKAGE = 'torch', self, p)
 }
 
-torch_mvlgamma__0c99e2d4b756f575ccf8a595a519a030 <- function(self, p) {
-    .Call('_torch_torch_mvlgamma__0c99e2d4b756f575ccf8a595a519a030', PACKAGE = 'torch', self, p)
+torch_mvlgamma__0c99e <- function(self, p) {
+    .Call('_torch_torch_mvlgamma__0c99e', PACKAGE = 'torch', self, p)
 }
 
-torch_narrow_copy_d65beda5fa619a4b42b0a4f5423ae7af <- function(self, dim, start, length) {
-    .Call('_torch_torch_narrow_copy_d65beda5fa619a4b42b0a4f5423ae7af', PACKAGE = 'torch', self, dim, start, length)
+torch_narrow_copy_d65be <- function(self, dim, start, length) {
+    .Call('_torch_torch_narrow_copy_d65be', PACKAGE = 'torch', self, dim, start, length)
 }
 
-torch_narrow_d65beda5fa619a4b42b0a4f5423ae7af <- function(self, dim, start, length) {
-    .Call('_torch_torch_narrow_d65beda5fa619a4b42b0a4f5423ae7af', PACKAGE = 'torch', self, dim, start, length)
+torch_narrow_d65be <- function(self, dim, start, length) {
+    .Call('_torch_torch_narrow_d65be', PACKAGE = 'torch', self, dim, start, length)
 }
 
-torch_permute_58ccf3f283122d340a673beb6bd417b2 <- function(self, dims) {
-    .Call('_torch_torch_permute_58ccf3f283122d340a673beb6bd417b2', PACKAGE = 'torch', self, dims)
+torch_permute_58ccf <- function(self, dims) {
+    .Call('_torch_torch_permute_58ccf', PACKAGE = 'torch', self, dims)
 }
 
-torch_numpy_T_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_numpy_T_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_numpy_T_68396 <- function(self) {
+    .Call('_torch_torch_numpy_T_68396', PACKAGE = 'torch', self)
 }
 
-torch_pin_memory_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_pin_memory_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_pin_memory_68396 <- function(self) {
+    .Call('_torch_torch_pin_memory_68396', PACKAGE = 'torch', self)
 }
 
-torch_pinverse_9451f1dc9df4ad12effb96865b7d5cc1 <- function(self, rcond) {
-    .Call('_torch_torch_pinverse_9451f1dc9df4ad12effb96865b7d5cc1', PACKAGE = 'torch', self, rcond)
+torch_pinverse_9451f <- function(self, rcond) {
+    .Call('_torch_torch_pinverse_9451f', PACKAGE = 'torch', self, rcond)
 }
 
-torch_reciprocal_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_reciprocal_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_reciprocal_68396 <- function(self) {
+    .Call('_torch_torch_reciprocal_68396', PACKAGE = 'torch', self)
 }
 
-torch_reciprocal__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_reciprocal__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_reciprocal__77059 <- function(self) {
+    .Call('_torch_torch_reciprocal__77059', PACKAGE = 'torch', self)
 }
 
-torch_neg_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_neg_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_neg_68396 <- function(self) {
+    .Call('_torch_torch_neg_68396', PACKAGE = 'torch', self)
 }
 
-torch_neg__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_neg__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_neg__77059 <- function(self) {
+    .Call('_torch_torch_neg__77059', PACKAGE = 'torch', self)
 }
 
-torch_repeat_eefba09ed344a4842dade390b5fd0e82 <- function(self, repeats) {
-    .Call('_torch_torch_repeat_eefba09ed344a4842dade390b5fd0e82', PACKAGE = 'torch', self, repeats)
+torch_repeat_eefba <- function(self, repeats) {
+    .Call('_torch_torch_repeat_eefba', PACKAGE = 'torch', self, repeats)
 }
 
-torch_repeat_interleave_df8da4cd3c0efd9bcbd034f12cd6938f <- function(self, repeats, dim) {
-    .Call('_torch_torch_repeat_interleave_df8da4cd3c0efd9bcbd034f12cd6938f', PACKAGE = 'torch', self, repeats, dim)
+torch_repeat_interleave_df8da <- function(self, repeats, dim) {
+    .Call('_torch_torch_repeat_interleave_df8da', PACKAGE = 'torch', self, repeats, dim)
 }
 
-torch_repeat_interleave_f4cdbd612fc56bd598939b1ed8c2ac87 <- function(self, repeats, dim) {
-    .Call('_torch_torch_repeat_interleave_f4cdbd612fc56bd598939b1ed8c2ac87', PACKAGE = 'torch', self, repeats, dim)
+torch_repeat_interleave_f4cdb <- function(self, repeats, dim) {
+    .Call('_torch_torch_repeat_interleave_f4cdb', PACKAGE = 'torch', self, repeats, dim)
 }
 
-torch_reshape_00ebe0c7086ba70f14f870d6a23ec6dd <- function(self, shape) {
-    .Call('_torch_torch_reshape_00ebe0c7086ba70f14f870d6a23ec6dd', PACKAGE = 'torch', self, shape)
+torch_reshape_00ebe <- function(self, shape) {
+    .Call('_torch_torch_reshape_00ebe', PACKAGE = 'torch', self, shape)
 }
 
-torch_reshape_as_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_reshape_as_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_reshape_as_7f12b <- function(self, other) {
+    .Call('_torch_torch_reshape_as_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_round_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_round_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_round_68396 <- function(self) {
+    .Call('_torch_torch_round_68396', PACKAGE = 'torch', self)
 }
 
-torch_round__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_round__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_round__77059 <- function(self) {
+    .Call('_torch_torch_round__77059', PACKAGE = 'torch', self)
 }
 
-torch_relu_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_relu_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_relu_68396 <- function(self) {
+    .Call('_torch_torch_relu_68396', PACKAGE = 'torch', self)
 }
 
-torch_relu__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_relu__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_relu__77059 <- function(self) {
+    .Call('_torch_torch_relu__77059', PACKAGE = 'torch', self)
 }
 
-torch_prelu_74aa237ed2400169d048df729a1d6f92 <- function(self, weight) {
-    .Call('_torch_torch_prelu_74aa237ed2400169d048df729a1d6f92', PACKAGE = 'torch', self, weight)
+torch_prelu_74aa2 <- function(self, weight) {
+    .Call('_torch_torch_prelu_74aa2', PACKAGE = 'torch', self, weight)
 }
 
-torch_prelu_backward_fdadff1d8b3c27a6244816a269247822 <- function(grad_output, self, weight) {
-    .Call('_torch_torch_prelu_backward_fdadff1d8b3c27a6244816a269247822', PACKAGE = 'torch', grad_output, self, weight)
+torch_prelu_backward_fdadf <- function(grad_output, self, weight) {
+    .Call('_torch_torch_prelu_backward_fdadf', PACKAGE = 'torch', grad_output, self, weight)
 }
 
-torch_hardshrink_899d60f0bf515c42a60b3525f217fd29 <- function(self, lambd) {
-    .Call('_torch_torch_hardshrink_899d60f0bf515c42a60b3525f217fd29', PACKAGE = 'torch', self, lambd)
+torch_hardshrink_899d6 <- function(self, lambd) {
+    .Call('_torch_torch_hardshrink_899d6', PACKAGE = 'torch', self, lambd)
 }
 
-torch_hardshrink_backward_ae549be1d694fc273fb6a873601ddca5 <- function(grad_out, self, lambd) {
-    .Call('_torch_torch_hardshrink_backward_ae549be1d694fc273fb6a873601ddca5', PACKAGE = 'torch', grad_out, self, lambd)
+torch_hardshrink_backward_ae549 <- function(grad_out, self, lambd) {
+    .Call('_torch_torch_hardshrink_backward_ae549', PACKAGE = 'torch', grad_out, self, lambd)
 }
 
-torch_rsqrt_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_rsqrt_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_rsqrt_68396 <- function(self) {
+    .Call('_torch_torch_rsqrt_68396', PACKAGE = 'torch', self)
 }
 
-torch_rsqrt__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_rsqrt__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_rsqrt__77059 <- function(self) {
+    .Call('_torch_torch_rsqrt__77059', PACKAGE = 'torch', self)
 }
 
-torch_select_b059a0edb6085ce5612a62f96a05b06f <- function(self, dim, index) {
-    .Call('_torch_torch_select_b059a0edb6085ce5612a62f96a05b06f', PACKAGE = 'torch', self, dim, index)
+torch_select_b059a <- function(self, dim, index) {
+    .Call('_torch_torch_select_b059a', PACKAGE = 'torch', self, dim, index)
 }
 
-torch_sigmoid_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_sigmoid_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_sigmoid_68396 <- function(self) {
+    .Call('_torch_torch_sigmoid_68396', PACKAGE = 'torch', self)
 }
 
-torch_sigmoid__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_sigmoid__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_sigmoid__77059 <- function(self) {
+    .Call('_torch_torch_sigmoid__77059', PACKAGE = 'torch', self)
 }
 
-torch_sin_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_sin_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_sin_68396 <- function(self) {
+    .Call('_torch_torch_sin_68396', PACKAGE = 'torch', self)
 }
 
-torch_sin__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_sin__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_sin__77059 <- function(self) {
+    .Call('_torch_torch_sin__77059', PACKAGE = 'torch', self)
 }
 
-torch_sinh_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_sinh_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_sinh_68396 <- function(self) {
+    .Call('_torch_torch_sinh_68396', PACKAGE = 'torch', self)
 }
 
-torch_sinh__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_sinh__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_sinh__77059 <- function(self) {
+    .Call('_torch_torch_sinh__77059', PACKAGE = 'torch', self)
 }
 
-torch_detach_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_detach_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_detach_68396 <- function(self) {
+    .Call('_torch_torch_detach_68396', PACKAGE = 'torch', self)
 }
 
-torch_detach__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_detach__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_detach__77059 <- function(self) {
+    .Call('_torch_torch_detach__77059', PACKAGE = 'torch', self)
 }
 
-torch_size_ec971b768b5201c8c4ad6177a2be95ab <- function(self, dim) {
-    .Call('_torch_torch_size_ec971b768b5201c8c4ad6177a2be95ab', PACKAGE = 'torch', self, dim)
+torch_size_ec971 <- function(self, dim) {
+    .Call('_torch_torch_size_ec971', PACKAGE = 'torch', self, dim)
 }
 
-torch_slice_43b6737dc8edf11756418078b04e3d84 <- function(self, dim, start, end, step) {
-    .Call('_torch_torch_slice_43b6737dc8edf11756418078b04e3d84', PACKAGE = 'torch', self, dim, start, end, step)
+torch_slice_43b67 <- function(self, dim, start, end, step) {
+    .Call('_torch_torch_slice_43b67', PACKAGE = 'torch', self, dim, start, end, step)
 }
 
-torch_slogdet_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_slogdet_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_slogdet_68396 <- function(self) {
+    .Call('_torch_torch_slogdet_68396', PACKAGE = 'torch', self)
 }
 
-torch_smm_4179872982cdd9692065c1d0412bcd54 <- function(self, mat2) {
-    .Call('_torch_torch_smm_4179872982cdd9692065c1d0412bcd54', PACKAGE = 'torch', self, mat2)
+torch_smm_41798 <- function(self, mat2) {
+    .Call('_torch_torch_smm_41798', PACKAGE = 'torch', self, mat2)
 }
 
-torch_softmax_497aca3433c567f5542cfedd28714419 <- function(self, dim, dtype) {
-    .Call('_torch_torch_softmax_497aca3433c567f5542cfedd28714419', PACKAGE = 'torch', self, dim, dtype)
+torch_softmax_497ac <- function(self, dim, dtype) {
+    .Call('_torch_torch_softmax_497ac', PACKAGE = 'torch', self, dim, dtype)
 }
 
-torch_split_899f07e47445429ec4e214929e1deb92 <- function(self, split_size, dim) {
-    .Call('_torch_torch_split_899f07e47445429ec4e214929e1deb92', PACKAGE = 'torch', self, split_size, dim)
+torch_split_899f0 <- function(self, split_size, dim) {
+    .Call('_torch_torch_split_899f0', PACKAGE = 'torch', self, split_size, dim)
 }
 
-torch_split_with_sizes_6a9223a9c3eb63442d2bc65531b2f0cf <- function(self, split_sizes, dim) {
-    .Call('_torch_torch_split_with_sizes_6a9223a9c3eb63442d2bc65531b2f0cf', PACKAGE = 'torch', self, split_sizes, dim)
+torch_split_with_sizes_6a922 <- function(self, split_sizes, dim) {
+    .Call('_torch_torch_split_with_sizes_6a922', PACKAGE = 'torch', self, split_sizes, dim)
 }
 
-torch_squeeze_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_squeeze_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_squeeze_68396 <- function(self) {
+    .Call('_torch_torch_squeeze_68396', PACKAGE = 'torch', self)
 }
 
-torch_squeeze_ec971b768b5201c8c4ad6177a2be95ab <- function(self, dim) {
-    .Call('_torch_torch_squeeze_ec971b768b5201c8c4ad6177a2be95ab', PACKAGE = 'torch', self, dim)
+torch_squeeze_ec971 <- function(self, dim) {
+    .Call('_torch_torch_squeeze_ec971', PACKAGE = 'torch', self, dim)
 }
 
-torch_squeeze__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_squeeze__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_squeeze__77059 <- function(self) {
+    .Call('_torch_torch_squeeze__77059', PACKAGE = 'torch', self)
 }
 
-torch_squeeze__db1e43f53c3b816eb931c1c0de0f3b94 <- function(self, dim) {
-    .Call('_torch_torch_squeeze__db1e43f53c3b816eb931c1c0de0f3b94', PACKAGE = 'torch', self, dim)
+torch_squeeze__db1e4 <- function(self, dim) {
+    .Call('_torch_torch_squeeze__db1e4', PACKAGE = 'torch', self, dim)
 }
 
-torch_sspaddmm_593f90a5e31a632afec95421dabb830b <- function(self, mat1, mat2, beta, alpha) {
-    .Call('_torch_torch_sspaddmm_593f90a5e31a632afec95421dabb830b', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+torch_sspaddmm_593f9 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_torch_sspaddmm_593f9', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
 }
 
-torch_stft_c07c54f0f0d63b84174cb8de9bcc4ff5 <- function(self, n_fft, hop_length, win_length, window, normalized, onesided) {
-    .Call('_torch_torch_stft_c07c54f0f0d63b84174cb8de9bcc4ff5', PACKAGE = 'torch', self, n_fft, hop_length, win_length, window, normalized, onesided)
+torch_stft_c07c5 <- function(self, n_fft, hop_length, win_length, window, normalized, onesided) {
+    .Call('_torch_torch_stft_c07c5', PACKAGE = 'torch', self, n_fft, hop_length, win_length, window, normalized, onesided)
 }
 
-torch_stride_ec971b768b5201c8c4ad6177a2be95ab <- function(self, dim) {
-    .Call('_torch_torch_stride_ec971b768b5201c8c4ad6177a2be95ab', PACKAGE = 'torch', self, dim)
+torch_stride_ec971 <- function(self, dim) {
+    .Call('_torch_torch_stride_ec971', PACKAGE = 'torch', self, dim)
 }
 
-torch_sum_e9eab74b972ba6cab392179a4f0a1630 <- function(self, dtype) {
-    .Call('_torch_torch_sum_e9eab74b972ba6cab392179a4f0a1630', PACKAGE = 'torch', self, dtype)
+torch_sum_e9eab <- function(self, dtype) {
+    .Call('_torch_torch_sum_e9eab', PACKAGE = 'torch', self, dtype)
 }
 
-torch_sum_b75b9fc8150d6ec976bec5e79e01d1d3 <- function(self, dim, keepdim, dtype) {
-    .Call('_torch_torch_sum_b75b9fc8150d6ec976bec5e79e01d1d3', PACKAGE = 'torch', self, dim, keepdim, dtype)
+torch_sum_b75b9 <- function(self, dim, keepdim, dtype) {
+    .Call('_torch_torch_sum_b75b9', PACKAGE = 'torch', self, dim, keepdim, dtype)
 }
 
-torch_sum_to_size_6bf55218cd71b219c054293f38520051 <- function(self, size) {
-    .Call('_torch_torch_sum_to_size_6bf55218cd71b219c054293f38520051', PACKAGE = 'torch', self, size)
+torch_sum_to_size_6bf55 <- function(self, size) {
+    .Call('_torch_torch_sum_to_size_6bf55', PACKAGE = 'torch', self, size)
 }
 
-torch_sqrt_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_sqrt_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_sqrt_68396 <- function(self) {
+    .Call('_torch_torch_sqrt_68396', PACKAGE = 'torch', self)
 }
 
-torch_sqrt__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_sqrt__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_sqrt__77059 <- function(self) {
+    .Call('_torch_torch_sqrt__77059', PACKAGE = 'torch', self)
 }
 
-torch_std_268623e9239aead566394fd32dccb710 <- function(self, unbiased) {
-    .Call('_torch_torch_std_268623e9239aead566394fd32dccb710', PACKAGE = 'torch', self, unbiased)
+torch_std_26862 <- function(self, unbiased) {
+    .Call('_torch_torch_std_26862', PACKAGE = 'torch', self, unbiased)
 }
 
-torch_std_e89c4c516b68404e86cc256eb5434c02 <- function(self, dim, unbiased, keepdim) {
-    .Call('_torch_torch_std_e89c4c516b68404e86cc256eb5434c02', PACKAGE = 'torch', self, dim, unbiased, keepdim)
+torch_std_e89c4 <- function(self, dim, unbiased, keepdim) {
+    .Call('_torch_torch_std_e89c4', PACKAGE = 'torch', self, dim, unbiased, keepdim)
 }
 
-torch_prod_e9eab74b972ba6cab392179a4f0a1630 <- function(self, dtype) {
-    .Call('_torch_torch_prod_e9eab74b972ba6cab392179a4f0a1630', PACKAGE = 'torch', self, dtype)
+torch_prod_e9eab <- function(self, dtype) {
+    .Call('_torch_torch_prod_e9eab', PACKAGE = 'torch', self, dtype)
 }
 
-torch_prod_23927ad81b9cf9f7d2632329a9328fb7 <- function(self, dim, keepdim, dtype) {
-    .Call('_torch_torch_prod_23927ad81b9cf9f7d2632329a9328fb7', PACKAGE = 'torch', self, dim, keepdim, dtype)
+torch_prod_23927 <- function(self, dim, keepdim, dtype) {
+    .Call('_torch_torch_prod_23927', PACKAGE = 'torch', self, dim, keepdim, dtype)
 }
 
-torch_t_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_t_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_t_68396 <- function(self) {
+    .Call('_torch_torch_t_68396', PACKAGE = 'torch', self)
 }
 
-torch_t__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_t__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_t__77059 <- function(self) {
+    .Call('_torch_torch_t__77059', PACKAGE = 'torch', self)
 }
 
-torch_tan_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_tan_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_tan_68396 <- function(self) {
+    .Call('_torch_torch_tan_68396', PACKAGE = 'torch', self)
 }
 
-torch_tan__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_tan__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_tan__77059 <- function(self) {
+    .Call('_torch_torch_tan__77059', PACKAGE = 'torch', self)
 }
 
-torch_tanh_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_tanh_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_tanh_68396 <- function(self) {
+    .Call('_torch_torch_tanh_68396', PACKAGE = 'torch', self)
 }
 
-torch_tanh__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_tanh__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_tanh__77059 <- function(self) {
+    .Call('_torch_torch_tanh__77059', PACKAGE = 'torch', self)
 }
 
-torch_transpose_79f15b60fe51bb82eeccf0ccc4b72c75 <- function(self, dim0, dim1) {
-    .Call('_torch_torch_transpose_79f15b60fe51bb82eeccf0ccc4b72c75', PACKAGE = 'torch', self, dim0, dim1)
+torch_transpose_79f15 <- function(self, dim0, dim1) {
+    .Call('_torch_torch_transpose_79f15', PACKAGE = 'torch', self, dim0, dim1)
 }
 
-torch_transpose__9862ce3a20e47cba29727a33f2297bdc <- function(self, dim0, dim1) {
-    .Call('_torch_torch_transpose__9862ce3a20e47cba29727a33f2297bdc', PACKAGE = 'torch', self, dim0, dim1)
+torch_transpose__9862c <- function(self, dim0, dim1) {
+    .Call('_torch_torch_transpose__9862c', PACKAGE = 'torch', self, dim0, dim1)
 }
 
-torch_flip_58ccf3f283122d340a673beb6bd417b2 <- function(self, dims) {
-    .Call('_torch_torch_flip_58ccf3f283122d340a673beb6bd417b2', PACKAGE = 'torch', self, dims)
+torch_flip_58ccf <- function(self, dims) {
+    .Call('_torch_torch_flip_58ccf', PACKAGE = 'torch', self, dims)
 }
 
-torch_roll_7d21b5356c80bf75ee8b086dbd93db76 <- function(self, shifts, dims) {
-    .Call('_torch_torch_roll_7d21b5356c80bf75ee8b086dbd93db76', PACKAGE = 'torch', self, shifts, dims)
+torch_roll_7d21b <- function(self, shifts, dims) {
+    .Call('_torch_torch_roll_7d21b', PACKAGE = 'torch', self, shifts, dims)
 }
 
-torch_rot90_ba5ca2b0453143490cbeb12ac67a58eb <- function(self, k, dims) {
-    .Call('_torch_torch_rot90_ba5ca2b0453143490cbeb12ac67a58eb', PACKAGE = 'torch', self, k, dims)
+torch_rot90_ba5ca <- function(self, k, dims) {
+    .Call('_torch_torch_rot90_ba5ca', PACKAGE = 'torch', self, k, dims)
 }
 
-torch_trunc_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_trunc_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_trunc_68396 <- function(self) {
+    .Call('_torch_torch_trunc_68396', PACKAGE = 'torch', self)
 }
 
-torch_trunc__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_trunc__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_trunc__77059 <- function(self) {
+    .Call('_torch_torch_trunc__77059', PACKAGE = 'torch', self)
 }
 
-torch_type_as_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_type_as_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_type_as_7f12b <- function(self, other) {
+    .Call('_torch_torch_type_as_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_unsqueeze_ec971b768b5201c8c4ad6177a2be95ab <- function(self, dim) {
-    .Call('_torch_torch_unsqueeze_ec971b768b5201c8c4ad6177a2be95ab', PACKAGE = 'torch', self, dim)
+torch_unsqueeze_ec971 <- function(self, dim) {
+    .Call('_torch_torch_unsqueeze_ec971', PACKAGE = 'torch', self, dim)
 }
 
-torch_unsqueeze__db1e43f53c3b816eb931c1c0de0f3b94 <- function(self, dim) {
-    .Call('_torch_torch_unsqueeze__db1e43f53c3b816eb931c1c0de0f3b94', PACKAGE = 'torch', self, dim)
+torch_unsqueeze__db1e4 <- function(self, dim) {
+    .Call('_torch_torch_unsqueeze__db1e4', PACKAGE = 'torch', self, dim)
 }
 
-torch_var_268623e9239aead566394fd32dccb710 <- function(self, unbiased) {
-    .Call('_torch_torch_var_268623e9239aead566394fd32dccb710', PACKAGE = 'torch', self, unbiased)
+torch_var_26862 <- function(self, unbiased) {
+    .Call('_torch_torch_var_26862', PACKAGE = 'torch', self, unbiased)
 }
 
-torch_var_e89c4c516b68404e86cc256eb5434c02 <- function(self, dim, unbiased, keepdim) {
-    .Call('_torch_torch_var_e89c4c516b68404e86cc256eb5434c02', PACKAGE = 'torch', self, dim, unbiased, keepdim)
+torch_var_e89c4 <- function(self, dim, unbiased, keepdim) {
+    .Call('_torch_torch_var_e89c4', PACKAGE = 'torch', self, dim, unbiased, keepdim)
 }
 
-torch_view_as_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_view_as_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_view_as_7f12b <- function(self, other) {
+    .Call('_torch_torch_view_as_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_where_659bd988fbd40cad9b2bc717050fdaa2 <- function(condition, self, other) {
-    .Call('_torch_torch_where_659bd988fbd40cad9b2bc717050fdaa2', PACKAGE = 'torch', condition, self, other)
+torch_where_659bd <- function(condition, self, other) {
+    .Call('_torch_torch_where_659bd', PACKAGE = 'torch', condition, self, other)
 }
 
-torch_norm_030beec94146c3ad558fea0a5a1156c6 <- function(self, p, dtype) {
-    .Call('_torch_torch_norm_030beec94146c3ad558fea0a5a1156c6', PACKAGE = 'torch', self, p, dtype)
+torch_norm_030be <- function(self, p, dtype) {
+    .Call('_torch_torch_norm_030be', PACKAGE = 'torch', self, p, dtype)
 }
 
-torch_norm_04a03af9c23e2262c0c6aca290ab7d4d <- function(self, p) {
-    .Call('_torch_torch_norm_04a03af9c23e2262c0c6aca290ab7d4d', PACKAGE = 'torch', self, p)
+torch_norm_04a03 <- function(self, p) {
+    .Call('_torch_torch_norm_04a03', PACKAGE = 'torch', self, p)
 }
 
-torch_norm_2dfa12771319ec3116f4da72cb12b3d0 <- function(self, p, dim, keepdim, dtype) {
-    .Call('_torch_torch_norm_2dfa12771319ec3116f4da72cb12b3d0', PACKAGE = 'torch', self, p, dim, keepdim, dtype)
+torch_norm_2dfa1 <- function(self, p, dim, keepdim, dtype) {
+    .Call('_torch_torch_norm_2dfa1', PACKAGE = 'torch', self, p, dim, keepdim, dtype)
 }
 
-torch_norm_6d38f8cf7270821224b49b321718823e <- function(self, p, dim, keepdim) {
-    .Call('_torch_torch_norm_6d38f8cf7270821224b49b321718823e', PACKAGE = 'torch', self, p, dim, keepdim)
+torch_norm_6d38f <- function(self, p, dim, keepdim) {
+    .Call('_torch_torch_norm_6d38f', PACKAGE = 'torch', self, p, dim, keepdim)
 }
 
-torch_clone_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_clone_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_clone_68396 <- function(self) {
+    .Call('_torch_torch_clone_68396', PACKAGE = 'torch', self)
 }
 
-torch_resize_as__1e3e95d16da5686b2ed8669167e56ef0 <- function(self, the_template) {
-    .Call('_torch_torch_resize_as__1e3e95d16da5686b2ed8669167e56ef0', PACKAGE = 'torch', self, the_template)
+torch_resize_as__1e3e9 <- function(self, the_template) {
+    .Call('_torch_torch_resize_as__1e3e9', PACKAGE = 'torch', self, the_template)
 }
 
-torch_pow_a504ebb51e840281521576607ce458c3 <- function(self, exponent) {
-    .Call('_torch_torch_pow_a504ebb51e840281521576607ce458c3', PACKAGE = 'torch', self, exponent)
+torch_pow_a504e <- function(self, exponent) {
+    .Call('_torch_torch_pow_a504e', PACKAGE = 'torch', self, exponent)
 }
 
-torch_zero__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_zero__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_zero__77059 <- function(self) {
+    .Call('_torch_torch_zero__77059', PACKAGE = 'torch', self)
 }
 
-torch_sub_02bec2e8e54b6237090a5042dd1e991c <- function(self, other, alpha) {
-    .Call('_torch_torch_sub_02bec2e8e54b6237090a5042dd1e991c', PACKAGE = 'torch', self, other, alpha)
+torch_sub_02bec <- function(self, other, alpha) {
+    .Call('_torch_torch_sub_02bec', PACKAGE = 'torch', self, other, alpha)
 }
 
-torch_sub__6b3a76c4ed9f62ef65e1cec9d661dfa5 <- function(self, other, alpha) {
-    .Call('_torch_torch_sub__6b3a76c4ed9f62ef65e1cec9d661dfa5', PACKAGE = 'torch', self, other, alpha)
+torch_sub__6b3a7 <- function(self, other, alpha) {
+    .Call('_torch_torch_sub__6b3a7', PACKAGE = 'torch', self, other, alpha)
 }
 
-torch_sub_783c8a98771291069457898dc444b949 <- function(self, other, alpha) {
-    .Call('_torch_torch_sub_783c8a98771291069457898dc444b949', PACKAGE = 'torch', self, other, alpha)
+torch_sub_783c8 <- function(self, other, alpha) {
+    .Call('_torch_torch_sub_783c8', PACKAGE = 'torch', self, other, alpha)
 }
 
-torch_sub__407c973b091671443effd1a0b4dfe28f <- function(self, other, alpha) {
-    .Call('_torch_torch_sub__407c973b091671443effd1a0b4dfe28f', PACKAGE = 'torch', self, other, alpha)
+torch_sub__407c9 <- function(self, other, alpha) {
+    .Call('_torch_torch_sub__407c9', PACKAGE = 'torch', self, other, alpha)
 }
 
-torch_addmm_593f90a5e31a632afec95421dabb830b <- function(self, mat1, mat2, beta, alpha) {
-    .Call('_torch_torch_addmm_593f90a5e31a632afec95421dabb830b', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+torch_addmm_593f9 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_torch_addmm_593f9', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
 }
 
-torch_addmm__e6db0e26c4b875bde9c015e72499386d <- function(self, mat1, mat2, beta, alpha) {
-    .Call('_torch_torch_addmm__e6db0e26c4b875bde9c015e72499386d', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+torch_addmm__e6db0 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_torch_addmm__e6db0', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
 }
 
-torch_sparse_resize__f9b8d88bc0baafd239d11f2fcea30be5 <- function(self, size, sparse_dim, dense_dim) {
-    .Call('_torch_torch_sparse_resize__f9b8d88bc0baafd239d11f2fcea30be5', PACKAGE = 'torch', self, size, sparse_dim, dense_dim)
+torch_sparse_resize__f9b8d <- function(self, size, sparse_dim, dense_dim) {
+    .Call('_torch_torch_sparse_resize__f9b8d', PACKAGE = 'torch', self, size, sparse_dim, dense_dim)
 }
 
-torch_sparse_resize_and_clear__f9b8d88bc0baafd239d11f2fcea30be5 <- function(self, size, sparse_dim, dense_dim) {
-    .Call('_torch_torch_sparse_resize_and_clear__f9b8d88bc0baafd239d11f2fcea30be5', PACKAGE = 'torch', self, size, sparse_dim, dense_dim)
+torch_sparse_resize_and_clear__f9b8d <- function(self, size, sparse_dim, dense_dim) {
+    .Call('_torch_torch_sparse_resize_and_clear__f9b8d', PACKAGE = 'torch', self, size, sparse_dim, dense_dim)
 }
 
-torch_sparse_mask_ed5bb55732ad3303430891d7fa131c57 <- function(self, mask) {
-    .Call('_torch_torch_sparse_mask_ed5bb55732ad3303430891d7fa131c57', PACKAGE = 'torch', self, mask)
+torch_sparse_mask_ed5bb <- function(self, mask) {
+    .Call('_torch_torch_sparse_mask_ed5bb', PACKAGE = 'torch', self, mask)
 }
 
-torch_to_dense_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_to_dense_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_to_dense_68396 <- function(self) {
+    .Call('_torch_torch_to_dense_68396', PACKAGE = 'torch', self)
 }
 
-torch_sparse_dim_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_sparse_dim_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_sparse_dim_68396 <- function(self) {
+    .Call('_torch_torch_sparse_dim_68396', PACKAGE = 'torch', self)
 }
 
-torch__dimI_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch__dimI_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch__dimI_68396 <- function(self) {
+    .Call('_torch_torch__dimI_68396', PACKAGE = 'torch', self)
 }
 
-torch_dense_dim_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_dense_dim_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_dense_dim_68396 <- function(self) {
+    .Call('_torch_torch_dense_dim_68396', PACKAGE = 'torch', self)
 }
 
-torch__dimV_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch__dimV_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch__dimV_68396 <- function(self) {
+    .Call('_torch_torch__dimV_68396', PACKAGE = 'torch', self)
 }
 
-torch__nnz_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch__nnz_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch__nnz_68396 <- function(self) {
+    .Call('_torch_torch__nnz_68396', PACKAGE = 'torch', self)
 }
 
-torch_coalesce_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_coalesce_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_coalesce_68396 <- function(self) {
+    .Call('_torch_torch_coalesce_68396', PACKAGE = 'torch', self)
 }
 
-torch_is_coalesced_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_is_coalesced_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_is_coalesced_68396 <- function(self) {
+    .Call('_torch_torch_is_coalesced_68396', PACKAGE = 'torch', self)
 }
 
-torch__indices_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch__indices_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch__indices_68396 <- function(self) {
+    .Call('_torch_torch__indices_68396', PACKAGE = 'torch', self)
 }
 
-torch__values_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch__values_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch__values_68396 <- function(self) {
+    .Call('_torch_torch__values_68396', PACKAGE = 'torch', self)
 }
 
-torch__coalesced__2e9d8c347852e3f5e8b16b391c580e28 <- function(self, coalesced) {
-    .Call('_torch_torch__coalesced__2e9d8c347852e3f5e8b16b391c580e28', PACKAGE = 'torch', self, coalesced)
+torch__coalesced__2e9d8 <- function(self, coalesced) {
+    .Call('_torch_torch__coalesced__2e9d8', PACKAGE = 'torch', self, coalesced)
 }
 
-torch_indices_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_indices_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_indices_68396 <- function(self) {
+    .Call('_torch_torch_indices_68396', PACKAGE = 'torch', self)
 }
 
-torch_values_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_values_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_values_68396 <- function(self) {
+    .Call('_torch_torch_values_68396', PACKAGE = 'torch', self)
 }
 
-torch_numel_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_numel_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_numel_68396 <- function(self) {
+    .Call('_torch_torch_numel_68396', PACKAGE = 'torch', self)
 }
 
-torch_unbind_ec971b768b5201c8c4ad6177a2be95ab <- function(self, dim) {
-    .Call('_torch_torch_unbind_ec971b768b5201c8c4ad6177a2be95ab', PACKAGE = 'torch', self, dim)
+torch_unbind_ec971 <- function(self, dim) {
+    .Call('_torch_torch_unbind_ec971', PACKAGE = 'torch', self, dim)
 }
 
-torch_to_sparse_b5eacf9bcb3f916a2b3b392bf8d0a876 <- function(self, sparse_dim) {
-    .Call('_torch_torch_to_sparse_b5eacf9bcb3f916a2b3b392bf8d0a876', PACKAGE = 'torch', self, sparse_dim)
+torch_to_sparse_b5eac <- function(self, sparse_dim) {
+    .Call('_torch_torch_to_sparse_b5eac', PACKAGE = 'torch', self, sparse_dim)
 }
 
-torch_to_sparse_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_to_sparse_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_to_sparse_68396 <- function(self) {
+    .Call('_torch_torch_to_sparse_68396', PACKAGE = 'torch', self)
 }
 
-torch_to_mkldnn_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_to_mkldnn_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_to_mkldnn_68396 <- function(self) {
+    .Call('_torch_torch_to_mkldnn_68396', PACKAGE = 'torch', self)
 }
 
-torch_dequantize_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_dequantize_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_dequantize_68396 <- function(self) {
+    .Call('_torch_torch_dequantize_68396', PACKAGE = 'torch', self)
 }
 
-torch_q_scale_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_q_scale_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_q_scale_68396 <- function(self) {
+    .Call('_torch_torch_q_scale_68396', PACKAGE = 'torch', self)
 }
 
-torch_q_zero_point_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_q_zero_point_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_q_zero_point_68396 <- function(self) {
+    .Call('_torch_torch_q_zero_point_68396', PACKAGE = 'torch', self)
 }
 
-torch_int_repr_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_int_repr_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_int_repr_68396 <- function(self) {
+    .Call('_torch_torch_int_repr_68396', PACKAGE = 'torch', self)
 }
 
-torch_to_07fb7170362aa19d60b3bf80c613368b <- function(self, options, non_blocking, copy) {
-    .Call('_torch_torch_to_07fb7170362aa19d60b3bf80c613368b', PACKAGE = 'torch', self, options, non_blocking, copy)
+torch_to_07fb7 <- function(self, options, non_blocking, copy) {
+    .Call('_torch_torch_to_07fb7', PACKAGE = 'torch', self, options, non_blocking, copy)
 }
 
-torch_to_90fe1befd83abd3f419da588b609ef89 <- function(self, device, dtype, non_blocking, copy) {
-    .Call('_torch_torch_to_90fe1befd83abd3f419da588b609ef89', PACKAGE = 'torch', self, device, dtype, non_blocking, copy)
+torch_to_90fe1 <- function(self, device, dtype, non_blocking, copy) {
+    .Call('_torch_torch_to_90fe1', PACKAGE = 'torch', self, device, dtype, non_blocking, copy)
 }
 
-torch_to_07b825f644ba168638538066d47424f6 <- function(self, dtype, non_blocking, copy) {
-    .Call('_torch_torch_to_07b825f644ba168638538066d47424f6', PACKAGE = 'torch', self, dtype, non_blocking, copy)
+torch_to_07b82 <- function(self, dtype, non_blocking, copy) {
+    .Call('_torch_torch_to_07b82', PACKAGE = 'torch', self, dtype, non_blocking, copy)
 }
 
-torch_to_4969670e973cd8d7b281281a8640d811 <- function(self, other, non_blocking, copy) {
-    .Call('_torch_torch_to_4969670e973cd8d7b281281a8640d811', PACKAGE = 'torch', self, other, non_blocking, copy)
+torch_to_49696 <- function(self, other, non_blocking, copy) {
+    .Call('_torch_torch_to_49696', PACKAGE = 'torch', self, other, non_blocking, copy)
 }
 
-torch_set__3ed615ba1a472df076a4d9909a0cd30c <- function(self, source) {
-    .Call('_torch_torch_set__3ed615ba1a472df076a4d9909a0cd30c', PACKAGE = 'torch', self, source)
+torch_set__3ed61 <- function(self, source) {
+    .Call('_torch_torch_set__3ed61', PACKAGE = 'torch', self, source)
 }
 
-torch_set__312dcae7f64e37bf3048b57f6468d8a1 <- function(self, source, storage_offset, size, stride) {
-    .Call('_torch_torch_set__312dcae7f64e37bf3048b57f6468d8a1', PACKAGE = 'torch', self, source, storage_offset, size, stride)
+torch_set__312dc <- function(self, source, storage_offset, size, stride) {
+    .Call('_torch_torch_set__312dc', PACKAGE = 'torch', self, source, storage_offset, size, stride)
 }
 
-torch_set__aa628b77987871d31027b827e168238a <- function(self, source) {
-    .Call('_torch_torch_set__aa628b77987871d31027b827e168238a', PACKAGE = 'torch', self, source)
+torch_set__aa628 <- function(self, source) {
+    .Call('_torch_torch_set__aa628', PACKAGE = 'torch', self, source)
 }
 
-torch_set__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_set__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_set__77059 <- function(self) {
+    .Call('_torch_torch_set__77059', PACKAGE = 'torch', self)
 }
 
-torch_is_set_to_20e8a5d03011737e0a350fd8208fc32a <- function(self, tensor) {
-    .Call('_torch_torch_is_set_to_20e8a5d03011737e0a350fd8208fc32a', PACKAGE = 'torch', self, tensor)
+torch_is_set_to_20e8a <- function(self, tensor) {
+    .Call('_torch_torch_is_set_to_20e8a', PACKAGE = 'torch', self, tensor)
 }
 
-torch_masked_fill__3508ed7ed0d2c5cae6d9c0ce9b2fb2d4 <- function(self, mask, value) {
-    .Call('_torch_torch_masked_fill__3508ed7ed0d2c5cae6d9c0ce9b2fb2d4', PACKAGE = 'torch', self, mask, value)
+torch_masked_fill__3508e <- function(self, mask, value) {
+    .Call('_torch_torch_masked_fill__3508e', PACKAGE = 'torch', self, mask, value)
 }
 
-torch_masked_fill_41dc98a2ba7f8ad88de78079444f4bd8 <- function(self, mask, value) {
-    .Call('_torch_torch_masked_fill_41dc98a2ba7f8ad88de78079444f4bd8', PACKAGE = 'torch', self, mask, value)
+torch_masked_fill_41dc9 <- function(self, mask, value) {
+    .Call('_torch_torch_masked_fill_41dc9', PACKAGE = 'torch', self, mask, value)
 }
 
-torch_masked_fill__1af341297b28a33caffc2c17b883ba7b <- function(self, mask, value) {
-    .Call('_torch_torch_masked_fill__1af341297b28a33caffc2c17b883ba7b', PACKAGE = 'torch', self, mask, value)
+torch_masked_fill__1af34 <- function(self, mask, value) {
+    .Call('_torch_torch_masked_fill__1af34', PACKAGE = 'torch', self, mask, value)
 }
 
-torch_masked_fill_c4aae6cc2bd91e62fd5f083b1e8505a0 <- function(self, mask, value) {
-    .Call('_torch_torch_masked_fill_c4aae6cc2bd91e62fd5f083b1e8505a0', PACKAGE = 'torch', self, mask, value)
+torch_masked_fill_c4aae <- function(self, mask, value) {
+    .Call('_torch_torch_masked_fill_c4aae', PACKAGE = 'torch', self, mask, value)
 }
 
-torch_masked_scatter__8ecd133c55daf83edc61e4d6de3d48a0 <- function(self, mask, source) {
-    .Call('_torch_torch_masked_scatter__8ecd133c55daf83edc61e4d6de3d48a0', PACKAGE = 'torch', self, mask, source)
+torch_masked_scatter__8ecd1 <- function(self, mask, source) {
+    .Call('_torch_torch_masked_scatter__8ecd1', PACKAGE = 'torch', self, mask, source)
 }
 
-torch_masked_scatter_1769cd65a7836e60ad7642093f55a5d3 <- function(self, mask, source) {
-    .Call('_torch_torch_masked_scatter_1769cd65a7836e60ad7642093f55a5d3', PACKAGE = 'torch', self, mask, source)
+torch_masked_scatter_1769c <- function(self, mask, source) {
+    .Call('_torch_torch_masked_scatter_1769c', PACKAGE = 'torch', self, mask, source)
 }
 
-torch_view_6bf55218cd71b219c054293f38520051 <- function(self, size) {
-    .Call('_torch_torch_view_6bf55218cd71b219c054293f38520051', PACKAGE = 'torch', self, size)
+torch_view_6bf55 <- function(self, size) {
+    .Call('_torch_torch_view_6bf55', PACKAGE = 'torch', self, size)
 }
 
-torch_put__2b379e8493dddd64d5fcb57dfe46ab83 <- function(self, index, source, accumulate) {
-    .Call('_torch_torch_put__2b379e8493dddd64d5fcb57dfe46ab83', PACKAGE = 'torch', self, index, source, accumulate)
+torch_put__2b379 <- function(self, index, source, accumulate) {
+    .Call('_torch_torch_put__2b379', PACKAGE = 'torch', self, index, source, accumulate)
 }
 
-torch_index_add__0be4630fe46f5a3434059ed7debb5603 <- function(self, dim, index, source) {
-    .Call('_torch_torch_index_add__0be4630fe46f5a3434059ed7debb5603', PACKAGE = 'torch', self, dim, index, source)
+torch_index_add__0be46 <- function(self, dim, index, source) {
+    .Call('_torch_torch_index_add__0be46', PACKAGE = 'torch', self, dim, index, source)
 }
 
-torch_index_add_073fd53276f8ca2975951ef418c77979 <- function(self, dim, index, source) {
-    .Call('_torch_torch_index_add_073fd53276f8ca2975951ef418c77979', PACKAGE = 'torch', self, dim, index, source)
+torch_index_add_073fd <- function(self, dim, index, source) {
+    .Call('_torch_torch_index_add_073fd', PACKAGE = 'torch', self, dim, index, source)
 }
 
-torch_index_fill__68bd4880045aa107467ff3395ce09125 <- function(self, dim, index, value) {
-    .Call('_torch_torch_index_fill__68bd4880045aa107467ff3395ce09125', PACKAGE = 'torch', self, dim, index, value)
+torch_index_fill__68bd4 <- function(self, dim, index, value) {
+    .Call('_torch_torch_index_fill__68bd4', PACKAGE = 'torch', self, dim, index, value)
 }
 
-torch_index_fill_6e7231b016b494e8f6fd347382bbf9dd <- function(self, dim, index, value) {
-    .Call('_torch_torch_index_fill_6e7231b016b494e8f6fd347382bbf9dd', PACKAGE = 'torch', self, dim, index, value)
+torch_index_fill_6e723 <- function(self, dim, index, value) {
+    .Call('_torch_torch_index_fill_6e723', PACKAGE = 'torch', self, dim, index, value)
 }
 
-torch_index_fill__928bbdb3d40ef89a9adaf7db52e85076 <- function(self, dim, index, value) {
-    .Call('_torch_torch_index_fill__928bbdb3d40ef89a9adaf7db52e85076', PACKAGE = 'torch', self, dim, index, value)
+torch_index_fill__928bb <- function(self, dim, index, value) {
+    .Call('_torch_torch_index_fill__928bb', PACKAGE = 'torch', self, dim, index, value)
 }
 
-torch_index_fill_d4b972e4d9c5472fc93caa76b85586c3 <- function(self, dim, index, value) {
-    .Call('_torch_torch_index_fill_d4b972e4d9c5472fc93caa76b85586c3', PACKAGE = 'torch', self, dim, index, value)
+torch_index_fill_d4b97 <- function(self, dim, index, value) {
+    .Call('_torch_torch_index_fill_d4b97', PACKAGE = 'torch', self, dim, index, value)
 }
 
-torch_scatter__a1889213e4ed60a091ae363b720154e4 <- function(self, dim, index, src) {
-    .Call('_torch_torch_scatter__a1889213e4ed60a091ae363b720154e4', PACKAGE = 'torch', self, dim, index, src)
+torch_scatter__a1889 <- function(self, dim, index, src) {
+    .Call('_torch_torch_scatter__a1889', PACKAGE = 'torch', self, dim, index, src)
 }
 
-torch_scatter_e1a8464ba19859b83be2b154413d58e4 <- function(self, dim, index, src) {
-    .Call('_torch_torch_scatter_e1a8464ba19859b83be2b154413d58e4', PACKAGE = 'torch', self, dim, index, src)
+torch_scatter_e1a84 <- function(self, dim, index, src) {
+    .Call('_torch_torch_scatter_e1a84', PACKAGE = 'torch', self, dim, index, src)
 }
 
-torch_scatter__68bd4880045aa107467ff3395ce09125 <- function(self, dim, index, value) {
-    .Call('_torch_torch_scatter__68bd4880045aa107467ff3395ce09125', PACKAGE = 'torch', self, dim, index, value)
+torch_scatter__68bd4 <- function(self, dim, index, value) {
+    .Call('_torch_torch_scatter__68bd4', PACKAGE = 'torch', self, dim, index, value)
 }
 
-torch_scatter_6e7231b016b494e8f6fd347382bbf9dd <- function(self, dim, index, value) {
-    .Call('_torch_torch_scatter_6e7231b016b494e8f6fd347382bbf9dd', PACKAGE = 'torch', self, dim, index, value)
+torch_scatter_6e723 <- function(self, dim, index, value) {
+    .Call('_torch_torch_scatter_6e723', PACKAGE = 'torch', self, dim, index, value)
 }
 
-torch_scatter_add__a1889213e4ed60a091ae363b720154e4 <- function(self, dim, index, src) {
-    .Call('_torch_torch_scatter_add__a1889213e4ed60a091ae363b720154e4', PACKAGE = 'torch', self, dim, index, src)
+torch_scatter_add__a1889 <- function(self, dim, index, src) {
+    .Call('_torch_torch_scatter_add__a1889', PACKAGE = 'torch', self, dim, index, src)
 }
 
-torch_scatter_add_e1a8464ba19859b83be2b154413d58e4 <- function(self, dim, index, src) {
-    .Call('_torch_torch_scatter_add_e1a8464ba19859b83be2b154413d58e4', PACKAGE = 'torch', self, dim, index, src)
+torch_scatter_add_e1a84 <- function(self, dim, index, src) {
+    .Call('_torch_torch_scatter_add_e1a84', PACKAGE = 'torch', self, dim, index, src)
 }
 
-torch_lt__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_lt__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_lt__7c9cc <- function(self, other) {
+    .Call('_torch_torch_lt__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_lt__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_lt__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_lt__5d476 <- function(self, other) {
+    .Call('_torch_torch_lt__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_gt__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_gt__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_gt__7c9cc <- function(self, other) {
+    .Call('_torch_torch_gt__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_gt__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_gt__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_gt__5d476 <- function(self, other) {
+    .Call('_torch_torch_gt__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_le__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_le__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_le__7c9cc <- function(self, other) {
+    .Call('_torch_torch_le__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_le__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_le__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_le__5d476 <- function(self, other) {
+    .Call('_torch_torch_le__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_ge__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_ge__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_ge__7c9cc <- function(self, other) {
+    .Call('_torch_torch_ge__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_ge__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_ge__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_ge__5d476 <- function(self, other) {
+    .Call('_torch_torch_ge__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_eq__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_eq__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_eq__7c9cc <- function(self, other) {
+    .Call('_torch_torch_eq__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_eq__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_eq__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_eq__5d476 <- function(self, other) {
+    .Call('_torch_torch_eq__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_ne__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_ne__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_ne__7c9cc <- function(self, other) {
+    .Call('_torch_torch_ne__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_ne__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_ne__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_ne__5d476 <- function(self, other) {
+    .Call('_torch_torch_ne__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch___and___828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch___and___828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch___and___828c7 <- function(self, other) {
+    .Call('_torch_torch___and___828c7', PACKAGE = 'torch', self, other)
 }
 
-torch___and___7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch___and___7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch___and___7f12b <- function(self, other) {
+    .Call('_torch_torch___and___7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch___iand___7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch___iand___7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch___iand___7c9cc <- function(self, other) {
+    .Call('_torch_torch___iand___7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch___iand___5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch___iand___5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch___iand___5d476 <- function(self, other) {
+    .Call('_torch_torch___iand___5d476', PACKAGE = 'torch', self, other)
 }
 
-torch___or___828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch___or___828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch___or___828c7 <- function(self, other) {
+    .Call('_torch_torch___or___828c7', PACKAGE = 'torch', self, other)
 }
 
-torch___or___7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch___or___7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch___or___7f12b <- function(self, other) {
+    .Call('_torch_torch___or___7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch___ior___7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch___ior___7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch___ior___7c9cc <- function(self, other) {
+    .Call('_torch_torch___ior___7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch___ior___5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch___ior___5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch___ior___5d476 <- function(self, other) {
+    .Call('_torch_torch___ior___5d476', PACKAGE = 'torch', self, other)
 }
 
-torch___xor___828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch___xor___828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch___xor___828c7 <- function(self, other) {
+    .Call('_torch_torch___xor___828c7', PACKAGE = 'torch', self, other)
 }
 
-torch___xor___7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch___xor___7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch___xor___7f12b <- function(self, other) {
+    .Call('_torch_torch___xor___7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch___ixor___7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch___ixor___7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch___ixor___7c9cc <- function(self, other) {
+    .Call('_torch_torch___ixor___7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch___ixor___5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch___ixor___5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch___ixor___5d476 <- function(self, other) {
+    .Call('_torch_torch___ixor___5d476', PACKAGE = 'torch', self, other)
 }
 
-torch___lshift___828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch___lshift___828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch___lshift___828c7 <- function(self, other) {
+    .Call('_torch_torch___lshift___828c7', PACKAGE = 'torch', self, other)
 }
 
-torch___lshift___7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch___lshift___7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch___lshift___7f12b <- function(self, other) {
+    .Call('_torch_torch___lshift___7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch___ilshift___7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch___ilshift___7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch___ilshift___7c9cc <- function(self, other) {
+    .Call('_torch_torch___ilshift___7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch___ilshift___5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch___ilshift___5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch___ilshift___5d476 <- function(self, other) {
+    .Call('_torch_torch___ilshift___5d476', PACKAGE = 'torch', self, other)
 }
 
-torch___rshift___828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch___rshift___828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch___rshift___828c7 <- function(self, other) {
+    .Call('_torch_torch___rshift___828c7', PACKAGE = 'torch', self, other)
 }
 
-torch___rshift___7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch___rshift___7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch___rshift___7f12b <- function(self, other) {
+    .Call('_torch_torch___rshift___7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch___irshift___7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch___irshift___7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch___irshift___7c9cc <- function(self, other) {
+    .Call('_torch_torch___irshift___7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch___irshift___5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch___irshift___5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch___irshift___5d476 <- function(self, other) {
+    .Call('_torch_torch___irshift___5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_lgamma__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_lgamma__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_lgamma__77059 <- function(self) {
+    .Call('_torch_torch_lgamma__77059', PACKAGE = 'torch', self)
 }
 
-torch_atan2__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_atan2__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_atan2__5d476 <- function(self, other) {
+    .Call('_torch_torch_atan2__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_tril__5f49350cc06804354c82470a879c6411 <- function(self, diagonal) {
-    .Call('_torch_torch_tril__5f49350cc06804354c82470a879c6411', PACKAGE = 'torch', self, diagonal)
+torch_tril__5f493 <- function(self, diagonal) {
+    .Call('_torch_torch_tril__5f493', PACKAGE = 'torch', self, diagonal)
 }
 
-torch_triu__5f49350cc06804354c82470a879c6411 <- function(self, diagonal) {
-    .Call('_torch_torch_triu__5f49350cc06804354c82470a879c6411', PACKAGE = 'torch', self, diagonal)
+torch_triu__5f493 <- function(self, diagonal) {
+    .Call('_torch_torch_triu__5f493', PACKAGE = 'torch', self, diagonal)
 }
 
-torch_digamma__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_digamma__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_digamma__77059 <- function(self) {
+    .Call('_torch_torch_digamma__77059', PACKAGE = 'torch', self)
 }
 
-torch_polygamma__5c9841a86a1bb2ecd6617444d7a089d2 <- function(self, n) {
-    .Call('_torch_torch_polygamma__5c9841a86a1bb2ecd6617444d7a089d2', PACKAGE = 'torch', self, n)
+torch_polygamma__5c984 <- function(self, n) {
+    .Call('_torch_torch_polygamma__5c984', PACKAGE = 'torch', self, n)
 }
 
-torch_erfinv__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_erfinv__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_erfinv__77059 <- function(self) {
+    .Call('_torch_torch_erfinv__77059', PACKAGE = 'torch', self)
 }
 
-torch_renorm__9fae5d6a810b9bad032cf57f062d624f <- function(self, p, dim, maxnorm) {
-    .Call('_torch_torch_renorm__9fae5d6a810b9bad032cf57f062d624f', PACKAGE = 'torch', self, p, dim, maxnorm)
+torch_renorm__9fae5 <- function(self, p, dim, maxnorm) {
+    .Call('_torch_torch_renorm__9fae5', PACKAGE = 'torch', self, p, dim, maxnorm)
 }
 
-torch_pow__008abcd26c8445cd2a3cb5bcf2d286c7 <- function(self, exponent) {
-    .Call('_torch_torch_pow__008abcd26c8445cd2a3cb5bcf2d286c7', PACKAGE = 'torch', self, exponent)
+torch_pow__008ab <- function(self, exponent) {
+    .Call('_torch_torch_pow__008ab', PACKAGE = 'torch', self, exponent)
 }
 
-torch_pow__54cfc151844ae49e1de12914d9e69402 <- function(self, exponent) {
-    .Call('_torch_torch_pow__54cfc151844ae49e1de12914d9e69402', PACKAGE = 'torch', self, exponent)
+torch_pow__54cfc <- function(self, exponent) {
+    .Call('_torch_torch_pow__54cfc', PACKAGE = 'torch', self, exponent)
 }
 
-torch_lerp__24fc485413ad759980bbfddb3e995e6f <- function(self, end, weight) {
-    .Call('_torch_torch_lerp__24fc485413ad759980bbfddb3e995e6f', PACKAGE = 'torch', self, end, weight)
+torch_lerp__24fc4 <- function(self, end, weight) {
+    .Call('_torch_torch_lerp__24fc4', PACKAGE = 'torch', self, end, weight)
 }
 
-torch_lerp__f181da1a42d520a9a601e4f92273989b <- function(self, end, weight) {
-    .Call('_torch_torch_lerp__f181da1a42d520a9a601e4f92273989b', PACKAGE = 'torch', self, end, weight)
+torch_lerp__f181d <- function(self, end, weight) {
+    .Call('_torch_torch_lerp__f181d', PACKAGE = 'torch', self, end, weight)
 }
 
-torch_sign__77059e51c0f0414f12e11876ea1d8896 <- function(self) {
-    .Call('_torch_torch_sign__77059e51c0f0414f12e11876ea1d8896', PACKAGE = 'torch', self)
+torch_sign__77059 <- function(self) {
+    .Call('_torch_torch_sign__77059', PACKAGE = 'torch', self)
 }
 
-torch_fmod__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_fmod__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_fmod__7c9cc <- function(self, other) {
+    .Call('_torch_torch_fmod__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_fmod__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_fmod__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_fmod__5d476 <- function(self, other) {
+    .Call('_torch_torch_fmod__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_remainder__7c9cc0828e809b4568149a32df76fd63 <- function(self, other) {
-    .Call('_torch_torch_remainder__7c9cc0828e809b4568149a32df76fd63', PACKAGE = 'torch', self, other)
+torch_remainder__7c9cc <- function(self, other) {
+    .Call('_torch_torch_remainder__7c9cc', PACKAGE = 'torch', self, other)
 }
 
-torch_remainder__5d476fcad960178d18feddbe371c5675 <- function(self, other) {
-    .Call('_torch_torch_remainder__5d476fcad960178d18feddbe371c5675', PACKAGE = 'torch', self, other)
+torch_remainder__5d476 <- function(self, other) {
+    .Call('_torch_torch_remainder__5d476', PACKAGE = 'torch', self, other)
 }
 
-torch_addbmm__e39679a201c809cf04d4768abd5f9472 <- function(self, batch1, batch2, beta, alpha) {
-    .Call('_torch_torch_addbmm__e39679a201c809cf04d4768abd5f9472', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
+torch_addbmm__e3967 <- function(self, batch1, batch2, beta, alpha) {
+    .Call('_torch_torch_addbmm__e3967', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
 }
 
-torch_addbmm_f084ab37fd7cee9fb89f911187c51117 <- function(self, batch1, batch2, beta, alpha) {
-    .Call('_torch_torch_addbmm_f084ab37fd7cee9fb89f911187c51117', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
+torch_addbmm_f084a <- function(self, batch1, batch2, beta, alpha) {
+    .Call('_torch_torch_addbmm_f084a', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
 }
 
-torch_addcmul__742865468d3d173af66a42cccde8e326 <- function(self, tensor1, tensor2, value) {
-    .Call('_torch_torch_addcmul__742865468d3d173af66a42cccde8e326', PACKAGE = 'torch', self, tensor1, tensor2, value)
+torch_addcmul__74286 <- function(self, tensor1, tensor2, value) {
+    .Call('_torch_torch_addcmul__74286', PACKAGE = 'torch', self, tensor1, tensor2, value)
 }
 
-torch_addcdiv__742865468d3d173af66a42cccde8e326 <- function(self, tensor1, tensor2, value) {
-    .Call('_torch_torch_addcdiv__742865468d3d173af66a42cccde8e326', PACKAGE = 'torch', self, tensor1, tensor2, value)
+torch_addcdiv__74286 <- function(self, tensor1, tensor2, value) {
+    .Call('_torch_torch_addcdiv__74286', PACKAGE = 'torch', self, tensor1, tensor2, value)
 }
 
-torch_random__417777d0710e439fb989bef3f7645771 <- function(self, from, to) {
-    .Call('_torch_torch_random__417777d0710e439fb989bef3f7645771', PACKAGE = 'torch', self, from, to)
+torch_random__41777 <- function(self, from, to) {
+    .Call('_torch_torch_random__41777', PACKAGE = 'torch', self, from, to)
 }
 
-torch_random__47742b4a683bcc7b28c10bc2cd1d8536 <- function(self, to) {
-    .Call('_torch_torch_random__47742b4a683bcc7b28c10bc2cd1d8536', PACKAGE = 'torch', self, to)
+torch_random__47742 <- function(self, to) {
+    .Call('_torch_torch_random__47742', PACKAGE = 'torch', self, to)
 }
 
-torch_random__4b76c0c01f02f75afc4f28e9c7848255 <- function(self) {
-    .Call('_torch_torch_random__4b76c0c01f02f75afc4f28e9c7848255', PACKAGE = 'torch', self)
+torch_random__4b76c <- function(self) {
+    .Call('_torch_torch_random__4b76c', PACKAGE = 'torch', self)
 }
 
-torch_uniform__2f75be8f7c2310093195fe413f0445f8 <- function(self, from, to) {
-    .Call('_torch_torch_uniform__2f75be8f7c2310093195fe413f0445f8', PACKAGE = 'torch', self, from, to)
+torch_uniform__2f75b <- function(self, from, to) {
+    .Call('_torch_torch_uniform__2f75b', PACKAGE = 'torch', self, from, to)
 }
 
-torch_normal__56ea22ea9dddaf694df74da6a28fa826 <- function(self, mean, std) {
-    .Call('_torch_torch_normal__56ea22ea9dddaf694df74da6a28fa826', PACKAGE = 'torch', self, mean, std)
+torch_normal__56ea2 <- function(self, mean, std) {
+    .Call('_torch_torch_normal__56ea2', PACKAGE = 'torch', self, mean, std)
 }
 
-torch_cauchy__b607d43d206e68155367f854664713bf <- function(self, median, sigma) {
-    .Call('_torch_torch_cauchy__b607d43d206e68155367f854664713bf', PACKAGE = 'torch', self, median, sigma)
+torch_cauchy__b607d <- function(self, median, sigma) {
+    .Call('_torch_torch_cauchy__b607d', PACKAGE = 'torch', self, median, sigma)
 }
 
-torch_log_normal__56ea22ea9dddaf694df74da6a28fa826 <- function(self, mean, std) {
-    .Call('_torch_torch_log_normal__56ea22ea9dddaf694df74da6a28fa826', PACKAGE = 'torch', self, mean, std)
+torch_log_normal__56ea2 <- function(self, mean, std) {
+    .Call('_torch_torch_log_normal__56ea2', PACKAGE = 'torch', self, mean, std)
 }
 
-torch_exponential__31e1c44de524960515a69c0dfbb817e2 <- function(self, lambd) {
-    .Call('_torch_torch_exponential__31e1c44de524960515a69c0dfbb817e2', PACKAGE = 'torch', self, lambd)
+torch_exponential__31e1c <- function(self, lambd) {
+    .Call('_torch_torch_exponential__31e1c', PACKAGE = 'torch', self, lambd)
 }
 
-torch_geometric__c0d7479cf591e60afc5ecc0adace5091 <- function(self, p) {
-    .Call('_torch_torch_geometric__c0d7479cf591e60afc5ecc0adace5091', PACKAGE = 'torch', self, p)
+torch_geometric__c0d74 <- function(self, p) {
+    .Call('_torch_torch_geometric__c0d74', PACKAGE = 'torch', self, p)
 }
 
-torch_diag_3f1827a9d61846f9cc7b955f989a7c45 <- function(self, diagonal) {
-    .Call('_torch_torch_diag_3f1827a9d61846f9cc7b955f989a7c45', PACKAGE = 'torch', self, diagonal)
+torch_diag_3f182 <- function(self, diagonal) {
+    .Call('_torch_torch_diag_3f182', PACKAGE = 'torch', self, diagonal)
 }
 
-torch_cross_b8c427b31176d369b82935f8db13cb80 <- function(self, other, dim) {
-    .Call('_torch_torch_cross_b8c427b31176d369b82935f8db13cb80', PACKAGE = 'torch', self, other, dim)
+torch_cross_b8c42 <- function(self, other, dim) {
+    .Call('_torch_torch_cross_b8c42', PACKAGE = 'torch', self, other, dim)
 }
 
-torch_triu_3f1827a9d61846f9cc7b955f989a7c45 <- function(self, diagonal) {
-    .Call('_torch_torch_triu_3f1827a9d61846f9cc7b955f989a7c45', PACKAGE = 'torch', self, diagonal)
+torch_triu_3f182 <- function(self, diagonal) {
+    .Call('_torch_torch_triu_3f182', PACKAGE = 'torch', self, diagonal)
 }
 
-torch_tril_3f1827a9d61846f9cc7b955f989a7c45 <- function(self, diagonal) {
-    .Call('_torch_torch_tril_3f1827a9d61846f9cc7b955f989a7c45', PACKAGE = 'torch', self, diagonal)
+torch_tril_3f182 <- function(self, diagonal) {
+    .Call('_torch_torch_tril_3f182', PACKAGE = 'torch', self, diagonal)
 }
 
-torch_trace_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_trace_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_trace_68396 <- function(self) {
+    .Call('_torch_torch_trace_68396', PACKAGE = 'torch', self)
 }
 
-torch_ne_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_ne_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_ne_828c7 <- function(self, other) {
+    .Call('_torch_torch_ne_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_ne_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_ne_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_ne_7f12b <- function(self, other) {
+    .Call('_torch_torch_ne_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_eq_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_eq_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_eq_828c7 <- function(self, other) {
+    .Call('_torch_torch_eq_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_eq_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_eq_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_eq_7f12b <- function(self, other) {
+    .Call('_torch_torch_eq_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_ge_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_ge_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_ge_828c7 <- function(self, other) {
+    .Call('_torch_torch_ge_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_ge_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_ge_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_ge_7f12b <- function(self, other) {
+    .Call('_torch_torch_ge_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_le_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_le_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_le_828c7 <- function(self, other) {
+    .Call('_torch_torch_le_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_le_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_le_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_le_7f12b <- function(self, other) {
+    .Call('_torch_torch_le_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_gt_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_gt_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_gt_828c7 <- function(self, other) {
+    .Call('_torch_torch_gt_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_gt_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_gt_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_gt_7f12b <- function(self, other) {
+    .Call('_torch_torch_gt_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_lt_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_lt_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_lt_828c7 <- function(self, other) {
+    .Call('_torch_torch_lt_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_lt_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_lt_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_lt_7f12b <- function(self, other) {
+    .Call('_torch_torch_lt_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_take_318ca949fbc9a40bb8a8115c70d08f69 <- function(self, index) {
-    .Call('_torch_torch_take_318ca949fbc9a40bb8a8115c70d08f69', PACKAGE = 'torch', self, index)
+torch_take_318ca <- function(self, index) {
+    .Call('_torch_torch_take_318ca', PACKAGE = 'torch', self, index)
 }
 
-torch_index_select_bb12de05582fff1d692ada6cd217b5d6 <- function(self, dim, index) {
-    .Call('_torch_torch_index_select_bb12de05582fff1d692ada6cd217b5d6', PACKAGE = 'torch', self, dim, index)
+torch_index_select_bb12d <- function(self, dim, index) {
+    .Call('_torch_torch_index_select_bb12d', PACKAGE = 'torch', self, dim, index)
 }
 
-torch_masked_select_ed5bb55732ad3303430891d7fa131c57 <- function(self, mask) {
-    .Call('_torch_torch_masked_select_ed5bb55732ad3303430891d7fa131c57', PACKAGE = 'torch', self, mask)
+torch_masked_select_ed5bb <- function(self, mask) {
+    .Call('_torch_torch_masked_select_ed5bb', PACKAGE = 'torch', self, mask)
 }
 
-torch_nonzero_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_nonzero_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_nonzero_68396 <- function(self) {
+    .Call('_torch_torch_nonzero_68396', PACKAGE = 'torch', self)
 }
 
-torch_nonzero_numpy_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_nonzero_numpy_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_nonzero_numpy_68396 <- function(self) {
+    .Call('_torch_torch_nonzero_numpy_68396', PACKAGE = 'torch', self)
 }
 
-torch_gather_15abb7a6bd37d5a662e3afe129f5739f <- function(self, dim, index, sparse_grad) {
-    .Call('_torch_torch_gather_15abb7a6bd37d5a662e3afe129f5739f', PACKAGE = 'torch', self, dim, index, sparse_grad)
+torch_gather_15abb <- function(self, dim, index, sparse_grad) {
+    .Call('_torch_torch_gather_15abb', PACKAGE = 'torch', self, dim, index, sparse_grad)
 }
 
-torch_addcmul_60f230cf6615609d73b7013860ad4ace <- function(self, tensor1, tensor2, value) {
-    .Call('_torch_torch_addcmul_60f230cf6615609d73b7013860ad4ace', PACKAGE = 'torch', self, tensor1, tensor2, value)
+torch_addcmul_60f23 <- function(self, tensor1, tensor2, value) {
+    .Call('_torch_torch_addcmul_60f23', PACKAGE = 'torch', self, tensor1, tensor2, value)
 }
 
-torch_addcdiv_60f230cf6615609d73b7013860ad4ace <- function(self, tensor1, tensor2, value) {
-    .Call('_torch_torch_addcdiv_60f230cf6615609d73b7013860ad4ace', PACKAGE = 'torch', self, tensor1, tensor2, value)
+torch_addcdiv_60f23 <- function(self, tensor1, tensor2, value) {
+    .Call('_torch_torch_addcdiv_60f23', PACKAGE = 'torch', self, tensor1, tensor2, value)
 }
 
-torch_lstsq_681b45f775987a9d4337e64ebe35838b <- function(self, A) {
-    .Call('_torch_torch_lstsq_681b45f775987a9d4337e64ebe35838b', PACKAGE = 'torch', self, A)
+torch_lstsq_681b4 <- function(self, A) {
+    .Call('_torch_torch_lstsq_681b4', PACKAGE = 'torch', self, A)
 }
 
-torch_triangular_solve_95047a6e651f1e1397e30787e0de642e <- function(self, A, upper, transpose, unitriangular) {
-    .Call('_torch_torch_triangular_solve_95047a6e651f1e1397e30787e0de642e', PACKAGE = 'torch', self, A, upper, transpose, unitriangular)
+torch_triangular_solve_95047 <- function(self, A, upper, transpose, unitriangular) {
+    .Call('_torch_torch_triangular_solve_95047', PACKAGE = 'torch', self, A, upper, transpose, unitriangular)
 }
 
-torch_symeig_917559e15993671449d66ba1008f876c <- function(self, eigenvectors, upper) {
-    .Call('_torch_torch_symeig_917559e15993671449d66ba1008f876c', PACKAGE = 'torch', self, eigenvectors, upper)
+torch_symeig_91755 <- function(self, eigenvectors, upper) {
+    .Call('_torch_torch_symeig_91755', PACKAGE = 'torch', self, eigenvectors, upper)
 }
 
-torch_eig_1d467c833632d77e9e55713ef8c8b122 <- function(self, eigenvectors) {
-    .Call('_torch_torch_eig_1d467c833632d77e9e55713ef8c8b122', PACKAGE = 'torch', self, eigenvectors)
+torch_eig_1d467 <- function(self, eigenvectors) {
+    .Call('_torch_torch_eig_1d467', PACKAGE = 'torch', self, eigenvectors)
 }
 
-torch_svd_2f217fcd9735b4f379dafcca6bdbb29e <- function(self, some, compute_uv) {
-    .Call('_torch_torch_svd_2f217fcd9735b4f379dafcca6bdbb29e', PACKAGE = 'torch', self, some, compute_uv)
+torch_svd_2f217 <- function(self, some, compute_uv) {
+    .Call('_torch_torch_svd_2f217', PACKAGE = 'torch', self, some, compute_uv)
 }
 
-torch_cholesky_5af1d4d3ba3c95c341f2b7646d03f369 <- function(self, upper) {
-    .Call('_torch_torch_cholesky_5af1d4d3ba3c95c341f2b7646d03f369', PACKAGE = 'torch', self, upper)
+torch_cholesky_5af1d <- function(self, upper) {
+    .Call('_torch_torch_cholesky_5af1d', PACKAGE = 'torch', self, upper)
 }
 
-torch_cholesky_solve_025dfe9f0799032ef64ce3e4b4433d33 <- function(self, input2, upper) {
-    .Call('_torch_torch_cholesky_solve_025dfe9f0799032ef64ce3e4b4433d33', PACKAGE = 'torch', self, input2, upper)
+torch_cholesky_solve_025df <- function(self, input2, upper) {
+    .Call('_torch_torch_cholesky_solve_025df', PACKAGE = 'torch', self, input2, upper)
 }
 
-torch_solve_681b45f775987a9d4337e64ebe35838b <- function(self, A) {
-    .Call('_torch_torch_solve_681b45f775987a9d4337e64ebe35838b', PACKAGE = 'torch', self, A)
+torch_solve_681b4 <- function(self, A) {
+    .Call('_torch_torch_solve_681b4', PACKAGE = 'torch', self, A)
 }
 
-torch_cholesky_inverse_5af1d4d3ba3c95c341f2b7646d03f369 <- function(self, upper) {
-    .Call('_torch_torch_cholesky_inverse_5af1d4d3ba3c95c341f2b7646d03f369', PACKAGE = 'torch', self, upper)
+torch_cholesky_inverse_5af1d <- function(self, upper) {
+    .Call('_torch_torch_cholesky_inverse_5af1d', PACKAGE = 'torch', self, upper)
 }
 
-torch_qr_c656560b1e291e8f59e4c2f770446c1b <- function(self, some) {
-    .Call('_torch_torch_qr_c656560b1e291e8f59e4c2f770446c1b', PACKAGE = 'torch', self, some)
+torch_qr_c6565 <- function(self, some) {
+    .Call('_torch_torch_qr_c6565', PACKAGE = 'torch', self, some)
 }
 
-torch_geqrf_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_geqrf_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_geqrf_68396 <- function(self) {
+    .Call('_torch_torch_geqrf_68396', PACKAGE = 'torch', self)
 }
 
-torch_orgqr_ba4070bcaff2334005f02fd1ac15e6f7 <- function(self, input2) {
-    .Call('_torch_torch_orgqr_ba4070bcaff2334005f02fd1ac15e6f7', PACKAGE = 'torch', self, input2)
+torch_orgqr_ba407 <- function(self, input2) {
+    .Call('_torch_torch_orgqr_ba407', PACKAGE = 'torch', self, input2)
 }
 
-torch_ormqr_64c989218d6cdfc844b6d04abb9daab6 <- function(self, input2, input3, left, transpose) {
-    .Call('_torch_torch_ormqr_64c989218d6cdfc844b6d04abb9daab6', PACKAGE = 'torch', self, input2, input3, left, transpose)
+torch_ormqr_64c98 <- function(self, input2, input3, left, transpose) {
+    .Call('_torch_torch_ormqr_64c98', PACKAGE = 'torch', self, input2, input3, left, transpose)
 }
 
-torch_lu_solve_1b393e546fa15a4c4a3ff1ea45878c92 <- function(self, LU_data, LU_pivots) {
-    .Call('_torch_torch_lu_solve_1b393e546fa15a4c4a3ff1ea45878c92', PACKAGE = 'torch', self, LU_data, LU_pivots)
+torch_lu_solve_1b393 <- function(self, LU_data, LU_pivots) {
+    .Call('_torch_torch_lu_solve_1b393', PACKAGE = 'torch', self, LU_data, LU_pivots)
 }
 
-torch_multinomial_58a43e013b869e223f72c31d9ed9864e <- function(self, num_samples, replacement) {
-    .Call('_torch_torch_multinomial_58a43e013b869e223f72c31d9ed9864e', PACKAGE = 'torch', self, num_samples, replacement)
+torch_multinomial_58a43 <- function(self, num_samples, replacement) {
+    .Call('_torch_torch_multinomial_58a43', PACKAGE = 'torch', self, num_samples, replacement)
 }
 
-torch_lgamma_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_lgamma_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_lgamma_68396 <- function(self) {
+    .Call('_torch_torch_lgamma_68396', PACKAGE = 'torch', self)
 }
 
-torch_digamma_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_digamma_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_digamma_68396 <- function(self) {
+    .Call('_torch_torch_digamma_68396', PACKAGE = 'torch', self)
 }
 
-torch_erfinv_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_erfinv_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_erfinv_68396 <- function(self) {
+    .Call('_torch_torch_erfinv_68396', PACKAGE = 'torch', self)
 }
 
-torch_dist_d0359fe95f05d18211bbcc94128382d4 <- function(self, other, p) {
-    .Call('_torch_torch_dist_d0359fe95f05d18211bbcc94128382d4', PACKAGE = 'torch', self, other, p)
+torch_dist_d0359 <- function(self, other, p) {
+    .Call('_torch_torch_dist_d0359', PACKAGE = 'torch', self, other, p)
 }
 
-torch_atan2_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_atan2_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_atan2_7f12b <- function(self, other) {
+    .Call('_torch_torch_atan2_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_lerp_52119028f62f451b2f5688ea3610e128 <- function(self, end, weight) {
-    .Call('_torch_torch_lerp_52119028f62f451b2f5688ea3610e128', PACKAGE = 'torch', self, end, weight)
+torch_lerp_52119 <- function(self, end, weight) {
+    .Call('_torch_torch_lerp_52119', PACKAGE = 'torch', self, end, weight)
 }
 
-torch_lerp_07603fb9e50ba263b5b23e7bb81db638 <- function(self, end, weight) {
-    .Call('_torch_torch_lerp_07603fb9e50ba263b5b23e7bb81db638', PACKAGE = 'torch', self, end, weight)
+torch_lerp_07603 <- function(self, end, weight) {
+    .Call('_torch_torch_lerp_07603', PACKAGE = 'torch', self, end, weight)
 }
 
-torch_histc_bff667a73f52909f033d8c9de0081a1d <- function(self, bins, min, max) {
-    .Call('_torch_torch_histc_bff667a73f52909f033d8c9de0081a1d', PACKAGE = 'torch', self, bins, min, max)
+torch_histc_bff66 <- function(self, bins, min, max) {
+    .Call('_torch_torch_histc_bff66', PACKAGE = 'torch', self, bins, min, max)
 }
 
-torch_sign_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_sign_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_sign_68396 <- function(self) {
+    .Call('_torch_torch_sign_68396', PACKAGE = 'torch', self)
 }
 
-torch_fmod_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_fmod_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_fmod_828c7 <- function(self, other) {
+    .Call('_torch_torch_fmod_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_fmod_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_fmod_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_fmod_7f12b <- function(self, other) {
+    .Call('_torch_torch_fmod_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_remainder_828c724a305e4a254aee6141456d6fb1 <- function(self, other) {
-    .Call('_torch_torch_remainder_828c724a305e4a254aee6141456d6fb1', PACKAGE = 'torch', self, other)
+torch_remainder_828c7 <- function(self, other) {
+    .Call('_torch_torch_remainder_828c7', PACKAGE = 'torch', self, other)
 }
 
-torch_remainder_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_remainder_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_remainder_7f12b <- function(self, other) {
+    .Call('_torch_torch_remainder_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_min_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_min_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_min_7f12b <- function(self, other) {
+    .Call('_torch_torch_min_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_min_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_min_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_min_68396 <- function(self) {
+    .Call('_torch_torch_min_68396', PACKAGE = 'torch', self)
 }
 
-torch_max_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_max_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_max_7f12b <- function(self, other) {
+    .Call('_torch_torch_max_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_max_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_max_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_max_68396 <- function(self) {
+    .Call('_torch_torch_max_68396', PACKAGE = 'torch', self)
 }
 
-torch_median_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_median_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_median_68396 <- function(self) {
+    .Call('_torch_torch_median_68396', PACKAGE = 'torch', self)
 }
 
-torch_sort_52a2acee48fe0d5321c4ec19c38c32d6 <- function(self, dim, descending) {
-    .Call('_torch_torch_sort_52a2acee48fe0d5321c4ec19c38c32d6', PACKAGE = 'torch', self, dim, descending)
+torch_sort_52a2a <- function(self, dim, descending) {
+    .Call('_torch_torch_sort_52a2a', PACKAGE = 'torch', self, dim, descending)
 }
 
-torch_argsort_52a2acee48fe0d5321c4ec19c38c32d6 <- function(self, dim, descending) {
-    .Call('_torch_torch_argsort_52a2acee48fe0d5321c4ec19c38c32d6', PACKAGE = 'torch', self, dim, descending)
+torch_argsort_52a2a <- function(self, dim, descending) {
+    .Call('_torch_torch_argsort_52a2a', PACKAGE = 'torch', self, dim, descending)
 }
 
-torch_topk_92a7e3ac7fad4d88b3448c70a70c3f8a <- function(self, k, dim, largest, sorted) {
-    .Call('_torch_torch_topk_92a7e3ac7fad4d88b3448c70a70c3f8a', PACKAGE = 'torch', self, k, dim, largest, sorted)
+torch_topk_92a7e <- function(self, k, dim, largest, sorted) {
+    .Call('_torch_torch_topk_92a7e', PACKAGE = 'torch', self, k, dim, largest, sorted)
 }
 
-torch_all_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_all_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_all_68396 <- function(self) {
+    .Call('_torch_torch_all_68396', PACKAGE = 'torch', self)
 }
 
-torch_any_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_any_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_any_68396 <- function(self) {
+    .Call('_torch_torch_any_68396', PACKAGE = 'torch', self)
 }
 
-torch_renorm_56a4ac7915d3aee407c8286c79a259ff <- function(self, p, dim, maxnorm) {
-    .Call('_torch_torch_renorm_56a4ac7915d3aee407c8286c79a259ff', PACKAGE = 'torch', self, p, dim, maxnorm)
+torch_renorm_56a4a <- function(self, p, dim, maxnorm) {
+    .Call('_torch_torch_renorm_56a4a', PACKAGE = 'torch', self, p, dim, maxnorm)
 }
 
-torch_unfold_020977f59530963a27cd1039400e50c9 <- function(self, dimension, size, step) {
-    .Call('_torch_torch_unfold_020977f59530963a27cd1039400e50c9', PACKAGE = 'torch', self, dimension, size, step)
+torch_unfold_02097 <- function(self, dimension, size, step) {
+    .Call('_torch_torch_unfold_02097', PACKAGE = 'torch', self, dimension, size, step)
 }
 
-torch_equal_7f12b0bdc5e3c8186277ce82f15149b2 <- function(self, other) {
-    .Call('_torch_torch_equal_7f12b0bdc5e3c8186277ce82f15149b2', PACKAGE = 'torch', self, other)
+torch_equal_7f12b <- function(self, other) {
+    .Call('_torch_torch_equal_7f12b', PACKAGE = 'torch', self, other)
 }
 
-torch_pow_b69e041157596e34bdef3154d84f2d1e <- function(self, exponent) {
-    .Call('_torch_torch_pow_b69e041157596e34bdef3154d84f2d1e', PACKAGE = 'torch', self, exponent)
+torch_pow_b69e0 <- function(self, exponent) {
+    .Call('_torch_torch_pow_b69e0', PACKAGE = 'torch', self, exponent)
 }
 
-torch_alias_68396f1df3a98eb80570d6202c3c8b18 <- function(self) {
-    .Call('_torch_torch_alias_68396f1df3a98eb80570d6202c3c8b18', PACKAGE = 'torch', self)
+torch_alias_68396 <- function(self) {
+    .Call('_torch_torch_alias_68396', PACKAGE = 'torch', self)
 }
 
