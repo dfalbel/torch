@@ -30,6 +30,7 @@ get_possible_argument_names <- function(methods) {
   unq[ind]
 }
 
+
 #' Returns the R type of an argument in the declarations
 #'
 #' @param argument an argument like `declarations()[[1]]$arguments[[1]]`

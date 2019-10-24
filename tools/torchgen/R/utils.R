@@ -32,10 +32,10 @@ declarations <- function() {
 #' Get all tensor methods from Declarations.yaml
 #'
 #' @export
-tensor_methods <- function() {
+tensor_methods <- memoise::memoise(function() {
   declarations() %>%
     purrr::keep(~"Tensor" %in% .x$method_of)
-}
+})
 
 #' Takes an object like `declarations()` and
 #' returns the list of unique names in it.

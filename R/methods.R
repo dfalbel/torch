@@ -1856,7 +1856,7 @@ setMethod(
 
 setMethod(
  f = 'torch_bernoulli_',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", p = "missing"),
  definition = function(self) {
   torch_bernoulli_172e9(self)
  })
@@ -2451,7 +2451,7 @@ setMethod(
 
 setMethod(
  f = 'torch_max_',
- signature = list(self = "externalptr", dim = "numeric", keepdim = "logical"),
+ signature = list(self = "externalptr", dim = "numeric", keepdim = "logical", other = "missing"),
  definition = function(self, dim, keepdim) {
   torch_max_a00d6(self, dim, keepdim)
  })
@@ -2465,7 +2465,7 @@ setMethod(
 
 setMethod(
  f = 'torch_mean_',
- signature = list(self = "externalptr", dtype = "character"),
+ signature = list(self = "externalptr", dtype = "character", dim = "missing", keepdim = "missing"),
  definition = function(self, dtype) {
   torch_mean_e9eab(self, dtype)
  })
@@ -2486,7 +2486,7 @@ setMethod(
 
 setMethod(
  f = 'torch_min_',
- signature = list(self = "externalptr", dim = "numeric", keepdim = "logical"),
+ signature = list(self = "externalptr", dim = "numeric", keepdim = "logical", other = "missing"),
  definition = function(self, dim, keepdim) {
   torch_min_a00d6(self, dim, keepdim)
  })
@@ -2850,7 +2850,7 @@ setMethod(
 
 setMethod(
  f = 'torch_squeeze_',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", dim = "missing"),
  definition = function(self) {
   torch_squeeze_68396(self)
  })
@@ -2864,7 +2864,7 @@ setMethod(
 
 setMethod(
  f = 'torch_squeeze__',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", dim = "missing"),
  definition = function(self) {
   torch_squeeze__77059(self)
  })
@@ -2899,7 +2899,7 @@ setMethod(
 
 setMethod(
  f = 'torch_sum_',
- signature = list(self = "externalptr", dtype = "character"),
+ signature = list(self = "externalptr", dtype = "character", dim = "missing", keepdim = "missing"),
  definition = function(self, dtype) {
   torch_sum_e9eab(self, dtype)
  })
@@ -2934,7 +2934,7 @@ setMethod(
 
 setMethod(
  f = 'torch_std_',
- signature = list(self = "externalptr", unbiased = "logical"),
+ signature = list(self = "externalptr", unbiased = "logical", dim = "missing", keepdim = "missing"),
  definition = function(self, unbiased) {
   torch_std_26862(self, unbiased)
  })
@@ -2948,7 +2948,7 @@ setMethod(
 
 setMethod(
  f = 'torch_prod_',
- signature = list(self = "externalptr", dtype = "character"),
+ signature = list(self = "externalptr", dtype = "character", dim = "missing", keepdim = "missing"),
  definition = function(self, dtype) {
   torch_prod_e9eab(self, dtype)
  })
@@ -3074,7 +3074,7 @@ setMethod(
 
 setMethod(
  f = 'torch_var_',
- signature = list(self = "externalptr", unbiased = "logical"),
+ signature = list(self = "externalptr", unbiased = "logical", dim = "missing", keepdim = "missing"),
  definition = function(self, unbiased) {
   torch_var_26862(self, unbiased)
  })
@@ -3102,14 +3102,14 @@ setMethod(
 
 setMethod(
  f = 'torch_norm_',
- signature = list(self = "externalptr", p = "numeric", dtype = "character"),
+ signature = list(self = "externalptr", p = "numeric", dtype = "character", dim = "missing", keepdim = "missing"),
  definition = function(self, p, dtype) {
   torch_norm_030be(self, p, dtype)
  })
 
 setMethod(
  f = 'torch_norm_',
- signature = list(self = "externalptr", p = "numeric"),
+ signature = list(self = "externalptr", p = "numeric", dim = "missing", keepdim = "missing", dtype = "missing"),
  definition = function(self, p) {
   torch_norm_04a03(self, p)
  })
@@ -3123,7 +3123,7 @@ setMethod(
 
 setMethod(
  f = 'torch_norm_',
- signature = list(self = "externalptr", p = "numeric", dim = "numeric", keepdim = "logical"),
+ signature = list(self = "externalptr", p = "numeric", dim = "numeric", keepdim = "logical", dtype = "missing"),
  definition = function(self, p, dim, keepdim) {
   torch_norm_6d38f(self, p, dim, keepdim)
  })
@@ -3333,7 +3333,7 @@ setMethod(
 
 setMethod(
  f = 'torch_to_sparse_',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", sparse_dim = "missing"),
  definition = function(self) {
   torch_to_sparse_68396(self)
  })
@@ -3382,28 +3382,28 @@ setMethod(
 
 setMethod(
  f = 'torch_to_',
- signature = list(self = "externalptr", options = "list", non_blocking = "logical", copy = "logical"),
+ signature = list(self = "externalptr", options = "list", non_blocking = "logical", copy = "logical", device = "missing", other = "missing", dtype = "missing"),
  definition = function(self, options, non_blocking, copy) {
   torch_to_07fb7(self, options, non_blocking, copy)
  })
 
 setMethod(
  f = 'torch_to_',
- signature = list(self = "externalptr", device = "Device", dtype = "character", non_blocking = "logical", copy = "logical"),
+ signature = list(self = "externalptr", device = "Device", dtype = "character", non_blocking = "logical", copy = "logical", options = "missing", other = "missing"),
  definition = function(self, device, dtype, non_blocking, copy) {
   torch_to_90fe1(self, device, dtype, non_blocking, copy)
  })
 
 setMethod(
  f = 'torch_to_',
- signature = list(self = "externalptr", dtype = "character", non_blocking = "logical", copy = "logical"),
+ signature = list(self = "externalptr", dtype = "character", non_blocking = "logical", copy = "logical", options = "missing", device = "missing", other = "missing"),
  definition = function(self, dtype, non_blocking, copy) {
   torch_to_07b82(self, dtype, non_blocking, copy)
  })
 
 setMethod(
  f = 'torch_to_',
- signature = list(self = "externalptr", other = "externalptr", non_blocking = "logical", copy = "logical"),
+ signature = list(self = "externalptr", other = "externalptr", non_blocking = "logical", copy = "logical", options = "missing", device = "missing", dtype = "missing"),
  definition = function(self, other, non_blocking, copy) {
   torch_to_49696(self, other, non_blocking, copy)
  })
@@ -3417,7 +3417,7 @@ setMethod(
 
 setMethod(
  f = 'torch_set__',
- signature = list(self = "externalptr", source = "Storage"),
+ signature = list(self = "externalptr", source = "Storage", storage_offset = "missing", size = "missing", stride = "missing"),
  definition = function(self, source) {
   torch_set__3ed61(self, source)
  })
@@ -3431,14 +3431,14 @@ setMethod(
 
 setMethod(
  f = 'torch_set__',
- signature = list(self = "externalptr", source = "externalptr"),
+ signature = list(self = "externalptr", source = "externalptr", storage_offset = "missing", size = "missing", stride = "missing"),
  definition = function(self, source) {
   torch_set__aa628(self, source)
  })
 
 setMethod(
  f = 'torch_set__',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", source = "missing", storage_offset = "missing", size = "missing", stride = "missing"),
  definition = function(self) {
   torch_set__77059(self)
  })
@@ -3557,28 +3557,28 @@ setMethod(
 
 setMethod(
  f = 'torch_scatter__',
- signature = list(self = "externalptr", dim = "numeric", index = "externalptr", src = "externalptr"),
+ signature = list(self = "externalptr", dim = "numeric", index = "externalptr", src = "externalptr", value = "missing"),
  definition = function(self, dim, index, src) {
   torch_scatter__a1889(self, dim, index, src)
  })
 
 setMethod(
  f = 'torch_scatter_',
- signature = list(self = "externalptr", dim = "numeric", index = "externalptr", src = "externalptr"),
+ signature = list(self = "externalptr", dim = "numeric", index = "externalptr", src = "externalptr", value = "missing"),
  definition = function(self, dim, index, src) {
   torch_scatter_e1a84(self, dim, index, src)
  })
 
 setMethod(
  f = 'torch_scatter__',
- signature = list(self = "externalptr", dim = "numeric", index = "externalptr", value = "numeric"),
+ signature = list(self = "externalptr", dim = "numeric", index = "externalptr", value = "numeric", src = "missing"),
  definition = function(self, dim, index, value) {
   torch_scatter__68bd4(self, dim, index, value)
  })
 
 setMethod(
  f = 'torch_scatter_',
- signature = list(self = "externalptr", dim = "numeric", index = "externalptr", value = "numeric"),
+ signature = list(self = "externalptr", dim = "numeric", index = "externalptr", value = "numeric", src = "missing"),
  definition = function(self, dim, index, value) {
   torch_scatter_6e723(self, dim, index, value)
  })
@@ -3977,14 +3977,14 @@ setMethod(
 
 setMethod(
  f = 'torch_random__',
- signature = list(self = "externalptr", to = "numeric"),
+ signature = list(self = "externalptr", to = "numeric", from = "missing"),
  definition = function(self, to) {
   torch_random__47742(self, to)
  })
 
 setMethod(
  f = 'torch_random__',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", from = "missing", to = "missing"),
  definition = function(self) {
   torch_random__4b76c(self)
  })
@@ -4411,35 +4411,35 @@ setMethod(
 
 setMethod(
  f = 'torch_min_',
- signature = list(self = "externalptr", other = "externalptr"),
+ signature = list(self = "externalptr", other = "externalptr", dim = "missing", keepdim = "missing"),
  definition = function(self, other) {
   torch_min_7f12b(self, other)
  })
 
 setMethod(
  f = 'torch_min_',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", dim = "missing", other = "missing", keepdim = "missing"),
  definition = function(self) {
   torch_min_68396(self)
  })
 
 setMethod(
  f = 'torch_max_',
- signature = list(self = "externalptr", other = "externalptr"),
+ signature = list(self = "externalptr", other = "externalptr", dim = "missing", keepdim = "missing"),
  definition = function(self, other) {
   torch_max_7f12b(self, other)
  })
 
 setMethod(
  f = 'torch_max_',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", dim = "missing", other = "missing", keepdim = "missing"),
  definition = function(self) {
   torch_max_68396(self)
  })
 
 setMethod(
  f = 'torch_median_',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", dim = "missing", keepdim = "missing"),
  definition = function(self) {
   torch_median_68396(self)
  })
@@ -4467,14 +4467,14 @@ setMethod(
 
 setMethod(
  f = 'torch_all_',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", dim = "missing", keepdim = "missing"),
  definition = function(self) {
   torch_all_68396(self)
  })
 
 setMethod(
  f = 'torch_any_',
- signature = list(self = "externalptr"),
+ signature = list(self = "externalptr", dim = "missing", keepdim = "missing"),
  definition = function(self) {
   torch_any_68396(self)
  })

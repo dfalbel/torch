@@ -16,5 +16,6 @@ Imports:
     glue,
     yaml,
     openssl,
-    magrittr
+    magrittr,
+    memoise
 RoxygenNote: 6.1.1

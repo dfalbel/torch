@@ -115,6 +115,15 @@ method_s4_signature <- function(method) {
   argument_names <- arguments$names
   argument_types <- arguments$types
 
+  # find arguments that are present in the generic but not in the signature
+  all_args <- tensor_methods() %>%
+    declarations_with_name(method$name) %>%
+    get_possible_argument_names()
+  missing_args <- all_args[!all_args %in% argument_names]
+
+  argument_names <- c(argument_names, missing_args)
+  argument_types <- c(argument_types, rep("missing", length(missing_args)))
+
   args <- glue::glue('{argument_names} = "{argument_types}"') %>%
     glue::glue_collapse(sep = ", ")
 
