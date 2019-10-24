@@ -6,25 +6,25 @@
 get_possible_argument_names <- function(methods) {
 
   # remove args that are not wraped
-  arguments <- map(methods, ~.x$arguments)
+  arguments <- purrr::map(methods, ~.x$arguments)
 
-  argument_names <- map(arguments, ~map_chr(.x, function(.x) {
+  argument_names <- purrr::map(arguments, ~purrr::map_chr(.x, function(.x) {
 
     if (.x$dynamic_type == "Generator *")
       return(NA_character_)
 
     .x$name
-  }) %>% discard(is.na))
+  }) %>% purrr::discard(is.na))
 
   unq <- argument_names %>%
-    flatten_chr() %>%
+    purrr::flatten_chr() %>%
     unique()
 
   ind <-  unq %>%
-    map(function(x) {
-      map_int(argument_names, ~which(.x == x)[1])
+    purrr::map(function(x) {
+      purrr::map_int(argument_names, ~which(.x == x)[1])
     }) %>%
-    map_int(max, na.rm = TRUE) %>%
+    purrr::map_int(max, na.rm = TRUE) %>%
     order()
 
   unq[ind]

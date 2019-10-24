@@ -51,7 +51,7 @@ method_r6_signature <- function(methods) {
   arguments <- defaults[arguments]
   arguments[["self"]] <- NULL
   arguments %>%
-    imap_chr(function(default, name) {
+    purrr::imap_chr(function(default, name) {
       if (!is.na(default))
         name <- glue::glue("{name} = {default}")
 
@@ -60,11 +60,47 @@ method_r6_signature <- function(methods) {
     paste(collapse = ", ")
 }
 
+
+method_r6_return <- function(methods) {
+  returns <- get_return_types(methods)
+
+  lengths <- purrr::map_int(returns, length)
+  all_returns <- purrr::flatten_chr(returns)
+
+  if (all(lengths == 1)) {
+
+    if (all(all_returns == "Tensor"))
+      return("`torch::Tensor`$dispatch(out)")
+    else if (all(all_returns == "Tensor &"))
+      return("invisible(self)")
+    else if (all(all_returns %in% c("bool", "int64_t", "double")))
+      return("out")
+    else if (all(all_returns == "std::vector<Tensor>"))
+      return("lapply(out, `torch::Tensor`$dispatch)")
+    else if (all(all_returns == "void"))
+      return("invisible(NULL)")
+    else if (all(all_returns == "QScheme"))
+      return("`torch::QScheme`$dispatch(out)")
+    else if (all(all_returns == "Scalar"))
+      return("as.array(out)")
+
+  } else {
+
+    if (all(all_returns == "Tensor")) {
+      return("if (length(out) == 1) out else lapply(out, `torch::Tensor`$dispatch)")
+    }
+
+  }
+
+  "invisible(NULL)"
+}
+
 method_r6_body <- function(methods) {
   glue::glue('
-  args <- as.list(environment())
+  args <- args_to_pointers(as.list(environment()))
   args[["self"]] <- self$pointer
-  `torch::Tensor`$dispatch(do.call({method_s4_generic_name(methods)}, args))
+  out <- do.call({method_s4_generic_name(methods)}, args)
+  {method_r6_return(methods)}
 ')
 }
 
