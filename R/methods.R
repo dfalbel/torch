@@ -3389,7 +3389,7 @@ setMethod(
 
 setMethod(
  f = 'torch_to_',
- signature = list(self = "externalptr", device = "Device", dtype = "character", non_blocking = "logical", copy = "logical", options = "missing", other = "missing"),
+ signature = list(self = "externalptr", device = "character", dtype = "character", non_blocking = "logical", copy = "logical", options = "missing", other = "missing"),
  definition = function(self, device, dtype, non_blocking, copy) {
   torch_to_90fe1(self, device, dtype, non_blocking, copy)
  })
@@ -3417,14 +3417,14 @@ setMethod(
 
 setMethod(
  f = 'torch_set__',
- signature = list(self = "externalptr", source = "Storage", storage_offset = "missing", size = "missing", stride = "missing"),
+ signature = list(self = "externalptr", source = "character", storage_offset = "missing", size = "missing", stride = "missing"),
  definition = function(self, source) {
   torch_set__3ed61(self, source)
  })
 
 setMethod(
  f = 'torch_set__',
- signature = list(self = "externalptr", source = "Storage", storage_offset = "numeric", size = "numeric", stride = "numeric"),
+ signature = list(self = "externalptr", source = "character", storage_offset = "numeric", size = "numeric", stride = "numeric"),
  definition = function(self, source, storage_offset, size, stride) {
   torch_set__312dc(self, source, storage_offset, size, stride)
  })
@@ -3445,7 +3445,7 @@ setMethod(
 
 setMethod(
  f = 'torch_set_quantizer__',
- signature = list(self = "externalptr", quantizer = "ConstQuantizerPtr"),
+ signature = list(self = "externalptr", quantizer = "character"),
  definition = function(self, quantizer) {
   torch_set_quantizer__bade2(self, quantizer)
  })

@@ -71,5 +71,15 @@ argument_type_to_r <- function(argument) {
   if (argument_type == "TensorOptions")
     argument_type <- "list"
 
+  if (argument_type == "Device")
+    argument_type <- "character"
+
+  if (argument_type == "Storage")
+    argument_type <- "character"
+
+  if (argument_type == "ConstQuantizerPtr")
+    argument_type <- "character"
+
+
   argument_type
 }
