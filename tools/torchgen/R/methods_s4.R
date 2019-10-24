@@ -64,7 +64,7 @@ setMethod(
 
 #' Get's the name of the generic function corresponding to the method
 #'
-#' @inheritParams method a single method or a list of methods.
+#' @param method a single method or a list of methods.
 #'
 method_s4_generic_name <- function(method) {
 

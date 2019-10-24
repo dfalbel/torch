@@ -49,9 +49,12 @@ method_cpp_return_type <- function(method) {
 
       return("Rcpp::List")
 
+    } else if (dynamic_type == "Scalar") {
+
+      return("SEXP")
     }
 
-  } else if (all(purrr::map_chr(method$returns, ~.x$dynamic_type) == "Tensor")) {
+  } else if (all(purrr::map_chr(method$returns, ~.x$dynamic_type) %in% c("Tensor", "TensorList", "int64_t", "double", "Scalar"))) {
 
     return("Rcpp::List")
 

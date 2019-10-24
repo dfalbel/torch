@@ -6,6 +6,17 @@ Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
   return Rcpp::XPtr<torch::Tensor>(out);
 }
 
+Rcpp::List tensorlist_to_r (torch::TensorList x) {
+  Rcpp::List out;
+
+  for (int i = 0; i < x.size(); i ++) {
+    auto tmp = make_tensor_ptr(x.at(i));
+    out.push_back(tmp);
+  }
+
+  return out;
+}
+
 Rcpp::XPtr<torch::QScheme> make_qscheme_ptr (torch::QScheme x) {
   auto * out = new torch::QScheme(x);
   return Rcpp::XPtr<torch::QScheme>(out);

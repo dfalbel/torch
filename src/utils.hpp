@@ -2,6 +2,8 @@
 
 Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x);
 
+Rcpp::List tensorlist_to_r (torch::TensorList x);
+
 Rcpp::XPtr<torch::QScheme> make_qscheme_ptr (torch::QScheme x);
 
 std::vector<torch::Tensor> tensor_list_from_r_ (Rcpp::List x);

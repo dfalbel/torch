@@ -6,6 +6,9 @@
 \usage{
 method_s4_generic_name(method)
 }
+\arguments{
+\item{method}{a single method or a list of methods.}
+}
 \description{
 Get's the name of the generic function corresponding to the method
 }

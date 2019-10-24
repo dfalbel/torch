@@ -279,7 +279,7 @@ return make_tensor_ptr(out);
    };
 
 // [[Rcpp::export]]
-    Rcpp::XPtr<torch::Tensor> torch_contiguous_d11f2 (Rcpp::XPtr<torch::Tensor> self) {
+    Rcpp::XPtr<torch::Tensor> torch_contiguous_d11f2 (Rcpp::XPtr<torch::Tensor> self, Rcpp::XPtr<torch::MemoryFormat> memory_format) {
      auto out = self->contiguous();
 return make_tensor_ptr(out);
    };

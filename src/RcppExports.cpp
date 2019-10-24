@@ -629,13 +629,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // torch_contiguous_d11f2
-Rcpp::XPtr<torch::Tensor> torch_contiguous_d11f2(Rcpp::XPtr<torch::Tensor> self);
-RcppExport SEXP _torch_torch_contiguous_d11f2(SEXP selfSEXP) {
+Rcpp::XPtr<torch::Tensor> torch_contiguous_d11f2(Rcpp::XPtr<torch::Tensor> self, std::string memory_format);
+RcppExport SEXP _torch_torch_contiguous_d11f2(SEXP selfSEXP, SEXP memory_formatSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::XPtr<torch::Tensor> >::type self(selfSEXP);
-    rcpp_result_gen = Rcpp::wrap(torch_contiguous_d11f2(self));
+    Rcpp::traits::input_parameter< std::string >::type memory_format(memory_formatSEXP);
+    rcpp_result_gen = Rcpp::wrap(torch_contiguous_d11f2(self, memory_format));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -5073,7 +5074,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_torch_torch_clamp_max__1319c", (DL_FUNC) &_torch_torch_clamp_max__1319c, 2},
     {"_torch_torch_clamp_min_96a46", (DL_FUNC) &_torch_torch_clamp_min_96a46, 2},
     {"_torch_torch_clamp_min__a683f", (DL_FUNC) &_torch_torch_clamp_min__a683f, 2},
-    {"_torch_torch_contiguous_d11f2", (DL_FUNC) &_torch_torch_contiguous_d11f2, 1},
+    {"_torch_torch_contiguous_d11f2", (DL_FUNC) &_torch_torch_contiguous_d11f2, 2},
     {"_torch_torch_copy__1ccfd", (DL_FUNC) &_torch_torch_copy__1ccfd, 3},
     {"_torch_torch_cos_68396", (DL_FUNC) &_torch_torch_cos_68396, 1},
     {"_torch_torch_cos__77059", (DL_FUNC) &_torch_torch_cos__77059, 1},

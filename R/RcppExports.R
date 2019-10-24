@@ -201,8 +201,8 @@ torch_clamp_min__a683f <- function(self, min) {
     .Call('_torch_torch_clamp_min__a683f', PACKAGE = 'torch', self, min)
 }
 
-torch_contiguous_d11f2 <- function(self) {
-    .Call('_torch_torch_contiguous_d11f2', PACKAGE = 'torch', self)
+torch_contiguous_d11f2 <- function(self, memory_format) {
+    .Call('_torch_torch_contiguous_d11f2', PACKAGE = 'torch', self, memory_format)
 }
 
 torch_copy__1ccfd <- function(self, src, non_blocking) {

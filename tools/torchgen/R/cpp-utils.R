@@ -27,6 +27,9 @@ cpp_argument_type <- function(argument) {
   if (type == "Storage")
     type <- "Rcpp::XPtr<torch::Storage>"
 
+  if (type == "MemoryFormat")
+    type <- "Rcpp::XPtr<torch::MemoryFormat>"
+
   if (type == "TensorList")
     type <- "Rcpp::List"
 
@@ -37,9 +40,6 @@ cpp_argument_type <- function(argument) {
     type <- glue::glue("Rcpp::Nullable<{type}>")
 
   if (type == "Generator *")
-    return(NA_character_) # remove generators from the call
-
-  if (type == "MemoryFormat")
     return(NA_character_) # remove generators from the call
 
   if (type == "ConstQuantizerPtr")
@@ -83,6 +83,9 @@ cpp_use_argument <- function(argument) {
     argument_name <- glue::glue("*{argument_name}")
 
   if (argument$dynamic_type == "TensorOptions")
+    argument_name <- glue::glue("*{argument_name}")
+
+  if (argument$dynamic_type == "MemoryFormat")
     argument_name <- glue::glue("*{argument_name}")
 
   if (argument$dynamic_type == "Tensor") {
@@ -148,16 +151,31 @@ cpp_return_statement <- function(returns) {
 
   } else { # lenght returns > 1
 
-    if (all(purrr::map_chr(returns, ~.x$dynamic_type) == "Tensor")) {
+    if (all(purrr::map_chr(returns, ~.x$dynamic_type) %in% c("Tensor", "TensorList", "int64_t", "double"))) {
 
-      elements <- seq_along(returns) %>%
-        purrr::map_chr(~glue::glue("make_tensor_ptr(std::get<{.x-1}>(out))")) %>%
+      elements <- returns %>%
+        purrr::set_names(seq_along(returns)) %>%
+        purrr::imap_chr(function(.x, .y) {
+
+          .y <- as.integer(.y)
+
+          if (.x$dynamic_type == "Tensor")
+            return(glue::glue("make_tensor_ptr(std::get<{.y-1}>(out))"))
+          else if (.x$dynamic_type == "TensorList")
+            return(glue::glue("tensorlist_to_r(std::get<{.y-1}>(out))"))
+          else if (.x$dynamic_type %in% c("int64_t", "double"))
+            return(glue::glue("std::get<{.y-1}>(out)"))
+          else if (.x$dynamic_type == "Scalar")
+            return(glue::glue("scalar_to_r_(std::get<{.y-1}>(out))"))
+
+        }) %>%
         paste(collapse = ", ")
 
       return(glue::glue("return Rcpp::List::create({elements});"))
 
-
     }
+
+
   }
 
   stop("Return type not implemented.")
