@@ -1637,3 +1637,4175 @@ torch_alias_68396 <- function(self) {
     .Call('_torch_torch_alias_68396', PACKAGE = 'torch', self)
 }
 
+tch__cast_Byte_0f2f7 <- function(self, non_blocking) {
+    .Call('_torch_tch__cast_Byte_0f2f7', PACKAGE = 'torch', self, non_blocking)
+}
+
+tch__cast_Char_0f2f7 <- function(self, non_blocking) {
+    .Call('_torch_tch__cast_Char_0f2f7', PACKAGE = 'torch', self, non_blocking)
+}
+
+tch__cast_Double_0f2f7 <- function(self, non_blocking) {
+    .Call('_torch_tch__cast_Double_0f2f7', PACKAGE = 'torch', self, non_blocking)
+}
+
+tch__cast_Float_0f2f7 <- function(self, non_blocking) {
+    .Call('_torch_tch__cast_Float_0f2f7', PACKAGE = 'torch', self, non_blocking)
+}
+
+tch__cast_Int_0f2f7 <- function(self, non_blocking) {
+    .Call('_torch_tch__cast_Int_0f2f7', PACKAGE = 'torch', self, non_blocking)
+}
+
+tch__cast_Long_0f2f7 <- function(self, non_blocking) {
+    .Call('_torch_tch__cast_Long_0f2f7', PACKAGE = 'torch', self, non_blocking)
+}
+
+tch__cast_Short_0f2f7 <- function(self, non_blocking) {
+    .Call('_torch_tch__cast_Short_0f2f7', PACKAGE = 'torch', self, non_blocking)
+}
+
+tch__cast_Half_0f2f7 <- function(self, non_blocking) {
+    .Call('_torch_tch__cast_Half_0f2f7', PACKAGE = 'torch', self, non_blocking)
+}
+
+tch__cudnn_ctc_loss_3727a <- function(log_probs, targets, input_lengths, target_lengths, blank, deterministic, zero_infinity) {
+    .Call('_torch_tch__cudnn_ctc_loss_3727a', PACKAGE = 'torch', log_probs, targets, input_lengths, target_lengths, blank, deterministic, zero_infinity)
+}
+
+tch__cudnn_rnn_flatten_weight_4a9ab <- function(weight_arr, weight_stride0, input_size, mode, hidden_size, num_layers, batch_first, bidirectional) {
+    .Call('_torch_tch__cudnn_rnn_flatten_weight_4a9ab', PACKAGE = 'torch', weight_arr, weight_stride0, input_size, mode, hidden_size, num_layers, batch_first, bidirectional)
+}
+
+tch__cudnn_rnn_d41d7 <- function(input, weight, weight_stride0, weight_buf, hx, cx, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes, dropout_state) {
+    .Call('_torch_tch__cudnn_rnn_d41d7', PACKAGE = 'torch', input, weight, weight_stride0, weight_buf, hx, cx, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes, dropout_state)
+}
+
+tch__cudnn_rnn_backward_e2ff6 <- function(input, weight, weight_stride0, weight_buf, hx, cx, output, grad_output, grad_hy, grad_cy, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes, dropout_state, reserve, output_mask) {
+    .Call('_torch_tch__cudnn_rnn_backward_e2ff6', PACKAGE = 'torch', input, weight, weight_stride0, weight_buf, hx, cx, output, grad_output, grad_hy, grad_cy, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes, dropout_state, reserve, output_mask)
+}
+
+tch__cudnn_init_dropout_state_580d5 <- function(dropout, train, dropout_seed, options) {
+    .Call('_torch_tch__cudnn_init_dropout_state_580d5', PACKAGE = 'torch', dropout, train, dropout_seed, options)
+}
+
+tch__debug_has_internal_overlap_68396 <- function(self) {
+    .Call('_torch_tch__debug_has_internal_overlap_68396', PACKAGE = 'torch', self)
+}
+
+tch__fused_dropout_7c6a3 <- function(self, p) {
+    .Call('_torch_tch__fused_dropout_7c6a3', PACKAGE = 'torch', self, p)
+}
+
+tch__masked_scale_43979 <- function(self, mask, scale) {
+    .Call('_torch_tch__masked_scale_43979', PACKAGE = 'torch', self, mask, scale)
+}
+
+tch__sobol_engine_draw_0ac71 <- function(quasi, n, sobolstate, dimension, num_generated, dtype) {
+    .Call('_torch_tch__sobol_engine_draw_0ac71', PACKAGE = 'torch', quasi, n, sobolstate, dimension, num_generated, dtype)
+}
+
+tch__sobol_engine_ff__8ba8a <- function(self, n, sobolstate, dimension, num_generated) {
+    .Call('_torch_tch__sobol_engine_ff__8ba8a', PACKAGE = 'torch', self, n, sobolstate, dimension, num_generated)
+}
+
+tch__sobol_engine_scramble__3715e <- function(self, ltm, dimension) {
+    .Call('_torch_tch__sobol_engine_scramble__3715e', PACKAGE = 'torch', self, ltm, dimension)
+}
+
+tch__sobol_engine_initialize_state__0a139 <- function(self, dimension) {
+    .Call('_torch_tch__sobol_engine_initialize_state__0a139', PACKAGE = 'torch', self, dimension)
+}
+
+tch__reshape_from_tensor_8d946 <- function(self, shape) {
+    .Call('_torch_tch__reshape_from_tensor_8d946', PACKAGE = 'torch', self, shape)
+}
+
+tch__shape_as_tensor_68396 <- function(self) {
+    .Call('_torch_tch__shape_as_tensor_68396', PACKAGE = 'torch', self)
+}
+
+tch_dropout_0f6ce <- function(input, p, train) {
+    .Call('_torch_tch_dropout_0f6ce', PACKAGE = 'torch', input, p, train)
+}
+
+tch_dropout__84534 <- function(self, p, train) {
+    .Call('_torch_tch_dropout__84534', PACKAGE = 'torch', self, p, train)
+}
+
+tch_feature_dropout_0f6ce <- function(input, p, train) {
+    .Call('_torch_tch_feature_dropout_0f6ce', PACKAGE = 'torch', input, p, train)
+}
+
+tch_feature_dropout__84534 <- function(self, p, train) {
+    .Call('_torch_tch_feature_dropout__84534', PACKAGE = 'torch', self, p, train)
+}
+
+tch_alpha_dropout_0f6ce <- function(input, p, train) {
+    .Call('_torch_tch_alpha_dropout_0f6ce', PACKAGE = 'torch', input, p, train)
+}
+
+tch_alpha_dropout__84534 <- function(self, p, train) {
+    .Call('_torch_tch_alpha_dropout__84534', PACKAGE = 'torch', self, p, train)
+}
+
+tch_feature_alpha_dropout_0f6ce <- function(input, p, train) {
+    .Call('_torch_tch_feature_alpha_dropout_0f6ce', PACKAGE = 'torch', input, p, train)
+}
+
+tch_feature_alpha_dropout__84534 <- function(self, p, train) {
+    .Call('_torch_tch_feature_alpha_dropout__84534', PACKAGE = 'torch', self, p, train)
+}
+
+tch_abs_68396 <- function(self) {
+    .Call('_torch_tch_abs_68396', PACKAGE = 'torch', self)
+}
+
+tch_abs__77059 <- function(self) {
+    .Call('_torch_tch_abs__77059', PACKAGE = 'torch', self)
+}
+
+tch_abs_out_a719b <- function(out, self) {
+    .Call('_torch_tch_abs_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_acos_68396 <- function(self) {
+    .Call('_torch_tch_acos_68396', PACKAGE = 'torch', self)
+}
+
+tch_acos__77059 <- function(self) {
+    .Call('_torch_tch_acos__77059', PACKAGE = 'torch', self)
+}
+
+tch_acos_out_a719b <- function(out, self) {
+    .Call('_torch_tch_acos_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_avg_pool1d_fe39b <- function(self, kernel_size, stride, padding, ceil_mode, count_include_pad) {
+    .Call('_torch_tch_avg_pool1d_fe39b', PACKAGE = 'torch', self, kernel_size, stride, padding, ceil_mode, count_include_pad)
+}
+
+tch_adaptive_avg_pool1d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_adaptive_avg_pool1d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_adaptive_max_pool1d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_adaptive_max_pool1d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_add_02bec <- function(self, other, alpha) {
+    .Call('_torch_tch_add_02bec', PACKAGE = 'torch', self, other, alpha)
+}
+
+tch_add_out_8a334 <- function(out, self, other, alpha) {
+    .Call('_torch_tch_add_out_8a334', PACKAGE = 'torch', out, self, other, alpha)
+}
+
+tch_add_783c8 <- function(self, other, alpha) {
+    .Call('_torch_tch_add_783c8', PACKAGE = 'torch', self, other, alpha)
+}
+
+tch_addmv_1072d <- function(self, mat, vec, beta, alpha) {
+    .Call('_torch_tch_addmv_1072d', PACKAGE = 'torch', self, mat, vec, beta, alpha)
+}
+
+tch_addmv__4820c <- function(self, mat, vec, beta, alpha) {
+    .Call('_torch_tch_addmv__4820c', PACKAGE = 'torch', self, mat, vec, beta, alpha)
+}
+
+tch_addmv_out_e5194 <- function(out, self, mat, vec, beta, alpha) {
+    .Call('_torch_tch_addmv_out_e5194', PACKAGE = 'torch', out, self, mat, vec, beta, alpha)
+}
+
+tch_addr_ab5fb <- function(self, vec1, vec2, beta, alpha) {
+    .Call('_torch_tch_addr_ab5fb', PACKAGE = 'torch', self, vec1, vec2, beta, alpha)
+}
+
+tch_addr_out_7b100 <- function(out, self, vec1, vec2, beta, alpha) {
+    .Call('_torch_tch_addr_out_7b100', PACKAGE = 'torch', out, self, vec1, vec2, beta, alpha)
+}
+
+tch_affine_grid_generator_3f148 <- function(theta, size) {
+    .Call('_torch_tch_affine_grid_generator_3f148', PACKAGE = 'torch', theta, size)
+}
+
+tch_affine_grid_generator_backward_9f149 <- function(grad, size) {
+    .Call('_torch_tch_affine_grid_generator_backward_9f149', PACKAGE = 'torch', grad, size)
+}
+
+tch_all_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_all_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_all_out_e1560 <- function(out, self, dim, keepdim) {
+    .Call('_torch_tch_all_out_e1560', PACKAGE = 'torch', out, self, dim, keepdim)
+}
+
+tch_allclose_68991 <- function(self, other, rtol, atol, equal_nan) {
+    .Call('_torch_tch_allclose_68991', PACKAGE = 'torch', self, other, rtol, atol, equal_nan)
+}
+
+tch_any_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_any_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_any_out_e1560 <- function(out, self, dim, keepdim) {
+    .Call('_torch_tch_any_out_e1560', PACKAGE = 'torch', out, self, dim, keepdim)
+}
+
+tch_arange_786cf <- function(end, options) {
+    .Call('_torch_tch_arange_786cf', PACKAGE = 'torch', end, options)
+}
+
+tch_arange_08b0a <- function(start, end, options) {
+    .Call('_torch_tch_arange_08b0a', PACKAGE = 'torch', start, end, options)
+}
+
+tch_arange_226c7 <- function(start, end, step, options) {
+    .Call('_torch_tch_arange_226c7', PACKAGE = 'torch', start, end, step, options)
+}
+
+tch_arange_out_15d84 <- function(out, end) {
+    .Call('_torch_tch_arange_out_15d84', PACKAGE = 'torch', out, end)
+}
+
+tch_arange_out_346d8 <- function(out, start, end, step) {
+    .Call('_torch_tch_arange_out_346d8', PACKAGE = 'torch', out, start, end, step)
+}
+
+tch__dim_arange_93c71 <- function(like, dim) {
+    .Call('_torch_tch__dim_arange_93c71', PACKAGE = 'torch', like, dim)
+}
+
+tch_argmax_49e69 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_argmax_49e69', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_argmin_49e69 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_argmin_49e69', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_as_strided_48a5c <- function(self, size, stride, storage_offset) {
+    .Call('_torch_tch_as_strided_48a5c', PACKAGE = 'torch', self, size, stride, storage_offset)
+}
+
+tch_as_strided__854a1 <- function(self, size, stride, storage_offset) {
+    .Call('_torch_tch_as_strided__854a1', PACKAGE = 'torch', self, size, stride, storage_offset)
+}
+
+tch_asin_68396 <- function(self) {
+    .Call('_torch_tch_asin_68396', PACKAGE = 'torch', self)
+}
+
+tch_asin__77059 <- function(self) {
+    .Call('_torch_tch_asin__77059', PACKAGE = 'torch', self)
+}
+
+tch_asin_out_a719b <- function(out, self) {
+    .Call('_torch_tch_asin_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_atan_68396 <- function(self) {
+    .Call('_torch_tch_atan_68396', PACKAGE = 'torch', self)
+}
+
+tch_atan__77059 <- function(self) {
+    .Call('_torch_tch_atan__77059', PACKAGE = 'torch', self)
+}
+
+tch_atan_out_a719b <- function(out, self) {
+    .Call('_torch_tch_atan_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_baddbmm_f084a <- function(self, batch1, batch2, beta, alpha) {
+    .Call('_torch_tch_baddbmm_f084a', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
+}
+
+tch__baddbmm_mkl__e3967 <- function(self, batch1, batch2, beta, alpha) {
+    .Call('_torch_tch__baddbmm_mkl__e3967', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
+}
+
+tch_baddbmm_out_b5181 <- function(out, self, batch1, batch2, beta, alpha) {
+    .Call('_torch_tch_baddbmm_out_b5181', PACKAGE = 'torch', out, self, batch1, batch2, beta, alpha)
+}
+
+tch_bartlett_window_3a556 <- function(window_length, options) {
+    .Call('_torch_tch_bartlett_window_3a556', PACKAGE = 'torch', window_length, options)
+}
+
+tch_bartlett_window_b5590 <- function(window_length, periodic, options) {
+    .Call('_torch_tch_bartlett_window_b5590', PACKAGE = 'torch', window_length, periodic, options)
+}
+
+tch_batch_norm_5981d <- function(input, weight, bias, running_mean, running_var, training, momentum, eps, cudnn_enabled) {
+    .Call('_torch_tch_batch_norm_5981d', PACKAGE = 'torch', input, weight, bias, running_mean, running_var, training, momentum, eps, cudnn_enabled)
+}
+
+tch__batch_norm_impl_index_5981d <- function(input, weight, bias, running_mean, running_var, training, momentum, eps, cudnn_enabled) {
+    .Call('_torch_tch__batch_norm_impl_index_5981d', PACKAGE = 'torch', input, weight, bias, running_mean, running_var, training, momentum, eps, cudnn_enabled)
+}
+
+tch__batch_norm_impl_index_backward_1df7a <- function(impl_index, input, grad_output, weight, running_mean, running_var, save_mean, save_var_transform, train, eps, output_mask) {
+    .Call('_torch_tch__batch_norm_impl_index_backward_1df7a', PACKAGE = 'torch', impl_index, input, grad_output, weight, running_mean, running_var, save_mean, save_var_transform, train, eps, output_mask)
+}
+
+tch_bernoulli_172e9 <- function(self) {
+    .Call('_torch_tch_bernoulli_172e9', PACKAGE = 'torch', self)
+}
+
+tch_bernoulli_out_afdba <- function(out, self) {
+    .Call('_torch_tch_bernoulli_out_afdba', PACKAGE = 'torch', out, self)
+}
+
+tch_bernoulli_7c6a3 <- function(self, p) {
+    .Call('_torch_tch_bernoulli_7c6a3', PACKAGE = 'torch', self, p)
+}
+
+tch_bilinear_0887c <- function(input1, input2, weight, bias) {
+    .Call('_torch_tch_bilinear_0887c', PACKAGE = 'torch', input1, input2, weight, bias)
+}
+
+tch_binary_cross_entropy_with_logits_d8883 <- function(self, target, weight, pos_weight, reduction) {
+    .Call('_torch_tch_binary_cross_entropy_with_logits_d8883', PACKAGE = 'torch', self, target, weight, pos_weight, reduction)
+}
+
+tch_binary_cross_entropy_with_logits_backward_72cff <- function(grad_output, self, target, weight, pos_weight, reduction) {
+    .Call('_torch_tch_binary_cross_entropy_with_logits_backward_72cff', PACKAGE = 'torch', grad_output, self, target, weight, pos_weight, reduction)
+}
+
+tch_bincount_f4aae <- function(self, weights, minlength) {
+    .Call('_torch_tch_bincount_f4aae', PACKAGE = 'torch', self, weights, minlength)
+}
+
+tch_bitwise_not_68396 <- function(self) {
+    .Call('_torch_tch_bitwise_not_68396', PACKAGE = 'torch', self)
+}
+
+tch_bitwise_not_out_a719b <- function(out, self) {
+    .Call('_torch_tch_bitwise_not_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_blackman_window_3a556 <- function(window_length, options) {
+    .Call('_torch_tch_blackman_window_3a556', PACKAGE = 'torch', window_length, options)
+}
+
+tch_blackman_window_b5590 <- function(window_length, periodic, options) {
+    .Call('_torch_tch_blackman_window_b5590', PACKAGE = 'torch', window_length, periodic, options)
+}
+
+tch_bmm_41798 <- function(self, mat2) {
+    .Call('_torch_tch_bmm_41798', PACKAGE = 'torch', self, mat2)
+}
+
+tch_bmm_out_05a32 <- function(out, self, mat2) {
+    .Call('_torch_tch_bmm_out_05a32', PACKAGE = 'torch', out, self, mat2)
+}
+
+tch_broadcast_tensors_595f6 <- function(tensors) {
+    .Call('_torch_tch_broadcast_tensors_595f6', PACKAGE = 'torch', tensors)
+}
+
+tch_cat_55ff1 <- function(tensors, dim) {
+    .Call('_torch_tch_cat_55ff1', PACKAGE = 'torch', tensors, dim)
+}
+
+tch_cat_out_52c09 <- function(out, tensors, dim) {
+    .Call('_torch_tch_cat_out_52c09', PACKAGE = 'torch', out, tensors, dim)
+}
+
+tch_ceil_68396 <- function(self) {
+    .Call('_torch_tch_ceil_68396', PACKAGE = 'torch', self)
+}
+
+tch_ceil__77059 <- function(self) {
+    .Call('_torch_tch_ceil__77059', PACKAGE = 'torch', self)
+}
+
+tch_ceil_out_a719b <- function(out, self) {
+    .Call('_torch_tch_ceil_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_chain_matmul_e2d4d <- function(matrices) {
+    .Call('_torch_tch_chain_matmul_e2d4d', PACKAGE = 'torch', matrices)
+}
+
+tch_chunk_d1ba7 <- function(self, chunks, dim) {
+    .Call('_torch_tch_chunk_d1ba7', PACKAGE = 'torch', self, chunks, dim)
+}
+
+tch_clamp_70f48 <- function(self, min, max) {
+    .Call('_torch_tch_clamp_70f48', PACKAGE = 'torch', self, min, max)
+}
+
+tch_clamp__de153 <- function(self, min, max) {
+    .Call('_torch_tch_clamp__de153', PACKAGE = 'torch', self, min, max)
+}
+
+tch_clamp_out_d5ca0 <- function(out, self, min, max) {
+    .Call('_torch_tch_clamp_out_d5ca0', PACKAGE = 'torch', out, self, min, max)
+}
+
+tch_clamp_max_63229 <- function(self, max) {
+    .Call('_torch_tch_clamp_max_63229', PACKAGE = 'torch', self, max)
+}
+
+tch_clamp_max__1319c <- function(self, max) {
+    .Call('_torch_tch_clamp_max__1319c', PACKAGE = 'torch', self, max)
+}
+
+tch_clamp_max_out_f3a1c <- function(out, self, max) {
+    .Call('_torch_tch_clamp_max_out_f3a1c', PACKAGE = 'torch', out, self, max)
+}
+
+tch_clamp_min_96a46 <- function(self, min) {
+    .Call('_torch_tch_clamp_min_96a46', PACKAGE = 'torch', self, min)
+}
+
+tch_clamp_min__a683f <- function(self, min) {
+    .Call('_torch_tch_clamp_min__a683f', PACKAGE = 'torch', self, min)
+}
+
+tch_clamp_min_out_2cd87 <- function(out, self, min) {
+    .Call('_torch_tch_clamp_min_out_2cd87', PACKAGE = 'torch', out, self, min)
+}
+
+tch_cudnn_is_acceptable_68396 <- function(self) {
+    .Call('_torch_tch_cudnn_is_acceptable_68396', PACKAGE = 'torch', self)
+}
+
+tch_constant_pad_nd_b282d <- function(self, pad, value) {
+    .Call('_torch_tch_constant_pad_nd_b282d', PACKAGE = 'torch', self, pad, value)
+}
+
+tch_convolution_1d39d <- function(input, weight, bias, stride, padding, dilation, transposed, output_padding, groups) {
+    .Call('_torch_tch_convolution_1d39d', PACKAGE = 'torch', input, weight, bias, stride, padding, dilation, transposed, output_padding, groups)
+}
+
+tch__convolution_1b531 <- function(input, weight, bias, stride, padding, dilation, transposed, output_padding, groups, benchmark, deterministic, cudnn_enabled) {
+    .Call('_torch_tch__convolution_1b531', PACKAGE = 'torch', input, weight, bias, stride, padding, dilation, transposed, output_padding, groups, benchmark, deterministic, cudnn_enabled)
+}
+
+tch__convolution_nogroup_5798a <- function(input, weight, bias, stride, padding, dilation, transposed, output_padding) {
+    .Call('_torch_tch__convolution_nogroup_5798a', PACKAGE = 'torch', input, weight, bias, stride, padding, dilation, transposed, output_padding)
+}
+
+tch__convolution_double_backward_3454c <- function(ggI, ggW, ggb, gO, weight, self, stride, padding, dilation, transposed, output_padding, groups, benchmark, deterministic, cudnn_enabled, output_mask) {
+    .Call('_torch_tch__convolution_double_backward_3454c', PACKAGE = 'torch', ggI, ggW, ggb, gO, weight, self, stride, padding, dilation, transposed, output_padding, groups, benchmark, deterministic, cudnn_enabled, output_mask)
+}
+
+tch_conv1d_cc85c <- function(input, weight, bias, stride, padding, dilation, groups) {
+    .Call('_torch_tch_conv1d_cc85c', PACKAGE = 'torch', input, weight, bias, stride, padding, dilation, groups)
+}
+
+tch_conv2d_cc85c <- function(input, weight, bias, stride, padding, dilation, groups) {
+    .Call('_torch_tch_conv2d_cc85c', PACKAGE = 'torch', input, weight, bias, stride, padding, dilation, groups)
+}
+
+tch_conv3d_cc85c <- function(input, weight, bias, stride, padding, dilation, groups) {
+    .Call('_torch_tch_conv3d_cc85c', PACKAGE = 'torch', input, weight, bias, stride, padding, dilation, groups)
+}
+
+tch_conv_tbc_81072 <- function(self, weight, bias, pad) {
+    .Call('_torch_tch_conv_tbc_81072', PACKAGE = 'torch', self, weight, bias, pad)
+}
+
+tch_conv_tbc_backward_cd77c <- function(self, input, weight, bias, pad) {
+    .Call('_torch_tch_conv_tbc_backward_cd77c', PACKAGE = 'torch', self, input, weight, bias, pad)
+}
+
+tch_conv_transpose1d_7c381 <- function(input, weight, bias, stride, padding, output_padding, groups, dilation) {
+    .Call('_torch_tch_conv_transpose1d_7c381', PACKAGE = 'torch', input, weight, bias, stride, padding, output_padding, groups, dilation)
+}
+
+tch_conv_transpose2d_7c381 <- function(input, weight, bias, stride, padding, output_padding, groups, dilation) {
+    .Call('_torch_tch_conv_transpose2d_7c381', PACKAGE = 'torch', input, weight, bias, stride, padding, output_padding, groups, dilation)
+}
+
+tch_conv_transpose3d_7c381 <- function(input, weight, bias, stride, padding, output_padding, groups, dilation) {
+    .Call('_torch_tch_conv_transpose3d_7c381', PACKAGE = 'torch', input, weight, bias, stride, padding, output_padding, groups, dilation)
+}
+
+tch__copy_from_210af <- function(self, dst, non_blocking) {
+    .Call('_torch_tch__copy_from_210af', PACKAGE = 'torch', self, dst, non_blocking)
+}
+
+tch_cos_68396 <- function(self) {
+    .Call('_torch_tch_cos_68396', PACKAGE = 'torch', self)
+}
+
+tch_cos__77059 <- function(self) {
+    .Call('_torch_tch_cos__77059', PACKAGE = 'torch', self)
+}
+
+tch_cos_out_a719b <- function(out, self) {
+    .Call('_torch_tch_cos_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_cosh_68396 <- function(self) {
+    .Call('_torch_tch_cosh_68396', PACKAGE = 'torch', self)
+}
+
+tch_cosh__77059 <- function(self) {
+    .Call('_torch_tch_cosh__77059', PACKAGE = 'torch', self)
+}
+
+tch_cosh_out_a719b <- function(out, self) {
+    .Call('_torch_tch_cosh_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_cosine_embedding_loss_825ed <- function(input1, input2, target, margin, reduction) {
+    .Call('_torch_tch_cosine_embedding_loss_825ed', PACKAGE = 'torch', input1, input2, target, margin, reduction)
+}
+
+tch_cudnn_affine_grid_generator_d4724 <- function(theta, FALSE, C, H, W) {
+    .Call('_torch_tch_cudnn_affine_grid_generator_d4724', PACKAGE = 'torch', theta, FALSE, C, H, W)
+}
+
+tch_cudnn_affine_grid_generator_backward_9db7e <- function(grad, FALSE, C, H, W) {
+    .Call('_torch_tch_cudnn_affine_grid_generator_backward_9db7e', PACKAGE = 'torch', grad, FALSE, C, H, W)
+}
+
+tch_cudnn_batch_norm_e7029 <- function(input, weight, bias, running_mean, running_var, training, exponential_average_factor, epsilon) {
+    .Call('_torch_tch_cudnn_batch_norm_e7029', PACKAGE = 'torch', input, weight, bias, running_mean, running_var, training, exponential_average_factor, epsilon)
+}
+
+tch_cudnn_batch_norm_backward_43ba9 <- function(input, grad_output, weight, running_mean, running_var, save_mean, save_var, epsilon) {
+    .Call('_torch_tch_cudnn_batch_norm_backward_43ba9', PACKAGE = 'torch', input, grad_output, weight, running_mean, running_var, save_mean, save_var, epsilon)
+}
+
+tch_cudnn_convolution_4b7d8 <- function(self, weight, bias, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_cudnn_convolution_4b7d8', PACKAGE = 'torch', self, weight, bias, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_cudnn_convolution_backward_input_1d479 <- function(self_size, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_cudnn_convolution_backward_input_1d479', PACKAGE = 'torch', self_size, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_cudnn_convolution_backward_2db50 <- function(self, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic, output_mask) {
+    .Call('_torch_tch_cudnn_convolution_backward_2db50', PACKAGE = 'torch', self, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic, output_mask)
+}
+
+tch_cudnn_convolution_backward_bias_1be88 <- function(grad_output) {
+    .Call('_torch_tch_cudnn_convolution_backward_bias_1be88', PACKAGE = 'torch', grad_output)
+}
+
+tch_cudnn_convolution_backward_weight_6c614 <- function(weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_cudnn_convolution_backward_weight_6c614', PACKAGE = 'torch', weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_cudnn_convolution_transpose_abf15 <- function(self, weight, bias, padding, output_padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_cudnn_convolution_transpose_abf15', PACKAGE = 'torch', self, weight, bias, padding, output_padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_cudnn_convolution_transpose_backward_fba5c <- function(self, grad_output, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, output_mask) {
+    .Call('_torch_tch_cudnn_convolution_transpose_backward_fba5c', PACKAGE = 'torch', self, grad_output, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, output_mask)
+}
+
+tch_cudnn_convolution_transpose_backward_bias_1be88 <- function(grad_output) {
+    .Call('_torch_tch_cudnn_convolution_transpose_backward_bias_1be88', PACKAGE = 'torch', grad_output)
+}
+
+tch_cudnn_convolution_transpose_backward_input_37783 <- function(grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_cudnn_convolution_transpose_backward_input_37783', PACKAGE = 'torch', grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_cudnn_convolution_transpose_backward_weight_6c614 <- function(weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_cudnn_convolution_transpose_backward_weight_6c614', PACKAGE = 'torch', weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_cudnn_grid_sampler_5ef54 <- function(self, grid) {
+    .Call('_torch_tch_cudnn_grid_sampler_5ef54', PACKAGE = 'torch', self, grid)
+}
+
+tch_cudnn_grid_sampler_backward_edec7 <- function(self, grid, grad_output) {
+    .Call('_torch_tch_cudnn_grid_sampler_backward_edec7', PACKAGE = 'torch', self, grid, grad_output)
+}
+
+tch_cumsum_497ac <- function(self, dim, dtype) {
+    .Call('_torch_tch_cumsum_497ac', PACKAGE = 'torch', self, dim, dtype)
+}
+
+tch_cumsum_out_8c281 <- function(out, self, dim, dtype) {
+    .Call('_torch_tch_cumsum_out_8c281', PACKAGE = 'torch', out, self, dim, dtype)
+}
+
+tch_cumprod_497ac <- function(self, dim, dtype) {
+    .Call('_torch_tch_cumprod_497ac', PACKAGE = 'torch', self, dim, dtype)
+}
+
+tch_cumprod_out_8c281 <- function(out, self, dim, dtype) {
+    .Call('_torch_tch_cumprod_out_8c281', PACKAGE = 'torch', out, self, dim, dtype)
+}
+
+tch_ctc_loss_a08d9 <- function(log_probs, targets, input_lengths, target_lengths, blank, reduction, zero_infinity) {
+    .Call('_torch_tch_ctc_loss_a08d9', PACKAGE = 'torch', log_probs, targets, input_lengths, target_lengths, blank, reduction, zero_infinity)
+}
+
+tch_ctc_loss_6dc3b <- function(log_probs, targets, input_lengths, target_lengths, blank, reduction, zero_infinity) {
+    .Call('_torch_tch_ctc_loss_6dc3b', PACKAGE = 'torch', log_probs, targets, input_lengths, target_lengths, blank, reduction, zero_infinity)
+}
+
+tch__ctc_loss_b1b81 <- function(log_probs, targets, input_lengths, target_lengths, blank, zero_infinity) {
+    .Call('_torch_tch__ctc_loss_b1b81', PACKAGE = 'torch', log_probs, targets, input_lengths, target_lengths, blank, zero_infinity)
+}
+
+tch__ctc_loss_backward_42383 <- function(grad, log_probs, targets, input_lengths, target_lengths, neg_log_likelihood, log_alpha, blank, zero_infinity) {
+    .Call('_torch_tch__ctc_loss_backward_42383', PACKAGE = 'torch', grad, log_probs, targets, input_lengths, target_lengths, neg_log_likelihood, log_alpha, blank, zero_infinity)
+}
+
+tch_det_68396 <- function(self) {
+    .Call('_torch_tch_det_68396', PACKAGE = 'torch', self)
+}
+
+tch_diag_embed_83af1 <- function(self, offset, dim1, dim2) {
+    .Call('_torch_tch_diag_embed_83af1', PACKAGE = 'torch', self, offset, dim1, dim2)
+}
+
+tch_diagflat_c2bc3 <- function(self, offset) {
+    .Call('_torch_tch_diagflat_c2bc3', PACKAGE = 'torch', self, offset)
+}
+
+tch_diagonal_83af1 <- function(self, offset, dim1, dim2) {
+    .Call('_torch_tch_diagonal_83af1', PACKAGE = 'torch', self, offset, dim1, dim2)
+}
+
+tch_div_7f12b <- function(self, other) {
+    .Call('_torch_tch_div_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_div_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_div_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_div_828c7 <- function(self, other) {
+    .Call('_torch_tch_div_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_dot_20e8a <- function(self, tensor) {
+    .Call('_torch_tch_dot_20e8a', PACKAGE = 'torch', self, tensor)
+}
+
+tch_dot_out_b2f3c <- function(out, self, tensor) {
+    .Call('_torch_tch_dot_out_b2f3c', PACKAGE = 'torch', out, self, tensor)
+}
+
+tch_einsum_0ab63 <- function(equation, tensors) {
+    .Call('_torch_tch_einsum_0ab63', PACKAGE = 'torch', equation, tensors)
+}
+
+tch_embedding_965f4 <- function(weight, indices, padding_idx, scale_grad_by_freq, sparse) {
+    .Call('_torch_tch_embedding_965f4', PACKAGE = 'torch', weight, indices, padding_idx, scale_grad_by_freq, sparse)
+}
+
+tch_embedding_backward_2c0a8 <- function(grad, indices, num_weights, padding_idx, scale_grad_by_freq, sparse) {
+    .Call('_torch_tch_embedding_backward_2c0a8', PACKAGE = 'torch', grad, indices, num_weights, padding_idx, scale_grad_by_freq, sparse)
+}
+
+tch_embedding_dense_backward_5b554 <- function(grad_output, indices, num_weights, padding_idx, scale_grad_by_freq) {
+    .Call('_torch_tch_embedding_dense_backward_5b554', PACKAGE = 'torch', grad_output, indices, num_weights, padding_idx, scale_grad_by_freq)
+}
+
+tch_embedding_renorm__a9c8c <- function(self, indices, max_norm, norm_type) {
+    .Call('_torch_tch_embedding_renorm__a9c8c', PACKAGE = 'torch', self, indices, max_norm, norm_type)
+}
+
+tch_embedding_sparse_backward_96378 <- function(grad, indices, num_weights, padding_idx, scale_grad_by_freq) {
+    .Call('_torch_tch_embedding_sparse_backward_96378', PACKAGE = 'torch', grad, indices, num_weights, padding_idx, scale_grad_by_freq)
+}
+
+tch_embedding_bag_63df1 <- function(weight, indices, offsets, scale_grad_by_freq, mode, sparse, per_sample_weights) {
+    .Call('_torch_tch_embedding_bag_63df1', PACKAGE = 'torch', weight, indices, offsets, scale_grad_by_freq, mode, sparse, per_sample_weights)
+}
+
+tch__embedding_bag_63df1 <- function(weight, indices, offsets, scale_grad_by_freq, mode, sparse, per_sample_weights) {
+    .Call('_torch_tch__embedding_bag_63df1', PACKAGE = 'torch', weight, indices, offsets, scale_grad_by_freq, mode, sparse, per_sample_weights)
+}
+
+tch__embedding_bag_backward_09a9f <- function(grad, indices, offsets, offset2bag, bag_size, maximum_indices, num_weights, scale_grad_by_freq, mode, sparse, per_sample_weights) {
+    .Call('_torch_tch__embedding_bag_backward_09a9f', PACKAGE = 'torch', grad, indices, offsets, offset2bag, bag_size, maximum_indices, num_weights, scale_grad_by_freq, mode, sparse, per_sample_weights)
+}
+
+tch__embedding_bag_sparse_backward_49858 <- function(grad, indices, offsets, offset2bag, bag_size, num_weights, scale_grad_by_freq, mode, per_sample_weights) {
+    .Call('_torch_tch__embedding_bag_sparse_backward_49858', PACKAGE = 'torch', grad, indices, offsets, offset2bag, bag_size, num_weights, scale_grad_by_freq, mode, per_sample_weights)
+}
+
+tch__embedding_bag_dense_backward_2bfab <- function(grad, indices, offsets, offset2bag, bag_size, maximum_indices, num_weights, scale_grad_by_freq, mode, per_sample_weights) {
+    .Call('_torch_tch__embedding_bag_dense_backward_2bfab', PACKAGE = 'torch', grad, indices, offsets, offset2bag, bag_size, maximum_indices, num_weights, scale_grad_by_freq, mode, per_sample_weights)
+}
+
+tch__embedding_bag_per_sample_weights_backward_2a097 <- function(grad, weight, indices, offsets, offset2bag, mode) {
+    .Call('_torch_tch__embedding_bag_per_sample_weights_backward_2a097', PACKAGE = 'torch', grad, weight, indices, offsets, offset2bag, mode)
+}
+
+tch_empty_e3d31 <- function(size, options, memory_format) {
+    .Call('_torch_tch_empty_e3d31', PACKAGE = 'torch', size, options, memory_format)
+}
+
+tch__empty_affine_quantized_95cd4 <- function(size, options, scale, zero_point, memory_format) {
+    .Call('_torch_tch__empty_affine_quantized_95cd4', PACKAGE = 'torch', size, options, scale, zero_point, memory_format)
+}
+
+tch_empty_out_f648c <- function(out, size, memory_format) {
+    .Call('_torch_tch_empty_out_f648c', PACKAGE = 'torch', out, size, memory_format)
+}
+
+tch_empty_like_68396 <- function(self) {
+    .Call('_torch_tch_empty_like_68396', PACKAGE = 'torch', self)
+}
+
+tch_empty_like_c2ca8 <- function(self, options, memory_format) {
+    .Call('_torch_tch_empty_like_c2ca8', PACKAGE = 'torch', self, options, memory_format)
+}
+
+tch_empty_strided_f6159 <- function(size, stride, options) {
+    .Call('_torch_tch_empty_strided_f6159', PACKAGE = 'torch', size, stride, options)
+}
+
+tch_erf_68396 <- function(self) {
+    .Call('_torch_tch_erf_68396', PACKAGE = 'torch', self)
+}
+
+tch_erf__77059 <- function(self) {
+    .Call('_torch_tch_erf__77059', PACKAGE = 'torch', self)
+}
+
+tch_erf_out_a719b <- function(out, self) {
+    .Call('_torch_tch_erf_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_erfc_68396 <- function(self) {
+    .Call('_torch_tch_erfc_68396', PACKAGE = 'torch', self)
+}
+
+tch_erfc__77059 <- function(self) {
+    .Call('_torch_tch_erfc__77059', PACKAGE = 'torch', self)
+}
+
+tch_erfc_out_a719b <- function(out, self) {
+    .Call('_torch_tch_erfc_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_exp_68396 <- function(self) {
+    .Call('_torch_tch_exp_68396', PACKAGE = 'torch', self)
+}
+
+tch_exp__77059 <- function(self) {
+    .Call('_torch_tch_exp__77059', PACKAGE = 'torch', self)
+}
+
+tch_exp_out_a719b <- function(out, self) {
+    .Call('_torch_tch_exp_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_expm1_68396 <- function(self) {
+    .Call('_torch_tch_expm1_68396', PACKAGE = 'torch', self)
+}
+
+tch_expm1__77059 <- function(self) {
+    .Call('_torch_tch_expm1__77059', PACKAGE = 'torch', self)
+}
+
+tch_expm1_out_a719b <- function(out, self) {
+    .Call('_torch_tch_expm1_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_eye_3cccf <- function(n, options) {
+    .Call('_torch_tch_eye_3cccf', PACKAGE = 'torch', n, options)
+}
+
+tch_eye_88853 <- function(n, m, options) {
+    .Call('_torch_tch_eye_88853', PACKAGE = 'torch', n, m, options)
+}
+
+tch_eye_out_07617 <- function(out, n) {
+    .Call('_torch_tch_eye_out_07617', PACKAGE = 'torch', out, n)
+}
+
+tch_eye_out_91585 <- function(out, n, m) {
+    .Call('_torch_tch_eye_out_91585', PACKAGE = 'torch', out, n, m)
+}
+
+tch_flatten_81cfa <- function(self, start_dim, end_dim) {
+    .Call('_torch_tch_flatten_81cfa', PACKAGE = 'torch', self, start_dim, end_dim)
+}
+
+tch_fill__07130 <- function(self, value) {
+    .Call('_torch_tch_fill__07130', PACKAGE = 'torch', self, value)
+}
+
+tch_fill__e477b <- function(self, value) {
+    .Call('_torch_tch_fill__e477b', PACKAGE = 'torch', self, value)
+}
+
+tch_floor_68396 <- function(self) {
+    .Call('_torch_tch_floor_68396', PACKAGE = 'torch', self)
+}
+
+tch_floor__77059 <- function(self) {
+    .Call('_torch_tch_floor__77059', PACKAGE = 'torch', self)
+}
+
+tch_floor_out_a719b <- function(out, self) {
+    .Call('_torch_tch_floor_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_frac_68396 <- function(self) {
+    .Call('_torch_tch_frac_68396', PACKAGE = 'torch', self)
+}
+
+tch_frac__77059 <- function(self) {
+    .Call('_torch_tch_frac__77059', PACKAGE = 'torch', self)
+}
+
+tch_frac_out_a719b <- function(out, self) {
+    .Call('_torch_tch_frac_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_full_eb9c4 <- function(size, fill_value, options) {
+    .Call('_torch_tch_full_eb9c4', PACKAGE = 'torch', size, fill_value, options)
+}
+
+tch_full_out_21022 <- function(out, size, fill_value) {
+    .Call('_torch_tch_full_out_21022', PACKAGE = 'torch', out, size, fill_value)
+}
+
+tch_full_like_5abdb <- function(self, fill_value) {
+    .Call('_torch_tch_full_like_5abdb', PACKAGE = 'torch', self, fill_value)
+}
+
+tch_full_like_f8c71 <- function(self, fill_value, options) {
+    .Call('_torch_tch_full_like_f8c71', PACKAGE = 'torch', self, fill_value, options)
+}
+
+tch_from_file_f3916 <- function(filename, shared, size, options) {
+    .Call('_torch_tch_from_file_f3916', PACKAGE = 'torch', filename, shared, size, options)
+}
+
+tch_grid_sampler_554ac <- function(input, grid, interpolation_mode, padding_mode) {
+    .Call('_torch_tch_grid_sampler_554ac', PACKAGE = 'torch', input, grid, interpolation_mode, padding_mode)
+}
+
+tch_grid_sampler_2d_554ac <- function(input, grid, interpolation_mode, padding_mode) {
+    .Call('_torch_tch_grid_sampler_2d_554ac', PACKAGE = 'torch', input, grid, interpolation_mode, padding_mode)
+}
+
+tch_grid_sampler_2d_backward_d99d1 <- function(grad_output, input, grid, interpolation_mode, padding_mode) {
+    .Call('_torch_tch_grid_sampler_2d_backward_d99d1', PACKAGE = 'torch', grad_output, input, grid, interpolation_mode, padding_mode)
+}
+
+tch_grid_sampler_3d_554ac <- function(input, grid, interpolation_mode, padding_mode) {
+    .Call('_torch_tch_grid_sampler_3d_554ac', PACKAGE = 'torch', input, grid, interpolation_mode, padding_mode)
+}
+
+tch_grid_sampler_3d_backward_d99d1 <- function(grad_output, input, grid, interpolation_mode, padding_mode) {
+    .Call('_torch_tch_grid_sampler_3d_backward_d99d1', PACKAGE = 'torch', grad_output, input, grid, interpolation_mode, padding_mode)
+}
+
+tch_hann_window_3a556 <- function(window_length, options) {
+    .Call('_torch_tch_hann_window_3a556', PACKAGE = 'torch', window_length, options)
+}
+
+tch_hann_window_b5590 <- function(window_length, periodic, options) {
+    .Call('_torch_tch_hann_window_b5590', PACKAGE = 'torch', window_length, periodic, options)
+}
+
+tch_hamming_window_3a556 <- function(window_length, options) {
+    .Call('_torch_tch_hamming_window_3a556', PACKAGE = 'torch', window_length, options)
+}
+
+tch_hamming_window_b5590 <- function(window_length, periodic, options) {
+    .Call('_torch_tch_hamming_window_b5590', PACKAGE = 'torch', window_length, periodic, options)
+}
+
+tch_hamming_window_c0a2b <- function(window_length, periodic, alpha, options) {
+    .Call('_torch_tch_hamming_window_c0a2b', PACKAGE = 'torch', window_length, periodic, alpha, options)
+}
+
+tch_hamming_window_1cb3e <- function(window_length, periodic, alpha, beta, options) {
+    .Call('_torch_tch_hamming_window_1cb3e', PACKAGE = 'torch', window_length, periodic, alpha, beta, options)
+}
+
+tch_hinge_embedding_loss_8b45d <- function(self, target, margin, reduction) {
+    .Call('_torch_tch_hinge_embedding_loss_8b45d', PACKAGE = 'torch', self, target, margin, reduction)
+}
+
+tch_ger_5c129 <- function(self, vec2) {
+    .Call('_torch_tch_ger_5c129', PACKAGE = 'torch', self, vec2)
+}
+
+tch_ger_out_91301 <- function(out, self, vec2) {
+    .Call('_torch_tch_ger_out_91301', PACKAGE = 'torch', out, self, vec2)
+}
+
+tch_group_norm_c31c5 <- function(input, num_groups, weight, bias, eps, cudnn_enabled) {
+    .Call('_torch_tch_group_norm_c31c5', PACKAGE = 'torch', input, num_groups, weight, bias, eps, cudnn_enabled)
+}
+
+tch_fft_b40ab <- function(self, signal_ndim, normalized) {
+    .Call('_torch_tch_fft_b40ab', PACKAGE = 'torch', self, signal_ndim, normalized)
+}
+
+tch_ifft_b40ab <- function(self, signal_ndim, normalized) {
+    .Call('_torch_tch_ifft_b40ab', PACKAGE = 'torch', self, signal_ndim, normalized)
+}
+
+tch_rfft_952cd <- function(self, signal_ndim, normalized, onesided) {
+    .Call('_torch_tch_rfft_952cd', PACKAGE = 'torch', self, signal_ndim, normalized, onesided)
+}
+
+tch_irfft_8dbe0 <- function(self, signal_ndim, normalized, onesided, signal_sizes) {
+    .Call('_torch_tch_irfft_8dbe0', PACKAGE = 'torch', self, signal_ndim, normalized, onesided, signal_sizes)
+}
+
+tch__fft_with_size_bd3e0 <- function(self, signal_ndim, complex_input, complex_output, inverse, checked_signal_sizes, normalized, onesided, output_sizes) {
+    .Call('_torch_tch__fft_with_size_bd3e0', PACKAGE = 'torch', self, signal_ndim, complex_input, complex_output, inverse, checked_signal_sizes, normalized, onesided, output_sizes)
+}
+
+tch__cufft_get_plan_cache_size_72dc1 <- function(device_index) {
+    .Call('_torch_tch__cufft_get_plan_cache_size_72dc1', PACKAGE = 'torch', device_index)
+}
+
+tch__cufft_get_plan_cache_max_size_72dc1 <- function(device_index) {
+    .Call('_torch_tch__cufft_get_plan_cache_max_size_72dc1', PACKAGE = 'torch', device_index)
+}
+
+tch__cufft_set_plan_cache_max_size_600ec <- function(device_index, max_size) {
+    invisible(.Call('_torch_tch__cufft_set_plan_cache_max_size_600ec', PACKAGE = 'torch', device_index, max_size))
+}
+
+tch__cufft_clear_plan_cache_72dc1 <- function(device_index) {
+    invisible(.Call('_torch_tch__cufft_clear_plan_cache_72dc1', PACKAGE = 'torch', device_index))
+}
+
+tch_index_814b3 <- function(self, indices) {
+    .Call('_torch_tch_index_814b3', PACKAGE = 'torch', self, indices)
+}
+
+tch_index_copy_073fd <- function(self, dim, index, source) {
+    .Call('_torch_tch_index_copy_073fd', PACKAGE = 'torch', self, dim, index, source)
+}
+
+tch_index_put__59690 <- function(self, indices, values, accumulate) {
+    .Call('_torch_tch_index_put__59690', PACKAGE = 'torch', self, indices, values, accumulate)
+}
+
+tch_index_put_17d44 <- function(self, indices, values, accumulate) {
+    .Call('_torch_tch_index_put_17d44', PACKAGE = 'torch', self, indices, values, accumulate)
+}
+
+tch__index_put_impl__a799d <- function(self, indices, values, accumulate, unsafe) {
+    .Call('_torch_tch__index_put_impl__a799d', PACKAGE = 'torch', self, indices, values, accumulate, unsafe)
+}
+
+tch_instance_norm_823ac <- function(input, weight, bias, running_mean, running_var, use_input_stats, momentum, eps, cudnn_enabled) {
+    .Call('_torch_tch_instance_norm_823ac', PACKAGE = 'torch', input, weight, bias, running_mean, running_var, use_input_stats, momentum, eps, cudnn_enabled)
+}
+
+tch_inverse_68396 <- function(self) {
+    .Call('_torch_tch_inverse_68396', PACKAGE = 'torch', self)
+}
+
+tch_inverse_out_a719b <- function(out, self) {
+    .Call('_torch_tch_inverse_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch__inverse_helper_68396 <- function(self) {
+    .Call('_torch_tch__inverse_helper_68396', PACKAGE = 'torch', self)
+}
+
+tch_isclose_68991 <- function(self, other, rtol, atol, equal_nan) {
+    .Call('_torch_tch_isclose_68991', PACKAGE = 'torch', self, other, rtol, atol, equal_nan)
+}
+
+tch_isnan_68396 <- function(self) {
+    .Call('_torch_tch_isnan_68396', PACKAGE = 'torch', self)
+}
+
+tch_is_distributed_68396 <- function(self) {
+    .Call('_torch_tch_is_distributed_68396', PACKAGE = 'torch', self)
+}
+
+tch_is_floating_point_68396 <- function(self) {
+    .Call('_torch_tch_is_floating_point_68396', PACKAGE = 'torch', self)
+}
+
+tch_is_complex_68396 <- function(self) {
+    .Call('_torch_tch_is_complex_68396', PACKAGE = 'torch', self)
+}
+
+tch_is_nonzero_68396 <- function(self) {
+    .Call('_torch_tch_is_nonzero_68396', PACKAGE = 'torch', self)
+}
+
+tch_is_same_size_7f12b <- function(self, other) {
+    .Call('_torch_tch_is_same_size_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_is_signed_68396 <- function(self) {
+    .Call('_torch_tch_is_signed_68396', PACKAGE = 'torch', self)
+}
+
+tch_kl_div_227af <- function(self, target, reduction) {
+    .Call('_torch_tch_kl_div_227af', PACKAGE = 'torch', self, target, reduction)
+}
+
+tch_kl_div_backward_13cf8 <- function(grad_output, self, target, reduction) {
+    .Call('_torch_tch_kl_div_backward_13cf8', PACKAGE = 'torch', grad_output, self, target, reduction)
+}
+
+tch_kthvalue_552a2 <- function(self, k, dim, keepdim) {
+    .Call('_torch_tch_kthvalue_552a2', PACKAGE = 'torch', self, k, dim, keepdim)
+}
+
+tch_kthvalue_out_f41f3 <- function(values, indices, self, k, dim, keepdim) {
+    .Call('_torch_tch_kthvalue_out_f41f3', PACKAGE = 'torch', values, indices, self, k, dim, keepdim)
+}
+
+tch_layer_norm_d1a1a <- function(input, normalized_shape, weight, bias, eps, cudnn_enable) {
+    .Call('_torch_tch_layer_norm_d1a1a', PACKAGE = 'torch', input, normalized_shape, weight, bias, eps, cudnn_enable)
+}
+
+tch_native_layer_norm_921de <- function(input, weight, bias, M, FALSE, eps) {
+    .Call('_torch_tch_native_layer_norm_921de', PACKAGE = 'torch', input, weight, bias, M, FALSE, eps)
+}
+
+tch_native_layer_norm_backward_db316 <- function(grad_out, input, mean, rstd, weight, M, FALSE, output_mask) {
+    .Call('_torch_tch_native_layer_norm_backward_db316', PACKAGE = 'torch', grad_out, input, mean, rstd, weight, M, FALSE, output_mask)
+}
+
+tch_native_layer_norm_double_backward_ee4a6 <- function(ggI, ggW, ggb, gO, input, mean, rstd, weight, M, FALSE, output_mask) {
+    .Call('_torch_tch_native_layer_norm_double_backward_ee4a6', PACKAGE = 'torch', ggI, ggW, ggb, gO, input, mean, rstd, weight, M, FALSE, output_mask)
+}
+
+tch_linear_73573 <- function(input, weight, bias) {
+    .Call('_torch_tch_linear_73573', PACKAGE = 'torch', input, weight, bias)
+}
+
+tch_mkldnn_linear_73573 <- function(input, weight, bias) {
+    .Call('_torch_tch_mkldnn_linear_73573', PACKAGE = 'torch', input, weight, bias)
+}
+
+tch_fbgemm_linear_int8_weight_04ea0 <- function(input, weight, packed, col_offsets, weight_scale, weight_zero_point, bias) {
+    .Call('_torch_tch_fbgemm_linear_int8_weight_04ea0', PACKAGE = 'torch', input, weight, packed, col_offsets, weight_scale, weight_zero_point, bias)
+}
+
+tch_fbgemm_linear_quantize_weight_1ebd2 <- function(input) {
+    .Call('_torch_tch_fbgemm_linear_quantize_weight_1ebd2', PACKAGE = 'torch', input)
+}
+
+tch_fbgemm_pack_gemm_matrix_fp16_1ebd2 <- function(input) {
+    .Call('_torch_tch_fbgemm_pack_gemm_matrix_fp16_1ebd2', PACKAGE = 'torch', input)
+}
+
+tch_fbgemm_linear_fp16_weight_6d516 <- function(input, packed_weight, bias) {
+    .Call('_torch_tch_fbgemm_linear_fp16_weight_6d516', PACKAGE = 'torch', input, packed_weight, bias)
+}
+
+tch_fbgemm_pack_quantized_matrix_6495b <- function(input, K, FALSE) {
+    .Call('_torch_tch_fbgemm_pack_quantized_matrix_6495b', PACKAGE = 'torch', input, K, FALSE)
+}
+
+tch_fbgemm_is_cpu_supported_d41d8 <- function() {
+    .Call('_torch_tch_fbgemm_is_cpu_supported_d41d8', PACKAGE = 'torch')
+}
+
+tch_linspace_98425 <- function(start, end, steps, options) {
+    .Call('_torch_tch_linspace_98425', PACKAGE = 'torch', start, end, steps, options)
+}
+
+tch_linspace_out_0d8d7 <- function(out, start, end, steps) {
+    .Call('_torch_tch_linspace_out_0d8d7', PACKAGE = 'torch', out, start, end, steps)
+}
+
+tch_log_68396 <- function(self) {
+    .Call('_torch_tch_log_68396', PACKAGE = 'torch', self)
+}
+
+tch_log__77059 <- function(self) {
+    .Call('_torch_tch_log__77059', PACKAGE = 'torch', self)
+}
+
+tch_log_out_a719b <- function(out, self) {
+    .Call('_torch_tch_log_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_log10_68396 <- function(self) {
+    .Call('_torch_tch_log10_68396', PACKAGE = 'torch', self)
+}
+
+tch_log10__77059 <- function(self) {
+    .Call('_torch_tch_log10__77059', PACKAGE = 'torch', self)
+}
+
+tch_log10_out_a719b <- function(out, self) {
+    .Call('_torch_tch_log10_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_log1p_68396 <- function(self) {
+    .Call('_torch_tch_log1p_68396', PACKAGE = 'torch', self)
+}
+
+tch_log1p__77059 <- function(self) {
+    .Call('_torch_tch_log1p__77059', PACKAGE = 'torch', self)
+}
+
+tch_log1p_out_a719b <- function(out, self) {
+    .Call('_torch_tch_log1p_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_log2_68396 <- function(self) {
+    .Call('_torch_tch_log2_68396', PACKAGE = 'torch', self)
+}
+
+tch_log2__77059 <- function(self) {
+    .Call('_torch_tch_log2__77059', PACKAGE = 'torch', self)
+}
+
+tch_log2_out_a719b <- function(out, self) {
+    .Call('_torch_tch_log2_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_logdet_68396 <- function(self) {
+    .Call('_torch_tch_logdet_68396', PACKAGE = 'torch', self)
+}
+
+tch_logspace_a4017 <- function(start, end, steps, base, options) {
+    .Call('_torch_tch_logspace_a4017', PACKAGE = 'torch', start, end, steps, base, options)
+}
+
+tch_logspace_out_98f42 <- function(out, start, end, steps, base) {
+    .Call('_torch_tch_logspace_out_98f42', PACKAGE = 'torch', out, start, end, steps, base)
+}
+
+tch_log_softmax_497ac <- function(self, dim, dtype) {
+    .Call('_torch_tch_log_softmax_497ac', PACKAGE = 'torch', self, dim, dtype)
+}
+
+tch__log_softmax_3e758 <- function(self, dim, half_to_float) {
+    .Call('_torch_tch__log_softmax_3e758', PACKAGE = 'torch', self, dim, half_to_float)
+}
+
+tch__log_softmax_backward_data_f3810 <- function(grad_output, output, dim, self) {
+    .Call('_torch_tch__log_softmax_backward_data_f3810', PACKAGE = 'torch', grad_output, output, dim, self)
+}
+
+tch_logsumexp_3d8e8 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_logsumexp_3d8e8', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_logsumexp_out_b8c18 <- function(out, self, dim, keepdim) {
+    .Call('_torch_tch_logsumexp_out_b8c18', PACKAGE = 'torch', out, self, dim, keepdim)
+}
+
+tch_margin_ranking_loss_825ed <- function(input1, input2, target, margin, reduction) {
+    .Call('_torch_tch_margin_ranking_loss_825ed', PACKAGE = 'torch', input1, input2, target, margin, reduction)
+}
+
+tch_matmul_7f12b <- function(self, other) {
+    .Call('_torch_tch_matmul_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_matmul_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_matmul_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_matrix_rank_9da2a <- function(self, tol, symmetric) {
+    .Call('_torch_tch_matrix_rank_9da2a', PACKAGE = 'torch', self, tol, symmetric)
+}
+
+tch_matrix_rank_40e87 <- function(self, symmetric) {
+    .Call('_torch_tch_matrix_rank_40e87', PACKAGE = 'torch', self, symmetric)
+}
+
+tch_matrix_power_fbba1 <- function(self, n) {
+    .Call('_torch_tch_matrix_power_fbba1', PACKAGE = 'torch', self, n)
+}
+
+tch_max_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_max_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_max_out_f02b3 <- function(max, max_values, self, dim, keepdim) {
+    .Call('_torch_tch_max_out_f02b3', PACKAGE = 'torch', max, max_values, self, dim, keepdim)
+}
+
+tch_max_values_3d8e8 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_max_values_3d8e8', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_max_pool1d_with_indices_e506e <- function(self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_max_pool1d_with_indices_e506e', PACKAGE = 'torch', self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_max_pool1d_e506e <- function(self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_max_pool1d_e506e', PACKAGE = 'torch', self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_max_pool2d_e506e <- function(self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_max_pool2d_e506e', PACKAGE = 'torch', self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_mkldnn_max_pool2d_e506e <- function(self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_mkldnn_max_pool2d_e506e', PACKAGE = 'torch', self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_quantized_max_pool2d_04fb0 <- function(self, kernel_size, stride, padding, dilation) {
+    .Call('_torch_tch_quantized_max_pool2d_04fb0', PACKAGE = 'torch', self, kernel_size, stride, padding, dilation)
+}
+
+tch_max_pool3d_e506e <- function(self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_max_pool3d_e506e', PACKAGE = 'torch', self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_mean_e9eab <- function(self, dtype) {
+    .Call('_torch_tch_mean_e9eab', PACKAGE = 'torch', self, dtype)
+}
+
+tch_mean_b75b9 <- function(self, dim, keepdim, dtype) {
+    .Call('_torch_tch_mean_b75b9', PACKAGE = 'torch', self, dim, keepdim, dtype)
+}
+
+tch_mean_out_d0079 <- function(out, self, dim, keepdim, dtype) {
+    .Call('_torch_tch_mean_out_d0079', PACKAGE = 'torch', out, self, dim, keepdim, dtype)
+}
+
+tch_median_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_median_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_median_out_3f290 <- function(values, indices, self, dim, keepdim) {
+    .Call('_torch_tch_median_out_3f290', PACKAGE = 'torch', values, indices, self, dim, keepdim)
+}
+
+tch_min_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_min_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_min_out_94872 <- function(min, min_indices, self, dim, keepdim) {
+    .Call('_torch_tch_min_out_94872', PACKAGE = 'torch', min, min_indices, self, dim, keepdim)
+}
+
+tch_min_values_3d8e8 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_min_values_3d8e8', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_mkldnn_convolution_6d8f9 <- function(self, weight, bias, padding, stride, dilation, groups) {
+    .Call('_torch_tch_mkldnn_convolution_6d8f9', PACKAGE = 'torch', self, weight, bias, padding, stride, dilation, groups)
+}
+
+tch_mkldnn_convolution_backward_input_2ee87 <- function(self_size, grad_output, weight, padding, stride, dilation, groups, bias_defined) {
+    .Call('_torch_tch_mkldnn_convolution_backward_input_2ee87', PACKAGE = 'torch', self_size, grad_output, weight, padding, stride, dilation, groups, bias_defined)
+}
+
+tch_mkldnn_convolution_backward_weights_3d9b7 <- function(weight_size, grad_output, self, padding, stride, dilation, groups, bias_defined) {
+    .Call('_torch_tch_mkldnn_convolution_backward_weights_3d9b7', PACKAGE = 'torch', weight_size, grad_output, self, padding, stride, dilation, groups, bias_defined)
+}
+
+tch_mkldnn_convolution_backward_d4718 <- function(self, grad_output, weight, padding, stride, dilation, groups, output_mask) {
+    .Call('_torch_tch_mkldnn_convolution_backward_d4718', PACKAGE = 'torch', self, grad_output, weight, padding, stride, dilation, groups, output_mask)
+}
+
+tch_miopen_batch_norm_e7029 <- function(input, weight, bias, running_mean, running_var, training, exponential_average_factor, epsilon) {
+    .Call('_torch_tch_miopen_batch_norm_e7029', PACKAGE = 'torch', input, weight, bias, running_mean, running_var, training, exponential_average_factor, epsilon)
+}
+
+tch_miopen_batch_norm_backward_43ba9 <- function(input, grad_output, weight, running_mean, running_var, save_mean, save_var, epsilon) {
+    .Call('_torch_tch_miopen_batch_norm_backward_43ba9', PACKAGE = 'torch', input, grad_output, weight, running_mean, running_var, save_mean, save_var, epsilon)
+}
+
+tch_miopen_convolution_4b7d8 <- function(self, weight, bias, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_convolution_4b7d8', PACKAGE = 'torch', self, weight, bias, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_convolution_backward_input_1d479 <- function(self_size, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_convolution_backward_input_1d479', PACKAGE = 'torch', self_size, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_convolution_backward_2db50 <- function(self, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic, output_mask) {
+    .Call('_torch_tch_miopen_convolution_backward_2db50', PACKAGE = 'torch', self, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic, output_mask)
+}
+
+tch_miopen_convolution_backward_bias_1be88 <- function(grad_output) {
+    .Call('_torch_tch_miopen_convolution_backward_bias_1be88', PACKAGE = 'torch', grad_output)
+}
+
+tch_miopen_convolution_backward_weight_6c614 <- function(weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_convolution_backward_weight_6c614', PACKAGE = 'torch', weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_convolution_transpose_abf15 <- function(self, weight, bias, padding, output_padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_convolution_transpose_abf15', PACKAGE = 'torch', self, weight, bias, padding, output_padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_convolution_transpose_backward_fba5c <- function(self, grad_output, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, output_mask) {
+    .Call('_torch_tch_miopen_convolution_transpose_backward_fba5c', PACKAGE = 'torch', self, grad_output, weight, padding, output_padding, stride, dilation, groups, benchmark, deterministic, output_mask)
+}
+
+tch_miopen_convolution_transpose_backward_input_37783 <- function(grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_convolution_transpose_backward_input_37783', PACKAGE = 'torch', grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_convolution_transpose_backward_weight_6c614 <- function(weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_convolution_transpose_backward_weight_6c614', PACKAGE = 'torch', weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_depthwise_convolution_4b7d8 <- function(self, weight, bias, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_depthwise_convolution_4b7d8', PACKAGE = 'torch', self, weight, bias, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_depthwise_convolution_backward_input_1d479 <- function(self_size, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_depthwise_convolution_backward_input_1d479', PACKAGE = 'torch', self_size, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_depthwise_convolution_backward_2db50 <- function(self, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic, output_mask) {
+    .Call('_torch_tch_miopen_depthwise_convolution_backward_2db50', PACKAGE = 'torch', self, grad_output, weight, padding, stride, dilation, groups, benchmark, deterministic, output_mask)
+}
+
+tch_miopen_depthwise_convolution_backward_weight_6c614 <- function(weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic) {
+    .Call('_torch_tch_miopen_depthwise_convolution_backward_weight_6c614', PACKAGE = 'torch', weight_size, grad_output, self, padding, stride, dilation, groups, benchmark, deterministic)
+}
+
+tch_miopen_rnn_62f3e <- function(input, weight, weight_stride0, hx, cx, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes, dropout_state) {
+    .Call('_torch_tch_miopen_rnn_62f3e', PACKAGE = 'torch', input, weight, weight_stride0, hx, cx, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes, dropout_state)
+}
+
+tch_miopen_rnn_backward_e2ff6 <- function(input, weight, weight_stride0, weight_buf, hx, cx, output, grad_output, grad_hy, grad_cy, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes, dropout_state, reserve, output_mask) {
+    .Call('_torch_tch_miopen_rnn_backward_e2ff6', PACKAGE = 'torch', input, weight, weight_stride0, weight_buf, hx, cx, output, grad_output, grad_hy, grad_cy, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes, dropout_state, reserve, output_mask)
+}
+
+tch_mm_41798 <- function(self, mat2) {
+    .Call('_torch_tch_mm_41798', PACKAGE = 'torch', self, mat2)
+}
+
+tch_mm_out_05a32 <- function(out, self, mat2) {
+    .Call('_torch_tch_mm_out_05a32', PACKAGE = 'torch', out, self, mat2)
+}
+
+tch__sparse_mm_6933c <- function(sparse, dense) {
+    .Call('_torch_tch__sparse_mm_6933c', PACKAGE = 'torch', sparse, dense)
+}
+
+tch_mode_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_mode_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_mode_out_3f290 <- function(values, indices, self, dim, keepdim) {
+    .Call('_torch_tch_mode_out_3f290', PACKAGE = 'torch', values, indices, self, dim, keepdim)
+}
+
+tch_mul_7f12b <- function(self, other) {
+    .Call('_torch_tch_mul_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_mul_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_mul_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_mul_828c7 <- function(self, other) {
+    .Call('_torch_tch_mul_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_mv_98e02 <- function(self, vec) {
+    .Call('_torch_tch_mv_98e02', PACKAGE = 'torch', self, vec)
+}
+
+tch_mv_out_a870c <- function(out, self, vec) {
+    .Call('_torch_tch_mv_out_a870c', PACKAGE = 'torch', out, self, vec)
+}
+
+tch_mvlgamma_9a315 <- function(self, p) {
+    .Call('_torch_tch_mvlgamma_9a315', PACKAGE = 'torch', self, p)
+}
+
+tch_narrow_d65be <- function(self, dim, start, length) {
+    .Call('_torch_tch_narrow_d65be', PACKAGE = 'torch', self, dim, start, length)
+}
+
+tch_native_batch_norm_0f046 <- function(input, weight, bias, running_mean, running_var, training, momentum, eps) {
+    .Call('_torch_tch_native_batch_norm_0f046', PACKAGE = 'torch', input, weight, bias, running_mean, running_var, training, momentum, eps)
+}
+
+tch_batch_norm_stats_537d3 <- function(input, eps) {
+    .Call('_torch_tch_batch_norm_stats_537d3', PACKAGE = 'torch', input, eps)
+}
+
+tch_batch_norm_elemt_f83a1 <- function(input, weight, bias, mean, invstd, eps) {
+    .Call('_torch_tch_batch_norm_elemt_f83a1', PACKAGE = 'torch', input, weight, bias, mean, invstd, eps)
+}
+
+tch_batch_norm_gather_stats_36393 <- function(input, mean, invstd, running_mean, running_var, momentum, eps, count) {
+    .Call('_torch_tch_batch_norm_gather_stats_36393', PACKAGE = 'torch', input, mean, invstd, running_mean, running_var, momentum, eps, count)
+}
+
+tch_batch_norm_gather_stats_with_counts_e8dd7 <- function(input, mean, invstd, running_mean, running_var, momentum, eps, counts) {
+    .Call('_torch_tch_batch_norm_gather_stats_with_counts_e8dd7', PACKAGE = 'torch', input, mean, invstd, running_mean, running_var, momentum, eps, counts)
+}
+
+tch_native_batch_norm_backward_963c0 <- function(grad_out, input, weight, running_mean, running_var, save_mean, save_invstd, train, eps, output_mask) {
+    .Call('_torch_tch_native_batch_norm_backward_963c0', PACKAGE = 'torch', grad_out, input, weight, running_mean, running_var, save_mean, save_invstd, train, eps, output_mask)
+}
+
+tch_batch_norm_backward_reduce_a70c3 <- function(grad_out, input, mean, invstd, input_g, weight_g, bias_g) {
+    .Call('_torch_tch_batch_norm_backward_reduce_a70c3', PACKAGE = 'torch', grad_out, input, mean, invstd, input_g, weight_g, bias_g)
+}
+
+tch_batch_norm_backward_elemt_fa936 <- function(grad_out, input, mean, invstd, weight, mean_dy, mean_dy_xmu) {
+    .Call('_torch_tch_batch_norm_backward_elemt_fa936', PACKAGE = 'torch', grad_out, input, mean, invstd, weight, mean_dy, mean_dy_xmu)
+}
+
+tch_batch_norm_update_stats_f179e <- function(input, running_mean, running_var, momentum) {
+    .Call('_torch_tch_batch_norm_update_stats_f179e', PACKAGE = 'torch', input, running_mean, running_var, momentum)
+}
+
+tch__nnpack_available_d41d8 <- function() {
+    .Call('_torch_tch__nnpack_available_d41d8', PACKAGE = 'torch')
+}
+
+tch__nnpack_spatial_convolution_8866b <- function(input, weight, bias, padding) {
+    .Call('_torch_tch__nnpack_spatial_convolution_8866b', PACKAGE = 'torch', input, weight, bias, padding)
+}
+
+tch__nnpack_spatial_convolution_backward_18af3 <- function(input, grad_output, weight, padding, output_mask) {
+    .Call('_torch_tch__nnpack_spatial_convolution_backward_18af3', PACKAGE = 'torch', input, grad_output, weight, padding, output_mask)
+}
+
+tch__nnpack_spatial_convolution_backward_input_98f55 <- function(input, grad_output, weight, padding) {
+    .Call('_torch_tch__nnpack_spatial_convolution_backward_input_98f55', PACKAGE = 'torch', input, grad_output, weight, padding)
+}
+
+tch__nnpack_spatial_convolution_backward_weight_9d3c3 <- function(input, weightsize, grad_output, padding) {
+    .Call('_torch_tch__nnpack_spatial_convolution_backward_weight_9d3c3', PACKAGE = 'torch', input, weightsize, grad_output, padding)
+}
+
+tch_ones_e134c <- function(size, options) {
+    .Call('_torch_tch_ones_e134c', PACKAGE = 'torch', size, options)
+}
+
+tch_ones_out_7aec6 <- function(out, size) {
+    .Call('_torch_tch_ones_out_7aec6', PACKAGE = 'torch', out, size)
+}
+
+tch_ones_like_68396 <- function(self) {
+    .Call('_torch_tch_ones_like_68396', PACKAGE = 'torch', self)
+}
+
+tch_ones_like_827dc <- function(self, options) {
+    .Call('_torch_tch_ones_like_827dc', PACKAGE = 'torch', self, options)
+}
+
+tch_pairwise_distance_22af9 <- function(x1, x2, p, eps, keepdim) {
+    .Call('_torch_tch_pairwise_distance_22af9', PACKAGE = 'torch', x1, x2, p, eps, keepdim)
+}
+
+tch_cdist_6dcaf <- function(x1, x2, p) {
+    .Call('_torch_tch_cdist_6dcaf', PACKAGE = 'torch', x1, x2, p)
+}
+
+tch__cdist_backward_f0889 <- function(grad, x1, x2, p, cdist) {
+    .Call('_torch_tch__cdist_backward_f0889', PACKAGE = 'torch', grad, x1, x2, p, cdist)
+}
+
+tch_pdist_88d01 <- function(self, p) {
+    .Call('_torch_tch_pdist_88d01', PACKAGE = 'torch', self, p)
+}
+
+tch__pdist_forward_88d01 <- function(self, p) {
+    .Call('_torch_tch__pdist_forward_88d01', PACKAGE = 'torch', self, p)
+}
+
+tch__pdist_backward_1512f <- function(grad, self, p, pdist) {
+    .Call('_torch_tch__pdist_backward_1512f', PACKAGE = 'torch', grad, self, p, pdist)
+}
+
+tch_cosine_similarity_91cc2 <- function(x1, x2, dim, eps) {
+    .Call('_torch_tch_cosine_similarity_91cc2', PACKAGE = 'torch', x1, x2, dim, eps)
+}
+
+tch_pixel_shuffle_eaa66 <- function(self, upscale_factor) {
+    .Call('_torch_tch_pixel_shuffle_eaa66', PACKAGE = 'torch', self, upscale_factor)
+}
+
+tch_pin_memory_68396 <- function(self) {
+    .Call('_torch_tch_pin_memory_68396', PACKAGE = 'torch', self)
+}
+
+tch_pinverse_9451f <- function(self, rcond) {
+    .Call('_torch_tch_pinverse_9451f', PACKAGE = 'torch', self, rcond)
+}
+
+tch_poisson_nll_loss_6faa6 <- function(input, target, log_input, full, eps, reduction) {
+    .Call('_torch_tch_poisson_nll_loss_6faa6', PACKAGE = 'torch', input, target, log_input, full, eps, reduction)
+}
+
+tch_scalar_tensor_68283 <- function(s, options) {
+    .Call('_torch_tch_scalar_tensor_68283', PACKAGE = 'torch', s, options)
+}
+
+tch_rand_e134c <- function(size, options) {
+    .Call('_torch_tch_rand_e134c', PACKAGE = 'torch', size, options)
+}
+
+tch_rand_bdaa4 <- function(size, options) {
+    .Call('_torch_tch_rand_bdaa4', PACKAGE = 'torch', size, options)
+}
+
+tch_rand_out_7aec6 <- function(out, size) {
+    .Call('_torch_tch_rand_out_7aec6', PACKAGE = 'torch', out, size)
+}
+
+tch_rand_out_ead3e <- function(out, size) {
+    .Call('_torch_tch_rand_out_ead3e', PACKAGE = 'torch', out, size)
+}
+
+tch_rand_like_68396 <- function(self) {
+    .Call('_torch_tch_rand_like_68396', PACKAGE = 'torch', self)
+}
+
+tch_rand_like_827dc <- function(self, options) {
+    .Call('_torch_tch_rand_like_827dc', PACKAGE = 'torch', self, options)
+}
+
+tch_randint_2f363 <- function(high, size, options) {
+    .Call('_torch_tch_randint_2f363', PACKAGE = 'torch', high, size, options)
+}
+
+tch_randint_88e3b <- function(high, size, options) {
+    .Call('_torch_tch_randint_88e3b', PACKAGE = 'torch', high, size, options)
+}
+
+tch_randint_35565 <- function(low, high, size, options) {
+    .Call('_torch_tch_randint_35565', PACKAGE = 'torch', low, high, size, options)
+}
+
+tch_randint_9beb5 <- function(low, high, size, options) {
+    .Call('_torch_tch_randint_9beb5', PACKAGE = 'torch', low, high, size, options)
+}
+
+tch_randint_out_5b6c4 <- function(out, high, size) {
+    .Call('_torch_tch_randint_out_5b6c4', PACKAGE = 'torch', out, high, size)
+}
+
+tch_randint_out_04ec9 <- function(out, high, size) {
+    .Call('_torch_tch_randint_out_04ec9', PACKAGE = 'torch', out, high, size)
+}
+
+tch_randint_out_b49eb <- function(out, low, high, size) {
+    .Call('_torch_tch_randint_out_b49eb', PACKAGE = 'torch', out, low, high, size)
+}
+
+tch_randint_out_a2daf <- function(out, low, high, size) {
+    .Call('_torch_tch_randint_out_a2daf', PACKAGE = 'torch', out, low, high, size)
+}
+
+tch_randint_like_726ff <- function(self, high) {
+    .Call('_torch_tch_randint_like_726ff', PACKAGE = 'torch', self, high)
+}
+
+tch_randint_like_c06e9 <- function(self, low, high) {
+    .Call('_torch_tch_randint_like_c06e9', PACKAGE = 'torch', self, low, high)
+}
+
+tch_randint_like_5202f <- function(self, high, options) {
+    .Call('_torch_tch_randint_like_5202f', PACKAGE = 'torch', self, high, options)
+}
+
+tch_randint_like_f1e80 <- function(self, low, high, options) {
+    .Call('_torch_tch_randint_like_f1e80', PACKAGE = 'torch', self, low, high, options)
+}
+
+tch_randn_e134c <- function(size, options) {
+    .Call('_torch_tch_randn_e134c', PACKAGE = 'torch', size, options)
+}
+
+tch_randn_bdaa4 <- function(size, options) {
+    .Call('_torch_tch_randn_bdaa4', PACKAGE = 'torch', size, options)
+}
+
+tch_randn_out_7aec6 <- function(out, size) {
+    .Call('_torch_tch_randn_out_7aec6', PACKAGE = 'torch', out, size)
+}
+
+tch_randn_out_ead3e <- function(out, size) {
+    .Call('_torch_tch_randn_out_ead3e', PACKAGE = 'torch', out, size)
+}
+
+tch_randn_like_68396 <- function(self) {
+    .Call('_torch_tch_randn_like_68396', PACKAGE = 'torch', self)
+}
+
+tch_randn_like_827dc <- function(self, options) {
+    .Call('_torch_tch_randn_like_827dc', PACKAGE = 'torch', self, options)
+}
+
+tch_randperm_3cccf <- function(n, options) {
+    .Call('_torch_tch_randperm_3cccf', PACKAGE = 'torch', n, options)
+}
+
+tch_randperm_1bfca <- function(n, options) {
+    .Call('_torch_tch_randperm_1bfca', PACKAGE = 'torch', n, options)
+}
+
+tch_randperm_out_07617 <- function(out, n) {
+    .Call('_torch_tch_randperm_out_07617', PACKAGE = 'torch', out, n)
+}
+
+tch_randperm_out_02cc5 <- function(out, n) {
+    .Call('_torch_tch_randperm_out_02cc5', PACKAGE = 'torch', out, n)
+}
+
+tch_range_226c7 <- function(start, end, step, options) {
+    .Call('_torch_tch_range_226c7', PACKAGE = 'torch', start, end, step, options)
+}
+
+tch_range_08b0a <- function(start, end, options) {
+    .Call('_torch_tch_range_08b0a', PACKAGE = 'torch', start, end, options)
+}
+
+tch_range_out_346d8 <- function(out, start, end, step) {
+    .Call('_torch_tch_range_out_346d8', PACKAGE = 'torch', out, start, end, step)
+}
+
+tch_reciprocal_68396 <- function(self) {
+    .Call('_torch_tch_reciprocal_68396', PACKAGE = 'torch', self)
+}
+
+tch_reciprocal__77059 <- function(self) {
+    .Call('_torch_tch_reciprocal__77059', PACKAGE = 'torch', self)
+}
+
+tch_reciprocal_out_a719b <- function(out, self) {
+    .Call('_torch_tch_reciprocal_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_neg_68396 <- function(self) {
+    .Call('_torch_tch_neg_68396', PACKAGE = 'torch', self)
+}
+
+tch_neg__77059 <- function(self) {
+    .Call('_torch_tch_neg__77059', PACKAGE = 'torch', self)
+}
+
+tch_neg_out_a719b <- function(out, self) {
+    .Call('_torch_tch_neg_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_repeat_interleave_f1d80 <- function(repeats) {
+    .Call('_torch_tch_repeat_interleave_f1d80', PACKAGE = 'torch', repeats)
+}
+
+tch_repeat_interleave_df8da <- function(self, repeats, dim) {
+    .Call('_torch_tch_repeat_interleave_df8da', PACKAGE = 'torch', self, repeats, dim)
+}
+
+tch_repeat_interleave_f4cdb <- function(self, repeats, dim) {
+    .Call('_torch_tch_repeat_interleave_f4cdb', PACKAGE = 'torch', self, repeats, dim)
+}
+
+tch_reshape_00ebe <- function(self, shape) {
+    .Call('_torch_tch_reshape_00ebe', PACKAGE = 'torch', self, shape)
+}
+
+tch__mkldnn_reshape_00ebe <- function(self, shape) {
+    .Call('_torch_tch__mkldnn_reshape_00ebe', PACKAGE = 'torch', self, shape)
+}
+
+tch_round_68396 <- function(self) {
+    .Call('_torch_tch_round_68396', PACKAGE = 'torch', self)
+}
+
+tch_round__77059 <- function(self) {
+    .Call('_torch_tch_round__77059', PACKAGE = 'torch', self)
+}
+
+tch_round_out_a719b <- function(out, self) {
+    .Call('_torch_tch_round_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_rrelu_60960 <- function(self, lower, upper, training) {
+    .Call('_torch_tch_rrelu_60960', PACKAGE = 'torch', self, lower, upper, training)
+}
+
+tch_rrelu__4a4a2 <- function(self, lower, upper, training) {
+    .Call('_torch_tch_rrelu__4a4a2', PACKAGE = 'torch', self, lower, upper, training)
+}
+
+tch_relu_68396 <- function(self) {
+    .Call('_torch_tch_relu_68396', PACKAGE = 'torch', self)
+}
+
+tch_relu__77059 <- function(self) {
+    .Call('_torch_tch_relu__77059', PACKAGE = 'torch', self)
+}
+
+tch_prelu_74aa2 <- function(self, weight) {
+    .Call('_torch_tch_prelu_74aa2', PACKAGE = 'torch', self, weight)
+}
+
+tch_prelu_backward_fdadf <- function(grad_output, self, weight) {
+    .Call('_torch_tch_prelu_backward_fdadf', PACKAGE = 'torch', grad_output, self, weight)
+}
+
+tch_gelu_68396 <- function(self) {
+    .Call('_torch_tch_gelu_68396', PACKAGE = 'torch', self)
+}
+
+tch_gelu_backward_410fb <- function(grad, self) {
+    .Call('_torch_tch_gelu_backward_410fb', PACKAGE = 'torch', grad, self)
+}
+
+tch_hardshrink_899d6 <- function(self, lambd) {
+    .Call('_torch_tch_hardshrink_899d6', PACKAGE = 'torch', self, lambd)
+}
+
+tch_hardshrink_backward_ae549 <- function(grad_out, self, lambd) {
+    .Call('_torch_tch_hardshrink_backward_ae549', PACKAGE = 'torch', grad_out, self, lambd)
+}
+
+tch_rsqrt_68396 <- function(self) {
+    .Call('_torch_tch_rsqrt_68396', PACKAGE = 'torch', self)
+}
+
+tch_rsqrt__77059 <- function(self) {
+    .Call('_torch_tch_rsqrt__77059', PACKAGE = 'torch', self)
+}
+
+tch_rsqrt_out_a719b <- function(out, self) {
+    .Call('_torch_tch_rsqrt_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_select_b059a <- function(self, dim, index) {
+    .Call('_torch_tch_select_b059a', PACKAGE = 'torch', self, dim, index)
+}
+
+tch_selu_68396 <- function(self) {
+    .Call('_torch_tch_selu_68396', PACKAGE = 'torch', self)
+}
+
+tch_selu__77059 <- function(self) {
+    .Call('_torch_tch_selu__77059', PACKAGE = 'torch', self)
+}
+
+tch_celu_5bcc8 <- function(self, alpha) {
+    .Call('_torch_tch_celu_5bcc8', PACKAGE = 'torch', self, alpha)
+}
+
+tch_celu__afb28 <- function(self, alpha) {
+    .Call('_torch_tch_celu__afb28', PACKAGE = 'torch', self, alpha)
+}
+
+tch_sigmoid_68396 <- function(self) {
+    .Call('_torch_tch_sigmoid_68396', PACKAGE = 'torch', self)
+}
+
+tch_sigmoid__77059 <- function(self) {
+    .Call('_torch_tch_sigmoid__77059', PACKAGE = 'torch', self)
+}
+
+tch_sigmoid_out_a719b <- function(out, self) {
+    .Call('_torch_tch_sigmoid_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_sin_68396 <- function(self) {
+    .Call('_torch_tch_sin_68396', PACKAGE = 'torch', self)
+}
+
+tch_sin__77059 <- function(self) {
+    .Call('_torch_tch_sin__77059', PACKAGE = 'torch', self)
+}
+
+tch_sin_out_a719b <- function(out, self) {
+    .Call('_torch_tch_sin_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_sinh_68396 <- function(self) {
+    .Call('_torch_tch_sinh_68396', PACKAGE = 'torch', self)
+}
+
+tch_sinh__77059 <- function(self) {
+    .Call('_torch_tch_sinh__77059', PACKAGE = 'torch', self)
+}
+
+tch_sinh_out_a719b <- function(out, self) {
+    .Call('_torch_tch_sinh_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_detach_68396 <- function(self) {
+    .Call('_torch_tch_detach_68396', PACKAGE = 'torch', self)
+}
+
+tch_detach__77059 <- function(self) {
+    .Call('_torch_tch_detach__77059', PACKAGE = 'torch', self)
+}
+
+tch_size_ec971 <- function(self, dim) {
+    .Call('_torch_tch_size_ec971', PACKAGE = 'torch', self, dim)
+}
+
+tch_slice_43b67 <- function(self, dim, start, end, step) {
+    .Call('_torch_tch_slice_43b67', PACKAGE = 'torch', self, dim, start, end, step)
+}
+
+tch_slogdet_68396 <- function(self) {
+    .Call('_torch_tch_slogdet_68396', PACKAGE = 'torch', self)
+}
+
+tch_smm_41798 <- function(self, mat2) {
+    .Call('_torch_tch_smm_41798', PACKAGE = 'torch', self, mat2)
+}
+
+tch_softmax_497ac <- function(self, dim, dtype) {
+    .Call('_torch_tch_softmax_497ac', PACKAGE = 'torch', self, dim, dtype)
+}
+
+tch__softmax_3e758 <- function(self, dim, half_to_float) {
+    .Call('_torch_tch__softmax_3e758', PACKAGE = 'torch', self, dim, half_to_float)
+}
+
+tch__softmax_backward_data_f3810 <- function(grad_output, output, dim, self) {
+    .Call('_torch_tch__softmax_backward_data_f3810', PACKAGE = 'torch', grad_output, output, dim, self)
+}
+
+tch__sparse_add_out_8a334 <- function(out, self, other, alpha) {
+    .Call('_torch_tch__sparse_add_out_8a334', PACKAGE = 'torch', out, self, other, alpha)
+}
+
+tch__sparse_dense_add_out_8a334 <- function(out, self, other, alpha) {
+    .Call('_torch_tch__sparse_dense_add_out_8a334', PACKAGE = 'torch', out, self, other, alpha)
+}
+
+tch__sparse_div_zerodim_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch__sparse_div_zerodim_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch__sparse_div_scalar_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch__sparse_div_scalar_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch__sparse_mul_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch__sparse_mul_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch__sparse_mul_zerodim_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch__sparse_mul_zerodim_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch__sparse_mul_scalar_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch__sparse_mul_scalar_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_split_899f0 <- function(self, split_size, dim) {
+    .Call('_torch_tch_split_899f0', PACKAGE = 'torch', self, split_size, dim)
+}
+
+tch_split_with_sizes_6a922 <- function(self, split_sizes, dim) {
+    .Call('_torch_tch_split_with_sizes_6a922', PACKAGE = 'torch', self, split_sizes, dim)
+}
+
+tch_squeeze_68396 <- function(self) {
+    .Call('_torch_tch_squeeze_68396', PACKAGE = 'torch', self)
+}
+
+tch_squeeze_ec971 <- function(self, dim) {
+    .Call('_torch_tch_squeeze_ec971', PACKAGE = 'torch', self, dim)
+}
+
+tch_sspaddmm_593f9 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch_sspaddmm_593f9', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+}
+
+tch_sspaddmm_out_f8a2b <- function(out, self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch_sspaddmm_out_f8a2b', PACKAGE = 'torch', out, self, mat1, mat2, beta, alpha)
+}
+
+tch_stack_55ff1 <- function(tensors, dim) {
+    .Call('_torch_tch_stack_55ff1', PACKAGE = 'torch', tensors, dim)
+}
+
+tch_stack_out_52c09 <- function(out, tensors, dim) {
+    .Call('_torch_tch_stack_out_52c09', PACKAGE = 'torch', out, tensors, dim)
+}
+
+tch_stft_c07c5 <- function(self, n_fft, hop_length, win_length, window, normalized, onesided) {
+    .Call('_torch_tch_stft_c07c5', PACKAGE = 'torch', self, n_fft, hop_length, win_length, window, normalized, onesided)
+}
+
+tch_stride_ec971 <- function(self, dim) {
+    .Call('_torch_tch_stride_ec971', PACKAGE = 'torch', self, dim)
+}
+
+tch_sum_e9eab <- function(self, dtype) {
+    .Call('_torch_tch_sum_e9eab', PACKAGE = 'torch', self, dtype)
+}
+
+tch_sum_b75b9 <- function(self, dim, keepdim, dtype) {
+    .Call('_torch_tch_sum_b75b9', PACKAGE = 'torch', self, dim, keepdim, dtype)
+}
+
+tch_sum_out_d0079 <- function(out, self, dim, keepdim, dtype) {
+    .Call('_torch_tch_sum_out_d0079', PACKAGE = 'torch', out, self, dim, keepdim, dtype)
+}
+
+tch_sqrt_68396 <- function(self) {
+    .Call('_torch_tch_sqrt_68396', PACKAGE = 'torch', self)
+}
+
+tch_sqrt__77059 <- function(self) {
+    .Call('_torch_tch_sqrt__77059', PACKAGE = 'torch', self)
+}
+
+tch_sqrt_out_a719b <- function(out, self) {
+    .Call('_torch_tch_sqrt_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_std_26862 <- function(self, unbiased) {
+    .Call('_torch_tch_std_26862', PACKAGE = 'torch', self, unbiased)
+}
+
+tch_std_e89c4 <- function(self, dim, unbiased, keepdim) {
+    .Call('_torch_tch_std_e89c4', PACKAGE = 'torch', self, dim, unbiased, keepdim)
+}
+
+tch_std_mean_26862 <- function(self, unbiased) {
+    .Call('_torch_tch_std_mean_26862', PACKAGE = 'torch', self, unbiased)
+}
+
+tch_std_mean_e89c4 <- function(self, dim, unbiased, keepdim) {
+    .Call('_torch_tch_std_mean_e89c4', PACKAGE = 'torch', self, dim, unbiased, keepdim)
+}
+
+tch_std_out_e7788 <- function(out, self, dim, unbiased, keepdim) {
+    .Call('_torch_tch_std_out_e7788', PACKAGE = 'torch', out, self, dim, unbiased, keepdim)
+}
+
+tch_prod_e9eab <- function(self, dtype) {
+    .Call('_torch_tch_prod_e9eab', PACKAGE = 'torch', self, dtype)
+}
+
+tch_prod_23927 <- function(self, dim, keepdim, dtype) {
+    .Call('_torch_tch_prod_23927', PACKAGE = 'torch', self, dim, keepdim, dtype)
+}
+
+tch_prod_out_fe8f5 <- function(out, self, dim, keepdim, dtype) {
+    .Call('_torch_tch_prod_out_fe8f5', PACKAGE = 'torch', out, self, dim, keepdim, dtype)
+}
+
+tch_t_68396 <- function(self) {
+    .Call('_torch_tch_t_68396', PACKAGE = 'torch', self)
+}
+
+tch_tan_68396 <- function(self) {
+    .Call('_torch_tch_tan_68396', PACKAGE = 'torch', self)
+}
+
+tch_tan__77059 <- function(self) {
+    .Call('_torch_tch_tan__77059', PACKAGE = 'torch', self)
+}
+
+tch_tan_out_a719b <- function(out, self) {
+    .Call('_torch_tch_tan_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_tanh_68396 <- function(self) {
+    .Call('_torch_tch_tanh_68396', PACKAGE = 'torch', self)
+}
+
+tch_tanh__77059 <- function(self) {
+    .Call('_torch_tch_tanh__77059', PACKAGE = 'torch', self)
+}
+
+tch_tanh_out_a719b <- function(out, self) {
+    .Call('_torch_tch_tanh_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_tensordot_22df0 <- function(self, other, dims_self, dims_other) {
+    .Call('_torch_tch_tensordot_22df0', PACKAGE = 'torch', self, other, dims_self, dims_other)
+}
+
+tch_threshold_5f779 <- function(self, threshold, value) {
+    .Call('_torch_tch_threshold_5f779', PACKAGE = 'torch', self, threshold, value)
+}
+
+tch_threshold__6301d <- function(self, threshold, value) {
+    .Call('_torch_tch_threshold__6301d', PACKAGE = 'torch', self, threshold, value)
+}
+
+tch_threshold_out_7f0e0 <- function(out, self, threshold, value) {
+    .Call('_torch_tch_threshold_out_7f0e0', PACKAGE = 'torch', out, self, threshold, value)
+}
+
+tch_threshold_backward_d3ea3 <- function(grad_output, self, threshold) {
+    .Call('_torch_tch_threshold_backward_d3ea3', PACKAGE = 'torch', grad_output, self, threshold)
+}
+
+tch_transpose_79f15 <- function(self, dim0, dim1) {
+    .Call('_torch_tch_transpose_79f15', PACKAGE = 'torch', self, dim0, dim1)
+}
+
+tch__mkldnn_transpose_79f15 <- function(self, dim0, dim1) {
+    .Call('_torch_tch__mkldnn_transpose_79f15', PACKAGE = 'torch', self, dim0, dim1)
+}
+
+tch__mkldnn_transpose__9862c <- function(self, dim0, dim1) {
+    .Call('_torch_tch__mkldnn_transpose__9862c', PACKAGE = 'torch', self, dim0, dim1)
+}
+
+tch_one_hot_80453 <- function(self, num_classes) {
+    .Call('_torch_tch_one_hot_80453', PACKAGE = 'torch', self, num_classes)
+}
+
+tch_flip_58ccf <- function(self, dims) {
+    .Call('_torch_tch_flip_58ccf', PACKAGE = 'torch', self, dims)
+}
+
+tch_roll_7d21b <- function(self, shifts, dims) {
+    .Call('_torch_tch_roll_7d21b', PACKAGE = 'torch', self, shifts, dims)
+}
+
+tch_rot90_ba5ca <- function(self, k, dims) {
+    .Call('_torch_tch_rot90_ba5ca', PACKAGE = 'torch', self, k, dims)
+}
+
+tch_trapz_2b5b6 <- function(y, x, dim) {
+    .Call('_torch_tch_trapz_2b5b6', PACKAGE = 'torch', y, x, dim)
+}
+
+tch_trapz_6b2e2 <- function(y, dx, dim) {
+    .Call('_torch_tch_trapz_6b2e2', PACKAGE = 'torch', y, dx, dim)
+}
+
+tch__trilinear_145e2 <- function(i1, i2, i3, expand1, expand2, expand3, sumdim, unroll_dim) {
+    .Call('_torch_tch__trilinear_145e2', PACKAGE = 'torch', i1, i2, i3, expand1, expand2, expand3, sumdim, unroll_dim)
+}
+
+tch_triplet_margin_loss_644f1 <- function(anchor, positive, negative, margin, p, eps, swap, reduction) {
+    .Call('_torch_tch_triplet_margin_loss_644f1', PACKAGE = 'torch', anchor, positive, negative, margin, p, eps, swap, reduction)
+}
+
+tch_trunc_68396 <- function(self) {
+    .Call('_torch_tch_trunc_68396', PACKAGE = 'torch', self)
+}
+
+tch_trunc__77059 <- function(self) {
+    .Call('_torch_tch_trunc__77059', PACKAGE = 'torch', self)
+}
+
+tch_trunc_out_a719b <- function(out, self) {
+    .Call('_torch_tch_trunc_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch__has_compatible_shallow_copy_type_6c3d7 <- function(self, from) {
+    .Call('_torch_tch__has_compatible_shallow_copy_type_6c3d7', PACKAGE = 'torch', self, from)
+}
+
+tch__unique_425b9 <- function(self, sorted, return_inverse) {
+    .Call('_torch_tch__unique_425b9', PACKAGE = 'torch', self, sorted, return_inverse)
+}
+
+tch_unique_dim_0782e <- function(self, dim, sorted, return_inverse, return_counts) {
+    .Call('_torch_tch_unique_dim_0782e', PACKAGE = 'torch', self, dim, sorted, return_inverse, return_counts)
+}
+
+tch_unique_consecutive_06950 <- function(self, return_inverse, return_counts, dim) {
+    .Call('_torch_tch_unique_consecutive_06950', PACKAGE = 'torch', self, return_inverse, return_counts, dim)
+}
+
+tch_unique_dim_consecutive_3671e <- function(self, dim, return_inverse, return_counts) {
+    .Call('_torch_tch_unique_dim_consecutive_3671e', PACKAGE = 'torch', self, dim, return_inverse, return_counts)
+}
+
+tch__unique2_b3f61 <- function(self, sorted, return_inverse, return_counts) {
+    .Call('_torch_tch__unique2_b3f61', PACKAGE = 'torch', self, sorted, return_inverse, return_counts)
+}
+
+tch__unsafe_view_6bf55 <- function(self, size) {
+    .Call('_torch_tch__unsafe_view_6bf55', PACKAGE = 'torch', self, size)
+}
+
+tch_unsqueeze_ec971 <- function(self, dim) {
+    .Call('_torch_tch_unsqueeze_ec971', PACKAGE = 'torch', self, dim)
+}
+
+tch_var_26862 <- function(self, unbiased) {
+    .Call('_torch_tch_var_26862', PACKAGE = 'torch', self, unbiased)
+}
+
+tch_var_e89c4 <- function(self, dim, unbiased, keepdim) {
+    .Call('_torch_tch_var_e89c4', PACKAGE = 'torch', self, dim, unbiased, keepdim)
+}
+
+tch_var_out_e7788 <- function(out, self, dim, unbiased, keepdim) {
+    .Call('_torch_tch_var_out_e7788', PACKAGE = 'torch', out, self, dim, unbiased, keepdim)
+}
+
+tch_var_mean_26862 <- function(self, unbiased) {
+    .Call('_torch_tch_var_mean_26862', PACKAGE = 'torch', self, unbiased)
+}
+
+tch_var_mean_e89c4 <- function(self, dim, unbiased, keepdim) {
+    .Call('_torch_tch_var_mean_e89c4', PACKAGE = 'torch', self, dim, unbiased, keepdim)
+}
+
+tch_where_659bd <- function(condition, self, other) {
+    .Call('_torch_tch_where_659bd', PACKAGE = 'torch', condition, self, other)
+}
+
+tch_where_60720 <- function(condition) {
+    .Call('_torch_tch_where_60720', PACKAGE = 'torch', condition)
+}
+
+tch__s_where_659bd <- function(condition, self, other) {
+    .Call('_torch_tch__s_where_659bd', PACKAGE = 'torch', condition, self, other)
+}
+
+tch_norm_except_dim_9aeb9 <- function(v, pow, dim) {
+    .Call('_torch_tch_norm_except_dim_9aeb9', PACKAGE = 'torch', v, pow, dim)
+}
+
+tch__weight_norm_b01a0 <- function(v, g, dim) {
+    .Call('_torch_tch__weight_norm_b01a0', PACKAGE = 'torch', v, g, dim)
+}
+
+tch__weight_norm_cuda_interface_b01a0 <- function(v, g, dim) {
+    .Call('_torch_tch__weight_norm_cuda_interface_b01a0', PACKAGE = 'torch', v, g, dim)
+}
+
+tch__weight_norm_cuda_interface_backward_8bfac <- function(grad_w, saved_v, saved_g, saved_norms, dim) {
+    .Call('_torch_tch__weight_norm_cuda_interface_backward_8bfac', PACKAGE = 'torch', grad_w, saved_v, saved_g, saved_norms, dim)
+}
+
+tch__weight_norm_differentiable_backward_8bfac <- function(grad_w, saved_v, saved_g, saved_norms, dim) {
+    .Call('_torch_tch__weight_norm_differentiable_backward_8bfac', PACKAGE = 'torch', grad_w, saved_v, saved_g, saved_norms, dim)
+}
+
+tch_zeros_e134c <- function(size, options) {
+    .Call('_torch_tch_zeros_e134c', PACKAGE = 'torch', size, options)
+}
+
+tch_zeros_out_7aec6 <- function(out, size) {
+    .Call('_torch_tch_zeros_out_7aec6', PACKAGE = 'torch', out, size)
+}
+
+tch_zeros_like_68396 <- function(self) {
+    .Call('_torch_tch_zeros_like_68396', PACKAGE = 'torch', self)
+}
+
+tch_zeros_like_827dc <- function(self, options) {
+    .Call('_torch_tch_zeros_like_827dc', PACKAGE = 'torch', self, options)
+}
+
+tch__standard_gamma_grad_14c47 <- function(self, output) {
+    .Call('_torch_tch__standard_gamma_grad_14c47', PACKAGE = 'torch', self, output)
+}
+
+tch__standard_gamma_172e9 <- function(self) {
+    .Call('_torch_tch__standard_gamma_172e9', PACKAGE = 'torch', self)
+}
+
+tch__dirichlet_grad_42981 <- function(x, alpha, total) {
+    .Call('_torch_tch__dirichlet_grad_42981', PACKAGE = 'torch', x, alpha, total)
+}
+
+tch__sample_dirichlet_172e9 <- function(self) {
+    .Call('_torch_tch__sample_dirichlet_172e9', PACKAGE = 'torch', self)
+}
+
+tch_poisson_172e9 <- function(self) {
+    .Call('_torch_tch_poisson_172e9', PACKAGE = 'torch', self)
+}
+
+tch_native_norm_04a03 <- function(self, p) {
+    .Call('_torch_tch_native_norm_04a03', PACKAGE = 'torch', self, p)
+}
+
+tch__sparse_sum_68396 <- function(self) {
+    .Call('_torch_tch__sparse_sum_68396', PACKAGE = 'torch', self)
+}
+
+tch__sparse_sum_ef5e6 <- function(self, dtype) {
+    .Call('_torch_tch__sparse_sum_ef5e6', PACKAGE = 'torch', self, dtype)
+}
+
+tch__sparse_sum_527b1 <- function(self, dim) {
+    .Call('_torch_tch__sparse_sum_527b1', PACKAGE = 'torch', self, dim)
+}
+
+tch__sparse_sum_b0672 <- function(self, dim, dtype) {
+    .Call('_torch_tch__sparse_sum_b0672', PACKAGE = 'torch', self, dim, dtype)
+}
+
+tch__sparse_sum_backward_6627f <- function(grad, self, dim) {
+    .Call('_torch_tch__sparse_sum_backward_6627f', PACKAGE = 'torch', grad, self, dim)
+}
+
+tch_norm_030be <- function(self, p, dtype) {
+    .Call('_torch_tch_norm_030be', PACKAGE = 'torch', self, p, dtype)
+}
+
+tch_norm_04a03 <- function(self, p) {
+    .Call('_torch_tch_norm_04a03', PACKAGE = 'torch', self, p)
+}
+
+tch_norm_2dfa1 <- function(self, p, dim, keepdim, dtype) {
+    .Call('_torch_tch_norm_2dfa1', PACKAGE = 'torch', self, p, dim, keepdim, dtype)
+}
+
+tch_norm_6d38f <- function(self, p, dim, keepdim) {
+    .Call('_torch_tch_norm_6d38f', PACKAGE = 'torch', self, p, dim, keepdim)
+}
+
+tch_norm_out_f2ac1 <- function(out, self, p, dim, keepdim, dtype) {
+    .Call('_torch_tch_norm_out_f2ac1', PACKAGE = 'torch', out, self, p, dim, keepdim, dtype)
+}
+
+tch_norm_out_2a3ab <- function(out, self, p, dim, keepdim) {
+    .Call('_torch_tch_norm_out_2a3ab', PACKAGE = 'torch', out, self, p, dim, keepdim)
+}
+
+tch_frobenius_norm_68396 <- function(self) {
+    .Call('_torch_tch_frobenius_norm_68396', PACKAGE = 'torch', self)
+}
+
+tch_frobenius_norm_3d8e8 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_frobenius_norm_3d8e8', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_frobenius_norm_out_b8c18 <- function(out, self, dim, keepdim) {
+    .Call('_torch_tch_frobenius_norm_out_b8c18', PACKAGE = 'torch', out, self, dim, keepdim)
+}
+
+tch_nuclear_norm_363ee <- function(self, keepdim) {
+    .Call('_torch_tch_nuclear_norm_363ee', PACKAGE = 'torch', self, keepdim)
+}
+
+tch_nuclear_norm_out_c6adb <- function(out, self, keepdim) {
+    .Call('_torch_tch_nuclear_norm_out_c6adb', PACKAGE = 'torch', out, self, keepdim)
+}
+
+tch_nuclear_norm_3d8e8 <- function(self, dim, keepdim) {
+    .Call('_torch_tch_nuclear_norm_3d8e8', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch_nuclear_norm_out_b8c18 <- function(out, self, dim, keepdim) {
+    .Call('_torch_tch_nuclear_norm_out_b8c18', PACKAGE = 'torch', out, self, dim, keepdim)
+}
+
+tch_clone_68396 <- function(self) {
+    .Call('_torch_tch_clone_68396', PACKAGE = 'torch', self)
+}
+
+tch_resize_as__1e3e9 <- function(self, the_template) {
+    .Call('_torch_tch_resize_as__1e3e9', PACKAGE = 'torch', self, the_template)
+}
+
+tch_pow_out_22210 <- function(out, self, exponent) {
+    .Call('_torch_tch_pow_out_22210', PACKAGE = 'torch', out, self, exponent)
+}
+
+tch_pow_a504e <- function(self, exponent) {
+    .Call('_torch_tch_pow_a504e', PACKAGE = 'torch', self, exponent)
+}
+
+tch_zero__77059 <- function(self) {
+    .Call('_torch_tch_zero__77059', PACKAGE = 'torch', self)
+}
+
+tch_sub_out_8a334 <- function(out, self, other, alpha) {
+    .Call('_torch_tch_sub_out_8a334', PACKAGE = 'torch', out, self, other, alpha)
+}
+
+tch_sub_02bec <- function(self, other, alpha) {
+    .Call('_torch_tch_sub_02bec', PACKAGE = 'torch', self, other, alpha)
+}
+
+tch_sub_783c8 <- function(self, other, alpha) {
+    .Call('_torch_tch_sub_783c8', PACKAGE = 'torch', self, other, alpha)
+}
+
+tch_rsub_02bec <- function(self, other, alpha) {
+    .Call('_torch_tch_rsub_02bec', PACKAGE = 'torch', self, other, alpha)
+}
+
+tch_rsub_783c8 <- function(self, other, alpha) {
+    .Call('_torch_tch_rsub_783c8', PACKAGE = 'torch', self, other, alpha)
+}
+
+tch_s_native_addmm_out_f8a2b <- function(out, self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch_s_native_addmm_out_f8a2b', PACKAGE = 'torch', out, self, mat1, mat2, beta, alpha)
+}
+
+tch_s_native_addmm_593f9 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch_s_native_addmm_593f9', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+}
+
+tch_s_native_addmm__e6db0 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch_s_native_addmm__e6db0', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+}
+
+tch__sparse_addmm_b553e <- function(self, sparse, dense, beta, alpha) {
+    .Call('_torch_tch__sparse_addmm_b553e', PACKAGE = 'torch', self, sparse, dense, beta, alpha)
+}
+
+tch_addmm_out_f8a2b <- function(out, self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch_addmm_out_f8a2b', PACKAGE = 'torch', out, self, mat1, mat2, beta, alpha)
+}
+
+tch_addmm_593f9 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch_addmm_593f9', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+}
+
+tch_sparse_coo_tensor_e134c <- function(size, options) {
+    .Call('_torch_tch_sparse_coo_tensor_e134c', PACKAGE = 'torch', size, options)
+}
+
+tch_sparse_coo_tensor_16e1a <- function(indices, values, options) {
+    .Call('_torch_tch_sparse_coo_tensor_16e1a', PACKAGE = 'torch', indices, values, options)
+}
+
+tch_sparse_coo_tensor_8ed0a <- function(indices, values, size, options) {
+    .Call('_torch_tch_sparse_coo_tensor_8ed0a', PACKAGE = 'torch', indices, values, size, options)
+}
+
+tch__sparse_coo_tensor_unsafe_8ed0a <- function(indices, values, size, options) {
+    .Call('_torch_tch__sparse_coo_tensor_unsafe_8ed0a', PACKAGE = 'torch', indices, values, size, options)
+}
+
+tch__sparse_coo_tensor_with_dims_1adbc <- function(sparse_dim, dense_dim, size, options) {
+    .Call('_torch_tch__sparse_coo_tensor_with_dims_1adbc', PACKAGE = 'torch', sparse_dim, dense_dim, size, options)
+}
+
+tch__sparse_coo_tensor_with_dims_and_tensors_f5dad <- function(sparse_dim, dense_dim, size, indices, values, options) {
+    .Call('_torch_tch__sparse_coo_tensor_with_dims_and_tensors_f5dad', PACKAGE = 'torch', sparse_dim, dense_dim, size, indices, values, options)
+}
+
+tch_to_dense_backward_99518 <- function(grad, input) {
+    .Call('_torch_tch_to_dense_backward_99518', PACKAGE = 'torch', grad, input)
+}
+
+tch_hspmm_out_87843 <- function(out, mat1, mat2) {
+    .Call('_torch_tch_hspmm_out_87843', PACKAGE = 'torch', out, mat1, mat2)
+}
+
+tch_hspmm_c9d52 <- function(mat1, mat2) {
+    .Call('_torch_tch_hspmm_c9d52', PACKAGE = 'torch', mat1, mat2)
+}
+
+tch_copy_sparse_to_sparse__1ccfd <- function(self, src, non_blocking) {
+    .Call('_torch_tch_copy_sparse_to_sparse__1ccfd', PACKAGE = 'torch', self, src, non_blocking)
+}
+
+tch_numel_68396 <- function(self) {
+    .Call('_torch_tch_numel_68396', PACKAGE = 'torch', self)
+}
+
+tch_unbind_ec971 <- function(self, dim) {
+    .Call('_torch_tch_unbind_ec971', PACKAGE = 'torch', self, dim)
+}
+
+tch_mkldnn_reorder_conv2d_weight_b9c91 <- function(self, padding, stride, dilation, groups) {
+    .Call('_torch_tch_mkldnn_reorder_conv2d_weight_b9c91', PACKAGE = 'torch', self, padding, stride, dilation, groups)
+}
+
+tch_to_mkldnn_backward_99518 <- function(grad, input) {
+    .Call('_torch_tch_to_mkldnn_backward_99518', PACKAGE = 'torch', grad, input)
+}
+
+tch_quantize_linear_6b263 <- function(self, scale, zero_point, dtype) {
+    .Call('_torch_tch_quantize_linear_6b263', PACKAGE = 'torch', self, scale, zero_point, dtype)
+}
+
+tch_quantize_linear_per_channel_596a0 <- function(self, scales, zero_points, axis, dtype) {
+    .Call('_torch_tch_quantize_linear_per_channel_596a0', PACKAGE = 'torch', self, scales, zero_points, axis, dtype)
+}
+
+tch_dequantize_68396 <- function(self) {
+    .Call('_torch_tch_dequantize_68396', PACKAGE = 'torch', self)
+}
+
+tch__dequantize_linear_6b263 <- function(self, scale, zero_point, dtype) {
+    .Call('_torch_tch__dequantize_linear_6b263', PACKAGE = 'torch', self, scale, zero_point, dtype)
+}
+
+tch_q_scale_68396 <- function(self) {
+    .Call('_torch_tch_q_scale_68396', PACKAGE = 'torch', self)
+}
+
+tch_q_zero_point_68396 <- function(self) {
+    .Call('_torch_tch_q_zero_point_68396', PACKAGE = 'torch', self)
+}
+
+tch_int_repr_68396 <- function(self) {
+    .Call('_torch_tch_int_repr_68396', PACKAGE = 'torch', self)
+}
+
+tch__per_tensor_affine_qtensor_cd44c <- function(self, scale, zero_point) {
+    .Call('_torch_tch__per_tensor_affine_qtensor_cd44c', PACKAGE = 'torch', self, scale, zero_point)
+}
+
+tch_fake_quantize_per_tensor_affine_cb503 <- function(self, scale, zero_point, quant_min, quant_max) {
+    .Call('_torch_tch_fake_quantize_per_tensor_affine_cb503', PACKAGE = 'torch', self, scale, zero_point, quant_min, quant_max)
+}
+
+tch_fake_quantize_per_tensor_affine_backward_3f15b <- function(grad, self, scale, zero_point, quant_min, quant_max) {
+    .Call('_torch_tch_fake_quantize_per_tensor_affine_backward_3f15b', PACKAGE = 'torch', grad, self, scale, zero_point, quant_min, quant_max)
+}
+
+tch_meshgrid_595f6 <- function(tensors) {
+    .Call('_torch_tch_meshgrid_595f6', PACKAGE = 'torch', tensors)
+}
+
+tch_cartesian_prod_595f6 <- function(tensors) {
+    .Call('_torch_tch_cartesian_prod_595f6', PACKAGE = 'torch', tensors)
+}
+
+tch_combinations_a1c36 <- function(self, r, with_replacement) {
+    .Call('_torch_tch_combinations_a1c36', PACKAGE = 'torch', self, r, with_replacement)
+}
+
+tch__local_scalar_dense_68396 <- function(self) {
+    .Call('_torch_tch__local_scalar_dense_68396', PACKAGE = 'torch', self)
+}
+
+tch__thnn_fused_lstm_cell_beea1 <- function(input_gates, hidden_gates, cx, input_bias, hidden_bias) {
+    .Call('_torch_tch__thnn_fused_lstm_cell_beea1', PACKAGE = 'torch', input_gates, hidden_gates, cx, input_bias, hidden_bias)
+}
+
+tch__thnn_fused_lstm_cell_backward_59f0d <- function(grad_hy, grad_cy, cx, cy, workspace, has_bias) {
+    .Call('_torch_tch__thnn_fused_lstm_cell_backward_59f0d', PACKAGE = 'torch', grad_hy, grad_cy, cx, cy, workspace, has_bias)
+}
+
+tch__thnn_fused_gru_cell_b28ef <- function(input_gates, hidden_gates, hx, input_bias, hidden_bias) {
+    .Call('_torch_tch__thnn_fused_gru_cell_b28ef', PACKAGE = 'torch', input_gates, hidden_gates, hx, input_bias, hidden_bias)
+}
+
+tch__thnn_fused_gru_cell_backward_e1b32 <- function(grad_hy, workspace, has_bias) {
+    .Call('_torch_tch__thnn_fused_gru_cell_backward_e1b32', PACKAGE = 'torch', grad_hy, workspace, has_bias)
+}
+
+tch_lstm_35463 <- function(input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first) {
+    .Call('_torch_tch_lstm_35463', PACKAGE = 'torch', input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first)
+}
+
+tch_lstm_2f067 <- function(data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional) {
+    .Call('_torch_tch_lstm_2f067', PACKAGE = 'torch', data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional)
+}
+
+tch_gru_2e173 <- function(input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first) {
+    .Call('_torch_tch_gru_2e173', PACKAGE = 'torch', input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first)
+}
+
+tch_gru_be42e <- function(data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional) {
+    .Call('_torch_tch_gru_be42e', PACKAGE = 'torch', data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional)
+}
+
+tch_rnn_tanh_2e173 <- function(input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first) {
+    .Call('_torch_tch_rnn_tanh_2e173', PACKAGE = 'torch', input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first)
+}
+
+tch_rnn_tanh_be42e <- function(data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional) {
+    .Call('_torch_tch_rnn_tanh_be42e', PACKAGE = 'torch', data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional)
+}
+
+tch_rnn_relu_2e173 <- function(input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first) {
+    .Call('_torch_tch_rnn_relu_2e173', PACKAGE = 'torch', input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first)
+}
+
+tch_rnn_relu_be42e <- function(data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional) {
+    .Call('_torch_tch_rnn_relu_be42e', PACKAGE = 'torch', data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional)
+}
+
+tch_lstm_cell_25b57 <- function(input, hx, w_ih, w_hh, b_ih, b_hh) {
+    .Call('_torch_tch_lstm_cell_25b57', PACKAGE = 'torch', input, hx, w_ih, w_hh, b_ih, b_hh)
+}
+
+tch_gru_cell_add39 <- function(input, hx, w_ih, w_hh, b_ih, b_hh) {
+    .Call('_torch_tch_gru_cell_add39', PACKAGE = 'torch', input, hx, w_ih, w_hh, b_ih, b_hh)
+}
+
+tch_rnn_tanh_cell_add39 <- function(input, hx, w_ih, w_hh, b_ih, b_hh) {
+    .Call('_torch_tch_rnn_tanh_cell_add39', PACKAGE = 'torch', input, hx, w_ih, w_hh, b_ih, b_hh)
+}
+
+tch_rnn_relu_cell_add39 <- function(input, hx, w_ih, w_hh, b_ih, b_hh) {
+    .Call('_torch_tch_rnn_relu_cell_add39', PACKAGE = 'torch', input, hx, w_ih, w_hh, b_ih, b_hh)
+}
+
+tch_quantized_lstm_c8587 <- function(input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first, dtype) {
+    .Call('_torch_tch_quantized_lstm_c8587', PACKAGE = 'torch', input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first, dtype)
+}
+
+tch_quantized_gru_2e173 <- function(input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first) {
+    .Call('_torch_tch_quantized_gru_2e173', PACKAGE = 'torch', input, hx, params, has_biases, num_layers, dropout, train, bidirectional, batch_first)
+}
+
+tch_quantized_gru_be42e <- function(data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional) {
+    .Call('_torch_tch_quantized_gru_be42e', PACKAGE = 'torch', data, batch_sizes, hx, params, has_biases, num_layers, dropout, train, bidirectional)
+}
+
+tch_quantized_lstm_cell_776e3 <- function(input, hx, w_ih, w_hh, b_ih, b_hh, packed_ih, packed_hh, col_offsets_ih, col_offsets_hh, scale_ih, scale_hh, zero_point_ih, zero_point_hh) {
+    .Call('_torch_tch_quantized_lstm_cell_776e3', PACKAGE = 'torch', input, hx, w_ih, w_hh, b_ih, b_hh, packed_ih, packed_hh, col_offsets_ih, col_offsets_hh, scale_ih, scale_hh, zero_point_ih, zero_point_hh)
+}
+
+tch_quantized_gru_cell_52998 <- function(input, hx, w_ih, w_hh, b_ih, b_hh, packed_ih, packed_hh, col_offsets_ih, col_offsets_hh, scale_ih, scale_hh, zero_point_ih, zero_point_hh) {
+    .Call('_torch_tch_quantized_gru_cell_52998', PACKAGE = 'torch', input, hx, w_ih, w_hh, b_ih, b_hh, packed_ih, packed_hh, col_offsets_ih, col_offsets_hh, scale_ih, scale_hh, zero_point_ih, zero_point_hh)
+}
+
+tch_quantized_rnn_relu_cell_52998 <- function(input, hx, w_ih, w_hh, b_ih, b_hh, packed_ih, packed_hh, col_offsets_ih, col_offsets_hh, scale_ih, scale_hh, zero_point_ih, zero_point_hh) {
+    .Call('_torch_tch_quantized_rnn_relu_cell_52998', PACKAGE = 'torch', input, hx, w_ih, w_hh, b_ih, b_hh, packed_ih, packed_hh, col_offsets_ih, col_offsets_hh, scale_ih, scale_hh, zero_point_ih, zero_point_hh)
+}
+
+tch_quantized_rnn_tanh_cell_52998 <- function(input, hx, w_ih, w_hh, b_ih, b_hh, packed_ih, packed_hh, col_offsets_ih, col_offsets_hh, scale_ih, scale_hh, zero_point_ih, zero_point_hh) {
+    .Call('_torch_tch_quantized_rnn_tanh_cell_52998', PACKAGE = 'torch', input, hx, w_ih, w_hh, b_ih, b_hh, packed_ih, packed_hh, col_offsets_ih, col_offsets_hh, scale_ih, scale_hh, zero_point_ih, zero_point_hh)
+}
+
+tch__pack_padded_sequence_76346 <- function(input, lengths, batch_first) {
+    .Call('_torch_tch__pack_padded_sequence_76346', PACKAGE = 'torch', input, lengths, batch_first)
+}
+
+tch__pack_padded_sequence_backward_f0028 <- function(grad, input_size, batch_sizes, batch_first) {
+    .Call('_torch_tch__pack_padded_sequence_backward_f0028', PACKAGE = 'torch', grad, input_size, batch_sizes, batch_first)
+}
+
+tch__pad_packed_sequence_b9701 <- function(data, batch_sizes, batch_first, padding_value, total_length) {
+    .Call('_torch_tch__pad_packed_sequence_b9701', PACKAGE = 'torch', data, batch_sizes, batch_first, padding_value, total_length)
+}
+
+tch_masked_fill_41dc9 <- function(self, mask, value) {
+    .Call('_torch_tch_masked_fill_41dc9', PACKAGE = 'torch', self, mask, value)
+}
+
+tch_masked_fill_c4aae <- function(self, mask, value) {
+    .Call('_torch_tch_masked_fill_c4aae', PACKAGE = 'torch', self, mask, value)
+}
+
+tch_masked_scatter_1769c <- function(self, mask, source) {
+    .Call('_torch_tch_masked_scatter_1769c', PACKAGE = 'torch', self, mask, source)
+}
+
+tch_index_add_073fd <- function(self, dim, index, source) {
+    .Call('_torch_tch_index_add_073fd', PACKAGE = 'torch', self, dim, index, source)
+}
+
+tch_index_fill_6e723 <- function(self, dim, index, value) {
+    .Call('_torch_tch_index_fill_6e723', PACKAGE = 'torch', self, dim, index, value)
+}
+
+tch_index_fill_d4b97 <- function(self, dim, index, value) {
+    .Call('_torch_tch_index_fill_d4b97', PACKAGE = 'torch', self, dim, index, value)
+}
+
+tch_scatter_e1a84 <- function(self, dim, index, src) {
+    .Call('_torch_tch_scatter_e1a84', PACKAGE = 'torch', self, dim, index, src)
+}
+
+tch_scatter_6e723 <- function(self, dim, index, value) {
+    .Call('_torch_tch_scatter_6e723', PACKAGE = 'torch', self, dim, index, value)
+}
+
+tch_scatter_add_e1a84 <- function(self, dim, index, src) {
+    .Call('_torch_tch_scatter_add_e1a84', PACKAGE = 'torch', self, dim, index, src)
+}
+
+tch___and___828c7 <- function(self, other) {
+    .Call('_torch_tch___and___828c7', PACKAGE = 'torch', self, other)
+}
+
+tch___and___7f12b <- function(self, other) {
+    .Call('_torch_tch___and___7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch___or___828c7 <- function(self, other) {
+    .Call('_torch_tch___or___828c7', PACKAGE = 'torch', self, other)
+}
+
+tch___or___7f12b <- function(self, other) {
+    .Call('_torch_tch___or___7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch___xor___828c7 <- function(self, other) {
+    .Call('_torch_tch___xor___828c7', PACKAGE = 'torch', self, other)
+}
+
+tch___xor___7f12b <- function(self, other) {
+    .Call('_torch_tch___xor___7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch___lshift___828c7 <- function(self, other) {
+    .Call('_torch_tch___lshift___828c7', PACKAGE = 'torch', self, other)
+}
+
+tch___lshift___7f12b <- function(self, other) {
+    .Call('_torch_tch___lshift___7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch___rshift___828c7 <- function(self, other) {
+    .Call('_torch_tch___rshift___828c7', PACKAGE = 'torch', self, other)
+}
+
+tch___rshift___7f12b <- function(self, other) {
+    .Call('_torch_tch___rshift___7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_addbmm_out_b5181 <- function(out, self, batch1, batch2, beta, alpha) {
+    .Call('_torch_tch_addbmm_out_b5181', PACKAGE = 'torch', out, self, batch1, batch2, beta, alpha)
+}
+
+tch_addbmm_f084a <- function(self, batch1, batch2, beta, alpha) {
+    .Call('_torch_tch_addbmm_f084a', PACKAGE = 'torch', self, batch1, batch2, beta, alpha)
+}
+
+tch_diag_out_01c8a <- function(out, self, diagonal) {
+    .Call('_torch_tch_diag_out_01c8a', PACKAGE = 'torch', out, self, diagonal)
+}
+
+tch_diag_3f182 <- function(self, diagonal) {
+    .Call('_torch_tch_diag_3f182', PACKAGE = 'torch', self, diagonal)
+}
+
+tch_cross_out_db31f <- function(out, self, other, dim) {
+    .Call('_torch_tch_cross_out_db31f', PACKAGE = 'torch', out, self, other, dim)
+}
+
+tch_cross_b8c42 <- function(self, other, dim) {
+    .Call('_torch_tch_cross_b8c42', PACKAGE = 'torch', self, other, dim)
+}
+
+tch_triu_out_01c8a <- function(out, self, diagonal) {
+    .Call('_torch_tch_triu_out_01c8a', PACKAGE = 'torch', out, self, diagonal)
+}
+
+tch_triu_3f182 <- function(self, diagonal) {
+    .Call('_torch_tch_triu_3f182', PACKAGE = 'torch', self, diagonal)
+}
+
+tch_tril_out_01c8a <- function(out, self, diagonal) {
+    .Call('_torch_tch_tril_out_01c8a', PACKAGE = 'torch', out, self, diagonal)
+}
+
+tch_tril_3f182 <- function(self, diagonal) {
+    .Call('_torch_tch_tril_3f182', PACKAGE = 'torch', self, diagonal)
+}
+
+tch_tril_indices_578b8 <- function(row, col, offset, options) {
+    .Call('_torch_tch_tril_indices_578b8', PACKAGE = 'torch', row, col, offset, options)
+}
+
+tch_triu_indices_578b8 <- function(row, col, offset, options) {
+    .Call('_torch_tch_triu_indices_578b8', PACKAGE = 'torch', row, col, offset, options)
+}
+
+tch_trace_68396 <- function(self) {
+    .Call('_torch_tch_trace_68396', PACKAGE = 'torch', self)
+}
+
+tch_ne_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch_ne_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_ne_828c7 <- function(self, other) {
+    .Call('_torch_tch_ne_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_ne_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_ne_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_ne_7f12b <- function(self, other) {
+    .Call('_torch_tch_ne_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_eq_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch_eq_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_eq_828c7 <- function(self, other) {
+    .Call('_torch_tch_eq_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_eq_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_eq_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_eq_7f12b <- function(self, other) {
+    .Call('_torch_tch_eq_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_ge_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch_ge_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_ge_828c7 <- function(self, other) {
+    .Call('_torch_tch_ge_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_ge_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_ge_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_ge_7f12b <- function(self, other) {
+    .Call('_torch_tch_ge_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_le_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch_le_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_le_828c7 <- function(self, other) {
+    .Call('_torch_tch_le_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_le_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_le_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_le_7f12b <- function(self, other) {
+    .Call('_torch_tch_le_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_gt_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch_gt_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_gt_828c7 <- function(self, other) {
+    .Call('_torch_tch_gt_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_gt_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_gt_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_gt_7f12b <- function(self, other) {
+    .Call('_torch_tch_gt_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_lt_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch_lt_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_lt_828c7 <- function(self, other) {
+    .Call('_torch_tch_lt_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_lt_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_lt_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_lt_7f12b <- function(self, other) {
+    .Call('_torch_tch_lt_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_take_out_14017 <- function(out, self, index) {
+    .Call('_torch_tch_take_out_14017', PACKAGE = 'torch', out, self, index)
+}
+
+tch_take_318ca <- function(self, index) {
+    .Call('_torch_tch_take_318ca', PACKAGE = 'torch', self, index)
+}
+
+tch_index_select_out_66619 <- function(out, self, dim, index) {
+    .Call('_torch_tch_index_select_out_66619', PACKAGE = 'torch', out, self, dim, index)
+}
+
+tch_index_select_bb12d <- function(self, dim, index) {
+    .Call('_torch_tch_index_select_bb12d', PACKAGE = 'torch', self, dim, index)
+}
+
+tch_masked_select_out_0cc0b <- function(out, self, mask) {
+    .Call('_torch_tch_masked_select_out_0cc0b', PACKAGE = 'torch', out, self, mask)
+}
+
+tch_masked_select_ed5bb <- function(self, mask) {
+    .Call('_torch_tch_masked_select_ed5bb', PACKAGE = 'torch', self, mask)
+}
+
+tch_nonzero_out_a719b <- function(out, self) {
+    .Call('_torch_tch_nonzero_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_nonzero_68396 <- function(self) {
+    .Call('_torch_tch_nonzero_68396', PACKAGE = 'torch', self)
+}
+
+tch_nonzero_numpy_68396 <- function(self) {
+    .Call('_torch_tch_nonzero_numpy_68396', PACKAGE = 'torch', self)
+}
+
+tch_gather_out_09215 <- function(out, self, dim, index, sparse_grad) {
+    .Call('_torch_tch_gather_out_09215', PACKAGE = 'torch', out, self, dim, index, sparse_grad)
+}
+
+tch_gather_15abb <- function(self, dim, index, sparse_grad) {
+    .Call('_torch_tch_gather_15abb', PACKAGE = 'torch', self, dim, index, sparse_grad)
+}
+
+tch__gather_sparse_backward_ff64e <- function(self, dim, index, grad) {
+    .Call('_torch_tch__gather_sparse_backward_ff64e', PACKAGE = 'torch', self, dim, index, grad)
+}
+
+tch_addcmul_out_19de2 <- function(out, self, tensor1, tensor2, value) {
+    .Call('_torch_tch_addcmul_out_19de2', PACKAGE = 'torch', out, self, tensor1, tensor2, value)
+}
+
+tch_addcmul_60f23 <- function(self, tensor1, tensor2, value) {
+    .Call('_torch_tch_addcmul_60f23', PACKAGE = 'torch', self, tensor1, tensor2, value)
+}
+
+tch_addcdiv_out_19de2 <- function(out, self, tensor1, tensor2, value) {
+    .Call('_torch_tch_addcdiv_out_19de2', PACKAGE = 'torch', out, self, tensor1, tensor2, value)
+}
+
+tch_addcdiv_60f23 <- function(self, tensor1, tensor2, value) {
+    .Call('_torch_tch_addcdiv_60f23', PACKAGE = 'torch', self, tensor1, tensor2, value)
+}
+
+tch_lstsq_out_ac889 <- function(X, qr, self, A) {
+    .Call('_torch_tch_lstsq_out_ac889', PACKAGE = 'torch', X, qr, self, A)
+}
+
+tch_lstsq_681b4 <- function(self, A) {
+    .Call('_torch_tch_lstsq_681b4', PACKAGE = 'torch', self, A)
+}
+
+tch_triangular_solve_out_8c443 <- function(X, M, self, A, upper, transpose, unitriangular) {
+    .Call('_torch_tch_triangular_solve_out_8c443', PACKAGE = 'torch', X, M, self, A, upper, transpose, unitriangular)
+}
+
+tch_triangular_solve_95047 <- function(self, A, upper, transpose, unitriangular) {
+    .Call('_torch_tch_triangular_solve_95047', PACKAGE = 'torch', self, A, upper, transpose, unitriangular)
+}
+
+tch__triangular_solve_helper_95047 <- function(self, A, upper, transpose, unitriangular) {
+    .Call('_torch_tch__triangular_solve_helper_95047', PACKAGE = 'torch', self, A, upper, transpose, unitriangular)
+}
+
+tch_symeig_out_3507f <- function(e, V, self, eigenvectors, upper) {
+    .Call('_torch_tch_symeig_out_3507f', PACKAGE = 'torch', e, V, self, eigenvectors, upper)
+}
+
+tch_symeig_91755 <- function(self, eigenvectors, upper) {
+    .Call('_torch_tch_symeig_91755', PACKAGE = 'torch', self, eigenvectors, upper)
+}
+
+tch__symeig_helper_91755 <- function(self, eigenvectors, upper) {
+    .Call('_torch_tch__symeig_helper_91755', PACKAGE = 'torch', self, eigenvectors, upper)
+}
+
+tch_eig_out_b1470 <- function(e, v, self, eigenvectors) {
+    .Call('_torch_tch_eig_out_b1470', PACKAGE = 'torch', e, v, self, eigenvectors)
+}
+
+tch_eig_1d467 <- function(self, eigenvectors) {
+    .Call('_torch_tch_eig_1d467', PACKAGE = 'torch', self, eigenvectors)
+}
+
+tch_svd_out_81804 <- function(U, S, V, self, some, compute_uv) {
+    .Call('_torch_tch_svd_out_81804', PACKAGE = 'torch', U, S, V, self, some, compute_uv)
+}
+
+tch_svd_2f217 <- function(self, some, compute_uv) {
+    .Call('_torch_tch_svd_2f217', PACKAGE = 'torch', self, some, compute_uv)
+}
+
+tch__svd_helper_2f217 <- function(self, some, compute_uv) {
+    .Call('_torch_tch__svd_helper_2f217', PACKAGE = 'torch', self, some, compute_uv)
+}
+
+tch_cholesky_out_6ca28 <- function(out, self, upper) {
+    .Call('_torch_tch_cholesky_out_6ca28', PACKAGE = 'torch', out, self, upper)
+}
+
+tch_cholesky_5af1d <- function(self, upper) {
+    .Call('_torch_tch_cholesky_5af1d', PACKAGE = 'torch', self, upper)
+}
+
+tch__cholesky_helper_5af1d <- function(self, upper) {
+    .Call('_torch_tch__cholesky_helper_5af1d', PACKAGE = 'torch', self, upper)
+}
+
+tch_cholesky_solve_out_21ada <- function(out, self, input2, upper) {
+    .Call('_torch_tch_cholesky_solve_out_21ada', PACKAGE = 'torch', out, self, input2, upper)
+}
+
+tch_cholesky_solve_025df <- function(self, input2, upper) {
+    .Call('_torch_tch_cholesky_solve_025df', PACKAGE = 'torch', self, input2, upper)
+}
+
+tch__cholesky_solve_helper_f8ad3 <- function(self, A, upper) {
+    .Call('_torch_tch__cholesky_solve_helper_f8ad3', PACKAGE = 'torch', self, A, upper)
+}
+
+tch_solve_681b4 <- function(self, A) {
+    .Call('_torch_tch_solve_681b4', PACKAGE = 'torch', self, A)
+}
+
+tch_solve_out_e22fc <- function(solution, lu, self, A) {
+    .Call('_torch_tch_solve_out_e22fc', PACKAGE = 'torch', solution, lu, self, A)
+}
+
+tch__solve_helper_681b4 <- function(self, A) {
+    .Call('_torch_tch__solve_helper_681b4', PACKAGE = 'torch', self, A)
+}
+
+tch_cholesky_inverse_out_6ca28 <- function(out, self, upper) {
+    .Call('_torch_tch_cholesky_inverse_out_6ca28', PACKAGE = 'torch', out, self, upper)
+}
+
+tch_cholesky_inverse_5af1d <- function(self, upper) {
+    .Call('_torch_tch_cholesky_inverse_5af1d', PACKAGE = 'torch', self, upper)
+}
+
+tch_qr_out_b44c1 <- function(Q, R, self, some) {
+    .Call('_torch_tch_qr_out_b44c1', PACKAGE = 'torch', Q, R, self, some)
+}
+
+tch_qr_c6565 <- function(self, some) {
+    .Call('_torch_tch_qr_c6565', PACKAGE = 'torch', self, some)
+}
+
+tch__qr_helper_c6565 <- function(self, some) {
+    .Call('_torch_tch__qr_helper_c6565', PACKAGE = 'torch', self, some)
+}
+
+tch_geqrf_out_1aa05 <- function(a, tau, self) {
+    .Call('_torch_tch_geqrf_out_1aa05', PACKAGE = 'torch', a, tau, self)
+}
+
+tch_geqrf_68396 <- function(self) {
+    .Call('_torch_tch_geqrf_68396', PACKAGE = 'torch', self)
+}
+
+tch_orgqr_out_bc675 <- function(out, self, input2) {
+    .Call('_torch_tch_orgqr_out_bc675', PACKAGE = 'torch', out, self, input2)
+}
+
+tch_orgqr_ba407 <- function(self, input2) {
+    .Call('_torch_tch_orgqr_ba407', PACKAGE = 'torch', self, input2)
+}
+
+tch_ormqr_out_d41b8 <- function(out, self, input2, input3, left, transpose) {
+    .Call('_torch_tch_ormqr_out_d41b8', PACKAGE = 'torch', out, self, input2, input3, left, transpose)
+}
+
+tch_ormqr_64c98 <- function(self, input2, input3, left, transpose) {
+    .Call('_torch_tch_ormqr_64c98', PACKAGE = 'torch', self, input2, input3, left, transpose)
+}
+
+tch__lu_with_info_58382 <- function(self, pivot, check_errors) {
+    .Call('_torch_tch__lu_with_info_58382', PACKAGE = 'torch', self, pivot, check_errors)
+}
+
+tch_lu_solve_out_f3bbf <- function(out, self, LU_data, LU_pivots) {
+    .Call('_torch_tch_lu_solve_out_f3bbf', PACKAGE = 'torch', out, self, LU_data, LU_pivots)
+}
+
+tch_lu_solve_1b393 <- function(self, LU_data, LU_pivots) {
+    .Call('_torch_tch_lu_solve_1b393', PACKAGE = 'torch', self, LU_data, LU_pivots)
+}
+
+tch__lu_solve_helper_1b393 <- function(self, LU_data, LU_pivots) {
+    .Call('_torch_tch__lu_solve_helper_1b393', PACKAGE = 'torch', self, LU_data, LU_pivots)
+}
+
+tch_multinomial_out_1926b <- function(out, self, num_samples, replacement) {
+    .Call('_torch_tch_multinomial_out_1926b', PACKAGE = 'torch', out, self, num_samples, replacement)
+}
+
+tch_multinomial_58a43 <- function(self, num_samples, replacement) {
+    .Call('_torch_tch_multinomial_58a43', PACKAGE = 'torch', self, num_samples, replacement)
+}
+
+tch__multinomial_alias_setup_be54d <- function(probs) {
+    .Call('_torch_tch__multinomial_alias_setup_be54d', PACKAGE = 'torch', probs)
+}
+
+tch__multinomial_alias_draw_7242e <- function(J, q, num_samples) {
+    .Call('_torch_tch__multinomial_alias_draw_7242e', PACKAGE = 'torch', J, q, num_samples)
+}
+
+tch_lgamma_out_a719b <- function(out, self) {
+    .Call('_torch_tch_lgamma_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_lgamma_68396 <- function(self) {
+    .Call('_torch_tch_lgamma_68396', PACKAGE = 'torch', self)
+}
+
+tch_digamma_out_a719b <- function(out, self) {
+    .Call('_torch_tch_digamma_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_digamma_68396 <- function(self) {
+    .Call('_torch_tch_digamma_68396', PACKAGE = 'torch', self)
+}
+
+tch_polygamma_out_6ca57 <- function(out, n, self) {
+    .Call('_torch_tch_polygamma_out_6ca57', PACKAGE = 'torch', out, n, self)
+}
+
+tch_polygamma_a2138 <- function(n, self) {
+    .Call('_torch_tch_polygamma_a2138', PACKAGE = 'torch', n, self)
+}
+
+tch_erfinv_out_a719b <- function(out, self) {
+    .Call('_torch_tch_erfinv_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_erfinv_68396 <- function(self) {
+    .Call('_torch_tch_erfinv_68396', PACKAGE = 'torch', self)
+}
+
+tch_dist_d0359 <- function(self, other, p) {
+    .Call('_torch_tch_dist_d0359', PACKAGE = 'torch', self, other, p)
+}
+
+tch_atan2_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_atan2_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_atan2_7f12b <- function(self, other) {
+    .Call('_torch_tch_atan2_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_lerp_out_75d62 <- function(out, self, end, weight) {
+    .Call('_torch_tch_lerp_out_75d62', PACKAGE = 'torch', out, self, end, weight)
+}
+
+tch_lerp_out_ae717 <- function(out, self, end, weight) {
+    .Call('_torch_tch_lerp_out_ae717', PACKAGE = 'torch', out, self, end, weight)
+}
+
+tch_lerp_52119 <- function(self, end, weight) {
+    .Call('_torch_tch_lerp_52119', PACKAGE = 'torch', self, end, weight)
+}
+
+tch_lerp_07603 <- function(self, end, weight) {
+    .Call('_torch_tch_lerp_07603', PACKAGE = 'torch', self, end, weight)
+}
+
+tch_histc_out_32618 <- function(out, self, bins, min, max) {
+    .Call('_torch_tch_histc_out_32618', PACKAGE = 'torch', out, self, bins, min, max)
+}
+
+tch_histc_bff66 <- function(self, bins, min, max) {
+    .Call('_torch_tch_histc_bff66', PACKAGE = 'torch', self, bins, min, max)
+}
+
+tch_sign_out_a719b <- function(out, self) {
+    .Call('_torch_tch_sign_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_sign_68396 <- function(self) {
+    .Call('_torch_tch_sign_68396', PACKAGE = 'torch', self)
+}
+
+tch_fmod_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch_fmod_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_fmod_828c7 <- function(self, other) {
+    .Call('_torch_tch_fmod_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_fmod_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_fmod_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_fmod_7f12b <- function(self, other) {
+    .Call('_torch_tch_fmod_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_remainder_out_a4fe6 <- function(out, self, other) {
+    .Call('_torch_tch_remainder_out_a4fe6', PACKAGE = 'torch', out, self, other)
+}
+
+tch_remainder_828c7 <- function(self, other) {
+    .Call('_torch_tch_remainder_828c7', PACKAGE = 'torch', self, other)
+}
+
+tch_remainder_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_remainder_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_remainder_7f12b <- function(self, other) {
+    .Call('_torch_tch_remainder_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_min_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_min_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_min_7f12b <- function(self, other) {
+    .Call('_torch_tch_min_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_min_68396 <- function(self) {
+    .Call('_torch_tch_min_68396', PACKAGE = 'torch', self)
+}
+
+tch_max_out_b81ca <- function(out, self, other) {
+    .Call('_torch_tch_max_out_b81ca', PACKAGE = 'torch', out, self, other)
+}
+
+tch_max_7f12b <- function(self, other) {
+    .Call('_torch_tch_max_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_max_68396 <- function(self) {
+    .Call('_torch_tch_max_68396', PACKAGE = 'torch', self)
+}
+
+tch_median_68396 <- function(self) {
+    .Call('_torch_tch_median_68396', PACKAGE = 'torch', self)
+}
+
+tch_sort_out_c1c65 <- function(values, indices, self, dim, descending) {
+    .Call('_torch_tch_sort_out_c1c65', PACKAGE = 'torch', values, indices, self, dim, descending)
+}
+
+tch_sort_52a2a <- function(self, dim, descending) {
+    .Call('_torch_tch_sort_52a2a', PACKAGE = 'torch', self, dim, descending)
+}
+
+tch_argsort_52a2a <- function(self, dim, descending) {
+    .Call('_torch_tch_argsort_52a2a', PACKAGE = 'torch', self, dim, descending)
+}
+
+tch_topk_out_93aba <- function(values, indices, self, k, dim, largest, sorted) {
+    .Call('_torch_tch_topk_out_93aba', PACKAGE = 'torch', values, indices, self, k, dim, largest, sorted)
+}
+
+tch_topk_92a7e <- function(self, k, dim, largest, sorted) {
+    .Call('_torch_tch_topk_92a7e', PACKAGE = 'torch', self, k, dim, largest, sorted)
+}
+
+tch_all_68396 <- function(self) {
+    .Call('_torch_tch_all_68396', PACKAGE = 'torch', self)
+}
+
+tch_any_68396 <- function(self) {
+    .Call('_torch_tch_any_68396', PACKAGE = 'torch', self)
+}
+
+tch_renorm_out_a600b <- function(out, self, p, dim, maxnorm) {
+    .Call('_torch_tch_renorm_out_a600b', PACKAGE = 'torch', out, self, p, dim, maxnorm)
+}
+
+tch_renorm_56a4a <- function(self, p, dim, maxnorm) {
+    .Call('_torch_tch_renorm_56a4a', PACKAGE = 'torch', self, p, dim, maxnorm)
+}
+
+tch_equal_7f12b <- function(self, other) {
+    .Call('_torch_tch_equal_7f12b', PACKAGE = 'torch', self, other)
+}
+
+tch_pow_out_d3a90 <- function(out, self, exponent) {
+    .Call('_torch_tch_pow_out_d3a90', PACKAGE = 'torch', out, self, exponent)
+}
+
+tch_pow_b69e0 <- function(self, exponent) {
+    .Call('_torch_tch_pow_b69e0', PACKAGE = 'torch', self, exponent)
+}
+
+tch_pow_out_d1ab7 <- function(out, self, exponent) {
+    .Call('_torch_tch_pow_out_d1ab7', PACKAGE = 'torch', out, self, exponent)
+}
+
+tch_pow_5ea06 <- function(self, exponent) {
+    .Call('_torch_tch_pow_5ea06', PACKAGE = 'torch', self, exponent)
+}
+
+tch_normal_out_4989d <- function(out, mean, std) {
+    .Call('_torch_tch_normal_out_4989d', PACKAGE = 'torch', out, mean, std)
+}
+
+tch_normal_6f713 <- function(mean, std) {
+    .Call('_torch_tch_normal_6f713', PACKAGE = 'torch', mean, std)
+}
+
+tch_normal_out_53b99 <- function(out, mean, std) {
+    .Call('_torch_tch_normal_out_53b99', PACKAGE = 'torch', out, mean, std)
+}
+
+tch_normal_6c65a <- function(mean, std) {
+    .Call('_torch_tch_normal_6c65a', PACKAGE = 'torch', mean, std)
+}
+
+tch_normal_out_fc066 <- function(out, mean, std) {
+    .Call('_torch_tch_normal_out_fc066', PACKAGE = 'torch', out, mean, std)
+}
+
+tch_normal_05f0c <- function(mean, std) {
+    .Call('_torch_tch_normal_05f0c', PACKAGE = 'torch', mean, std)
+}
+
+tch_normal_22b2f <- function(mean, std, size, options) {
+    .Call('_torch_tch_normal_22b2f', PACKAGE = 'torch', mean, std, size, options)
+}
+
+tch_normal_out_3f667 <- function(out, mean, std, size) {
+    .Call('_torch_tch_normal_out_3f667', PACKAGE = 'torch', out, mean, std, size)
+}
+
+tch_alias_68396 <- function(self) {
+    .Call('_torch_tch_alias_68396', PACKAGE = 'torch', self)
+}
+
+tch__addr_ab5fb <- function(self, vec1, vec2, beta, alpha) {
+    .Call('_torch_tch__addr_ab5fb', PACKAGE = 'torch', self, vec1, vec2, beta, alpha)
+}
+
+tch__addr__d04ad <- function(self, vec1, vec2, beta, alpha) {
+    .Call('_torch_tch__addr__d04ad', PACKAGE = 'torch', self, vec1, vec2, beta, alpha)
+}
+
+tch__addr_out_7b100 <- function(out, self, vec1, vec2, beta, alpha) {
+    .Call('_torch_tch__addr_out_7b100', PACKAGE = 'torch', out, self, vec1, vec2, beta, alpha)
+}
+
+tch__index_copy__0be46 <- function(self, dim, index, source) {
+    .Call('_torch_tch__index_copy__0be46', PACKAGE = 'torch', self, dim, index, source)
+}
+
+tch__cumsum_ec971 <- function(self, dim) {
+    .Call('_torch_tch__cumsum_ec971', PACKAGE = 'torch', self, dim)
+}
+
+tch__cumsum_out_f78f0 <- function(out, self, dim) {
+    .Call('_torch_tch__cumsum_out_f78f0', PACKAGE = 'torch', out, self, dim)
+}
+
+tch__cumprod_ec971 <- function(self, dim) {
+    .Call('_torch_tch__cumprod_ec971', PACKAGE = 'torch', self, dim)
+}
+
+tch__cumprod_out_f78f0 <- function(out, self, dim) {
+    .Call('_torch_tch__cumprod_out_f78f0', PACKAGE = 'torch', out, self, dim)
+}
+
+tch__var_26862 <- function(self, unbiased) {
+    .Call('_torch_tch__var_26862', PACKAGE = 'torch', self, unbiased)
+}
+
+tch__std_26862 <- function(self, unbiased) {
+    .Call('_torch_tch__std_26862', PACKAGE = 'torch', self, unbiased)
+}
+
+tch__addmm_out_f8a2b <- function(out, self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch__addmm_out_f8a2b', PACKAGE = 'torch', out, self, mat1, mat2, beta, alpha)
+}
+
+tch__addmm_593f9 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch__addmm_593f9', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+}
+
+tch__addmm__e6db0 <- function(self, mat1, mat2, beta, alpha) {
+    .Call('_torch_tch__addmm__e6db0', PACKAGE = 'torch', self, mat1, mat2, beta, alpha)
+}
+
+tch__cat_55ff1 <- function(tensors, dim) {
+    .Call('_torch_tch__cat_55ff1', PACKAGE = 'torch', tensors, dim)
+}
+
+tch__cat_out_52c09 <- function(out, tensors, dim) {
+    .Call('_torch_tch__cat_out_52c09', PACKAGE = 'torch', out, tensors, dim)
+}
+
+tch__mode_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch__mode_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch__mode_out_3f290 <- function(values, indices, self, dim, keepdim) {
+    .Call('_torch_tch__mode_out_3f290', PACKAGE = 'torch', values, indices, self, dim, keepdim)
+}
+
+tch__max_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch__max_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch__max_out_90de3 <- function(max, max_indices, self, dim, keepdim) {
+    .Call('_torch_tch__max_out_90de3', PACKAGE = 'torch', max, max_indices, self, dim, keepdim)
+}
+
+tch__min_a00d6 <- function(self, dim, keepdim) {
+    .Call('_torch_tch__min_a00d6', PACKAGE = 'torch', self, dim, keepdim)
+}
+
+tch__min_out_94872 <- function(min, min_indices, self, dim, keepdim) {
+    .Call('_torch_tch__min_out_94872', PACKAGE = 'torch', min, min_indices, self, dim, keepdim)
+}
+
+tch_binary_cross_entropy_out_0ca7e <- function(out, self, target, weight, reduction) {
+    .Call('_torch_tch_binary_cross_entropy_out_0ca7e', PACKAGE = 'torch', out, self, target, weight, reduction)
+}
+
+tch_binary_cross_entropy_bcb2b <- function(self, target, weight, reduction) {
+    .Call('_torch_tch_binary_cross_entropy_bcb2b', PACKAGE = 'torch', self, target, weight, reduction)
+}
+
+tch_binary_cross_entropy_backward_out_59b56 <- function(grad_input, grad_output, self, target, weight, reduction) {
+    .Call('_torch_tch_binary_cross_entropy_backward_out_59b56', PACKAGE = 'torch', grad_input, grad_output, self, target, weight, reduction)
+}
+
+tch_binary_cross_entropy_backward_fc946 <- function(grad_output, self, target, weight, reduction) {
+    .Call('_torch_tch_binary_cross_entropy_backward_fc946', PACKAGE = 'torch', grad_output, self, target, weight, reduction)
+}
+
+tch_mse_loss_out_07e2f <- function(out, self, target, reduction) {
+    .Call('_torch_tch_mse_loss_out_07e2f', PACKAGE = 'torch', out, self, target, reduction)
+}
+
+tch_mse_loss_227af <- function(self, target, reduction) {
+    .Call('_torch_tch_mse_loss_227af', PACKAGE = 'torch', self, target, reduction)
+}
+
+tch_mse_loss_backward_out_4bd8d <- function(grad_input, grad_output, self, target, reduction) {
+    .Call('_torch_tch_mse_loss_backward_out_4bd8d', PACKAGE = 'torch', grad_input, grad_output, self, target, reduction)
+}
+
+tch_mse_loss_backward_13cf8 <- function(grad_output, self, target, reduction) {
+    .Call('_torch_tch_mse_loss_backward_13cf8', PACKAGE = 'torch', grad_output, self, target, reduction)
+}
+
+tch_l1_loss_out_07e2f <- function(out, self, target, reduction) {
+    .Call('_torch_tch_l1_loss_out_07e2f', PACKAGE = 'torch', out, self, target, reduction)
+}
+
+tch_l1_loss_227af <- function(self, target, reduction) {
+    .Call('_torch_tch_l1_loss_227af', PACKAGE = 'torch', self, target, reduction)
+}
+
+tch_l1_loss_backward_out_4bd8d <- function(grad_input, grad_output, self, target, reduction) {
+    .Call('_torch_tch_l1_loss_backward_out_4bd8d', PACKAGE = 'torch', grad_input, grad_output, self, target, reduction)
+}
+
+tch_l1_loss_backward_13cf8 <- function(grad_output, self, target, reduction) {
+    .Call('_torch_tch_l1_loss_backward_13cf8', PACKAGE = 'torch', grad_output, self, target, reduction)
+}
+
+tch_multi_margin_loss_out_fa5c0 <- function(out, self, target, p, margin, weight, reduction) {
+    .Call('_torch_tch_multi_margin_loss_out_fa5c0', PACKAGE = 'torch', out, self, target, p, margin, weight, reduction)
+}
+
+tch_multi_margin_loss_c6a83 <- function(self, target, p, margin, weight, reduction) {
+    .Call('_torch_tch_multi_margin_loss_c6a83', PACKAGE = 'torch', self, target, p, margin, weight, reduction)
+}
+
+tch_multi_margin_loss_backward_out_99cfe <- function(grad_input, grad_output, self, target, p, margin, weight, reduction) {
+    .Call('_torch_tch_multi_margin_loss_backward_out_99cfe', PACKAGE = 'torch', grad_input, grad_output, self, target, p, margin, weight, reduction)
+}
+
+tch_multi_margin_loss_backward_14b2c <- function(grad_output, self, target, p, margin, weight, reduction) {
+    .Call('_torch_tch_multi_margin_loss_backward_14b2c', PACKAGE = 'torch', grad_output, self, target, p, margin, weight, reduction)
+}
+
+tch_multilabel_margin_loss_out_07e2f <- function(out, self, target, reduction) {
+    .Call('_torch_tch_multilabel_margin_loss_out_07e2f', PACKAGE = 'torch', out, self, target, reduction)
+}
+
+tch_multilabel_margin_loss_227af <- function(self, target, reduction) {
+    .Call('_torch_tch_multilabel_margin_loss_227af', PACKAGE = 'torch', self, target, reduction)
+}
+
+tch_multilabel_margin_loss_forward_out_b7be8 <- function(output, is_target, self, target, reduction) {
+    .Call('_torch_tch_multilabel_margin_loss_forward_out_b7be8', PACKAGE = 'torch', output, is_target, self, target, reduction)
+}
+
+tch_multilabel_margin_loss_forward_227af <- function(self, target, reduction) {
+    .Call('_torch_tch_multilabel_margin_loss_forward_227af', PACKAGE = 'torch', self, target, reduction)
+}
+
+tch_multilabel_margin_loss_backward_out_a404a <- function(grad_input, grad_output, self, target, reduction, is_target) {
+    .Call('_torch_tch_multilabel_margin_loss_backward_out_a404a', PACKAGE = 'torch', grad_input, grad_output, self, target, reduction, is_target)
+}
+
+tch_multilabel_margin_loss_backward_68c61 <- function(grad_output, self, target, reduction, is_target) {
+    .Call('_torch_tch_multilabel_margin_loss_backward_68c61', PACKAGE = 'torch', grad_output, self, target, reduction, is_target)
+}
+
+tch_nll_loss_out_1e163 <- function(out, self, target, weight, reduction, ignore_index) {
+    .Call('_torch_tch_nll_loss_out_1e163', PACKAGE = 'torch', out, self, target, weight, reduction, ignore_index)
+}
+
+tch_nll_loss_45e2a <- function(self, target, weight, reduction, ignore_index) {
+    .Call('_torch_tch_nll_loss_45e2a', PACKAGE = 'torch', self, target, weight, reduction, ignore_index)
+}
+
+tch_nll_loss_forward_out_3057a <- function(output, total_weight, self, target, weight, reduction, ignore_index) {
+    .Call('_torch_tch_nll_loss_forward_out_3057a', PACKAGE = 'torch', output, total_weight, self, target, weight, reduction, ignore_index)
+}
+
+tch_nll_loss_forward_45e2a <- function(self, target, weight, reduction, ignore_index) {
+    .Call('_torch_tch_nll_loss_forward_45e2a', PACKAGE = 'torch', self, target, weight, reduction, ignore_index)
+}
+
+tch_nll_loss_backward_out_32f37 <- function(grad_input, grad_output, self, target, weight, reduction, ignore_index, total_weight) {
+    .Call('_torch_tch_nll_loss_backward_out_32f37', PACKAGE = 'torch', grad_input, grad_output, self, target, weight, reduction, ignore_index, total_weight)
+}
+
+tch_nll_loss_backward_752ff <- function(grad_output, self, target, weight, reduction, ignore_index, total_weight) {
+    .Call('_torch_tch_nll_loss_backward_752ff', PACKAGE = 'torch', grad_output, self, target, weight, reduction, ignore_index, total_weight)
+}
+
+tch_nll_loss2d_out_1e163 <- function(out, self, target, weight, reduction, ignore_index) {
+    .Call('_torch_tch_nll_loss2d_out_1e163', PACKAGE = 'torch', out, self, target, weight, reduction, ignore_index)
+}
+
+tch_nll_loss2d_45e2a <- function(self, target, weight, reduction, ignore_index) {
+    .Call('_torch_tch_nll_loss2d_45e2a', PACKAGE = 'torch', self, target, weight, reduction, ignore_index)
+}
+
+tch_nll_loss2d_forward_out_3057a <- function(output, total_weight, self, target, weight, reduction, ignore_index) {
+    .Call('_torch_tch_nll_loss2d_forward_out_3057a', PACKAGE = 'torch', output, total_weight, self, target, weight, reduction, ignore_index)
+}
+
+tch_nll_loss2d_forward_45e2a <- function(self, target, weight, reduction, ignore_index) {
+    .Call('_torch_tch_nll_loss2d_forward_45e2a', PACKAGE = 'torch', self, target, weight, reduction, ignore_index)
+}
+
+tch_nll_loss2d_backward_out_32f37 <- function(grad_input, grad_output, self, target, weight, reduction, ignore_index, total_weight) {
+    .Call('_torch_tch_nll_loss2d_backward_out_32f37', PACKAGE = 'torch', grad_input, grad_output, self, target, weight, reduction, ignore_index, total_weight)
+}
+
+tch_nll_loss2d_backward_752ff <- function(grad_output, self, target, weight, reduction, ignore_index, total_weight) {
+    .Call('_torch_tch_nll_loss2d_backward_752ff', PACKAGE = 'torch', grad_output, self, target, weight, reduction, ignore_index, total_weight)
+}
+
+tch_smooth_l1_loss_out_07e2f <- function(out, self, target, reduction) {
+    .Call('_torch_tch_smooth_l1_loss_out_07e2f', PACKAGE = 'torch', out, self, target, reduction)
+}
+
+tch_smooth_l1_loss_227af <- function(self, target, reduction) {
+    .Call('_torch_tch_smooth_l1_loss_227af', PACKAGE = 'torch', self, target, reduction)
+}
+
+tch_smooth_l1_loss_backward_out_4bd8d <- function(grad_input, grad_output, self, target, reduction) {
+    .Call('_torch_tch_smooth_l1_loss_backward_out_4bd8d', PACKAGE = 'torch', grad_input, grad_output, self, target, reduction)
+}
+
+tch_smooth_l1_loss_backward_13cf8 <- function(grad_output, self, target, reduction) {
+    .Call('_torch_tch_smooth_l1_loss_backward_13cf8', PACKAGE = 'torch', grad_output, self, target, reduction)
+}
+
+tch_soft_margin_loss_out_07e2f <- function(out, self, target, reduction) {
+    .Call('_torch_tch_soft_margin_loss_out_07e2f', PACKAGE = 'torch', out, self, target, reduction)
+}
+
+tch_soft_margin_loss_227af <- function(self, target, reduction) {
+    .Call('_torch_tch_soft_margin_loss_227af', PACKAGE = 'torch', self, target, reduction)
+}
+
+tch_soft_margin_loss_backward_out_4bd8d <- function(grad_input, grad_output, self, target, reduction) {
+    .Call('_torch_tch_soft_margin_loss_backward_out_4bd8d', PACKAGE = 'torch', grad_input, grad_output, self, target, reduction)
+}
+
+tch_soft_margin_loss_backward_13cf8 <- function(grad_output, self, target, reduction) {
+    .Call('_torch_tch_soft_margin_loss_backward_13cf8', PACKAGE = 'torch', grad_output, self, target, reduction)
+}
+
+tch_elu_out_5031b <- function(out, self, alpha, scale, input_scale) {
+    .Call('_torch_tch_elu_out_5031b', PACKAGE = 'torch', out, self, alpha, scale, input_scale)
+}
+
+tch_elu_ea54b <- function(self, alpha, scale, input_scale) {
+    .Call('_torch_tch_elu_ea54b', PACKAGE = 'torch', self, alpha, scale, input_scale)
+}
+
+tch_elu_backward_out_ed16a <- function(grad_input, grad_output, alpha, scale, input_scale, output) {
+    .Call('_torch_tch_elu_backward_out_ed16a', PACKAGE = 'torch', grad_input, grad_output, alpha, scale, input_scale, output)
+}
+
+tch_elu_backward_d8675 <- function(grad_output, alpha, scale, input_scale, output) {
+    .Call('_torch_tch_elu_backward_d8675', PACKAGE = 'torch', grad_output, alpha, scale, input_scale, output)
+}
+
+tch_elu__4637a <- function(self, alpha, scale, input_scale) {
+    .Call('_torch_tch_elu__4637a', PACKAGE = 'torch', self, alpha, scale, input_scale)
+}
+
+tch_glu_out_f78f0 <- function(out, self, dim) {
+    .Call('_torch_tch_glu_out_f78f0', PACKAGE = 'torch', out, self, dim)
+}
+
+tch_glu_ec971 <- function(self, dim) {
+    .Call('_torch_tch_glu_ec971', PACKAGE = 'torch', self, dim)
+}
+
+tch_glu_backward_out_7b716 <- function(grad_input, grad_output, self, dim) {
+    .Call('_torch_tch_glu_backward_out_7b716', PACKAGE = 'torch', grad_input, grad_output, self, dim)
+}
+
+tch_glu_backward_1b7fc <- function(grad_output, self, dim) {
+    .Call('_torch_tch_glu_backward_1b7fc', PACKAGE = 'torch', grad_output, self, dim)
+}
+
+tch_hardtanh_out_91c21 <- function(out, self, min_val, max_val) {
+    .Call('_torch_tch_hardtanh_out_91c21', PACKAGE = 'torch', out, self, min_val, max_val)
+}
+
+tch_hardtanh_3ce26 <- function(self, min_val, max_val) {
+    .Call('_torch_tch_hardtanh_3ce26', PACKAGE = 'torch', self, min_val, max_val)
+}
+
+tch_hardtanh_backward_out_39caf <- function(grad_input, grad_output, self, min_val, max_val) {
+    .Call('_torch_tch_hardtanh_backward_out_39caf', PACKAGE = 'torch', grad_input, grad_output, self, min_val, max_val)
+}
+
+tch_hardtanh_backward_35d89 <- function(grad_output, self, min_val, max_val) {
+    .Call('_torch_tch_hardtanh_backward_35d89', PACKAGE = 'torch', grad_output, self, min_val, max_val)
+}
+
+tch_hardtanh__6fcc3 <- function(self, min_val, max_val) {
+    .Call('_torch_tch_hardtanh__6fcc3', PACKAGE = 'torch', self, min_val, max_val)
+}
+
+tch_leaky_relu_out_1c203 <- function(out, self, negative_slope) {
+    .Call('_torch_tch_leaky_relu_out_1c203', PACKAGE = 'torch', out, self, negative_slope)
+}
+
+tch_leaky_relu_04257 <- function(self, negative_slope) {
+    .Call('_torch_tch_leaky_relu_04257', PACKAGE = 'torch', self, negative_slope)
+}
+
+tch_leaky_relu_backward_out_6044d <- function(grad_input, grad_output, self, negative_slope) {
+    .Call('_torch_tch_leaky_relu_backward_out_6044d', PACKAGE = 'torch', grad_input, grad_output, self, negative_slope)
+}
+
+tch_leaky_relu_backward_16f1b <- function(grad_output, self, negative_slope) {
+    .Call('_torch_tch_leaky_relu_backward_16f1b', PACKAGE = 'torch', grad_output, self, negative_slope)
+}
+
+tch_leaky_relu__cae58 <- function(self, negative_slope) {
+    .Call('_torch_tch_leaky_relu__cae58', PACKAGE = 'torch', self, negative_slope)
+}
+
+tch_log_sigmoid_out_a719b <- function(out, self) {
+    .Call('_torch_tch_log_sigmoid_out_a719b', PACKAGE = 'torch', out, self)
+}
+
+tch_log_sigmoid_68396 <- function(self) {
+    .Call('_torch_tch_log_sigmoid_68396', PACKAGE = 'torch', self)
+}
+
+tch_log_sigmoid_forward_out_8338c <- function(output, buffer, self) {
+    .Call('_torch_tch_log_sigmoid_forward_out_8338c', PACKAGE = 'torch', output, buffer, self)
+}
+
+tch_log_sigmoid_forward_68396 <- function(self) {
+    .Call('_torch_tch_log_sigmoid_forward_68396', PACKAGE = 'torch', self)
+}
+
+tch_log_sigmoid_backward_out_cf65e <- function(grad_input, grad_output, self, buffer) {
+    .Call('_torch_tch_log_sigmoid_backward_out_cf65e', PACKAGE = 'torch', grad_input, grad_output, self, buffer)
+}
+
+tch_log_sigmoid_backward_46e1f <- function(grad_output, self, buffer) {
+    .Call('_torch_tch_log_sigmoid_backward_46e1f', PACKAGE = 'torch', grad_output, self, buffer)
+}
+
+tch_rrelu_with_noise_out_b207a <- function(out, self, noise, lower, upper, training) {
+    .Call('_torch_tch_rrelu_with_noise_out_b207a', PACKAGE = 'torch', out, self, noise, lower, upper, training)
+}
+
+tch_rrelu_with_noise_39943 <- function(self, noise, lower, upper, training) {
+    .Call('_torch_tch_rrelu_with_noise_39943', PACKAGE = 'torch', self, noise, lower, upper, training)
+}
+
+tch_rrelu_with_noise_backward_out_2af1e <- function(grad_input, grad_output, self, noise, lower, upper, training) {
+    .Call('_torch_tch_rrelu_with_noise_backward_out_2af1e', PACKAGE = 'torch', grad_input, grad_output, self, noise, lower, upper, training)
+}
+
+tch_rrelu_with_noise_backward_f3ffb <- function(grad_output, self, noise, lower, upper, training) {
+    .Call('_torch_tch_rrelu_with_noise_backward_f3ffb', PACKAGE = 'torch', grad_output, self, noise, lower, upper, training)
+}
+
+tch_rrelu_with_noise__7b3e9 <- function(self, noise, lower, upper, training) {
+    .Call('_torch_tch_rrelu_with_noise__7b3e9', PACKAGE = 'torch', self, noise, lower, upper, training)
+}
+
+tch_softplus_out_6d0a3 <- function(out, self, beta, threshold) {
+    .Call('_torch_tch_softplus_out_6d0a3', PACKAGE = 'torch', out, self, beta, threshold)
+}
+
+tch_softplus_f036c <- function(self, beta, threshold) {
+    .Call('_torch_tch_softplus_f036c', PACKAGE = 'torch', self, beta, threshold)
+}
+
+tch_softplus_backward_out_1c265 <- function(grad_input, grad_output, self, beta, threshold, output) {
+    .Call('_torch_tch_softplus_backward_out_1c265', PACKAGE = 'torch', grad_input, grad_output, self, beta, threshold, output)
+}
+
+tch_softplus_backward_83bed <- function(grad_output, self, beta, threshold, output) {
+    .Call('_torch_tch_softplus_backward_83bed', PACKAGE = 'torch', grad_output, self, beta, threshold, output)
+}
+
+tch_softshrink_out_eda0a <- function(out, self, lambd) {
+    .Call('_torch_tch_softshrink_out_eda0a', PACKAGE = 'torch', out, self, lambd)
+}
+
+tch_softshrink_899d6 <- function(self, lambd) {
+    .Call('_torch_tch_softshrink_899d6', PACKAGE = 'torch', self, lambd)
+}
+
+tch_softshrink_backward_out_c43a7 <- function(grad_input, grad_output, self, lambd) {
+    .Call('_torch_tch_softshrink_backward_out_c43a7', PACKAGE = 'torch', grad_input, grad_output, self, lambd)
+}
+
+tch_softshrink_backward_bd49a <- function(grad_output, self, lambd) {
+    .Call('_torch_tch_softshrink_backward_bd49a', PACKAGE = 'torch', grad_output, self, lambd)
+}
+
+tch_adaptive_avg_pool2d_out_0d3cb <- function(out, self, output_size) {
+    .Call('_torch_tch_adaptive_avg_pool2d_out_0d3cb', PACKAGE = 'torch', out, self, output_size)
+}
+
+tch_adaptive_avg_pool2d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_adaptive_avg_pool2d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_mkldnn_adaptive_avg_pool2d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_mkldnn_adaptive_avg_pool2d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch__adaptive_avg_pool2d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch__adaptive_avg_pool2d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch__adaptive_avg_pool2d_backward_b9ba0 <- function(grad_output, self) {
+    .Call('_torch_tch__adaptive_avg_pool2d_backward_b9ba0', PACKAGE = 'torch', grad_output, self)
+}
+
+tch_adaptive_avg_pool3d_out_0d3cb <- function(out, self, output_size) {
+    .Call('_torch_tch_adaptive_avg_pool3d_out_0d3cb', PACKAGE = 'torch', out, self, output_size)
+}
+
+tch_adaptive_avg_pool3d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_adaptive_avg_pool3d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_adaptive_avg_pool3d_backward_out_646ea <- function(grad_input, grad_output, self) {
+    .Call('_torch_tch_adaptive_avg_pool3d_backward_out_646ea', PACKAGE = 'torch', grad_input, grad_output, self)
+}
+
+tch_adaptive_avg_pool3d_backward_b9ba0 <- function(grad_output, self) {
+    .Call('_torch_tch_adaptive_avg_pool3d_backward_b9ba0', PACKAGE = 'torch', grad_output, self)
+}
+
+tch_adaptive_max_pool2d_out_7c356 <- function(out, indices, self, output_size) {
+    .Call('_torch_tch_adaptive_max_pool2d_out_7c356', PACKAGE = 'torch', out, indices, self, output_size)
+}
+
+tch_adaptive_max_pool2d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_adaptive_max_pool2d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_adaptive_max_pool2d_backward_out_a69a1 <- function(grad_input, grad_output, self, indices) {
+    .Call('_torch_tch_adaptive_max_pool2d_backward_out_a69a1', PACKAGE = 'torch', grad_input, grad_output, self, indices)
+}
+
+tch_adaptive_max_pool2d_backward_28764 <- function(grad_output, self, indices) {
+    .Call('_torch_tch_adaptive_max_pool2d_backward_28764', PACKAGE = 'torch', grad_output, self, indices)
+}
+
+tch_adaptive_max_pool3d_out_7c356 <- function(out, indices, self, output_size) {
+    .Call('_torch_tch_adaptive_max_pool3d_out_7c356', PACKAGE = 'torch', out, indices, self, output_size)
+}
+
+tch_adaptive_max_pool3d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_adaptive_max_pool3d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_adaptive_max_pool3d_backward_out_a69a1 <- function(grad_input, grad_output, self, indices) {
+    .Call('_torch_tch_adaptive_max_pool3d_backward_out_a69a1', PACKAGE = 'torch', grad_input, grad_output, self, indices)
+}
+
+tch_adaptive_max_pool3d_backward_28764 <- function(grad_output, self, indices) {
+    .Call('_torch_tch_adaptive_max_pool3d_backward_28764', PACKAGE = 'torch', grad_output, self, indices)
+}
+
+tch_avg_pool2d_out_51926 <- function(out, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override) {
+    .Call('_torch_tch_avg_pool2d_out_51926', PACKAGE = 'torch', out, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override)
+}
+
+tch_avg_pool2d_f5e62 <- function(self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override) {
+    .Call('_torch_tch_avg_pool2d_f5e62', PACKAGE = 'torch', self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override)
+}
+
+tch_avg_pool2d_backward_out_bb7a0 <- function(grad_input, grad_output, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override) {
+    .Call('_torch_tch_avg_pool2d_backward_out_bb7a0', PACKAGE = 'torch', grad_input, grad_output, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override)
+}
+
+tch_avg_pool2d_backward_38d2e <- function(grad_output, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override) {
+    .Call('_torch_tch_avg_pool2d_backward_38d2e', PACKAGE = 'torch', grad_output, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override)
+}
+
+tch_avg_pool3d_out_51926 <- function(out, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override) {
+    .Call('_torch_tch_avg_pool3d_out_51926', PACKAGE = 'torch', out, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override)
+}
+
+tch_avg_pool3d_f5e62 <- function(self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override) {
+    .Call('_torch_tch_avg_pool3d_f5e62', PACKAGE = 'torch', self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override)
+}
+
+tch_avg_pool3d_backward_out_bb7a0 <- function(grad_input, grad_output, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override) {
+    .Call('_torch_tch_avg_pool3d_backward_out_bb7a0', PACKAGE = 'torch', grad_input, grad_output, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override)
+}
+
+tch_avg_pool3d_backward_38d2e <- function(grad_output, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override) {
+    .Call('_torch_tch_avg_pool3d_backward_38d2e', PACKAGE = 'torch', grad_output, self, kernel_size, stride, padding, ceil_mode, count_include_pad, divisor_override)
+}
+
+tch_fractional_max_pool2d_out_e09c3 <- function(output, indices, self, kernel_size, output_size, random_samples) {
+    .Call('_torch_tch_fractional_max_pool2d_out_e09c3', PACKAGE = 'torch', output, indices, self, kernel_size, output_size, random_samples)
+}
+
+tch_fractional_max_pool2d_f0554 <- function(self, kernel_size, output_size, random_samples) {
+    .Call('_torch_tch_fractional_max_pool2d_f0554', PACKAGE = 'torch', self, kernel_size, output_size, random_samples)
+}
+
+tch_fractional_max_pool2d_backward_out_6e9c8 <- function(grad_input, grad_output, self, kernel_size, output_size, indices) {
+    .Call('_torch_tch_fractional_max_pool2d_backward_out_6e9c8', PACKAGE = 'torch', grad_input, grad_output, self, kernel_size, output_size, indices)
+}
+
+tch_fractional_max_pool2d_backward_c0509 <- function(grad_output, self, kernel_size, output_size, indices) {
+    .Call('_torch_tch_fractional_max_pool2d_backward_c0509', PACKAGE = 'torch', grad_output, self, kernel_size, output_size, indices)
+}
+
+tch_fractional_max_pool3d_out_e09c3 <- function(output, indices, self, kernel_size, output_size, random_samples) {
+    .Call('_torch_tch_fractional_max_pool3d_out_e09c3', PACKAGE = 'torch', output, indices, self, kernel_size, output_size, random_samples)
+}
+
+tch_fractional_max_pool3d_f0554 <- function(self, kernel_size, output_size, random_samples) {
+    .Call('_torch_tch_fractional_max_pool3d_f0554', PACKAGE = 'torch', self, kernel_size, output_size, random_samples)
+}
+
+tch_fractional_max_pool3d_backward_out_6e9c8 <- function(grad_input, grad_output, self, kernel_size, output_size, indices) {
+    .Call('_torch_tch_fractional_max_pool3d_backward_out_6e9c8', PACKAGE = 'torch', grad_input, grad_output, self, kernel_size, output_size, indices)
+}
+
+tch_fractional_max_pool3d_backward_c0509 <- function(grad_output, self, kernel_size, output_size, indices) {
+    .Call('_torch_tch_fractional_max_pool3d_backward_c0509', PACKAGE = 'torch', grad_output, self, kernel_size, output_size, indices)
+}
+
+tch_max_pool2d_with_indices_out_f5fee <- function(out, indices, self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_max_pool2d_with_indices_out_f5fee', PACKAGE = 'torch', out, indices, self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_max_pool2d_with_indices_e506e <- function(self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_max_pool2d_with_indices_e506e', PACKAGE = 'torch', self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_max_pool2d_with_indices_backward_out_7e911 <- function(grad_input, grad_output, self, kernel_size, stride, padding, dilation, ceil_mode, indices) {
+    .Call('_torch_tch_max_pool2d_with_indices_backward_out_7e911', PACKAGE = 'torch', grad_input, grad_output, self, kernel_size, stride, padding, dilation, ceil_mode, indices)
+}
+
+tch_max_pool2d_with_indices_backward_aeb4d <- function(grad_output, self, kernel_size, stride, padding, dilation, ceil_mode, indices) {
+    .Call('_torch_tch_max_pool2d_with_indices_backward_aeb4d', PACKAGE = 'torch', grad_output, self, kernel_size, stride, padding, dilation, ceil_mode, indices)
+}
+
+tch_max_pool3d_with_indices_out_f5fee <- function(out, indices, self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_max_pool3d_with_indices_out_f5fee', PACKAGE = 'torch', out, indices, self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_max_pool3d_with_indices_e506e <- function(self, kernel_size, stride, padding, dilation, ceil_mode) {
+    .Call('_torch_tch_max_pool3d_with_indices_e506e', PACKAGE = 'torch', self, kernel_size, stride, padding, dilation, ceil_mode)
+}
+
+tch_max_pool3d_with_indices_backward_out_7e911 <- function(grad_input, grad_output, self, kernel_size, stride, padding, dilation, ceil_mode, indices) {
+    .Call('_torch_tch_max_pool3d_with_indices_backward_out_7e911', PACKAGE = 'torch', grad_input, grad_output, self, kernel_size, stride, padding, dilation, ceil_mode, indices)
+}
+
+tch_max_pool3d_with_indices_backward_aeb4d <- function(grad_output, self, kernel_size, stride, padding, dilation, ceil_mode, indices) {
+    .Call('_torch_tch_max_pool3d_with_indices_backward_aeb4d', PACKAGE = 'torch', grad_output, self, kernel_size, stride, padding, dilation, ceil_mode, indices)
+}
+
+tch_max_unpool2d_out_0ddb6 <- function(out, self, indices, output_size) {
+    .Call('_torch_tch_max_unpool2d_out_0ddb6', PACKAGE = 'torch', out, self, indices, output_size)
+}
+
+tch_max_unpool2d_6618f <- function(self, indices, output_size) {
+    .Call('_torch_tch_max_unpool2d_6618f', PACKAGE = 'torch', self, indices, output_size)
+}
+
+tch_max_unpool2d_backward_out_8db9f <- function(grad_input, grad_output, self, indices, output_size) {
+    .Call('_torch_tch_max_unpool2d_backward_out_8db9f', PACKAGE = 'torch', grad_input, grad_output, self, indices, output_size)
+}
+
+tch_max_unpool2d_backward_f2643 <- function(grad_output, self, indices, output_size) {
+    .Call('_torch_tch_max_unpool2d_backward_f2643', PACKAGE = 'torch', grad_output, self, indices, output_size)
+}
+
+tch_max_unpool3d_out_7e7eb <- function(out, self, indices, output_size, stride, padding) {
+    .Call('_torch_tch_max_unpool3d_out_7e7eb', PACKAGE = 'torch', out, self, indices, output_size, stride, padding)
+}
+
+tch_max_unpool3d_2a2ca <- function(self, indices, output_size, stride, padding) {
+    .Call('_torch_tch_max_unpool3d_2a2ca', PACKAGE = 'torch', self, indices, output_size, stride, padding)
+}
+
+tch_max_unpool3d_backward_out_7a39d <- function(grad_input, grad_output, self, indices, output_size, stride, padding) {
+    .Call('_torch_tch_max_unpool3d_backward_out_7a39d', PACKAGE = 'torch', grad_input, grad_output, self, indices, output_size, stride, padding)
+}
+
+tch_max_unpool3d_backward_c5217 <- function(grad_output, self, indices, output_size, stride, padding) {
+    .Call('_torch_tch_max_unpool3d_backward_c5217', PACKAGE = 'torch', grad_output, self, indices, output_size, stride, padding)
+}
+
+tch_reflection_pad1d_out_c329b <- function(out, self, padding) {
+    .Call('_torch_tch_reflection_pad1d_out_c329b', PACKAGE = 'torch', out, self, padding)
+}
+
+tch_reflection_pad1d_05634 <- function(self, padding) {
+    .Call('_torch_tch_reflection_pad1d_05634', PACKAGE = 'torch', self, padding)
+}
+
+tch_reflection_pad1d_backward_out_c8847 <- function(grad_input, grad_output, self, padding) {
+    .Call('_torch_tch_reflection_pad1d_backward_out_c8847', PACKAGE = 'torch', grad_input, grad_output, self, padding)
+}
+
+tch_reflection_pad1d_backward_7503a <- function(grad_output, self, padding) {
+    .Call('_torch_tch_reflection_pad1d_backward_7503a', PACKAGE = 'torch', grad_output, self, padding)
+}
+
+tch_reflection_pad2d_out_c329b <- function(out, self, padding) {
+    .Call('_torch_tch_reflection_pad2d_out_c329b', PACKAGE = 'torch', out, self, padding)
+}
+
+tch_reflection_pad2d_05634 <- function(self, padding) {
+    .Call('_torch_tch_reflection_pad2d_05634', PACKAGE = 'torch', self, padding)
+}
+
+tch_reflection_pad2d_backward_out_c8847 <- function(grad_input, grad_output, self, padding) {
+    .Call('_torch_tch_reflection_pad2d_backward_out_c8847', PACKAGE = 'torch', grad_input, grad_output, self, padding)
+}
+
+tch_reflection_pad2d_backward_7503a <- function(grad_output, self, padding) {
+    .Call('_torch_tch_reflection_pad2d_backward_7503a', PACKAGE = 'torch', grad_output, self, padding)
+}
+
+tch_replication_pad1d_out_c329b <- function(out, self, padding) {
+    .Call('_torch_tch_replication_pad1d_out_c329b', PACKAGE = 'torch', out, self, padding)
+}
+
+tch_replication_pad1d_05634 <- function(self, padding) {
+    .Call('_torch_tch_replication_pad1d_05634', PACKAGE = 'torch', self, padding)
+}
+
+tch_replication_pad1d_backward_out_c8847 <- function(grad_input, grad_output, self, padding) {
+    .Call('_torch_tch_replication_pad1d_backward_out_c8847', PACKAGE = 'torch', grad_input, grad_output, self, padding)
+}
+
+tch_replication_pad1d_backward_7503a <- function(grad_output, self, padding) {
+    .Call('_torch_tch_replication_pad1d_backward_7503a', PACKAGE = 'torch', grad_output, self, padding)
+}
+
+tch_replication_pad2d_out_c329b <- function(out, self, padding) {
+    .Call('_torch_tch_replication_pad2d_out_c329b', PACKAGE = 'torch', out, self, padding)
+}
+
+tch_replication_pad2d_05634 <- function(self, padding) {
+    .Call('_torch_tch_replication_pad2d_05634', PACKAGE = 'torch', self, padding)
+}
+
+tch_replication_pad2d_backward_out_c8847 <- function(grad_input, grad_output, self, padding) {
+    .Call('_torch_tch_replication_pad2d_backward_out_c8847', PACKAGE = 'torch', grad_input, grad_output, self, padding)
+}
+
+tch_replication_pad2d_backward_7503a <- function(grad_output, self, padding) {
+    .Call('_torch_tch_replication_pad2d_backward_7503a', PACKAGE = 'torch', grad_output, self, padding)
+}
+
+tch_replication_pad3d_out_c329b <- function(out, self, padding) {
+    .Call('_torch_tch_replication_pad3d_out_c329b', PACKAGE = 'torch', out, self, padding)
+}
+
+tch_replication_pad3d_05634 <- function(self, padding) {
+    .Call('_torch_tch_replication_pad3d_05634', PACKAGE = 'torch', self, padding)
+}
+
+tch_replication_pad3d_backward_out_c8847 <- function(grad_input, grad_output, self, padding) {
+    .Call('_torch_tch_replication_pad3d_backward_out_c8847', PACKAGE = 'torch', grad_input, grad_output, self, padding)
+}
+
+tch_replication_pad3d_backward_7503a <- function(grad_output, self, padding) {
+    .Call('_torch_tch_replication_pad3d_backward_7503a', PACKAGE = 'torch', grad_output, self, padding)
+}
+
+tch_upsample_linear1d_out_13bdb <- function(out, self, output_size, align_corners) {
+    .Call('_torch_tch_upsample_linear1d_out_13bdb', PACKAGE = 'torch', out, self, output_size, align_corners)
+}
+
+tch_upsample_linear1d_cd6d4 <- function(self, output_size, align_corners) {
+    .Call('_torch_tch_upsample_linear1d_cd6d4', PACKAGE = 'torch', self, output_size, align_corners)
+}
+
+tch_upsample_linear1d_backward_out_57014 <- function(grad_input, grad_output, output_size, input_size, align_corners) {
+    .Call('_torch_tch_upsample_linear1d_backward_out_57014', PACKAGE = 'torch', grad_input, grad_output, output_size, input_size, align_corners)
+}
+
+tch_upsample_linear1d_backward_b373a <- function(grad_output, output_size, input_size, align_corners) {
+    .Call('_torch_tch_upsample_linear1d_backward_b373a', PACKAGE = 'torch', grad_output, output_size, input_size, align_corners)
+}
+
+tch_upsample_bilinear2d_out_13bdb <- function(out, self, output_size, align_corners) {
+    .Call('_torch_tch_upsample_bilinear2d_out_13bdb', PACKAGE = 'torch', out, self, output_size, align_corners)
+}
+
+tch_upsample_bilinear2d_cd6d4 <- function(self, output_size, align_corners) {
+    .Call('_torch_tch_upsample_bilinear2d_cd6d4', PACKAGE = 'torch', self, output_size, align_corners)
+}
+
+tch_upsample_bilinear2d_backward_out_57014 <- function(grad_input, grad_output, output_size, input_size, align_corners) {
+    .Call('_torch_tch_upsample_bilinear2d_backward_out_57014', PACKAGE = 'torch', grad_input, grad_output, output_size, input_size, align_corners)
+}
+
+tch_upsample_bilinear2d_backward_b373a <- function(grad_output, output_size, input_size, align_corners) {
+    .Call('_torch_tch_upsample_bilinear2d_backward_b373a', PACKAGE = 'torch', grad_output, output_size, input_size, align_corners)
+}
+
+tch_upsample_bicubic2d_out_13bdb <- function(out, self, output_size, align_corners) {
+    .Call('_torch_tch_upsample_bicubic2d_out_13bdb', PACKAGE = 'torch', out, self, output_size, align_corners)
+}
+
+tch_upsample_bicubic2d_cd6d4 <- function(self, output_size, align_corners) {
+    .Call('_torch_tch_upsample_bicubic2d_cd6d4', PACKAGE = 'torch', self, output_size, align_corners)
+}
+
+tch_upsample_bicubic2d_backward_out_57014 <- function(grad_input, grad_output, output_size, input_size, align_corners) {
+    .Call('_torch_tch_upsample_bicubic2d_backward_out_57014', PACKAGE = 'torch', grad_input, grad_output, output_size, input_size, align_corners)
+}
+
+tch_upsample_bicubic2d_backward_b373a <- function(grad_output, output_size, input_size, align_corners) {
+    .Call('_torch_tch_upsample_bicubic2d_backward_b373a', PACKAGE = 'torch', grad_output, output_size, input_size, align_corners)
+}
+
+tch_upsample_trilinear3d_out_13bdb <- function(out, self, output_size, align_corners) {
+    .Call('_torch_tch_upsample_trilinear3d_out_13bdb', PACKAGE = 'torch', out, self, output_size, align_corners)
+}
+
+tch_upsample_trilinear3d_cd6d4 <- function(self, output_size, align_corners) {
+    .Call('_torch_tch_upsample_trilinear3d_cd6d4', PACKAGE = 'torch', self, output_size, align_corners)
+}
+
+tch_upsample_trilinear3d_backward_out_57014 <- function(grad_input, grad_output, output_size, input_size, align_corners) {
+    .Call('_torch_tch_upsample_trilinear3d_backward_out_57014', PACKAGE = 'torch', grad_input, grad_output, output_size, input_size, align_corners)
+}
+
+tch_upsample_trilinear3d_backward_b373a <- function(grad_output, output_size, input_size, align_corners) {
+    .Call('_torch_tch_upsample_trilinear3d_backward_b373a', PACKAGE = 'torch', grad_output, output_size, input_size, align_corners)
+}
+
+tch_upsample_nearest1d_out_0d3cb <- function(out, self, output_size) {
+    .Call('_torch_tch_upsample_nearest1d_out_0d3cb', PACKAGE = 'torch', out, self, output_size)
+}
+
+tch_upsample_nearest1d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_upsample_nearest1d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_upsample_nearest1d_backward_out_e3fe9 <- function(grad_input, grad_output, output_size, input_size) {
+    .Call('_torch_tch_upsample_nearest1d_backward_out_e3fe9', PACKAGE = 'torch', grad_input, grad_output, output_size, input_size)
+}
+
+tch_upsample_nearest1d_backward_63711 <- function(grad_output, output_size, input_size) {
+    .Call('_torch_tch_upsample_nearest1d_backward_63711', PACKAGE = 'torch', grad_output, output_size, input_size)
+}
+
+tch_upsample_nearest2d_out_0d3cb <- function(out, self, output_size) {
+    .Call('_torch_tch_upsample_nearest2d_out_0d3cb', PACKAGE = 'torch', out, self, output_size)
+}
+
+tch_upsample_nearest2d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_upsample_nearest2d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_upsample_nearest2d_backward_out_e3fe9 <- function(grad_input, grad_output, output_size, input_size) {
+    .Call('_torch_tch_upsample_nearest2d_backward_out_e3fe9', PACKAGE = 'torch', grad_input, grad_output, output_size, input_size)
+}
+
+tch_upsample_nearest2d_backward_63711 <- function(grad_output, output_size, input_size) {
+    .Call('_torch_tch_upsample_nearest2d_backward_63711', PACKAGE = 'torch', grad_output, output_size, input_size)
+}
+
+tch_upsample_nearest3d_out_0d3cb <- function(out, self, output_size) {
+    .Call('_torch_tch_upsample_nearest3d_out_0d3cb', PACKAGE = 'torch', out, self, output_size)
+}
+
+tch_upsample_nearest3d_e0cae <- function(self, output_size) {
+    .Call('_torch_tch_upsample_nearest3d_e0cae', PACKAGE = 'torch', self, output_size)
+}
+
+tch_upsample_nearest3d_backward_out_e3fe9 <- function(grad_input, grad_output, output_size, input_size) {
+    .Call('_torch_tch_upsample_nearest3d_backward_out_e3fe9', PACKAGE = 'torch', grad_input, grad_output, output_size, input_size)
+}
+
+tch_upsample_nearest3d_backward_63711 <- function(grad_output, output_size, input_size) {
+    .Call('_torch_tch_upsample_nearest3d_backward_63711', PACKAGE = 'torch', grad_output, output_size, input_size)
+}
+
+tch_sigmoid_backward_out_09fe0 <- function(grad_input, grad_output, output) {
+    .Call('_torch_tch_sigmoid_backward_out_09fe0', PACKAGE = 'torch', grad_input, grad_output, output)
+}
+
+tch_sigmoid_backward_741b7 <- function(grad_output, output) {
+    .Call('_torch_tch_sigmoid_backward_741b7', PACKAGE = 'torch', grad_output, output)
+}
+
+tch_tanh_backward_out_09fe0 <- function(grad_input, grad_output, output) {
+    .Call('_torch_tch_tanh_backward_out_09fe0', PACKAGE = 'torch', grad_input, grad_output, output)
+}
+
+tch_tanh_backward_741b7 <- function(grad_output, output) {
+    .Call('_torch_tch_tanh_backward_741b7', PACKAGE = 'torch', grad_output, output)
+}
+
+tch_conv_transpose2d_out_4b2d3 <- function(out, self, weight, kernel_size, bias, stride, padding, output_padding, dilation) {
+    .Call('_torch_tch_conv_transpose2d_out_4b2d3', PACKAGE = 'torch', out, self, weight, kernel_size, bias, stride, padding, output_padding, dilation)
+}
+
+tch_conv_transpose2d_092c9 <- function(self, weight, kernel_size, bias, stride, padding, output_padding, dilation) {
+    .Call('_torch_tch_conv_transpose2d_092c9', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding, output_padding, dilation)
+}
+
+tch_conv_transpose2d_backward_out_9a6c4 <- function(grad_input, grad_weight, grad_bias, grad_output, self, weight, kernel_size, stride, padding, output_padding, dilation, columns, ones) {
+    .Call('_torch_tch_conv_transpose2d_backward_out_9a6c4', PACKAGE = 'torch', grad_input, grad_weight, grad_bias, grad_output, self, weight, kernel_size, stride, padding, output_padding, dilation, columns, ones)
+}
+
+tch_conv_transpose2d_backward_7dfb5 <- function(grad_output, self, weight, kernel_size, stride, padding, output_padding, dilation, columns, ones, output_mask) {
+    .Call('_torch_tch_conv_transpose2d_backward_7dfb5', PACKAGE = 'torch', grad_output, self, weight, kernel_size, stride, padding, output_padding, dilation, columns, ones, output_mask)
+}
+
+tch_conv_transpose3d_out_4b2d3 <- function(out, self, weight, kernel_size, bias, stride, padding, output_padding, dilation) {
+    .Call('_torch_tch_conv_transpose3d_out_4b2d3', PACKAGE = 'torch', out, self, weight, kernel_size, bias, stride, padding, output_padding, dilation)
+}
+
+tch_conv_transpose3d_092c9 <- function(self, weight, kernel_size, bias, stride, padding, output_padding, dilation) {
+    .Call('_torch_tch_conv_transpose3d_092c9', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding, output_padding, dilation)
+}
+
+tch_conv_transpose3d_backward_out_750ee <- function(grad_input, grad_weight, grad_bias, grad_output, self, weight, kernel_size, stride, padding, output_padding, dilation, finput, fgrad_input) {
+    .Call('_torch_tch_conv_transpose3d_backward_out_750ee', PACKAGE = 'torch', grad_input, grad_weight, grad_bias, grad_output, self, weight, kernel_size, stride, padding, output_padding, dilation, finput, fgrad_input)
+}
+
+tch_conv_transpose3d_backward_0d1b2 <- function(grad_output, self, weight, kernel_size, stride, padding, output_padding, dilation, finput, fgrad_input, output_mask) {
+    .Call('_torch_tch_conv_transpose3d_backward_0d1b2', PACKAGE = 'torch', grad_output, self, weight, kernel_size, stride, padding, output_padding, dilation, finput, fgrad_input, output_mask)
+}
+
+tch_thnn_conv2d_out_d7b88 <- function(out, self, weight, kernel_size, bias, stride, padding) {
+    .Call('_torch_tch_thnn_conv2d_out_d7b88', PACKAGE = 'torch', out, self, weight, kernel_size, bias, stride, padding)
+}
+
+tch_thnn_conv2d_5f669 <- function(self, weight, kernel_size, bias, stride, padding) {
+    .Call('_torch_tch_thnn_conv2d_5f669', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding)
+}
+
+tch_thnn_conv2d_forward_out_94c14 <- function(output, finput, fgrad_input, self, weight, kernel_size, bias, stride, padding) {
+    .Call('_torch_tch_thnn_conv2d_forward_out_94c14', PACKAGE = 'torch', output, finput, fgrad_input, self, weight, kernel_size, bias, stride, padding)
+}
+
+tch_thnn_conv2d_forward_5f669 <- function(self, weight, kernel_size, bias, stride, padding) {
+    .Call('_torch_tch_thnn_conv2d_forward_5f669', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding)
+}
+
+tch_thnn_conv2d_backward_out_948aa <- function(grad_input, grad_weight, grad_bias, grad_output, self, weight, kernel_size, stride, padding, finput, fgrad_input) {
+    .Call('_torch_tch_thnn_conv2d_backward_out_948aa', PACKAGE = 'torch', grad_input, grad_weight, grad_bias, grad_output, self, weight, kernel_size, stride, padding, finput, fgrad_input)
+}
+
+tch_thnn_conv2d_backward_6f6ec <- function(grad_output, self, weight, kernel_size, stride, padding, finput, fgrad_input, output_mask) {
+    .Call('_torch_tch_thnn_conv2d_backward_6f6ec', PACKAGE = 'torch', grad_output, self, weight, kernel_size, stride, padding, finput, fgrad_input, output_mask)
+}
+
+tch_thnn_conv_depthwise2d_out_073a5 <- function(out, self, weight, kernel_size, bias, stride, padding, dilation) {
+    .Call('_torch_tch_thnn_conv_depthwise2d_out_073a5', PACKAGE = 'torch', out, self, weight, kernel_size, bias, stride, padding, dilation)
+}
+
+tch_thnn_conv_depthwise2d_840bf <- function(self, weight, kernel_size, bias, stride, padding, dilation) {
+    .Call('_torch_tch_thnn_conv_depthwise2d_840bf', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding, dilation)
+}
+
+tch_thnn_conv_depthwise2d_forward_out_073a5 <- function(out, self, weight, kernel_size, bias, stride, padding, dilation) {
+    .Call('_torch_tch_thnn_conv_depthwise2d_forward_out_073a5', PACKAGE = 'torch', out, self, weight, kernel_size, bias, stride, padding, dilation)
+}
+
+tch_thnn_conv_depthwise2d_forward_840bf <- function(self, weight, kernel_size, bias, stride, padding, dilation) {
+    .Call('_torch_tch_thnn_conv_depthwise2d_forward_840bf', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding, dilation)
+}
+
+tch_thnn_conv_depthwise2d_backward_out_0aa6a <- function(grad_input, grad_weight, grad_output, self, weight, kernel_size, stride, padding, dilation) {
+    .Call('_torch_tch_thnn_conv_depthwise2d_backward_out_0aa6a', PACKAGE = 'torch', grad_input, grad_weight, grad_output, self, weight, kernel_size, stride, padding, dilation)
+}
+
+tch_thnn_conv_depthwise2d_backward_27ad5 <- function(grad_output, self, weight, kernel_size, stride, padding, dilation, output_mask) {
+    .Call('_torch_tch_thnn_conv_depthwise2d_backward_27ad5', PACKAGE = 'torch', grad_output, self, weight, kernel_size, stride, padding, dilation, output_mask)
+}
+
+tch_thnn_conv3d_out_d7b88 <- function(out, self, weight, kernel_size, bias, stride, padding) {
+    .Call('_torch_tch_thnn_conv3d_out_d7b88', PACKAGE = 'torch', out, self, weight, kernel_size, bias, stride, padding)
+}
+
+tch_thnn_conv3d_5f669 <- function(self, weight, kernel_size, bias, stride, padding) {
+    .Call('_torch_tch_thnn_conv3d_5f669', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding)
+}
+
+tch_thnn_conv3d_forward_out_94c14 <- function(output, finput, fgrad_input, self, weight, kernel_size, bias, stride, padding) {
+    .Call('_torch_tch_thnn_conv3d_forward_out_94c14', PACKAGE = 'torch', output, finput, fgrad_input, self, weight, kernel_size, bias, stride, padding)
+}
+
+tch_thnn_conv3d_forward_5f669 <- function(self, weight, kernel_size, bias, stride, padding) {
+    .Call('_torch_tch_thnn_conv3d_forward_5f669', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding)
+}
+
+tch_thnn_conv3d_backward_out_948aa <- function(grad_input, grad_weight, grad_bias, grad_output, self, weight, kernel_size, stride, padding, finput, fgrad_input) {
+    .Call('_torch_tch_thnn_conv3d_backward_out_948aa', PACKAGE = 'torch', grad_input, grad_weight, grad_bias, grad_output, self, weight, kernel_size, stride, padding, finput, fgrad_input)
+}
+
+tch_thnn_conv3d_backward_6f6ec <- function(grad_output, self, weight, kernel_size, stride, padding, finput, fgrad_input, output_mask) {
+    .Call('_torch_tch_thnn_conv3d_backward_6f6ec', PACKAGE = 'torch', grad_output, self, weight, kernel_size, stride, padding, finput, fgrad_input, output_mask)
+}
+
+tch_conv_dilated2d_840bf <- function(self, weight, kernel_size, bias, stride, padding, dilation) {
+    .Call('_torch_tch_conv_dilated2d_840bf', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding, dilation)
+}
+
+tch_conv_dilated2d_backward_9d500 <- function(grad_output, self, weight, kernel_size, stride, padding, dilation, output_mask) {
+    .Call('_torch_tch_conv_dilated2d_backward_9d500', PACKAGE = 'torch', grad_output, self, weight, kernel_size, stride, padding, dilation, output_mask)
+}
+
+tch_conv_dilated3d_840bf <- function(self, weight, kernel_size, bias, stride, padding, dilation) {
+    .Call('_torch_tch_conv_dilated3d_840bf', PACKAGE = 'torch', self, weight, kernel_size, bias, stride, padding, dilation)
+}
+
+tch_conv_dilated3d_backward_9d500 <- function(grad_output, self, weight, kernel_size, stride, padding, dilation, output_mask) {
+    .Call('_torch_tch_conv_dilated3d_backward_9d500', PACKAGE = 'torch', grad_output, self, weight, kernel_size, stride, padding, dilation, output_mask)
+}
+
+tch_col2im_out_9bf5c <- function(out, self, output_size, kernel_size, dilation, padding, stride) {
+    .Call('_torch_tch_col2im_out_9bf5c', PACKAGE = 'torch', out, self, output_size, kernel_size, dilation, padding, stride)
+}
+
+tch_col2im_8372b <- function(self, output_size, kernel_size, dilation, padding, stride) {
+    .Call('_torch_tch_col2im_8372b', PACKAGE = 'torch', self, output_size, kernel_size, dilation, padding, stride)
+}
+
+tch_col2im_backward_out_ab668 <- function(grad_input, grad_output, kernel_size, dilation, padding, stride) {
+    .Call('_torch_tch_col2im_backward_out_ab668', PACKAGE = 'torch', grad_input, grad_output, kernel_size, dilation, padding, stride)
+}
+
+tch_col2im_backward_63daa <- function(grad_output, kernel_size, dilation, padding, stride) {
+    .Call('_torch_tch_col2im_backward_63daa', PACKAGE = 'torch', grad_output, kernel_size, dilation, padding, stride)
+}
+
+tch_im2col_out_c4aa1 <- function(out, self, kernel_size, dilation, padding, stride) {
+    .Call('_torch_tch_im2col_out_c4aa1', PACKAGE = 'torch', out, self, kernel_size, dilation, padding, stride)
+}
+
+tch_im2col_da8e0 <- function(self, kernel_size, dilation, padding, stride) {
+    .Call('_torch_tch_im2col_da8e0', PACKAGE = 'torch', self, kernel_size, dilation, padding, stride)
+}
+
+tch_im2col_backward_out_c6ff7 <- function(grad_input, grad_output, input_size, kernel_size, dilation, padding, stride) {
+    .Call('_torch_tch_im2col_backward_out_c6ff7', PACKAGE = 'torch', grad_input, grad_output, input_size, kernel_size, dilation, padding, stride)
+}
+
+tch_im2col_backward_05c61 <- function(grad_output, input_size, kernel_size, dilation, padding, stride) {
+    .Call('_torch_tch_im2col_backward_05c61', PACKAGE = 'torch', grad_output, input_size, kernel_size, dilation, padding, stride)
+}
+

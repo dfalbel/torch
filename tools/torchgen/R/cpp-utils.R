@@ -36,6 +36,9 @@ cpp_argument_type <- function(argument) {
   if (type == "TensorOptions")
     type <- "Rcpp::XPtr<torch::TensorOptions>"
 
+  if (stringr::str_detect(type, "std::array<bool,[0-9]>"))
+    type <- "std::vector<bool>"
+
   if (is_nullable && argument$dynamic_type != "Scalar")
     type <- glue::glue("Rcpp::Nullable<{type}>")
 
@@ -88,6 +91,9 @@ cpp_use_argument <- function(argument) {
   if (argument$dynamic_type == "MemoryFormat")
     argument_name <- glue::glue("*{argument_name}")
 
+  if (stringr::str_detect(argument$dynamic_type, "std::array<bool,[0-9]>"))
+    argument_name <- glue::glue("vector_to_array_bool<{readr::parse_number(argument$dynamic_type)}>({argument_name})")
+
   if (argument$dynamic_type == "Tensor") {
 
     if (argument$is_nullable)
@@ -119,19 +125,19 @@ cpp_return_statement <- function(returns) {
     dynamic_type <- returns[[1]]$dynamic_type
 
     if (dynamic_type == "Tensor")
-      return("return make_tensor_ptr(out);")
+      return("return make_tensor_ptr(r_out);")
 
     if (dynamic_type == "QScheme")
-      return("return make_qscheme_ptr(out);")
+      return("return make_qscheme_ptr(r_out);")
 
     if (dynamic_type == "Scalar")
-      return("return scalar_to_r_(out);")
+      return("return scalar_to_r_(r_out);")
 
     if (dynamic_type == "void")
       return("")
 
     if (dynamic_type %in% c("double", "bool", "int64_t"))
-      return("return out;")
+      return("return r_out;")
 
     if (dynamic_type == "TensorList")
       return(
@@ -139,8 +145,8 @@ cpp_return_statement <- function(returns) {
           "
            Rcpp::List v;
 
-           for (int i = 0; i < out.size(); ++i) {{
-            v.push_back(make_tensor_ptr(out[i]));
+           for (int i = 0; i < r_out.size(); ++i) {{
+            v.push_back(make_tensor_ptr(r_out[i]));
            }}
 
            return v;
@@ -160,13 +166,13 @@ cpp_return_statement <- function(returns) {
           .y <- as.integer(.y)
 
           if (.x$dynamic_type == "Tensor")
-            return(glue::glue("make_tensor_ptr(std::get<{.y-1}>(out))"))
+            return(glue::glue("make_tensor_ptr(std::get<{.y-1}>(r_out))"))
           else if (.x$dynamic_type == "TensorList")
-            return(glue::glue("tensorlist_to_r(std::get<{.y-1}>(out))"))
+            return(glue::glue("tensorlist_to_r(std::get<{.y-1}>(r_out))"))
           else if (.x$dynamic_type %in% c("int64_t", "double"))
-            return(glue::glue("std::get<{.y-1}>(out)"))
+            return(glue::glue("std::get<{.y-1}>(r_out)"))
           else if (.x$dynamic_type == "Scalar")
-            return(glue::glue("scalar_to_r_(std::get<{.y-1}>(out))"))
+            return(glue::glue("scalar_to_r_(std::get<{.y-1}>(r_out))"))
 
         }) %>%
         paste(collapse = ", ")

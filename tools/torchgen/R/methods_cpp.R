@@ -102,7 +102,7 @@ method_cpp_create_out <- function(method) {
   out <- glue::glue("self->{method$name}({arguments});")
 
   if (method$returns[[1]]$dynamic_type != "void")
-    out <- paste0("auto out = ", out)
+    out <- paste0("auto r_out = ", out)
 
   out
 }

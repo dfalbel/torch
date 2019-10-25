@@ -47,6 +47,14 @@ torch::optional<std::int64_t> resolve_null_argument (Rcpp::Nullable<std::int64_t
   }
 }
 
+torch::optional<bool> resolve_null_argument(Rcpp::Nullable<bool> x) {
+  if (x.isNull()) {
+    return torch::nullopt;
+  } else {
+    return Rcpp::as<bool>(x);
+  }
+}
+
 torch::optional<torch::Scalar> resolve_null_scalar (SEXP x) {
   if (Rf_isNull(x)) {
     return torch::nullopt;
@@ -55,5 +63,12 @@ torch::optional<torch::Scalar> resolve_null_scalar (SEXP x) {
   }
 }
 
+template<int N>
+std::array<bool, N> vector_to_array_bool (std::vector<bool> x) {
+  // https://stackoverflow.com/questions/21276889/copy-stdvector-into-stdarray
+  std::array<bool, N> arr;
+  std::copy_n(x.begin(), N, arr.begin());
+  return arr;
+}
 
 
