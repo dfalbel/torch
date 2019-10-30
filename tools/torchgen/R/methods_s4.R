@@ -87,7 +87,8 @@ method_s4_argument_names_and_types <- function(method) {
   argument_types <- method$arguments %>%
     purrr::map_chr(argument_type_to_r)
   argument_names <- method$arguments %>%
-    purrr::map_chr(~.x$name)
+    purrr::map_chr(~.x$name) %>%
+    stringr::str_replace_all("FALSE", "False")
 
   # discard NA types
   nas <- which(is.na(argument_types))
@@ -108,7 +109,7 @@ method_s4_argument_names_and_types <- function(method) {
 #'
 #' @inheritParams method_cpp_code
 #'
-method_s4_signature <- function(method) {
+method_s4_signature <- function(method, methods = tensor_methods()) {
 
   arguments <- method_s4_argument_names_and_types(method)
 
@@ -116,7 +117,7 @@ method_s4_signature <- function(method) {
   argument_types <- arguments$types
 
   # find arguments that are present in the generic but not in the signature
-  all_args <- tensor_methods() %>%
+  all_args <- methods %>%
     declarations_with_name(method$name) %>%
     get_possible_argument_names()
   missing_args <- all_args[!all_args %in% argument_names]
@@ -127,6 +128,9 @@ method_s4_signature <- function(method) {
   args <- glue::glue('{argument_names} = "{argument_types}"') %>%
     glue::glue_collapse(sep = ", ")
 
+  if (length(args) == 0)
+    return("list()")
+
   glue::glue("list({args})")
 }
 
@@ -134,12 +138,13 @@ method_s4_impl_signature <- function(method) {
 
   arguments <- method_s4_argument_names_and_types(method)
   arguments$names %>%
+    stringr::str_replace_all("FALSE", "False") %>%
     paste(collapse = ", ")
 
 }
 
-method_s4_impl_body <- function(method) {
-  glue::glue("{method_cpp_name(method)}({method_s4_impl_signature(method)})")
+method_s4_impl_body <- function(method, fun_name = method_cpp_name) {
+  glue::glue("{fun_name(method)}({method_s4_impl_signature(method)})")
 }
 
 method_s4_exceptions <- function() {

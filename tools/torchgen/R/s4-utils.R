@@ -27,7 +27,8 @@ get_possible_argument_names <- function(methods) {
     purrr::map_int(max, na.rm = TRUE) %>%
     order()
 
-  unq[ind]
+  unq[ind] %>%
+    stringr::str_replace_all("FALSE", "False")
 }
 
 
@@ -80,6 +81,17 @@ argument_type_to_r <- function(argument) {
   if (argument_type == "ConstQuantizerPtr")
     argument_type <- "character"
 
+  if (argument_type == "Dimname")
+    argument_type <- "character"
+
+  if (argument_type == "DimnameList")
+    argument_type <- "character"
+
+  if (stringr::str_detect(argument_type, "std::array<bool,"))
+    argument_type <- "logical"
+
+  if (argument_type == "std::string")
+    argument_type <- "character"
 
   argument_type
 }
