@@ -6,6 +6,11 @@ Rcpp::XPtr<torch::Tensor> make_tensor_ptr (torch::Tensor x) {
   return Rcpp::XPtr<torch::Tensor>(out);
 }
 
+Rcpp::XPtr<torch::ScalarType> make_scalar_type_ptr (torch::ScalarType x) {
+  auto * out = new torch::ScalarType(x);
+  return Rcpp::XPtr<torch::ScalarType>(out);
+}
+
 Rcpp::List tensorlist_to_r (torch::TensorList x) {
   Rcpp::List out;
 
@@ -63,12 +68,13 @@ torch::optional<torch::Scalar> resolve_null_scalar (SEXP x) {
   }
 }
 
-template<int N>
-std::array<bool, N> vector_to_array_bool (std::vector<bool> x) {
-  // https://stackoverflow.com/questions/21276889/copy-stdvector-into-stdarray
-  std::array<bool, N> arr;
-  std::copy_n(x.begin(), N, arr.begin());
-  return arr;
+torch::optional<torch::Dimname> resolve_null_argument (Rcpp::Nullable<Rcpp::XPtr<torch::Dimname>> x) {
+  if (Rf_isNull(x)) {
+    return torch::nullopt;
+  } else {
+    return * Rcpp::as<Rcpp::XPtr<torch::Dimname>>(x);
+  }
 }
+
 
 
