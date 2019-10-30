@@ -1,5 +1,7 @@
 #include "torch_types.h"
 
+// Create scalars from R SEXPS -----------------------
+
 template<class T>
 torch::Scalar scalar_from_r_impl_ (const SEXP x) {
   auto value = Rcpp::as<T>(x);
@@ -22,6 +24,17 @@ torch::Scalar scalar_from_r_ (SEXP x) {
   }
 };
 
+template<class T>
+SEXP scalar_to_r_impl_ (const torch::Scalar x) {
+  return Rcpp::as<T>(x);
+}
+
+SEXP scalar_to_r_ (torch::Scalar x) {
+  auto a = x.to<SEXP>();
+  return a;
+};
+
+// Converting scalar types to and from strings ---------------
 
 torch::ScalarType scalar_type_from_string(std::string scalar_type) {
   if (scalar_type == "int32" | scalar_type == "int") {
@@ -35,7 +48,7 @@ torch::ScalarType scalar_type_from_string(std::string scalar_type) {
   } else if (scalar_type == "int64" | scalar_type == "long") {
     return torch::kLong;
   }
-  Rcpp::stop("scalar not handled");
+  Rcpp::stop("ScalarType not handled yet");
 }
 
 torch::ScalarType scalar_type_from_string(Rcpp::Nullable<std::string> scalar_type) {
@@ -56,8 +69,18 @@ std::string scalar_type_to_string(torch::ScalarType scalar_type) {
   } else if (scalar_type == torch::kLong) {
     return "long";
   }
-  Rcpp::stop("scalar not handled");
+  Rcpp::stop("Scalar Type not handled");
 }
+
+torch::Dtype dtype_from_string (std::string dtype) {
+  return scalar_type_from_string(dtype);
+}
+
+std::string dtype_to_string (torch::Dtype dtype) {
+  return scalar_type_to_string(dtype);
+}
+
+// Caffe Types
 
 std::string caffe_type_to_string (caffe2::TypeMeta type) {
   std::string name = type.name();

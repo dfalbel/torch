@@ -11,3 +11,5 @@ torch::ScalarType scalar_type_from_string(Rcpp::Nullable<std::string> scalar_typ
 std::string scalar_type_to_string(torch::ScalarType scalar_type);
 
 std::string caffe_type_to_string (caffe2::TypeMeta type);
+
+SEXP scalar_to_r_ (torch::Scalar x);
