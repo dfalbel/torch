@@ -4,8 +4,13 @@ Device <- R6::R6Class(
 
     pointer = NULL,
 
-    initialize = function(type, index) {
-      self$pointer <- device_from_r(type, index)
+    initialize = function(type = NULL, index = NULL, pointer = NULL) {
+      if (!is.null(pointer))
+        self$pointer <- pointer
+      else if (!is.null(type))
+        self$pointer <- device_from_r(type, index)
+      else
+        stop("You must specify a type and a index (or a Device pointer)")
     },
 
     has_index = function() {
@@ -18,6 +23,11 @@ Device <- R6::R6Class(
 
     is_cpu = function() {
       device_is_cpu(self$pointer)
+    },
+
+    set_index = function(index) {
+      device_set_index(self$pointer, index)
+      invisible(self)
     },
 
     print = function() {
@@ -51,6 +61,13 @@ Device <- R6::R6Class(
   )
 )
 
+#' Create a Device
+#'
+#' @param type a device type, 'cuda' or 'cpu'.
+#' @param index an index for the device (starting from 0). only used for 'cuda'
+#'  devices.
+#'
+#' @export
 tch_device <- function(type, index = NULL) {
   if (grepl(type, ":") && is.null(index)) {
     type_index <- strsplit(type, ":")[[1]]
@@ -58,4 +75,8 @@ tch_device <- function(type, index = NULL) {
   } else  {
     Device$new(type, index)
   }
+}
+
+`==.Device` <- function(e1, e2) {
+  device_equals(e1$pointer, e2$pointer)
 }
