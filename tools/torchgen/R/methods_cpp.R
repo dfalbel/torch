@@ -52,6 +52,10 @@ method_cpp_return_type <- function(method) {
     } else if (dynamic_type == "Scalar") {
 
       return("SEXP")
+    } else if (dynamic_type == "ScalarType") {
+
+      return("Rcpp::XPtr<torch::ScalarType>")
+
     }
 
   } else if (all(purrr::map_chr(method$returns, ~.x$dynamic_type) %in% c("Tensor", "TensorList", "int64_t", "double", "Scalar"))) {
@@ -81,7 +85,8 @@ method_cpp_name <- function(method) {
 method_cpp_signature <- function(method) {
 
   names <- method$arguments %>%
-    purrr::map_chr(~.x$name)
+    purrr::map_chr(~.x$name) %>%
+    stringr::str_replace_all("FALSE", "False")
 
   types <- method$arguments %>%
     purrr::map_chr(cpp_argument_type)

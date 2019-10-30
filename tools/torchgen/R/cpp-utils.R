@@ -36,6 +36,12 @@ cpp_argument_type <- function(argument) {
   if (type == "TensorOptions")
     type <- "Rcpp::XPtr<torch::TensorOptions>"
 
+  if (type == "Dimname")
+    type <- "Rcpp::XPtr<torch::Dimname>"
+
+  if (type == "DimnameList")
+    type <- "Rcpp::XPtr<torch::Dimname>"
+
   if (stringr::str_detect(type, "std::array<bool,[0-9]>"))
     type <- "std::vector<bool>"
 
@@ -43,7 +49,7 @@ cpp_argument_type <- function(argument) {
     type <- glue::glue("Rcpp::Nullable<{type}>")
 
   if (type == "Generator *")
-    return(NA_character_) # remove generators from the call
+    return("Rcpp::XPtr<torch::Generator *>") # remove generators from the call
 
   if (type == "ConstQuantizerPtr")
     return(NA_character_) # remove generators from the call
@@ -91,6 +97,12 @@ cpp_use_argument <- function(argument) {
   if (argument$dynamic_type == "MemoryFormat")
     argument_name <- glue::glue("*{argument_name}")
 
+  if (argument$dynamic_type == "Dimname")
+    argument_name <- glue::glue("*{argument_name}")
+
+  if (argument$dynamic_type == "DimnameList")
+    argument_name <- glue::glue("*{argument_name}")
+
   if (stringr::str_detect(argument$dynamic_type, "std::array<bool,[0-9]>"))
     argument_name <- glue::glue("vector_to_array_bool<{readr::parse_number(argument$dynamic_type)}>({argument_name})")
 
@@ -103,7 +115,7 @@ cpp_use_argument <- function(argument) {
   }
 
   if (argument$dynamic_type == "Generator *")
-    return(NA_character_)
+    return(glue::glue("*{argument_name}"))
 
   if (argument$dynamic_type == "MemoryFormat")
     return(NA_character_)
@@ -133,6 +145,9 @@ cpp_return_statement <- function(returns) {
     if (dynamic_type == "Scalar")
       return("return scalar_to_r_(r_out);")
 
+    if (dynamic_type == "ScalarType")
+      return("return make_scalar_type_ptr(r_out);")
+
     if (dynamic_type == "void")
       return("")
 
@@ -157,7 +172,7 @@ cpp_return_statement <- function(returns) {
 
   } else { # lenght returns > 1
 
-    if (all(purrr::map_chr(returns, ~.x$dynamic_type) %in% c("Tensor", "TensorList", "int64_t", "double"))) {
+    if (all(purrr::map_chr(returns, ~.x$dynamic_type) %in% c("Tensor", "TensorList", "int64_t", "double", "ScalarType"))) {
 
       elements <- returns %>%
         purrr::set_names(seq_along(returns)) %>%
@@ -173,6 +188,8 @@ cpp_return_statement <- function(returns) {
             return(glue::glue("std::get<{.y-1}>(r_out)"))
           else if (.x$dynamic_type == "Scalar")
             return(glue::glue("scalar_to_r_(std::get<{.y-1}>(r_out))"))
+          else if (.x$dynamic_type == "ScalarType")
+            return(glue::glue("make_scalar_type_ptr(std::get<{.y-1}>(r_out))"))
 
         }) %>%
         paste(collapse = ", ")

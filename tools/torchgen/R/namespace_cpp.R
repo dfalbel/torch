@@ -2,6 +2,7 @@
 namespace_cpp <- function() {
 
   methods <- namespace_methods() %>%
+    purrr::discard(~.x$name %in% namespace_cpp_exceptions()) %>%
     purrr::map_chr(namespace_cpp_code) %>%
     purrr::map_chr(~paste("// [[Rcpp::export]]\n", .x))
 
@@ -49,4 +50,7 @@ namespace_cpp_create_out <- function(method) {
   out
 }
 
+namespace_cpp_exceptions <- function() {
+  c("normal")
+}
 
